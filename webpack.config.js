@@ -23,6 +23,15 @@ module.exports = {
 
   module: {
     rules: [
+      // scripts
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      // styles
       {
         test: /\.(sc|c)ss$/,
         use: [
