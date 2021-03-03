@@ -12,21 +12,21 @@
   },
   "devDependencies": {
     "css-loader": "^5.1.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.2.0",
+    "mini-css-extract-plugin": "^1.3.9",
     "postcss-cli": "^8.3.1",
     "postcss-loader": "^5.0.0",
-    "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.24.3",
+    "webpack-build-notifier": "^2.1.1",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
     "test": "test",
-    "dev": "webpack serve",
-    "serve": "webpack serve --config ./src/webpack.config.js --progress --profile",
-    "build:css": "postcss --config ./src/postcss.config.js --use autoprefixer --output ./dist/styles.css ./src/css/compiled.css",
-    "build:tailwind": "tailwind build ./src/css/styles.css -c ./src/tailwind.config.js -o ./src/css/compiled.css"
+    "dev": "webpack serve"
   },
   "author": "Stephanie C Smith, DesignLab",
   "license": "ISC"

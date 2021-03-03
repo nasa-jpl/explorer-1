@@ -1,7 +1,13 @@
+// tailwind --------------------
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+// end tailwind ----------------
+
 // main elements
 @import "hover";
 @import "aspect-ratios";
 @import "grid";
+@import "fonts";
 @import "typography";
 @import "polyfills";
 @import "animations";
@@ -9,3 +15,7 @@
 // components
 @import "components/BaseButton";
 @import "components/BlockTeaser";
+
+// tailwind --------------------
+@import "tailwindcss/utilities";
+// end tailwind ----------------
