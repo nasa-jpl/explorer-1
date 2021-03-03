@@ -1,0 +1,38 @@
+// re-used keyframe animations go here
+
+// Prev/next buttons in carousels. See BaseCarouselCards or HomepageMissionsCarousel for usage example
+@keyframes arrow-carousel-next-anim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(3rem);
+  }
+}
+
+@keyframes arrow-carousel-next-fixed-anim {
+  0% {
+    transform: translateX(-3rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrow-carousel-prev-anim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-3rem);
+  }
+}
+
+@keyframes arrow-carousel-prev-fixed-anim {
+  0% {
+    transform: translateX(3rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,100 @@
+// aspect-ratios.scss
+
+// Aspect Ratio Containment Mixin
+@mixin aspect-ratio($width, $height) {
+  > div:first-of-type {
+    &::before {
+      content: '';
+      @apply block w-full;
+
+      padding-bottom: ($height / $width) * 100%;
+    }
+
+    iframe,
+    img {
+      @apply absolute w-full h-full inset-0;
+    }
+  }
+}
+
+@responsive {
+  // Aspect Ratio None
+  .aspect-ratio-none {
+    > div:first-of-type {
+      &::before {
+        content: '';
+        @apply flex w-auto;
+
+        padding-bottom: unset;
+      }
+
+      iframe,
+      img {
+        @apply relative h-full max-w-full mx-auto;
+      }
+    }
+  }
+
+  // Aspect Ratio 21:9
+  .aspect-ratio-twentyone-nine {
+    @include aspect-ratio(21, 9);
+  }
+
+  // Aspect Ratio 16:9
+  .aspect-ratio-sixteen-nine {
+    @include aspect-ratio(16, 9);
+  }
+  // Aspect Ratio 16:7
+  .aspect-ratio-sixteen-seven {
+    @include aspect-ratio(16, 7);
+  }
+
+  // Aspect Ratio 12:9
+  .aspect-ratio-twelve-nine {
+    @include aspect-ratio(12, 9);
+  }
+
+  // Aspect Ratio 9:16
+  .aspect-ratio-nine-sixteen {
+    @include aspect-ratio(9, 16);
+  }
+
+  // Aspect Ratio 7:8
+  .aspect-ratio-seven-eight {
+    @include aspect-ratio(7, 8);
+  }
+  // Aspect Ratio 8:7
+  .aspect-ratio-eight-seven {
+    @include aspect-ratio(8, 7);
+  }
+  // Aspect Ratio 4:3
+  .aspect-ratio-four-three {
+    @include aspect-ratio(4, 3);
+  }
+
+  // Aspect Ratio 4:5
+  .aspect-ratio-four-five {
+    @include aspect-ratio(4, 5);
+  }
+
+  // Aspect Ratio 2:1
+  .aspect-ratio-two-one {
+    @include aspect-ratio(2, 1);
+  }
+
+  // Aspect Ratio 3:2
+  .aspect-ratio-three-two {
+    @include aspect-ratio(3, 2);
+  }
+
+  // Aspect Ratio 2:3
+  .aspect-ratio-two-three {
+    @include aspect-ratio(2, 3);
+  }
+
+  // Aspect Ratio 1:1 or square
+  .aspect-ratio-one-one,
+  .aspect-ratio-square {
+    @include aspect-ratio(1, 1);
+  }
+}
