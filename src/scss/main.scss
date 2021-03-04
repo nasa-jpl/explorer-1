@@ -12,9 +12,8 @@
 @import "polyfills";
 @import "animations";
 
-// components to be added manually (or via grunt or similar)
-@import "components/BaseButton";
-@import "components/BlockTeaser";
+// components
+@import "components";
 
 // tailwind --------------------
 @import "tailwindcss/utilities";
