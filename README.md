@@ -2,6 +2,14 @@
 
 This repo will contain all of the frontend assets necessary to work with the html markup available through the [JPL WWW Storybook](https://designlabinternal.domain/storybook/). Assets are provided via webpack. We are working on providing compiled css and js files as well.
 
+**Table of contents**
+
+- [JPL Design System Assets](#jpl-design-system-assets)
+  - [Important Notes](#important-notes)
+  - [Syncing with frontend-www](#syncing-with-frontend-www)
+  - [Getting started](#getting-started)
+  - [References](#references)
+
 ## Important Notes
 
 - This is an active work-in-progress
@@ -36,19 +44,19 @@ Currently, all files are manually copied over into this repository. Ideally we w
 
 **Install dependencies**
 
-```
+```sh
 npm i
 ```
 
 **Serve at http://localhost:8080/**
 
-```
+```sh
 npm run dev
 ```
 
 **Build to /dist**
 
-```
+```sh
 # purges anything not in /html/index.html
 npm run build
 
