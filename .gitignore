@@ -2,9 +2,3 @@
 node_modules/
 dist/
 npm-debug.log
-# ignore components partial
-_components.scss
-# keep empty components folder
-src/scss/components/*
-!src/scss/components/.gitkeep 
-
