@@ -31,11 +31,21 @@ Currently, all files are manually copied over into this repository. Ideally we w
 
 - `purge` options may need to be altered in `tailwind.config.js`
 - the renaming of `font-face.css` to `_fonts.scss`
-- `/src/scss/main.scss`: In this repo, `main.scss` also imports tailwind css files, the `_hover.scss` mixin, and `_font.scss`. We may rename `main.scss` in this repo to avoid confusion.
+- `/src/scss/main.scss`: In this repo, `main.scss` also imports tailwind css files, `_hover.scss` mixin, `_font.scss`, and `_components.scss` which is local to this repo only. We may rename `main.scss` in this repo to avoid confusion.
 
-**Additional steps needed to sync styles:**
+**Components SCSS folder:**
 
-- Extract all styles from vue components into separate scss files and import via `main.scss`. Ideally this could be automated via grunt or similar.
+`main.config.js` contains an array of all components that should be part of the design system. It only includes a few sample components for now. To build scss based on these components:
+
+```
+npm run build-scss
+```
+
+This does a few things:
+
+- copies the css from all matching vue components and puts them into individual scss files in `/src/scss/components`
+- overwrites `_components.scss` with `@import` statements for each component scss file created
+- **important note**: currently, the components array in `main.config.js` only works for components that live in a parent folder of the same name
 
 ## Getting started
 
@@ -62,6 +72,12 @@ npm run build
 
 # build without purging (development mode)
 npm run build:no-purge
+```
+
+To rebuild scss based on `main.config.js`:
+
+```
+npm run build-scss
 ```
 
 ## References

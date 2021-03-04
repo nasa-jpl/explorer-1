@@ -6,10 +6,133 @@
     <title>JPL Design System Assets Bundle</title>
   </head>
   <body>
-    <div class="container mx-auto">
+    <div class="max-w-screen-3xl mx-auto">
       <h1 class="text-subtitle pb-4 border-b border-gray-mid pt-10 mb-10">
         JPL Design System Assets Bundle
       </h1>
+      <h2
+        class="text-subtitle text-gray-mid pb-4 border-b border-gray-mid my-10"
+      >
+        Hero Feature
+      </h2>
+      <section
+        aria-label="Feature"
+        class="HeroFeature ThemeDark relative flex items-center overflow-hidden"
+      >
+        <div class="absolute inset-0 z-10 overflow-hidden bg-black">
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                https://picsum.photos/id/865/768/548   768w,
+                https://picsum.photos/id/865/1024/684 1024w,
+                https://picsum.photos/id/865/1440/770 1440w,
+                https://picsum.photos/id/865/1800/963 1800w
+              "
+            />
+            <source
+              media="(min-width: 420px)"
+              srcset="https://picsum.photos/id/921/800/640"
+            />
+            <source data-srcset="https://picsum.photos/id/247/640/900" />
+            <img
+              src="https://picsum.photos/id/973/1800/1200"
+              alt=""
+              class="object-cover w-full h-full"
+              width="1800"
+              height="1200"
+            />
+          </picture>
+        </div>
+        <div
+          class="lg:flex lg:items-end lg:relative lg:h-full absolute bottom-0 z-20 w-full"
+        >
+          <div
+            class="bg-gradient-to-b lg:bg-gradient-to-bl from-transparent lg:from-transparent-w50 to-black lg:to-transparent-black-75 absolute inset-0"
+          ></div>
+          <div
+            class="lg:px-10 2xl:px-0 lg:pb-0 lg:py-0 text-contrast container relative px-4 pt-40 pb-2 mx-auto mb-10 text-white"
+          >
+            <a href="#" class="lg:w-1/2 xl:w-5/12 block">
+              <p class="text-subtitle lg:mb-3 mb-2">
+                Featured
+                <span class="sr-only">.</span>
+              </p>
+              <p class="text-h4 mb-0">
+                <span class="mr-2"
+                  >Creating Robots to go Where Humans Can’t</span
+                >
+                <span
+                  class="text-jpl-red-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-4xl transition-all duration-200 ease-in"
+                >
+                  <svg
+                    width="26"
+                    height="16"
+                    viewBox="0 0 26 16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    focusable="false"
+                    class="IconArrow inline"
+                  >
+                    <path
+                      d="M17.935.929L25.006 8l-7.071 7.071-1.414-1.414L21.177 9H1V7h20.177l-4.656-4.657L17.935.93z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+              </p>
+            </a>
+            <div class="lg:block hidden">
+              <a
+                href="#"
+                class="group text-subtitle text-theme-red can-hover:hover:text-theme-red-hover cursor-pointer inline-block"
+              >
+                <span class="AnimationCaret py-3">
+                  <span>View</span>
+                  <span
+                    aria-hidden="true"
+                    class="arrow-wrapper text-theme-red ml-1"
+                  >
+                    <span class="arrow">
+                      <svg
+                        width="8"
+                        height="14"
+                        viewBox="0 0 8 14"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                        focusable="false"
+                        class="IconCaret"
+                      >
+                        <path
+                          d="M7.864 7.004L1.5 13.368.086 11.954l4.948-4.95-4.948-4.95L1.5.64l6.364 6.364z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span class="arrow-fixed">
+                      <svg
+                        width="8"
+                        height="14"
+                        viewBox="0 0 8 14"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                        focusable="false"
+                        class="IconCaret"
+                      >
+                        <path
+                          d="M7.864 7.004L1.5 13.368.086 11.954l4.948-4.95-4.948-4.95L1.5.64l6.364 6.364z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
       <h2
         class="text-subtitle text-gray-mid pb-4 border-b border-gray-mid my-10"
       >

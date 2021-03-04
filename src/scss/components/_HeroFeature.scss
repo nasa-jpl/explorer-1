@@ -1,0 +1,20 @@
+
+.HeroFeature,
+.HeroFeature.swiper-slide {
+  // somewhat arbitrary heights
+  // portrait on small screens
+  //height: 500px;
+  min-height: 400px;
+  // landscape on larger screens
+  @screen lg {
+    height: 600px;
+    min-height: 600px;
+  }
+}
+.HeroFeature {
+  .ie11 & {
+    .bg-gradient-to-b.from-transparent {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
