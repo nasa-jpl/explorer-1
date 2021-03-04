@@ -34,12 +34,27 @@ Currently, all files are manually copied over into this repository. Ideally we w
 - Currently, I've manually copied over the assets from www-frontend and also created a couple scss files corresponding to components.
 - I've also made an index.html that demos some html markup and scripts (lazyload).
 
+**Install dependencies**
+
 ```
-nom i
+npm i
+```
+
+**Serve at http://localhost:8080/**
+
+```
 npm run dev
 ```
 
-View at http://localhost:8080/
+**Build to /dist**
+
+```
+# purges anything not in /html/index.html
+npm run build
+
+# build without purging (development mode)
+npm run build:no-purge
+```
 
 ## References
 

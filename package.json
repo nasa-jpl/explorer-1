@@ -4,8 +4,9 @@
   "description": "Packaged styles and assets for the JPL design system",
   "author": "Stephanie C Smith, DesignLab",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack serve",
-    "build": "cross-env NODE_ENV=production webpack -o dist/"
+    "dev": "NODE_ENV=development webpack serve",
+    "build": "NODE_ENV=production webpack -o dist/",
+    "build:no-purge": "NODE_ENV=development webpack -o dist/"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
@@ -16,7 +17,6 @@
     "@babel/preset-env": "^7.13.9",
     "autoprefixer": "^10.2.4",
     "babel-loader": "^8.2.2",
-    "cross-env": "^7.0.3",
     "css-loader": "^5.1.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.2.0",
