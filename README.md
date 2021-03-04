@@ -1,19 +1,49 @@
 # JPL Design System Assets
 
+**This is an active work-in-progress**
+
 This repo will contain all of the frontend assets necessary to work with the html markup available through the [JPL WWW Storybook](https://designlabinternal.domain/storybook/). Assets are provided via webpack. We are working on providing compiled css and js files as well.
 
 **Table of contents**
 
 - [JPL Design System Assets](#jpl-design-system-assets)
-  - [Important Notes](#important-notes)
-  - [Syncing with frontend-www](#syncing-with-frontend-www)
   - [Getting started](#getting-started)
+  - [Syncing with frontend-www](#syncing-with-frontend-www)
   - [References](#references)
 
-## Important Notes
+## Getting started
 
-- This is an active work-in-progress
-- does not contain any component-specific styles yet except for `BlockTeaser` and `BaseButton`
+- Currently, I've manually copied over the base assets from www-frontend.
+- The included components thus far are arbitrary and more for testing. They can be selected by modifying `main.config.js`
+- I've also made an index.html that demos some html markup and scripts (lazyload).
+
+**Install dependencies**
+
+```sh
+npm i
+```
+
+**Serve at http://localhost:8080/**
+
+```sh
+npm run dev
+```
+
+**Build to /dist**
+
+```sh
+# purges anything not in /html/index.html
+npm run build
+
+# build without purging (development mode)
+npm run build:no-purge
+```
+
+To rebuild scss based on `main.config.js`:
+
+```
+npm run build-scss
+```
 
 ## Syncing with [frontend-www](https://github.com/nasa-jpl/www-frontend)
 
@@ -46,39 +76,6 @@ This does a few things:
 - copies the css from all matching vue components and puts them into individual scss files in `/src/scss/components`
 - overwrites `_components.scss` with `@import` statements for each component scss file created
 - **important note**: currently, the components array in `main.config.js` only works for components that live in a parent folder of the same name
-
-## Getting started
-
-- Currently, I've manually copied over the assets from www-frontend and also created a couple scss files corresponding to components.
-- I've also made an index.html that demos some html markup and scripts (lazyload).
-
-**Install dependencies**
-
-```sh
-npm i
-```
-
-**Serve at http://localhost:8080/**
-
-```sh
-npm run dev
-```
-
-**Build to /dist**
-
-```sh
-# purges anything not in /html/index.html
-npm run build
-
-# build without purging (development mode)
-npm run build:no-purge
-```
-
-To rebuild scss based on `main.config.js`:
-
-```
-npm run build-scss
-```
 
 ## References
 
