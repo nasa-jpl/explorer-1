@@ -21,7 +21,7 @@ Currently, all files are manually copied over into this repository. Ideally we w
 
 **Files that are copied straight from [frontend-www](https://github.com/nasa-jpl/www-frontend):**
 
-- Tailwind config: `tailwind.config.js`
+- Tailwind config: `tailwind.config.js`\*
 - SCSS files: entire `/assets/scss/` folder\*
 - Webfonts: entire `/static/fonts/` folder
 - Webfont CSS: `/static/styles/font-face.css`\*
