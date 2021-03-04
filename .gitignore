@@ -5,6 +5,6 @@ npm-debug.log
 # ignore components partial
 _components.scss
 # keep empty components folder
-src/scss/comonents/*
-!src/scss/comonents/.gitkeep 
+src/scss/components/*
+!src/scss/components/.gitkeep 
 
