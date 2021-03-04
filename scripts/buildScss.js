@@ -32,3 +32,5 @@ config.components.forEach(function (component) {
   copyScss(destFile, srcFile);
   partials.write(`@import "components/${component}";\n`);
 });
+
+// TODO: also need to copy over other scss files not based on components array (so base styles)
