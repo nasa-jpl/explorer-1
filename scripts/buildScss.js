@@ -9,7 +9,7 @@ const scssFolder = config.scssFolder;
 const componentsPartial = config.componentPartialsFile;
 const partials = fs.createWriteStream(componentsPartial); // use {flags: "a"} as second argument to append
 
-// not using g flag, so will only return first capturing group, not entire thing
+// not using `g` flag, so will only return first capturing group, not entire thing
 const regex = /\<style.*?\>([\S\s]*)<\/style>/;
 
 function copyScss(dest, src) {
