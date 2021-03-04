@@ -6,11 +6,11 @@ const WebpackBuildNotifierPlugin = require("webpack-build-notifier");
 const env = process.env.NODE_ENV;
 
 module.exports = {
-  mode: "development",
+  mode: env,
   entry: "./src/index.js",
   output: {
     publicPath: "/",
-    filename: "js/bundle.js",
+    filename: "js/jpl-ds.bundle.js",
     chunkFilename: "js/[name].js",
   },
 
@@ -35,7 +35,8 @@ module.exports = {
       {
         test: /\.(sc|c)ss$/,
         use: [
-          "style-loader",
+          // "style-loader",
+          env === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: { importLoaders: 2, sourceMap: true },
@@ -75,7 +76,7 @@ module.exports = {
     new WebpackBuildNotifierPlugin(),
 
     new MiniCssExtractPlugin({
-      filename: "css/[name].[contenthash].min.css",
+      filename: "css/jpl-ds.[name].[contenthash].min.css",
     }),
 
     new HtmlWebpackPlugin({

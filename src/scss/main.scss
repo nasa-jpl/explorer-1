@@ -7,12 +7,12 @@
 @import "hover";
 @import "aspect-ratios";
 @import "grid";
-@import "fonts";
+@import "fonts"; // added manually. formerly /static/styles/font-face.css
 @import "typography";
 @import "polyfills";
 @import "animations";
 
-// components
+// components to be added manually (or via grunt or similar)
 @import "components/BaseButton";
 @import "components/BlockTeaser";
 

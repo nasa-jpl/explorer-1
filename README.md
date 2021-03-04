@@ -21,6 +21,7 @@ Currently, all files are manually copied over into this repository. Ideally we w
 
 \*All of the above files are completely untouched except for:
 
+- `purge` options may need to be altered in `tailwind.config.js`
 - the renaming of `font-face.css` to `_fonts.scss`
 - `/src/scss/main.scss`: In this repo, `main.scss` also imports tailwind css files, the `_hover.scss` mixin, and `_font.scss`. We may rename `main.scss` in this repo to avoid confusion.
 
@@ -46,6 +47,5 @@ This webpack configuration is heavily informed and inspired by https://github.co
 
 Other references
 
-- https://www.codementor.io/@vijayst/style-a-landing-page-with-postcss-nwrhvy4ya
 - https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/build-tools
 - https://stackoverflow.com/questions/55606865/combining-tailwind-css-with-sass-using-webpack

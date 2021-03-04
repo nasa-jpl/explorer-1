@@ -1,28 +1,29 @@
 {
   "name": "tailwind-package",
   "version": "1.0.0",
-  "description": "Packaged styles and assets for JPL WWW design system",
+  "description": "Packaged styles and assets for the JPL design system",
   "author": "Stephanie C Smith, DesignLab",
   "scripts": {
-    "dev": "webpack serve",
-    "build": "webpack build"
+    "dev": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack -o dist/"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
-    "autoprefixer": "^10.2.4",
-    "node-sass": "^5.0.0",
-    "postcss": "^8.2.6",
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
+    "autoprefixer": "^10.2.4",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.1.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.2.0",
     "lazysizes": "^5.3.0",
     "mini-css-extract-plugin": "^1.3.9",
+    "node-sass": "^5.0.0",
+    "postcss": "^8.2.7",
     "postcss-cli": "^8.3.1",
     "postcss-loader": "^5.0.0",
     "sass-loader": "^11.0.1",
