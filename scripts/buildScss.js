@@ -1,24 +1,13 @@
-const fs = require("fs");
+const config = require("../main.config.js");
 const path = require("path");
+const fs = require("fs");
 
 // paths
-// TODO: should this path be a build argument?
-const componentFolder = path.join(__dirname, "../../www-frontend/components/");
-const scssFolder = path.join(__dirname, "../src/scss/components/");
-const componentsPartial = path.join(__dirname, "../src/scss/_components.scss");
-const partials = fs.createWriteStream(componentsPartial, {
-  // flags: "a", // 'a' means appending (old data will be preserved)
-});
-
-// the components that are part of the design system
-const components = [
-  "AnimationCaret",
-  "BaseButton",
-  "BlockTeaser",
-  "HeroFeature",
-  "HeroFocalPoint",
-  "HeroMedia",
-];
+// TODO: componentSrc as a build argument
+const componentSrc = config.componentSrc;
+const scssFolder = config.scssFolder;
+const componentsPartial = config.componentPartialsFile;
+const partials = fs.createWriteStream(componentsPartial); // use {flags: "a"} as second argument to append
 
 // not using g flag, so will only return first capturing group, not entire thing
 const regex = /\<style.*?\>([\S\s]*)<\/style>/;
@@ -35,10 +24,10 @@ function copyScss(dest, src) {
   });
 }
 
-components.forEach(function (component) {
+config.components.forEach(function (component) {
   // TODO: eventually match any vue file inside the component folder
   // As this code won't work for co-located components
-  const srcFile = componentFolder + component + "/" + component + ".vue";
+  const srcFile = componentSrc + component + "/" + component + ".vue";
   const destFile = scssFolder + "_" + component + ".scss";
   copyScss(destFile, srcFile);
   partials.write(`@import "components/${component}";\n`);
