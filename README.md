@@ -26,6 +26,7 @@ npm i
 **Serve at http://localhost:8080/**
 
 ```sh
+# serve at http://localhost:8080/
 npm run dev
 ```
 
@@ -35,9 +36,11 @@ npm run dev
 npm run build
 ```
 
-To update assets:
+## Syncing with [frontend-www](https://github.com/nasa-jpl/www-frontend)
 
-```
+**To update assets:**
+
+```sh
 # update base tailwind, scss, and font files
 npm run sync:base
 
@@ -49,8 +52,6 @@ npm run sync:all
 ```
 
 > Assets are tracked in this repo. TODO: We need to decide if that should happen or not. Advantages: users do not need the www-frontend repo to build assets. Disadvantages: replicated code
-
-## Syncing with [frontend-www](https://github.com/nasa-jpl/www-frontend)
 
 Several assets are copied from the www-frontend repo via npm scripts. Below is an outline of the copied files and their relation to this repo:
 
