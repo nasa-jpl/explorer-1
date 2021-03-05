@@ -15,6 +15,7 @@ module.exports = {
     "BaseButton",
     "BaseImage",
     "BaseImagePlaceholder",
+    "BlockImage",
     "BlockTeaser",
     "BlockText",
     "HeroFeature",

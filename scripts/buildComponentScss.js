@@ -1,6 +1,7 @@
 const config = require("../main.config.js");
 const path = require("path");
 const fs = require("fs");
+const glob = require("glob");
 
 // paths
 // TODO: componentSrc as a build argument
@@ -15,20 +16,29 @@ const regex = /\<style.*?\>([\S\s]*)<\/style>/;
 function copyScss(dest, src, name) {
   fs.readFile(src, "utf8", function (err, data) {
     if (err) throw err;
-    let styles = data.match(regex)[1];
-    // styles = styles[1];
-    fs.writeFile(dest, styles, function (err) {
-      if (err) throw err;
-      console.log(`Updated ${name}`);
-    });
+    if (data.match(regex) && data.match(regex)[1]) {
+      let styles = data.match(regex)[1]; // first capturing group is the styles
+      fs.writeFile(dest, styles, function (err) {
+        if (err) throw err;
+        console.log(`Updated ${name}`);
+      });
+    } else {
+      console.log(`Warning: no styles in ${name}`);
+    }
   });
 }
 
 config.components.forEach(function (component) {
-  // TODO: eventually match any vue file inside the component folder
-  // As this code won't work for co-located components
-  const srcFile = componentSrc + component + "/" + component + ".vue";
-  const destFile = scssFolder + "_" + component + ".scss";
-  copyScss(destFile, srcFile, component);
-  partials.write(`@import "components/${component}";\n`);
+  glob(componentSrc + component + "/**/*.vue", { nosort: true }, function (
+    er,
+    files
+  ) {
+    files.forEach(function (file) {
+      const srcFile = file;
+      const filename = srcFile.match(/^\/(.+\/)*(.+)\.(.+)$/)[2]; // second capturing group is the name of the file
+      const destFile = scssFolder + "_" + filename + ".scss";
+      copyScss(destFile, srcFile, filename);
+      partials.write(`@import "components/${filename}";\n`);
+    });
+  });
 });
