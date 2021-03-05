@@ -1,9 +1,10 @@
 const path = require("path");
 
 module.exports = {
-  // componentSrc:
-  // assumes you have the www-frontend repo as a sibling folder to this repo
-  componentSrc: path.join(__dirname, "../www-frontend/components/"),
+  // repoSrc:
+  // the path to the frontend repo www-frontend
+  // default config assumes you have the www-frontend repo as a sibling folder to this repo
+  repoSrc: path.join(__dirname, "../www-frontend/"),
 
   // components:
   // the components that we want to bring over from the componentSrc
@@ -12,7 +13,10 @@ module.exports = {
   components: [
     "AnimationCaret",
     "BaseButton",
+    "BaseImage",
+    "BaseImagePlaceholder",
     "BlockTeaser",
+    "BlockText",
     "HeroFeature",
     "HeroFocalPoint",
     "HeroMedia",

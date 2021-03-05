@@ -1,0 +1,24 @@
+// This file is based off of `/assets/styles/main.scss` from repo: www-frontend
+// However, to bundle everything properly outside of nuxt, we needed to make a few modifications
+// Notably, this version adds tailwind styles and imports a couple other partials that nuxt was handling in www-frontend
+
+// tailwind --------------------
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+// end tailwind ----------------
+
+// main elements
+@import "hover"; // added just for the bundle
+@import "fonts"; // added just for the bundle. formerly /static/styles/font-face.css
+@import "aspect-ratios";
+@import "grid";
+@import "typography";
+@import "polyfills";
+@import "animations";
+
+// components
+@import "components"; // added just for the bundle
+
+// tailwind --------------------
+@import "tailwindcss/utilities";
+// end tailwind ----------------

@@ -34,9 +34,6 @@ npm run dev
 ```sh
 # purges anything not in /html/index.html
 npm run build
-
-# build without purging (development mode)
-npm run build:no-purge
 ```
 
 To rebuild scss based on `main.config.js`:
@@ -59,9 +56,12 @@ Currently, all files are manually copied over into this repository. Ideally we w
 
 \*All of the above files are completely untouched except for:
 
-- `purge` options may need to be altered in `tailwind.config.js`
-- the renaming of `font-face.css` to `_fonts.scss`
-- `/src/scss/main.scss`: In this repo, `main.scss` also imports tailwind css files, `_hover.scss` mixin, `_font.scss`, and `_components.scss` which is local to this repo only. We may rename `main.scss` in this repo to avoid confusion.
+- `tailwind.config.js`: `purge` options changed to `false`
+- `font-face.css`: renamed to `_fonts.scss` and placed in `/src/scss/`
+- `/assets/scss/` folder has some files added to it
+  - `main-design-system.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
+  - `_fonts.scss`: the renamed `font-face.css` file
+  - `_components.scss`: the scss partial that imports all component scss in `/src/scss/components/`, which is built by this repo
 
 **Components SCSS folder:**
 

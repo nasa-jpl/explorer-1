@@ -3,15 +3,50 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JPL Design System Assets Bundle</title>
+    <title>JPL Design System Assets</title>
   </head>
   <body>
     <div class="max-w-screen-3xl mx-auto">
       <h1 class="text-subtitle pb-4 border-b border-gray-mid pt-10 mb-10">
-        JPL Design System Assets Bundle
+        JPL Design System Assets
       </h1>
+      <div class="BlockText leading-relaxed text-body-lg">
+        <p>
+          The HTML markup in this file is for demo purposes only.<br />
+          For source code, please refer to the HTML tab in our
+          <a href="https://designlabinternal.domain/storybook/" target="_blank"
+            >Design System Storybook</a
+          >.
+        </p>
+      </div>
       <h2
-        class="text-subtitle text-gray-mid pb-4 border-b border-gray-mid my-10"
+        class="text-subtitle text-gray-dark pb-4 border-b border-gray-mid my-10"
+      >
+        BaseImage and BaseImagePlaceholder
+      </h2>
+      <div class="w-1/2 mx-auto">
+        <div data-v-a6031820="">
+          <div
+            data-v-a6031820=""
+            class="BaseImagePlaceholder aspect-ratio-twelve-nine dark-theme"
+          >
+            <div data-v-a6031820="">
+              <img
+                data-src="https://picsum.photos/1200/900"
+                data-srcset="https://picsum.photos/1200/900 1200w,"
+                alt="alt text for image"
+                loading="lazy"
+                class="BaseImage object-contain lazyload"
+                width="1200"
+                height="900"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2
+        class="text-subtitle text-gray-dark pb-4 border-b border-gray-mid my-10"
       >
         Hero Feature
       </h2>
@@ -134,11 +169,11 @@
         </div>
       </section>
       <h2
-        class="text-subtitle text-gray-mid pb-4 border-b border-gray-mid my-10"
+        class="text-subtitle text-gray-dark pb-4 border-b border-gray-mid my-10"
       >
         Detail Heading
       </h2>
-      <div>
+      <div class="container mx-auto">
         <div class="flex flex-wrap items-start mb-3">
           <div class="inline">
             <div class="py-3">
@@ -156,7 +191,7 @@
           NASA's Ingenuity Mars Helicopter Recharges Its Batteries in Flight
         </h1>
         <div
-          class="lg:text-base text-gray-mid-dark divide-gray-mid-dark px-3 mt-5 -ml-3 text-sm leading-normal divide-x"
+          class="lg:text-base text-gray-dark-dark divide-gray-mid-dark px-3 mt-5 -ml-3 text-sm leading-normal divide-x"
         >
           <span class="pr-3">
             Written by
@@ -165,44 +200,46 @@
           <span class="pl-3">Aug 13, 2020</span>
         </div>
       </div>
-    </div>
-    <h2
-      class="text-subtitle text-gray-mid pb-4 border-b border-gray-mid my-10 container mx-auto"
-    >
-      BlockTeaser
-    </h2>
-    <div class="container mx-auto">
-      <div
-        class="BlockTeaser bg-gray-light lg:grid lg:grid-cols-10 relative"
-        style="min-height: 400px"
+      <h2
+        class="text-subtitle text-gray-dark pb-4 border-b border-gray-mid my-10"
       >
-        <div>
-          <img
-            data-src="https://source.unsplash.com/pZ-XFIrJMtE/540x400"
-            alt=""
-            loading="lazy"
-            class="BaseImage cover-bg object-contain lazyload"
-            width="548"
-            height="400"
-          />
-        </div>
+        BlockTeaser
+      </h2>
+      <div class="container mx-auto">
         <div
-          class="grid lg:col-start-2 lg:col-end-5 px-10 lg:px-0 lg:py-16 py-8"
+          class="BlockTeaser bg-gray-light lg:grid lg:grid-cols-10 relative"
+          style="min-height: 400px"
         >
-          <div class="my-auto">
-            <h2 class="text-subtitle font-semibold">Asteroid Watch Overview</h2>
-            <h3 class="text-h4 lg:mt-2 mt-3 tracking-normal">Perseverance</h3>
-            <p class="text-body-md lg:mt-2 mt-4">
-              The mission marks humanity’s first step in returning samples from
-              another planet.
-            </p>
-            <a
-              aria-label="Read more - Perseverance"
-              href="/asteroid-watch/"
-              class="BaseButton text-contrast-none mt-8 -primary inline-block"
-            >
-              <span class="label block">Read more</span>
-            </a>
+          <div>
+            <img
+              data-src="https://source.unsplash.com/pZ-XFIrJMtE/540x400"
+              alt=""
+              loading="lazy"
+              class="BaseImage cover-bg object-contain lazyload"
+              width="548"
+              height="400"
+            />
+          </div>
+          <div
+            class="grid lg:col-start-2 lg:col-end-5 px-10 lg:px-0 lg:py-16 py-8"
+          >
+            <div class="my-auto">
+              <h2 class="text-subtitle font-semibold">
+                Asteroid Watch Overview
+              </h2>
+              <h3 class="text-h4 lg:mt-2 mt-3 tracking-normal">Perseverance</h3>
+              <p class="text-body-md lg:mt-2 mt-4">
+                The mission marks humanity’s first step in returning samples
+                from another planet.
+              </p>
+              <a
+                aria-label="Read more - Perseverance"
+                href="/asteroid-watch/"
+                class="BaseButton text-contrast-none mt-8 -primary inline-block"
+              >
+                <span class="label block">Read more</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
