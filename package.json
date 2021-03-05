@@ -4,15 +4,14 @@
   "description": "Packaged styles and assets for the JPL design system",
   "author": "Stephanie C Smith, DesignLab",
   "scripts": {
-    "update-base": "node scripts/buildBase.js",
-    "update-components": "node scripts/buildComponentScss.js",
-    "update-all": "node scripts/buildBase.js && node scripts/buildComponentScss.js",
+    "sync:base": "node scripts/buildBase.js",
+    "sync:components": "node scripts/buildComponentScss.js",
+    "sync:all": "node scripts/buildBase.js && node scripts/buildComponentScss.js",
     "dev": "NODE_ENV=development webpack serve",
     "build": "NODE_ENV=production webpack -o dist/"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
-    "copyfiles": "^2.4.1",
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
@@ -20,6 +19,7 @@
     "@babel/preset-env": "^7.13.9",
     "autoprefixer": "^10.2.4",
     "babel-loader": "^8.2.2",
+    "copyfiles": "^2.4.1",
     "css-loader": "^5.1.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.2.0",

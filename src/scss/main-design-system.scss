@@ -8,8 +8,8 @@
 // end tailwind ----------------
 
 // main elements
-@import "hover"; // added just for the bundle
-@import "fonts"; // added just for the bundle. formerly /static/styles/font-face.css
+@import "hover"; // manually added
+@import "fonts"; // manually added -- formerly /static/styles/font-face.css
 @import "aspect-ratios";
 @import "grid";
 @import "typography";
@@ -17,7 +17,7 @@
 @import "animations";
 
 // components
-@import "components"; // added just for the bundle
+@import "components"; // manually added and created
 
 // tailwind --------------------
 @import "tailwindcss/utilities";

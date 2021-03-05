@@ -32,21 +32,29 @@ npm run dev
 **Build to /dist**
 
 ```sh
-# purges anything not in /html/index.html
 npm run build
 ```
 
-To rebuild scss based on `main.config.js`:
+To update assets:
 
 ```
-npm run build-scss
+# update base tailwind, scss, and font files
+npm run sync:base
+
+# update component scss based on components configured in `main.config.js`
+npm run sync:components
+
+# update all assets
+npm run sync:all
 ```
+
+> Assets are tracked in this repo. TODO: We need to decide if that should happen or not. Advantages: users do not need the www-frontend repo to build assets. Disadvantages: replicated code
 
 ## Syncing with [frontend-www](https://github.com/nasa-jpl/www-frontend)
 
-Currently, all files are manually copied over into this repository. Ideally we would write a script or action that would automate most, if not all, of this process.
+Several assets are copied from the www-frontend repo via npm scripts. Below is an outline of the copied files and their relation to this repo:
 
-**Files that are copied straight from [frontend-www](https://github.com/nasa-jpl/www-frontend):**
+**Files that are copied from [frontend-www](https://github.com/nasa-jpl/www-frontend):**
 
 - Tailwind config: `tailwind.config.js`\*
 - SCSS files: entire `/assets/scss/` folder\*
@@ -54,21 +62,21 @@ Currently, all files are manually copied over into this repository. Ideally we w
 - Webfont CSS: `/static/styles/font-face.css`\*
 - Plugins/scripts: `/plugins/detect-ie.js`, `/plugins/lazysizes.client.js`
 
-\*All of the above files are completely untouched except for:
+\*All of the above files are untouched except for:
 
-- `tailwind.config.js`: `purge` options changed to `false`
-- `font-face.css`: renamed to `_fonts.scss` and placed in `/src/scss/`
-- `/assets/scss/` folder has some files added to it
+- `tailwind.config.js`: manually edited `purge` options to be set to `false`. TODO: separate purge settings in both repos and leave tailwind config untouched.
+- `font-face.css`: automatically renamed to `_fonts.scss` and placed in `/src/scss/` via `npm sync:base`
+- `/assets/scss/` folder has some files unique to this repo:
   - `main-design-system.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
-  - `_fonts.scss`: the renamed `font-face.css` file
-  - `_components.scss`: the scss partial that imports all component scss in `/src/scss/components/`, which is built by this repo
+  - `_fonts.scss`: updated and renamed from `font-face.css` via `npm sync:base`
+  - `_components.scss`: the scss partial that imports all component scss in `/src/scss/components/`, which is built by this repo via `npm sync:components`
 
 **Components SCSS folder:**
 
 `main.config.js` contains an array of all components that should be part of the design system. It only includes a few sample components for now. To build scss based on these components:
 
 ```
-npm run build-scss
+npm run sync:components
 ```
 
 This does a few things:
