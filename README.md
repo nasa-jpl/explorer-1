@@ -84,7 +84,6 @@ This does a few things:
 
 - copies the css from all matching vue components and puts them into individual scss files in `/src/scss/components`
 - overwrites `_components.scss` with `@import` statements for each component scss file created
-- **important note**: currently, the components array in `main.config.js` only works for components that live in a parent folder of the same name
 
 ## References
 
