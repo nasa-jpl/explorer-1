@@ -1,3 +1,4 @@
+const config = require("./main.config.js");
 /*
  ** TailwindCSS Configuration File
  **
@@ -290,7 +291,8 @@ module.exports = {
     standardFontWeights: true,
   },
   // this part is specific to project
-  purge: false,
+  purge: config.purge,
+  // purge: false,
   // TODO: we may want to keep the below purge settings and place vue files in this repo for purge purposes
   // This would keep all design system styles but purge tailwind styles that are not used in the design system
   // Vue components contain several conditional classes, so even html markup wouldn't be complete

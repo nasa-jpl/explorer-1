@@ -21,6 +21,7 @@ function copyScss(dest, src, name) {
       fs.writeFile(dest, styles, function (err) {
         if (err) throw err;
         console.log(`Updated ${name}`);
+        partials.write(`@import "components/${name}";\n`);
       });
     } else {
       console.log(`Warning: no styles in ${name}`);
@@ -38,7 +39,6 @@ config.components.forEach(function (component) {
       const filename = srcFile.match(/^\/(.+\/)*(.+)\.(.+)$/)[2]; // second capturing group is the name of the file
       const destFile = scssFolder + "_" + filename + ".scss";
       copyScss(destFile, srcFile, filename);
-      partials.write(`@import "components/${filename}";\n`);
     });
   });
 });
