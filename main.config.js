@@ -7,9 +7,7 @@ module.exports = {
   repoSrc: path.join(__dirname, "../www-frontend/"),
 
   // components:
-  // the components that we want to bring over from the componentSrc
-  // this array is used to build paths to the files and only works for
-  // vue files that live in a parent folder of the same name
+  // component folder names that we want to bring over from repoSrc
   components: [
     "AnimationCaret",
     "BaseButton",
