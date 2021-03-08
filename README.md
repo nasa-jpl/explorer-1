@@ -8,6 +8,7 @@ This repo will contain all of the frontend assets necessary to work with the htm
 
 - [JPL Design System Assets](#jpl-design-system-assets)
   - [Getting started](#getting-started)
+    - [Included Components:](#included-components)
     - [Important notes:](#important-notes)
   - [Syncing with frontend-www](#syncing-with-frontend-www)
   - [Configuration Files](#configuration-files)
@@ -33,6 +34,10 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Included Components:
+
+A list of included components can be viewed in the `components` array in [jpl-ds.config.js](./jpl-ds-config.js)
 
 ### Important notes:
 
