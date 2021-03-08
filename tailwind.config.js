@@ -1,10 +1,11 @@
-const config = require("./main.config.js");
 /*
  ** TailwindCSS Configuration File
  **
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
+
+const purgeConfig = require("./tailwind.purge.config.js");
 
 const foundationColors = {
   "jpl-red": "#E31937",
@@ -291,23 +292,5 @@ module.exports = {
     standardFontWeights: true,
   },
   // this part is specific to project
-  purge: config.purge,
-  // purge: false,
-  // TODO: we may want to keep the below purge settings and place vue files in this repo for purge purposes
-  // This would keep all design system styles but purge tailwind styles that are not used in the design system
-  // Vue components contain several conditional classes, so even html markup wouldn't be complete
-  // -------------------------
-  // purge: {
-  //   // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-  //   enabled: process.env.NODE_ENV === "production",
-  //   content: [
-  //     // Ignore the component docs, used for development only.
-  //     "components/!(_docs)/**/*.vue",
-  //     "layouts/**/*.vue",
-  //     "pages/**/*.vue",
-  //     "mixins/**/*.vue",
-  //     "plugins/**/*.js",
-  //     "nuxt.config.js",
-  //   ],
-  // },
+  ...purgeConfig,
 };
