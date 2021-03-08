@@ -1,10 +1,26 @@
-const config = require("../main.config.js");
+/*
+ ** Build Base Assets
+ **
+ ** This is a node.js script that copies base assets from
+ ** the repoSrc set in jpl-ds.config.js (e.g. www-frontend) and:
+ ** 1. copies tailwind.config.js
+ ** 2. copies base scss files
+ ** 3. copies font css as a scss partial
+ ** 4. copies font files
+ ** 5. copies specified js plugins
+ **
+ */
+
+const config = require("../jpl-ds.config.js");
 const path = require("path");
 var copyfiles = require("copyfiles");
 const fs = require("fs");
 
 // paths
 const repoSrc = config.repoSrc;
+
+const tailwindSrc = path.join(repoSrc, "tailwind.config.js");
+const tailwindDest = path.join(__dirname, "../");
 
 const scssFiles = path.join(repoSrc, "assets/styles/_*.scss");
 const scssDest = path.join(__dirname, "../src/scss/");
@@ -17,10 +33,16 @@ const fontsDest = path.join(__dirname, "../src/fonts/");
 const jsSrc = path.join(repoSrc, "plugins/");
 const jsDest = path.join(__dirname, "../src/js/");
 
+// copy tailwind config to this repo
+copyfiles([tailwindSrc, tailwindDest], { up: true }, function (err) {
+  if (err) throw err;
+  console.log(`🎉 Updated tailwind.config.js in ${tailwindDest}`);
+});
+
 // copy base scss files to this repo
 copyfiles([scssFiles, scssDest], { up: true }, function (err) {
   if (err) throw err;
-  console.log(`🎉 Updated base scss files`);
+  console.log(`🎉 Updated base scss files in ${scssDest}`);
 });
 
 // copy font css and rename to scss partial
@@ -45,7 +67,7 @@ copyfiles(
   { up: true },
   function (err) {
     if (err) throw err;
-    console.log(`🎉 Updated archivo-narrow font files`);
+    console.log(`🎉 Updated archivo-narrow font files in ${fontsDest}`);
   }
 );
 copyfiles(
@@ -53,11 +75,12 @@ copyfiles(
   { up: true },
   function (err) {
     if (err) throw err;
-    console.log(`🎉 Updated metropolis font files`);
+    console.log(`🎉 Updated metropolis font files in ${fontsDest}`);
   }
 );
 
 // copy specific js plugins
+// TODO: set desired js plugins in jpl-ds.config.js
 copyfiles(
   [
     path.join(jsSrc, "lazysizes.client.js"),
@@ -67,6 +90,6 @@ copyfiles(
   { up: true },
   function (err) {
     if (err) throw err;
-    console.log(`🎉 Updated javascript files`);
+    console.log(`🎉 Updated javascript files in ${jsDest}`);
   }
 );

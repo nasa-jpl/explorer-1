@@ -8,14 +8,12 @@ This repo will contain all of the frontend assets necessary to work with the htm
 
 - [JPL Design System Assets](#jpl-design-system-assets)
   - [Getting started](#getting-started)
+    - [Important notes:](#important-notes)
   - [Syncing with frontend-www](#syncing-with-frontend-www)
+  - [Configuration Files](#configuration-files)
   - [References](#references)
 
 ## Getting started
-
-- Currently, I've manually copied over the base assets from www-frontend.
-- The included components thus far are arbitrary and more for testing. They can be selected by modifying `main.config.js`
-- I've also made an index.html that demos some html markup and scripts (lazyload).
 
 **Install dependencies**
 
@@ -36,6 +34,12 @@ npm run dev
 npm run build
 ```
 
+### Important notes:
+
+- The included components thus far are arbitrary and more for testing. They can be selected by modifying `jpl-ds.config.js`
+- `index.html` demos some html markup and scripts (lazyload) but it is not comprehensive
+- Purge settings can be modified in `tailwind.purge.config.js`. Currently they are set to purge against www-frontend
+
 ## Syncing with [frontend-www](https://github.com/nasa-jpl/www-frontend)
 
 **To update assets:**
@@ -44,7 +48,7 @@ npm run build
 # update base tailwind, scss, and font files
 npm run sync:base
 
-# update component scss based on components configured in `main.config.js`
+# update component scss based on components configured in `jpl-ds.config.js`
 npm run sync:components
 
 # update all assets
@@ -57,7 +61,7 @@ Several assets are copied from the www-frontend repo via npm scripts. Below is a
 
 **Files that are copied from [frontend-www](https://github.com/nasa-jpl/www-frontend):**
 
-- Tailwind config: `tailwind.config.js`\*
+- Tailwind config: `tailwind.config.js`
 - SCSS files: entire `/assets/scss/` folder\*
 - Webfonts: entire `/static/fonts/` folder
 - Webfont CSS: `/static/styles/font-face.css`\*
@@ -65,7 +69,6 @@ Several assets are copied from the www-frontend repo via npm scripts. Below is a
 
 \*All of the above files are untouched except for:
 
-- `tailwind.config.js`: manually edited `purge` options to be set to `false`. TODO: separate purge settings in both repos and leave tailwind config untouched.
 - `font-face.css`: automatically renamed to `_fonts.scss` and placed in `/src/scss/` via `npm sync:base`
 - `/assets/scss/` folder has some files unique to this repo:
   - `main-design-system.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
@@ -74,7 +77,7 @@ Several assets are copied from the www-frontend repo via npm scripts. Below is a
 
 **Components SCSS folder:**
 
-`main.config.js` contains an array of all components that should be part of the design system. It only includes a few sample components for now. To build scss based on these components:
+`jpl-ds.config.js` contains an array of all components that should be part of the design system. It only includes a few sample components for now. To build scss based on these components:
 
 ```
 npm run sync:components
@@ -84,6 +87,18 @@ This does a few things:
 
 - copies the css from all matching vue components and puts them into individual scss files in `/src/scss/components`
 - overwrites `_components.scss` with `@import` statements for each component scss file created
+
+## Configuration Files
+
+This repo contains several configuration files. Here is a breakdown of what each one is for:
+
+| File                       | Description                                                                                                       | Src          |
+| :------------------------- | :---------------------------------------------------------------------------------------------------------------- | :----------- |
+| `jpl-ds.config.js`         | Main configuration file for this repo. Determines which components are included in the distributed design system. | local        |
+| `tailwind.config.js`       | Tailwind CSS config file copied directly from www-frontend without making any changes                             | www-frontend |
+| `tailwind.purge.config.js` | Purge configuration for this repo.                                                                                | local        |
+| `postcss.config.js`        | PostCSS configuration for this repo. Note that purge settings are handled via tailwind configuration              | local        |
+| `webpack.config.js`        | Webpack configuration for this repo. This is what packages everything up for distribution.                        | local        |
 
 ## References
 

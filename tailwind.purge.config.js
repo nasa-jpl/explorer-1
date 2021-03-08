@@ -6,7 +6,7 @@
  **
  */
 
-const config = require("./main.config.js");
+const config = require("./jpl-ds.config.js");
 const path = require("path");
 
 module.exports = {

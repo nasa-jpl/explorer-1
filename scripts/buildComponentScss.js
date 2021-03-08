@@ -1,10 +1,19 @@
-const config = require("../main.config.js");
+/*
+ ** Build Component SCSS Files
+ **
+ ** This is a node.js script that copies SCSS from
+ ** the array of components specified in jpl-ds.config.js and:
+ ** 1. Creates individual scss files for each component
+ ** 2. Adds the import statement to /src/scss/_components.scss
+ **
+ */
+
+const config = require("../jpl-ds.config.js");
 const path = require("path");
 const fs = require("fs");
 const glob = require("glob");
 
 // paths
-// TODO: componentSrc as a build argument
 const componentSrc = path.join(config.repoSrc, "/components/");
 const scssFolder = config.scssFolder;
 const componentsPartial = config.componentPartialsFile;
@@ -18,9 +27,11 @@ function copyScss(dest, src, name) {
     if (err) throw err;
     if (data.match(regex) && data.match(regex)[1]) {
       let styles = data.match(regex)[1]; // first capturing group is the styles
+      // 1. create the scss file for the component
       fs.writeFile(dest, styles, function (err) {
         if (err) throw err;
         console.log(`Updated ${name}`);
+        // 2. add import statement to the components partial
         partials.write(`@import "components/${name}";\n`);
       });
     } else {
@@ -29,6 +40,7 @@ function copyScss(dest, src, name) {
   });
 }
 
+// Loop through all components in the config
 config.components.forEach(function (component) {
   glob(componentSrc + component + "/**/*.vue", { nosort: true }, function (
     er,

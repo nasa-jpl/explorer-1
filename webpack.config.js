@@ -10,8 +10,8 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     publicPath: "/",
-    filename: "js/jpl-ds.bundle.js",
-    chunkFilename: "js/[name].js",
+    filename: "js/jpl-ds.min.js",
+    chunkFilename: "js/chunk.[name].js",
   },
 
   // optimization: {
@@ -76,7 +76,7 @@ module.exports = {
     new WebpackBuildNotifierPlugin(),
 
     new MiniCssExtractPlugin({
-      filename: "css/jpl-ds.[name].[contenthash].min.css",
+      filename: "css/jpl-ds.[name].min.css",
     }),
 
     new HtmlWebpackPlugin({
