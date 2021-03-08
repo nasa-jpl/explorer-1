@@ -37,7 +37,7 @@ npm run build
 
 ### Included Components:
 
-A list of included components can be viewed in the `components` array in [jpl-ds.config.js](./jpl-ds-config.js)
+A list of included components can be viewed in the `components` array in [jpl-ds.config.js](./jpl-ds.config.js)
 
 ### Important notes:
 
