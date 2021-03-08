@@ -10,8 +10,9 @@ This repo will contain all of the frontend assets necessary to work with the htm
   - [Getting started](#getting-started)
     - [Included Components:](#included-components)
     - [Important notes:](#important-notes)
-  - [Syncing with frontend-www](#syncing-with-frontend-www)
   - [Configuration Files](#configuration-files)
+  - [Syncing with www-frontend](#syncing-with-www-frontend)
+    - [How were the files sourced and what changes were made to them?](#how-were-the-files-sourced-and-what-changes-were-made-to-them)
   - [References](#references)
 
 ## Getting started
@@ -45,7 +46,19 @@ A list of included components can be viewed in the `components` array in [jpl-ds
 - `index.html` demos some html markup and scripts (lazyload) but it is not comprehensive
 - Purge settings can be modified in `tailwind.purge.config.js`. Currently they are set to purge against www-frontend
 
-## Syncing with [frontend-www](https://github.com/nasa-jpl/www-frontend)
+## Configuration Files
+
+This repo contains several configuration files. Here is a breakdown of what each one is for:
+
+| File                       | Description                                                                                                       | Src          |
+| :------------------------- | :---------------------------------------------------------------------------------------------------------------- | :----------- |
+| `jpl-ds.config.js`         | Main configuration file for this repo. Determines which components are included in the distributed design system. | local        |
+| `tailwind.config.js`       | Tailwind CSS config file copied directly from www-frontend without making any changes                             | www-frontend |
+| `tailwind.purge.config.js` | Purge configuration for this repo.                                                                                | local        |
+| `postcss.config.js`        | PostCSS configuration for this repo. Note that purge settings are handled via tailwind configuration              | local        |
+| `webpack.config.js`        | Webpack configuration for this repo. This is what packages everything up for distribution.                        | local        |
+
+## Syncing with [www-frontend](https://github.com/nasa-jpl/www-frontend)
 
 **To update assets:**
 
@@ -61,6 +74,8 @@ npm run sync:all
 ```
 
 > Assets are tracked in this repo. TODO: We need to decide if that should happen or not. Advantages: users do not need the www-frontend repo to build assets. Disadvantages: replicated code
+
+### How were the files sourced and what changes were made to them?
 
 Several assets are copied from the www-frontend repo via npm scripts. Below is an outline of the copied files and their relation to this repo:
 
@@ -79,31 +94,6 @@ Several assets are copied from the www-frontend repo via npm scripts. Below is a
   - `main-design-system.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
   - `_fonts.scss`: updated and renamed from `font-face.css` via `npm sync:base`
   - `_components.scss`: the scss partial that imports all component scss in `/src/scss/components/`, which is built by this repo via `npm sync:components`
-
-**Components SCSS folder:**
-
-`jpl-ds.config.js` contains an array of all components that should be part of the design system. It only includes a few sample components for now. To build scss based on these components:
-
-```
-npm run sync:components
-```
-
-This does a few things:
-
-- copies the css from all matching vue components and puts them into individual scss files in `/src/scss/components`
-- overwrites `_components.scss` with `@import` statements for each component scss file created
-
-## Configuration Files
-
-This repo contains several configuration files. Here is a breakdown of what each one is for:
-
-| File                       | Description                                                                                                       | Src          |
-| :------------------------- | :---------------------------------------------------------------------------------------------------------------- | :----------- |
-| `jpl-ds.config.js`         | Main configuration file for this repo. Determines which components are included in the distributed design system. | local        |
-| `tailwind.config.js`       | Tailwind CSS config file copied directly from www-frontend without making any changes                             | www-frontend |
-| `tailwind.purge.config.js` | Purge configuration for this repo.                                                                                | local        |
-| `postcss.config.js`        | PostCSS configuration for this repo. Note that purge settings are handled via tailwind configuration              | local        |
-| `webpack.config.js`        | Webpack configuration for this repo. This is what packages everything up for distribution.                        | local        |
 
 ## References
 
