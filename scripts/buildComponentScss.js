@@ -32,6 +32,7 @@ function copyScss(dest, src, name) {
         if (err) throw err;
         console.log(`Updated ${name}`);
         // 2. add import statement to the components partial
+        // TODO: alphabetize this so it's always the same order
         partials.write(`@import "components/${name}";\n`);
       });
     } else {
@@ -42,10 +43,7 @@ function copyScss(dest, src, name) {
 
 // Loop through all components in the config
 config.components.forEach(function (component) {
-  glob(componentSrc + component + "/**/*.vue", { nosort: true }, function (
-    er,
-    files
-  ) {
+  glob(componentSrc + component + "/**/*.vue", {}, function (er, files) {
     files.forEach(function (file) {
       const srcFile = file;
       const filename = srcFile.match(/^\/(.+\/)*(.+)\.(.+)$/)[2]; // second capturing group is the name of the file
