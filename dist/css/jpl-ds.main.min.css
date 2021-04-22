@@ -3010,6 +3010,10 @@ img.BaseImage.lazyloaded{
   flex: none;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
+
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -4469,6 +4473,10 @@ img.BaseImage.lazyloaded{
 
 .w-2\/3 {
   width: 66.666667%;
+}
+
+.w-1\/4 {
+  width: 25%;
 }
 
 .w-3\/4 {
