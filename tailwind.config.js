@@ -192,7 +192,10 @@ module.exports = {
         jpl: '-4px 5px 60px 0 rgba(0, 0, 0, 0.1)',
       },
       inset: {
+        // tailwind 2.0 will include these automatically
         '1/2': '50%',
+        18: '4.5rem',
+        28: '7rem',
       },
       keyframes: {
         fadeIn: {
@@ -241,6 +244,7 @@ module.exports = {
         25: '6.25rem',
         26: '6.5rem',
         28: '7rem',
+        29: '7.25rem',
         30: '7.5rem',
         35: '8.75rem',
         36: '9rem',
@@ -259,6 +263,9 @@ module.exports = {
         3000: '3000ms',
         3500: '3500ms',
         5000: '5000ms',
+      },
+      transitionProperty: {
+        'border-opacity': 'border-opacity',
       },
       translate: {
         '-3/7': '-42.8571429%',
