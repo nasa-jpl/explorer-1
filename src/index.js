@@ -9,8 +9,8 @@ if (module.hot) {
  * i.e. font files referenced to in styles, or any imports from node_modules
  */
 
-// scss (edit styles.scss or imports therein to modify)
-// import './scss/main.scss'
+// scss (edit main.scss or imports therein to modify)
+import './scss/main.scss'
 
 // scripts (edit scripts.js to add more javascript)
 require('./js/main.js')

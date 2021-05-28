@@ -3,22 +3,22 @@
 // Notably, this version adds tailwind styles and imports a couple other partials that nuxt was handling in www-frontend
 
 // tailwind --------------------
-@import "tailwindcss/base";
-@import "tailwindcss/components";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
 // end tailwind ----------------
 
 // main elements
-@import "hover"; // manually added
-@import "fonts"; // manually added -- formerly /static/styles/font-face.css
-@import "aspect-ratios";
-@import "grid";
-@import "typography";
-@import "polyfills";
-@import "animations";
+@import 'hover'; // manually added
+@import 'fonts'; // manually added -- formerly /static/styles/font-face.css
+@import 'aspect-ratios';
+@import 'grid';
+@import 'typography';
+@import 'polyfills';
+@import 'animations';
 
 // components
-@import "components"; // manually added and created
+@import 'components'; // manually added and created
 
 // tailwind --------------------
-@import "tailwindcss/utilities";
+@import 'tailwindcss/utilities';
 // end tailwind ----------------

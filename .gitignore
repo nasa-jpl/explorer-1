@@ -2,5 +2,5 @@
 node_modules/
 npm-debug.log
 .parcel-cache
-/src/_app
+/src/.parcel
 # not ignoring dist since that's what we're distributing
