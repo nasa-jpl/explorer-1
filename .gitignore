@@ -1,4 +1,6 @@
 .DS_Store
 node_modules/
 npm-debug.log
+.parcel-cache
+/src/.parcel
 # not ignoring dist since that's what we're distributing

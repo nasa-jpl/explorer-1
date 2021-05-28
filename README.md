@@ -6,14 +6,12 @@ This repo will contain all of the frontend assets necessary to work with the htm
 
 **Table of contents**
 
-- [JPL Design System Assets](#jpl-design-system-assets)
-  - [Getting started](#getting-started)
-    - [Included Components:](#included-components)
-    - [Important notes:](#important-notes)
-  - [Configuration Files](#configuration-files)
-  - [Syncing with www-frontend](#syncing-with-www-frontend)
-    - [How were the files sourced and what changes were made to them?](#how-were-the-files-sourced-and-what-changes-were-made-to-them)
-  - [References](#references)
+- [Getting started](#getting-started)
+  - [Included Components:](#included-components)
+  - [Important notes:](#important-notes)
+- [Configuration Files](#configuration-files)
+- [Syncing with www-frontend](#syncing-with-www-frontend)
+  - [How were the files sourced and what changes were made to them?](#how-were-the-files-sourced-and-what-changes-were-made-to-them)
 
 ## Getting started
 
@@ -23,10 +21,11 @@ This repo will contain all of the frontend assets necessary to work with the htm
 npm i
 ```
 
-**Serve at http://localhost:8080/**
+**Serve at http://localhost:3000/**
 
 ```sh
-# serve at http://localhost:8080/
+# serve at http://localhost:3000/
+# you may need to refresh if you've never run the project before
 npm run dev
 ```
 
@@ -56,7 +55,6 @@ This repo contains several configuration files. Here is a breakdown of what each
 | `tailwind.config.js`       | Tailwind CSS config file copied directly from www-frontend without making any changes                             | www-frontend |
 | `tailwind.purge.config.js` | Purge configuration for this repo.                                                                                | local        |
 | `postcss.config.js`        | PostCSS configuration for this repo. Note that purge settings are handled via tailwind configuration              | local        |
-| `webpack.config.js`        | Webpack configuration for this repo. This is what packages everything up for distribution.                        | local        |
 
 ## Syncing with [www-frontend](https://github.com/nasa-jpl/www-frontend)
 
@@ -73,7 +71,7 @@ npm run sync:components
 npm run sync:all
 ```
 
-> Assets are tracked in this repo. TODO: We need to decide if that should happen or not. Advantages: users do not need the www-frontend repo to build assets. Disadvantages: replicated code
+> Assets are tracked in this repo.
 
 ### How were the files sourced and what changes were made to them?
 
@@ -91,15 +89,6 @@ Several assets are copied from the www-frontend repo via npm scripts. Below is a
 
 - `font-face.css`: automatically renamed to `_fonts.scss` and placed in `/src/scss/` via `npm sync:base`
 - `/assets/scss/` folder has some files unique to this repo:
-  - `main-design-system.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
+  - `main.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
   - `_fonts.scss`: updated and renamed from `font-face.css` via `npm sync:base`
   - `_components.scss`: the scss partial that imports all component scss in `/src/scss/components/`, which is built by this repo via `npm sync:components`
-
-## References
-
-This webpack configuration is heavily informed and inspired by https://github.com/alexcanana/webpack-starter.
-
-Other references
-
-- https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/build-tools
-- https://stackoverflow.com/questions/55606865/combining-tailwind-css-with-sass-using-webpack

@@ -62,21 +62,13 @@
 .nav-offset {
   @apply pt-18; // height of mobile header
   @screen lg {
-    @apply pt-38; // height of header
+    @apply pt-0;
   }
 }
-.secondary-nav-offset {
-  @screen lg {
-    @apply pt-28; // padding to make gradient fill the area
-  }
-}
+
 // for use on pages with flush-top hero sections
 .-nav-offset {
   @screen lg {
-    &::before {
-      content: '';
-      @apply block w-full h-10 bg-black absolute inset-x-0 top-0;
-    }
-    @apply -mt-28; // height of header excluding top-hat
+    @apply -mt-29; // just a little more than -28 to get rid of the barely visible white line
   }
 }

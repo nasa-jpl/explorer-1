@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "tailwindcss": {
+      "config": "./tailwind.config.js"
+    },
+    "postcss-preset-env": {
+      "stage": 2
+    }
+  }
+}
