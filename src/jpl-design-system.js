@@ -10,7 +10,7 @@ if (module.hot) {
  */
 
 // scss (edit styles.scss or imports therein to modify)
-import './scss/main.scss'
+// import './scss/main.scss'
 
 // scripts (edit scripts.js to add more javascript)
 require('./js/main.js')

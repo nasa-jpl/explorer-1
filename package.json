@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "Packaged styles and assets for the JPL design system",
   "author": "Stephanie C Smith, DesignLab",
+  "parcel-namer-rewrite": {
+    "rules": {
+      "jpl-design-system.html": "index.html",
+      "jpl-design-system.(.*).js": "js/scripts.js",
+      "(.*)\\.(.*)\\.(woff2|woff)": "fonts/$1.$3",
+      "(.*).css": "css/$1.css"
+    }
+  },
   "scripts": {
     "start": "npm run dev",
     "dev": "run-p watch browsersync",
-    "build": "npm run build:clean && parcel build ./src/jpl-design-system.js --dist-dir ./dist/assets/ --no-source-maps",
-    "build:clean": "rimraf ./dist/assets && rimraf .parcel-cache",
+    "build": "npm run build:clean && parcel build ./src/jpl-design-system.html --no-source-maps",
+    "build:clean": "rimraf ./dist && rimraf .parcel-cache",
     "watch": "rimraf ./src/_app && parcel ./src/jpl-design-system.html --dist-dir ./src/_app/",
     "browsersync": "browser-sync start --config bs.config.js",
     "sync:base": "node scripts/buildBase.js",
@@ -35,6 +43,7 @@
     "node-sass": "^5.0.0",
     "npm-run-all": "^4.1.5",
     "parcel": "^2.0.0-beta.2",
+    "parcel-namer-rewrite": "^2.0.0-beta.1-8",
     "postcss": "^8.2.7",
     "postcss-cli": "^8.3.1",
     "postcss-loader": "^5.0.0",
