@@ -83,12 +83,11 @@ Several assets are copied from the www-frontend repo via npm scripts. Below is a
 - SCSS files: entire `/assets/scss/` folder\*
 - Webfonts: entire `/static/fonts/` folder
 - Webfont CSS: `/static/styles/font-face.css`\*
-- Plugins/scripts: `/plugins/detect-ie.js`, `/plugins/lazysizes.client.js`
 
 \*All of the above files are untouched except for:
 
 - `font-face.css`: automatically renamed to `_fonts.scss` and placed in `/src/scss/` via `npm sync:base`
 - `/assets/scss/` folder has some files unique to this repo:
-  - `main.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
+  - `styles.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
   - `_fonts.scss`: updated and renamed from `font-face.css` via `npm sync:base`
   - `_components.scss`: the scss partial that imports all component scss in `/src/scss/components/`, which is built by this repo via `npm sync:components`
