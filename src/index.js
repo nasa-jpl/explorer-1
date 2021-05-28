@@ -13,4 +13,4 @@ if (module.hot) {
 import './scss/main.scss'
 
 // scripts (edit scripts.js to add more javascript)
-require('./js/main.js')
+require('./js/_scripts.js')

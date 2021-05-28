@@ -7,6 +7,9 @@
 @import 'tailwindcss/components';
 // end tailwind ----------------
 
+// vendors / node_modules
+@import 'swiper/swiper-bundle.css'; // manually added
+
 // main elements
 @import 'hover'; // manually added
 @import 'fonts'; // manually added -- formerly /static/styles/font-face.css
