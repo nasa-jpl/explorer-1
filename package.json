@@ -1,8 +1,8 @@
 {
-  "name": "jpl-design-system",
+  "name": "@jpl/explorer-1",
   "version": "1.0.0",
-  "description": "Packaged styles and assets for the JPL design system",
-  "author": "Stephanie C Smith, DesignLab",
+  "description": "Packaged styles and assets for DesignLab's design system, Explorer 1",
+  "author": "DesignLab",
   "parcel-namer-rewrite": {
     "rules": {
       "index.js": "js/scripts.min.js",
