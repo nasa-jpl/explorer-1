@@ -1,14 +1,14 @@
 {
   "name": "@jpl/explorer-1",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "Packaged styles and assets for DesignLab's design system, Explorer 1",
   "author": "DesignLab",
-  "parcel-namer-rewrite": {
-    "rules": {
-      "index.js": "js/scripts.min.js",
-      "(.*)\\.(.*)\\.(woff2|woff)": "fonts/$1.$3",
-      "index.css": "css/styles.min.css"
-    }
+  "repository": {
+    "type": "git",
+    "url": "https://internal.ghe.server/18x/jpl-design-system"
+  },
+  "publishConfig": {
+    "registry": "https://internal.npm.registry"
   },
   "scripts": {
     "start": "npm run dev",
@@ -20,6 +20,13 @@
     "sync:base": "node ./utils/buildBase.js",
     "sync:components": "node ./utils/buildComponentScss.js",
     "sync:all": "node ./utils/buildBase.js && node ./utils/buildComponentScss.js"
+  },
+  "parcel-namer-rewrite": {
+    "rules": {
+      "index.js": "js/scripts.min.js",
+      "(.*)\\.(.*)\\.(woff2|woff)": "fonts/$1.$3",
+      "index.css": "css/styles.min.css"
+    }
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",

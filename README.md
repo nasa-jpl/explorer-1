@@ -1,27 +1,40 @@
 # JPL Design System Assets
 
-**This is an active work-in-progress, not ready for use other projects**
+[![View on GitHub](https://img.shields.io/badge/github-18x%2Fjpl--design--system-informational)](https://internal.ghe.server/18x/jpl-design-system) ![Release info](https://img.shields.io/badge/version-1.0.0--alpha-yellow)
 
-This repo will contain all of the frontend assets necessary to work with the html markup available through the [JPL WWW Storybook](https://designlabinternal.domain/storybook/).
+**This package is an active work-in-progress and not ready for use on other projects.** This package will contain all of the frontend assets necessary to work with the html markup available through the [JPL WWW Storybook](https://designlabinternal.domain/storybook/).
 
 **Table of contents**
 
-- [How to use the Design System in your project](#how-to-use-the-design-system-in-your-project)
+- [Usage](#usage)
+  - [Add the JPL registry to your project](#add-the-jpl-registry-to-your-project)
+  - [Install the package and use assets as needed](#install-the-package-and-use-assets-as-needed)
 - [Contributors: Getting started](#contributors-getting-started)
   - [Included Components:](#included-components)
   - [Important notes:](#important-notes)
-- [Configuration Files](#configuration-files)
+  - [Publishing to JPL's registry](#publishing-to-jpls-registry)
+- [Contributors: Configuration Files](#contributors-configuration-files)
 - [Syncing with www-frontend](#syncing-with-www-frontend)
   - [How were the files sourced and what changes were made to them?](#how-were-the-files-sourced-and-what-changes-were-made-to-them)
 
-## How to use the Design System in your project
+## Usage
 
-WIP and not ready for this use-case yet.
+### Add the JPL registry to your project
 
-The npm module is currently being tested. For those testing, you can mock usage by installing the package to your project with:
+You will first need to configure usage of the internal.npm.registry registry.
+
+1. In your application, create an `.npmrc` file in the root that contains:
+
+   ```bash
+   @jpl:registry=https://internal.npm.registry/
+   ```
+
+2. Configure your application to trust the self-signed cert. There are various ways to do this (write-up of methods forthcoming)
+
+### Install the package and use assets as needed
 
 ```
-npm install /path/to/jpl-explorer-1-1.0.0.tgz
+npm install @jpl/explorer-1
 ```
 
 Try importing and using assets from it. For example, in a scss file, get the styles for a specific component:
@@ -82,7 +95,23 @@ A list of included components can be viewed in the `components` array in [jpl-ds
 - `index.html` demos some html markup and scripts (lazyload) but it is not comprehensive
 - Purge settings can be modified in `tailwind.purge.config.js`. Currently they are set to purge against www-frontend
 
-## Configuration Files
+### Publishing to JPL's registry
+
+Publishing has been configured according to the JPL Verdaccio documentation: https://internal.ghe.server/TPT/verdaccio. For publishing packages, you must use the non-aliased URL of `internal.npm.registry`
+
+1. Login to the registry
+
+   ```bash
+   npm login --registry https://internal.npm.registry
+   ```
+
+2. Publish the package
+
+   ```bash
+   npm publish
+   ```
+
+## Contributors: Configuration Files
 
 This repo contains several configuration files. Here is a breakdown of what each one is for:
 
