@@ -1,6 +1,6 @@
 # JPL Design System Assets
 
-[![View on GitHub](https://img.shields.io/badge/github-18x%2Fjpl--design--system-informational)](https://internal.ghe.server/18x/jpl-design-system) ![Release info](https://img.shields.io/badge/version-1.0.0--alpha-yellow)
+[![View on GitHub](https://img.shields.io/badge/github-18x%2Fjpl--design--system-informational)](https://internal.ghe.server/18x/jpl-design-system) [![Release info](https://img.shields.io/badge/version-1.0.0--alpha-yellow)](https://internal.ghe.server/18x/jpl-design-system/releases)
 
 **This package is an active work-in-progress and not ready for use on other projects.** This package will contain all of the frontend assets necessary to work with the html markup available through the [JPL WWW Storybook](https://designlabinternal.domain/storybook/).
 
