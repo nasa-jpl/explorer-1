@@ -24,6 +24,8 @@ module.exports = {
     'BaseImage',
     'BaseImagePlaceholder',
     'BlockImage',
+    'BasePlaceholder',
+    'BlockQuote',
     'BlockTeaser',
     'BlockText',
     'HeroFeature',

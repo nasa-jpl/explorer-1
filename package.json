@@ -1,8 +1,8 @@
 {
-  "name": "jpl-design-system",
+  "name": "@jpl/explorer-1",
   "version": "1.0.0",
-  "description": "Packaged styles and assets for the JPL design system",
-  "author": "Stephanie C Smith, DesignLab",
+  "description": "Packaged styles and assets for DesignLab's design system, Explorer 1",
+  "author": "DesignLab",
   "parcel-namer-rewrite": {
     "rules": {
       "index.js": "js/scripts.min.js",
@@ -17,9 +17,9 @@
     "build:clean": "rimraf ./dist && rimraf .parcel-cache",
     "watch": "rimraf ./src/_app && parcel ./src/index.html --dist-dir ./src/.parcel/",
     "browsersync": "browser-sync start --config bs.config.js",
-    "sync:base": "node scripts/buildBase.js",
-    "sync:components": "node scripts/buildComponentScss.js",
-    "sync:all": "node scripts/buildBase.js && node scripts/buildComponentScss.js"
+    "sync:base": "node ./utils/buildBase.js",
+    "sync:components": "node ./utils/buildComponentScss.js",
+    "sync:all": "node ./utils/buildBase.js && node ./utils/buildComponentScss.js"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",

@@ -1,19 +1,56 @@
 # JPL Design System Assets
 
-**This is an active work-in-progress**
+**This is an active work-in-progress, not ready for use other projects**
 
-This repo will contain all of the frontend assets necessary to work with the html markup available through the [JPL WWW Storybook](https://designlabinternal.domain/storybook/). Assets are provided via webpack. We are working on providing compiled css and js files as well.
+This repo will contain all of the frontend assets necessary to work with the html markup available through the [JPL WWW Storybook](https://designlabinternal.domain/storybook/).
 
 **Table of contents**
 
-- [Getting started](#getting-started)
+- [How to use the Design System in your project](#how-to-use-the-design-system-in-your-project)
+- [Contributors: Getting started](#contributors-getting-started)
   - [Included Components:](#included-components)
   - [Important notes:](#important-notes)
 - [Configuration Files](#configuration-files)
 - [Syncing with www-frontend](#syncing-with-www-frontend)
   - [How were the files sourced and what changes were made to them?](#how-were-the-files-sourced-and-what-changes-were-made-to-them)
 
-## Getting started
+## How to use the Design System in your project
+
+WIP and not ready for this use-case yet.
+
+The npm module is currently being tested. For those testing, you can mock usage by installing the package to your project with:
+
+```
+npm install /path/to/jpl-explorer-1-1.0.0.tgz
+```
+
+Try importing and using assets from it. For example, in a scss file, get the styles for a specific component:
+
+```scss
+// a la carte component scss
+@import '@jpl/explorer-1/src/scss/components/_BasePlaceholder';
+```
+
+```js
+// a la carte js
+require('@jpl/explorer-1/src/js/_detect-ie.js')
+```
+
+Or the all-inclusive minified css and js from `dist`
+
+```scss
+// bundled css
+@import '@jpl/explorer-1/dist/css/styles.min.css';
+```
+
+```js
+// bundled js
+require('@jpl/explorer-1/dist/js/scripts.min.js')
+```
+
+Note that accompanying assets will also need to be imported in your application's build process (i.e. to account for paths to font files in `styles.min.css`, the end-user may need to copy the `fonts` folder from `dist` into their project, etc).
+
+## Contributors: Getting started
 
 **Install dependencies**
 
@@ -41,7 +78,7 @@ A list of included components can be viewed in the `components` array in [jpl-ds
 
 ### Important notes:
 
-- The included components thus far are arbitrary and more for testing. They can be selected by modifying `jpl-ds.config.js`
+- The included components are currently arbitrary and geared toward testing. They can be selected by modifying `jpl-ds.config.js`
 - `index.html` demos some html markup and scripts (lazyload) but it is not comprehensive
 - Purge settings can be modified in `tailwind.purge.config.js`. Currently they are set to purge against www-frontend
 
