@@ -1,7 +1,7 @@
 {
   "name": "@jpl/explorer-1",
-  "version": "1.0.0-alpha.3",
-  "description": "Packaged styles and assets for DesignLab's design system, Explorer 1",
+  "version": "1.0.0-alpha.4",
+  "description": "Packaged frontend assets for JPL's design system, Explorer 1",
   "author": "DesignLab",
   "repository": {
     "type": "git",

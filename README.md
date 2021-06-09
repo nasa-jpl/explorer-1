@@ -17,8 +17,11 @@
 - [Using the Explorer 1 Tailwind config](#using-the-explorer-1-tailwind-config)
 - [For Contributing Developers](#for-contributing-developers)
   - [Getting started](#getting-started)
-  - [Configuration Files Explained](#configuration-files-explained)
-  - [Syncing with www-frontend](#syncing-with-www-frontend)
+  - [Publishing to JPL's registry](#publishing-to-jpls-registry)
+  - [Configuration files explained](#configuration-files-explained)
+  - [Syncing styles with www-frontend](#syncing-styles-with-www-frontend)
+  - [JavaScript](#javascript)
+  - [Step-by-step instructions of how to import more components:](#step-by-step-instructions-of-how-to-import-more-components)
 
 ## Quick start
 
@@ -59,7 +62,7 @@ This package includes the base styles of Explorer 1 (typography, colors, spacing
 
 ### Components
 
-Not all components are included. A list of available components can be viewed in the `components[]` array in [jpl-ds.config.js](./jpl-ds.config.js). Components will be added in phases which are currently dictated by DesignLab's priority projects. If there is a component you would like to have included, please submit a feature request.
+Not all components are included. A list of available components can be viewed in the `components[]` array in [www-sync.config.js](./www-sync.config.js). Components will be added in phases which are currently dictated by DesignLab's priority projects. If there is a component you would like to have included, please submit a feature request.
 
 ## Using bundled assets
 
@@ -139,15 +142,15 @@ npm run build
 
 #### Included Components:
 
-A list of included components can be viewed in the `components` array in [jpl-ds.config.js](./jpl-ds.config.js)
+A list of included components can be viewed in the `components` array in [www-sync.config.js](./www-sync.config.js)
 
 #### Important notes:
 
-- The included components are currently arbitrary and geared toward testing. They can be selected by modifying `jpl-ds.config.js`
+- The included components are currently arbitrary and geared toward testing. They can be selected by modifying `www-sync.config.js`
 - `index.html` demos some html markup and scripts (lazyload) but it is not comprehensive and is not intended to be.
 - Purge settings can be modified in `tailwind.purge.config.js`. Currently they are set to purge against www-frontend
 
-#### Publishing to JPL's registry
+### Publishing to JPL's registry
 
 Publishing has been configured according to the JPL Verdaccio documentation: https://internal.ghe.server/TPT/verdaccio. For publishing packages, you must use the non-aliased URL of `internal.npm.registry`
 
@@ -163,18 +166,32 @@ Publishing has been configured according to the JPL Verdaccio documentation: htt
    npm publish
    ```
 
-### Configuration Files Explained
+### Configuration files explained
 
 This repo contains several configuration files. Here is a breakdown of what each one is for:
 
-| File                       | Description                                                                                                       | Src          |
-| :------------------------- | :---------------------------------------------------------------------------------------------------------------- | :----------- |
-| `jpl-ds.config.js`         | Main configuration file for this repo. Determines which components are included in the distributed design system. | local        |
-| `tailwind.config.js`       | Tailwind CSS config file copied directly from www-frontend without making any changes                             | www-frontend |
-| `tailwind.purge.config.js` | Purge configuration for this repo.                                                                                | local        |
-| `postcss.config.js`        | PostCSS configuration for this repo. Note that purge settings are handled via tailwind configuration              | local        |
+| File                       | Description                                                                                                                                       | Src          |
+| :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :----------- |
+| `www-sync.config.js`       | Configuration file for extracting files from [www-frontend](https://github.com/nasa-jpl/www-frontend/). Determines which components are included. | explorer-1   |
+| `tailwind.config.js`       | Tailwind CSS config file copied directly from [www-frontend](https://github.com/nasa-jpl/www-frontend/)                                           | www-frontend |
+| `tailwind.purge.config.js` | Purge configuration for this repo.                                                                                                                | explorer-1   |
+| `postcss.config.js`        | PostCSS configuration for this repo.                                                                                                              | explorer-1   |
 
-### Syncing with [www-frontend](https://github.com/nasa-jpl/www-frontend)
+### Syncing styles with [www-frontend](https://github.com/nasa-jpl/www-frontend)
+
+Syncing with www-frontend means to extract SCSS from [www-frontend](https://github.com/nasa-jpl/www-frontend/) for use in this package. This is a temporary solution until [www-frontend](https://github.com/nasa-jpl/www-frontend/) is refactored to also use @jpl/explorer-1. File extraction is handled by the configuration file and scripts below and assumes that you have the `www-frontend` pulled locally, in a sibling folder to the jpl-design-system repo.
+
+```
+repos
+├── jpl-design-system
+└── www-frontend
+```
+
+Scripts that handle the extraction:
+
+- `www-sync.config.js`
+- `utils/buildBase.js`
+- `utils/buildComponentScss.js`
 
 **To update assets:**
 
@@ -182,7 +199,7 @@ This repo contains several configuration files. Here is a breakdown of what each
 # update base tailwind, scss, and font files
 npm run sync:base
 
-# update component scss based on components configured in `jpl-ds.config.js`
+# update component scss based on components configured in `www-sync.config.js`
 npm run sync:components
 
 # update all assets
@@ -190,6 +207,55 @@ npm run sync:all
 ```
 
 > Assets are tracked in this repo.
+
+### JavaScript
+
+JavaScript lives in `/src/js/` and parcel.js is used to bundle all imports and script files.
+
+#### Adding to scripts.js
+
+You can add more scripts as `require()` statements to the `/src/js/scripts.js` file. A few files are already included: `_detect-ie.js`, `_lazysizes_.js` and `_swiper.js`.
+
+#### Naming convention
+
+Any script that will be required by `scripts.js` should start with an underscore. Ex: `_my-script.js`
+
+#### Using `node_modules`
+
+If you want to use node_modules, then install the package as usual and add the necessary imports directly to `scripts.js` or as a separate js file that is then required in `scripts.js`. See `_lazysizes.js` as an example.
+
+### Step-by-step instructions of how to import more components:
+
+If the component has been deemed "part of the distributed design sytem" (i.e. its styles are truly one-to-one with [www-frontend](https://github.com/nasa-jpl/www-frontend/) in all use-cases), then it should be added to this repo. If the design is customized for a specific use-case, then add it manually to the project that needs the custom component. Do not add it to this repo.
+
+Below are step-by-step instructions of how to import/add more components to the design system, using `BasePlaceholder` as an example
+
+1. First, this workflow requires that you have the `www-frontend` pulled locally, in a sibling folder to the jpl-design-system repo.
+
+   ```
+   repos
+   ├── jpl-design-system
+   └── www-frontend
+   ```
+
+2. Add the component name to `www-sync.config.js`
+
+   ```js
+   // www-sync.config.js
+   components: [
+     ...
+     "BasePlaceholder",
+   ],
+   ```
+
+3. Sync component scss
+
+   ```bash
+   # repo root
+   npm run sync:components
+   ```
+
+4. If the component includes custom functionality or javascript, it will need to be refactored manually. As an example, this has been done for swiper.js, the basis of all of our sliders/carousels: [src/js/\_swiper.js](./src/js/_swiper.js). Details on how to add more scripts are documented under [JavaScript](#javascript).
 
 #### How were the files sourced and what changes were made to them?
 

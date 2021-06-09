@@ -2,7 +2,7 @@
  ** Build Base Assets
  **
  ** This is a node.js script that copies base assets from
- ** the repoSrc set in jpl-ds.config.js (e.g. www-frontend) and:
+ ** the wwwSrc set in www-sync.config.js (e.g. www-frontend) and:
  ** 1. copies tailwind.config.js
  ** 2. copies base scss files
  ** 3. copies font css as a scss partial
@@ -10,24 +10,25 @@
  **
  */
 
-const config = require('../jpl-ds.config.js')
+const config = require('../www-sync.config.js')
 const path = require('path')
 var copyfiles = require('copyfiles')
 const fs = require('fs')
 
 // paths
-const repoSrc = config.repoSrc
+const wwwSrc = config.wwwSrc
+const destFolder = config.destFolder
 
-const tailwindSrc = path.join(repoSrc, 'tailwind.config.js')
-const tailwindDest = path.join(__dirname, '../')
+const tailwindSrc = path.join(wwwSrc, 'tailwind.config.js')
+const tailwindDest = path.join(destFolder)
 
-const scssFiles = path.join(repoSrc, 'assets/styles/_*.scss')
-const scssDest = path.join(__dirname, '../src/scss/')
+const scssFiles = path.join(wwwSrc, 'assets/styles/_*.scss')
+const scssDest = path.join(destFolder, 'src/scss/')
 
-const fontsCSS = path.join(repoSrc, 'static/styles/font-face.css')
-const fontsFolderArchivo = path.join(repoSrc, 'static/fonts/archivo-narrow/*')
-const fontsFolderMetropolis = path.join(repoSrc, 'static/fonts/metropolis/*')
-const fontsDest = path.join(__dirname, '../src/fonts/')
+const fontsCSS = path.join(wwwSrc, 'static/styles/font-face.css')
+const fontsFolderArchivo = path.join(wwwSrc, 'static/fonts/archivo-narrow/*')
+const fontsFolderMetropolis = path.join(wwwSrc, 'static/fonts/metropolis/*')
+const fontsDest = path.join(destFolder, 'src/fonts/')
 
 // copy tailwind config to this repo
 copyfiles([tailwindSrc, tailwindDest], { up: true }, function (err) {
