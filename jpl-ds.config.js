@@ -22,6 +22,7 @@ module.exports = {
     'AnimationCaret',
     'BaseButton',
     'BaseImage',
+    'BaseImageCaption',
     'BaseImagePlaceholder',
     'BlockImage',
     'BasePlaceholder',

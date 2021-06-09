@@ -1,6 +1,10 @@
+# mac OS
 .DS_Store
+
+# npm
 node_modules/
 npm-debug.log
+
+# parcel.js
 .parcel-cache
 /src/.parcel
-# not ignoring dist since that's what we're distributing
