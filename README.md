@@ -1,7 +1,7 @@
 # Explorer 1: JPL's Design System
 
 [![Release info](https://img.shields.io/badge/version-1.0.0--alpha-yellow)](https://internal.ghe.server/18x/jpl-design-system/releases)
-[![View on GitHub](https://img.shields.io/badge/npm-@jpl%2Fexplorer--1-informational)](https://internal.npm.registry/#/detail/@jpl/explorer-1)
+[![View on internal.npm.registry](https://img.shields.io/badge/npm-@jpl%2Fexplorer--1-informational)](https://internal.npm.registry/#/detail/@jpl/explorer-1)
 [![View on GitHub](https://img.shields.io/badge/github-18x%2Fjpl--design--system-informational)](https://internal.ghe.server/18x/jpl-design-system)
 
 **This package is an active work-in-progress and not ready for use on other projects.** It will aim to include all of the frontend assets (bundled and scss) necessary to work with the html markup available through the [Explorer 1 Storybook](https://designlabinternal.domain/storybook/).
