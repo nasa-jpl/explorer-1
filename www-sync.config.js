@@ -11,13 +11,13 @@
 const path = require('path')
 
 module.exports = {
-  // repoSrc:
+  // wwwSrc:
   // the path to the frontend repo www-frontend
   // default config assumes you have the www-frontend repo as a sibling folder to this repo
-  repoSrc: path.join(__dirname, '../www-frontend/'),
+  wwwSrc: path.join(__dirname, '../www-frontend/'),
 
   // components:
-  // component folder names that we want to bring over from repoSrc
+  // component folder names that we want to bring over from wwwSrc
   components: [
     'AnimationCaret',
     'BaseButton',
@@ -33,6 +33,10 @@ module.exports = {
     'HeroFocalPoint',
     'HeroMedia',
   ],
+
+  // destFolder:
+  // the destination path root for the design system in this local repo
+  destFolder: path.join(__dirname, './'),
 
   // scssFolder:
   // where the scss files for each component should be created in the local repo

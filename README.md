@@ -59,7 +59,7 @@ This package includes the base styles of Explorer 1 (typography, colors, spacing
 
 ### Components
 
-Not all components are included. A list of available components can be viewed in the `components[]` array in [jpl-ds.config.js](./jpl-ds.config.js). Components will be added in phases which are currently dictated by DesignLab's priority projects. If there is a component you would like to have included, please submit a feature request.
+Not all components are included. A list of available components can be viewed in the `components[]` array in [www-sync.config.js](./www-sync.config.js). Components will be added in phases which are currently dictated by DesignLab's priority projects. If there is a component you would like to have included, please submit a feature request.
 
 ## Using bundled assets
 
@@ -139,11 +139,11 @@ npm run build
 
 #### Included Components:
 
-A list of included components can be viewed in the `components` array in [jpl-ds.config.js](./jpl-ds.config.js)
+A list of included components can be viewed in the `components` array in [www-sync.config.js](./www-sync.config.js)
 
 #### Important notes:
 
-- The included components are currently arbitrary and geared toward testing. They can be selected by modifying `jpl-ds.config.js`
+- The included components are currently arbitrary and geared toward testing. They can be selected by modifying `www-sync.config.js`
 - `index.html` demos some html markup and scripts (lazyload) but it is not comprehensive and is not intended to be.
 - Purge settings can be modified in `tailwind.purge.config.js`. Currently they are set to purge against www-frontend
 
@@ -169,7 +169,7 @@ This repo contains several configuration files. Here is a breakdown of what each
 
 | File                       | Description                                                                                                       | Src          |
 | :------------------------- | :---------------------------------------------------------------------------------------------------------------- | :----------- |
-| `jpl-ds.config.js`         | Main configuration file for this repo. Determines which components are included in the distributed design system. | local        |
+| `www-sync.config.js`       | Main configuration file for this repo. Determines which components are included in the distributed design system. | local        |
 | `tailwind.config.js`       | Tailwind CSS config file copied directly from www-frontend without making any changes                             | www-frontend |
 | `tailwind.purge.config.js` | Purge configuration for this repo.                                                                                | local        |
 | `postcss.config.js`        | PostCSS configuration for this repo. Note that purge settings are handled via tailwind configuration              | local        |
@@ -182,7 +182,7 @@ This repo contains several configuration files. Here is a breakdown of what each
 # update base tailwind, scss, and font files
 npm run sync:base
 
-# update component scss based on components configured in `jpl-ds.config.js`
+# update component scss based on components configured in `www-sync.config.js`
 npm run sync:components
 
 # update all assets
