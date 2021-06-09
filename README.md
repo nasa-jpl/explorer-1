@@ -106,7 +106,7 @@ const explorer1Config = require('@jpl/explorer-1/tailwind.config.js')
 module.exports = {
   ...explorer1Config,
   purge: ['../**/*.html'], // this will override explorer-1's purge settings
-
+}
 ```
 
 Lean more about [TailwindCSS configuration](https://tailwindcss.com/docs/configuration).
