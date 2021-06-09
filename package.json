@@ -1,6 +1,6 @@
 {
   "name": "@jpl/explorer-1",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Packaged styles and assets for DesignLab's design system, Explorer 1",
   "author": "DesignLab",
   "repository": {
@@ -23,9 +23,9 @@
   },
   "parcel-namer-rewrite": {
     "rules": {
-      "index.js": "js/scripts.min.js",
+      "index.js": "js/explorer-1.min.js",
       "(.*)\\.(.*)\\.(woff2|woff)": "fonts/$1.$3",
-      "index.css": "css/styles.min.css"
+      "index.css": "css/explorer-1.min.css"
     }
   },
   "dependencies": {

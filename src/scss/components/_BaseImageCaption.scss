@@ -1,0 +1,27 @@
+
+.BaseImageCaption {
+  @apply text-gray-mid-dark;
+  > div > .the-caption-text {
+    > p {
+      @apply inline #{!important};
+    }
+    a {
+      @apply text-jpl-red underline cursor-pointer;
+      @include hover {
+        @apply text-jpl-red-dark;
+      }
+      .ThemeDark & {
+        @apply text-jpl-red-light;
+        @include hover {
+          @apply text-jpl-red-dark;
+        }
+      }
+    }
+  }
+  .ThemeLight & {
+    @apply text-gray-mid-dark;
+  }
+  .ThemeDark & {
+    @apply text-gray-mid;
+  }
+}
