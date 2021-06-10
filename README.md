@@ -70,7 +70,7 @@ Include all styles and javascript by adding the bundled css and js to your proje
 
 ```html
 <!-- css -->
-<link href="/dist/css/explorer-1.min.js" rel="stylesheet" />
+<link href="/dist/css/explorer-1.min.css" rel="stylesheet" />
 
 <!-- javascript -->
 <script src="/dist/js/explorer-1.min.js"></script>
