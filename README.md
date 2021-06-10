@@ -70,10 +70,10 @@ Include all styles and javascript by adding the bundled css and js to your proje
 
 ```html
 <!-- css -->
-<link href="/dist/css/explorer-1.min.css" rel="stylesheet" />
+<link href="explorer-1.min.css" rel="stylesheet" />
 
 <!-- javascript -->
-<script src="/dist/js/explorer-1.min.js"></script>
+<script src="explorer-1.min.js"></script>
 ```
 
 Reference the [Explorer 1 Storybook](https://designlabinternal.domain/storybook/) for HTML snippets.

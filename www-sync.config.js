@@ -21,6 +21,7 @@ module.exports = {
   components: [
     'AnimationCaret',
     'BaseButton',
+    'BaseHeading',
     'BaseImage',
     'BaseImageCaption',
     'BaseImagePlaceholder',
