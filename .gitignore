@@ -8,3 +8,12 @@ npm-debug.log
 # parcel.js
 .parcel-cache
 /src/.parcel
+
+### PyCharm ###
+.idea
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
