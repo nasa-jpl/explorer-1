@@ -33,6 +33,7 @@ module.exports = {
     'HeroFeature',
     'HeroFocalPoint',
     'HeroMedia',
+    'Icons',
   ],
 
   // destFolder:
