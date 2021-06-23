@@ -27,6 +27,8 @@ function copyScss(dest, src, name) {
     if (err) throw err
     if (data.match(regex) && data.match(regex)[1]) {
       let styles = data.match(regex)[1] // first capturing group is the styles
+      // remove swiper @imports
+      styles = styles.replace("@import 'swiper/swiper-bundle.css';\n", '')
       // 1. create the scss file for the component
       fs.writeFile(dest, styles, function (err) {
         if (err) throw err

@@ -1,0 +1,16 @@
+
+.BlockInlineImage {
+  .ThemeDark & {
+    > div {
+      @apply text-white;
+    }
+  }
+  .ie11 & {
+    @screen lg {
+      @apply flex;
+      > div {
+        @apply px-5;
+      }
+    }
+  }
+}
