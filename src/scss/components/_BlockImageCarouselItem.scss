@@ -1,7 +1,9 @@
 
-.slide-caption {
-  @apply invisible;
-  .swiper-slide-active & {
+.BlockImageCarousel .swiper-slide {
+  .slide-caption {
+    @apply invisible;
+  }
+  &.swiper-slide-active .slide-caption {
     @apply visible;
   }
 }

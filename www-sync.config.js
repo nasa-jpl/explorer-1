@@ -23,7 +23,7 @@ module.exports = {
     'ArticleCarousel',
     'ArticleCarouselItem',
     'BaseButton',
-    'BaseCarouselCards', // imports swiper
+    'BaseCarouselCards',
     'BaseHeading',
     'BaseImage',
     'BaseImageCaption',
@@ -33,8 +33,8 @@ module.exports = {
     'BlockIframeEmbed',
     'BlockInlineImage',
     'BlockImage',
-    'BlockImageCarousel', // imports swiper
-    'BlockImageCarouselItem', // scoped
+    'BlockImageCarousel',
+    'BlockImageCarouselItem',
     'BlockImageGallery',
     'BlockKeyPoints',
     'BlockQuote',
