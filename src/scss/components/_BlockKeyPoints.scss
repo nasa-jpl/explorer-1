@@ -1,0 +1,29 @@
+
+.BlockKeyPoints {
+  ul li {
+    &::before {
+      @apply bg-jpl-red;
+      @apply inline-block;
+      @apply relative;
+      @apply mr-4;
+      @apply flex-shrink-0;
+      @apply mt-3;
+
+      content: '';
+      width: 30px;
+      height: 2px;
+      vertical-align: middle;
+    }
+    .BlockText {
+      p {
+        @apply mb-2;
+        @screen lg {
+          @apply mb-2;
+        }
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+    }
+  }
+}

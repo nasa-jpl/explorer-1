@@ -1,0 +1,29 @@
+
+@import 'swiper/swiper-bundle.css';
+.BlockImageCarousel {
+  .BaseLightboxOpenButton {
+    @apply opacity-0 transition-opacity duration-100;
+  }
+  &:hover {
+    .BaseLightboxOpenButton {
+      @apply opacity-100 transition-opacity duration-75;
+    }
+  }
+  .swiper-container {
+    .swiper-prev {
+      @apply mr-px;
+    }
+    .swiper-prev,
+    .swiper-next {
+      &.swiper-button-disabled {
+        @apply opacity-75 cursor-default bg-none;
+      }
+    }
+  }
+  .swiper-nav {
+    padding-top: 56.25%;
+  }
+  .swiper-dots {
+    padding-top: 56.25%;
+  }
+}

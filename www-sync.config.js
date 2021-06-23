@@ -20,20 +20,35 @@ module.exports = {
   // component folder names that we want to bring over from wwwSrc
   components: [
     'AnimationCaret',
+    'ArticleCarousel',
+    'ArticleCarouselItem',
     'BaseButton',
+    'BaseCarouselCards', // imports swiper
     'BaseHeading',
     'BaseImage',
     'BaseImageCaption',
     'BaseImagePlaceholder',
-    'BlockImage',
+    'BaseLink',
     'BasePlaceholder',
+    'BlockIframeEmbed',
+    'BlockInlineImage',
+    'BlockImage',
+    'BlockImageCarousel', // imports swiper
+    'BlockImageCarouselItem', // scoped
+    'BlockImageGallery',
+    'BlockKeyPoints',
     'BlockQuote',
+    'BlockRelatedLinks',
+    'BlockTable',
     'BlockTeaser',
     'BlockText',
+    'BlockVideoEmbed',
     'HeroFeature',
     'HeroFocalPoint',
     'HeroMedia',
     'Icons',
+    'RoboticsDetailFacts',
+    'RoboticsDetailFactsItem',
   ],
 
   // destFolder:

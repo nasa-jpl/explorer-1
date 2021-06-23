@@ -1,0 +1,7 @@
+
+.slide-caption {
+  @apply invisible;
+  .swiper-slide-active & {
+    @apply visible;
+  }
+}
