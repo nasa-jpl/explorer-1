@@ -6,26 +6,9 @@
 import SwiperCore, { Navigation, Pagination, Lazy, A11y } from 'swiper/core'
 SwiperCore.use([Navigation, Lazy, A11y, Pagination])
 
-// define options for each component
-
-// default options
-const SwiperDefaults = new SwiperCore(
-  '.BlockCarouselDefault .swiper-container',
-  {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  }
-)
-
-// example of customized options
-const SwiperBlockCarouselExample = new SwiperCore(
-  '.BlockCarouselExample .swiper-container',
+// BaseCarouselCards
+const BaseCarouselCards = new SwiperCore(
+  '.BaseCarouselCards .swiper-container',
   {
     slidesPerView: 1.25,
     speed: 500,
@@ -36,23 +19,31 @@ const SwiperBlockCarouselExample = new SwiperCore(
     watchSlidesVisibility: true,
     loop: false,
     preloadImages: false,
-    // check swiper.js docs to learn how to use lazy loading on slide elements
-    // https://swiperjs.com/api/#lazy
     lazy: {
       loadPrevNext: true,
       loadOnTransitionStart: true,
       loadPrevNextAmount: 2,
     },
+    navigation: {
+      nextEl: '.swiper-next',
+      prevEl: '.swiper-prev',
+    },
     breakpoints: {
       640: {
-        slidesPerView: 1.25,
+        slidesPerView: 1,
       },
       768: {
-        slidesPerView: 2.25,
+        slidesPerView: 2,
       },
       1280: {
-        slidesPerView: 3.25,
+        slidesPerView: 2,
         spaceBetween: 56,
+      },
+    },
+    on: {
+      init(swiper) {
+        swiper.$el.removeClass('opacity-0')
+        swiper.$el.addClass('opacity-100')
       },
     },
   }

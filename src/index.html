@@ -106,88 +106,6 @@
       <h2
         class="text-subtitle text-gray-dark pb-4 border-b border-gray-mid my-10"
       >
-        Swiper
-      </h2>
-
-      <h3 class="text-h5 mb-3">Custom Swiper Options</h3>
-      <div class="BlockCarouselExample w-full overflow-hidden mb-10">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <!-- slides -->
-            <div class="swiper-slide">
-              <div>
-                <img
-                  data-src="https://picsum.photos/1200/900"
-                  data-srcset="https://picsum.photos/1200/900 1200w,"
-                  alt="alt text for image"
-                  loading="lazy"
-                  class="BaseImage object-contain lazyload"
-                  width="1200"
-                  height="900"
-                />
-              </div>
-              <p>Caption</p>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img
-                  data-src="https://picsum.photos/1200/900"
-                  data-srcset="https://picsum.photos/1200/900 1200w,"
-                  alt="alt text for image"
-                  loading="lazy"
-                  class="BaseImage object-contain lazyload"
-                  width="1200"
-                  height="900"
-                />
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img
-                  data-src="https://picsum.photos/1200/900"
-                  data-srcset="https://picsum.photos/1200/900 1200w,"
-                  alt="alt text for image"
-                  loading="lazy"
-                  class="BaseImage object-contain lazyload"
-                  width="1200"
-                  height="900"
-                />
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img
-                  data-src="https://picsum.photos/1200/900"
-                  data-srcset="https://picsum.photos/1200/900 1200w,"
-                  alt="alt text for image"
-                  loading="lazy"
-                  class="BaseImage object-contain lazyload"
-                  width="1200"
-                  height="900"
-                />
-              </div>
-              <p>Another caption</p>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img
-                  data-src="https://picsum.photos/1200/900"
-                  data-srcset="https://picsum.photos/1200/900 1200w,"
-                  alt="alt text for image"
-                  loading="lazy"
-                  class="BaseImage object-contain lazyload"
-                  width="1200"
-                  height="900"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2
-        class="text-subtitle text-gray-dark pb-4 border-b border-gray-mid my-10"
-      >
         Hero Feature
       </h2>
       <section
@@ -383,6 +301,153 @@
           </div>
         </div>
       </div>
+      <h2
+        class="text-subtitle text-gray-dark pb-4 border-b border-gray-mid my-10"
+      >
+        Base Carousel Cards
+      </h2>
+
+      <nav
+        class="BaseCarouselCards w-full overflow-x-hidden -tiles"
+        aria-label="Base Carousel Cards"
+      >
+        <div class="BaseGrid container overflow-x-visible mx-auto">
+          <div class="lg:pl-0 col-start-1 col-end-13 px-4 mb-1 lg:col-start-2">
+            <div class="sm:flex flex-wrap items-center justify-between">
+              <div class="uppercase">
+                <h2 class="text-h4">Heading</h2>
+              </div>
+            </div>
+          </div>
+          <div
+            class="lg:pl-0 sm:col-end-11 3xl:col-end-12 col-start-1 col-end-13 pl-4 overflow-x-visible lg:col-start-2"
+          >
+            <div
+              class="swiper-container transition-opacity duration-500 ease-in opacity-0"
+            >
+              <div class="swiper-wrapper">
+                <div
+                  class="swiper-slide bg-gray-dark text-white text-center font-bold py-28"
+                >
+                  <span class="uppercase">Card 1</span><br />
+                  each slide must have class "swiper-slide"
+                </div>
+                <div
+                  class="swiper-slide bg-gray-dark text-white text-center font-bold py-28"
+                >
+                  <span class="uppercase">Card 2</span><br />
+                  each slide must have class "swiper-slide"
+                </div>
+                <div
+                  class="swiper-slide bg-gray-dark text-white text-center font-bold py-28"
+                >
+                  <span class="uppercase">Card 3</span><br />
+                  each slide must have class "swiper-slide"
+                </div>
+                <div
+                  class="swiper-slide bg-gray-dark text-white text-center font-bold py-28"
+                >
+                  <span class="uppercase">Card 4</span><br />
+                  each slide must have class "swiper-slide"
+                </div>
+                <div
+                  class="swiper-slide bg-gray-dark text-white text-center font-bold py-28"
+                >
+                  <span class="uppercase">Card 5</span><br />
+                  each slide must have class "swiper-slide"
+                </div>
+                <div
+                  class="swiper-slide bg-gray-dark text-white text-center font-bold py-28"
+                >
+                  <span class="uppercase">Card 6</span><br />
+                  each slide must have class "swiper-slide"
+                </div>
+                <div
+                  class="swiper-slide bg-gray-dark text-white text-center font-bold py-28"
+                >
+                  <span class="uppercase">Card 7</span><br />
+                  each slide must have class "swiper-slide"
+                </div>
+              </div>
+              <div
+                class="swiper-navigation lg:block absolute top-0 left-0 hidden w-full"
+              >
+                <div class="xl:-ml-22 top-1/2 absolute left-0 z-30 -ml-20">
+                  <button
+                    aria-label="Previous slide"
+                    class="BaseButton text-contrast-none swiper-prev xl:text-xl -primary -icon-only inline-block z-10"
+                  >
+                    <span class="label block">
+                      <span aria-hidden="true" class="arrow-wrapper">
+                        <span class="arrow">
+                          <svg viewBox="0 0 50 50" class="IconPrev">
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M29 13.686l1.414 1.415-9.9 9.899 9.9 9.9L29 36.313 17.686 25 29 13.686z"
+                              fill="currentColor"
+                              aria-hidden="true"
+                              focusable="false"
+                            />
+                          </svg>
+                        </span>
+                        <span class="arrow-fixed">
+                          <svg viewBox="0 0 50 50" class="IconPrev">
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M29 13.686l1.414 1.415-9.9 9.899 9.9 9.9L29 36.313 17.686 25 29 13.686z"
+                              fill="currentColor"
+                              aria-hidden="true"
+                              focusable="false"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+
+                <div class="xl:-mr-22 top-1/2 absolute right-0 z-30 -mr-20">
+                  <button
+                    aria-label="Next slide"
+                    class="BaseButton text-contrast-none swiper-next xl:text-xl -primary -icon-only inline-block z-10"
+                  >
+                    <span class="label block">
+                      <span aria-hidden="true" class="arrow-wrapper">
+                        <span class="arrow">
+                          <svg viewBox="0 0 50 50" class="IconNext">
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M21 36.314l-1.414-1.415 9.9-9.899-9.9-9.9L21 13.687 32.314 25 21 36.314z"
+                              fill="currentColor"
+                              aria-hidden="true"
+                              focusable="false"
+                            />
+                          </svg>
+                        </span>
+                        <span class="arrow-fixed">
+                          <svg viewBox="0 0 50 50" class="IconNext">
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M21 36.314l-1.414-1.415 9.9-9.899-9.9-9.9L21 13.687 32.314 25 21 36.314z"
+                              fill="currentColor"
+                              aria-hidden="true"
+                              focusable="false"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
     <div class="bg-dark-blue py-8 mt-10 px-4 3xl:px-0">
       <p
