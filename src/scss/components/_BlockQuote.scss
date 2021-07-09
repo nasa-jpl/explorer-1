@@ -22,14 +22,14 @@
   }
   > .quote {
     line-height: 1.4; // custom
-    @apply font-primary italic text-xl font-medium pt-4 text-jpl-red;
+    @apply font-primary italic text-xl font-medium py-4 text-jpl-red;
     @screen lg {
       font-size: 1.875rem; // custom  // 30px
       @apply font-normal;
     }
   }
   > div > div > .attribution-text {
-    @apply flex justify-center items-start font-primary leading-normal text-sm text-left mt-1 p-4 text-gray-mid-dark;
+    @apply flex justify-center items-start font-primary leading-normal text-sm text-left mt-1 px-4 pb-4 text-gray-mid-dark;
     &::before {
       content: '—';
       @apply mr-2;
