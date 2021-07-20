@@ -48,3 +48,32 @@ const BaseCarouselCards = new SwiperCore(
     },
   }
 )
+
+// BlockImageCarousel
+const BlockImageCarousel = new SwiperCore(
+  '.BlockImageCarousel .swiper-container',
+  {
+    slidesPerView: 1,
+    speed: 500,
+    threshold: 20, // swipe threshold in px
+    loop: false,
+    preloadImages: false,
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true,
+    lazy: true,
+    navigation: {
+      nextEl: '.swiper-next',
+      prevEl: '.swiper-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+      bulletClass: 'swiper-dot',
+      bulletActiveClass: 'swiper-dot-active',
+      renderBullet: function (index, className) {
+        return `<button class="${className}" arial-label="Go to slide ${index}"><span></span></button>`
+      },
+    },
+  }
+)
