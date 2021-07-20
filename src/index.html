@@ -55,8 +55,8 @@
           <div class="BlockQuote md:px-0 px-4 mx-auto text-center">
             <hr aria-hidden="true" class="lg:mb-6 mb-3" />
             <p class="quote">
-              “A nice thing about it is it doesn't shatter.
-              If impacted, it bends rather than breaks and still has good optical properties.”
+              “A nice thing about it is it doesn't shatter. If impacted, it
+              bends rather than breaks and still has good optical properties.”
             </p>
 
             <div class="inline-block">
@@ -72,9 +72,7 @@
 
           <div class="BlockQuote md:px-0 px-4 mx-auto mt-6 text-center">
             <hr aria-hidden="true" class="lg:mb-6 mb-3" />
-            <p class="quote">
-              “Short quote, no attribution.”
-            </p>
+            <p class="quote">“Short quote, no attribution.”</p>
             <hr aria-hidden="true" class="lg:mt-6 mt-3" />
           </div>
         </div>
@@ -100,6 +98,168 @@
               />
             </div>
           </div>
+        </div>
+      </div>
+
+      <h2
+        class="text-subtitle text-gray-dark pb-4 border-b border-gray-mid my-10"
+      >
+        BlockImageCarousel
+      </h2>
+
+      <div class="BlockImageCarousel w-full overflow-hidden">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div>
+                <div
+                  class="BaseImagePlaceholder aspect-ratio-sixteen-nine dark-theme"
+                >
+                  <div>
+                    <img
+                      data-src="https://placekitten.com/869/700"
+                      data-srcset="https://placekitten.com/320/258 320w, https://placekitten.com/869/700 1024w"
+                      alt="Fourth image"
+                      loading="lazy"
+                      class="BaseImage object-contain lazyload"
+                      width="869"
+                      height="700"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="lg:px-0 p-4 pb-0">
+                <div class="BaseImageCaption text-body-sm">
+                  <div class="inline mr-2">
+                    <div class="the-caption-text inline">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed vel porttitor urna. Maecenas at est laoreet,
+                        sagittis risus a, rutrum ipsum. Quisque tincidunt lacus
+                        nunc, dapibus facilisis felis scelerisque sit amet.
+                      </p>
+                    </div>
+                    <span class="inline">Credit: NASA/JPL</span>
+                  </div>
+                  <div class="inline-block">
+                    <a
+                      href="#"
+                      class="group -default underline text-theme-red can-hover:hover:text-theme-red-hover cursor-pointer"
+                    >
+                      Full Image Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div>
+                <div
+                  class="BaseImagePlaceholder aspect-ratio-sixteen-nine dark-theme"
+                >
+                  <div>
+                    <img
+                      data-src="https://placekitten.com/1600/900"
+                      alt="cat"
+                      loading="lazy"
+                      class="BaseImage object-contain lazyload"
+                      width="869"
+                      height="700"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div>
+                <div
+                  class="BaseImagePlaceholder aspect-ratio-sixteen-nine dark-theme"
+                >
+                  <div>
+                    <img
+                      data-src="https://placekitten.com/869/700"
+                      data-srcset="https://placekitten.com/320/258 320w, https://placekitten.com/869/700 1024w"
+                      alt="Fourth image"
+                      loading="lazy"
+                      class="BaseImage object-contain lazyload"
+                      width="869"
+                      height="700"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="lg:px-0 p-4 pb-0">
+                <div class="BaseImageCaption text-body-sm">
+                  <div class="inline mr-2">
+                    <div class="the-caption-text inline">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed vel porttitor urna. Maecenas at est laoreet,
+                        sagittis risus a, rutrum ipsum. Quisque tincidunt lacus
+                        nunc, dapibus facilisis felis scelerisque sit amet.
+                      </p>
+                    </div>
+                    <span class="inline">Credit: NASA/JPL</span>
+                  </div>
+                  <div class="inline-block">
+                    <a
+                      href="#"
+                      class="group -default underline text-theme-red can-hover:hover:text-theme-red-hover cursor-pointer"
+                    >
+                      Full Image Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-nav lg:block absolute inset-x-0 top-0 hidden h-0 overflow-hidden"
+          >
+            <div class="absolute inset-0">
+              <div class="absolute bottom-0 right-0 z-10 flex">
+                <button
+                  aria-label="Previous slide"
+                  class="BaseButton text-contrast-none swiper-prev xl:text-xl border-collapse -primary -icon-only inline-block"
+                >
+                  <span class="label block">
+                    <svg viewBox="0 0 50 50" class="IconPrev">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M29 13.686l1.414 1.415-9.9 9.899 9.9 9.9L29 36.313 17.686 25 29 13.686z"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+                <button
+                  aria-label="Next slide"
+                  class="BaseButton text-contrast-none swiper-next xl:text-xl border-collapse -primary -icon-only inline-block"
+                >
+                  <span class="label block">
+                    <svg viewBox="0 0 50 50" class="IconNext">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M21 36.314l-1.414-1.415 9.9-9.899-9.9-9.9L21 13.687 32.314 25 21 36.314z"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-pagination swiper-dots lg:hidden absolute top-0 w-full text-center"
+          ></div>
         </div>
       </div>
 
