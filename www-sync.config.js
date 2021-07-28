@@ -49,6 +49,7 @@ module.exports = {
     'Icons',
     'RoboticsDetailFacts',
     'RoboticsDetailFactsItem',
+    'SearchResultCard',
   ],
 
   // destFolder:

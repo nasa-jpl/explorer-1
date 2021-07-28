@@ -1,0 +1,18 @@
+
+.SearchResultCard {
+  .ie11 & {
+    .grid {
+      @apply flex justify-between flex-wrap;
+    }
+    .SearchResultCard-image {
+      @apply w-1/5 flex-shrink-0;
+    }
+    .col-span-6,
+    .flex.items-center.col-span-3 {
+      @apply w-4/5 pr-4;
+    }
+    .col-span-full.text-subtitle {
+      @apply flex-shrink-0 w-full;
+    }
+  }
+}
