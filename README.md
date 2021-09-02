@@ -92,7 +92,7 @@ your-project
     └── metropolis/
 ```
 
-Note: if you are using `explorer-1.min.css`, then you do not need to include `font-face.css`. The font face stylesheet is provided for [including font styles a la carte](#font-face.css).
+Note: if you are using `explorer-1.min.css`, then you do not need to include `font-face.css`. The font face stylesheet is provided for [including font styles a la carte](#font-facecss).
 
 ## Using assets a la carte
 
