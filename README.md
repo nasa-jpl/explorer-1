@@ -14,6 +14,7 @@
 - [Using bundled assets](#using-bundled-assets)
   - [Fonts](#fonts)
 - [Using assets a la carte](#using-assets-a-la-carte)
+  - [font-face.css](#font-facecss)
 - [Using the Explorer 1 Tailwind config](#using-the-explorer-1-tailwind-config)
 - [For Contributing Developers](#for-contributing-developers)
   - [Getting started](#getting-started)
@@ -80,7 +81,18 @@ Reference the [Explorer 1 Storybook](https://designlabinternal.domain/storybook/
 
 ### Fonts
 
-The bundled CSS references fonts with the relative path of `../fonts/`. You will need to add the fonts to your build process to ensure they are included in the relative path. An example of how to handle this is to write a node script that copies the `/dist/fonts/` folder to the correct path in your project.
+The bundled CSS (`explorer-1.min.css`) references fonts with the relative path of `../fonts/`. You will need to add the fonts to your build process to ensure they are included in the relative path. An example of how to handle this is to write a node script that copies the `/dist/fonts/` folder to the correct path in your project.
+
+```
+your-project
+├── css/
+│   ├── explorer-1.min.css
+└── fonts/
+    ├── archivo-narrow/
+    └── metropolis/
+```
+
+Note: if you are using `explorer-1.min.css`, then you do not need to include `font-face.css`. The font face stylesheet is provided for [including font styles a la carte](#font-face.css).
 
 ## Using assets a la carte
 
@@ -94,6 +106,19 @@ Once the npm package is installed, you can import individual assets as needed. B
 ```js
 // a la carte js
 require('@jpl/explorer-1/src/js/_detect-ie.js')
+```
+
+### font-face.css
+
+You can also include the font-face styles on their own. This is often desireable to improve font loading performance. To do this, use the `font-face.css` stylesheet in `dist/css/` with the `fonts` folder using the same relative path structure as in `dist`:
+
+```
+your-project
+├── css/
+│   ├── font-face.css
+└── fonts/
+    ├── archivo-narrow/
+    └── metropolis/
 ```
 
 ## Using the Explorer 1 Tailwind config
