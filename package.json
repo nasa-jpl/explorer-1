@@ -5,10 +5,7 @@
   "author": "DesignLab",
   "repository": {
     "type": "git",
-    "url": "https://internal.ghe.server/18x/jpl-design-system"
-  },
-  "publishConfig": {
-    "registry": "https://internal.npm.registry"
+    "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "scripts": {
     "start": "npm run dev",
