@@ -1,6 +1,16 @@
 export default {
-  title: 'Components/BaseHeading'
+  title: 'Components/Base/BaseHeading',
+  parameters: {
+    viewMode: 'docs',
+    docs: {
+      description: {
+        component:
+            'Base component for headings. Allows for different sizes with html tags for semantic markup.',
+      },
+    },
+  },
 };
+
 export const H1 = () => '<h1 class="text-h1">Heading 1</h1>'
 export const H2 = () => '<h2 class="text-h2">Heading 2</h2>'
 export const H3 = () => '<h3 class="text-h3">Heading 3</h3>'

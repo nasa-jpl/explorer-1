@@ -5,4 +5,4 @@ import { addons } from '@storybook/addons'
 import customTheme from './customTheme'
 
 // to collapse all sections and use custom theme
-addons.setConfig({ theme: customTheme, showRoots: false })
+addons.setConfig({ theme: customTheme,   sidebar: { showRoots: false,}, })
