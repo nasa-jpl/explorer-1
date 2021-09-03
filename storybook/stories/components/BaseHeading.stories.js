@@ -26,7 +26,7 @@ export default {
 };
 
 const Template = ({ text, size }) => {
-  return `<${size}>${text}</${size}>`;
+  return `<${size} class="text-${size}">${text}</${size}>`;
 };
 
 export const H1 = Template.bind({});
