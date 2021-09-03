@@ -31,8 +31,8 @@ This package aims to include all of the frontend assets (JS and SCSS) necessary 
 │   │   ├── explorer-1.min.css
 │   │   └── font-face.css
 │   ├── fonts/
-│   │   ├── ArchivoNarrow-(SemiBold|Bold).(woff|woff2)
-│   │   └── Metropolis-(Regular||Medium|SemiBold|Bold|ExtraBold).(woff|woff2)
+│   │   ├── archivo-narrow/
+│   │   └── metropolis/
 │   ├── js/explorer-1.min.js
 ├── src/
 │   ├── fonts/
