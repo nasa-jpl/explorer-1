@@ -19,7 +19,7 @@ This package aims to include all of the frontend assets (JS and SCSS) necessary 
   - [Configuration files explained](#configuration-files-explained)
   - [Syncing styles with www-frontend](#syncing-styles-with-www-frontend)
   - [JavaScript](#javascript)
-  - [Step-by-step instructions of how to import more components](#step-by-step-instructions-of-how-to-import-more-components)
+  - [Step-by-step instructions of how to import more components:](#step-by-step-instructions-of-how-to-import-more-components)
   - [Publishing to npm](#publishing-to-npm)
 
 ## What's included
@@ -27,11 +27,14 @@ This package aims to include all of the frontend assets (JS and SCSS) necessary 
 ```
 @jpl/explorer-1/
 ├── dist/
-│   ├── css/explorer-1.min.css
+│   ├── css/
+│   │   ├── explorer-1.min.css
+│   │   └── font-face.css
 │   ├── fonts/
-│   │   ├── ArchivoNarrow-(SemiBold|Bold).(woff|woff2)
-│   │   └── Metropolis-(Regular||Medium|SemiBold|Bold|ExtraBold).(woff|woff2)
-│   ├── js/explorer-1.min.js
+│   │   ├── archivo-narrow/
+│   │   └── metropolis/
+│   └── js/
+│       └── explorer-1.min.js
 ├── src/
 │   ├── fonts/
 │   ├── js/
@@ -57,7 +60,7 @@ Include all styles and scripts by adding the bundled CSS and JS to your project'
 
 ```html
 <!-- CSS -->
-<link href="/path/to/explorer-1.min.css" rel="stylesheet">
+<link href="/path/to/explorer-1.min.css" rel="stylesheet" />
 
 <!-- JavaScript -->
 <script src="/path/to/explorer-1.min.js"></script>
@@ -71,6 +74,17 @@ Then reference the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/
 
 The bundled CSS references fonts with the relative path of `../fonts/`. You will need to add the fonts to your build process to ensure they are included in the relative path. An example of how to handle this is to write a Node script that copies the `/dist/fonts/` folder to the correct path in your project.
 
+```
+your-project
+├── css/
+│   ├── explorer-1.min.css
+└── fonts/
+    ├── archivo-narrow/
+    └── metropolis/
+```
+
+Note: if you are using `explorer-1.min.css`, then you do not need to include `font-face.css`. The font face stylesheet is provided for [including font styles a la carte](#font-facecss).
+
 ### Using assets a la carte
 
 Instead of including all of the bundled CSS and JS, you can import individual assets as needed. Below are some examples:
@@ -83,6 +97,19 @@ Instead of including all of the bundled CSS and JS, you can import individual as
 ```js
 // a la carte JS
 require('@jpl/explorer-1/src/js/_detect-ie.js')
+```
+
+#### font-face.css
+
+You can also include the font-face styles on their own. This is often desireable to improve font loading performance. To do this, use the `font-face.css` stylesheet in `dist/css/` with the `fonts` folder using the same relative path structure as in `dist`:
+
+```
+your-project
+├── css/
+│   ├── font-face.css
+└── fonts/
+    ├── archivo-narrow/
+    └── metropolis/
 ```
 
 ### Using the Explorer 1 Tailwind config
@@ -156,6 +183,7 @@ repos
 ```
 
 Scripts that handle the extraction:
+
 - `www-sync.config.js`
 - `utils/buildBase.js`
 - `utils/buildComponentScss.js`
@@ -216,7 +244,7 @@ Below are step-by-step instructions of how to import/add more components to the 
    # repo root
    npm run sync:components
    ```
-4. If the component includes custom functionality or JavaScript, it will need to be refactored manually. As an example, this has been done for [Swiper](https://swiperjs.com/), the basis of all of our sliders/carousels: [src/js/_swiper.js](./src/js/_swiper.js). Details on how to add more scripts are documented under [JavaScript](#javascript).
+4. If the component includes custom functionality or JavaScript, it will need to be refactored manually. As an example, this has been done for [Swiper](https://swiperjs.com/), the basis of all of our sliders/carousels: [src/js/\_swiper.js](./src/js/_swiper.js). Details on how to add more scripts are documented under [JavaScript](#javascript).
 
 #### How were the files sourced and what changes were made to them?
 
@@ -225,9 +253,9 @@ Several assets are copied from the www-frontend repo via npm scripts. Below is a
 **Files that are copied from [frontend-www](https://github.com/nasa-jpl/www-frontend):**
 
 - Tailwind config: `tailwind.config.js`
-- SCSS files: entire `/assets/scss/` folder*
+- SCSS files: entire `/assets/scss/` folder\*
 - Webfonts: entire `/static/fonts/` folder
-- Webfont CSS: `/static/styles/font-face.css`*
+- Webfont CSS: `/static/styles/font-face.css`\*
 
 \* All of the above files are untouched except for:
 

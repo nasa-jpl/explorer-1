@@ -10,7 +10,8 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "run-p watch browsersync",
-    "build": "npm run build:clean && parcel build ./src/index.js --no-source-maps",
+    "build": "npm run build:clean && parcel build ./src/index.js --no-source-maps && npm run build:fontcss",
+    "build:fontcss": "cp ./src/scss/_fonts.scss ./dist/css/font-face.css",
     "build:clean": "rimraf ./dist && rimraf .parcel-cache",
     "watch": "rimraf ./src/_app && parcel ./src/index.html --dist-dir ./src/.parcel/",
     "browsersync": "browser-sync start --config bs.config.js",
@@ -21,7 +22,8 @@
   "parcel-namer-rewrite": {
     "rules": {
       "index.js": "js/explorer-1.min.js",
-      "(.*)\\.(.*)\\.(woff2|woff)": "fonts/$1.$3",
+      "ArchivoNarrow-(.*)\\.(.*)\\.(woff2|woff)": "fonts/archivo-narrow/ArchivoNarrow-$1.$3",
+      "Metropolis-(.*)\\.(.*)\\.(woff2|woff)": "fonts/metropolis/Metropolis-$1.$3",
       "index.css": "css/explorer-1.min.css"
     }
   },
