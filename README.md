@@ -33,7 +33,7 @@ This package aims to include all of the frontend assets (JS and SCSS) necessary 
 │   ├── fonts/
 │   │   ├── archivo-narrow/
 │   │   └── metropolis/
-│   ├── js/explorer-1.min.js
+│   └── js/explorer-1.min.js
 ├── src/
 │   ├── fonts/
 │   ├── js/
