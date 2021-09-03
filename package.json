@@ -1,14 +1,11 @@
 {
   "name": "@jpl/explorer-1",
-  "version": "1.0.0-alpha.14",
+  "version": "1.0.0-alpha.15",
   "description": "Packaged frontend assets for JPL's design system, Explorer 1",
   "author": "DesignLab",
   "repository": {
     "type": "git",
-    "url": "https://internal.ghe.server/18x/jpl-design-system"
-  },
-  "publishConfig": {
-    "registry": "https://internal.npm.registry"
+    "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "scripts": {
     "start": "npm run dev",
