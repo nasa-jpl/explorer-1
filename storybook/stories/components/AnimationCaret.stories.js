@@ -1,7 +1,8 @@
-// import { addDecorator } from "@storybook/html";
-
 export default {
   title: 'Components/Base/AnimationCaret',
+  decorators: [
+    (Template) => (`<div id="storyDecorator" class="w-64">${Template()}</div>`),
+  ],
   argTypes: {
     text: {
       type: 'string',
@@ -71,8 +72,6 @@ const Template = ({ text, inline }) => {
     </span>
   `;
 };
-
-// addDecorator(Template => `<div id="storyDecorator" class="w-64">${Template()}</div>`);
 
 export const Default = Template.bind({});
 Default.args = { text: 'Hover for animation', inline: false };
