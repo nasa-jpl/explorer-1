@@ -1,7 +1,10 @@
+// import { Template } from './BaseHeading.stories.js'
+
 export default {
   title: 'Components/Base/AnimationCaret',
+  excludeStories: /.*Template$/,
   decorators: [
-    (Template) => (`<div id="storyDecorator" class="w-64">${Template()}</div>`),
+    (Template) => `<div id="storyDecorator" class="w-64">${Template()}</div>`,
   ],
   argTypes: {
     text: {
@@ -23,15 +26,15 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'This component appends an animated caret to a line of text.',
+        component:
+          'This component appends an animated caret to a line of text.',
       },
     },
   },
-};
+}
 
-const Template = ({ text, inline }) => {
-  inline = inline ? ' caret-inline' : '';
-
+export const AnimationCaretTemplate = ({ text, inline }) => {
+  inline = inline ? ' caret-inline' : ''
   return `
     <span class="AnimationCaret${inline}">
       <span>${text}</span>
@@ -70,11 +73,11 @@ const Template = ({ text, inline }) => {
         </span>
       </span>
     </span>
-  `;
-};
+  `
+}
 
-export const Default = Template.bind({});
-Default.args = { text: 'Hover for animation', inline: false };
+export const Default = AnimationCaretTemplate.bind({})
+Default.args = { text: 'Hover for animation', inline: false }
 
-export const Inline = Template.bind({});
-Inline.args = { text: 'Longer text to demonstrate text wrap', inline: true };
+export const Inline = AnimationCaretTemplate.bind({})
+Inline.args = { text: 'Longer text to demonstrate text wrap', inline: true }

@@ -1,5 +1,8 @@
+import { AnimationCaretTemplate } from './AnimationCaret.stories.js'
+
 export default {
   title: 'Components/Base/BaseHeading',
+  excludeStories: /.*Template$/,
   argTypes: {
     text: {
       type: 'string',
@@ -21,27 +24,33 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Base component for headings. Allows for different sizes with html tags for semantic markup.',
+        component:
+          'Base component for headings. Allows for different sizes with html tags for semantic markup.',
       },
     },
   },
-};
+}
 
-const Template = ({ text, size }) => {
-  return `<${size} class="text-${size}">${text}</${size}>`;
-};
+export const BaseHeadingTemplate = ({ text, size }) => {
+  const caret = AnimationCaretTemplate({
+    text: 'Animation Caret',
+    inline: true,
+  })
+  return `${caret}
+  <${size} class="text-${size}">${text}</${size}>`
+}
 
-export const H1 = Template.bind({});
-H1.args = { text: 'Heading 1', size: 'h1' };
+export const H1 = BaseHeadingTemplate.bind({})
+H1.args = { text: 'Heading 1', size: 'h1' }
 
-export const H2 = Template.bind({});
-H2.args = { text: 'Heading 2', size: 'h2' };
+export const H2 = BaseHeadingTemplate.bind({})
+H2.args = { text: 'Heading 2', size: 'h2' }
 
-export const H3 = Template.bind({});
-H3.args = { text: 'Heading 3', size: 'h3' };
+export const H3 = BaseHeadingTemplate.bind({})
+H3.args = { text: 'Heading 3', size: 'h3' }
 
-export const H4 = Template.bind({});
-H4.args = { text: 'Heading 4', size: 'h4' };
+export const H4 = BaseHeadingTemplate.bind({})
+H4.args = { text: 'Heading 4', size: 'h4' }
 
-export const H5 = Template.bind({});
-H5.args = { text: 'Heading 5', size: 'h5' };
+export const H5 = BaseHeadingTemplate.bind({})
+H5.args = { text: 'Heading 5', size: 'h5' }
