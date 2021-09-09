@@ -1,4 +1,4 @@
-import { AnimationCaretTemplate } from './AnimationCaret.stories.js'
+import { BaseHeadingTemplate } from './BaseHeading.js'
 
 export default {
   title: 'Components/Base/BaseHeading',
@@ -29,15 +29,6 @@ export default {
       },
     },
   },
-}
-
-export const BaseHeadingTemplate = ({ text, size }) => {
-  const caret = AnimationCaretTemplate({
-    text: 'Animation Caret',
-    inline: true,
-  })
-  return `${caret}
-  <${size} class="text-${size}">${text}</${size}>`
 }
 
 export const H1 = BaseHeadingTemplate.bind({})
