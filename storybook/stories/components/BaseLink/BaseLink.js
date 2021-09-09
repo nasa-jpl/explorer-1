@@ -1,8 +1,8 @@
-import { AnimationCaretTemplate } from "../AnimationCaret/AnimationCaret";
+import { AnimationCaretTemplate } from "../AnimationCaret/AnimationCaret"
 
 export const BaseLinkTemplate = ({ text, variant, link, caret, caretInline, target, externalTargetBlank }) => {
-  let template = text;
-  let variantType = variant.toLowerCase();
+  let template = text
+  let variantType = variant.toLowerCase()
 
   if (caretInline && caret) {
     template = AnimationCaretTemplate({
@@ -16,19 +16,19 @@ export const BaseLinkTemplate = ({ text, variant, link, caret, caretInline, targ
     })
   }
 
-  let theTarget = '';
+  let theTarget = ''
   if (target) {
     theTarget = target
   } else if (link && externalTargetBlank) {
     theTarget = '_blank'
   }
 
-  let theRel = '';
+  let theRel = ''
   if (theTarget === '_blank') {
     theRel = 'noopener'
   }
 
-  let computedClass = '';
+  let computedClass = ''
   if (variantType === "primary" || variantType === "secondary") {
     computedClass = ' text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
   } else if (variantType === "default") {

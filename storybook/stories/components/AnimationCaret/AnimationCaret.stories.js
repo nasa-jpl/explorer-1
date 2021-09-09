@@ -2,10 +2,6 @@ import { AnimationCaretTemplate } from './AnimationCaret.js'
 
 export default {
   title: 'Components/Base/AnimationCaret',
-  excludeStories: /.*Template$/,
-  decorators: [
-    (Template) => `<div id="storyDecorator" class="w-64">${Template()}</div>`,
-  ],
   argTypes: {
     text: {
       type: 'string',
@@ -38,3 +34,4 @@ Default.args = { text: 'Hover for animation', inline: false }
 
 export const Inline = AnimationCaretTemplate.bind({})
 Inline.args = { text: 'Longer text to demonstrate text wrap', inline: true }
+Inline.decorators = [(Story) => `<div id="storyDecorator" class="w-64">${Story()}</div>`]

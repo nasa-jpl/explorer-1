@@ -2,7 +2,6 @@ import { BaseHeadingTemplate } from './BaseHeading.js'
 
 export default {
   title: 'Components/Base/BaseHeading',
-  excludeStories: /.*Template$/,
   argTypes: {
     text: {
       type: 'string',

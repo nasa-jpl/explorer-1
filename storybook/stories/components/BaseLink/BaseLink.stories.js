@@ -2,7 +2,6 @@ import { BaseLinkTemplate } from './BaseLink.js'
 
 export default {
   title: 'Components/Base/BaseLink',
-  excludeStories: /.*Template$/,
   argTypes: {
     text: {
       type: 'string',
