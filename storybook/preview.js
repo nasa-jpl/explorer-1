@@ -36,11 +36,52 @@ export const parameters = {
     theme: customTheme,
   },
 
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
+    },
+  },
+
+  options: {
+    storySort: {
+      order: [
+        'Introduction',
+        'Roadmap',
+        'Getting Started',
+        ['Developer'],
+        'Brand Identity',
+        [
+          'Colors',
+          'Typography',
+          'Logos',
+          ['LogoTribrand'],
+          'Icons',
+          'Themes',
+          'Responsive Design',
+          'Grid and Layout',
+        ],
+        'Components',
+        [
+          'Base',
+          ['Overview'],
+          'Blocks',
+          ['Overview', 'BlockStreamfield'],
+          'Heroes',
+        ],
+        'Layouts',
+        'WWW',
+        [
+          'Components',
+          ['Base'],
+          'Header & Footer',
+          ['Navigation', 'TheFooter', 'Elements', ['NavDesktop', 'NavMobile']],
+          'Layouts',
+          ['PageHomepage'],
+        ],
+        'GoSites',
+      ],
     },
   },
 }

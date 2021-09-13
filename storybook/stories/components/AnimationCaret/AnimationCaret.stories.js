@@ -20,6 +20,9 @@ export default {
   },
   parameters: {
     viewMode: 'docs',
+    html: {
+      root: '#storyDecorator', // omit decorators from html output
+    },
     docs: {
       description: {
         component:
@@ -34,4 +37,6 @@ Default.args = { text: 'Hover for animation', inline: false }
 
 export const Inline = AnimationCaretTemplate.bind({})
 Inline.args = { text: 'Longer text to demonstrate text wrap', inline: true }
-Inline.decorators = [(Story) => `<div id="storyDecorator" class="w-64">${Story()}</div>`]
+Inline.decorators = [
+  (Story) => `<div id="storyDecorator" class="w-64">${Story()}</div>`,
+]
