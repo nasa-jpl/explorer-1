@@ -48,7 +48,6 @@ export const parameters = {
     storySort: {
       order: [
         'Introduction',
-        'Roadmap',
         'Getting Started',
         ['Developer'],
         'Brand Identity',
@@ -71,16 +70,6 @@ export const parameters = {
           'Heroes',
         ],
         'Layouts',
-        'WWW',
-        [
-          'Components',
-          ['Base'],
-          'Header & Footer',
-          ['Navigation', 'TheFooter', 'Elements', ['NavDesktop', 'NavMobile']],
-          'Layouts',
-          ['PageHomepage'],
-        ],
-        'GoSites',
       ],
     },
   },
