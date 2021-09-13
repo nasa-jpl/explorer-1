@@ -1,0 +1,362 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs'
+
+<Meta
+  title="Brand Identity/Grid and Layout"
+  parameters={{ viewMode: 'docs' }}
+/>
+
+# Grid and Layout
+
+We use a 12-column grid paired with our [Responsive Design](?path=/docs/brand-identity-responsive-design--overview) strategy to create all of our page and component layouts.
+
+> The examples on this page assume you are viewing this page on a desktop. Examples may not appear correct on smaller screens.
+
+- [BaseGrid](#basegrid)
+  - [Example Usage](#example-usage)
+- [Mixed Bleed](#mixed-bleed)
+  - [Example Usage](#example-usage-1)
+- [Full Page Mockup](#full-page-mockup)
+
+## BaseGrid
+
+There is a globally available `.BaseGrid` class that is the basis of our main grid, which contains `12` columns with a gutter of `gap-6`.
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story name="BaseGrid">
+    {`
+      <div class="max-w-screen-3xl mx-auto">
+        <div class="BaseGrid container mx-auto mb-10 bg-gray-light-mid">
+          <div class="text-center text-white bg-gray-mid-dark p-4">1</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">2</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">3</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">4</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">5</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">6</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">7</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">8</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">9</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">10</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">11</div>
+          <div class="text-center text-white bg-gray-mid-dark p-4">12</div>
+        </div>
+        <div class="container mx-auto">
+          <div class="text-white bg-gray-mid-dark p-4">
+            Container, but no grid
+          </div>
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+Although `.BaseGrid` is always used with or wrapped by a `.container`, `.BaseGrid` itself does not include any margins or container behavior. This is to allow for maximum flexibility when using this class in your components:
+
+```css
+.BaseGrid {
+  @apply grid grid-cols-12 gap-6;
+}
+```
+
+Things like margins and container can be applied as needed, such as:
+
+```html
+<div class="BaseGrid container mx-auto">
+  Centered 12 col grid bound by container
+</div>
+```
+
+If you just need a container and no grid, you can simply omit the `BaseGrid`:
+
+```html
+<div class="container mx-auto">Content with no grid</div>
+```
+
+### Example Usage
+
+Some common component layouts:
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story name="ComponentA">
+    {`
+      <div class="BaseGrid container mx-auto border border-jpl-red-light">
+        <div class="col-start-4 col-end-10 bg-black text-white px-4 py-10">
+          Starts at col 4 and ends at the col 10 line.
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story name="ComponentB">
+    {`
+      <div class="BaseGrid container mx-auto border border-jpl-red-light">
+        <div class="col-start-2 col-end-8 bg-black text-white px-4 py-10">
+          About the mission
+        </div>
+        <div class="col-start-8 col-end-12 bg-black text-white px-4 py-10">
+          Instrument list
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+---
+
+## Mixed Bleed
+
+Some components only bleed to one side of the screen. There is a `.MixedBleedGrid` class available for use that sets named grid lines.
+
+| Named Line        | Description                          |
+| :---------------- | :----------------------------------- |
+| `bleed-start`     | Left edge of the viewport            |
+| `container-start` | Left edge of the standard container  |
+| `indent-col-2`    | Aligns with column 2 in `BaseGrid`   |
+| `indent-col-3`    | Aligns with column 3 in `BaseGrid`   |
+| `container-end`   | Right edge of the standard container |
+| `bleed-end`       | Right edge of the viewport           |
+
+These named lines are used to construct the following `col-start-` and `col-end-` classes:
+
+```css
+@responsive {
+  .col-start-bleed {
+    grid-column-start: bleed-start;
+  }
+  .col-end-container-start {
+    grid-column-end: container-start;
+  }
+  .col-start-container {
+    grid-column-start: container-start;
+  }
+  .col-start-indent-col-2 {
+    grid-column-start: indent-col-2;
+  }
+  .col-start-indent-col-3 {
+    grid-column-start: indent-col-3;
+  }
+  .col-end-container {
+    grid-column-end: container-end;
+  }
+  .col-start-container-end {
+    grid-column-start: container-end;
+  }
+  .col-end-bleed {
+    grid-column-end: bleed-end;
+  }
+}
+```
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story name="MixedBleedGridLines">
+    {`
+      <div class="max-w-screen-3xl mx-auto bg-white">
+        <div class="BaseGrid container mx-auto bg-gray-light-mid mb-5">
+          <div class="text-center text-white bg-gray-mid-dark py-4">1</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">2</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">3</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">4</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">5</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">6</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">7</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">8</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">9</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">10</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">11</div>
+          <div class="text-center text-white bg-gray-mid-dark py-4">12</div>
+        </div>
+        <div class="MixedBleedGrid">
+          <div class="col-start-bleed col-end-bleed py-5 mb-5 text-sm border-l border-jpl-red">
+            <code>[bleed-start]<br>
+            .col-start-bleed</code>
+          </div>
+          <div class="col-start-container col-end-bleed py-5 mb-5 text-sm border-l border-jpl-red">
+            <code>[container-start]<br>
+            .col-start-container</code>
+          </div>
+          <div class="col-start-indent-col-2 col-end-bleed py-5 mb-5 text-sm border-l border-jpl-red">
+            <code>[indent-col-2]<br>
+            .col-start-indent-col-2</code>
+          </div>
+          <div class="col-start-indent-col-3 col-end-bleed py-5 mb-5 text-sm border-l border-jpl-red">
+            <code>[indent-col-3]<br>
+            .col-start-indent-col-3</code>
+          </div>
+          <div class="col-start-bleed col-end-container py-5 mb-5 text-sm border-r border-jpl-red text-right">
+            <code>[container-end]<br>
+            .col-end-container<br>
+            .col-start-container-end</code>
+          </div>
+          <div class="col-start-bleed col-end-bleed py-5 mb-5 text-sm border-r border-jpl-red text-right">
+            <code>[bleed-end]<br>
+            .col-end-bleed</code>
+          </div>
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+### Example Usage
+
+Responsive styles within the component will need to be determined on a case-by-base basis. Usage of this class is best followed by observing the examples.
+
+#### Simple mixed bleed
+
+Starts at `indent-col-2` (col-2 of the `BaseGrid`) and bleeds fully to the right.
+
+```html
+<div class="MixedBleedGrid">
+  <div class="col-start-indent-col-2 col-end-bleed">
+    Indented to col-2 and bleeds right
+  </div>
+</div>
+```
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story name="MixedBleed">
+    {`
+      <div>
+        <div class="MixedBleedGrid mb-10">
+          <div class="col-start-indent-col-2 col-end-bleed text-white bg-black px-4 py-10">
+            Gallery Container (inner layout not dependent on grid)
+          </div>
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Complex mixed bleed
+
+When elements of an indented MixedBleed area must align with the BaseGrid, we need to get a bit more creative. We will still use mixed bleed grid lines, but we will not use `BaseGrid` within since the container is already indented. We instead need to use a custom grid for this use-case. Luckily, with TailwindCSS, this is fairly straightforward. The nested grid should contain the number of columns offset by the amount that is already indented, and no `gap` should be used.
+
+```html
+<div class="MixedBleedGrid">
+  <div class="col-start-indent-col-3 col-end-container bg-black">
+    <div class="grid grid-cols-10">
+      <div class="col-start-2 col-end-7">Text aligned with apparent col 4</div>
+      <div class="col-start-7 col-end-11">Text aligned with apparent col 9</div>
+    </div>
+  </div>
+  <div class="col-start-container-end col-end-bleed bg-black"></div>
+</div>
+```
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story name="MixedBleedComplex">
+    {`
+      <div>
+        <div class="MixedBleedGrid mb-10">
+          <div class="col-start-indent-col-3 col-end-container text-white bg-black">
+            <div class="grid grid-cols-10 border border-jpl-red-light">
+              <div class="col-start-2 col-end-7 text-white px-4 py-10">
+                Text aligned with apparent col 4
+              </div>
+              <div class="col-start-7 col-end-11 px-4 py-10">
+                Text aligned with apparent col 9
+              </div>
+            </div>
+          </div>
+          <div class="col-start-container-end col-end-bleed bg-black"></div>
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+---
+
+## Full Page Mockup
+
+An example of the foundations of a full page layout.
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story name="FullPageDemo">
+    {`
+      <div class="w-full">
+        <div class="bg-black text-white py-5 mb-10">
+          <div class="max-w-screen-2xl mx-auto border border-white p-3">
+            Top Hat
+          </div>
+        </div>
+        <div class="bg-black mb-20 py-10">
+          <div class="container mx-auto text-white">
+              Page title with full bleed background<br>
+              Lorem ipsum dolor sit amet<br>
+              Consectatur
+          </div>
+        </div>
+        <div class="MixedBleedGrid mb-20">
+          <div class="col-start-indent-col-2 col-end-container bg-gray-light-mid py-10 border border-jpl-red-light">
+            <div class="grid grid-cols-11 gap-5">
+              <div class="col-start-2 col-end-7">
+                Countdown Timer
+              </div>
+              <div class="col-start-7 col-end-12">
+                Distance to Target
+              </div>
+            </div>
+          </div>
+          <div class="col-start-container-end col-end-bleed bg-gray-light-mid"></div>
+        </div>
+        <div class="BaseGrid container mx-auto mb-20 py-10">
+          <div class="col-start-2 col-end-8">
+            About the mission
+          </div>
+          <div class="col-start-8 col-end-12">
+            Instrument list
+          </div>
+        </div>
+        <div class="bg-black mb-20">
+          <div class="BaseGrid container mx-auto">
+            <div class="col-start-6 col-end-11 text-white border-b border-white py-5 my-10">
+              Full bleed background with BaseGrid inner container
+            </div>
+          </div>
+        </div>
+        <div class="BaseGrid container mx-auto mb-20">
+          <div class="col-start-2 col-end-7 py-10">
+            Mission Data
+          </div>
+          <div class="col-start-7 col-end-12 bg-black py-10 text-white text-center">
+            Square Image
+          </div>
+        </div>
+        <div class="BaseGrid container mx-auto mb-20">
+          <div class="col-start-3 col-end-11 py-10 text-center border-t border-b">
+            Blockquote
+          </div>
+        </div>
+        <div class="MixedBleedGrid mb-20">
+          <div class="col-start-indent-col-2 col-end-bleed px-5 py-10 border border-jpl-red-light">
+            Gallery Container
+          </div>
+        </div>
+        <div class="BaseGrid container mx-auto mb-2">
+          <div class="col-start-2 col-end-9 p-5 bg-gray-light-mid ">
+            Link 1
+          </div>
+        </div>
+        <div class="BaseGrid container mx-auto mb-20">
+          <div class="col-start-2 col-end-9 p-5 bg-gray-light-mid ">
+            Link 2
+          </div>
+        </div>
+        <div class="bg-gray-light-mid">
+          <div class="MixedBleedGrid mb-20">
+            <div class="col-start-indent-col-2 col-end-bleed px-5 py-10 border border-jpl-red-light">
+              Gallery Container
+            </div>
+          </div>
+        </div>
+        <div class="bg-black py-20">
+          <div class="container mx-auto text-white">
+              Footer
+          </div>
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>

@@ -1,0 +1,26 @@
+/* styles that are applied to story canvas */
+
+body.ThemeLight,
+.ThemeLight .sbdocs-preview {
+  background: #ffffff;
+}
+body.ThemeDark,
+.ThemeDark .sbdocs-preview {
+  background: #000000;
+}
+
+/* disabling these offsets as they only apply to fully assembled pages with a nav
+** .disable-nav-offset is applied via story decorators
+*/
+.disable-nav-offset .-nav-offset {
+  margin-top: 0;
+}
+.disable-nav-offset .-nav-offset::before {
+  display: none;
+}
+
+/* slightly smaller text size for <code> */
+.sbdocs-preview code,
+.sbdocs code {
+  font-size: 0.8rem;
+}
