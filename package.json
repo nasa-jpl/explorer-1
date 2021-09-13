@@ -30,19 +30,19 @@
     }
   },
   "dependencies": {
-    "@storybook/addon-a11y": "^6.3.7",
-    "@storybook/addon-docs": "^6.3.7",
-    "@storybook/addon-storysource": "^6.3.7",
     "@tailwindcss/forms": "^0.2.1",
-    "@whitespace/storybook-addon-html": "^5.0.0",
+    "swiper": "^6.6.2",
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "@parcel/transformer-sass": "^2.0.0-beta.2",
-    "@storybook/addon-essentials": "^6.4.0-alpha.33",
-    "@storybook/html": "^6.4.0-alpha.33",
+    "@storybook/addon-a11y": "^6.4.0-alpha.34",
+    "@storybook/addon-docs": "^6.4.0-alpha.34",
+    "@storybook/addon-essentials": "^6.4.0-alpha.34",
+    "@storybook/html": "^6.4.0-alpha.34",
+    "@whitespace/storybook-addon-html": "^5.0.0",
     "autoprefixer": "^10.2.4",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.14",
@@ -58,7 +58,6 @@
     "postcss-loader": "^5.0.0",
     "postcss-preset-env": "^6.7.0",
     "rimraf": "^3.0.2",
-    "storybook-addon-themes": "^6.1.0",
-    "swiper": "^6.6.2"
+    "storybook-addon-themes": "^6.1.0"
   }
 }

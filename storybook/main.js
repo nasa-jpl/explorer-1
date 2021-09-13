@@ -1,22 +1,21 @@
 module.exports = {
-  "stories": [
-    "./stories/**/*.stories.mdx",
-    "./stories/**/*.stories.@(js|jsx|ts|tsx)"
+  stories: [
+    './stories/**/*.stories.mdx',
+    './stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  "addons": [
-    "@storybook/addon-a11y",
-    "@storybook/addon-storysource",
-    "storybook-addon-themes",
-    "@whitespace/storybook-addon-html",
+  addons: [
     {
       name: '@storybook/addon-essentials',
       options: {
         backgrounds: false,
         actions: false,
-        controls: false,
-      }
-    }
+      },
+    },
+    '@storybook/addon-a11y',
+    '@whitespace/storybook-addon-html',
+    'storybook-addon-themes',
   ],
+  // removes deprecation warning
   features: {
     postcss: false,
   },
