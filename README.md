@@ -16,10 +16,7 @@ This package aims to include all of the frontend assets (JS and SCSS) necessary 
   - [Using the Explorer 1 Tailwind config](#using-the-explorer-1-tailwind-config)
 - [For contributing developers](#for-contributing-developers)
   - [Getting started](#getting-started)
-  - [Configuration files explained](#configuration-files-explained)
-  - [Syncing styles with www-frontend](#syncing-styles-with-www-frontend)
-  - [JavaScript](#javascript)
-  - [Step-by-step instructions of how to import more components:](#step-by-step-instructions-of-how-to-import-more-components)
+  - [Adding components](#adding-components)
   - [Publishing to npm](#publishing-to-npm)
 
 ## What's included
@@ -46,7 +43,45 @@ This package includes the base styles of Explorer 1 (typography, colors, spacing
 
 ### Components
 
-Not all components are included. A list of available components can be viewed in the `components[]` array in [www-sync.config.js](./www-sync.config.js). Components will be added in phases which are currently dictated by DesignLab's priority projects. If there is a component you would like to have included, please submit a feature request.
+Not all components are included. Components will be added as needed by DesignLab's priority projects. If there is a component you would like to have included, please submit a feature request.
+
+List of included components:
+
+```js
+  components: [
+    'AnimationCaret',
+    'ArticleCarousel',
+    'ArticleCarouselItem',
+    'BaseButton',
+    'BaseCarouselCards',
+    'BaseHeading',
+    'BaseImage',
+    'BaseImageCaption',
+    'BaseImagePlaceholder',
+    'BaseLink',
+    'BasePlaceholder',
+    'BlockIframeEmbed',
+    'BlockInlineImage',
+    'BlockImage',
+    'BlockImageCarousel',
+    'BlockImageCarouselItem',
+    'BlockImageGallery',
+    'BlockKeyPoints',
+    'BlockQuote',
+    'BlockRelatedLinks',
+    'BlockTable',
+    'BlockTeaser',
+    'BlockText',
+    'BlockVideoEmbed',
+    'HeroFeature',
+    'HeroFocalPoint',
+    'HeroMedia',
+    'Icons',
+    'RoboticsDetailFacts',
+    'RoboticsDetailFactsItem',
+    'SearchResultCard',
+  ],
+```
 
 ## Installation and usage
 
@@ -132,7 +167,7 @@ module.exports = {
 
 ## For contributing developers
 
-Documentation on how to run this project locally and add more components from the www storybook.
+Documentation on how to run this project locally and add more components.
 
 ### Getting started
 
@@ -153,119 +188,204 @@ Documentation on how to run this project locally and add more components from th
 
 #### Included components
 
-A list of included components can be viewed in the `components` array in [www-sync.config.js](./www-sync.config.js).
+Refer to and maintain the list of [included components](#components). Eventually this list will be derived from Storybook rather than maintained manually.
 
-#### Important notes
+### Adding components
 
-- The included components are currently arbitrary and geared toward testing. They can be selected by modifying `www-sync.config.js`.
-- `index.html` demos some HTML markup and scripts (lazyload) but it is not comprehensive and is not intended to be.
-- Purge settings can be modified in `tailwind.purge.config.js`. Currently they are set to purge against www-frontend.
+Adding a component requires the following:
 
-### Configuration files explained
+1. Name your component. It should be unique and use CamelCase.
+2. [Build it in a storybook story](#storybook). This will be the source of truth for component markup.
+3. [Add a SCSS file](#scss), if needed
+4. [Add a JavaScript file](#javascript), if needed
+5. Update the [list of included components](#components)
 
-This repo contains several configuration files. Here is a breakdown of what each one is for:
+#### Storybook
 
-| File                       | Description                                                                                          | Source       |
-| :------------------------- | :--------------------------------------------------------------------------------------------------- | :----------- |
-| `www-sync.config.js`       | Configuration file for extracting files from www-frontend. Determines which components are included. | explorer-1   |
-| `tailwind.config.js`       | Tailwind CSS config file copied directly from www-frontend                                           | www-frontend |
-| `tailwind.purge.config.js` | Purge configuration for this repo.                                                                   | explorer-1   |
-| `postcss.config.js`        | PostCSS configuration for this repo.                                                                 | explorer-1   |
+Storybook serves as the documentation for how to use the design system's foundational styles and the included components. New components can also be developed directly in Storybook.
 
-### Syncing styles with www-frontend
+##### Adding a component story
 
-Syncing with www-frontend means to extract SCSS from [www-frontend](https://github.com/nasa-jpl/www-frontend) for use in this package. This is a temporary solution until www-frontend is refactored to also use @jpl/explorer-1. File extraction is handled by the configuration file and scripts below and assumes that you have the `www-frontend` pulled locally, in a sibling folder to the jpl-design-system repo.
+1. **Create a folder:** all stories live in `/storybook/stories/`. If you are adding a component, create a new folder for your component in `/storybook/stories/components/`.
+2. **Create a template file:** create a file for your HTML template. The filename should match your component name, e.g. `MyComponent.js`. It should include one exported constant, named with your components name, and appended with `Template`. It will look something like this:
 
+   ```js
+   // MyComponent.js
+   export const MyComponentTemplate = () => {
+     return `<div class="MyComponent"><!-- more html markup --></div>`
+   }
+   ```
+
+   You could make your component reactive by passing arguments:
+
+   ```js
+   // MyComponent.js
+   export const MyComponentTemplate = ({ text }) => {
+     return `<div class="MyComponent">${text}</div>`
+   }
+   ```
+
+3. **Add stories for your component:** In the same folder, create your stories file. The filename should be your component name appended with `.stories.js`, e.g. `MyComponent.stories.js`. This file will import your HTML template and configure the stories that will be displayed. We are using the [Component Story Format (CSF)](https://storybook.js.org/docs/html/api/csf) to write our stories. Below is an example of CSF boilerplate for a component that has one argument:
+
+   ```js
+   // MyComponent.stories.js
+   import { MyComponentTemplate } from './MyComponent.js'
+
+   export default {
+     // the title also determines where the story will appear in the sidebar
+     title: 'Components/MyComponent',
+     // argTypes are optional
+     argTypes: {
+       text: {
+         type: 'string',
+         description: 'Text to display within the component',
+       },
+     },
+     // parameters are optional
+     parameters: {
+       viewMode: 'docs', // default to docs instead of canvas
+       docs: {
+         description: {
+           component:
+             'A brief description of the component. This will appear at the top of the docs page',
+         },
+       },
+     },
+   }
+   // Each export is a story. A minimum of one is required
+   export const StoryName1 = MyComponentTemplate.bind({})
+   StoryName1.args = { text: 'Example text 1' }
+
+   export const StoryName2 = MyComponentTemplate.bind({})
+   StoryName2.args = { text: 'Example text 2' }
+   ```
+
+   CSF is a flexible format that allows for adding more controls and documentation to your stories. Please read the [storybook documentation](https://storybook.js.org/docs/html/api/csf) to learn more about CSF.
+
+##### Reusing another component template
+
+If your component reuses other components (e.g. if you were building a dialog box component that uses `BaseButton`), you can also do the same when creating your storybook template. Here is an example component template that imports `MyComponent` and reuses its template:
+
+```js
+// AnotherComponent.js
+import { MyComponentTemplate } from 'path/to/MyComponent.js'
+export const AnotherComponentTemplate = () => {
+  const MyComponent = MyComponentTemplate({
+    text: 'Custom text for MyComponent',
+  })
+  return `<div class="AnotherComponent">
+    <p>Another component that reuses MyComponent</p>
+    ${MyComponent}
+  </div>`
+}
 ```
-repos
-├── jpl-design-system
-└── www-frontend
+
+##### Decorators
+
+Decorators are useful if you want to modify the layout of your component without including it in your template or HTML output. To use a decorator, wrap your template with an immediate parent of `#storyDecorator` and whatever surrounding layout that is needed. You can then set the html root of your story parameters to use the `#storyDecorator` as the root.
+
+```js
+// MyComponent.js
+export const MyComponentTemplate = () => {
+  return `<div class="container mx-auto">
+    <div id="#storyDecorator" class="lg:w-1/2">
+      <div class="MyComponent"><!-- more html markup --></div>
+    </div>
+  </div>`
+}
 ```
 
-Scripts that handle the extraction:
-
-- `www-sync.config.js`
-- `utils/buildBase.js`
-- `utils/buildComponentScss.js`
-
-**To update assets:**
-
-```sh
-# update base tailwind, scss, and font files
-npm run sync:base
-
-# update component scss based on components configured in `www-sync.config.js`
-npm run sync:components
-
-# update all assets
-npm run sync:all
+```js
+// MyComponent.stories.js
+export default {
+  // parameters are optional
+  parameters: {
+    ...
+    html: {
+      root: '#storyDecorator',
+    },
+    ...
+  },
+}
 ```
 
-> Assets are tracked in this repo.
+As long as `parameters.html.root` matches the parent wrapper element of your template, then this will work. `#storyDecorator` is recommended for consistency.
 
-### JavaScript
+#### SCSS
 
-JavaScript lives in `/src/js/` and [Parcel](https://parceljs.org/) is used to bundle all imports and script files.
+SCSS lives in `/src/scss/` and [Parcel](https://parceljs.org/) is used to compile all partials and imports. If you are writing SCSS for your component, all SCSS should be scoped by the component name. In general, try to avoid custom SCSS if possible, as most styling can be achieved by using inline TailwindCSS classes.
 
-#### Adding to scripts.js
+##### Adding SCSS
+
+If you are adding SCSS for component, create a SCSS partial for it in `/src/scss/components/` and import it in `/src/scss/_components.scss`. Partials for global styles should be imported in `/src/scss/styles.scss`. Filenames for component SCSS partials should use CamelCase, e.g. `_MyComponent.scss`
+
+Below is an example walkthrough of adding SCSS for a new component named `MyComponent`:
+
+1. Create a SCSS partial for your component: `/src/scss/components/_MyComponent.scss`
+2. Namepsace all styles with your component name:
+
+   ```scss
+   // _MyComponent.scss
+   .MyComponent {
+     @apply some-tailwind-class;
+     .sub-class {
+       // more styles
+     }
+   }
+   ```
+
+3. Import the partial in `/src/scss/_components.scss`
+   ```scss
+   // _components.scss
+   @import 'components/MyComponent';
+   ```
+
+#### JavaScript
+
+JavaScript lives in `/src/js/` and [Parcel](https://parceljs.org/) is used to compile all imports and script files.
+
+##### Adding to scripts.js
 
 You can add more scripts as `require()` statements to the `/src/js/scripts.js` file. A few files are already included: `_detect-ie.js`, `_lazysizes_.js`, and `_swiper.js`.
 
-#### Naming convention
+##### Naming convention
 
-Any script that will be required by `scripts.js` should start with an underscore, e.g.: `_my-script.js`.
+Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, it should use the component name CamelCase e.g.: `_MyComponent.js`.
 
-#### Using Node modules
+##### Using Node modules
 
 If you want to use Node modules, install the package as usual and add the necessary imports directly to `scripts.js` or a separate JS file that is then required in `scripts.js`. See `_lazysizes.js` as an example.
 
-### Step-by-step instructions of how to import more components:
+#### Update the list of included components
 
-If the component has been deemed "part of the distributed design system" (i.e., its styles are truly one-to-one with [www-frontend](https://github.com/nasa-jpl/www-frontend/) in all use cases), then it should be added to this repo. If the design is customized for a specific use case, then add it manually to the project that needs the custom component. Do not add it to this repo.
+Once you are done adding your component, be sure to update the [list of included components](#components).
 
-Below are step-by-step instructions of how to import/add more components to the design system, using `BasePlaceholder` as an example:
+#### In Summary
 
-1. First, this workflow requires that you have the `www-frontend` cloned locally, in a sibling folder to the jpl-design-system repo.
-   ```
-   repos
-   ├── jpl-design-system
-   └── www-frontend
-   ```
-2. Add the component name to `www-sync.config.js`
-   ```js
-   // www-sync.config.js
-   components: [
-     …
-     "BasePlaceholder",
-   ],
-   ```
-3. Sync component scss
-   ```bash
-   # repo root
-   npm run sync:components
-   ```
-4. If the component includes custom functionality or JavaScript, it will need to be refactored manually. As an example, this has been done for [Swiper](https://swiperjs.com/), the basis of all of our sliders/carousels: [src/js/\_swiper.js](./src/js/_swiper.js). Details on how to add more scripts are documented under [JavaScript](#javascript).
+Ultimately, the diff for adding a new component that required custom SCSS and JavaScript would look something like this (excluding build to dist):
 
-#### How were the files sourced and what changes were made to them?
-
-Several assets are copied from the www-frontend repo via npm scripts. Below is an outline of the copied files and their relation to this repo:
-
-**Files that are copied from [frontend-www](https://github.com/nasa-jpl/www-frontend):**
-
-- Tailwind config: `tailwind.config.js`
-- SCSS files: entire `/assets/scss/` folder\*
-- Webfonts: entire `/static/fonts/` folder
-- Webfont CSS: `/static/styles/font-face.css`\*
-
-\* All of the above files are untouched except for:
-
-- `font-face.css`: automatically renamed to `_fonts.scss` and placed in `/src/scss/` via `npm sync:base`
-- `/assets/scss/` folder has some files unique to this repo:
-  - `styles.scss`: similar to the original `main.scss` but with key differences (see comments in file for more details)
-  - `_fonts.scss`: updated and renamed from `font-face.css` via `npm sync:base`
-  - `_components.scss`: the scss partial that imports all component scss in `/src/scss/components/`, which is built by this repo via `npm sync:components`
+```
+@jpl/explorer-1/
+├── README.md                               # modified
+├── src/
+│   ├── js/
+│   │   ├── _MyComponent.js                 # new
+│   │   └── scripts.js                      # modified
+│   └── scss/
+│       ├── components/
+│       │   └── _MyComponent.scss           # new
+│       └── _components.scss                # modified
+└── storybook/
+    └── stories/
+        └── components/
+            └── MyComponent/                # new
+                ├── MyComponent.js          # new
+                └── MyComponent.stories.js  # new
+```
 
 ### Publishing to npm
+
+If any changes were made to the src files, be sure to [build to dist](#getting-started) before publishing to NPM.
 
 1. Login to the public npm registry with your account that has permission to manage this package
    ```bash

@@ -298,6 +298,7 @@ module.exports = {
     defaultLineHeights: true,
     standardFontWeights: true,
   },
-  // this part is specific to project
+  // override this at the project level
+  // TODO: change purge settings to purge against storybook files once all stories are added (thus all HTML)
   ...purgeConfig,
 }

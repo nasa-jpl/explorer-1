@@ -12,7 +12,7 @@ npm-debug.log
 # Storybook
 storybook_compiled
 
-### PyCharm ###
+# PyCharm
 .idea
 
 # IntelliJ
@@ -20,3 +20,6 @@ out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
+
+# Tailwind
+.www-frontend_temp/
