@@ -1,6 +1,5 @@
 import customTheme from './customTheme.js'
 import '../dist/css/explorer-1.min.css'
-import '../dist/css/font-face.css'
 import '../dist/js/explorer-1.min.js'
 import './canvas.css'
 
