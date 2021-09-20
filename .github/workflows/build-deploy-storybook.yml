@@ -11,7 +11,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,12 +30,6 @@ jobs:
       - name: Build static Storybook 🛠
         run: npm run build-storybook
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs:
-      - build
-    
-    steps:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
