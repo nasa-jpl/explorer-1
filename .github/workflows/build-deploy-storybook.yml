@@ -18,11 +18,14 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
-      - name: Install dependencies 🧱
+      - name: Set up Node ⬢
         uses: actions/setup-node@v2
         with:
           node-version: '14.4.0'
           cache: 'npm'
+
+      - name: Install dependencies 🧱
+        run: npm install
 
       - name: Build static Storybook 🛠
         run: npm run build-storybook
