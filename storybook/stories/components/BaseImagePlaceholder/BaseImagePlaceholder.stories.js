@@ -5,6 +5,8 @@ export default {
   argTypes: {
     aspectRatio: {
       type: 'string',
+      description:
+        'Aspect ratio CSS class. View dropdown to see all options. More classes can be added in `/src/scss/_aspect-ratios.scss`',
       control: {
         type: 'select',
         options: [
@@ -32,6 +34,7 @@ export default {
     },
     theme: {
       type: 'string',
+      description: 'Theme color for the placeholder background.',
       control: {
         type: 'select',
         options: ['light-theme', 'dark-theme', 'transparent-theme'],
@@ -42,9 +45,12 @@ export default {
     },
     noLogo: {
       type: 'boolean',
+      description: 'If a JPL logo should appear when there is no image',
     },
     objectFitClass: {
       type: 'string',
+      description:
+        "Apply a TailwindCSS object fit class to `BaseImage` to specify how the image will scale within the placeholder's aspect ratio.",
       control: {
         type: 'select',
         options: [
@@ -63,13 +69,17 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `The \`BaseImagePlaceholder\` component is designed to appear as a temporary stand-in to be replaced by an actual image.<br>
-          <ul>
-          <li>expects to contain an image as a child element in its primary slot</li>
-          <li>provides a lazy-loading block for the image to load into</li>
-          <li>can be used to maintain an aspect ratio</li>
-          <li>compatible with TailwindCSS classes, e.g. \`.rounded-lg\` to have round edges around the image. Think of it like a frame to put an image within.</li>
-          </ul>`,
+        component: `The \`BaseImagePlaceholder\` component is designed to appear as a temporary stand-in to be replaced by an actual image.
+
+- expects to contain an image as a child element in its primary slot
+- provides a lazy-loading block for the image to load into
+- can be used to maintain an aspect ratio
+- compatible with TailwindCSS classes, e.g. \`.rounded-lg\` to have round edges around the image. Think of it like a frame to put an image within.
+
+## Accessibility notes
+
+BaseImagePlaceholder is a presentational element consisting of a single \`div\` with a background image (JPL Logo), without semantic meaning, it simply prevents page load becoming janky by setting a 'placeholder' for the images that are yet to be loaded with loading="lazy" or LazySizes fallback. As such it should not need to meet color contrast requirements.
+          `,
       },
     },
   },
@@ -84,4 +94,29 @@ NoImage.args = {
   aspectRatio: 'aspect-ratio-two-one',
   noLogo: false,
   noImage: true,
+}
+export const LazyLoading = BaseImagePlaceholderTemplate.bind({})
+LazyLoading.args = {
+  noLogo: false,
+}
+LazyLoading.decorators = [
+  (Story) => `
+  <div class="max-w-full">
+    <div style="height:2500px">
+      Scroll down
+    </div>
+    <div id="storyDecorator">
+      ${Story()}
+    </div>
+  </div>
+  `,
+]
+LazyLoading.parameters = {
+  html: {
+    root: '#storyDecorator',
+  },
+  docs: {
+    storyDescription:
+      "`BaseImagePlaceholder` is compatible with `BaseImage`'s lazy loading behavior.",
+  },
 }
