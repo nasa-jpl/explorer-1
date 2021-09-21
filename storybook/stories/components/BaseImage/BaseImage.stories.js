@@ -93,8 +93,4 @@ LazyLoading.parameters = {
   html: {
     root: '#storyDecorator',
   },
-  docs: {
-    storyDescription:
-      '`class: -light` -- can be combined with any variant for light blue colors',
-  },
 }
