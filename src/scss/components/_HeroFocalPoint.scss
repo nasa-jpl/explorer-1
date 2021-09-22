@@ -14,14 +14,4 @@
       min-height: 963px; // maintains 1440x770 aspect ratio
     }
   }
-  .ie11 & {
-    @screen lg {
-      .content-wrapper {
-        @apply max-w-screen-xl mx-auto pt-28;
-        .bg-gradient-to-t {
-          background: rgba(0, 0, 0, 0.25);
-        }
-      }
-    }
-  }
 }

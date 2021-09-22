@@ -52,17 +52,4 @@
       transform: translate(0, -50%);
     }
   }
-  .ie11 & {
-    > .arrow-wrapper {
-      > .arrow,
-      > .arrow-fixed {
-        @apply top-0 mt-1;
-      }
-    }
-    &.caret-inline {
-      .arrow-wrapper {
-        @apply hidden;
-      }
-    }
-  }
 }
