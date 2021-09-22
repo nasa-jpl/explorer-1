@@ -78,7 +78,7 @@ export default {
 
 ## Accessibility notes
 
-BaseImagePlaceholder is a presentational element consisting of a single \`div\` with a background image (JPL Logo), without semantic meaning, it simply prevents page load becoming janky by setting a 'placeholder' for the images that are yet to be loaded with loading="lazy" or LazySizes fallback. As such it should not need to meet color contrast requirements.
+BaseImagePlaceholder is a presentational element consisting of a single \`div\` with a background image (JPL Logo), without semantic meaning, it simply prevents page load becoming janky by setting a 'placeholder' for the images that are yet to be loaded with \`loading="lazy"\` or LazySizes fallback. As such it should not need to meet color contrast requirements.
           `,
       },
     },
