@@ -20,9 +20,6 @@ export default {
   },
   parameters: {
     viewMode: 'docs',
-    html: {
-      root: '#storyDecorator', // omit decorators from html output
-    },
     docs: {
       description: {
         component:
@@ -40,3 +37,8 @@ Inline.args = { text: 'Longer text to demonstrate text wrap', inline: true }
 Inline.decorators = [
   (Story) => `<div id="storyDecorator" class="w-64">${Story()}</div>`,
 ]
+Inline.parameters = {
+  html: {
+    root: '#storyDecorator',
+  },
+}
