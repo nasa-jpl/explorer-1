@@ -4,11 +4,9 @@ export const BaseImageTemplate = ({
   alt,
   width,
   height,
-  loading,
   imageClass,
   objectFitClass,
 }) => {
-  if (!loading) loading = 'lazy'
   return `<div>
   <img
     class="BaseImage ${imageClass} ${objectFitClass} lazyload"
@@ -17,7 +15,7 @@ export const BaseImageTemplate = ({
     alt="${alt}"
     width="${width}"
     height="${height}"
-    loading="${loading}"
+    loading="lazy"
   />
 </div>`
 }
