@@ -19,16 +19,6 @@ export default {
     height: {
       type: { name: 'number', required: true },
     },
-    loading: {
-      type: 'string',
-      control: {
-        type: 'select',
-        options: ['lazy', 'eager'],
-      },
-      table: {
-        defaultValue: { summary: 'lazy' },
-      },
-    },
     objectFitClass: {
       type: 'string',
       description:
@@ -68,7 +58,6 @@ export const BaseImageData = {
   alt: 'Alt text for image',
   width: '800',
   height: '400',
-  loading: 'lazy',
   imageClass: '',
   objectFitClass: 'object-contain',
 }
