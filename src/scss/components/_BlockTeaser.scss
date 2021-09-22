@@ -15,11 +15,4 @@
       }
     }
   }
-  .ie11 & {
-    @screen lg {
-      > .grid {
-        @apply w-1/2 px-10;
-      }
-    }
-  }
 }
