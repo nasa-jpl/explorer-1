@@ -1,8 +1,18 @@
 import { AnimationCaretTemplate } from "../AnimationCaret/AnimationCaret"
 
-export const BaseLinkTemplate = ({ text, variant, link, caret, caretInline, target, externalTargetBlank }) => {
+export const BaseLinkTemplate = ({ 
+  text, 
+  variant, 
+  link, 
+  caret, 
+  caretInline, 
+  target, 
+  externalTargetBlank,
+  computedClass,
+  wrapperClass,
+}) => {
   let template = text
-  let variantType = variant.toLowerCase()
+  let variantType = variant ? variant.toLowerCase() : ''
 
   if (caretInline && caret) {
     template = AnimationCaretTemplate({
@@ -28,20 +38,19 @@ export const BaseLinkTemplate = ({ text, variant, link, caret, caretInline, targ
     theRel = 'noopener'
   }
 
-  let computedClass = ''
   if (variantType === "primary" || variantType === "secondary") {
-    computedClass = ' text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
+    computedClass = 'text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
   } else if (variantType === "default") {
-    computedClass = ' -default underline text-theme-red can-hover:hover:text-theme-red-hover'
+    computedClass = '-default underline text-theme-red can-hover:hover:text-theme-red-hover'
   }
 
   return `
-    <div>
+    <div class="${wrapperClass}">
       <a
         href="${link}"
         target="${theTarget}"
         rel="${theRel}"
-        class="group${computedClass}"
+        class="group ${computedClass}"
       >
         ${template}
       </a>

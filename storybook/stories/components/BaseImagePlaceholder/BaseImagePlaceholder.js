@@ -7,6 +7,7 @@ export const BaseImagePlaceholderTemplate = ({
   aspectRatio,
   objectFitClass,
   noImage,
+  wrapperClass,
 }) => {
   if (!theme) theme = 'light-theme'
   if (!aspectRatio) aspectRatio = 'aspect-ratio-none'
@@ -22,7 +23,7 @@ export const BaseImagePlaceholderTemplate = ({
     theImage = `<div></div>`
   }
   return `
-  <div>
+  <div class="${wrapperClass}">
     <div class="BaseImagePlaceholder ${theme} ${aspectRatio} ${noLogo}">
       ${theImage}
     </div>
