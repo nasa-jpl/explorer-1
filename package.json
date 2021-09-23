@@ -1,6 +1,6 @@
 {
-  "name": "@jpl/explorer-1",
-  "version": "1.0.0-alpha.15",
+  "name": "@nasa-jpl/explorer-1",
+  "version": "1.0.0-beta.1",
   "description": "Packaged frontend assets for JPL's design system, Explorer 1",
   "author": "DesignLab",
   "repository": {
