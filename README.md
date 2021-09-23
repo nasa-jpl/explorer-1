@@ -1,8 +1,8 @@
 # Explorer 1: JPL's Design System
 
-[![Release info](https://img.shields.io/badge/version-1.0.0--alpha-yellow)](https://github.com/nasa-jpl/explorer-1/releases)
-[![View on npm](https://img.shields.io/badge/npm-@jpl%2Fexplorer--1-informational)](https://npmjs.com/package/@jpl/explorer-1)
-[![View on GitHub](https://img.shields.io/badge/github-18x%2Fjpl--design--system-informational)](https://github.com/nasa-jpl/explorer-1)
+[![Release info](https://img.shields.io/badge/version-1.0.0--beta.1-yellowgreen)](https://github.com/nasa-jpl/explorer-1/releases)
+[![View on npm](https://img.shields.io/badge/npm-@nasa--jpl%2Fexplorer--1-informational)](https://npmjs.com/package/@nasa-jpl/explorer-1)
+[![View on GitHub](https://img.shields.io/badge/github-nasa--jpl%2Fexplorer--1-informational)](https://github.com/nasa-jpl/explorer-1)
 
 This package aims to include all of the frontend assets (JS and SCSS) necessary to create components using the HTML markup examples in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
 
@@ -22,7 +22,7 @@ This package aims to include all of the frontend assets (JS and SCSS) necessary 
 ## What's included
 
 ```
-@jpl/explorer-1/
+@nasa-jpl/explorer-1/
 ├── dist/
 │   ├── css/
 │   │   ├── explorer-1.min.css
@@ -86,7 +86,7 @@ List of included components:
 ## Installation and usage
 
 ```bash
-npm install @jpl/explorer-1
+npm install @nasa-jpl/explorer-1
 ```
 
 ### Using bundled assets
@@ -101,7 +101,7 @@ Include all styles and scripts by adding the bundled CSS and JS to your project'
 <script src="/path/to/explorer-1.min.js"></script>
 ```
 
-(You will need to get the two files out of the installed package in `node_modules/@jpl/explorer-1/dist/`, place them somewhere in your project, and update the paths to point to the right location.)
+(You will need to get the two files out of the installed package in `node_modules/@nasa-jpl/explorer-1/dist/`, place them somewhere in your project, and update the paths to point to the right location.)
 
 Then reference the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/) for HTML snippets you can use to create components.
 
@@ -126,12 +126,12 @@ Instead of including all of the bundled CSS and JS, you can import individual as
 
 ```scss
 // a la carte component SCSS
-@import '@jpl/explorer-1/src/scss/components/_BasePlaceholder';
+@import '@nasa-jpl/explorer-1/src/scss/components/_BasePlaceholder';
 ```
 
 ```js
 // a la carte JS
-require('@jpl/explorer-1/src/js/_detect-ie.js')
+require('@nasa-jpl/explorer-1/src/js/_detect-ie.js')
 ```
 
 #### font-face.css
@@ -155,7 +155,7 @@ Below is an example of how to use the Explorer 1 TailwindCSS config in your own 
 // custom-app/tailwind.config.js
 
 // import Explorer 1's Tailwind config
-const explorer1Config = require('@jpl/explorer-1/tailwind.config.js')
+const explorer1Config = require('@nasa-jpl/explorer-1/tailwind.config.js')
 
 module.exports = {
   ...explorer1Config,
@@ -365,7 +365,7 @@ Once you are done adding your component, be sure to update the [list of included
 Ultimately, the diff for adding a new component that required custom SCSS and JavaScript would look something like this (excluding build to dist):
 
 ```
-@jpl/explorer-1/
+@nasa-jpl/explorer-1/
 ├── README.md                               # modified
 ├── src/
 │   ├── js/
