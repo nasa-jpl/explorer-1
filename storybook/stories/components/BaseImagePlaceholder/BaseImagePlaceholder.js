@@ -12,7 +12,6 @@ export const BaseImagePlaceholderTemplate = ({
   width,
   height,
   objectFitClass,
-  imageClass,
   // Story props
   noImage,
 }) => {
@@ -30,7 +29,7 @@ export const BaseImagePlaceholderTemplate = ({
     alt: alt,
     width: width,
     height: height,
-    imageClass: imageClass,
+    imageClass: '',
     objectFitClass: objectFitClass,
   })
   return `<div${renderWrapperClass}>

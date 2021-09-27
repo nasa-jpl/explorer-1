@@ -56,8 +56,8 @@ export const BaseImageData = {
   src: 'https://picsum.photos/800/400',
   srcset: 'https://picsum.photos/800/400 800w, ',
   alt: 'Alt text for image',
-  width: '800',
-  height: '400',
+  width: 800,
+  height: 400,
   imageClass: '',
   objectFitClass: 'object-contain',
 }
