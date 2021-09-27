@@ -7,8 +7,9 @@ export const BaseImageTemplate = ({
   imageClass,
   objectFitClass,
 }) => {
-  return `<div>
-  <img
+  let theImage = `<div></div>`
+  if (src) {
+    theImage = `<img
     class="BaseImage ${imageClass} ${objectFitClass} lazyload"
     data-src="${src}"
     data-srcset="${srcset}"
@@ -16,6 +17,10 @@ export const BaseImageTemplate = ({
     width="${width}"
     height="${height}"
     loading="lazy"
-  />
+  />`
+  }
+
+  return `<div>
+  ${theImage}
 </div>`
 }

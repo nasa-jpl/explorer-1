@@ -2,17 +2,33 @@ import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 import { IconArrowTemplate } from '../Icons/IconArrow'
 
-export const ArticleCarouselItemTemplate = ({ url, title, label }) => {
+export const ArticleCarouselItemTemplate = ({
+  url,
+  title,
+  label,
+  // BaseImage props
+  src,
+  srcset,
+  alt,
+  width,
+  height,
+}) => {
   let baseImagePlaceholder = BaseImagePlaceholderTemplate({
     theme: 'dark-theme',
     noLogo: true,
     aspectRatio: 'aspect-ratio-sixteen-nine',
-    objectFitClass: 'object-cover',
     wrapperClass: 'lg:mb-10 bg-gray-dark relative mb-6 overflow-hidden',
+    src: src,
+    srcset: srcset,
+    alt: alt,
+    width: width,
+    height: height,
+    imageClass: '',
+    objectFitClass: 'object-cover',
   })
   let iconArrow = IconArrowTemplate()
-  
-  if (label){
+
+  if (label) {
     label = `
       <p class="text-subtitle mb-4">
         ${label}
@@ -37,10 +53,10 @@ export const ArticleCarouselItemTemplate = ({ url, title, label }) => {
       ${iconArrow}
     </div>
   `
-  
+
   let baseLink = BaseLinkTemplate({
     link: url,
-    text: template, 
+    text: template,
     computedClass: 'cursor-pointer block pb-5',
     wrapperClass: 'group',
   })
