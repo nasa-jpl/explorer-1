@@ -122,6 +122,7 @@ NoImage.args = {
 export const LazyLoading = BaseImagePlaceholderTemplate.bind({})
 LazyLoading.args = {
   noLogo: false,
+  ...BaseImageData,
 }
 LazyLoading.decorators = [
   (Story) => `

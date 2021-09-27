@@ -21,9 +21,6 @@ export default {
         component: '',
       },
     },
-    html: {
-      root: '#storyDecorator',
-    },
   },
 }
 
@@ -38,3 +35,8 @@ SingleItem.decorators = [
   (Story) =>
     `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3">${Story()}</div>`,
 ]
+SingleItem.parameters = {
+  html: {
+    root: '#storyDecorator',
+  },
+}
