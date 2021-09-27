@@ -16,8 +16,8 @@ jobs:
       # Update draft release notes as Pull Requests are merged into main
       - uses: release-drafter/release-drafter@v5
         with:
-          config-name: release-drafter.config.yml
-          tag: 1.0.0-beta.X
-          version: 1.0.0-beta.X
+          config-name: "release-drafter.config.yml"
+          tag: "1.0.0-beta.X"
+          version: "1.0.0-beta.X"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
