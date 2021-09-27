@@ -1,15 +1,25 @@
-import { AnimationCaretTemplate } from "../AnimationCaret/AnimationCaret"
+import { AnimationCaretTemplate } from '../AnimationCaret/AnimationCaret'
 
-export const BaseLinkTemplate = ({ text, variant, link, caret, caretInline, target, externalTargetBlank }) => {
+export const BaseLinkTemplate = ({
+  text,
+  variant,
+  link,
+  caret,
+  caretInline,
+  target,
+  externalTargetBlank,
+  computedClass,
+  wrapperClass,
+}) => {
   let template = text
-  let variantType = variant.toLowerCase()
+  let variantType = variant ? variant.toLowerCase() : ''
 
   if (caretInline && caret) {
     template = AnimationCaretTemplate({
       text: text,
       inline: true,
     })
-  } else if (variantType === "primary" || caret) {
+  } else if (variantType === 'primary' || caret) {
     template = AnimationCaretTemplate({
       text: text,
       inline: false,
@@ -28,20 +38,24 @@ export const BaseLinkTemplate = ({ text, variant, link, caret, caretInline, targ
     theRel = 'noopener'
   }
 
-  let computedClass = ''
-  if (variantType === "primary" || variantType === "secondary") {
-    computedClass = ' text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
-  } else if (variantType === "default") {
-    computedClass = ' -default underline text-theme-red can-hover:hover:text-theme-red-hover'
+  if (variantType === 'primary' || variantType === 'secondary') {
+    computedClass =
+      'text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
+  } else if (variantType === 'default') {
+    computedClass =
+      '-default underline text-theme-red can-hover:hover:text-theme-red-hover'
   }
 
+  let renderWrapperClass = ''
+  if (wrapperClass) renderWrapperClass = ` class="${wrapperClass}"`
+
   return `
-    <div>
+    <div${renderWrapperClass}>
       <a
         href="${link}"
         target="${theTarget}"
         rel="${theRel}"
-        class="group${computedClass}"
+        class="group ${computedClass}"
       >
         ${template}
       </a>
