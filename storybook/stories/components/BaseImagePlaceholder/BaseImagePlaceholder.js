@@ -12,8 +12,6 @@ export const BaseImagePlaceholderTemplate = ({
   width,
   height,
   objectFitClass,
-  // Story props
-  noImage,
 }) => {
   // interpret props
   if (!theme) theme = 'light-theme'
