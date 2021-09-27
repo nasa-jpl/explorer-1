@@ -1,4 +1,5 @@
 import { BaseImagePlaceholderTemplate } from './BaseImagePlaceholder.js'
+import { BaseImageData } from '../BaseImage/BaseImage.stories.js'
 
 export default {
   title: 'Components/Base/BaseImagePlaceholder',
@@ -47,10 +48,30 @@ export default {
       type: 'boolean',
       description: 'If a JPL logo should appear when there is no image',
     },
+    src: {
+      type: { name: 'string', required: true },
+      description: 'Passed to `BaseImage`.',
+    },
+    srcset: {
+      type: 'string',
+      description: 'Passed to `BaseImage`.',
+    },
+    alt: {
+      type: { name: 'string', required: true },
+      description: 'Passed to `BaseImage`.',
+    },
+    width: {
+      type: { name: 'number', required: true },
+      description: 'Passed to `BaseImage`.',
+    },
+    height: {
+      type: { name: 'number', required: true },
+      description: 'Passed to `BaseImage`.',
+    },
     objectFitClass: {
       type: 'string',
       description:
-        "Apply a TailwindCSS object fit class to `BaseImage` to specify how the image will scale within the placeholder's aspect ratio.",
+        "Passed to `BaseImage`. Apply a TailwindCSS object fit class to `BaseImage` to specify how the image will scale within the placeholder's aspect ratio.",
       control: {
         type: 'select',
         options: [
@@ -64,6 +85,9 @@ export default {
       table: {
         defaultValue: { summary: 'object-contain' },
       },
+    },
+    imageClass: {
+      table: { disable: true },
     },
   },
   parameters: {
@@ -88,16 +112,17 @@ BaseImagePlaceholder is a presentational element consisting of a single \`div\` 
 export const Default = BaseImagePlaceholderTemplate.bind({})
 Default.args = {
   noLogo: false,
+  ...BaseImageData,
 }
 export const NoImage = BaseImagePlaceholderTemplate.bind({})
 NoImage.args = {
   aspectRatio: 'aspect-ratio-two-one',
   noLogo: false,
-  noImage: true,
 }
 export const LazyLoading = BaseImagePlaceholderTemplate.bind({})
 LazyLoading.args = {
   noLogo: false,
+  ...BaseImageData,
 }
 LazyLoading.decorators = [
   (Story) => `
