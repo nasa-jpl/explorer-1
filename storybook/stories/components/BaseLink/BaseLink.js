@@ -1,12 +1,12 @@
-import { AnimationCaretTemplate } from "../AnimationCaret/AnimationCaret"
+import { AnimationCaretTemplate } from '../AnimationCaret/AnimationCaret'
 
-export const BaseLinkTemplate = ({ 
-  text, 
-  variant, 
-  link, 
-  caret, 
-  caretInline, 
-  target, 
+export const BaseLinkTemplate = ({
+  text,
+  variant,
+  link,
+  caret,
+  caretInline,
+  target,
   externalTargetBlank,
   computedClass,
   wrapperClass,
@@ -19,7 +19,7 @@ export const BaseLinkTemplate = ({
       text: text,
       inline: true,
     })
-  } else if (variantType === "primary" || caret) {
+  } else if (variantType === 'primary' || caret) {
     template = AnimationCaretTemplate({
       text: text,
       inline: false,
@@ -38,14 +38,19 @@ export const BaseLinkTemplate = ({
     theRel = 'noopener'
   }
 
-  if (variantType === "primary" || variantType === "secondary") {
-    computedClass = 'text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
-  } else if (variantType === "default") {
-    computedClass = '-default underline text-theme-red can-hover:hover:text-theme-red-hover'
+  if (variantType === 'primary' || variantType === 'secondary') {
+    computedClass =
+      'text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
+  } else if (variantType === 'default') {
+    computedClass =
+      '-default underline text-theme-red can-hover:hover:text-theme-red-hover'
   }
 
+  let renderWrapperClass = ''
+  if (wrapperClass) renderWrapperClass = ` class="${wrapperClass}"`
+
   return `
-    <div class="${wrapperClass}">
+    <div${renderWrapperClass}>
       <a
         href="${link}"
         target="${theTarget}"
