@@ -1,8 +1,9 @@
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 
 export const BaseImageCaptionTemplate = ({ caption, credit, url, link_text }) => {
+  let imageCredit = ''
   if (credit) {
-    credit = `<span class="inline"> Credit: ${credit} </span>`
+    imageCredit = `<span class="inline"> Credit: ${credit} </span>`
   }
 
   let baseLink = BaseLinkTemplate({
@@ -17,7 +18,7 @@ export const BaseImageCaptionTemplate = ({ caption, credit, url, link_text }) =>
   <div class="BaseImageCaption text-body-sm">
     <div class="inline mr-2">
       <div class="the-caption-text inline">${caption}</div>
-      ${credit}
+      ${imageCredit}
     </div>
     ${baseLink}
   </div>
