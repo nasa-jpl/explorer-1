@@ -6,9 +6,8 @@ export const BaseImageCaptionTemplate = ({
   url,
   link_text,
 }) => {
-  if (credit) {
-    credit = `<span class="inline"> Credit: ${credit} </span>`
-  }
+  credit = credit ? `<span class="inline"> Credit: ${credit} </span>` : ''
+  link_text = link_text ? link_text : ''
 
   let baseLink = BaseLinkTemplate({
     link: url,
