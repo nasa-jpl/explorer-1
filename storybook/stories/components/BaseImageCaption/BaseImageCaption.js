@@ -6,7 +6,7 @@ export const BaseImageCaptionTemplate = ({ caption, credit, url, link_text }) =>
 
   let baseLink = BaseLinkTemplate({
     link: url,
-    text: link_text, 
+    text: link_text,
     variant: 'default',
     computedClass: '',
     wrapperClass: 'inline-block',
