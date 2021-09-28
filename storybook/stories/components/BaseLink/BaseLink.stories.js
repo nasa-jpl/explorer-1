@@ -22,7 +22,7 @@ export default {
       type: 'string',
       description: 'Link URL',
     },
-    target:  {
+    target: {
       type: 'string',
       description: 'Link to a target ID',
     },
@@ -61,8 +61,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component:
-          'Base component for links.',
+        component: 'Base component for links.',
       },
     },
   },
