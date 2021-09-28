@@ -8,7 +8,7 @@ export default {
     },
     credit: {
       type: { name: 'string', required: false },
-      description: 'Optional credit information', 
+      description: 'Optional credit information',
     },
     url: {
       type: { name: 'string', required: false },
@@ -27,7 +27,8 @@ export default {
 
 export const Default = BaseImageCaptionTemplate.bind({})
 Default.args = {
-  caption: '<p>Aliquam finibus accumsan dapibus. In <a href="#">sagittis et sapien</a> nec vehicula. Suspendisse euismod consequat risus, vel dignissim elit scelerisque sed. Nullam elit ipsum, suscipit ut quam et, molestie aliquam leo.</p>',
+  caption:
+    '<p>Aliquam finibus accumsan dapibus. In <a href="#">sagittis et sapien</a> nec vehicula. Suspendisse euismod consequat risus, vel dignissim elit scelerisque sed. Nullam elit ipsum, suscipit ut quam et, molestie aliquam leo.</p>',
   credit: 'NASA/JPL',
   url: '#',
   link_text: 'Full Image Details',

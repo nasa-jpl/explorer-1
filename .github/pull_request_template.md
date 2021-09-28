@@ -17,11 +17,9 @@
 
 <!-- Describe your pull request. -->
 
-
 ## Instructions to test
 
 <!-- Provide instructions on how a reviewer can verify your work. -->
-
 
 ## Tested in the following environments/browsers:
 
