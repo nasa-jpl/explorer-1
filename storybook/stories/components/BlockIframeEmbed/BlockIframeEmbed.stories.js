@@ -4,7 +4,7 @@ export default {
   title: 'Components/Blocks/BlockIframeEmbed',
   argTypes: {
     title: {
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
       description: 'Iframe title used for accessibility'
     },
     url: {
@@ -12,7 +12,7 @@ export default {
       description: 'Link to the embed source',
     },
     height: {
-      type: { name: 'integer', required: true },
+      type: { name: 'integer', required: false },
       description: 'Iframe embed height',
       table: {
         defaultValue: { summary: '400' },
@@ -21,10 +21,6 @@ export default {
     caption: {
       type: { name: 'string', required: false },
       description: 'Iframe caption', 
-    },
-    link_text: {
-      type: { name: 'string', required: false },
-      description: 'Link to a page with more information/details.',
     },
   },
   parameters: {
@@ -37,18 +33,39 @@ export default {
   },
 }
 
-export const Default = BlockIframeEmbedTemplate.bind({})
-Default.args = {
+const BlockIframeEmbedData = {
   title: 'Eyes Perserverance Embed',
   url: 'https://eyes.nasa.gov/apps/orrery/#/sc_perseverance',
   height: 400,
   caption: '<p>With three giant blades stretching out some 66 feet (20 meters) from its cylindrical, six-sided body, the Juno spacecraft is a dynamic engineering marvel, spinning to keep itself stable as it makes oval-shaped orbits around Jupiter. View the full interactive experience at <a href="https://eyes.nasa.gov/apps/orrery/#/home">Eyes on the Solar System</a>.</p>',
-  link_text: '',
 }
+
+export const Default = BlockIframeEmbedTemplate.bind({})
+Default.args = BlockIframeEmbedData
 Default.decorators = [
   (Story) => `<div id="storyDecorator" class="mx-auto max-w-screen-md">${Story()}</div>`,
 ]
 Default.parameters = {
+  html: {
+    root: '#storyDecorator',
+  },
+}
+
+export const LazyLoad = BlockIframeEmbedTemplate.bind({})
+LazyLoad.args = BlockIframeEmbedData
+LazyLoad.decorators = [
+  (Story) => `
+  <div class="max-w-full">
+    <div style="height:2500px">
+      Scroll down
+    </div>
+    <div id="storyDecorator">
+      ${Story()}
+    </div>
+  </div>
+  `,
+]
+LazyLoad.parameters = {
   html: {
     root: '#storyDecorator',
   },
