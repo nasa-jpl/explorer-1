@@ -5,7 +5,7 @@ export default {
   argTypes: {
     title: {
       type: { name: 'string', required: false },
-      description: 'Iframe title used for accessibility'
+      description: 'Iframe title used for accessibility',
     },
     url: {
       type: { name: 'string', required: false },
@@ -20,7 +20,7 @@ export default {
     },
     caption: {
       type: { name: 'string', required: false },
-      description: 'Iframe caption', 
+      description: 'Iframe caption',
     },
   },
   parameters: {
@@ -37,13 +37,15 @@ const BlockIframeEmbedData = {
   title: 'Eyes Perserverance Embed',
   url: 'https://eyes.nasa.gov/apps/orrery/#/sc_perseverance',
   height: 400,
-  caption: '<p>With three giant blades stretching out some 66 feet (20 meters) from its cylindrical, six-sided body, the Juno spacecraft is a dynamic engineering marvel, spinning to keep itself stable as it makes oval-shaped orbits around Jupiter. View the full interactive experience at <a href="https://eyes.nasa.gov/apps/orrery/#/home">Eyes on the Solar System</a>.</p>',
+  caption:
+    '<p>With three giant blades stretching out some 66 feet (20 meters) from its cylindrical, six-sided body, the Juno spacecraft is a dynamic engineering marvel, spinning to keep itself stable as it makes oval-shaped orbits around Jupiter. View the full interactive experience at <a href="https://eyes.nasa.gov/apps/orrery/#/home">Eyes on the Solar System</a>.</p>',
 }
 
 export const Default = BlockIframeEmbedTemplate.bind({})
 Default.args = BlockIframeEmbedData
 Default.decorators = [
-  (Story) => `<div id="storyDecorator" class="mx-auto max-w-screen-md">${Story()}</div>`,
+  (Story) =>
+    `<div id="storyDecorator" class="mx-auto max-w-screen-md">${Story()}</div>`,
 ]
 Default.parameters = {
   html: {
