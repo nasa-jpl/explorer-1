@@ -1,6 +1,11 @@
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 
-export const BaseImageCaptionTemplate = ({ caption, credit, url, link_text }) => {
+export const BaseImageCaptionTemplate = ({
+  caption,
+  credit,
+  url,
+  link_text,
+}) => {
   credit = credit ? `<span class="inline"> Credit: ${credit} </span>` : ''
   link_text = link_text ? link_text : ''
 
