@@ -57,8 +57,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component:
-          'Base component for buttons.',
+        component: 'Base component for buttons.',
       },
     },
   },
@@ -93,7 +92,9 @@ Dark_Button.args = {
   compact: false,
   disabled: false,
 }
-Dark_Button.decorators = [(Story) => `<div class="p-5 bg-dark-blue">${Story()}</div>`]
+Dark_Button.decorators = [
+  (Story) => `<div class="p-5 bg-dark-blue">${Story()}</div>`,
+]
 
 export const Primary_Icon_Button = BaseButtonTemplate.bind({})
 Primary_Icon_Button.args = {
@@ -103,7 +104,7 @@ Primary_Icon_Button.args = {
   caret: false,
   compact: false,
   disabled: false,
-  icon: 'next'
+  icon: 'next',
 }
 
 export const Secondary_Icon_Button = BaseButtonTemplate.bind({})
@@ -127,7 +128,9 @@ Dark_Icon_Button.args = {
   disabled: false,
   icon: 'next',
 }
-Dark_Icon_Button.decorators = [(Story) => `<div class="p-5 bg-dark-blue">${Story()}</div>`]
+Dark_Icon_Button.decorators = [
+  (Story) => `<div class="p-5 bg-dark-blue">${Story()}</div>`,
+]
 
 export const Social_Icon_Button = () => {
   let facebook = BaseButtonTemplate({
@@ -137,7 +140,7 @@ export const Social_Icon_Button = () => {
     caret: false,
     compact: true,
     disabled: false,
-    icon: "facebook",
+    icon: 'facebook',
     cssClass: '-facebook w-12 h-12 text-2xl mr-3',
   })
   let twitter = BaseButtonTemplate({
@@ -147,7 +150,7 @@ export const Social_Icon_Button = () => {
     caret: false,
     compact: true,
     disabled: false,
-    icon: "twitter",
+    icon: 'twitter',
     cssClass: '-twitter w-12 h-12 text-2xl mr-3',
   })
   let instagram = BaseButtonTemplate({
@@ -157,7 +160,7 @@ export const Social_Icon_Button = () => {
     caret: false,
     compact: true,
     disabled: false,
-    icon: "instagram",
+    icon: 'instagram',
     cssClass: '-instagram w-12 h-12 text-2xl mr-3',
   })
   let youtube = BaseButtonTemplate({
@@ -167,13 +170,15 @@ export const Social_Icon_Button = () => {
     caret: false,
     compact: true,
     disabled: false,
-    icon: "youtube",
+    icon: 'youtube',
     cssClass: '-youtube w-12 h-12 text-2xl mr-3',
   })
 
   return `${facebook} ${twitter} ${instagram} ${youtube}`
 }
-Social_Icon_Button.decorators = [(Story) => `<div class="p-5 flex items-center">${Story()}</div>`]
+Social_Icon_Button.decorators = [
+  (Story) => `<div class="p-5 flex items-center">${Story()}</div>`,
+]
 
 export const Disabled_Button = BaseButtonTemplate.bind({})
 Disabled_Button.args = {
@@ -193,5 +198,5 @@ Disabled_Icon_Button.args = {
   caret: false,
   compact: false,
   disabled: true,
-  icon: 'next'
+  icon: 'next',
 }

@@ -17,7 +17,10 @@
     "watch": "rimraf ./src/_app && parcel ./src/index.html --dist-dir ./src/.parcel/",
     "browsersync": "browser-sync start --config bs.config.js",
     "storybook": "start-storybook -c storybook -s storybook/static,dist -p 6006",
-    "build-storybook": "build-storybook -c storybook -s storybook/static,dist -o storybook_compiled"
+    "build-storybook": "build-storybook -c storybook -s storybook/static,dist -o storybook_compiled",
+    "lint:js": "eslint --cache '**/*.{vue,js}' --report-unused-disable-directives --ignore-path .gitignore",
+    "lint:style": "stylelint --cache '**/*.{vue,css,scss}' '!dist/**/*' --ignore-path .gitignore",
+    "lint:format": "prettier --check '**/?(.)*.{md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --ignore-path .gitignore"
   },
   "parcel-namer-rewrite": {
     "rules": {
@@ -44,6 +47,7 @@
     "autoprefixer": "^10.2.4",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.14",
+    "eslint": "^7.32.0",
     "lazysizes": "^5.3.0",
     "node-sass": "^5.0.0",
     "npm-run-all": "^4.1.5",
@@ -53,7 +57,11 @@
     "postcss-cli": "^8.3.1",
     "postcss-loader": "^5.0.0",
     "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
-    "storybook-addon-themes": "^6.1.0"
+    "storybook-addon-themes": "^6.1.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0"
   }
 }
