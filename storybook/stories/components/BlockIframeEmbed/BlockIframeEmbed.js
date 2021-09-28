@@ -10,7 +10,7 @@ export const BlockIframeEmbedTemplate = ({title, url, height, caption, link_text
     caption = `<div class="lg:px-0 p-4 pb-0">${baseImageCaption}</div>`
   }
   
-  // height = height ? int(height) : 400
+  height = height ? height : 400
 
   let template = `
   <iframe
