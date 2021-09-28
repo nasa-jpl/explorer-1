@@ -26,3 +26,7 @@ out/
 
 # Tailwind
 .www-frontend_temp/
+
+# Linter caches
+.eslintcache
+.stylelintcache
