@@ -57,7 +57,7 @@ export const ArticleCarouselItemTemplate = ({
   let baseLink = BaseLinkTemplate({
     link: url,
     text: template,
-    computedClass: 'cursor-pointer block pb-5',
+    computedClass: 'block pb-5',
     wrapperClass: 'group',
   })
 

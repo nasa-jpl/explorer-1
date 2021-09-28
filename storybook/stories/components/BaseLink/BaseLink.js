@@ -55,7 +55,7 @@ export const BaseLinkTemplate = ({
         href="${link}"
         target="${theTarget}"
         rel="${theRel}"
-        class="group ${computedClass}"
+        class="group cursor-pointer ${computedClass}"
       >
         ${template}
       </a>
