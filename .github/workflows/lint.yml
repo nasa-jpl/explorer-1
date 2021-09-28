@@ -2,12 +2,12 @@
 # build Storybook as a static web application, and deploy it to the gh-pages branch.
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Lint Scripts and Styles
+name: Linting/Formatting
 
 on: pull_request
 
 jobs:
-  build-and-deploy:
+  lint-and-check-format:
     runs-on: ubuntu-latest
 
     steps:
