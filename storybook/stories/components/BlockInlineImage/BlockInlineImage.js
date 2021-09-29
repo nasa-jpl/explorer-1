@@ -4,7 +4,7 @@ import { BaseImageCaptionTemplate } from '../BaseImageCaption/BaseImageCaption'
 
 export const BlockInlineImageTemplate = ({ alignTo, text, image }) => {
   let align =
-    alignTo === 'right' ? 'col-start-8 lg:order-2' : 'col-start-1 lg:order-1'
+    alignTo == 'right' ? 'col-start-8 lg:order-2' : 'col-start-1 lg:order-1'
   let textAlignTo =
     alignTo == 'right' ? 'col-start-3 lg:order-1' : 'col-start-6 lg:order-2'
   let blockText = `<div class="flex col-span-5 ${textAlignTo}">${BlockTextTemplate(
