@@ -8,7 +8,7 @@ name: Release Drafter
 # if the PR is targeting the main branch.
 on:
   pull_request:
-    types: [ opened, reopened ]
+    types: [opened, reopened]
     branches:
       - main
 
