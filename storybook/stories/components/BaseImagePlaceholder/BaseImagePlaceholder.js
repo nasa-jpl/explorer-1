@@ -5,7 +5,6 @@ export const BaseImagePlaceholderTemplate = ({
   noLogo,
   aspectRatio,
   wrapperClass,
-  template,
   // BaseImage props
   src,
   srcset,
@@ -14,7 +13,6 @@ export const BaseImagePlaceholderTemplate = ({
   height,
   objectFitClass,
 }) => {
-  template = template ? template : ''
   // interpret props
   if (!theme) theme = 'light-theme'
   if (!aspectRatio) aspectRatio = 'aspect-ratio-none'
@@ -34,7 +32,6 @@ export const BaseImagePlaceholderTemplate = ({
   })
   return `<div${renderWrapperClass}>
   <div class="BaseImagePlaceholder ${theme} ${aspectRatio} ${noLogo}">
-    ${template}
     ${theImage}
   </div>
 </div>`
