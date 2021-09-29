@@ -1,9 +1,6 @@
-# This workflow will do a clean install of Node dependencies, cache/restore them,
-# build Storybook as a static web application, and deploy it to the gh-pages branch.
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Linting/Formatting
 
+# Run on the opening of a pull request and subsequent commits to it.
 on: pull_request
 
 jobs:

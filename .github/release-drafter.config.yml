@@ -1,3 +1,5 @@
+# Config for .github/workflows/update-release-draft.yml
+
 name-template: 'Version $RESOLVED_VERSION'
 tag-template: '$RESOLVED_VERSION'
 version-resolver:
@@ -39,31 +41,7 @@ categories:
       - 'chore'
 
 change-template: '- $TITLE (#$NUMBER)'
-change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+change-title-escapes: '\<*_&'
 
 exclude-labels:
   - 'skip-changelog'
-
-autolabeler:
-  - label: 'feature'
-    branch:
-      - '/features{0,1}\/.+/'
-  - label: 'bug'
-    branch:
-      - '/fix\/.+/'
-      - '/bugfix\/.+/'
-    title:
-      - '/fix/i'
-  - label: 'documentation'
-    branch:
-      - '/docs{0,1}\/.+/'
-  - label: 'storybook'
-    title:
-      - '/storybook/i'
-    files:
-      - 'storybook/**/*'
-  - label: 'maintenance'
-    branch:
-      - '/chores{0,1}\/.+/'
-    files:
-      - '.github/**/*'

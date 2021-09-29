@@ -1,0 +1,24 @@
+# Attempt to intelligently auto-label pull requests.
+# Most configuration happens in .github/autolabeler.config.yml.
+# Powered by Release Drafter: https://github.com/marketplace/actions/release-drafter
+
+name: Release Drafter
+
+# Run on initial opening or reopening of a PR (not on every subsequent commit to one),
+# if the PR is targeting the main branch.
+on:
+  pull_request:
+    types: [ opened, reopened ]
+    branches:
+      - main
+
+jobs:
+  label-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: release-drafter/release-drafter@v5
+        with:
+          config-name: 'autolabeler.config.yml'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
