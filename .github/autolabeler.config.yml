@@ -24,5 +24,4 @@ autolabeler:
     files:
       - '.github/**/*'
 
-
-template: "This property is required to be present in Release Drafter config files, but it is not actually used for the autolabeler process, so it has no effect here."
+template: 'This property is required to be present in Release Drafter config files, but it is not actually used for the autolabeler process, so it has no effect here.'
