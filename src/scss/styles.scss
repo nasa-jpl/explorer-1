@@ -1,6 +1,7 @@
 // tailwind --------------------
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 // end tailwind ----------------
 
 // vendors / node_modules
@@ -17,7 +18,3 @@
 
 // components
 @import 'components'; // manually added and created
-
-// tailwind --------------------
-@import 'tailwindcss/utilities';
-// end tailwind ----------------
