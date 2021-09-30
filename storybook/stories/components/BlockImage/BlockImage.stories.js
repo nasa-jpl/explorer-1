@@ -47,7 +47,7 @@ export const StreamfieldBlock = BlockImageTemplate.bind({})
 StreamfieldBlock.args = BlockImageData
 
 export const StandaloneFullBleed = BlockImageFullBleedTemplate.bind({})
-StandaloneFullBleed.args = { image: BlockImageData.image }
+StandaloneFullBleed.args = { image: BlockImageData.imageFullBleed }
 
 export const StandaloneStandard = BlockImageStandardTemplate.bind({})
 StandaloneStandard.args = { image: BlockImageData.image }
