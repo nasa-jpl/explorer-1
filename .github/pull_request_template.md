@@ -7,9 +7,9 @@
 - [ ] List the environments / browsers in which you tested your changes.
 - [ ] Tests, linting, or other required checks are passing.
 - [ ] PR has an informative and human-readable title
-  - PR titles are used to generate the change log in [releases](../../releases); good ones make that easier to scan.
+  - PR titles are used to generate the change log in [releases](../releases); good ones make that easier to scan.
   - PRs will be broadly categorized in the change log, but for even easier scanning, consider prefixing with a component name or other useful categorization, e.g., "BaseButton: fix layout bug", or "Storybook: Update dependencies".
-- [ ] PR has been tagged with a [SemVer](https://semver.org/) label and a general category label, or skip-changelog.
+- [ ] PR has been tagged with a [SemVer](https://semver.org/) label and a [general category label](https://github.com/nasa-jpl/explorer-1/blob/52994b671411f55961d7beb8851d4580ac3f434f/.github/release-drafter.config.yml#L21-L39), or skip-changelog.
   - These tags are used to do the aforementioned broad categorization in the change log and determine what the next release's version number should be.
   - [Release Drafter](https://github.com/marketplace/actions/release-drafter) will attempt to do the category labeling for you! Please double-check its work.
 
