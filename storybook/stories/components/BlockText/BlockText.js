@@ -6,5 +6,5 @@ export const BlockTextTemplate = ({ text, variant }) => {
       ? 'text-body-sm'
       : 'text-body-lg'
 
-  return `<div class="BlockText leading-relaxed ${computedClass}">${text}</div>`
+  return `<div class="BlockText ${computedClass}">${text}</div>`
 }
