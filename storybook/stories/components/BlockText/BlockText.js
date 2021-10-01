@@ -3,7 +3,7 @@ export const BlockTextTemplate = ({ text, variant }) => {
     variant == 'small'
       ? 'text-body-sm'
       : variant == 'medium'
-      ? 'text-body-sm'
+      ? 'text-body-md'
       : 'text-body-lg'
 
   return `<div class="BlockText ${computedClass}">${text}</div>`
