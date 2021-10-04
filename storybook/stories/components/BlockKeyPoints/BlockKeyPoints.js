@@ -5,8 +5,8 @@ export const BlockKeyPointsTemplate = ({ heading, listItem }) => {
   heading = heading
     ? BaseHeadingTemplate({
         text: heading,
-        size: 'h2',
-        tag: 'h5',
+        size: 'h5',
+        tag: 'h2',
         headingClass: 'mb-5',
       })
     : ''
