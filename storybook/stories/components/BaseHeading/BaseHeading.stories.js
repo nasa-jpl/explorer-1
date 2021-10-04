@@ -8,6 +8,7 @@ export default {
     },
     size: {
       type: { name: 'string', required: true },
+      description: 'The display size of the heading.',
       control: {
         type: 'select',
         options: ['h1', 'h2', 'h3', 'h4', 'h5'],
@@ -17,6 +18,9 @@ export default {
       },
     },
     tag: {
+      type: { name: 'string', required: false },
+      description:
+        'The semantic heading tag if different from the display size (ex: a heading looks like an `h4`, but semantically, it is an `h1`.',
       control: {
         type: 'select',
         options: ['h1', 'h2', 'h3', 'h4', 'h5'],

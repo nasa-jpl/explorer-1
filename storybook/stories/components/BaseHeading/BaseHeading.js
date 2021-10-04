@@ -1,6 +1,6 @@
 export const BaseHeadingTemplate = ({ text, size, tag, headingClass }) => {
   let computedClass = headingClass ? headingClass + ' ' : ''
-  const tags = {
+  const sizes = {
     h1: 'text-h1',
     h2: 'text-h2',
     h3: 'text-h3',
@@ -8,11 +8,9 @@ export const BaseHeadingTemplate = ({ text, size, tag, headingClass }) => {
     h5: 'text-h5',
   }
 
-  if (tag) {
-    computedClass += tags[tag]
-  } else {
-    computedClass += tags[size]
+  if (size) {
+    computedClass += sizes[size]
   }
 
-  return `<${size} class="${computedClass}">${text}</${size}>`
+  return `<${tag} class="${computedClass}">${text}</${tag}>`
 }
