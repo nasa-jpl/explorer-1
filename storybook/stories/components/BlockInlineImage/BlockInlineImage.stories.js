@@ -1,5 +1,5 @@
 import { BlockInlineImageTemplate } from './BlockInlineImage'
-import { BaseImageCaptionData } from '../BaseImageCaption/BaseImageCaption.stories.js'
+import { BlockImageData } from '../BlockImage/BlockImage.stories'
 
 export default {
   title: 'Components/Blocks/BlockInlineImage',
@@ -19,15 +19,7 @@ export const BlockInlineImageData = {
     <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean vestibulum eros sed erat elementum mattis. Etiam fermentum velit id libero vulputate, quis lacinia nunc consequat. Nullam maximus turpis non elementum mattis. Proin volutpat tellus et nibh suscipit posuere. </p>
     <p>Sed ipsum lorem, sodales a lacinia nec, sagittis in erat. Praesent vel est turpis. Suspendisse potenti. Vivamus quis odio ligula. Sed ornare magna elementum nibh tincidunt, non maximus felis lobortis. Cras in quam ornare, egestas nulla et, semper orci. Vivamus sed ornare ipsum. Aenean at tincidunt nunc, at euismod nibh. Integer molestie aliquam risus sed ultrices. </p>`,
   alignTo: 'right',
-  image: {
-    ...BaseImageCaptionData,
-    alt: 'Inline image',
-    src: {
-      height: 500,
-      url: 'https://source.unsplash.com/NuE8Nu3otjo/700x500',
-      width: 700,
-    },
-  },
+  image: BlockImageData.image,
 }
 
 export const AlignRight = BlockInlineImageTemplate.bind({})
@@ -43,11 +35,15 @@ export const PortraitImage = BlockInlineImageTemplate.bind({})
 PortraitImage.args = {
   ...BlockInlineImageData,
   image: {
-    ...BaseImageCaptionData,
-    alt: 'Inline image',
+    alt: 'Fourth image',
+    caption:
+      '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel porttitor urna. Maecenas at est laoreet, sagittis risus a, rutrum ipsum. Quisque tincidunt lacus nunc, dapibus facilisis felis scelerisque sit amet. </p>',
+    credit: 'NASA/JPL',
+    detailUrl: '/image/placeholder/',
+    original: 'https://placekitten.com/500/600',
     src: {
       height: 600,
-      url: 'https://source.unsplash.com/NuE8Nu3otjo/500x600',
+      url: 'https://placekitten.com/500/600',
       width: 500,
     },
   },
