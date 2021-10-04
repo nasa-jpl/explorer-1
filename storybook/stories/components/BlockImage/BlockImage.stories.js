@@ -10,6 +10,17 @@ export default {
     },
   },
   excludeStories: /.*Data$/,
+  parameters: {
+    viewMode: 'docs',
+    docs: {
+      description: {
+        component: `
+## Usage notes
+The "Streamfield Block" markup includes layout assumptions. If \`BlockImage\` needs to be used in a custom layout, then the "Standalone" versions could be used instead, as their markup does not contain any layout assumptions. Alternatively, users can modify the \`col-start-\` and \`col-end-\` classes in \`BlockImage\` to match their layouts.
+        `,
+      },
+    },
+  },
 }
 
 export const BlockImageData = {
