@@ -8,7 +8,7 @@ module.exports = {
     ecmaVersion: '2018',
     sourceType: 'module',
   },
-  ignorePatterns: ['dist/**/*.js'],
+  ignorePatterns: ['dist/**/*', 'node_modules/**/*'],
   rules: {
     semi: [2, 'never'],
     'no-console': 'off',

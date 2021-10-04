@@ -135,7 +135,7 @@ require('@nasa-jpl/explorer-1/src/js/_detect-ie.js')
 
 #### font-face.css
 
-You can also include the font-face styles on their own. This is often desireable to improve font loading performance. To do this, use the `font-face.css` stylesheet in `dist/css/` with the `fonts` folder using the same relative path structure as in `dist`:
+You can also include the font-face styles on their own. This is often desirable to improve font loading performance. To do this, use the `font-face.css` stylesheet in `dist/css/` with the `fonts` folder using the same relative path structure as in `dist`:
 
 ```
 your-project
@@ -321,7 +321,7 @@ If you are adding SCSS for component, create a SCSS partial for it in `/src/scss
 Below is an example walkthrough of adding SCSS for a new component named `MyComponent`:
 
 1. Create a SCSS partial for your component: `/src/scss/components/_MyComponent.scss`
-2. Namepsace all styles with your component name:
+2. Namespace all styles with your component name:
 
    ```scss
    // _MyComponent.scss
@@ -381,6 +381,27 @@ Ultimately, the diff for adding a new component that required custom SCSS and Ja
                 ├── MyComponent.js          # new
                 └── MyComponent.stories.js  # new
 ```
+
+### Pull request guidance
+
+This repository employs the [Release Drafter](https://github.com/marketplace/actions/release-drafter) GitHub Actions workflow to automatically build draft release notes as pull requests are merged. Release Drafter will categorize the main type of changes in each PR within the release notes and also determine what the version number of the next release should be (i.e., whether the release is a major, minor, or patch release).
+
+Release Drafter's ability to do this correctly **depends on PRs being tagged with certain labels**. Most PRs should include at least two labels:
+
+1. A label for the **category** of the changes included in the PR (e.g., `feature`, `fix`, `docs`, or `maintenance`)
+2. A label for the **significance** of the chance (i.e., `major`, `minor`, or `patch`, per [Semantic Versioning](https://semver.org/) definitions)
+
+Release Drafter will attempt to automatically apply the category label to a new PR based on its branch name, title, or paths of files that were changed. Please check that it did this sensibly, and modify the labels as necessary. Try to avoid having two major category labels on a PR, because it will then be added to both of those categories in the list.
+
+The quality of the generated release notes also depends on PRs having good human-readable titles.
+
+In cases where a PR is not worth noting in the release notes, you can also tell Release Drafter not to add an entry for it by labeling it with `skip-changelog`.
+
+Finally, don't fret about this too much! The Release Drafter configuration and labeling scheme may take some time to fine-tune, and the drafted release notes can always be manually edited before final publication.
+
+#### Temporary beta release considerations
+
+This includes a temporary override (in `.github/workflows/update-release-draft.yml`) of the default versioning/tagging process (configured in `.github/release-drafter.config.yml`), because Release Drafter doesn't yet support incrementing prerelease versions ([see open issue](https://github.com/release-drafter/release-drafter/issues/585)). We will need to manually update the release title and tag prior to publishing it, at least until we get to 1.0.0 final. At that point, if we remove the override, it should automatically figure out the next version number, according to how the PRs since the previous release have been tagged as major/minor/patch.
 
 ### Publishing to npm
 
