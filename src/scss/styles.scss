@@ -1,10 +1,11 @@
 // tailwind --------------------
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 // end tailwind ----------------
 
 // vendors / node_modules
-@import 'swiper/swiper-bundle.css'; // manually added
+@import 'vendors';
 
 // main elements
 @import 'hover'; // manually added
@@ -17,7 +18,3 @@
 
 // components
 @import 'components'; // manually added and created
-
-// tailwind --------------------
-@import 'tailwindcss/utilities';
-// end tailwind ----------------

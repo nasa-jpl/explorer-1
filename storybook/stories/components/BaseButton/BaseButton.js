@@ -4,6 +4,7 @@ import { IconFacebookTemplate } from '../Icons/IconFacebook'
 import { IconTwitterTemplate } from '../Icons/IconTwitter'
 import { IconInstagramTemplate } from '../Icons/IconInstagram'
 import { IconYoutubeTemplate } from '../Icons/IconYoutube'
+import { IconExpandTemplate } from '../Icons/IconExpand'
 
 export const BaseButtonTemplate = ({
   label,
@@ -14,57 +15,67 @@ export const BaseButtonTemplate = ({
   disabled,
   icon,
   cssClass,
+  fancybox,
 }) => {
-  // TODO: make sure the full variant class names are written out somewhere for purging
-  let computedClass = '-' + variant
-  let tag = disabled ? 'button' : 'link'
+  fancybox = fancybox ? fancybox : ''
   let ariaLabel = label
-  let caretHtml = ''
+  let iconTemplate = ''
+  let computedClass = ''
 
-  if (icon === 'next') {
-    caretHtml = IconNextTemplate()
-  } else if (icon === 'facebook') {
-    caretHtml = IconFacebookTemplate()
-  } else if (icon === 'twitter') {
-    caretHtml = IconTwitterTemplate()
-  } else if (icon === 'instagram') {
-    caretHtml = IconInstagramTemplate()
-  } else if (icon === 'youtube') {
-    caretHtml = IconYoutubeTemplate()
-  } else if (caret) {
-    caretHtml = IconCaretTemplate()
-  }
+  if (icon == 'next') iconTemplate = IconNextTemplate()
+  else if (icon == 'expand') iconTemplate = IconExpandTemplate()
+  else if (icon == 'facebook') iconTemplate = IconFacebookTemplate()
+  else if (icon == 'twitter') iconTemplate = IconTwitterTemplate()
+  else if (icon == 'instagram') iconTemplate = IconInstagramTemplate()
+  else if (icon == 'youtube') iconTemplate = IconYoutubeTemplate()
+  else if (caret) iconTemplate = IconCaretTemplate()
 
-  if (compact) {
-    computedClass += ' -compact'
-  }
+  // setup classnames
+  if (variant == 'primary') computedClass = '-primary'
+  else if (variant == 'secondary') computedClass = '-secondary'
+  else if (variant == 'dark') computedClass = '-dark'
+  else if (variant == 'social') computedClass = '-social'
 
+  if (compact) computedClass += ' -compact'
+  if (cssClass) computedClass += ' ' + cssClass
   if (icon) {
     computedClass += ' -icon-only'
     label = ''
   }
 
-  if (cssClass) {
-    computedClass += ' ' + cssClass
-  }
-
-  if (tag === 'link') {
+  if (disabled) {
     return `
-      <a href="${link}" class="BaseButton text-contrast-none ${computedClass} inline-block">
+      <button 
+        disabled="disabled"
+        class="BaseButton text-contrast-none inline-block ${computedClass}"
+        aria-label="${ariaLabel}"
+      >
         <span class="label block">
-          ${label}${caretHtml}
+          ${label}${iconTemplate}
+        </span>
+      </button>
+    `
+  } else if (link) {
+    return `
+      <a 
+        href="${link}" 
+        class="BaseButton text-contrast-none inline-block ${computedClass}"
+        aria-label="${ariaLabel}"
+      >
+        <span class="label block">
+          ${label}${iconTemplate}
         </span>
       </a>
     `
   } else {
     return `
       <button 
+        class="BaseButton text-contrast-none inline-block ${computedClass}"
         aria-label="${ariaLabel}"
-        disabled="disabled"
-        class="BaseButton text-contrast-none ${computedClass} inline-block"
+        ${fancybox}
       >
         <span class="label block">
-          ${label}${caretHtml}
+          ${label}${iconTemplate}
         </span>
       </button>
     `
