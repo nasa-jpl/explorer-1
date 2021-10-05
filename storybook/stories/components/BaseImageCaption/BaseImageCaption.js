@@ -19,7 +19,7 @@ export const BaseImageCaptionTemplate = ({
   })
 
   let template = `
-  <div class="BaseImageCaption text-body-sm${computedClass}">
+  <div class="BaseImageCaption text-body-sm ${computedClass}">
     <div class="inline mr-2">
       <div class="the-caption-text inline">${caption}</div>
       ${credit}
