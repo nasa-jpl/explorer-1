@@ -16,6 +16,7 @@ module.exports = {
           'responsive',
           'apply',
           'screen',
+          'layer',
           'include',
           'mixin',
           'for',
