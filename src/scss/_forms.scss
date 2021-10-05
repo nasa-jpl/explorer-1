@@ -1,0 +1,58 @@
+// Sets tailwindcss/forms default colors
+// Also compatible with the `class` strategy: https://github.com/tailwindlabs/tailwindcss-forms/tree/v0.3.4#using-classes-instead-of-element-selectors
+// Guidance on using this method to set defaults: https://github.com/tailwindlabs/tailwindcss-forms/issues/33#issuecomment-807883605
+// CSS rule reference: https://github.com/tailwindlabs/tailwindcss-forms/blob/v0.3.4/src/index.js
+
+@layer base {
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select,
+  .form-input,
+  .form-textarea,
+  .form-select,
+  .form-multiselect {
+    @apply border-gray-light-mid;
+    &:focus {
+      --tw-ring-color: #1871c9; // focus-blue
+      @apply border-focus-blue;
+    }
+  }
+
+  input::placeholder,
+  textarea::placeholder,
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    @apply text-gray-mid;
+  }
+
+  select,
+  .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23949494' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  }
+
+  [type='checkbox'],
+  [type='radio'],
+  .form-checkbox,
+  .form-radio {
+    @apply border-gray-mid text-focus-blue;
+  }
+
+  [type='checkbox']:focus,
+  [type='radio']:focus,
+  .form-checkbox:focus,
+  .form-radio:focus {
+    --tw-ring-color: #1871c9; // focus-blue
+  }
+}

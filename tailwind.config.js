@@ -17,6 +17,18 @@ const foundationColors = {
   green: '#14C97A',
 }
 
+const semanticColors = {
+  'alert-gold': '#FFBA32',
+  'alert-gold-light': '#FFF9EB',
+  'disabled-gray': '#D8D8D8', // same as Light Mid Gray
+  'error-red': '#C1152E', // same as JPL Red Dark
+  'error-red-light': '#FFE8EB',
+  'focus-blue': '#1871C9',
+  'focus-blue-light': '#E8F1FA',
+  'success-green': '#33A17B',
+  'success-green-light': '#E1F5EE',
+}
+
 const grayScale = {
   white: '#FFFFFF',
   'gray-light': '#F5F5F5',
@@ -80,6 +92,7 @@ module.exports = {
     colors: {
       ...foundationColors,
       ...grayScale,
+      ...semanticColors,
       ...socialColors,
       transparent: 'transparent',
       current: 'currentColor',
