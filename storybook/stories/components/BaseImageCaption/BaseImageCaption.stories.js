@@ -2,6 +2,7 @@ import { BaseImageCaptionTemplate } from './BaseImageCaption'
 
 export default {
   title: 'Components/Base/BaseImageCaption',
+  excludeStories: /.*Data$/,
   argTypes: {
     caption: {
       type: { name: 'string', required: true },
@@ -14,6 +15,10 @@ export default {
       type: { name: 'string', required: false },
       description: 'Link to a page with more information/details.',
     },
+    linkText: {
+      type: { name: 'string', required: false },
+      description: 'Link text.',
+    },
   },
   parameters: {
     viewMode: 'docs',
@@ -25,11 +30,13 @@ export default {
   },
 }
 
-export const Default = BaseImageCaptionTemplate.bind({})
-Default.args = {
+export const BaseImageCaptionData = {
   caption:
     '<p>Aliquam finibus accumsan dapibus. In <a href="#">sagittis et sapien</a> nec vehicula. Suspendisse euismod consequat risus, vel dignissim elit scelerisque sed. Nullam elit ipsum, suscipit ut quam et, molestie aliquam leo.</p>',
   credit: 'NASA/JPL',
   url: '#',
-  link_text: 'Full Image Details',
+  linkText: 'Full Image Details',
 }
+
+export const Default = BaseImageCaptionTemplate.bind({})
+Default.args = BaseImageCaptionData
