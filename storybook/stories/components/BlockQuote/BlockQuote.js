@@ -27,9 +27,6 @@ export const BlockQuoteTemplate = ({ data }) => {
     `
   }
 
-  // let attributionTemplate = data.thumbnail ? `<img loading="lazy" class="attribution-image" src="${data.thumbnail.src}" alt="${data.thumbnail.alt}" />` : ''
-  // attributionTemplate += data.quoteLink ? BaseLinkTemplate({text: data.attribution, computedClass: '', wrapperClass: 'attribution-text', link: data.quoteLink.externalLink, caret: true, externalTargetBlank: true}) : `<div class="attribution-text"><span>${data.attribution}</span></div>`
-
   return `
   <div class="BlockQuote md:px-0 px-4 mx-auto text-center">
     <hr aria-hidden="true" class="lg:mb-6 mb-3" />
