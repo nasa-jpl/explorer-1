@@ -16,7 +16,7 @@ export default {
     variant: {
       type: 'string',
       description:
-        'Link to a document, internal, or external link.  The type of link chosen will determine the icon and target window behavior.',
+        'Link to a document, internal, or external source.  The type of link chosen will determine the icon and target window behavior.',
       control: {
         type: 'select',
         options: ['internal', 'external', 'document'],
