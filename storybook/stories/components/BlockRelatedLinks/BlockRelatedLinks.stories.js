@@ -75,12 +75,17 @@ SingleLink.args = {
 }
 SingleLink.decorators = [
   (Story) => `
-  <div>
+  <div id="storyDecorator">
     <h2 class="md:mb-8 mb-5 text-h5">${BlockRelatedLinksData.heading}</h2>
     <div class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2">${Story()}</div>
   </div>
   `,
 ]
+SingleLink.parameters = {
+  html: {
+    root: '#storyDecorator',
+  },
+}
 
 export const Default = BlockRelatedLinksTemplate.bind({})
 Default.args = {
