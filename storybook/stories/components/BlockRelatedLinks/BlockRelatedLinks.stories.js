@@ -5,25 +5,15 @@ export default {
   title: 'Components/Blocks/BlockRelatedLinks',
   excludeStories: /.*Data$/,
   argTypes: {
-    text: {
+    heading: {
       type: { name: 'string', required: false },
-      description: 'Link text.',
-    },
-    variant: {
-      type: 'string',
       description:
-        'Link to a document, internal, or external source.  The type of link chosen will determine the icon and target window behavior.',
-      control: {
-        type: 'select',
-        options: ['internal', 'external', 'document'],
-      },
-      table: {
-        defaultValue: { summary: 'external' },
-      },
+        'Heading text that will always align with the left edge of the block. This is useful when the component is used within a custom layout.',
     },
-    link: {
-      type: { name: 'string', required: false },
-      description: '',
+    links: {
+      type: { name: 'array', required: true },
+      description:
+        'An array of link data objects. See `SingleLink` for object keys.',
     },
   },
   parameters: {
@@ -62,15 +52,8 @@ export const BlockRelatedLinksData = {
   ],
 }
 
-export const SingleLink = RelatedLinkTemplate.bind({})
-SingleLink.args = {
-  variant: BlockRelatedLinksData.links[0].variant,
-  link: BlockRelatedLinksData.links[0].link,
-  text: BlockRelatedLinksData.links[0].text,
-}
-
-export const Default = BlockRelatedLinksTemplate.bind({})
-Default.args = {
+export const Block = BlockRelatedLinksTemplate.bind({})
+Block.args = {
   heading: BlockRelatedLinksData.heading,
   links: BlockRelatedLinksData.links,
 }
