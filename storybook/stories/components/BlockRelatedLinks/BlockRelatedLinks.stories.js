@@ -5,10 +5,6 @@ export default {
   title: 'Components/Blocks/BlockRelatedLinks',
   excludeStories: /.*Data$/,
   argTypes: {
-    heading: {
-      type: { name: 'string', required: false },
-      description: 'A header for the list of links.',
-    },
     text: {
       type: { name: 'string', required: false },
       description: 'Link text.',
@@ -68,23 +64,9 @@ export const BlockRelatedLinksData = {
 
 export const SingleLink = RelatedLinkTemplate.bind({})
 SingleLink.args = {
-  heading: BlockRelatedLinksData.heading,
   variant: BlockRelatedLinksData.links[0].variant,
   link: BlockRelatedLinksData.links[0].link,
   text: BlockRelatedLinksData.links[0].text,
-}
-SingleLink.decorators = [
-  (Story) => `
-  <div id="storyDecorator">
-    <h2 class="md:mb-8 mb-5 text-h5">${BlockRelatedLinksData.heading}</h2>
-    <div class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2">${Story()}</div>
-  </div>
-  `,
-]
-SingleLink.parameters = {
-  html: {
-    root: '#storyDecorator',
-  },
 }
 
 export const Default = BlockRelatedLinksTemplate.bind({})
