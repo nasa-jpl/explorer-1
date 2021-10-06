@@ -10,9 +10,7 @@ export const BlockRelatedLinksTemplate = ({ heading, links }) => {
       )}</div>`
     }
   } else {
-    relatedLinks = `<div class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2">${RelatedLinkTemplate(
-      { variant: links.variant, link: links.link, text: links.text }
-    )}</div>`
+    relatedLinks = ``
   }
 
   return `
