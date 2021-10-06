@@ -3,6 +3,24 @@ import { BlockQuoteTemplate } from './BlockQuote'
 export default {
   title: 'Components/Blocks/BlockQuote',
   excludeStories: /.*Data$/,
+  argTypes: {
+    quote: {
+      type: { name: 'string', required: false },
+      description: '',
+    },
+    attribution: {
+      type: { name: 'string', required: false },
+      description: '',
+    },
+  },
+  parameters: {
+    viewMode: 'docs',
+    docs: {
+      description: {
+        component: '',
+      },
+    },
+  },
 }
 
 export const BlockQuoteData = {
@@ -23,40 +41,30 @@ export const BlockQuoteData = {
 
 export const Default = BlockQuoteTemplate.bind({})
 Default.args = {
-  data: {
-    quote: BlockQuoteData.quote,
-    attribution: BlockQuoteData.attribution,
-  },
+  quote: BlockQuoteData.quote,
+  attribution: BlockQuoteData.attribution,
 }
 
 export const WithImage = BlockQuoteTemplate.bind({})
 WithImage.args = {
-  data: {
-    quote: BlockQuoteData.quote,
-    attribution: BlockQuoteData.attribution,
-    thumbnail: BlockQuoteData.thumbnail,
-  },
+  quote: BlockQuoteData.quote,
+  attribution: BlockQuoteData.attribution,
+  thumbnail: BlockQuoteData.thumbnail,
 }
 
 export const ExternalLinkedAttribution = BlockQuoteTemplate.bind({})
 ExternalLinkedAttribution.args = {
-  data: {
-    quote: BlockQuoteData.quote,
-    attribution: BlockQuoteData.attribution,
-    quoteLink: {
-      externalLink: 'https://www.jpl.nasa.gov',
-    },
+  quote: BlockQuoteData.quote,
+  attribution: BlockQuoteData.attribution,
+  quoteLink: {
+    externalLink: 'https://www.jpl.nasa.gov',
   },
 }
 
 export const ImageWithLocalLinkedAttribution = BlockQuoteTemplate.bind({})
-ImageWithLocalLinkedAttribution.args = {
-  data: BlockQuoteData,
-}
+ImageWithLocalLinkedAttribution.args = BlockQuoteData
 
 export const NoAttribution = BlockQuoteTemplate.bind({})
 NoAttribution.args = {
-  data: {
-    quote: BlockQuoteData.quote,
-  },
+  quote: BlockQuoteData.quote,
 }

@@ -1,21 +1,27 @@
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 
-export const BlockQuoteTemplate = ({ data }) => {
+export const BlockQuoteTemplate = ({
+  attribution,
+  thumbnail,
+  quoteLink,
+  quote,
+}) => {
   let attributionTemplate = ''
-  if (data.attribution) {
-    let thumbnail = data.thumbnail
-      ? `<img loading="lazy" class="attribution-image" src="${data.thumbnail.src}" alt="${data.thumbnail.alt}" />`
+  if (attribution) {
+    thumbnail = thumbnail
+      ? `<img loading="lazy" class="attribution-image" src="${thumbnail.src}" alt="${thumbnail.alt}" />`
       : ''
-    let quoteLink = data.quoteLink
+
+    quoteLink = quoteLink
       ? BaseLinkTemplate({
-          text: data.attribution,
+          text: attribution,
           computedClass: '',
           wrapperClass: 'attribution-text',
-          link: data.quoteLink.externalLink,
+          link: quoteLink.externalLink,
           caret: true,
           externalTargetBlank: true,
         })
-      : `<div class="attribution-text"><span>${data.attribution}</span></div>`
+      : `<div class="attribution-text"><span>${attribution}</span></div>`
     attributionTemplate = `
     <div class="inline-block">
       <div class="flex items-center justify-center">
@@ -31,7 +37,7 @@ export const BlockQuoteTemplate = ({ data }) => {
   <div class="BlockQuote md:px-0 px-4 mx-auto text-center">
     <hr aria-hidden="true" class="lg:mb-6 mb-3" />
     <p class="quote">
-      ${data.quote}
+      ${quote}
     </p>
     ${attributionTemplate}
   </div>
