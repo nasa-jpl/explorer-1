@@ -3,9 +3,15 @@ import { RelatedLinkTemplate } from './RelatedLink'
 
 export const BlockRelatedLinksTemplate = ({ heading, links }) => {
   let relatedLinks = ''
-  for (const [index, value] of links.entries()) {
-    relatedLinks += `<div class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2">${RelatedLinkTemplate(
-      { variant: value.variant, link: value.link, text: value.text }
+  if (links.length > 0) {
+    for (const [index, value] of links.entries()) {
+      relatedLinks += `<div class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2">${RelatedLinkTemplate(
+        { variant: value.variant, link: value.link, text: value.text }
+      )}</div>`
+    }
+  } else {
+    relatedLinks = `<div class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2">${RelatedLinkTemplate(
+      { variant: links.variant, link: links.link, text: links.text }
     )}</div>`
   }
 
