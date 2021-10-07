@@ -66,15 +66,11 @@ export const BlockTeaserData = {
 }
 
 export const Default = BlockTeaserTemplate.bind({})
-Default.args = {
-  ...BlockTeaserData,
-  image: BlockTeaserData.image.half,
-}
+Default.args = BlockTeaserData
 
 export const FullWidth = BlockTeaserTemplate.bind({})
 FullWidth.args = {
   ...BlockTeaserData,
-  image: BlockTeaserData.image.full,
   fullWidthImage: true,
 }
 

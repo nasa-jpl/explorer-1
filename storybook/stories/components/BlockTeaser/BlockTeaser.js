@@ -18,6 +18,7 @@ export const BlockTeaserTemplate = ({
       heading +
       `</${headingSize}>`
   }
+  image = image && fullWidthImage ? image.full : image ? image.half : ''
 
   return `
   <div class="BlockTeaser bg-gray-light lg:grid lg:grid-cols-10 relative" style="${
