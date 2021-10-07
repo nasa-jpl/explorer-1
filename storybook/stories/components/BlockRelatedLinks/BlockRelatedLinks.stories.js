@@ -1,5 +1,4 @@
 import { BlockRelatedLinksTemplate } from './BlockRelatedLinks'
-import { RelatedLinkTemplate } from './RelatedLink'
 
 export default {
   title: 'Components/Blocks/BlockRelatedLinks',
