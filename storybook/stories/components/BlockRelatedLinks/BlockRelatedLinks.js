@@ -9,8 +9,6 @@ export const BlockRelatedLinksTemplate = ({ heading, links }) => {
         { variant: value.variant, link: value.link, text: value.text }
       )}</div>`
     }
-  } else {
-    relatedLinks = ``
   }
 
   return `
