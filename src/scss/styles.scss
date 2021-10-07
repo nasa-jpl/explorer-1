@@ -8,8 +8,9 @@
 @import 'vendors';
 
 // main elements
-@import 'hover'; // manually added
-@import 'fonts'; // manually added -- formerly /static/styles/font-face.css
+@import 'forms';
+@import 'hover';
+@import 'fonts';
 @import 'aspect-ratios';
 @import 'grid';
 @import 'typography';
@@ -17,4 +18,4 @@
 @import 'animations';
 
 // components
-@import 'components'; // manually added and created
+@import 'components';
