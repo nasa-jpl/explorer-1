@@ -2,7 +2,8 @@ export const BlockTableTemplate = ({ caption, table }) => {
   let tableRow = ''
   let tableCol = ''
   let tableColType = 'th'
-  let tableColClass = 'bg-dark-blue text-subtitle text-white'
+  let tableColClass =
+    'bg-dark-blue text-subtitle text-white text-left font-normal'
   for (const [index, value] of table.data.entries()) {
     if (index > 0) {
       tableColType = 'td'
