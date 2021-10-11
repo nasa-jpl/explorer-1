@@ -1,15 +1,16 @@
 export const BlockTableTemplate = ({ caption, table }) => {
   let tableRow = ''
   let tableCol = ''
-  let tdClass = ''
+  let tableColType = 'th'
+  let tableColClass = 'bg-dark-blue text-subtitle text-white'
   for (const [index, value] of table.data.entries()) {
-    tdClass =
-      index === 0
-        ? 'bg-dark-blue text-subtitle text-white'
-        : 'bg-white text-gray-dark'
+    if (index > 0) {
+      tableColType = 'td'
+      tableColClass = 'bg-white text-gray-dark'
+    }
     tableRow += `<tr>`
     for (const col of value) {
-      tableCol += `<td class="border-gray-light-mid lg:p-5 p-3 border-b ${tdClass}">${col}</td>`
+      tableCol += `<${tableColType} class="border-gray-light-mid lg:p-5 p-3 border-b ${tableColClass}">${col}</${tableColType}>`
     }
     tableRow += tableCol + `</tr>`
     tableCol = ''
