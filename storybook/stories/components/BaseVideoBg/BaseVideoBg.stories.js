@@ -24,7 +24,7 @@ export default {
 export const BaseVideoBgData = {
   file: videoMp4,
   webm: videoWebm,
-  ogg: '/static/media/storybook/static/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.ogv', // no webpack loader for ogg files
+  ogg: 'static/media/storybook/static/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.ogv', // no webpack loader for ogg files
 }
 
 export const Base = BaseVideoBgTemplate.bind({})
