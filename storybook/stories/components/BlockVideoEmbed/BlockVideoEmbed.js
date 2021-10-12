@@ -11,9 +11,10 @@ export const BlockVideoEmbedTemplate = ({ embed, caption, credit }) => {
     })}
     ${
       caption || credit
-        ? '<div class="lg:px-0 p-4">' +
-          BaseImageCaptionTemplate({ caption, credit }) +
-          '</div>'
+        ? `<div class="lg:px-0 p-4">${BaseImageCaptionTemplate({
+            caption,
+            credit,
+          })}</div>`
         : ''
     }
   </div>
