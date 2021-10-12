@@ -5,6 +5,7 @@ export const BaseImagePlaceholderTemplate = ({
   noLogo,
   aspectRatio,
   wrapperClass,
+  placeholder,
   // BaseImage props
   src,
   srcset,
@@ -21,18 +22,23 @@ export const BaseImagePlaceholderTemplate = ({
   let renderWrapperClass = ''
   if (wrapperClass) renderWrapperClass = ` class="${wrapperClass}"`
   // BaseImage rendering
-  const theImage = BaseImageTemplate({
-    src: src,
-    srcset: srcset,
-    alt: alt,
-    width: width,
-    height: height,
-    imageClass: '',
-    objectFitClass: objectFitClass,
-  })
+  const slot =
+    src || srcset
+      ? BaseImageTemplate({
+          src: src,
+          srcset: srcset,
+          alt: alt,
+          width: width,
+          height: height,
+          imageClass: '',
+          objectFitClass: objectFitClass,
+        })
+      : placeholder
+      ? `<div>${placeholder}</div>`
+      : ''
   return `<div${renderWrapperClass}>
   <div class="BaseImagePlaceholder ${theme} ${aspectRatio} ${noLogo}">
-    ${theImage}
+    ${slot}
   </div>
 </div>`
 }
