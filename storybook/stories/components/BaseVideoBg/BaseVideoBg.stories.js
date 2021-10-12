@@ -4,6 +4,7 @@ import videoWebm from '../../../static/videos/NASA-Mars-Helicopter-IngenuityAnim
 
 export default {
   title: 'Components/Base/BaseVideoBg',
+  excludeStories: /.*Data$/,
   argTypes: {
     file: {
       type: { name: 'string', required: false },
@@ -20,10 +21,12 @@ export default {
   },
 }
 
-export const Base = BaseVideoBgTemplate.bind({})
-Base.storyName = 'BaseVideoBg'
-Base.args = {
+export const BaseVideoBgData = {
   file: videoMp4,
   webm: videoWebm,
   ogg: '/static/media/storybook/static/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.ogv', // no webpack loader for ogg files
 }
+
+export const Base = BaseVideoBgTemplate.bind({})
+Base.storyName = 'BaseVideoBg'
+Base.args = BaseVideoBgData
