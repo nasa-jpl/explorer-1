@@ -1,10 +1,10 @@
 export const BaseVideoBgTemplate = ({ file, webm, ogg }) => {
   return `
   <video
-    loop
-    muted
-    playsinline
-    autoplay
+    loop="loop"
+    muted="muted"
+    playsinline=""
+    autoplay="autoplay"
     preload="auto"
     class="object-cover w-full h-full"
   >
