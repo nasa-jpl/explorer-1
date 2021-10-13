@@ -26,13 +26,26 @@ export default {
       description: 'An array of image data objects',
     },
   },
+  decorators: [
+    (Story) =>
+      `<div id="storyDecorator" class="max-w-screen-3xl mx-auto">${Story()}</div>`,
+  ],
   parameters: {
-    viewMode: 'docs',
-    docs: {
-      description: {
-        component: '',
-      },
+    html: {
+      root: '#storyDecorator',
     },
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'FullWidthDocs',
+          class: 'sbdocs-preview-full-width',
+          default: true,
+          visible: false,
+        },
+      ],
+    },
+    viewMode: 'docs',
   },
 }
 
