@@ -1,7 +1,7 @@
-export const AnimationCaretTemplate = ({ text, inline }) => {
-  inline = inline ? ' caret-inline' : ''
+export const AnimationCaretTemplate = ({ text, customClass }) => {
+  if (!customClass) customClass = ''
   return `
-    <span class="AnimationCaret${inline}">
+    <span class="AnimationCaret ${customClass}">
       <span>${text}</span>
       <span aria-hidden="true" class="arrow-wrapper text-theme-red ml-1">
         <span class="arrow">
