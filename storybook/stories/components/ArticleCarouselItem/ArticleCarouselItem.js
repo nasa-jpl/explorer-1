@@ -26,7 +26,7 @@ export const ArticleCarouselItemTemplate = ({
     imageClass: '',
     objectFitClass: 'object-cover',
   })
-  let iconArrow = IconArrowTemplate()
+  let iconArrow = IconArrowTemplate({})
 
   if (label) {
     label = `
