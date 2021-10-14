@@ -1,10 +1,4 @@
-export const HeroFocalPointTemplate = ({
-  image,
-  hasOverlay,
-  eyebrow,
-  title,
-  summary,
-}) => {
+export const HeroFocalPointTemplate = ({ image, eyebrow, title, summary }) => {
   return `
   <div class="HeroFocalPoint max-w-screen-3xl relative mx-auto">
     <div class="absolute inset-0 z-10 bg-black">
@@ -25,9 +19,7 @@ export const HeroFocalPointTemplate = ({
       <div class="bg-gradient-to-t lg:bg-gradient-to-l from-transparent-w25 lg:from-transparent-w50 to-transparent-black-50 lg:to-transparent-black-50 absolute inset-0"></div>
       <div class="text-contrast relative w-full text-white">
         <div class="lg:py-0 pb-80 container pt-8 mx-auto">
-          <div class="lg:px-10 2xl:px-0 lg:pt-6 lg:pb-18 px-4 ${
-            hasOverlay ? 'pt-10' : ''
-          }">
+          <div class="lg:px-10 2xl:px-0 lg:pt-6 lg:pb-18 px-4">
             ${
               eyebrow
                 ? `<div class="lg:mb-6 font-secondary mb-4 text-base font-semibold tracking-wider no-underline uppercase">${eyebrow}<span class="sr-only">.</span></div>`
