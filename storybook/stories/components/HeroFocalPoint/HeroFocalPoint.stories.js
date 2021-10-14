@@ -15,16 +15,6 @@ export default {
       type: { name: 'string', required: false },
       description: 'Summary/description of the hero item',
     },
-    hasOverlay: {
-      type: 'boolean',
-      description: '',
-      control: {
-        type: 'boolean',
-      },
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
   },
   parameters: {
     viewMode: 'canvas',
@@ -38,7 +28,6 @@ Hero.args = {
   title: 'FreeClimber: LEMUR 3',
   summary:
     'Crawl, walk and even climb rock walls, this robot was designed to operate in extreme terrains.',
-  hasOverlay: false,
   image: {
     src: {
       url: 'https://picsum.photos/id/973/1800/1200',
