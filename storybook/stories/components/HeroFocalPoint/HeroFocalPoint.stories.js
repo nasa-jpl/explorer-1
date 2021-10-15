@@ -8,16 +8,27 @@ export default {
       description: 'Header label',
     },
     title: {
-      type: { name: 'string', required: false },
+      type: { name: 'string', required: true },
       description: 'Hero title',
     },
     summary: {
       type: { name: 'string', required: false },
       description: 'Summary/description of the hero item',
     },
+    image: {
+      type: { name: 'object', required: true },
+      description:
+        'Background image. Works best with images that have a focal point on the right side.',
+    },
   },
   parameters: {
     viewMode: 'canvas',
+    docs: {
+      description: {
+        component:
+          "`HeroFocalPoint` works best with background images that have a focal point on the right side of the image. The markup and styles attempt to keep the right side of the image visible on smaller screens rather than doing a center crop. This works best in tandem with Wagtail image renditions, so it isn't foolproof, but it sets up a decent basis.",
+      },
+    },
   },
 }
 
