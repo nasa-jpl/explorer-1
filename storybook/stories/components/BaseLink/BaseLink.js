@@ -13,7 +13,7 @@ export const BaseLinkTemplate = ({
   linkClass,
   wrapperClass,
 }) => {
-  let template = text
+  let template = text ? text : 'Full Image Details'
   let variantType = variant ? variant.toLowerCase() : ''
   if (!caretWrapperClass) caretWrapperClass = ''
 
