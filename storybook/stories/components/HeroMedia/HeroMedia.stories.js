@@ -31,6 +31,11 @@ export default {
       root: '#storyDecorator',
     },
     viewMode: 'canvas',
+    previewTabs: {
+      'storybook/docs/panel': {
+        hidden: true,
+      },
+    },
   },
 }
 
