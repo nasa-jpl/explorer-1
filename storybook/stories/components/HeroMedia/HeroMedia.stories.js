@@ -37,12 +37,12 @@ export default {
 export const HeroMediaData = {
   image: {
     src: {
-      url: 'https://picsum.photos/1440/620',
-      width: 1440,
-      height: 620,
+      url: 'https://picsum.photos/869/700',
+      width: 869,
+      height: 700,
     },
     srcSet:
-      'https://picsum.photos/320/139 320w, https://picsum.photos/640/276 640w, https://picsum.photos/768/331 768w, https://picsum.photos/1024/442 1024w, https://picsum.photos/1280/552 1280w, https://picsum.photos/1440/620 1440w, https://picsum.photos/1800/775 1800w',
+      'https://picsum.photos/320/258 320w, https://picsum.photos/869/700 1024w',
     alt: 'News detail page hero image',
   },
   caption:
