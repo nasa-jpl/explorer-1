@@ -25,4 +25,20 @@
       }
     }
   }
+  #HeroMediaCaptionToggle {
+    .IconClose {
+      @apply hidden;
+    }
+    .IconInfo {
+      @apply text-xl;
+    }
+    &.expanded {
+      .IconClose {
+        @apply block;
+      }
+      .IconInfo {
+        @apply hidden;
+      }
+    }
+  }
 }
