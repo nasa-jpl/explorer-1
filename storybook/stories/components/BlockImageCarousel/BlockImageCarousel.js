@@ -50,7 +50,7 @@ export const BlockImageCarouselTemplate = ({
           <div class="absolute bottom-0 right-0 z-10 flex">
             ${BaseButtonTemplate({
               variant: 'primary',
-              cssClass: 'z-10 border-collapse px-1 py-2 swiper-next xl:text-xl',
+              cssClass: 'z-10 border-collapse px-1 py-2 swiper-prev xl:text-xl',
               icon: 'prev',
               label: 'Previous slide',
             })}
