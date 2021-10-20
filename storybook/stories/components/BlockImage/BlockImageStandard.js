@@ -2,7 +2,14 @@ import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImageP
 import { BaseImageCaptionTemplate } from '../BaseImageCaption/BaseImageCaption'
 import { BlockImageLightboxTemplate } from './BlockImageLightbox'
 
-export const BlockImageStandardTemplate = ({ image, fancyboxGallery }) => {
+export const BlockImageStandardTemplate = ({
+  image,
+  fancyboxGallery,
+  imageClass,
+  imageCaptionClass,
+  imageCaptionWrapperClass,
+  imageFitClass,
+}) => {
   let blockImageLightbox = BlockImageLightboxTemplate({
     image,
     fancyboxGallery,
@@ -16,7 +23,8 @@ export const BlockImageStandardTemplate = ({ image, fancyboxGallery }) => {
     width: image.src.width,
     height: image.src.height,
     wrapperClass: 'aspect-ratio-sixteen-nine',
-    objectFitClass: 'object-contain',
+    objectFitClass: imageFitClass ? imageFitClass : 'object-contain',
+    imageClass,
   })
 
   let baseImageCaption = ''
@@ -27,7 +35,9 @@ export const BlockImageStandardTemplate = ({ image, fancyboxGallery }) => {
       url: image.url,
       linkText: image.linkText,
     })
-    baseImageCaption = `<div class="lg:px-0 p-4 pb-0">${baseImageCaptionTemplate}</div>`
+    baseImageCaption = `<div class="lg:px-0 ${
+      imageCaptionWrapperClass ? imageCaptionWrapperClass : `p-4 pb-0`
+    }">${baseImageCaptionTemplate}</div>`
   }
 
   return `
@@ -37,6 +47,11 @@ export const BlockImageStandardTemplate = ({ image, fancyboxGallery }) => {
       ${baseImagePlaceholder}
     </div>
     ${baseImageCaption}
+    ${
+      imageCaptionClass == 'slide-caption'
+        ? `<div class="pt-10 lg:hidden"></div>`
+        : ''
+    }
   </div>
   `
 }
