@@ -124,7 +124,18 @@
         /* eslint-enable object-shorthand */
       })
     );
-  };</script><style>/* styles for docs tab */
+  };</script><script>let domContentAlreadyLoaded = false;
+
+  document.addEventListener('DOMContentLoaded', (e) => {
+    if (domContentAlreadyLoaded) {
+      var tag = document.createElement("script");
+      tag.src = "js/explorer-1.min.js";
+      document.getElementsByTagName("head")[0].appendChild(tag);
+
+      e.stopPropagation();
+    }
+    domContentAlreadyLoaded = true;
+  });</script><style>/* styles for docs tab */
   @import 'css/font-face.css';
 
   /* make docs have full width iframes
@@ -219,4 +230,4 @@
             
         
             
-              window['STORIES'] = [{"glob":"./stories/**/*.stories.mdx","specifier":{"directory":"./storybook/stories","titlePrefix":"","files":"*.stories.mdx"}},{"glob":"./stories/**/*.stories.@(js|jsx|ts|tsx)","specifier":{"directory":"./storybook/stories","titlePrefix":"","files":"*.stories.@(js|jsx|ts|tsx)"}}];</script><script src="runtime~main.3b85101d.iframe.bundle.js"></script><script src="vendors~main.5032e000.iframe.bundle.js"></script><script src="main.0229dbdf.iframe.bundle.js"></script></body></html>
+              window['STORIES'] = [{"glob":"./stories/**/*.stories.mdx","specifier":{"directory":"./storybook/stories","titlePrefix":"","files":"*.stories.mdx"}},{"glob":"./stories/**/*.stories.@(js|jsx|ts|tsx)","specifier":{"directory":"./storybook/stories","titlePrefix":"","files":"*.stories.@(js|jsx|ts|tsx)"}}];</script><script src="runtime~main.3b85101d.iframe.bundle.js"></script><script src="vendors~main.5032e000.iframe.bundle.js"></script><script src="main.fdb8e0cc.iframe.bundle.js"></script></body></html>
