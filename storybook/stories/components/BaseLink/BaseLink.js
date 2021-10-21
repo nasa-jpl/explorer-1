@@ -58,7 +58,7 @@ export const BaseLinkTemplate = ({
         href="${link}"
         target="${theTarget}"
         rel="${theRel}"
-        class="group cursor-pointer ${computedClass}${
+        class="group cursor-pointer${computedClass ? ` ${computedClass}` : ''}${
     linkClass ? ` ${linkClass}` : ''
   }"
       >

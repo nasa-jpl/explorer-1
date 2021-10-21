@@ -12,6 +12,7 @@ export const BaseImagePlaceholderTemplate = ({
   alt,
   width,
   height,
+  imageWrapperClass,
   objectFitClass,
 }) => {
   // interpret props
@@ -31,6 +32,7 @@ export const BaseImagePlaceholderTemplate = ({
           width: width,
           height: height,
           imageClass: '',
+          wrapperClass: imageWrapperClass ? imageWrapperClass : '',
           objectFitClass: objectFitClass,
         })
       : placeholder
