@@ -93,23 +93,3 @@ export const BlockImageCarouselData = {
 
 export const Carousel = BlockImageCarouselTemplate.bind({})
 Carousel.args = BlockImageCarouselData
-
-export const CarouselGalleryCover = BlockImageCarouselTemplate.bind({})
-CarouselGalleryCover.args = {
-  ...BlockImageCarouselData,
-  galleryCoverImage: {
-    label: 'Label',
-    title: 'Title',
-    description: 'Summary/description',
-    image: {
-      alt: 'Gallery Cover Image',
-      src: {
-        height: '700',
-        url: 'https://picsum.photos/869/700',
-        width: '869',
-      },
-      srcSet:
-        'https://picsum.photos/320/258 320w, https://picsum.photos/869/700 1024w',
-    },
-  },
-}
