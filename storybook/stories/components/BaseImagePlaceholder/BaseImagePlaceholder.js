@@ -12,6 +12,7 @@ export const BaseImagePlaceholderTemplate = ({
   alt,
   width,
   height,
+  imageWrapperClass,
   objectFitClass,
   imageClass,
 }) => {
@@ -32,6 +33,7 @@ export const BaseImagePlaceholderTemplate = ({
           width: width,
           height: height,
           imageClass: imageClass ? imageClass : '',
+          wrapperClass: imageWrapperClass ? imageWrapperClass : '',
           objectFitClass: objectFitClass,
         })
       : placeholder
