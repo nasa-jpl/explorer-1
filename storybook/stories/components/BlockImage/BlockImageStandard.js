@@ -22,7 +22,8 @@ export const BlockImageStandardTemplate = ({
     alt: image.alt,
     width: image.src.width,
     height: image.src.height,
-    wrapperClass: 'aspect-ratio-sixteen-nine',
+    wrapperClass: '',
+    aspectRatio: 'aspect-ratio-sixteen-nine',
     objectFitClass: imageFitClass ? imageFitClass : 'object-contain',
     imageClass,
   })
@@ -41,17 +42,15 @@ export const BlockImageStandardTemplate = ({
   }
 
   return `
-  <div>
-    <div class="group relative">
-      ${blockImageLightbox}
-      ${baseImagePlaceholder}
-    </div>
-    ${baseImageCaption}
-    ${
-      imageCaptionClass == 'slide-caption'
-        ? `<div class="pt-10 lg:hidden"></div>`
-        : ''
-    }
+  <div class="group relative">
+    ${blockImageLightbox}
+    ${baseImagePlaceholder}
   </div>
+  ${baseImageCaption}
+  ${
+    imageCaptionClass == 'slide-caption'
+      ? `<div class="pt-10 lg:hidden"></div>`
+      : ''
+  }
   `
 }
