@@ -4,6 +4,9 @@
   // small adjustments to background size and position to prevent overlap with border
   background-size: 100% 215%; // 100% 200%
   background-position: 0 -1px; // top
+  &:focus {
+    @apply outline-none ring-2;
+  }
   @apply font-secondary font-semibold uppercase tracking-wider leading-normal cursor-pointer transition-all duration-200 ease-linear bg-gradient-to-b from-transparent-w50;
   > .label {
     @apply flex items-center justify-center;
