@@ -5,22 +5,12 @@ export const BaseImageTemplate = ({
   width,
   height,
   imageClass,
+  wrapperClass,
   objectFitClass,
 }) => {
-  let theImage = `<div></div>`
-  if (src) {
-    theImage = `<img
-    class="BaseImage ${imageClass} ${objectFitClass} lazyload"
-    data-src="${src}"
-    data-srcset="${srcset}"
-    alt="${alt}"
-    width="${width}"
-    height="${height}"
-    loading="lazy"
-  />`
-  }
-
-  return `<div>
-  ${theImage}
-</div>`
+  return `<div${wrapperClass ? ` class="${wrapperClass}"` : ''}>${
+    src
+      ? `<img class="BaseImage ${imageClass} ${objectFitClass} lazyload" data-src="${src}" data-srcset="${srcset}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />`
+      : ''
+  }</div>`
 }
