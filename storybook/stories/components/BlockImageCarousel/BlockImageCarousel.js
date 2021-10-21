@@ -3,13 +3,9 @@ import { BlockImageStandardTemplate } from '../BlockImage/BlockImageStandard'
 import { BaseButtonTemplate } from '../BaseButton/BaseButton'
 
 export const BlockImageCarouselTemplate = ({
-  blockType,
   images,
-  imageGallery,
+  galleryCoverImage,
   fancyboxGallery,
-  label,
-  title,
-  description,
 }) => {
   let slides = ''
   if (images.length > 0) {
@@ -26,20 +22,18 @@ export const BlockImageCarouselTemplate = ({
 
   return `
   <div class="BlockImageCarousel w-full overflow-hidden ${
-    blockType == 'image_gallery'
-      ? `BlockImageGallery max-w-screen-3xl mx-auto`
-      : ''
+    galleryCoverImage ? `BlockImageGallery max-w-screen-3xl mx-auto` : ''
   }">
     <div class="swiper-container">
       <div class="swiper-wrapper">
         ${
-          blockType == 'image_gallery'
+          galleryCoverImage
             ? BlockImageGalleryCoverTemplate({
-                label,
-                title,
-                description,
+                label: galleryCoverImage.label,
+                title: galleryCoverImage.title,
+                description: galleryCoverImage.description,
                 fancyboxGallery,
-                image: imageGallery,
+                image: galleryCoverImage.image,
               })
             : ''
         }

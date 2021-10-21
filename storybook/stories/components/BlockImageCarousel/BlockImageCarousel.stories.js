@@ -5,6 +5,16 @@ export default {
   decorators: [
     (Story) => `<div id="storyDecorator" class="container">${Story()}</div>`,
   ],
+  argTypes: {
+    images: {
+      type: { name: 'array', required: true },
+      description: 'An array of image data objects',
+    },
+    galleryCoverImage: {
+      type: { name: 'object', required: false },
+      description: 'Object information for the cover image',
+    },
+  },
   parameters: {
     html: {
       root: '#storyDecorator',
@@ -82,5 +92,24 @@ export const BlockImageCarouselData = {
 }
 
 export const Carousel = BlockImageCarouselTemplate.bind({})
-Carousel.storyName = 'BlockImageCarousel'
 Carousel.args = BlockImageCarouselData
+
+export const CarouselGalleryCover = BlockImageCarouselTemplate.bind({})
+CarouselGalleryCover.args = {
+  ...BlockImageCarouselData,
+  galleryCoverImage: {
+    label: 'Label',
+    title: 'Title',
+    description: 'Summary/description',
+    image: {
+      alt: 'Gallery Cover Image',
+      src: {
+        height: '700',
+        url: 'https://picsum.photos/869/700',
+        width: '869',
+      },
+      srcSet:
+        'https://picsum.photos/320/258 320w, https://picsum.photos/869/700 1024w',
+    },
+  },
+}
