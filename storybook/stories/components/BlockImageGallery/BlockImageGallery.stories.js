@@ -8,17 +8,9 @@ export default {
       `<div id="storyDecorator" class="max-w-screen-3xl mx-auto">${Story()}</div>`,
   ],
   argTypes: {
-    label: {
-      type: { name: 'string', required: false },
-      description: 'Cover label',
-    },
-    title: {
-      type: { name: 'string', required: true },
-      description: 'Cover title',
-    },
-    description: {
-      type: { name: 'string', required: false },
-      description: 'Cover summary/description',
+    galleryCoverImage: {
+      type: { name: 'array', required: true },
+      description: 'Cover information',
     },
     images: {
       type: { name: 'array', required: true },
