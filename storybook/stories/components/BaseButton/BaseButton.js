@@ -1,5 +1,6 @@
 import { IconCaretTemplate } from '../Icons/IconCaret'
 import { IconNextTemplate } from '../Icons/IconNext'
+import { IconPrevTemplate } from '../Icons/IconPrev'
 import { IconFacebookTemplate } from '../Icons/IconFacebook'
 import { IconTwitterTemplate } from '../Icons/IconTwitter'
 import { IconInstagramTemplate } from '../Icons/IconInstagram'
@@ -23,6 +24,7 @@ export const BaseButtonTemplate = ({
   let computedClass = ''
 
   if (icon == 'next') iconTemplate = IconNextTemplate()
+  else if (icon == 'prev') iconTemplate = IconPrevTemplate()
   else if (icon == 'expand') iconTemplate = IconExpandTemplate()
   else if (icon == 'facebook') iconTemplate = IconFacebookTemplate()
   else if (icon == 'twitter') iconTemplate = IconTwitterTemplate()
