@@ -16,8 +16,8 @@
     "build:clean": "rimraf ./dist && rimraf .parcel-cache",
     "watch": "rimraf ./src/_app && parcel ./src/index.html --dist-dir ./src/.parcel/",
     "browsersync": "browser-sync start --config bs.config.js",
-    "storybook": "start-storybook -c storybook -s storybook/static,dist -p 6006",
-    "build-storybook": "build-storybook -c storybook -s storybook/static,dist -o storybook_compiled",
+    "storybook": "start-storybook -c storybook -p 6006",
+    "build-storybook": "build-storybook -c storybook -o storybook_compiled",
     "lint:js": "eslint --cache '**/*.{vue,js}' --report-unused-disable-directives --ignore-path .gitignore",
     "lint:style": "stylelint --cache '**/*.{vue,css,scss}' '!dist/**/*' --ignore-path .gitignore",
     "lint:format": "prettier --check '**/?(.)*.{md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --ignore-path .gitignore"
