@@ -10,10 +10,6 @@ export default {
       type: { name: 'array', required: true },
       description: 'An array of image data objects',
     },
-    galleryCoverImage: {
-      type: { name: 'object', required: false },
-      description: 'Object information for the cover image',
-    },
   },
   parameters: {
     html: {
