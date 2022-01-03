@@ -1,7 +1,7 @@
-export const IconYoutubeTemplate = () => {
+export const IconSocialYoutubeTemplate = () => {
   return `
     <svg
-      class="IconSocialYouTube"
+      class="IconSocialYoutube"
       width="24"
       height="16"
       viewBox="0 0 24 16"

@@ -1,4 +1,4 @@
-export const IconFacebookTemplate = () => {
+export const IconSocialFacebookTemplate = () => {
   return `
     <svg
       class="IconSocialFacebook"

@@ -1,10 +1,10 @@
 import { IconCaretTemplate } from '../Icons/IconCaret'
 import { IconNextTemplate } from '../Icons/IconNext'
 import { IconPrevTemplate } from '../Icons/IconPrev'
-import { IconFacebookTemplate } from '../Icons/IconFacebook'
-import { IconTwitterTemplate } from '../Icons/IconTwitter'
-import { IconInstagramTemplate } from '../Icons/IconInstagram'
-import { IconYoutubeTemplate } from '../Icons/IconYoutube'
+import { IconSocialFacebookTemplate } from '../Icons/IconSocialFacebook'
+import { IconSocialTwitterTemplate } from '../Icons/IconSocialTwitter'
+import { IconSocialInstagramTemplate } from '../Icons/IconSocialInstagram'
+import { IconSocialYoutubeTemplate } from '../Icons/IconSocialYoutube'
 import { IconExpandTemplate } from '../Icons/IconExpand'
 
 export const BaseButtonTemplate = ({
@@ -26,10 +26,10 @@ export const BaseButtonTemplate = ({
   if (icon == 'next') iconTemplate = IconNextTemplate()
   else if (icon == 'prev') iconTemplate = IconPrevTemplate()
   else if (icon == 'expand') iconTemplate = IconExpandTemplate()
-  else if (icon == 'facebook') iconTemplate = IconFacebookTemplate()
-  else if (icon == 'twitter') iconTemplate = IconTwitterTemplate()
-  else if (icon == 'instagram') iconTemplate = IconInstagramTemplate()
-  else if (icon == 'youtube') iconTemplate = IconYoutubeTemplate()
+  else if (icon == 'facebook') iconTemplate = IconSocialFacebookTemplate()
+  else if (icon == 'twitter') iconTemplate = IconSocialTwitterTemplate()
+  else if (icon == 'instagram') iconTemplate = IconSocialInstagramTemplate()
+  else if (icon == 'youtube') iconTemplate = IconSocialYoutubeTemplate()
   else if (caret) iconTemplate = IconCaretTemplate()
 
   // setup classnames

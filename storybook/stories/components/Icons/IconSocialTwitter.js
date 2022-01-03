@@ -1,4 +1,4 @@
-export const IconTwitterTemplate = () => {
+export const IconSocialTwitterTemplate = () => {
   return `
     <svg
       class="IconSocialTwitter"
