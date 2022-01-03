@@ -1,7 +1,8 @@
-export const IconCaretTemplate = () => {
+export const IconCaretTemplate = ({ customClass }) => {
+  if (!customClass) customClass = ''
   return `
     <svg
-      class="IconCaret"
+      class="IconCaret ${customClass}"
       width="8"
       height="14"
       viewBox="0 0 8 14"

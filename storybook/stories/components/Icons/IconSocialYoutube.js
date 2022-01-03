@@ -1,7 +1,8 @@
-export const IconSocialYoutubeTemplate = () => {
+export const IconSocialYoutubeTemplate = ({ customClass }) => {
+  if (!customClass) customClass = ''
   return `
     <svg
-      class="IconSocialYoutube"
+      class="IconSocialYoutube ${customClass}"
       width="24"
       height="16"
       viewBox="0 0 24 16"

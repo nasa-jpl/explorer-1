@@ -1,245 +1,149 @@
-import IconArrow from './IconArrow.vue'
-import IconCaret from './IconCaret.vue'
-import IconClose from './IconClose.vue'
-import IconDownload from './IconDownload.vue'
-import IconExpand from './IconExpand.vue'
-import IconExternal from './IconExternal.vue'
-import IconInfo from './IconInfo.vue'
-import IconNext from './IconNext.vue'
-import IconPrev from './IconPrev.vue'
-import IconSearch from './IconSearch.vue'
-import IconSocialEmail from './IconSocialEmail.vue'
-import IconSocialFacebook from './IconSocialFacebook.vue'
-import IconSocialInstagram from './IconSocialInstagram.vue'
-import IconSocialTwitter from './IconSocialTwitter.vue'
-import IconSocialYoutube from './IconSocialYoutube.vue'
+import { Icon360Template } from './Icon360'
+import { IconArrowTemplate } from './IconArrow'
+import { IconArrowsTemplate } from './IconArrows'
+import { IconAudioTemplate } from './IconAudio'
+import { IconCalendarTemplate } from './IconCalendar'
+import { IconCaretTemplate } from './IconCaret'
+import { IconCheckboxTemplate } from './IconCheckbox'
+import { IconCheckboxSelectedTemplate } from './IconCheckboxSelected'
+import { IconCloseTemplate } from './IconClose'
+import { IconCloseLightboxTemplate } from './IconCloseLightbox'
+import { IconDownloadTemplate } from './IconDownload'
+import { IconDropdownTemplate } from './IconDropdown'
+import { IconExpandTemplate } from './IconExpand'
+import { IconExternalTemplate } from './IconExternal'
+import { IconFilterTemplate } from './IconFilter'
+import { IconGridTemplate } from './IconGrid'
+import { IconInfoTemplate } from './IconInfo'
+import { IconListTemplate } from './IconList'
+import { IconLocationTemplate } from './IconLocation'
+import { IconMenuTemplate } from './IconMenu'
+import { IconMinusTemplate } from './IconMinus'
+import { IconNextTemplate } from './IconNext'
+import { IconPlayTemplate } from './IconPlay'
+import { IconPauseTemplate } from './IconPause'
+import { IconMuteTemplate } from './IconMute'
+import { IconStopTemplate } from './IconStop'
+import { IconVolumeTemplate } from './IconVolume'
+import { IconPlusTemplate } from './IconPlus'
+import { IconPrevTemplate } from './IconPrev'
+import { IconSearchTemplate } from './IconSearch'
+import { IconSocialEmailTemplate } from './IconSocialEmail'
+import { IconSocialFacebookTemplate } from './IconSocialFacebook'
+import { IconSocialInstagramTemplate } from './IconSocialInstagram'
+import { IconSocialTwitterTemplate } from './IconSocialTwitter'
+import { IconSocialYoutubeTemplate } from './IconSocialYoutube'
+import { IconTimeTemplate } from './IconTime'
 
 export default {
   title: 'Brand Identity/Icons',
-  component: IconNext,
   argTypes: {
-    size: {
-      control: {
-        type: 'select',
-        options: [
-          'text-xs',
-          'text-sm',
-          'text-base',
-          'text-lg',
-          'text-xl',
-          'text-2xl',
-        ],
-      },
-    },
-    colorClass: {
-      control: {
-        type: 'select',
-        options: [
-          'text-black',
-          'text-jpl-red bg-transparent',
-          'text-white bg-jpl-red',
-        ],
-      },
+    customClass: {
+      type: 'string',
+      description:
+        'Use TailwindCSS text size, color and background classes to control the icon styling. Icon dimensions are set in `em`s to allow for relative sizing.',
+      control: { type: 'text' },
     },
   },
-  decorators: [
-    () => ({
-      template: `<div class="inline-block"><story/></div>`,
-    }),
-  ],
-  excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Use with tailwind text classes to specify size and color',
+        component:
+          'Icon size and color are handled by TailwindCSS text classes.',
       },
     },
   },
 }
+const IconData = {
+  customClass: 'text-base text-black',
+}
+const IconSquareData = {
+  customClass: 'text-base text-white bg-jpl-red',
+}
 
-export const Arrow = (args) => ({
-  props: Object.keys(args),
-  components: { IconArrow },
-  template: `<IconArrow :class="size + ' ' + colorClass" />`,
-})
-Arrow.args = { size: 'text-base', colorClass: 'text-black' }
+export const Arrow = IconArrowTemplate.bind()
+Arrow.args = IconData
 
-export const Arrows = (args) => ({
-  props: Object.keys(args),
-  components: { IconArrows },
-  template: `<IconArrows :class="size + ' ' + colorClass" />`,
-})
-Arrows.args = { size: 'text-base', colorClass: 'text-black' }
+export const Arrows = IconArrowsTemplate.bind()
+Arrows.args = IconData
 
-export const Calendar = (args) => ({
-  props: Object.keys(args),
-  components: { IconCalendar },
-  template: `<IconCalendar :class="size + ' ' + colorClass" />`,
-})
-Calendar.args = { ...Arrow.args }
+export const Calendar = IconCalendarTemplate.bind()
+Calendar.args = IconData
 
-export const Caret = (args) => ({
-  props: Object.keys(args),
-  components: { IconCaret },
-  template: `<IconCaret :class="size + ' ' + colorClass" />`,
-})
-Caret.args = { ...Arrow.args }
+export const Caret = IconCaretTemplate.bind()
+Caret.args = IconData
 
-export const Checkbox = (args) => ({
-  props: Object.keys(args),
-  components: { IconCheckbox },
-  template: `<IconCheckbox :class="size + ' ' + colorClass" />`,
-})
-Checkbox.args = { ...Arrow.args }
+export const Checkbox = IconCheckboxTemplate.bind()
+Checkbox.args = IconData
 
-export const CheckboxSelected = (args) => ({
-  props: Object.keys(args),
-  components: { IconCheckboxSelected },
-  template: `<IconCheckboxSelected :class="size + ' ' + colorClass" />`,
-})
-CheckboxSelected.args = { ...Arrow.args }
+export const CheckboxSelected = IconCheckboxSelectedTemplate.bind()
+CheckboxSelected.args = IconData
 
-export const Close = (args) => ({
-  props: Object.keys(args),
-  components: { IconClose },
-  template: `<IconClose :class="size + ' ' + colorClass" />`,
-})
-Close.args = { ...Arrow.args }
+export const Close = IconCloseTemplate.bind()
+Close.args = IconData
 
-export const Download = (args) => ({
-  props: Object.keys(args),
-  components: { IconDownload },
-  template: `<IconDownload :class="size + ' ' + colorClass" />`,
-})
-Download.args = { ...Arrow.args }
+export const CloseLightbox = IconCloseLightboxTemplate.bind()
+CloseLightbox.args = IconData
 
-export const Dropdown = (args) => ({
-  props: Object.keys(args),
-  components: { IconDropdown },
-  template: `<IconDropdown :class="size + ' ' + colorClass" />`,
-})
-Dropdown.args = { ...Arrow.args }
+export const Download = IconDownloadTemplate.bind()
+Download.args = IconData
 
-export const External = (args) => ({
-  props: Object.keys(args),
-  components: { IconExternal },
-  template: `<IconExternal :class="size + ' ' + colorClass" />`,
-})
-External.args = { ...Arrow.args }
+export const Dropdown = IconDropdownTemplate.bind()
+Dropdown.args = IconData
 
-export const Filter = (args) => ({
-  props: Object.keys(args),
-  components: { IconFilter },
-  template: `<IconFilter :class="size + ' ' + colorClass" />`,
-})
-Filter.args = { ...Arrow.args }
+export const External = IconExternalTemplate.bind()
+External.args = IconData
 
-export const Grid = (args) => ({
-  props: Object.keys(args),
-  components: { IconGrid },
-  template: `<IconGrid :class="size + ' ' + colorClass" />`,
-})
-Grid.args = { ...Arrow.args }
+export const Filter = IconFilterTemplate.bind()
+Filter.args = IconData
 
-export const Info = (args) => ({
-  props: Object.keys(args),
-  components: { IconInfo },
-  template: `<IconInfo :class="size + ' ' + colorClass" />`,
-})
-Info.args = { ...Arrow.args }
+export const Grid = IconGridTemplate.bind()
+Grid.args = IconData
 
-export const List = (args) => ({
-  props: Object.keys(args),
-  components: { IconList },
-  template: `<IconList :class="size + ' ' + colorClass" />`,
-})
-List.args = { ...Arrow.args }
+export const Info = IconInfoTemplate.bind()
+Info.args = IconData
 
-export const Location = (args) => ({
-  props: Object.keys(args),
-  components: { IconLocation },
-  template: `<IconLocation :class="size + ' ' + colorClass" />`,
-})
-Location.args = { ...Arrow.args }
+export const List = IconListTemplate.bind()
+List.args = IconData
 
-export const Menu = (args) => ({
-  props: Object.keys(args),
-  components: { IconMenu },
-  template: `<IconMenu :class="size + ' ' + colorClass" />`,
-})
-Menu.args = { ...Arrow.args }
+export const Location = IconLocationTemplate.bind()
+Location.args = IconData
 
-export const Minus = (args) => ({
-  props: Object.keys(args),
-  components: { IconMinus },
-  template: `<IconMinus :class="size + ' ' + colorClass" />`,
-})
-Minus.args = { ...Arrow.args }
+export const Menu = IconMenuTemplate.bind()
+Menu.args = IconData
 
-export const Plus = (args) => ({
-  props: Object.keys(args),
-  components: { IconPlus },
-  template: `<IconPlus :class="size + ' ' + colorClass" />`,
-})
-Plus.args = { ...Arrow.args }
+export const Minus = IconMinusTemplate.bind()
+Minus.args = IconData
 
-export const Search = (args) => ({
-  props: Object.keys(args),
-  components: { IconSearch },
-  template: `<IconSearch :class="size + ' ' + colorClass" />`,
-})
-Search.args = { ...Arrow.args }
+export const Plus = IconPlusTemplate.bind()
+Plus.args = IconData
 
-export const SocialEmail = (args) => ({
-  props: Object.keys(args),
-  components: { IconSocialEmail },
-  template: `<IconSocialEmail :class="size + ' ' + colorClass" />`,
-})
-SocialEmail.args = { ...Arrow.args }
+export const Search = IconSearchTemplate.bind()
+Search.args = IconData
 
-export const SocialFacebook = (args) => ({
-  props: Object.keys(args),
-  components: { IconSocialFacebook },
-  template: `<IconSocialFacebook :class="size + ' ' + colorClass" />`,
-})
-SocialFacebook.args = { ...Arrow.args }
+export const Time = IconTimeTemplate.bind()
+Time.args = IconData
 
-export const SocialInstagram = (args) => ({
-  props: Object.keys(args),
-  components: { IconSocialInstagram },
-  template: `<IconSocialInstagram :class="size + ' ' + colorClass" />`,
-})
-SocialInstagram.args = { ...Arrow.args }
+export const SocialEmail = IconSocialEmailTemplate.bind()
+SocialEmail.args = { customClass: 'text-base text-black' }
 
-export const SocialTwitter = (args) => ({
-  props: Object.keys(args),
-  components: { IconSocialTwitter },
-  template: `<IconSocialTwitter :class="size + ' ' + colorClass" />`,
-})
-SocialTwitter.args = { ...Arrow.args }
+export const SocialFacebook = IconSocialFacebookTemplate.bind()
+SocialFacebook.args = { customClass: 'text-base text-facebook' }
 
-export const SocialYoutube = (args) => ({
-  props: Object.keys(args),
-  components: { IconSocialYoutube },
-  template: `<IconSocialYoutube :class="size + ' ' + colorClass" />`,
-})
-SocialYoutube.args = { ...Arrow.args }
+export const SocialInstagram = IconSocialInstagramTemplate.bind()
+SocialInstagram.args = { customClass: 'text-base text-instagram' }
 
-export const Time = (args) => ({
-  props: Object.keys(args),
-  components: { IconTime },
-  template: `<IconTime :class="size + ' ' + colorClass" />`,
-})
-Time.args = { ...Arrow.args }
+export const SocialTwitter = IconSocialTwitterTemplate.bind()
+SocialTwitter.args = { customClass: 'text-base text-twitter' }
 
-// these have an inherent square dimension
-export const Prev = (args) => ({
-  props: Object.keys(args),
-  components: { IconPrev },
-  template: `<IconPrev :class="size + ' ' + colorClass" />`,
-})
-Prev.args = { size: 'text-base', colorClass: 'text-white bg-jpl-red' }
+export const SocialYoutube = IconSocialYoutubeTemplate.bind()
+SocialYoutube.args = { customClass: 'text-base text-youtube' }
+
+// Square Icons
+
+export const Prev = IconPrevTemplate.bind()
+Prev.args = IconSquareData
 Prev.parameters = {
   docs: {
     description: {
@@ -248,100 +152,35 @@ Prev.parameters = {
   },
 }
 
-export const Next = (args) => ({
-  props: Object.keys(args),
-  components: { IconNext },
-  template: `<IconNext :class="size + ' ' + colorClass" />`,
-})
-Next.args = { ...Prev.args }
-Next.parameters = {
-  docs: {
-    description: {
-      story: 'This icon includes padding for a square dimension',
-    },
-  },
-}
+export const Next = IconNextTemplate.bind()
+Next.args = IconSquareData
+Next.parameters = Prev.parameters
 
-export const Expand = (args) => ({
-  props: Object.keys(args),
-  components: { IconExpand },
-  template: `<IconExpand :class="size + ' ' + colorClass" />`,
-})
-Expand.args = { ...Prev.args }
-Expand.parameters = {
-  docs: {
-    description: {
-      story: 'This icon includes padding for a square dimension',
-    },
-  },
-}
+export const Expand = IconExpandTemplate.bind()
+Expand.args = IconSquareData
+Expand.parameters = Prev.parameters
 
-export const Audio = (args) => ({
-  props: Object.keys(args),
-  components: { IconAudio },
-  template: `<IconAudio :class="size + ' ' + colorClass" />`,
-})
-Audio.args = { ...Prev.args }
-Audio.parameters = {
-  docs: {
-    description: {
-      story: 'This icon includes padding for a square dimension',
-    },
-  },
-}
+export const Audio = IconAudioTemplate.bind()
+Audio.args = IconSquareData
+Audio.parameters = Prev.parameters
 
-export const Play = (args) => ({
-  props: Object.keys(args),
-  components: { IconPlay },
-  template: `<IconPlay :class="size + ' ' + colorClass" />`,
-})
-Play.args = { ...Prev.args }
-Play.parameters = {
-  docs: {
-    description: {
-      story: 'This icon includes padding for a square dimension',
-    },
-  },
-}
+export const Play = IconPlayTemplate.bind()
+Play.args = IconSquareData
+Play.parameters = Prev.parameters
 
-export const Pause = (args) => ({
-  props: Object.keys(args),
-  components: { IconPause },
-  template: `<IconPause :class="size + ' ' + colorClass" />`,
-})
-Pause.args = { ...Prev.args }
+export const Pause = IconPauseTemplate.bind()
+Pause.args = IconSquareData
+Pause.parameters = Prev.parameters
 
-export const Stop = (args) => ({
-  props: Object.keys(args),
-  components: { IconStop },
-  template: `<IconStop :class="size + ' ' + colorClass" />`,
-})
-Stop.args = { size: 'text-sm', colorClass: 'text-jpl-red' }
+export const Stop = IconStopTemplate.bind()
+Stop.args = { customClass: 'text-sm text-jpl-red' }
 
-export const Volume = (args) => ({
-  props: Object.keys(args),
-  components: { IconVolume },
-  template: `<IconVolume :class="size + ' ' + colorClass" />`,
-})
-Volume.args = { size: 'text-base', colorClass: 'text-jpl-red' }
+export const Volume = IconVolumeTemplate.bind()
+Volume.args = { customClass: 'text-base text-jpl-red' }
 
-export const Mute = (args) => ({
-  props: Object.keys(args),
-  components: { IconMute },
-  template: `<IconMute :class="size + ' ' + colorClass" />`,
-})
-Mute.args = { size: 'text-base', colorClass: 'text-jpl-red' }
+export const Mute = IconMuteTemplate.bind()
+Mute.args = { customClass: 'text-base text-jpl-red' }
 
-export const ThreeSixty = (args) => ({
-  props: Object.keys(args),
-  components: { Icon360 },
-  template: `<Icon360 :class="size + ' ' + colorClass" />`,
-})
-ThreeSixty.args = { ...Prev.args }
-ThreeSixty.parameters = {
-  docs: {
-    description: {
-      story: 'This icon includes padding for a square dimension',
-    },
-  },
-}
+export const ThreeSixty = Icon360Template.bind()
+ThreeSixty.args = IconSquareData
+ThreeSixty.parameters = Prev.parameters

@@ -23,14 +23,14 @@ export const BaseButtonTemplate = ({
   let iconTemplate = ''
   let computedClass = ''
 
-  if (icon == 'next') iconTemplate = IconNextTemplate()
-  else if (icon == 'prev') iconTemplate = IconPrevTemplate()
-  else if (icon == 'expand') iconTemplate = IconExpandTemplate()
-  else if (icon == 'facebook') iconTemplate = IconSocialFacebookTemplate()
-  else if (icon == 'twitter') iconTemplate = IconSocialTwitterTemplate()
-  else if (icon == 'instagram') iconTemplate = IconSocialInstagramTemplate()
-  else if (icon == 'youtube') iconTemplate = IconSocialYoutubeTemplate()
-  else if (caret) iconTemplate = IconCaretTemplate()
+  if (icon == 'next') iconTemplate = IconNextTemplate({})
+  else if (icon == 'prev') iconTemplate = IconPrevTemplate({})
+  else if (icon == 'expand') iconTemplate = IconExpandTemplate({})
+  else if (icon == 'facebook') iconTemplate = IconSocialFacebookTemplate({})
+  else if (icon == 'twitter') iconTemplate = IconSocialTwitterTemplate({})
+  else if (icon == 'instagram') iconTemplate = IconSocialInstagramTemplate({})
+  else if (icon == 'youtube') iconTemplate = IconSocialYoutubeTemplate({})
+  else if (caret) iconTemplate = IconCaretTemplate({})
 
   // setup classnames
   if (variant == 'primary') computedClass = '-primary'
