@@ -20,6 +20,7 @@ module.exports = {
           'include',
           'mixin',
           'for',
+          'use',
         ],
       },
     ],
