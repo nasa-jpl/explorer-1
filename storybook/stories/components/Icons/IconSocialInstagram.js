@@ -1,7 +1,8 @@
-export const IconInstagramTemplate = () => {
+export const IconSocialInstagramTemplate = ({ customClass }) => {
+  if (!customClass) customClass = ''
   return `
     <svg
-      class="IconSocialInstagram"
+      class="IconSocialInstagram ${customClass}"
       width="22"
       height="22"
       viewBox="0 0 22 22"

@@ -1,6 +1,7 @@
-export const IconPrevTemplate = () => {
+export const IconPrevTemplate = ({ customClass }) => {
+  if (!customClass) customClass = ''
   return `
-  <svg viewBox="0 0 50 50" class="IconPrev">
+  <svg viewBox="0 0 50 50" class="IconPrev ${customClass}">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
