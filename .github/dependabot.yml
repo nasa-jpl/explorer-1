@@ -13,10 +13,6 @@ updates:
       - dependency-name: '@storybook/addon-a11y'
       - dependency-name: '@storybook/addon-docs'
       - dependency-name: '@storybook/addon-essentials'
-    labels:
-      - 'Chore'
-      - 'dependencies'
-      - 'npm'
     reviewers:
       - 'nasa-jpl/dl-webdev'
   # Fetch and update latest `github-actions` packages
@@ -24,9 +20,5 @@ updates:
     directory: '/'
     schedule:
       interval: daily
-    labels:
-      - 'Chore'
-      - 'dependencies'
-      - 'github_actions'
     reviewers:
       - 'nasa-jpl/dl-webdev'
