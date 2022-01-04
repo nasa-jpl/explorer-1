@@ -11,13 +11,6 @@ updates:
     schedule:
       interval: daily
     ignore:
-      # storyshots is not compatible with Jest 27
-      - dependency-name: 'jest'
-        versions: ['^27.x']
-      - dependency-name: 'babel-jest'
-        versions: ['^27.x']
-      - dependency-name: 'ts-jest'
-        versions: ['^27.x']
       # ignore all @storybook dependencies except @storybook/html
       - dependency-name: '@storybook/addon-a11y'
       - dependency-name: '@storybook/addon-docs'
