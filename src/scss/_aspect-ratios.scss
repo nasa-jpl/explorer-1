@@ -1,4 +1,5 @@
 // aspect-ratios.scss
+@use 'sass:math';
 
 // Aspect Ratio Containment Mixin
 @mixin aspect-ratio($width, $height) {
@@ -7,7 +8,7 @@
       content: '';
       @apply block w-full;
 
-      padding-bottom: ($height / $width) * 100%;
+      padding-bottom: math.div($height, $width) * 100%;
     }
 
     iframe,
