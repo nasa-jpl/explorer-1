@@ -5,14 +5,13 @@
 
 import Swiper, { Navigation, Pagination, Lazy, A11y } from 'swiper'
 import swiperOptions from './_swiperOptions.js'
-Swiper.use([Navigation, Lazy, A11y, Pagination])
 
-const BaseCarouselCards = new Swiper(
-  '.BaseCarouselCards .swiper',
-  swiperOptions.BaseCarouselCards
-)
+const BaseCarouselCards = new Swiper('.BaseCarouselCards .swiper', {
+  modules: [Navigation, Lazy, A11y, Pagination],
+  ...swiperOptions.BaseCarouselCards,
+})
 
-const BlockImageCarousel = new Swiper(
-  '.BlockImageCarousel .swiper',
-  swiperOptions.BlockImageCarousel
-)
+const BlockImageCarousel = new Swiper('.BlockImageCarousel .swiper', {
+  modules: [Navigation, Lazy, A11y, Pagination],
+  ...swiperOptions.BlockImageCarousel,
+})
