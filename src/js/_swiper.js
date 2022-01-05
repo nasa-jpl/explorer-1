@@ -3,17 +3,16 @@
  *  Custom options are defined in constants
  */
 
+import Swiper, { Navigation, Pagination, Lazy, A11y } from 'swiper'
 import swiperOptions from './_swiperOptions.js'
+Swiper.use([Navigation, Lazy, A11y, Pagination])
 
-import SwiperCore, { Navigation, Pagination, Lazy, A11y } from 'swiper/core'
-SwiperCore.use([Navigation, Lazy, A11y, Pagination])
-
-const BaseCarouselCards = new SwiperCore(
-  '.BaseCarouselCards .swiper-container',
+const BaseCarouselCards = new Swiper(
+  '.BaseCarouselCards .swiper',
   swiperOptions.BaseCarouselCards
 )
 
-const BlockImageCarousel = new SwiperCore(
-  '.BlockImageCarousel .swiper-container',
+const BlockImageCarousel = new Swiper(
+  '.BlockImageCarousel .swiper',
   swiperOptions.BlockImageCarousel
 )

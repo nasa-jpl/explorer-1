@@ -1,5 +1,5 @@
 .BaseCarouselCards {
-  .swiper-container {
+  .swiper {
     @apply overflow-visible #{!important};
     .swiper-prev,
     .swiper-next {
@@ -67,7 +67,7 @@
   }
 
   &.-cards {
-    .swiper-container {
+    .swiper {
       .swiper-navigation {
         // center arrows with image
         padding-top: 28.125%; // half of the image's aspect ratio
@@ -79,7 +79,7 @@
     }
   }
   &.-tiles {
-    .swiper-container {
+    .swiper {
       .swiper-navigation {
         top: 50%;
         .swiper-prev,
