@@ -1,7 +1,7 @@
 import { RoboticsDetailFactsItemTemplate } from './RoboticsDetailFactsItem'
 
 export default {
-  title: 'Components/RoboticsDetail/RoboticsDetailFacts',
+  title: 'Components/RoboticsDetailFacts/RoboticsDetailFactsItem',
   argTypes: {
     type: {
       type: { name: 'string', required: true },
@@ -31,6 +31,7 @@ export default {
 }
 
 export const Item = RoboticsDetailFactsItemTemplate.bind({})
+Item.storyName = 'RoboticsDetailFactsItem'
 Item.args = {
   type: 'Factoid',
   title: 'Nimble Limbs',
@@ -49,3 +50,10 @@ Item.args = {
 Item.decorators = [
   (Story) => `<div class="relative grid grid-cols-4 gap-4">${Story()}</div>`,
 ]
+Item.parameters = {
+  docs: {
+    description: {
+      component: 'Single item used in `RoboticsDetailFacts`',
+    },
+  },
+}
