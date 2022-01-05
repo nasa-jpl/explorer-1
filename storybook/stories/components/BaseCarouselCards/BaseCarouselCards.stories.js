@@ -48,7 +48,7 @@ export default {
     center: {
       type: 'boolean',
       description:
-        'Whether the carousel should be centered within its container',
+        'Whether the main part of the carousel, including its indent, should be centered within its container. Usage of `center: false` is rare but can be useful when nesting the carousel within another complex layout.',
       table: {
         defaultValue: { summary: true },
       },
