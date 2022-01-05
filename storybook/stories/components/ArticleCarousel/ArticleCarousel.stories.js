@@ -4,6 +4,13 @@ export default {
   decorators: [
     (Story) => `<div id="storyDecorator" class="w-full">${Story()}</div>`,
   ],
+  argTypes: {
+    items: {
+      type: { name: 'Array', required: true },
+      description:
+        'Array of slide data objects. See `ArticleCarouselItem` for data structure.',
+    },
+  },
   parameters: {
     html: {
       root: '#storyDecorator',

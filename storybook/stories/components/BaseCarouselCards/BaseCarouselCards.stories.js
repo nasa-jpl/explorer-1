@@ -11,6 +11,8 @@ export default {
     },
     variant: {
       type: 'string',
+      description:
+        'Sets the vertical center of next/prev button. `-cards` will center them within a fixed height corresponding to a 16:9 area. This is useful when a slide includes an image with text below it (see `ArticleCarousel`). `-tiles` will center the pagination within the height of the entire slide.',
       control: {
         type: 'select',
         options: ['-cards', '-tiles'],
@@ -19,8 +21,14 @@ export default {
         defaultValue: { summary: '-cards' },
       },
     },
+    cards: {
+      type: { name: 'array', required: true },
+      description: 'Array of slide data objects',
+    },
     indent: {
       type: 'string',
+      description:
+        'Sets the left indent of the carousel to the start of the selected grid column.',
       control: {
         type: 'select',
         options: ['col-1', 'col-2', 'col-3'],
@@ -31,12 +39,16 @@ export default {
     },
     noLinks: {
       type: 'boolean',
+      description:
+        'If the slides are not linked to other pages, set this to `true`. This will change the wrapper element from `<nav>` to `<div>`.',
       table: {
         defaultValue: { summary: false },
       },
     },
     center: {
       type: 'boolean',
+      description:
+        'Whether the carousel should be centered within its container',
       table: {
         defaultValue: { summary: true },
       },

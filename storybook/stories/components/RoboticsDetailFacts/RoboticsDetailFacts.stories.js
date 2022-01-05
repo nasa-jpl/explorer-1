@@ -5,6 +5,16 @@ export default {
     (Story) =>
       `<div id="storyDecorator" class="lg:container max-w-screen-3xl mx-auto">${Story()}</div>`,
   ],
+  argTypes: {
+    items: {
+      type: {
+        name: 'Array',
+        required: true,
+      },
+      description:
+        'Array of card objects. See `RoboticsDetailFactsItem` for data structure.',
+    },
+  },
   parameters: {
     html: {
       root: '#storyDecorator',
