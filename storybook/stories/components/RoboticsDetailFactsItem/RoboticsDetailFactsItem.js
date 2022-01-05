@@ -6,9 +6,12 @@ export const RoboticsDetailFactsItemTemplate = ({
   title,
   text,
   image,
+  customClass,
 }) => {
+  if (!customClass) customClass = ''
+
   return `
-  <div class="shadow-jpl relative h-full ${
+  <div class="shadow-jpl relative h-full ${customClass} ${
     !image ? 'flex items-center min-h-32' : ''
   }">
     ${
