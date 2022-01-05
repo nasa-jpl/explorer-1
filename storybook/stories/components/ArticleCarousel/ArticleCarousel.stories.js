@@ -1,7 +1,4 @@
 import { ArticleCarouselTemplate } from './ArticleCarousel.js'
-// import { useEffect, useGlobals } from '@storybook/addons'
-// const runScript = require('../../../../src/js/_swiper.js')
-// maybe this: https://github.com/storybookjs/storybook/issues/6113
 export default {
   title: 'Components/ArticleCarousel',
   decorators: [
@@ -12,6 +9,11 @@ export default {
       root: '#storyDecorator',
     },
     viewMode: 'canvas',
+    previewTabs: {
+      'storybook/docs/panel': {
+        hidden: true,
+      },
+    },
   },
   excludeStories: /.*Data$/,
 }

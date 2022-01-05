@@ -39,7 +39,7 @@ export const BaseCarouselCardsTemplate = ({
   if (!!center) centerClass = 'mx-auto'
   else if (center === false) centerClass = ''
 
-  // create slides array from cards. This needs to define this for each type of card we'd like to use.
+  // create slides array from cards. This must be defined for each type of card template we'd like to use.
   let slides = ''
   if (cards.length > 0) {
     for (const [index, value] of cards.entries()) {
@@ -67,7 +67,7 @@ export const BaseCarouselCardsTemplate = ({
     }
   }
 
-  let headingTemplate = `
+  const headingTemplate = `
   <div
     class="lg:pl-0 col-start-1 col-end-13 px-4 mb-1 ${colStart}"
   >
