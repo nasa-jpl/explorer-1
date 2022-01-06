@@ -20,5 +20,6 @@ jobs:
           name: 'Version 1.0.0-beta.X'
           tag: '1.0.0-beta.X'
           version: '1.0.0-beta.X'
+          disable-autolabeler: 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

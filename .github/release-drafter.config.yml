@@ -45,3 +45,29 @@ change-title-escapes: '\<*_&'
 
 exclude-labels:
   - 'skip-changelog'
+
+# Config for .github/workflows/label-pr.yml
+
+autolabeler:
+  - label: 'feature'
+    branch:
+      - '/features{0,1}\/.+/'
+  - label: 'bug'
+    branch:
+      - '/fix\/.+/'
+      - '/bugfix\/.+/'
+    title:
+      - '/fix/i'
+  - label: 'documentation'
+    branch:
+      - '/docs{0,1}\/.+/'
+  - label: 'storybook'
+    title:
+      - '/storybook/i'
+    files:
+      - 'storybook/**/*'
+  - label: 'maintenance'
+    branch:
+      - '/chores{0,1}\/.+/'
+    files:
+      - '.github/**/*'
