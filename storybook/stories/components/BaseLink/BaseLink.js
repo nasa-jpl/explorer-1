@@ -6,23 +6,26 @@ export const BaseLinkTemplate = ({
   link,
   caret,
   caretInline,
+  caretWrapperClass,
   target,
   externalTargetBlank,
   computedClass,
+  linkClass,
   wrapperClass,
 }) => {
-  let template = text
+  let template = text ? text : 'Full Image Details'
   let variantType = variant ? variant.toLowerCase() : ''
+  if (!caretWrapperClass) caretWrapperClass = ''
 
   if (caretInline && caret) {
     template = AnimationCaretTemplate({
-      text: text,
-      inline: true,
+      text,
+      customClass: 'caret-inline',
     })
   } else if (variantType === 'primary' || caret) {
     template = AnimationCaretTemplate({
-      text: text,
-      inline: false,
+      text,
+      customClass: caretWrapperClass,
     })
   }
 
@@ -55,7 +58,9 @@ export const BaseLinkTemplate = ({
         href="${link}"
         target="${theTarget}"
         rel="${theRel}"
-        class="group cursor-pointer ${computedClass}"
+        class="group cursor-pointer${computedClass ? ` ${computedClass}` : ''}${
+    linkClass ? ` ${linkClass}` : ''
+  }"
       >
         ${template}
       </a>

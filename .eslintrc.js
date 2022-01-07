@@ -14,4 +14,5 @@ module.exports = {
     'no-console': 'off',
     'no-unused-vars': 'off',
   },
+  extends: ['plugin:storybook/recommended'],
 }

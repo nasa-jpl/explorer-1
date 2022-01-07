@@ -24,11 +24,11 @@ export default {
     },
     target: {
       type: 'string',
-      description: 'Link to a target ID',
+      description: 'Link to a target ID. Overrides `externalTargetBlank`',
     },
     externalTargetBlank: {
       type: 'boolean',
-      description: 'External Target Blank',
+      description: 'Open link in a new window.',
       control: {
         type: 'boolean',
       },
@@ -38,7 +38,8 @@ export default {
     },
     caret: {
       type: 'boolean',
-      description: 'Display caret',
+      description:
+        'Display the caret. Note: the `primary` variant will always display the caret. Use this option to add a caret to other variants.',
       control: {
         type: 'boolean',
       },
@@ -48,7 +49,8 @@ export default {
     },
     caretInline: {
       type: 'boolean',
-      description: 'Display inline caret',
+      description:
+        'Set to `true` to have caret wrap with text. Must use with `caret: true`. ',
       control: {
         type: 'boolean',
       },

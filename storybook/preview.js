@@ -41,6 +41,9 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+    // show full documentation for each property
+    // see: https://storybook.js.org/docs/react/essentials/controls#show-full-documentation-for-each-property
+    expanded: true,
   },
 
   options: {

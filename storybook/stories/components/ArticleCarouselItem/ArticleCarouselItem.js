@@ -6,27 +6,25 @@ export const ArticleCarouselItemTemplate = ({
   url,
   title,
   label,
-  // BaseImage props
-  src,
-  srcset,
-  alt,
-  width,
-  height,
+  image,
+  customClass,
 }) => {
+  if (!customClass) customClass = ''
+
   let baseImagePlaceholder = BaseImagePlaceholderTemplate({
     theme: 'dark-theme',
     noLogo: true,
     aspectRatio: 'aspect-ratio-sixteen-nine',
     wrapperClass: 'lg:mb-10 bg-gray-dark relative mb-6 overflow-hidden',
-    src: src,
-    srcset: srcset,
-    alt: alt,
-    width: width,
-    height: height,
+    src: image.src.url,
+    srcset: image.srcset,
+    alt: image.alt,
+    width: image.src.width,
+    height: image.src.height,
     imageClass: '',
     objectFitClass: 'object-cover',
   })
-  let iconArrow = IconArrowTemplate()
+  let iconArrow = IconArrowTemplate({})
 
   if (label) {
     label = `
@@ -35,6 +33,8 @@ export const ArticleCarouselItemTemplate = ({
         <span class="sr-only">.</span>
       </p>
     `
+  } else {
+    label = ''
   }
 
   let template = `
@@ -58,7 +58,7 @@ export const ArticleCarouselItemTemplate = ({
     link: url,
     text: template,
     computedClass: 'block pb-5',
-    wrapperClass: 'group',
+    wrapperClass: 'group ' + customClass,
   })
 
   return baseLink
