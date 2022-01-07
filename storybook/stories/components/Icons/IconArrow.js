@@ -1,7 +1,8 @@
-export const IconArrowTemplate = () => {
+export const IconArrowTemplate = ({ customClass }) => {
+  if (!customClass) customClass = ''
   return `
     <svg
-      class="IconArrow"
+      class="IconArrow ${customClass}"
       width="26"
       height="16"
       viewBox="0 0 26 16"

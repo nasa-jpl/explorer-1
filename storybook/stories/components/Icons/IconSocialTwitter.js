@@ -1,7 +1,8 @@
-export const IconTwitterTemplate = () => {
+export const IconSocialTwitterTemplate = ({ customClass }) => {
+  if (!customClass) customClass = ''
   return `
     <svg
-      class="IconSocialTwitter"
+      class="IconSocialTwitter ${customClass}"
       width="23"
       height="19"
       viewBox="0 0 23 19"
