@@ -24,7 +24,7 @@ export const BlockImageCarouselTemplate = ({
   <div class="BlockImageCarousel w-full overflow-hidden ${
     galleryCoverImage ? `BlockImageGallery max-w-screen-3xl mx-auto` : ''
   }">
-    <div class="swiper-container">
+    <div class="swiper">
       <div class="swiper-wrapper">
         ${
           galleryCoverImage
