@@ -9,7 +9,7 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        // Ignore at-rules introduced by Tailwind via PostCSS.
+        // Ignore at-rules introduced by Tailwind and Sass via PostCSS.
         ignoreAtRules: [
           'tailwind',
           'variants',
@@ -21,6 +21,7 @@ module.exports = {
           'mixin',
           'for',
           'use',
+          'extend',
         ],
       },
     ],
