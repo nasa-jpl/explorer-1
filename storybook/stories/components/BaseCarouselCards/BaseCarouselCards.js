@@ -107,7 +107,7 @@ export const BaseCarouselCardsTemplate = ({
       >
         <!-- Slider main container -->
         <div
-          class="swiper-container transition-opacity duration-500 ease-in opacity-0"
+          class="swiper transition-opacity duration-500 ease-in opacity-0"
         >
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
