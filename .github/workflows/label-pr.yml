@@ -2,7 +2,7 @@
 # Most configuration happens in .github/autolabeler.config.yml.
 # Powered by Release Drafter: https://github.com/marketplace/actions/release-drafter
 
-name: Release Drafter
+name: Autolabeler
 
 # Run on initial opening or reopening of a PR (not on every subsequent commit to one),
 # if the PR is targeting the main branch.
