@@ -25,8 +25,8 @@
   "parcel-namer-rewrite": {
     "rules": {
       "index.js": "js/explorer-1.min.js",
-      "ArchivoNarrow-(.*)\\.(woff2?)": "fonts/archivo-narrow/ArchivoNarrow-$1.$2",
-      "Metropolis-(.*)\\.(woff2?)": "fonts/metropolis/Metropolis-$1.$2",
+      "ArchivoNarrow-(.*)\\.woff2": "fonts/archivo-narrow/ArchivoNarrow-$1.woff2",
+      "Metropolis-(.*)\\.woff2": "fonts/metropolis/Metropolis-$1.woff2",
       "index.css": "css/explorer-1.min.css"
     }
   },
