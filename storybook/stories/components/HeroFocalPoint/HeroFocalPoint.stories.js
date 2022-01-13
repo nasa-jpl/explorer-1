@@ -22,7 +22,7 @@ export default {
     },
   },
   parameters: {
-    viewMode: 'canvas',
+    viewMode: 'story',
     docs: {
       description: {
         component:
