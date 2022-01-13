@@ -39,6 +39,7 @@ categories:
     labels:
       - 'maintenance'
       - 'chore'
+      - 'dependencies'
 
 change-template: '- $TITLE (#$NUMBER)'
 change-title-escapes: '\<*_&'

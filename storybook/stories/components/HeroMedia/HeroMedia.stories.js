@@ -30,7 +30,7 @@ export default {
     html: {
       root: '#storyDecorator',
     },
-    viewMode: 'canvas',
+    viewMode: 'story',
     previewTabs: {
       'storybook/docs/panel': {
         hidden: true,
