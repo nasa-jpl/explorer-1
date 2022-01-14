@@ -1,0 +1,250 @@
+# For contributing developers
+
+Documentation on how to run this project locally and add more components.
+
+- [Getting started](#getting-started)
+- [Adding components](#adding-components)
+  - [Storybook](#storybook)
+  - [SCSS](#scss)
+  - [JavaScript](#javascript)
+- [Pull request guidance](#pull-request-guidance)
+  - [Temporary beta release considerations](#temporary-beta-release-considerations)
+- [Publishing to npm](#publishing-to-npm)
+
+## Getting started
+
+1. Clone this repository and go into its directory
+1. Install dependencies
+   ```bash
+   npm i
+   ```
+1. Serve at http://localhost:3000/
+   ```bash
+   npm run dev
+   ```
+   _Note: You may need to refresh if you've never run the project before._
+1. Build to `dist/`
+   ```bash
+   npm run build
+   ```
+
+## Adding components
+
+Adding a component requires the following:
+
+1. Name your component. It should be unique and use CamelCase.
+2. [Build it in a storybook story](#storybook). This will be the source of truth for component markup.
+3. [Add a SCSS file](#scss), if needed
+4. [Add a JavaScript file](#javascript), if needed
+5. Update the [list of included components](#components)
+
+Ultimately, the file diff for adding a new component that requires custom SCSS and JavaScript would look something like this:
+
+```
+@nasa-jpl/explorer-1/
+├── README.md                               # modified
+├── src/
+│   ├── js/
+│   │   ├── _MyComponent.js                 # new
+│   │   └── scripts.js                      # modified
+│   └── scss/
+│       ├── components/
+│       │   └── _MyComponent.scss           # new
+│       └── _components.scss                # modified
+└── storybook/
+    └── stories/
+        └── components/
+            └── MyComponent/                # new
+                ├── MyComponent.js          # new
+                └── MyComponent.stories.js  # new
+```
+
+### Storybook
+
+Storybook serves as the documentation for how to use the design system's foundational styles and the included components. New components can also be developed directly in Storybook.
+
+#### Adding a component story
+
+1. **Create a folder:** all stories live in `/storybook/stories/`. If you are adding a component, create a new folder for your component in `/storybook/stories/components/`.
+2. **Create a template file:** create a file for your HTML template. The filename should match your component name, e.g. `MyComponent.js`. It should include one exported constant, named with your components name, and appended with `Template`. It will look something like this:
+
+   ```js
+   // MyComponent.js
+   export const MyComponentTemplate = () => {
+     return `<div class="MyComponent"><!-- more html markup --></div>`
+   }
+   ```
+
+   You could make your component reactive by passing arguments:
+
+   ```js
+   // MyComponent.js
+   export const MyComponentTemplate = ({ text }) => {
+     return `<div class="MyComponent">${text}</div>`
+   }
+   ```
+
+3. **Add stories for your component:** In the same folder, create your stories file. The filename should be your component name appended with `.stories.js`, e.g. `MyComponent.stories.js`. This file will import your HTML template and configure the stories that will be displayed. We are using the [Component Story Format (CSF)](https://storybook.js.org/docs/html/api/csf) to write our stories. Below is an example of CSF boilerplate for a component that has one argument:
+
+   ```js
+   // MyComponent.stories.js
+   import { MyComponentTemplate } from './MyComponent.js'
+
+   export default {
+     // the title also determines where the story will appear in the sidebar
+     title: 'Components/MyComponent',
+     // argTypes are optional
+     argTypes: {
+       text: {
+         type: 'string',
+         description: 'Text to display within the component',
+       },
+     },
+     // parameters are optional
+     parameters: {
+       viewMode: 'docs', // default to docs instead of canvas
+       docs: {
+         description: {
+           component:
+             'A brief description of the component. This will appear at the top of the docs page',
+         },
+       },
+     },
+   }
+   // Each export is a story. A minimum of one is required
+   export const StoryName1 = MyComponentTemplate.bind({})
+   StoryName1.args = { text: 'Example text 1' }
+
+   export const StoryName2 = MyComponentTemplate.bind({})
+   StoryName2.args = { text: 'Example text 2' }
+   ```
+
+   CSF is a flexible format that allows for adding more controls and documentation to your stories. Please read the [storybook documentation](https://storybook.js.org/docs/html/api/csf) to learn more about CSF.
+
+#### Reusing another component template
+
+If your component reuses other components (e.g. if you were building a dialog box component that uses `BaseButton`), you can also do the same when creating your storybook template. Here is an example component template that imports `MyComponent` and reuses its template:
+
+```js
+// AnotherComponent.js
+import { MyComponentTemplate } from 'path/to/MyComponent.js'
+export const AnotherComponentTemplate = () => {
+  const MyComponent = MyComponentTemplate({
+    text: 'Custom text for MyComponent',
+  })
+  return `<div class="AnotherComponent">
+    <p>Another component that reuses MyComponent</p>
+    ${MyComponent}
+  </div>`
+}
+```
+
+#### Decorators
+
+Decorators are useful if you want to modify the layout of your component without including it in your template or HTML output. To use a decorator, wrap your template with an immediate parent of `#storyDecorator` and whatever surrounding layout that is needed. You can then set the html root of your story parameters to use the `#storyDecorator` as the root.
+
+```js
+// MyComponent.js
+export const MyComponentTemplate = () => {
+  return `<div class="container mx-auto">
+    <div id="#storyDecorator" class="lg:w-1/2">
+      <div class="MyComponent"><!-- more html markup --></div>
+    </div>
+  </div>`
+}
+```
+
+```js
+// MyComponent.stories.js
+export default {
+  // parameters are optional
+  parameters: {
+    ...
+    html: {
+      root: '#storyDecorator',
+    },
+    ...
+  },
+}
+```
+
+As long as `parameters.html.root` matches the parent wrapper element of your template, then this will work. `#storyDecorator` is recommended for consistency.
+
+### SCSS
+
+SCSS lives in `/src/scss/` and [Parcel](https://parceljs.org/) is used to compile all partials and imports. If you are writing SCSS for your component, all SCSS should be scoped by the component name. In general, try to avoid custom SCSS if possible, as most styling can be achieved by using inline Tailwind CSS classes.
+
+#### Adding SCSS
+
+If you are adding SCSS for component, create a SCSS partial for it in `/src/scss/components/` and import it in `/src/scss/_components.scss`. Partials for global styles should be imported in `/src/scss/styles.scss`. Filenames for component SCSS partials should use CamelCase, e.g. `_MyComponent.scss`
+
+Below is an example walkthrough of adding SCSS for a new component named `MyComponent`:
+
+1. Create a SCSS partial for your component: `/src/scss/components/_MyComponent.scss`
+2. Namespace all styles with your component name:
+
+   ```scss
+   // _MyComponent.scss
+   .MyComponent {
+     @apply some-tailwind-class;
+     .sub-class {
+       // more styles
+     }
+   }
+   ```
+
+3. Import the partial in `/src/scss/_components.scss`
+   ```scss
+   // _components.scss
+   @import 'components/MyComponent';
+   ```
+
+### JavaScript
+
+JavaScript lives in `/src/js/` and [Parcel](https://parceljs.org/) is used to compile all imports and script files.
+
+#### Adding to scripts.js
+
+You can add more scripts as `require()` statements to the `/src/js/scripts.js` file. A few files are already included: `_lazysizes_.js`, and `_swiper.js`.
+
+#### Naming convention
+
+Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, it should use the component name CamelCase e.g.: `_MyComponent.js`.
+
+#### Using Node modules
+
+If you want to use Node modules, install the package as usual and add the necessary imports directly to `scripts.js` or a separate JS file that is then required in `scripts.js`. See `_lazysizes.js` as an example.
+
+## Pull request guidance
+
+This repository employs the [Release Drafter](https://github.com/marketplace/actions/release-drafter) GitHub Actions workflow to automatically build draft release notes as pull requests are merged. Release Drafter will categorize the main type of changes in each PR within the release notes and also determine what the version number of the next release should be (i.e., whether the release is a major, minor, or patch release).
+
+Release Drafter's ability to do this correctly **depends on PRs being tagged with certain labels**. Most PRs should include at least two labels:
+
+1. A label for the **category** of the changes included in the PR (e.g., `feature`, `fix`, `docs`, or `maintenance`)
+2. A label for the **significance** of the chance (i.e., `major`, `minor`, or `patch`, per [Semantic Versioning](https://semver.org/) definitions)
+
+Release Drafter will attempt to automatically apply the category label to a new PR based on its branch name, title, or paths of files that were changed. Please check that it did this sensibly, and modify the labels as necessary. Try to avoid having two major category labels on a PR, because it will then be added to both of those categories in the list.
+
+The quality of the generated release notes also depends on PRs having good human-readable titles.
+
+In cases where a PR is not worth noting in the release notes, you can also tell Release Drafter not to add an entry for it by labeling it with `skip-changelog`.
+
+Finally, don't fret about this too much! The Release Drafter configuration and labeling scheme may take some time to fine-tune, and the drafted release notes can always be manually edited before final publication.
+
+### Temporary beta release considerations
+
+This includes a temporary override (in `.github/workflows/update-release-draft.yml`) of the default versioning/tagging process (configured in `.github/release-drafter.config.yml`), because Release Drafter doesn't yet support incrementing prerelease versions ([see open issue](https://github.com/release-drafter/release-drafter/issues/585)). We will need to manually update the release title and tag prior to publishing it, at least until we get to 1.0.0 final. At that point, if we remove the override, it should automatically figure out the next version number, according to how the PRs since the previous release have been tagged as major/minor/patch.
+
+## Publishing to npm
+
+If any changes were made to the src files, be sure to [build to dist](#getting-started) before publishing to NPM.
+
+1. Login to the public npm registry with your account that has permission to manage this package
+   ```bash
+   npm login
+   ```
+2. Publish the package
+   ```bash
+   npm publish
+   ```

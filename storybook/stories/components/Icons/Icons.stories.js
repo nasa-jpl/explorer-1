@@ -41,7 +41,7 @@ export default {
     customClass: {
       type: 'string',
       description:
-        'Use TailwindCSS text size, color and background classes to control the icon styling. Icon dimensions are set in `em`s to allow for relative sizing.',
+        'Use Tailwind CSS text size, color and background classes to control the icon styling. Icon dimensions are set in `em`s to allow for relative sizing.',
       control: { type: 'text' },
     },
   },
@@ -50,7 +50,7 @@ export default {
     docs: {
       description: {
         component:
-          'Icon size and color are handled by TailwindCSS text classes.',
+          'Icon size and color are handled by Tailwind CSS text classes.',
       },
     },
   },
