@@ -4,6 +4,7 @@ body.ThemeLight,
 .ThemeLight .sbdocs-preview {
   background: #ffffff;
 }
+
 body.ThemeDark,
 .ThemeDark .sbdocs-preview {
   background: #000000;
@@ -15,6 +16,7 @@ body.ThemeDark,
 .disable-nav-offset .-nav-offset {
   margin-top: 0;
 }
+
 .disable-nav-offset .-nav-offset::before {
   display: none;
 }
