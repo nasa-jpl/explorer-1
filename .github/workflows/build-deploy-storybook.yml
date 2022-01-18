@@ -25,13 +25,13 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies 🧱
-        run: npm install
+        run: npm ci
 
       - name: Build static Storybook 🛠
         run: npm run build-storybook
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: storybook_compiled
           branch: gh-pages
