@@ -25,7 +25,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies 🧱
-        run: npm install
+        run: npm ci
 
       - name: Build static Storybook 🛠
         run: npm run build-storybook
