@@ -125,6 +125,7 @@ h5,
 .text-subtitle {
   @apply font-secondary uppercase text-base leading-tight tracking-wider;
 }
+
 .text-subtitle-sm {
   @apply font-secondary uppercase text-sm leading-tight tracking-wider;
 }
@@ -190,18 +191,23 @@ h5,
   @variants hover {
     .text-theme-red {
       @apply text-jpl-red;
+
       .ThemeLight & {
         @apply text-jpl-red;
       }
+
       .ThemeDark & {
         @apply text-jpl-red-light;
       }
     }
+
     .text-theme-red-hover {
       @apply text-jpl-red-dark;
+
       .ThemeLight & {
         @apply text-jpl-red-dark;
       }
+
       .ThemeDark & {
         @apply text-jpl-red;
       }
@@ -216,6 +222,7 @@ h5,
   .text-contrast {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   }
+
   .text-contrast-none {
     text-shadow: none;
   }

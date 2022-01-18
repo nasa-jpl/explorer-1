@@ -24,6 +24,7 @@
   .form-select,
   .form-multiselect {
     @apply border-gray-light-mid;
+
     &:focus {
       --tw-ring-color: #1871c9; // focus-blue
       @apply border-focus-blue;
