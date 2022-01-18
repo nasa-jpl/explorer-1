@@ -8,6 +8,7 @@
     @apply outline-none ring-2;
   }
   @apply font-secondary font-semibold uppercase tracking-wider leading-normal cursor-pointer transition-all duration-200 ease-linear bg-gradient-to-b from-transparent-w50;
+
   > .label {
     @apply flex items-center justify-center;
   }
@@ -17,6 +18,7 @@
 
   &.-primary {
     @apply px-12 text-white bg-jpl-red to-jpl-red-dark-w50;
+
     & > .label {
       @apply border-2 border-transparent;
     }
@@ -41,24 +43,28 @@
     @include hover {
       @apply text-white bg-gray-dark;
     }
+
     &.-facebook {
       @apply to-facebook-w50;
       @include hover {
         @apply bg-facebook border-facebook;
       }
     }
+
     &.-twitter {
       @apply to-twitter-w50;
       @include hover {
         @apply bg-twitter border-twitter;
       }
     }
+
     &.-instagram {
       @apply to-instagram-w50;
       @include hover {
         @apply bg-instagram border-instagram;
       }
     }
+
     &.-youtube {
       @apply to-youtube-w50;
       @include hover {
@@ -70,24 +76,30 @@
   &.-compact {
     @apply px-5;
   }
+
   &.-icon-only {
     @apply p-0;
+
     > .label {
       @apply flex items-center justify-center h-full w-full;
     }
   }
+
   &:disabled {
     @apply bg-none bg-gray-mid border-gray-mid cursor-default #{!important};
+
     > .label {
       @apply text-white;
     }
   }
 }
+
 .ThemeLight {
   .BaseButton {
     &.-primary {
       @apply text-white bg-jpl-red to-jpl-red-dark-w50;
     }
+
     &.-secondary {
       @apply text-jpl-red bg-transparent border-jpl-red to-jpl-red-dark-w50;
       @include hover {
@@ -97,11 +109,13 @@
     }
   }
 }
+
 .ThemeDark {
   .BaseButton {
     &.-primary {
       @apply text-white bg-jpl-red-light to-jpl-red-w50;
     }
+
     &.-secondary {
       @apply text-jpl-red-light bg-transparent border-jpl-red-light to-jpl-red-w50;
       @include hover {

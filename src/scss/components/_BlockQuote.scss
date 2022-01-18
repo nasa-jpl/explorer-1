@@ -1,5 +1,6 @@
 .BlockQuote {
   @apply text-center;
+
   > div > div > .attribution-image {
     width: 60px;
     min-width: 60px;
@@ -12,6 +13,7 @@
       @apply my-5 mr-3;
     }
   }
+
   > hr {
     max-width: 100px;
     @apply border-t mx-auto border-jpl-red-light;
@@ -19,6 +21,7 @@
       max-width: 120px;
     }
   }
+
   > .quote {
     line-height: 1.4; // custom
     @apply font-primary italic text-xl font-medium py-4 text-jpl-red;
@@ -27,8 +30,10 @@
       @apply font-normal;
     }
   }
+
   > div > div > .attribution-text {
     @apply flex justify-center items-start font-primary leading-normal text-sm text-left mt-1 px-4 pb-4 text-gray-mid-dark;
+
     &::before {
       content: '—';
       @apply mr-2;
@@ -38,27 +43,33 @@
     }
   }
 }
+
 .ThemeLight {
   .BlockQuote {
     > hr {
       @apply border-jpl-red;
     }
+
     > .quote {
       @apply text-jpl-red;
     }
+
     > div > div > .attribution-text {
       @apply text-gray-mid-dark;
     }
   }
 }
+
 .ThemeDark {
   .BlockQuote {
     > hr {
       @apply border-jpl-red-light;
     }
+
     > .quote {
       @apply text-white;
     }
+
     > div > div > .attribution-text {
       @apply text-gray-mid;
     }

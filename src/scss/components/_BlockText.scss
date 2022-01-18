@@ -5,46 +5,57 @@
       @apply text-jpl-red-dark;
     }
   }
+
   p {
     @apply mb-5;
     @screen lg {
       @apply mb-8;
     }
+
     &:last-child {
       @apply mb-0;
     }
   }
+
   hr {
     @apply border-gray-light-mid border-t my-5;
     @screen lg {
       @apply my-8;
     }
+
     &:last-child {
       @apply mb-0;
     }
   }
+
   ol,
   ul {
     @apply mb-5;
     @screen lg {
       @apply mb-8;
     }
+
     &:last-child {
       @apply mb-0;
     }
+
     li {
       @apply my-3;
+
       &:last-child {
         @apply mb-0;
       }
     }
   }
+
   ol {
     @apply pl-12 list-decimal;
   }
+
   ul {
     li {
       @apply pl-12 relative;
+
       &::before {
         content: '';
         width: 30px;

@@ -13,12 +13,14 @@
       height: 2px;
       vertical-align: middle;
     }
+
     .BlockText {
       p {
         @apply mb-2;
         @screen lg {
           @apply mb-2;
         }
+
         &:last-child {
           @apply mb-0;
         }

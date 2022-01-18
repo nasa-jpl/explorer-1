@@ -13,6 +13,7 @@
     @screen xl {
       min-height: 430px;
     }
+
     > .hero {
       height: 30vh;
       min-height: 200px;
@@ -25,17 +26,21 @@
       }
     }
   }
+
   #HeroMediaCaptionToggle {
     .IconClose {
       @apply hidden;
     }
+
     .IconInfo {
       @apply text-xl;
     }
+
     &.expanded {
       .IconClose {
         @apply block;
       }
+
       .IconInfo {
         @apply hidden;
       }
