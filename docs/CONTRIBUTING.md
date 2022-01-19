@@ -18,12 +18,12 @@ Documentation on how to run this project locally and add more components.
    ```bash
    npm i
    ```
-1. Serve at http://localhost:3000/
+1. Serve a simple test page at http://localhost:3000/ and watch for changes, live reloading them with Browsersync
    ```bash
    npm run dev
    ```
    _Note: You may need to refresh if you've never run the project before._
-1. Build to `dist/`
+1. Build to `dist/` (necessary to see changes in Storybook)
    ```bash
    npm run build
    ```
@@ -169,6 +169,10 @@ export default {
 ```
 
 As long as `parameters.html.root` matches the parent wrapper element of your template, then this will work. `#storyDecorator` is recommended for consistency.
+
+##### Rebuilding assets
+
+When making changes to a component's CSS or JS, you must run `npm run build` to see those changes reflected in Storybook.
 
 ### SCSS
 
