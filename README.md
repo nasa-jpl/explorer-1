@@ -248,4 +248,4 @@ Reference the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/) for
 
 ## For contributing developers
 
-See the [contributing guide](docs/CONTRIBUTING.md) for detailed instructions on how to contribute to Explorer 1.
+See the [contributing guide](CONTRIBUTING.md) for detailed instructions on how to contribute to Explorer 1.
