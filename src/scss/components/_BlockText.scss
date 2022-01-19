@@ -1,55 +1,71 @@
 .BlockText {
   a {
     @apply text-jpl-red underline cursor-pointer break-words;
+
     @include hover {
       @apply text-jpl-red-dark;
     }
   }
+
   p {
     @apply mb-5;
+
     @screen lg {
       @apply mb-8;
     }
+
     &:last-child {
       @apply mb-0;
     }
   }
+
   hr {
     @apply border-gray-light-mid border-t my-5;
+
     @screen lg {
       @apply my-8;
     }
+
     &:last-child {
       @apply mb-0;
     }
   }
+
   ol,
   ul {
     @apply mb-5;
+
     @screen lg {
       @apply mb-8;
     }
+
     &:last-child {
       @apply mb-0;
     }
+
     li {
       @apply my-3;
+
       &:last-child {
         @apply mb-0;
       }
     }
   }
+
   ol {
     @apply pl-12 list-decimal;
   }
+
   ul {
     li {
       @apply pl-12 relative;
+
       &::before {
         content: '';
         width: 30px;
         height: 2px;
         @apply bg-jpl-red block absolute top-0 left-0 mt-3;
+
         @screen sm {
           @apply mt-4;
         }
