@@ -6,6 +6,7 @@
     min-width: 60px;
     height: auto;
     @apply block rounded-full my-2;
+
     @screen lg {
       width: 80px;
       min-width: 80px;
@@ -17,6 +18,7 @@
   > hr {
     max-width: 100px;
     @apply border-t mx-auto border-jpl-red-light;
+
     @screen lg {
       max-width: 120px;
     }
@@ -25,6 +27,7 @@
   > .quote {
     line-height: 1.4; // custom
     @apply font-primary italic text-xl font-medium py-4 text-jpl-red;
+
     @screen lg {
       font-size: 1.875rem; // custom  // 30px
       @apply font-normal;
@@ -38,6 +41,7 @@
       content: '—';
       @apply mr-2;
     }
+
     @screen lg {
       @apply items-center text-base text-center;
     }

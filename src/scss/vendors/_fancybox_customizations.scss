@@ -1,6 +1,7 @@
 // overrides for fancybox
 .fancybox__slide {
   padding: 36px;
+
   @screen lg {
     padding: 64px;
   }
@@ -8,6 +9,7 @@
 
 .fancybox__content {
   padding: 18px;
+
   @screen lg {
     padding: 36px;
   }

@@ -28,6 +28,7 @@
             @apply absolute top-0 left-0 block;
           }
         }
+
         @include hover {
           > .arrow-wrapper > .arrow,
           > .arrow-wrapper > .arrow-fixed {
@@ -36,6 +37,7 @@
         }
       }
     }
+
     @screen lg {
       // specific directional animation
       .swiper-next.BaseButton > .label {

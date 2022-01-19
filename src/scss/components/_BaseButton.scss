@@ -12,6 +12,7 @@
   > .label {
     @apply flex items-center justify-center;
   }
+
   @include hover {
     background-position: bottom;
   }
@@ -26,6 +27,7 @@
 
   &.-secondary {
     @apply px-12 bg-transparent text-jpl-red border-2 border-jpl-red to-jpl-red-dark-w50;
+
     @include hover {
       @apply text-white border-jpl-red-dark;
     }
@@ -33,6 +35,7 @@
 
   &.-dark {
     @apply px-12 bg-transparent text-white border border-white border-opacity-40 to-white-w50;
+
     @include hover {
       @apply text-dark-blue border-white bg-white;
     }
@@ -40,12 +43,14 @@
 
   &.-social {
     @apply px-12 bg-transparent border border-gray-mid text-gray-mid to-gray-dark-w50;
+
     @include hover {
       @apply text-white bg-gray-dark;
     }
 
     &.-facebook {
       @apply to-facebook-w50;
+
       @include hover {
         @apply bg-facebook border-facebook;
       }
@@ -53,6 +58,7 @@
 
     &.-twitter {
       @apply to-twitter-w50;
+
       @include hover {
         @apply bg-twitter border-twitter;
       }
@@ -60,6 +66,7 @@
 
     &.-instagram {
       @apply to-instagram-w50;
+
       @include hover {
         @apply bg-instagram border-instagram;
       }
@@ -67,6 +74,7 @@
 
     &.-youtube {
       @apply to-youtube-w50;
+
       @include hover {
         @apply bg-youtube border-youtube;
       }
@@ -102,6 +110,7 @@
 
     &.-secondary {
       @apply text-jpl-red bg-transparent border-jpl-red to-jpl-red-dark-w50;
+
       @include hover {
         // including a bg color resolves pixelation inconsistencies between browsers
         @apply text-white border-jpl-red-dark bg-jpl-red-dark;
@@ -118,6 +127,7 @@
 
     &.-secondary {
       @apply text-jpl-red-light bg-transparent border-jpl-red-light to-jpl-red-w50;
+
       @include hover {
         // including a bg color resolves pixelation inconsistencies between browsers
         @apply text-white border-jpl-red bg-jpl-red;

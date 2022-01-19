@@ -17,6 +17,7 @@
     .BlockText {
       p {
         @apply mb-2;
+
         @screen lg {
           @apply mb-2;
         }

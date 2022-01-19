@@ -9,6 +9,7 @@
       @apply absolute top-1/2 transform -translate-y-1/2 left-0 block text-sm;
     }
   }
+
   @include hover {
     > .arrow-wrapper > .arrow {
       animation: arrow-anim 0.25s ease-in normal;
@@ -32,6 +33,7 @@
       }
     }
   }
+
   @keyframes arrow-anim {
     0% {
       opacity: 1;
