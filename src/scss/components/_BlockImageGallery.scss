@@ -3,10 +3,12 @@
   .BaseLightboxOpenButton {
     @apply hidden;
   }
+
   .BaseImageCaption {
     @screen lg {
       @apply pl-8;
     }
+
     @screen 3xl {
       @apply pl-0;
     }
