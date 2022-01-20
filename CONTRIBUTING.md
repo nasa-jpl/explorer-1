@@ -61,7 +61,7 @@ Ultimately, the file diff for adding a new component that requires custom SCSS a
 
 ### Storybook
 
-Storybook serves as the documentation for how to use the design system's foundational styles and the included components. New components can also be developed directly in Storybook.
+Storybook serves as the documentation for how to use the design system's base styles and the included components. Storybook also allows for developing components in isolation, which is useful when adding new components to Explorer 1. Once the files for your component are set up, you can use its template (`MyComponent.js`) to fine-tune the markup. You can then preview and test your component in Storybook.
 
 #### Adding a component story
 
@@ -176,9 +176,13 @@ When making changes to a component's CSS or JS, you must run `npm run build` to 
 
 ### SCSS
 
-SCSS lives in `/src/scss/` and [Parcel](https://parceljs.org/) is used to compile all partials and imports. If you are writing SCSS for your component, all SCSS should be scoped by the component name. In general, try to avoid custom SCSS if possible, as most styling can be achieved by using inline Tailwind CSS classes.
+Styling is achieved with inline Tailwind CSS classes in the component markup. Custom SCSS is only used where that is impossible or impractical.
+
+SCSS files live in `/src/scss/` and [Parcel](https://parceljs.org/) is used to compile all partials and imports. If you must write custom SCSS for your component, all SCSS should be namespaced to your component. See [Adding SCSS](#adding-scss) for more information.
 
 #### Adding SCSS
+
+> Custom SCSS should only be added if it is impossible or impractical to style your component with inline Tailwind CSS classes.
 
 If you are adding SCSS for component, create a SCSS partial for it in `/src/scss/components/` and import it in `/src/scss/_components.scss`. Partials for global styles should be imported in `/src/scss/styles.scss`. Filenames for component SCSS partials should use CamelCase, e.g. `_MyComponent.scss`
 
