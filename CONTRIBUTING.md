@@ -3,6 +3,8 @@
 Documentation on how to run this project locally and add more components.
 
 - [Getting started](#getting-started)
+  - [View the test page](#view-the-test-page)
+  - [View the Storybook](#view-the-storybook)
 - [Adding components](#adding-components)
   - [Storybook](#storybook)
   - [SCSS](#scss)
@@ -13,20 +15,37 @@ Documentation on how to run this project locally and add more components.
 
 ## Getting started
 
+This project provides both a simple HTML test page and a Storybook.
+
+### View the test page
+
+The simple HTML test page watches changes to files and recompiles automatically. This test page is only available in developers' local environments and is useful for quick prototyping until the component is documented in Storybook.
+
 1. Clone this repository and go into its directory
-1. Install dependencies
+2. Install dependencies
    ```bash
    npm i
    ```
-1. Serve a simple test page at http://localhost:3000/ and watch for changes, live reloading them with Browsersync
+3. Serve a simple test page at http://localhost:3000/ and watch for changes, live reloading them with Browsersync
    ```bash
    npm run dev
    ```
    _Note: You may need to refresh if you've never run the project before._
-1. Build to `dist/` (necessary to see changes in Storybook)
+
+### View the Storybook
+
+Storybook uses the compiled assets in `dist` and does not watch files for changes. Storybook deploys to GitHub pages and is available to the public.
+
+1. Build the assets Storybook needs to `dist/`
    ```bash
    npm run build
    ```
+2. Serve the Storybook at http://localhost:6006/
+   ```bash
+   npm run storybook
+   ```
+
+As you're working on component CSS or JS, you'll need to re-run `npm run build` in order to see your changes reflected in Storybook.
 
 ## Adding components
 
