@@ -33,7 +33,7 @@ Documentation on how to run this project locally and add more components.
 Adding a component requires the following:
 
 1. Name your component. It should be unique and use CamelCase.
-2. [Build it in a storybook story](#storybook). This will be the source of truth for component markup.
+2. [Build it in a Storybook story](#storybook). This will be the source of truth for component markup.
 3. [Add a SCSS file](#scss), if needed
 4. [Add a JavaScript file](#javascript), if needed
 5. Update the [list of included components](#components)
@@ -119,11 +119,11 @@ Storybook serves as the documentation for how to use the design system's foundat
    StoryName2.args = { text: 'Example text 2' }
    ```
 
-   CSF is a flexible format that allows for adding more controls and documentation to your stories. Please read the [storybook documentation](https://storybook.js.org/docs/html/api/csf) to learn more about CSF.
+   CSF is a flexible format that allows for adding more controls and documentation to your stories. Please read the [Storybook documentation](https://storybook.js.org/docs/html/api/csf) to learn more about CSF.
 
 #### Reusing another component template
 
-If your component reuses other components (e.g. if you were building a dialog box component that uses `BaseButton`), you can also do the same when creating your storybook template. Here is an example component template that imports `MyComponent` and reuses its template:
+If your component reuses other components (e.g. if you were building a dialog box component that uses `BaseButton`), you can also do the same when creating your Storybook template. Here is an example component template that imports `MyComponent` and reuses its template:
 
 ```js
 // AnotherComponent.js
@@ -147,7 +147,7 @@ Decorators are useful if you want to modify the layout of your component without
 // MyComponent.js
 export const MyComponentTemplate = () => {
   return `<div class="container mx-auto">
-    <div id="#storyDecorator" class="lg:w-1/2">
+    <div id="storyDecorator" class="lg:w-1/2">
       <div class="MyComponent"><!-- more html markup --></div>
     </div>
   </div>`
@@ -168,9 +168,9 @@ export default {
 }
 ```
 
-As long as `parameters.html.root` matches the parent wrapper element of your template, then this will work. `#storyDecorator` is recommended for consistency.
+As long as `parameters.html.root` matches the parent wrapper element of your template, then this will work, but please always use `#storyDecorator` for consistency with our existing stories.
 
-##### Rebuilding assets
+#### Rebuilding assets
 
 When making changes to a component's CSS or JS, you must run `npm run build` to see those changes reflected in Storybook.
 
@@ -198,6 +198,7 @@ Below is an example walkthrough of adding SCSS for a new component named `MyComp
    ```
 
 3. Import the partial in `/src/scss/_components.scss`
+
    ```scss
    // _components.scss
    @import 'components/MyComponent';
