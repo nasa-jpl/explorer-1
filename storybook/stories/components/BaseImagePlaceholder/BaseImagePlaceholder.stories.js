@@ -71,7 +71,7 @@ export default {
     objectFitClass: {
       type: 'string',
       description:
-        "Passed to `BaseImage`. Apply a TailwindCSS object fit class to `BaseImage` to specify how the image will scale within the placeholder's aspect ratio.",
+        "Passed to `BaseImage`. Apply a Tailwind CSS object fit class to `BaseImage` to specify how the image will scale within the placeholder's aspect ratio.",
       control: {
         type: 'select',
         options: [
@@ -98,7 +98,7 @@ export default {
 - expects to contain an image as a child element in its primary slot
 - provides a lazy-loading block for the image to load into
 - can be used to maintain an aspect ratio
-- compatible with TailwindCSS classes, e.g. \`.rounded-lg\` to have round edges around the image. Think of it like a frame to put an image within.
+- compatible with Tailwind CSS classes, e.g. \`.rounded-lg\` to have round edges around the image. Think of it like a frame to put an image within.
 
 ## Accessibility notes
 
