@@ -230,7 +230,7 @@ Starts at `indent-col-2` (col-2 of the `BaseGrid`) and bleeds fully to the right
 
 #### Complex mixed bleed
 
-When elements of an indented MixedBleed area must align with the BaseGrid, we need to get a bit more creative. We will still use mixed bleed grid lines, but we will not use `BaseGrid` within since the container is already indented. We instead need to use a custom grid for this use-case. Luckily, with TailwindCSS, this is fairly straightforward. The nested grid should contain the number of columns offset by the amount that is already indented, and no `gap` should be used.
+When elements of an indented MixedBleed area must align with the BaseGrid, we need to get a bit more creative. We will still use mixed bleed grid lines, but we will not use `BaseGrid` within since the container is already indented. We instead need to use a custom grid for this use-case. Luckily, with Tailwind CSS, this is fairly straightforward. The nested grid should contain the number of columns offset by the amount that is already indented, and no `gap` should be used.
 
 ```html
 <div class="MixedBleedGrid">

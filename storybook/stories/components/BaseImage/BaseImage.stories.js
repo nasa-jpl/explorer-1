@@ -22,7 +22,7 @@ export default {
     objectFitClass: {
       type: 'string',
       description:
-        'Use TailwindCSS object fit classes to specify how the image will scale within `BaseImagePlaceholder`',
+        'Use Tailwind CSS object fit classes to specify how the image will scale within `BaseImagePlaceholder`',
       control: {
         type: 'select',
         options: [
