@@ -10,7 +10,6 @@ Documentation on how to run this project locally and add more components.
   - [SCSS](#scss)
   - [JavaScript](#javascript)
 - [Pull request guidance](#pull-request-guidance)
-  - [Temporary beta release considerations](#temporary-beta-release-considerations)
 - [Publishing to npm](#publishing-to-npm)
 
 ## Getting started
@@ -61,10 +60,11 @@ Ultimately, the file diff for adding a new component that requires custom SCSS a
 
 ```
 @nasa-jpl/explorer-1/
-├── README.md                               # modified
+├── README.md
 ├── src/
 │   ├── js/
-│   │   ├── _MyComponent.js                 # new
+│   │   ├── components/
+│   │   │   └── _MyComponent.js              # new
 │   │   └── scripts.js                      # modified
 │   └── scss/
 │       ├── components/
@@ -227,21 +227,89 @@ Below is an example walkthrough of adding SCSS for a new component named `MyComp
    @import 'components/MyComponent';
    ```
 
+#### Using Node modules
+
+If your component requires styles provided by an npm package, install the package with the `--save` flag, and import the CSS or SCSS in `/src/scss/_vendors.scss` using Parcel's [`npm:` scheme](https://parceljs.org/features/dependency-resolution/#url-schemes). Below is an example installing [@fancyapps/ui](https://github.com/fancyapps/ui) and importing `fancybox.css` from it:
+
+```bash
+npm i --save @fancyapps/ui
+```
+
+```scss
+// /src/scss/_vendors.scss
+@import 'npm:@fancyapps/ui/dist/fancybox.css';
+```
+
+If you need to customize or override the vendor-provided styles, create a dedicated file:
+
+1. Create a SCSS partial in `/src/scss/vendors/` that includes your overrides
+
+   ```scss
+   // /src/scss/vendors/_fancybox_customizations.scss
+   // add your custom styles here
+   ```
+
+2. Import the SCSS partial in `/src/scss/_vendors/scss` after the styles provided by the npm package
+
+   ```scss
+   // import css from npm
+   @import 'npm:@fancyapps/ui/dist/fancybox.css';
+
+   // import overrides
+   @import 'vendors/fancybox_customizations';
+   ```
+
+Adding npm dependencies to Explorer 1 also requires updating the [Compile your own: Using assets a la carte](README.md#compile-your-own-using-assets-a-la-carte) section in the README. See [Additional requirements for carousels](README.md#additional-requirements-for-carousels) and [Additional requirements for modals and lightboxes](README.md#additional-requirements-for-modals-and-lightboxes) for examples.
+
 ### JavaScript
 
-JavaScript lives in `/src/js/` and [Parcel](https://parceljs.org/) is used to compile all imports and script files.
+JavaScript lives in `/src/js/` and compiled by [Parcel](https://parceljs.org/).
 
 #### Adding to scripts.js
 
-You can add more scripts as `require()` statements to the `/src/js/scripts.js` file. A few files are already included: `_lazysizes_.js`, and `_swiper.js`.
+You can add more scripts as `require()` statements to the `/src/js/scripts.js` file. Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, the name should also use the component name in CamelCase e.g.: `_MyComponent.js`.
 
-#### Naming convention
+Below is an example walkthrough of adding JavaScript for a new component named `MyComponent`:
 
-Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, it should use the component name CamelCase e.g.: `_MyComponent.js`.
+1. Create a JavaScript file for your component: `/src/js/components/_MyComponent.js`
+2. When writing your script, be sure to scope it to your component either by CSS class or other unique identifier that will not conflict with other components or HTML elements. You should only use an ID when you are absolutely sure your component will only occur once on a page. Your script should also account for multiple iterations of your component appearing on a page, or not at all.
+
+3. Require the component JavaScript file in `/src/js/scripts.js`
+
+   ```js
+   // scripts.js
+   require('./components/_MyComponent.js')
+   ```
 
 #### Using Node modules
 
-If you want to use Node modules, install the package as usual and add the necessary imports directly to `scripts.js` or a separate JS file that is then required in `scripts.js`. See `_lazysizes.js` as an example.
+If your component requires use of an npm package, install the package with the `--save` flag, and require it directly in `/src/js/scripts.js`.
+
+```bash
+npm i --save @fancyapps/ui
+```
+
+```js
+// scripts.js
+require('@fancyapps/ui')
+```
+
+If the package requires additional configuration, you should instead create a dedicated JS file:
+
+1. Create a file in `/src/js/vendors/`. The filename should start with an underscore and be named similarly to the package.
+
+   ```js
+   // /src/js/vendors/_package-name.js
+   // init or configure package here
+   ```
+
+2. In `/src/js/scripts.js`, require the vendor script you just created.
+   ```js
+   // /src/js/scripts.js
+   require('./vendors/_package-name.js')
+   ```
+
+Adding npm dependencies to Explorer 1 also requires updating the [Compile your own: Using assets a la carte](README.md#compile-your-own-using-assets-a-la-carte) section in the README. See [Additional requirements for carousels](README.md#additional-requirements-for-carousels) and [Additional requirements for modals and lightboxes](README.md#additional-requirements-for-modals-and-lightboxes) for examples.
 
 ## Pull request guidance
 
@@ -259,10 +327,6 @@ The quality of the generated release notes also depends on PRs having good human
 In cases where a PR is not worth noting in the release notes, you can also tell Release Drafter not to add an entry for it by labeling it with `skip-changelog`.
 
 Finally, don't fret about this too much! The Release Drafter configuration and labeling scheme may take some time to fine-tune, and the drafted release notes can always be manually edited before final publication.
-
-### Temporary beta release considerations
-
-This includes a temporary override (in `.github/workflows/update-release-draft.yml`) of the default versioning/tagging process (configured in `.github/release-drafter.config.yml`), because Release Drafter doesn't yet support incrementing prerelease versions ([see open issue](https://github.com/release-drafter/release-drafter/issues/585)). We will need to manually update the release title and tag prior to publishing it, at least until we get to 1.0.0 final. At that point, if we remove the override, it should automatically figure out the next version number, according to how the PRs since the previous release have been tagged as major/minor/patch.
 
 ## Publishing to npm
 
