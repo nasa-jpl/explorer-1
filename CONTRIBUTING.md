@@ -262,11 +262,11 @@ Adding npm dependencies to Explorer 1 also requires updating the [Compile your o
 
 ### JavaScript
 
-JavaScript lives in `/src/js/` and compiled by [Parcel](https://parceljs.org/).
+JavaScript lives in `/src/js/` and is compiled by [Parcel](https://parceljs.org/).
 
 #### Adding to scripts.js
 
-You can add more scripts as `require()` statements to the `/src/js/scripts.js` file. Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, the name should also use the component name in CamelCase e.g.: `_MyComponent.js`.
+You can add more scripts as `require()` statements to the `/src/js/scripts.js` file. Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, the name should also use the component name in CamelCase, e.g.: `_MyComponent.js`.
 
 Below is an example walkthrough of adding JavaScript for a new component named `MyComponent`:
 
