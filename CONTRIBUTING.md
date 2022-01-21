@@ -9,6 +9,7 @@ Documentation on how to run this project locally and add more components.
   - [Storybook](#storybook)
   - [SCSS](#scss)
   - [JavaScript](#javascript)
+- [Linting and Formatting](#linting-and-formatting)
 - [Pull request guidance](#pull-request-guidance)
 - [Publishing to npm](#publishing-to-npm)
 
@@ -309,6 +310,28 @@ If the package requires additional configuration, you should instead create a de
    ```
 
 Adding npm dependencies to Explorer 1 also requires updating the [Compile your own: Using assets a la carte](README.md#compile-your-own-using-assets-a-la-carte) section in the README. See [Additional requirements for carousels](README.md#additional-requirements-for-carousels) and [Additional requirements for modals and lightboxes](README.md#additional-requirements-for-modals-and-lightboxes) for examples.
+
+## Linting and Formatting
+
+The project uses eslint, prettier, and stylelint for linting and formatting.
+
+Pre-commit is required on all developers machines to ensure coding standards are met, please ensure you have the latest version installed: https://pre-commit.com/#install
+
+1. Verify you have `pre-commit` installed and running the latest version:
+
+   ```bash
+   $ pre-commit --version
+   pre-commit 2.17.0
+   ```
+
+1. Install git-hook scripts:
+
+   ```bash
+   $ pre-commit install
+   pre-commit installed at .git/hooks/pre-commit
+   ```
+
+1. Next time you make a commit, `pre-commit` will run its course.
 
 ## Pull request guidance
 
