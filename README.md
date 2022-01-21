@@ -1,9 +1,8 @@
 # Explorer 1: JPL's Design System
 
 [![npm](https://img.shields.io/npm/v/@nasa-jpl/explorer-1)](https://npmjs.com/package/@nasa-jpl/explorer-1)
-[![View on GitHub](https://img.shields.io/badge/github-nasa--jpl%2Fexplorer--1-informational)](https://github.com/nasa-jpl/explorer-1)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![storybook](https://img.shields.io/badge/Explorer%201%20Storybook-FF4785.svg?logo=storybook&logoColor=white)](https://nasa-jpl.github.io/explorer-1/)
+[![pre-commit enabled](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![View the Storybook](https://img.shields.io/badge/Storybook-FF4785.svg?logo=storybook&logoColor=white)](https://nasa-jpl.github.io/explorer-1/)
 
 This package aims to include all of the frontend assets (JS and SCSS) necessary to create components using the HTML markup examples in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
 
@@ -55,7 +54,7 @@ Explorer 1's CSS classes are based on our [custom Tailwind CSS configuration](./
 Install with [npm](https://www.npmjs.com/):
 
 ```bash
-npm install @nasa-jpl/explorer-1
+npm install --save @nasa-jpl/explorer-1
 ```
 
 ## Using bundled assets
@@ -72,7 +71,7 @@ Include all styles and scripts by adding the bundled CSS and JS to your project'
 <script src="/path/to/explorer-1.min.js"></script>
 ```
 
-The bundled CSS is purged based on usage within our team's products and in Explorer 1's documentation. This means some default Tailwind CSS classes may not be available. If you want to use Explorer 1 along with other Tailwind CSS classes not provided by `explorer-1.min.css`, you can use Explorer 1's tailwind config in your own project. See [Compile your own: using assets a la carte](#compile-your-own-using-assets-a-la-carte) for more information.
+The bundled CSS includes only the Tailwind CSS classes that are used by our team's products and in Explorer 1's documentation; other default Tailwind CSS classes are not available. If you want to use Explorer 1 along with other Tailwind CSS classes not provided by `explorer-1.min.css`, you can use Explorer 1's Tailwind config in your own project. See [Compile your own: using assets a la carte](#compile-your-own-using-assets-a-la-carte) for more information.
 
 ### Fonts
 
@@ -98,10 +97,10 @@ Instead of including all of the bundled CSS and JS, you can import individual as
 Using styles a la carte requires:
 
 1. [Tailwind CSS](https://tailwindcss.com) and [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms)
-   ```
+   ```bash
    npm install tailwindcss @tailwindcss/forms
    ```
-2. Frontend tooling to compile and purge Tailwind CSS and SCSS, such as [Parceljs](https://parceljs.org/) with PostCSS and Sass configuration. Tailwind CSS also provides [some guidance](https://tailwindcss.com/docs/using-with-preprocessors#using-sass-less-or-stylus) on how to use preprocessors with Tailwind.
+2. Frontend tooling to compile and purge Tailwind CSS and SCSS, such as [Parcel](https://parceljs.org/) with PostCSS and Sass configuration. Tailwind CSS also provides [some guidance on how to use preprocessors with Tailwind](https://tailwindcss.com/docs/using-with-preprocessors#using-sass-less-or-stylus).
    > Note: [node-sass](https://www.npmjs.com/package/node-sass) is not supported. Use [dart-sass](https://sass-lang.com/dart-sass).
 
 #### Using the Explorer 1 Tailwind config
@@ -186,7 +185,7 @@ Then preload the CSS in your template followed by the necessary font files.
 At minimum, compiling your own JavaScript requires [lazysizes](https://www.npmjs.com/package/lazysizes), which is used for lazy loading images. To forgo this requirement, you will need to modify your HTML templates and remove the prepending `data-` from all `data-src` and `data-srcset` attributes.
 
 ```bash
-npm install lazysizes
+npm install --save lazysizes
 ```
 
 ```js
@@ -208,7 +207,7 @@ Reference the JavaScript files in [`/src/js/components/`](https://github.com/nas
 Carousel components require [swiper](https://www.npmjs.com/package/swiper) CSS and JS.
 
 ```bash
-npm install swiper
+npm install --save swiper
 ```
 
 ```scss
@@ -227,7 +226,7 @@ require('@nasa-jpl/explorer-1/src/js/vendors/_swiper.js')
 Modals and image lightboxes require [@fancyapps/ui](https://www.npmjs.com/package/@fancyapps/ui) CSS and JS.
 
 ```bash
-npm install @fancyapps/ui
+npm install --save @fancyapps/ui
 ```
 
 ```scss
