@@ -313,9 +313,9 @@ Adding npm dependencies to Explorer 1 also requires updating the [Compile your o
 
 ## Linting and Formatting
 
-The project uses eslint, prettier, and stylelint for linting and formatting.
+This project uses eslint, prettier, and stylelint for linting and formatting.
 
-Pre-commit is required on all developers machines to ensure coding standards are met, please ensure you have the latest version installed: https://pre-commit.com/#install
+Pre-commit is required on all developers' machines to ensure coding standards are met, please ensure you have the latest version installed: https://pre-commit.com/#install
 
 1. Verify you have `pre-commit` installed and running the latest version:
 
