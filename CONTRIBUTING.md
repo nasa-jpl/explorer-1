@@ -14,18 +14,18 @@ Documentation on how to run this project locally and add more components.
 
 ## Getting started
 
-This project provides both a simple HTML test page and a Storybook.
-
-### View the test page
-
-The simple HTML test page watches changes to files and recompiles automatically. This test page is only available in developers' local environments and is useful for quick prototyping until the component is documented in Storybook.
-
 1. Clone this repository and go into its directory
-2. Install dependencies
+1. Install dependencies
    ```bash
    npm i
    ```
-3. Serve a simple test page at http://localhost:3000/ and watch for changes, live reloading them with Browsersync
+1. View rendered components in either the [test page](#view-the-test-page) or [Storybook](#view-the-storybook)
+
+### View the test page
+
+The test page (`/src/index.html`) is available only in developers' local environments and is useful for rapid prototyping or quick markup tests. This approach is only recommended as a stop-gap until the component you are working on is functional in Storybook. Running the simple HTML test page watches files for changes and recompiles automatically.
+
+1. Serve a simple test page at http://localhost:3000/ and watch for changes, live reloading them with Browsersync
    ```bash
    npm run dev
    ```
@@ -33,7 +33,7 @@ The simple HTML test page watches changes to files and recompiles automatically.
 
 ### View the Storybook
 
-Storybook uses the compiled assets in `dist` and does not watch files for changes. Storybook deploys to GitHub pages and is available to the public.
+Storybook deploys to GitHub pages and is available to the public. Storybook uses the compiled assets in `dist` and does not watch files for changes.
 
 1. Build the assets Storybook needs to `dist/`
    ```bash
@@ -54,7 +54,6 @@ Adding a component requires the following:
 2. [Build it in a Storybook story](#storybook). This will be the source of truth for component markup.
 3. [Add a SCSS file](#scss), if needed
 4. [Add a JavaScript file](#javascript), if needed
-5. Update the [list of included components](#components)
 
 Ultimately, the file diff for adding a new component that requires custom SCSS and JavaScript would look something like this:
 
