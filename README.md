@@ -191,17 +191,17 @@ npm install lazysizes
 
 ```js
 // your-project.js
-require('@nasa-jpl/explorer-1/src/js/_lazysizes.js')
+require('@nasa-jpl/explorer-1/src/js/vendors/_lazysizes.js')
 ```
 
 Some components also require additional JavaScript from explorer-1:
 
 ```js
 // your-project.js
-require('@nasa-jpl/explorer-1/src/js/_HeroMedia.js')
+require('@nasa-jpl/explorer-1/src/js/components/_HeroMedia.js')
 ```
 
-Reference the JavaScript files in [`/src/js/`](https://github.com/nasa-jpl/explorer-1/tree/main/src/js) for components that require additional JavaScript. The files will share the same name as the component.
+Reference the JavaScript files in [`/src/js/components/`](https://github.com/nasa-jpl/explorer-1/tree/main/src/js/components) for components that require additional JavaScript. The files will share the same name as the component.
 
 ### Additional requirements for carousels
 
@@ -219,7 +219,7 @@ npm install swiper
 
 ```js
 // your-project.js
-require('@nasa-jpl/explorer-1/src/js/_swiper.js')
+require('@nasa-jpl/explorer-1/src/js/vendors/_swiper.js')
 ```
 
 ### Additional requirements for modals and lightboxes
