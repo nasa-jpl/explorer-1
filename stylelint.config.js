@@ -6,6 +6,14 @@ module.exports = {
     'color-hex-length': 'long',
     'declaration-block-trailing-semicolon': null,
     'no-descending-specificity': null,
+    'at-rule-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested'],
+        ignore: ['after-comment', 'blockless-after-same-name-blockless'],
+        ignoreAtRules: ['apply'],
+      },
+    ],
     'at-rule-no-unknown': [
       true,
       {

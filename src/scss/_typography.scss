@@ -18,14 +18,17 @@ html {
 .text-h1-alt {
   @apply font-bold text-8xl tracking-tighter;
   line-height: 3.25rem; // 52px
+
   @screen md {
     @apply text-9xl tracking-tightest;
     line-height: 4rem; // 64px
   }
+
   @screen lg {
     @apply text-10xl tracking-tightest;
     line-height: 5rem; // 80px
   }
+
   @screen xl {
     @apply text-11xl tracking-tightest;
     line-height: 7rem; // 112px
@@ -36,16 +39,19 @@ h1,
 .text-h1 {
   @apply font-bold text-7xl tracking-tighter;
   line-height: 3rem; // 48px
+
   @screen md {
     @apply text-8xl;
     line-height: 3.25rem; // 52px
     letter-spacing: -1.5px;
   }
+
   @screen lg {
     @apply text-9xl;
     line-height: 4rem; // 64px
     letter-spacing: -1.5px;
   }
+
   @screen xl {
     @apply text-10xl;
     line-height: 5rem; // 80px
@@ -57,14 +63,17 @@ h2,
 .text-h2 {
   @apply font-medium text-5xl tracking-tight;
   line-height: 2rem; // 32px
+
   @screen md {
     @apply text-7xl tracking-tighter;
     line-height: 3rem; // 48px
   }
+
   @screen lg {
     @apply text-8xl tracking-tighter;
     line-height: 3.25rem; // 52px
   }
+
   @screen xl {
     @apply text-9xl tracking-tighter;
     line-height: 4rem; // 64px
@@ -75,14 +84,17 @@ h3,
 .text-h3 {
   @apply font-medium text-4xl  tracking-tight;
   line-height: 1.875rem; // 30px
+
   @screen md {
     @apply text-5xl tracking-tighter;
     line-height: 2rem; // 32px
   }
+
   @screen lg {
     @apply text-6xl tracking-tighter;
     line-height: 2.5rem; // 40px
   }
+
   @screen xl {
     @apply text-7xl tracking-tighter;
     line-height: 3rem; // 48px
@@ -93,12 +105,15 @@ h4,
 .text-h4 {
   @apply font-semibold text-3xl;
   line-height: 1.75rem; // 28px
+
   @screen md {
     @apply text-4xl leading-tight;
   }
+
   @screen lg {
     @apply text-5xl leading-tight;
   }
+
   @screen xl {
     @apply text-6xl leading-tight;
   }
@@ -108,14 +123,17 @@ h5,
 .text-h5 {
   @apply font-semibold text-xl;
   line-height: 1.625rem; // 26px
+
   @screen md {
     @apply text-2xl;
     line-height: 2rem; // 32px
   }
+
   @screen lg {
     @apply text-3xl;
     line-height: 2rem; // 32px
   }
+
   @screen xl {
     @apply text-3xl;
     line-height: 2rem; // 32px
@@ -125,6 +143,7 @@ h5,
 .text-subtitle {
   @apply font-secondary uppercase text-base leading-tight tracking-wider;
 }
+
 .text-subtitle-sm {
   @apply font-secondary uppercase text-sm leading-tight tracking-wider;
 }
@@ -132,6 +151,7 @@ h5,
 .text-body-lg {
   @apply text-lg;
   line-height: 1.875rem; // 30px
+
   @screen sm {
     @apply text-2xl;
     line-height: 2.125rem; // 34px
@@ -140,6 +160,7 @@ h5,
 
 .text-body-md {
   @apply text-base leading-relaxed;
+
   @screen sm {
     @apply text-lg;
     line-height: 1.875rem; // 30px
@@ -149,6 +170,7 @@ h5,
 .text-body-sm {
   @apply text-sm;
   line-height: 1.25rem; // 20px
+
   @screen sm {
     @apply text-base leading-normal;
   }
@@ -168,6 +190,7 @@ h5,
   @screen lg {
     font-size: 2.4rem;
   }
+
   @screen xl {
     font-size: 2.75rem; // 44px
   }
@@ -181,6 +204,7 @@ h5,
   @screen lg {
     font-size: 2.125rem; // 34px
   }
+
   @screen xl {
     font-size: 2.25rem; // 36px
   }
@@ -190,18 +214,23 @@ h5,
   @variants hover {
     .text-theme-red {
       @apply text-jpl-red;
+
       .ThemeLight & {
         @apply text-jpl-red;
       }
+
       .ThemeDark & {
         @apply text-jpl-red-light;
       }
     }
+
     .text-theme-red-hover {
       @apply text-jpl-red-dark;
+
       .ThemeLight & {
         @apply text-jpl-red-dark;
       }
+
       .ThemeDark & {
         @apply text-jpl-red;
       }
@@ -216,6 +245,7 @@ h5,
   .text-contrast {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   }
+
   .text-contrast-none {
     text-shadow: none;
   }
