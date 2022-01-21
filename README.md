@@ -98,7 +98,7 @@ Using styles a la carte requires:
 
 1. [Tailwind CSS](https://tailwindcss.com) and [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms)
    ```bash
-   npm install tailwindcss @tailwindcss/forms
+   npm install --save tailwindcss @tailwindcss/forms
    ```
 2. Frontend tooling to compile and purge Tailwind CSS and SCSS, such as [Parcel](https://parceljs.org/) with PostCSS and Sass configuration. Tailwind CSS also provides [some guidance on how to use preprocessors with Tailwind](https://tailwindcss.com/docs/using-with-preprocessors#using-sass-less-or-stylus).
    > Note: [node-sass](https://www.npmjs.com/package/node-sass) is not supported. Use [dart-sass](https://sass-lang.com/dart-sass).
