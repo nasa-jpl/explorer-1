@@ -84,7 +84,7 @@ Storybook serves as the documentation for how to use the design system's base st
 #### Adding a component story
 
 1. **Create a folder:** all stories live in `/storybook/stories/`. If you are adding a component, create a new folder for your component in `/storybook/stories/components/`.
-2. **Create a template file:** create a file for your HTML template. The filename should match your component name, e.g. `MyComponent.js`. It should include one exported constant, named with your components name, and appended with `Template`. It will look something like this:
+2. **Create a template file:** create a file for your HTML template. The filename should match your component name, e.g. `MyComponent.js`. It should include one exported constant, named with your component's name, and appended with `Template`. It will look something like this:
 
    ```js
    // MyComponent.js
