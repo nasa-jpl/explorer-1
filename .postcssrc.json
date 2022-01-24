@@ -8,6 +8,7 @@
       "features": {
         "focus-within-pseudo-class": false
       }
-    }
+    },
+    "autoprefixer": {}
   }
 }

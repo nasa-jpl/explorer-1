@@ -31,6 +31,18 @@
       "index.css": "css/explorer-1.min.css"
     }
   },
+  "browserslist": [
+    ">2.5%",
+    "last 4 versions",
+    "not last 4 safari versions",
+    "not last 4 ios_saf versions",
+    "last 2 safari versions",
+    "last 2 ios_saf versions",
+    "Firefox ESR",
+    "not dead",
+    "not OperaMini all",
+    "not IE 11"
+  ],
   "dependencies": {
     "@fancyapps/ui": "^4.0.0-beta.2",
     "@tailwindcss/forms": "^0.3.4",
@@ -38,8 +50,6 @@
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
     "@parcel/transformer-sass": "^2.1.1",
     "@storybook/addon-a11y": "^6.5.0-alpha.15",
     "@storybook/addon-docs": "^6.5.0-alpha.15",
