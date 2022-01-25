@@ -28,11 +28,11 @@ export default {
   },
   decorators: [
     (Story) =>
-      `<div id="storyDecorator" class="max-w-screen-3xl mx-auto">${Story()}</div>`,
+      `<div id="storyRoot" class="max-w-screen-3xl mx-auto">${Story()}</div>`,
   ],
   parameters: {
     html: {
-      root: '#storyDecorator',
+      root: '#storyRoot',
     },
     themes: {
       clearable: false,

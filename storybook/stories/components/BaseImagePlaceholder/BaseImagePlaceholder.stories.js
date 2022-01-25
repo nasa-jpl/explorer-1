@@ -130,7 +130,7 @@ LazyLoading.decorators = [
     <div style="height:2500px">
       Scroll down
     </div>
-    <div id="storyDecorator">
+    <div id="storyRoot">
       ${Story()}
     </div>
   </div>
@@ -138,7 +138,7 @@ LazyLoading.decorators = [
 ]
 LazyLoading.parameters = {
   html: {
-    root: '#storyDecorator',
+    root: '#storyRoot',
   },
   docs: {
     storyDescription:
