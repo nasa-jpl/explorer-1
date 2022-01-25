@@ -1,7 +1,7 @@
 import { ArticleCarouselItemTemplate } from './ArticleCarouselItem.js'
 
 export default {
-  title: 'Components/ArticleCarousel/ArticleCarouselItem',
+  title: 'Components/Blocks/ArticleCarousel/ArticleCarouselItem',
   argTypes: {
     url: {
       type: { name: 'string', required: true },

@@ -1,6 +1,6 @@
-import { RoboticsDetailFactsTemplate } from './RoboticsDetailFacts.js'
+import { BlockFactCardsTemplate } from './BlockFactCards.js'
 export default {
-  title: 'Components/RoboticsDetailFacts',
+  title: 'Components/Blocks/BlockFactCards',
   decorators: [
     (Story) =>
       `<div id="storyRoot" class="lg:container max-w-screen-3xl mx-auto">${Story()}</div>`,
@@ -12,7 +12,7 @@ export default {
         required: true,
       },
       description:
-        'Array of card objects. See `RoboticsDetailFactsItem` for data structure.',
+        'Array of card objects. See `BlockFactCardsItem` for data structure.',
     },
   },
   parameters: {
@@ -29,7 +29,7 @@ export default {
   excludeStories: /.*Data$/,
 }
 
-const RoboticsDetailFactsData = [
+const BlockFactCardsData = [
   {
     type: 'Factoid 1',
     title: 'Nimble Limbs',
@@ -89,7 +89,7 @@ const RoboticsDetailFactsData = [
   },
 ]
 
-export const Group = RoboticsDetailFactsTemplate.bind({})
+export const Group = BlockFactCardsTemplate.bind({})
 Group.args = {
-  items: RoboticsDetailFactsData,
+  items: BlockFactCardsData,
 }

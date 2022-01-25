@@ -2,7 +2,7 @@ import { BaseVideoBgData } from '../BaseVideoBg/BaseVideoBg.stories'
 import { HeroFeatureTemplate } from './HeroFeature'
 
 export default {
-  title: 'Components/Heroes/HeroFeature',
+  title: 'Components/Blocks/Heroes/HeroFeature',
   excludeStories: /.*Data$/,
   argTypes: {
     label: {

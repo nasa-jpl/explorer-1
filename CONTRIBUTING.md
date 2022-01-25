@@ -205,6 +205,8 @@ SCSS files live in `/src/scss/` and [Parcel](https://parceljs.org/) is used to c
 
 If you are adding SCSS for component, create a SCSS partial for it in `/src/scss/components/` and import it in `/src/scss/_components.scss`. Partials for global styles should be imported in `/src/scss/styles.scss`. Filenames for component SCSS partials should use CamelCase, e.g. `_MyComponent.scss`
 
+When defining custom classes, use extracted Tailwind CSS classes via Tailwind's `@apply` directive whenever possible.
+
 Below is an example walkthrough of adding SCSS for a new component named `MyComponent`:
 
 1. Create a SCSS partial for your component: `/src/scss/components/_MyComponent.scss`

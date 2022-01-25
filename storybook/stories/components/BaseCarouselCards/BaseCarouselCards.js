@@ -4,7 +4,7 @@ import { BaseLinkTemplate } from '../BaseLink/BaseLink.js'
 import { IconNextTemplate } from '../Icons/IconNext'
 import { IconPrevTemplate } from '../Icons/IconPrev'
 import { ArticleCarouselItemTemplate } from '../ArticleCarouselItem/ArticleCarouselItem.js'
-import { RoboticsDetailFactsItemTemplate } from '../RoboticsDetailFactsItem/RoboticsDetailFactsItem.js'
+import { BlockFactCardsItemTemplate } from '../BlockFactCardsItem/BlockFactCardsItem.js'
 
 export const BaseCarouselCardsTemplate = ({
   noLinks,
@@ -55,8 +55,8 @@ export const BaseCarouselCardsTemplate = ({
           image: value.thumbnailImage,
           customClass: 'swiper-slide',
         })}`
-      } else if (slideTemplate === 'RoboticsDetailFactsItem') {
-        slides += `${RoboticsDetailFactsItemTemplate({
+      } else if (slideTemplate === 'BlockFactCardsItem') {
+        slides += `${BlockFactCardsItemTemplate({
           type: value.type,
           title: value.title,
           text: value.text,

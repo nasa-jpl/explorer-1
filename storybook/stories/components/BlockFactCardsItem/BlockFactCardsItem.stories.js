@@ -1,7 +1,7 @@
-import { RoboticsDetailFactsItemTemplate } from './RoboticsDetailFactsItem'
+import { BlockFactCardsItemTemplate } from './BlockFactCardsItem'
 
 export default {
-  title: 'Components/RoboticsDetailFacts/RoboticsDetailFactsItem',
+  title: 'Components/Blocks/BlockFactCards/BlockFactCardsItem',
   argTypes: {
     type: {
       type: { name: 'string', required: true },
@@ -30,8 +30,8 @@ export default {
   },
 }
 
-export const Item = RoboticsDetailFactsItemTemplate.bind({})
-Item.storyName = 'RoboticsDetailFactsItem'
+export const Item = BlockFactCardsItemTemplate.bind({})
+Item.storyName = 'BlockFactCardsItem'
 Item.args = {
   type: 'Factoid',
   title: 'Nimble Limbs',
@@ -53,7 +53,7 @@ Item.decorators = [
 Item.parameters = {
   docs: {
     description: {
-      component: 'Single item used in `RoboticsDetailFacts`',
+      component: 'Single item used in `BlockFactCards`',
     },
   },
 }
