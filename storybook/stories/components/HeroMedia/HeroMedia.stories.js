@@ -5,8 +5,7 @@ export default {
   title: 'Components/Heroes/HeroMedia',
   excludeStories: /.*Data$/,
   decorators: [
-    (Story) =>
-      `<div id="storyDecorator" class="absolute inset-0">${Story()}</div>`,
+    (Story) => `<div id="storyRoot" class="absolute inset-0">${Story()}</div>`,
   ],
   argTypes: {
     image: {
@@ -28,7 +27,7 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator',
+      root: '#storyRoot',
     },
     viewMode: 'story',
     previewTabs: {

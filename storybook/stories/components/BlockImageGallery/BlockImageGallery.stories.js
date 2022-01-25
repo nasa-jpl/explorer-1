@@ -5,7 +5,7 @@ export default {
   title: 'Components/Blocks/BlockImageGallery',
   decorators: [
     (Story) =>
-      `<div id="storyDecorator" class="max-w-screen-3xl mx-auto">${Story()}</div>`,
+      `<div id="storyRoot" class="max-w-screen-3xl mx-auto">${Story()}</div>`,
   ],
   argTypes: {
     galleryCoverImage: {
@@ -19,7 +19,7 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator',
+      root: '#storyRoot',
     },
     viewMode: 'story',
     previewTabs: {
