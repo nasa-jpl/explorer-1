@@ -1,10 +1,10 @@
 import { FancyboxButtonTemplate } from '../FancyboxButton/FancyboxButton'
 
-export const BlockImageLightboxTemplate = (image, fancyboxGallery) => {
+export const BlockImageLightboxTemplate = ({ image, fancyboxGallery }) => {
   let fancyboxButton = FancyboxButtonTemplate({
     variant: 'primary',
     fancyboxGallery,
-    image: image.image,
+    image: image,
     icon: 'expand',
     label: 'View in lightbox',
   })
