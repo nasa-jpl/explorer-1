@@ -1,6 +1,6 @@
 import { ArticleCarouselTemplate } from './ArticleCarousel.js'
 export default {
-  title: 'Components/ArticleCarousel',
+  title: 'Components/Blocks/ArticleCarousel',
   decorators: [
     (Story) => `<div id="storyRoot" class="w-full">${Story()}</div>`,
   ],

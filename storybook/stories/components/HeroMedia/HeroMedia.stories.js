@@ -2,7 +2,7 @@ import { BaseVideoBgData } from '../BaseVideoBg/BaseVideoBg.stories'
 import { HeroMediaTemplate } from './HeroMedia'
 
 export default {
-  title: 'Components/Heroes/HeroMedia',
+  title: 'Components/Blocks/Heroes/HeroMedia',
   excludeStories: /.*Data$/,
   decorators: [
     (Story) => `<div id="storyRoot" class="absolute inset-0">${Story()}</div>`,

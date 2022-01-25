@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Canvas } from '@storybook/addon-docs'
+import { Meta } from '@storybook/addon-docs'
 import { theme, variants } from '../../../tailwind.config.js'
 
 <Meta title="Appendix/TailwindCSS" parameters={{ viewMode: 'docs' }} />
@@ -7,21 +7,13 @@ import { theme, variants } from '../../../tailwind.config.js'
 
 This design system uses [Tailwind CSS](https://tailwindcss.com/). For more information on how to use Tailwind, check the [Tailwind Docs](https://tailwindcss.com/docs).
 
-## Best Practices
-
-Overall, we aim to use inline classes whenever possible. When not possible, we use extracted classes with tailwind's `@apply` directive.
-
-## Tailwind CSS Plugins
-
-We also use the `@tailwindcss/forms` plugin. View the [docs](https://github.com/tailwindlabs/tailwindcss-forms)
-
 ## Tailwind Configuration
 
-You can view our entire configuration below:
+If you would like to use our Tailwind CSS configuration in your project, review our documentation on [how to compile your own Explorer-1 assets](https://github.com/nasa-jpl/explorer-1#compile-your-own-using-assets-a-la-carte). You can preview our entire configuration below:
 
 ### Theme
 
-<code language="json">{JSON.stringify(theme, null, 2)}</code>
+<code language="js">{JSON.stringify(theme, null, 2)}</code>
 
 ### Variants
 

@@ -1,7 +1,7 @@
 import { HeroFocalPointTemplate } from './HeroFocalPoint'
 
 export default {
-  title: 'Components/Heroes/HeroFocalPoint',
+  title: 'Components/Blocks/Heroes/HeroFocalPoint',
   argTypes: {
     eyebrow: {
       type: { name: 'string', required: false },

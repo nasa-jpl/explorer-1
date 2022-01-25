@@ -1,7 +1,7 @@
 import { SearchInputTemplate } from './SearchInput'
 
 export default {
-  title: 'Components/Forms/SearchInput',
+  title: 'Components/Search/SearchInput',
   argTypes: {
     placeholder: {
       type: { name: 'string', required: false },

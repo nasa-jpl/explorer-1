@@ -1,11 +1,11 @@
 import { BaseCarouselCardsTemplate } from '../BaseCarouselCards/BaseCarouselCards.js'
-import { RoboticsDetailFactsItemTemplate } from '../RoboticsDetailFactsItem/RoboticsDetailFactsItem.js'
+import { BlockFactCardsItemTemplate } from '../BlockFactCardsItem/BlockFactCardsItem.js'
 
-export const RoboticsDetailFactsTemplate = ({ items }) => {
+export const BlockFactCardsTemplate = ({ items }) => {
   let facts = ''
   if (items.length > 0) {
     for (const [index, value] of items.entries()) {
-      facts += RoboticsDetailFactsItemTemplate({
+      facts += BlockFactCardsItemTemplate({
         type: value.type,
         title: value.title,
         text: value.text,
@@ -18,12 +18,12 @@ export const RoboticsDetailFactsTemplate = ({ items }) => {
     variant: '-tiles',
     cards: items,
     indent: 'col-1',
-    slideTemplate: 'RoboticsDetailFactsItem',
+    slideTemplate: 'BlockFactCardsItem',
     noLinks: true,
   })
 
   return `
-    <div class="RoboticsDetailFacts">
+    <div class="BlockFactCards">
       <div
         class="md:grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 hidden gap-8"
       >
