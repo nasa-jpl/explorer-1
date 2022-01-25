@@ -160,13 +160,13 @@ export const AnotherComponentTemplate = () => {
 
 #### Decorators
 
-Decorators are useful if you want to modify the layout of your component without including it in your template or HTML output. To use a decorator, wrap your template with an immediate parent of `#storyDecorator` and whatever surrounding layout that is needed. You can then set the html root of your story parameters to use the `#storyDecorator` as the root.
+Decorators are useful if you want to modify the layout of your component without including it in your template or HTML output. To use a decorator, wrap your template with an immediate parent of `#storyRoot` and whatever surrounding layout that is needed. You can then set the html root of your story parameters to use the `#storyRoot` as the root.
 
 ```js
 // MyComponent.js
 export const MyComponentTemplate = () => {
   return `<div class="container mx-auto">
-    <div id="storyDecorator" class="lg:w-1/2">
+    <div id="storyRoot" class="lg:w-1/2">
       <div class="MyComponent"><!-- more html markup --></div>
     </div>
   </div>`
@@ -180,14 +180,14 @@ export default {
   parameters: {
     ...
     html: {
-      root: '#storyDecorator',
+      root: '#storyRoot',
     },
     ...
   },
 }
 ```
 
-As long as `parameters.html.root` matches the parent wrapper element of your template, then this will work, but please always use `#storyDecorator` for consistency with our existing stories.
+As long as `parameters.html.root` matches the parent wrapper element of your template, then this will work, but please always use `#storyRoot` for consistency with our existing stories.
 
 #### Rebuilding assets
 

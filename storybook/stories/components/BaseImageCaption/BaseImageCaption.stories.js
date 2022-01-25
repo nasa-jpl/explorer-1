@@ -6,10 +6,12 @@ export default {
   argTypes: {
     caption: {
       type: { name: 'string', required: true },
+      description: 'Accepts rich text and plain text.',
     },
     credit: {
       type: { name: 'string', required: false },
-      description: 'Optional credit information',
+      description:
+        'Optional credit information. Limited rich text accepted (text styles and links only, no line or paragraph breaks).',
     },
     url: {
       type: { name: 'string', required: false },

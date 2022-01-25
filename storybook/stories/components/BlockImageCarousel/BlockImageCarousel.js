@@ -15,7 +15,7 @@ export const BlockImageCarouselTemplate = ({
         imageClass: 'swiper-lazy',
         imageCaptionClass: 'slide-caption',
         imageCaptionWrapperClass: 'lg:pt-3 px-4 pt-10',
-        fancyboxGallery,
+        fancyboxGallery: 'ImageGalleryName',
       })}</div>`
     }
   }
@@ -32,7 +32,7 @@ export const BlockImageCarouselTemplate = ({
                 label: galleryCoverImage.label,
                 title: galleryCoverImage.title,
                 description: galleryCoverImage.description,
-                fancyboxGallery,
+                fancyboxGallery: 'ImageGalleryName',
                 image: galleryCoverImage.image,
               })
             : ''

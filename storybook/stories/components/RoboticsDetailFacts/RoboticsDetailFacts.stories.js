@@ -3,7 +3,7 @@ export default {
   title: 'Components/RoboticsDetailFacts',
   decorators: [
     (Story) =>
-      `<div id="storyDecorator" class="lg:container max-w-screen-3xl mx-auto">${Story()}</div>`,
+      `<div id="storyRoot" class="lg:container max-w-screen-3xl mx-auto">${Story()}</div>`,
   ],
   argTypes: {
     items: {
@@ -17,7 +17,7 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator',
+      root: '#storyRoot',
     },
     docs: {
       description: {
