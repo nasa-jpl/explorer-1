@@ -45,11 +45,11 @@ export const Default = BlockIframeEmbedTemplate.bind({})
 Default.args = BlockIframeEmbedData
 Default.decorators = [
   (Story) =>
-    `<div id="storyDecorator" class="mx-auto max-w-screen-md">${Story()}</div>`,
+    `<div id="storyRoot" class="mx-auto max-w-screen-md">${Story()}</div>`,
 ]
 Default.parameters = {
   html: {
-    root: '#storyDecorator',
+    root: '#storyRoot',
   },
 }
 
@@ -61,7 +61,7 @@ LazyLoad.decorators = [
     <div style="height:2500px">
       Scroll down
     </div>
-    <div id="storyDecorator">
+    <div id="storyRoot">
       ${Story()}
     </div>
   </div>
@@ -69,6 +69,6 @@ LazyLoad.decorators = [
 ]
 LazyLoad.parameters = {
   html: {
-    root: '#storyDecorator',
+    root: '#storyRoot',
   },
 }

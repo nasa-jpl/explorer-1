@@ -2,7 +2,7 @@ import { ArticleCarouselTemplate } from './ArticleCarousel.js'
 export default {
   title: 'Components/ArticleCarousel',
   decorators: [
-    (Story) => `<div id="storyDecorator" class="w-full">${Story()}</div>`,
+    (Story) => `<div id="storyRoot" class="w-full">${Story()}</div>`,
   ],
   argTypes: {
     items: {
@@ -13,7 +13,7 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator',
+      root: '#storyRoot',
     },
     viewMode: 'story',
     previewTabs: {
