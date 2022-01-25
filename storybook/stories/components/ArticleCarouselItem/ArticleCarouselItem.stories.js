@@ -42,7 +42,7 @@ SingleItem.args = {
 }
 SingleItem.decorators = [
   (Story) =>
-    `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3">${Story()}</div>`,
+    `<div id="storyRoot" class="relative grid grid-cols-2 gap-3">${Story()}</div>`,
 ]
 SingleItem.parameters = {
   docs: {
@@ -51,6 +51,6 @@ SingleItem.parameters = {
     },
   },
   html: {
-    root: '#storyDecorator',
+    root: '#storyRoot',
   },
 }

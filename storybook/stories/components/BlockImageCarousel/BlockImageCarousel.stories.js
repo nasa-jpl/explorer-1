@@ -3,7 +3,7 @@ import { BlockImageCarouselTemplate } from './BlockImageCarousel'
 export default {
   title: 'Components/Blocks/BlockImageCarousel',
   decorators: [
-    (Story) => `<div id="storyDecorator" class="container">${Story()}</div>`,
+    (Story) => `<div id="storyRoot" class="container">${Story()}</div>`,
   ],
   argTypes: {
     images: {
@@ -13,7 +13,7 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator',
+      root: '#storyRoot',
     },
     viewMode: 'story',
     previewTabs: {
