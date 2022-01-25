@@ -31,6 +31,18 @@
       "index.css": "css/explorer-1.min.css"
     }
   },
+  "browserslist": [
+    ">2.5%",
+    "last 4 versions",
+    "not last 4 safari versions",
+    "not last 4 ios_saf versions",
+    "last 2 safari versions",
+    "last 2 ios_saf versions",
+    "Firefox ESR",
+    "not dead",
+    "not OperaMini all",
+    "not IE 11"
+  ],
   "dependencies": {
     "@fancyapps/ui": "^4.0.20",
     "@tailwindcss/forms": "^0.3.4",
@@ -38,15 +50,12 @@
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
     "@parcel/transformer-sass": "^2.2.1",
     "@storybook/addon-a11y": "^6.5.0-alpha.15",
     "@storybook/addon-docs": "^6.5.0-alpha.15",
     "@storybook/addon-essentials": "^6.5.0-alpha.15",
     "@storybook/html": "^6.5.0-alpha.15",
     "@whitespace/storybook-addon-html": "^5.0.0",
-    "autoprefixer": "^10.2.4",
     "browser-sync": "^2.27.7",
     "eslint": "^7.32.0",
     "eslint-plugin-storybook": "^0.5.5",
@@ -55,7 +64,7 @@
     "parcel": "^2.2.1",
     "parcel-namer-rewrite": "^2.0.0-rc.2",
     "postcss": "^8.4.5",
-    "postcss-preset-env": "^7.1.0",
+    "postcss-preset-env": "^7.2.3",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "storybook-addon-themes": "^6.1.0",
