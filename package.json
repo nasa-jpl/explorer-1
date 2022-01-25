@@ -64,7 +64,7 @@
     "parcel": "^2.2.1",
     "parcel-namer-rewrite": "^2.0.0-rc.2",
     "postcss": "^8.4.5",
-    "postcss-preset-env": "^7.1.0",
+    "postcss-preset-env": "^7.2.3",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "storybook-addon-themes": "^6.1.0",
