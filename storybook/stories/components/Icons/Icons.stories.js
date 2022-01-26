@@ -1,3 +1,13 @@
+import React from 'react'
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs'
 import { Icon360Template } from './Icon360'
 import { IconArrowTemplate } from './IconArrow'
 import { IconArrowsTemplate } from './IconArrows'
@@ -48,6 +58,16 @@ export default {
   parameters: {
     viewMode: 'docs',
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories includePrimary={true} title="All icons" />
+        </>
+      ),
       description: {
         component:
           'Icon size and color are handled by Tailwind CSS text classes.',
