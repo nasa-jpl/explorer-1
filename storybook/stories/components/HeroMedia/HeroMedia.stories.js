@@ -29,7 +29,22 @@ export default {
     html: {
       root: '#storyRoot',
     },
-    viewMode: 'story',
+    viewMode: 'docs',
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'FullWidthDocs',
+          class: [
+            'sbdocs-preview-full-width',
+            'force-story-height',
+            'force-story-height-lg',
+          ],
+          default: true,
+          visible: false,
+        },
+      ],
+    },
     previewTabs: {
       'storybook/docs/panel': {
         hidden: true,

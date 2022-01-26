@@ -22,7 +22,18 @@ export default {
     },
   },
   parameters: {
-    viewMode: 'story',
+    viewMode: 'docs',
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'FullWidthDocs',
+          class: 'sbdocs-preview-full-width',
+          default: true,
+          visible: false,
+        },
+      ],
+    },
     docs: {
       description: {
         component:
