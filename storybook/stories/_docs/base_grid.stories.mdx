@@ -1,13 +1,13 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs'
 
 <Meta
-  title="Brand Identity/Grid and Layout"
+  title="Components/Base/Grid and Layout"
   parameters={{ viewMode: 'docs' }}
 />
 
 # Grid and Layout
 
-We use a 12-column grid paired with our [Responsive Design](?path=/docs/brand-identity-responsive-design--overview) strategy to create all of our page and component layouts.
+We use a 12-column grid paired with our [Responsive Design](?path=/docs/getting-started-responsive-design--responsive-design) strategy to create all of our page and component layouts.
 
 > The examples on this page assume you are viewing this page on a desktop. Examples may not appear correct on smaller screens.
 
@@ -57,7 +57,7 @@ Although `.BaseGrid` is always used with or wrapped by a `.container`, `.BaseGri
 }
 ```
 
-Things like margins and container can be applied as needed, such as:
+Adjustments like margins and container can be applied as needed, such as:
 
 ```html
 <div class="BaseGrid container mx-auto">
@@ -92,10 +92,10 @@ Some common component layouts:
     {`
       <div class="BaseGrid container mx-auto border border-jpl-red-light">
         <div class="col-start-2 col-end-8 bg-black text-white px-4 py-10">
-          About the mission
+          Primary content
         </div>
         <div class="col-start-8 col-end-12 bg-black text-white px-4 py-10">
-          Instrument list
+          Secondary content
         </div>
       </div>
     `}
@@ -200,7 +200,7 @@ These named lines are used to construct the following `col-start-` and `col-end-
 
 ### Example Usage
 
-Responsive styles within the component will need to be determined on a case-by-base basis. Usage of this class is best followed by observing the examples.
+Responsive styles within MixedBleed will need to be determined on a case-by-base basis. Usage of this class is best followed by observing existing usage and examples.
 
 #### Simple mixed bleed
 

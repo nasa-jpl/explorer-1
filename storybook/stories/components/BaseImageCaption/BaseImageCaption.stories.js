@@ -41,4 +41,5 @@ export const BaseImageCaptionData = {
 }
 
 export const Default = BaseImageCaptionTemplate.bind({})
+Default.storyName = 'BaseImageCaption'
 Default.args = BaseImageCaptionData

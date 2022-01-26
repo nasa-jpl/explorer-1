@@ -14,3 +14,4 @@ export default {
 }
 
 export const Default = BasePlaceholderTemplate.bind()
+Default.storyName = 'BasePlaceholder'

@@ -19,6 +19,7 @@ export default {
 }
 
 export const Default = SearchInputTemplate.bind({})
+Default.storyName = 'SearchInput'
 Default.args = {
   placeholder: '',
 }

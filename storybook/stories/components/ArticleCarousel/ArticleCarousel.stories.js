@@ -15,10 +15,15 @@ export default {
       clearable: false,
       list: [
         {
-          name: 'FullWidthDocs',
-          class: ['sbdocs-preview-full-width'],
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
           default: true,
-          visible: false,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
         },
       ],
     },
