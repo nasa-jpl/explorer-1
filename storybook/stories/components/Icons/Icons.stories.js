@@ -70,7 +70,9 @@ export default {
       ),
       description: {
         component:
-          'Icon size and color are handled by Tailwind CSS text classes.',
+          'Icons are rendered by inserting their SVG markup directly into the DOM. We encourage taking advantage of your templating system to do this in a more developer-friendly way than copying and pasting the entire HTML code. For example, in our Django templates, we store the SVG markup in individual template files and then insert it with Django’s `include` tag, like so: `{% include "components/Icons/IconClose.html" %}`.' +
+          '\n\n' +
+          'Icon size and color are handled by Tailwind CSS text classes. These can be applied directly to the `<svg>` element or to a wrapping element.',
       },
     },
   },

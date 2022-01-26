@@ -13,12 +13,19 @@ export default {
       table: { disable: true },
     },
   },
+  decorators: [
+    (Story) =>
+      `<div id="storyRoot" class="relative grid grid-cols-2 gap-3">${Story()}</div>`,
+  ],
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component: 'Single item used in `ArticleCarousel`',
       },
+    },
+    html: {
+      root: '#storyRoot',
     },
   },
 }
@@ -38,19 +45,5 @@ SingleItem.args = {
     },
     srcSet:
       'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w',
-  },
-}
-SingleItem.decorators = [
-  (Story) =>
-    `<div id="storyRoot" class="relative grid grid-cols-2 gap-3">${Story()}</div>`,
-]
-SingleItem.parameters = {
-  docs: {
-    description: {
-      component: 'Single item used in `ArticleCarousel`',
-    },
-  },
-  html: {
-    root: '#storyRoot',
   },
 }

@@ -1,3 +1,4 @@
+import { Default } from '../BaseImageCaption/BaseImageCaption.stories'
 import { BlockImageCarouselTemplate } from './BlockImageCarousel'
 
 export default {
@@ -21,10 +22,15 @@ export default {
       clearable: false,
       list: [
         {
-          name: 'FullWidthDocs',
-          class: ['sbdocs-preview-full-width'],
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
           default: true,
-          visible: false,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
         },
       ],
     },
@@ -95,4 +101,5 @@ export const BlockImageCarouselData = {
 }
 
 export const Carousel = BlockImageCarouselTemplate.bind({})
+Carousel.storyName = 'BlockImageCarousel'
 Carousel.args = BlockImageCarouselData

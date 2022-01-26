@@ -52,6 +52,23 @@
     margin-bottom: 2rem;
   }
 
+  /* sometimes inline stories still need a height set */
+  .sbdocs-inline-height .docs-story {
+    height: 500px !important;
+  }
+  .sbdocs-inline-height-lg .docs-story {
+    height: 600px !important;
+  }
+  .sbdocs-inline-height-xl .docs-story {
+    height: 700px !important;
+  }
+  .sbdocs-inline-height-2xl .docs-story {
+    height: 800px !important;
+  }
+  .sbdocs-inline-height .docs-story > div:first-child {
+    height: inherit !important;
+  }
+
   /* sbdocs link style */
   .sbdocs.sbdocs-a {
     font-weight: 600;

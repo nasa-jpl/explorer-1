@@ -4,9 +4,9 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs'
 
 # Light & Dark Themes
 
-Some page templates provide site editors with the option to set a dark theme (i.e. Missions Detail Page). To handle switching between light and dark themes, a parent class will need to be set. Individual components that have theme-specific styling will then use these classes as ancestor selectors when setting colors.
+Explorer 1 defaults to a light color scheme, but you may wish to provide site editors or visitors with the option to set a dark theme on a particular page or throughout your site. To handle switching between light and dark themes, a parent class will need to be set. Individual components that have theme-specific styling will then use these classes as ancestor selectors when setting colors.
 
-<Story name="LightAndDark">
+<Story name="Light and Dark">
   {`
     <div class="py-4">
       <div><code>.ThemeLight</code></div>
@@ -15,21 +15,20 @@ Some page templates provide site editors with the option to set a dark theme (i.
   `}
 </Story>
 
-These are currently set at the page component level. If that scope is too wide, it can be scoped to surround appropriate layout elements within as needed.
+These are currently set at the page template level. If that scope is too wide, it can be scoped to surround appropriate layout elements within as needed.
 
 ```html
-<!-- /components/PageNewsDetail/PageNewsDetail.vue -->
-<template>
+<body>
   <div class="ThemeLight">
     <!-- the rest of the page -->
   </div>
-</template>
+</body>
 ```
 
 ## Key Points
 
 - `ThemeLight` is the default
-- Page components (i.e. a component that starts with `Page...`) should always include the default theme.
+- Page templates should always include the default theme.
 - If a page theme controllable by a site editor, then include appropriate class bindings to switch between `.ThemeLight` or `.ThemeDark`
 - These theme classes do not apply styles directly. Instead, components use them as an ancestor selector to modify their own styles.
 
@@ -37,27 +36,24 @@ These are currently set at the page component level. If that scope is too wide, 
 
 Storybook can mimic these theme choices. All stories are wrapped in `ThemeLight` by default. You can switch to `ThemeDark` on any story by using the toolbar menu (the icon looks like a picture). Note that not all components were developed to have both a light and dark theme.
 
-## Writing theme styles for components
+## For contributing developers: Writing theme styles for components
 
-For components that have light and dark themes, add theme rules to the end of your scss. The following is an example of a component whose background should be `bg-white` in `ThemeLight` but `bg-black` in `ThemeDark`
+For components that have light and dark themes, add theme rules to the end of your scss. The following is an example of a component whose background should be `bg-white` by default and in `ThemeLight` but `bg-black` in `ThemeDark`
 
-```html
-<style lang="scss">
-  .BaseComponent {
-    @apply bg-white;
-    .ThemeLight & {
-      @apply bg-white;
-    }
-    .ThemeDark & {
-      @apply bg-black;
-    }
+```scss
+.MyComponent {
+  // set the default background color
+  @apply bg-white;
+  // set the ThemeDark background color
+  .ThemeDark & {
+    @apply bg-black;
   }
-</style>
+}
 ```
 
-# Adaptive text colors
+# Adaptive Text Colors
 
-Usage of `text-jpl-red` vs `text-jpl-red-light` in context of `ThemeLight` and `ThemeDark` is specific, yet consistent. To avoid rewriting this display behavior for each use-case, there are text classes available that follow this rule automatically.
+Usage of `text-jpl-red` vs `text-jpl-red-light` in context of `ThemeLight` and `ThemeDark` ensures that the contrast of `jpl-red` is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created these text classes that follow this rule automatically.
 
 ```
 .text-theme-red
@@ -69,18 +65,12 @@ Usage of `text-jpl-red` vs `text-jpl-red-light` in context of `ThemeLight` and `
 ```css
 .text-theme-red {
   @apply text-jpl-red;
-  .ThemeLight & {
-    @apply text-jpl-red;
-  }
   .ThemeDark & {
     @apply text-jpl-red-light;
   }
 }
 .text-theme-red-hover {
   @apply text-jpl-red-dark;
-  .ThemeLight & {
-    @apply text-jpl-red-dark;
-  }
   .ThemeDark & {
     @apply text-jpl-red;
   }
@@ -92,7 +82,7 @@ Usage of `text-jpl-red` vs `text-jpl-red-light` in context of `ThemeLight` and `
 Try switching the theme from `ThemeLight` to `ThemeDark` using the toolbar at the top of the screen. You will notice a slight change of the red color between the two:
 
 <Canvas>
-  <Story name="AdaptiveTextColors">
+  <Story name="Adaptive Text Colors">
     {`
       <a class="cursor-pointer font-bold text-theme-red can-hover:hover:text-theme-red-hover">
         Link Text
@@ -104,4 +94,4 @@ Try switching the theme from `ThemeLight` to `ThemeDark` using the toolbar at th
 > Currently, these classes only work when used inline. In the future, they may be rewritten as a
 > plugin to make them compatible with the `@apply` directive.
 
-See [BaseLink](?path=/story/components-base-baselink--primary) for a real usage example.
+See [BaseLink](?path=/docs/components-base-baselink--primary) for a real usage example.
