@@ -35,21 +35,13 @@ export default {
       list: [
         {
           name: 'FullWidthDocs',
-          class: [
-            'sbdocs-preview-full-width',
-            'force-story-height',
-            'force-story-height-lg',
-          ],
+          class: ['sbdocs-preview-full-width'],
           default: true,
           visible: false,
         },
       ],
     },
-    previewTabs: {
-      'storybook/docs/panel': {
-        hidden: true,
-      },
-    },
+    docs: { inlineStories: false, iframeHeight: 700 },
   },
 }
 
