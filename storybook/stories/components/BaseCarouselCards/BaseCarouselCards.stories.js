@@ -1,9 +1,6 @@
 import { BaseCarouselCardsTemplate } from './BaseCarouselCards.js'
 export default {
   title: 'Components/Base/BaseCarouselCards',
-  decorators: [
-    (Story) => `<div id="storyRoot" class="w-full">${Story()}</div>`,
-  ],
   argTypes: {
     heading: {
       type: 'string',
@@ -55,9 +52,6 @@ export default {
     },
   },
   parameters: {
-    html: {
-      root: '#storyRoot',
-    },
     viewMode: 'docs',
     docs: { inlineStories: false, iframeHeight: 400 },
     themes: {

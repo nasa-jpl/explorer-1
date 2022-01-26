@@ -1,9 +1,6 @@
 import { ArticleCarouselTemplate } from './ArticleCarousel.js'
 export default {
   title: 'Components/Blocks/ArticleCarousel',
-  decorators: [
-    (Story) => `<div id="storyRoot" class="w-full">${Story()}</div>`,
-  ],
   argTypes: {
     items: {
       type: { name: 'Array', required: true },
@@ -12,9 +9,6 @@ export default {
     },
   },
   parameters: {
-    html: {
-      root: '#storyRoot',
-    },
     viewMode: 'docs',
     docs: { inlineStories: false, iframeHeight: 650 },
     themes: {
