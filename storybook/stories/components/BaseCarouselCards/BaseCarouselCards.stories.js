@@ -58,11 +58,18 @@ export default {
     html: {
       root: '#storyRoot',
     },
-    viewMode: 'story',
-    previewTabs: {
-      'storybook/docs/panel': {
-        hidden: true,
-      },
+    viewMode: 'docs',
+    docs: { inlineStories: false, iframeHeight: 400 },
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'FullWidthDocs',
+          class: ['sbdocs-preview-full-width'],
+          default: true,
+          visible: false,
+        },
+      ],
     },
   },
   excludeStories: /.*Data$/,
