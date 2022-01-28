@@ -22,7 +22,14 @@ export default {
       root: '#storyRoot',
     },
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 1050 },
+    docs: {
+      inlineStories: false,
+      iframeHeight: 1050,
+      description: {
+        component:
+          'A wide screen version of BlockImageCarousel that includes a cover image with a text overlay. Includes page layout assumptions and uses a max width of `max-w-screen-3xl`.',
+      },
+    },
     themes: {
       clearable: false,
       list: [

@@ -53,7 +53,14 @@ export default {
   },
   parameters: {
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 400 },
+    docs: {
+      inlineStories: false,
+      iframeHeight: 400,
+      description: {
+        component:
+          'The base carousel component used in ArticleCarousel and BlockFactCards. Includes page layout assumptions.',
+      },
+    },
     themes: {
       clearable: false,
       list: [

@@ -6,9 +6,9 @@ import { ReactDocsComponentList } from './ReactDocsComponentList'
   parameters={{ viewMode: 'docs' }}
 />
 
-# Hero Components
+# Hero Blocks
 
-Hero components are reserved for usage at the top of the page. There should only be one hero per page.
+Hero components are reserved for usage at the top of the page. There should only be one hero per page. All hero blocks include page layout assumptions and use a max width of `max-w-screen-3xl`.
 
 <ReactDocsComponentList
   components={[
@@ -16,8 +16,6 @@ Hero components are reserved for usage at the top of the page. There should only
       heading: 'HeroFeature',
       description: 'Includes a text overlay',
       storyId: 'components-blocks-heroes-herofeature--default',
-      canvasClass:
-        'sbdocs-preview-full-width sbdocs-inline-height sbdocs-inline-height-xl',
       fullWidth: true,
       fullCanvas: true,
     },
@@ -26,8 +24,6 @@ Hero components are reserved for usage at the top of the page. There should only
       description:
         'Includes a large text overlay that works best with background images that have a focal point on the right side of the image.',
       storyId: 'components-blocks-heroes-herofocalpoint--hero',
-      canvasClass:
-        'sbdocs-preview-full-width sbdocs-inline-height sbdocs-inline-height-xl',
       fullWidth: true,
       fullCanvas: true,
     },
@@ -36,8 +32,6 @@ Hero components are reserved for usage at the top of the page. There should only
       description:
         'No text overlay, just an image or video with a caption below.',
       storyId: 'components-blocks-heroes-heromedia--hero',
-      canvasClass:
-        'sbdocs-preview-full-width sbdocs-inline-height sbdocs-inline-height-lg',
       fullWidth: true,
       fullCanvas: true,
     },

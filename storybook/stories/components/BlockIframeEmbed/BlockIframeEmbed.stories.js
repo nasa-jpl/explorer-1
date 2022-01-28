@@ -4,11 +4,11 @@ export default {
   title: 'Components/Blocks/BlockIframeEmbed',
   argTypes: {
     title: {
-      type: { name: 'string', required: false },
+      type: { name: 'string', required: true },
       description: 'Iframe title used for accessibility',
     },
     url: {
-      type: { name: 'string', required: false },
+      type: { name: 'string', required: true },
       description: 'Link to the embed source',
     },
     height: {
@@ -44,8 +44,7 @@ const BlockIframeEmbedData = {
 export const Default = BlockIframeEmbedTemplate.bind({})
 Default.args = BlockIframeEmbedData
 Default.decorators = [
-  (Story) =>
-    `<div id="storyRoot" class="mx-auto max-w-screen-md">${Story()}</div>`,
+  (Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`,
 ]
 Default.parameters = {
   html: {

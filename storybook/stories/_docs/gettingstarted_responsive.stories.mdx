@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs'
+import { Meta, Story, Canvas, Preview } from '@storybook/addon-docs'
 import { theme } from '../../../tailwind.config.js'
 
 <Meta
@@ -22,50 +22,50 @@ Breakpoints are the values at which content included on a webpage is resized and
 
 We set our breakpoints and associated containers via the `screens` and `containers.screens` options in our [Tailwind CSS configuration](?path=/docs/appendix-tailwindcss--page#theme). These containers are used in conjunction with our [Grid](?path=/docs/brand-identity-grid-and-layout--base-grid) to create the site and page layouts, all the way down to the component level.
 
-| Screen Token | Viewport `min-width` | Container `max-width` |
-| :----------- | -------------------: | --------------------: |
-| `sm`         |              `640px` |               `640px` |
-| `md`         |              `768px` |               `768px` |
-| `lg`         |             `1024px` |              `1024px` |
-| `xl`         |             `1280px` |              `1280px` |
-| `2xl`        |             `1440px` |              `1320px` |
-| `3xl`        |             `1800px` |              `1320px` |
+| Screen Token | Viewport `min-width` | `.container` `max-width` |
+| :----------- | -------------------: | -----------------------: |
+| `sm`         |              `640px` |                  `640px` |
+| `md`         |              `768px` |                  `768px` |
+| `lg`         |             `1024px` |                 `1024px` |
+| `xl`         |             `1280px` |                 `1280px` |
+| `2xl`        |             `1440px` |                 `1320px` |
+| `3xl`        |             `1800px` |                 `1320px` |
 
 The below example uses [Tokens](#tokens) to set the maximum width based on the screens defined in our Tailwind config. It also illustrates the foundation of the design system's layout for desktop screens.
 
 <Canvas className="sbdocs-preview-full-width">
   <Story name="Responsive Design">
     {`
-          <div class="bg-gray-light border">
-            <code>body</code>
-            <div class="max-w-screen-3xl mx-auto bg-black text-white">
-              <code>.max-w-screen-3xl</code>
-                <div class="lg:BaseGrid container mx-auto bg-gray-light text-black">
-                  <div class="col-start-1 col-end-13">
-                    <code class="text-black">.container with nested grid</code>
-                  </div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">1</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">2</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">3</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">4</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">5</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">6</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">7</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">8</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">9</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">10</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">11</div>
-                  <div class="text-center border border-dashed border-gray-mid-dark p-4">12</div>
-                </div>
+      <div class="bg-gray-light border">
+        <code>body</code>
+        <div class="max-w-screen-3xl mx-auto bg-black text-white">
+          <code>.max-w-screen-3xl</code>
+            <div class="sm:BaseGrid container mx-auto bg-gray-light text-black">
+              <div class="col-start-1 col-end-13">
+                <code class="text-black">.container with nested grid</code>
+              </div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">1</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">2</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">3</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">4</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">5</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">6</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">7</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">8</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">9</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">10</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">11</div>
+              <div class="text-center border border-dashed border-gray-mid-dark p-4">12</div>
             </div>
-          </div>
-          `}
+        </div>
+      </div>
+      `}
   </Story>
 </Canvas>
 
-## Maximum Width
+## Maximum width
 
-The site uses `3xl` as its maximum width. Pages and full-bleed components follow this rule. No content ever exceeds 3xl, although visual layout elements may (i.e. background colors)
+Explorer 1 uses screen `3xl` as its maximum width. No content in a component, not even in those labeled as "full bleed," ever exceeds `3xl`, although visual layout elements may (i.e. background colors). You can find examples of this in our [Grid & Layout](?path=/docs/components-base-grid-and-layout--page-layout#page-layout-recommendations) documentation.
 
 ```html
 <div class="max-w-screen-3xl mx-auto">Content</div>

@@ -20,11 +20,11 @@
   /* make docs have full width iframes
   ** rescopes width to all nested divs, not the container wrapper */
   .sbdocs.sbdocs-content {
-    max-width: none;
+    max-width: 1950px;
   }
   .sbdocs.sbdocs-content > * {
     width: 100%;
-    max-width: 1000px;
+    max-width: 950px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -36,7 +36,7 @@
   .sbdocs.sbdocs-content .reactdocs-content > div,
   .reactdocs-container {
     width: 100%;
-    max-width: 1000px;
+    max-width: 950px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -61,7 +61,16 @@
     margin-bottom: 2rem;
   }
 
-  /* sometimes inline stories still need a height set */
+  /* unset the mysterious height that storybook adds to Canvas doc blocks rendered via a React component */
+  .sbdocs.sbdocs-content
+    .reactdocs-content
+    .sbdocs-preview
+    .docs-story
+    div[height='20'] {
+    height: unset;
+  }
+
+  /* sometimes inline stories still need an explicit height set */
   .sbdocs-inline-height .docs-story {
     height: 500px !important;
   }
@@ -85,10 +94,6 @@
   }
   .sbdocs-inline-height .docs-story > div:first-child {
     height: inherit !important;
-  }
-
-  .sbdocs.sbdocs-content .sbdocs-prevew .docs-story > div:not(:first-child) {
-    width: auto;
   }
 
   /* sbdocs link style */

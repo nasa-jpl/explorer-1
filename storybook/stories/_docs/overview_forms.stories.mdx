@@ -5,22 +5,31 @@ import { ReactDocsComponentList } from './ReactDocsComponentList'
 
 # Form Components
 
-Form styles are currently limited to text inputs and text areas. You can construct a form by combining the following components:
+Form styles are currently limited to text inputs and text areas. Explorer 1 does not include any form functionality other than native HTML form controls. If you require more functionality in your forms,
+you will need to build that into your implementation of the design system.
+
+You can construct a form by combining the following components:
 
 <ReactDocsComponentList
   components={[
     {
       heading: 'TextInput',
+      description:
+        'A simple text input with stylized label, placeholder text, and "required" asterisk, if applicable.',
       storyId: 'components-forms-textinput--default',
       canvasClass: 'sbdocs-inline-height sbdocs-inline-height-2xs',
     },
     {
       heading: 'TextArea',
+      description:
+        'A simple text area input with stylized label, placeholder text, and "required" asterisk, if applicable.',
       storyId: 'components-forms-textarea--default',
       canvasClass: 'sbdocs-inline-height sbdocs-inline-height-xs',
     },
     {
       heading: 'BaseButton',
+      description:
+        'Our usual base button component. This component is not limited to usage in forms.',
       storyId: 'components-base-basebutton--primary-button',
     },
   ]}
@@ -84,6 +93,3 @@ Depending on your framework, you will need to modify the `<form>` attributes and
   class="BaseButton text-contrast-none inline-block -primary"
 />
 ```
-
-Explorer-1 does not include any form functionality other than native HTML form controls. If you require more functionality in your forms,
-you will need to build that functionality as part of your implementation.

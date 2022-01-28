@@ -3,22 +3,21 @@
  */
 
 import React from 'react'
-import { Canvas, Story } from '@storybook/addon-docs'
+import { Canvas, Story, Description } from '@storybook/addon-docs'
 import LinkTo from '@storybook/addon-links/react'
 
 export function ReactDocsComponentItem(props) {
   /*
     props: {
-      heading,     // required: heading for the card, usually component name
-      description, // optional: short description of the component
-      storyId,     // required: id of the story, usually the last part of the story URL
-      canvasClass, // optional: use sbdocs classes to adjust the height of the canvas
-      fullWidth,   // optional: if the canvas should be full width as opposed to side-by-side
-      fullCanvas,  // optional: if the canvas should be full bleed
-      hideCanvas,  // optional: if the canvas should be hidden
+      heading,      // required: heading for the card, usually component name
+      description,  // optional: short description of the component
+      storyId,      // required: id of the story, usually the last part of the story URL
+      canvasClass,  // optional: use sbdocs classes to adjust the height of the canvas
+      fullWidth,    // optional: if the canvas should be full width as opposed to side-by-side
+      fullCanvas,   // optional: if the canvas should be full bleed
+      hideCanvas,   // optional: if the canvas should be hidden
     }
   */
-
   let wrapperClass = 'text-base'
   if (props.fullWidth) {
     if (props.fullCanvas) {
@@ -50,12 +49,19 @@ export function ReactDocsComponentItem(props) {
           </LinkTo>
         </h3>
         {props.description ? (
-          <p className="text-sm mb-8">{props.description}</p>
+          <Description markdown={props.description} />
         ) : null}
       </div>
 
       <div className={canvasWrapperClass}>
-        {props.hideCanvas ? null : (
+        {props.hideCanvas ? (
+          <LinkTo
+            kind={props.storyId}
+            className="mt-6 p-6 flex justify-center shadow-sm border border-gray-light-mid rounded-md items-center"
+          >
+            <div className="text-gray-mid">View component for details</div>
+          </LinkTo>
+        ) : (
           <Canvas className={props.canvasClass}>
             <Story id={props.storyId} />
           </Canvas>

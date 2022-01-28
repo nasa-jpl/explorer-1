@@ -88,7 +88,7 @@ FullBleed.args = { image: BlockImageData.imageFullBleed }
 FullBleed.parameters = {
   docs: {
     storyDescription:
-      'Switch to canvas view to see the full bleed version. Includes layout assumptions and uses a max width of `max-w-screen-3xl`.',
+      'Switch to canvas view to see the full bleed version. Includes page layout assumptions and uses a max width of `max-w-screen-3xl`.',
   },
 }
 
