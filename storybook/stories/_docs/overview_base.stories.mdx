@@ -5,7 +5,14 @@ import { ReactDocsComponentList } from './ReactDocsComponentList'
 
 # Base Components
 
-Building blocks for more complex components. These can also be used standalone.
+Base components are the simplest elements that sometimes stand on their own, but more often are used in combination with others to assemble larger components.
+
+- [Layout](#layout)
+- [Basic elements](#basic-elements)
+- [Carousels](#carousels)
+- [Other](#other)
+
+<br />
 
 ## Layout
 
@@ -62,7 +69,6 @@ Building blocks for more complex components. These can also be used standalone.
       heading: 'BaseImage',
       description: 'Basic image component with a minimum set of attributes.',
       storyId: 'components-base-baseimage--default',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-xs',
     },
     {
       heading: 'BaseImageCaption',
@@ -74,7 +80,12 @@ Building blocks for more complex components. These can also be used standalone.
       description:
         'A backdrop for lazy-loaded images that can fill a set aspect ratio.',
       storyId: 'components-base-baseimageplaceholder--no-image',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-xs',
+    },
+    {
+      heading: 'BaseVideoBg',
+      description:
+        "A video component that autoplays a muted video and retains the video's aspect ratio. Useful for creating background video layouts.",
+      storyId: 'components-base-basevideobg--base',
     },
   ]}
 />
@@ -88,9 +99,23 @@ Building blocks for more complex components. These can also be used standalone.
     {
       heading: 'BaseCarouselCards',
       description:
-        'A mixed-bleed carousel with more than one slide visible at a time.',
+        'The base card carousel component used in blocks ArticleCarousel and BlockFactCards.',
       storyId: 'components-base-basecarouselcards--base-carousel',
-      canvasClass: 'sbdocs-inline-height',
+    },
+  ]}
+/>
+
+<br />
+
+## Other
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'BasePlaceholder',
+      description:
+        'An animated content placeholder, useful when loading content.',
+      storyId: 'components-base-baseplaceholder--default',
     },
   ]}
 />

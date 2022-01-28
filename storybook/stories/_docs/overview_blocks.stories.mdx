@@ -1,80 +1,78 @@
 import { Meta } from '@storybook/addon-docs'
 import { ReactDocsComponentList } from './ReactDocsComponentList'
-import LinkTo from '@storybook/addon-links/react'
 
 <Meta title="Components/Blocks/Overview" parameters={{ viewMode: 'docs' }} />
 
 # Block Components
 
-Self contained components that include more complex layouts or serve a specific content purpose. These are self-contained and can be added to the flow of a page. Some additional surrounding markup may be required.
+Self contained components that combine multiple other components or are otherwise more complex than base components. Blocks can be easily added to the flow of a page, though some may require additional markup to achieve the desired layout.
 
-## Hero components
-
-Reserved for the top of the page. Learn more about our heroes on the overview page.
-
-<div>
-  <LinkTo
-    className="text-sm sbdocs sbdocs-a font-medium"
-    kind="components-blocks-heroes-overview--page"
-  >
-    Go to the heroes overview page.
-  </LinkTo>
-</div>
+- [Hero blocks](#hero-blocks)
+- [Text and information blocks](#text-and-information-blocks)
+- [Media and media galleries](#media-and-media-galleries)
 
 <br />
 
-## Text and information components
+## Hero blocks
+
+Reserved for the top of the page. Learn more about our heroes on the [heroes overview page](?path=/docs/components-blocks-heroes-overview--page).
+
+<br />
+
+## Text and information blocks
 
 <ReactDocsComponentList
   components={[
     {
       heading: 'BlockText',
-      description: 'Description goes here',
+      description:
+        'Standard wrapper for one or more paragraphs and lists that takes a `text-body-<size>` class.',
       storyId: 'components-blocks-blocktext--default',
       canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
     },
     {
       heading: 'BlockKeyPoints',
-      description: 'Description goes here',
+      description:
+        'A combination of heading and unordered list, bordered on top and bottom. List items can have multiple paragraphs.',
       storyId: 'components-blocks-blockkeypoints--key-point',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
     },
     {
       heading: 'BlockQuote',
-      description: 'Description goes here',
+      description:
+        'A big, fancy pull quote, with optional attribution and link. Can also be used for non-quotation callouts.',
       storyId: 'components-blocks-blockquote--default',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
     },
     {
       heading: 'BlockRelatedLinks',
-      description: 'Description goes here',
+      description:
+        'A list of links formatted with background colors and icons indicating the type of link.',
       storyId: 'components-blocks-blockrelatedlinks--block',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
       fullWidth: true,
     },
     {
       heading: 'BlockTable',
-      description: 'Description goes here',
+      description: 'A simple table with some basic formatting.',
       storyId: 'components-blocks-blocktable--table',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
     },
     {
       heading: 'BlockTeaser',
-      description: 'Description goes here',
+      description:
+        'A combination of label, heading, description, and button in a box on the left with an image on the right. On smaller screens, the image appears above the box with the text elements.',
       storyId: 'components-blocks-blockteaser--default',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
       fullWidth: true,
     },
     {
       heading: 'BlockFactCards',
-      description: 'Description goes here',
+      description:
+        'A collection of smaller cards that support images, labels, headings, and descriptions, laid out in a grid on medium and larger screens, or in a carousel on small screens.',
       storyId: 'components-blocks-blockfactcards--group',
       canvasClass: 'sbdocs-inline-height',
       fullWidth: true,
     },
     {
       heading: 'ArticleCarousel',
-      description: 'Description goes here',
+      description:
+        'A mixed-bleed carousel with more than one slide visible at a time.',
       storyId: 'components-blocks-articlecarousel--carousel',
       canvasClass: 'sbdocs-inline-height',
       fullWidth: true,
@@ -90,43 +88,44 @@ Reserved for the top of the page. Learn more about our heroes on the overview pa
   components={[
     {
       heading: 'BlockImage',
-      description: 'Description goes here',
+      description:
+        'The combination of BaseImage and BaseImageCaption, plus adding support for expanding the image in a lightbox and styling it to be a full-bleed image.',
       storyId: 'components-blocks-blockimage--standard',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
     },
     {
       heading: 'BlockInlineImage',
-      description: 'Description goes here',
+      description:
+        'A BlockImage floated to one side of a BlockText. Note: The text does not wrap under the image.',
       storyId: 'components-blocks-blockinlineimage--align-right',
       canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
       fullWidth: true,
     },
     {
       heading: 'BlockVideoEmbed',
-      description: 'Description goes here',
+      description: 'A video embed with placeholder, plus an optional caption.',
       storyId: 'components-blocks-blockvideoembed--default',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
     },
     {
       heading: 'BlockIframeEmbed',
-      description: 'View the component to see a demo.',
+      description:
+        'An iframe embed with an optional caption. View the component to see a demo.',
       storyId: 'components-blocks-blockiframeembed--default',
-      canvasClass: 'sbdocs-inline-height',
       hideCanvas: true,
     },
     {
       heading: 'BlockImageCarousel',
-      description: 'Description goes here',
+      description:
+        'A simple image carousel with the option to open images in a lightbox.',
       storyId: 'components-blocks-blockimagecarousel--carousel',
       canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
     },
     {
       heading: 'BlockImageGallery',
       description:
-        'A wide screen version of the Image carousel, includes a cover image with a text overlay.',
+        'A wide screen version of BlockImageCarousel that includes a cover image with a text overlay.',
       storyId: 'components-blocks-blockimagegallery--default',
-      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-sm',
       fullWidth: true,
+      fullCanvas: true,
     },
   ]}
 />

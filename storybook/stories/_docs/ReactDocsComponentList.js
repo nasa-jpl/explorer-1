@@ -8,19 +8,8 @@ import { ReactDocsComponentItem } from './ReactDocsComponentItem'
 export function ReactDocsComponentList(props) {
   return (
     <div className="reactdocs-content">
-      {props.components.map(function (component, index) {
-        return (
-          <ReactDocsComponentItem
-            key={index}
-            heading={component.heading}
-            description={component.description}
-            storyId={component.storyId}
-            canvasClass={component.canvasClass}
-            fullWidth={component.fullWidth}
-            fullCanvas={component.fullCanvas}
-            hideCanvas={component.hideCanvas}
-          />
-        )
+      {props.components.map((component, index) => {
+        return <ReactDocsComponentItem key={index} {...component} />
       })}
     </div>
   )
