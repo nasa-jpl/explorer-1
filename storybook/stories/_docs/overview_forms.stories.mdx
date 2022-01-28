@@ -1,4 +1,5 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { ReactDocsComponentList } from './ReactDocsComponentList'
 
 <Meta title="Components/Forms/Overview" parameters={{ viewMode: 'docs' }} />
 
@@ -6,9 +7,28 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs'
 
 Form styles are currently limited to text inputs and text areas. You can construct a form by combining the following components:
 
-- [TextInput](?path=/docs/components-forms-textinput--default)
-- [TextArea](?path=/docs/components-forms-textarea--default)
-- [BaseButton](?path=/docs/components-base-basebutton--primary-button)
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'TextInput',
+      storyId: 'components-forms-textinput--default',
+      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-2xs',
+    },
+    {
+      heading: 'TextArea',
+      storyId: 'components-forms-textarea--default',
+      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-xs',
+    },
+    {
+      heading: 'BaseButton',
+      storyId: 'components-base-basebutton--primary-button',
+    },
+  ]}
+/>
+
+<br />
+
+## Example Form
 
 Below is an example form that was created using the above components and a couple `div` wrappers to adjust spacing between fields.
 

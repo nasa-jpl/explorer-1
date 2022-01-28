@@ -52,7 +52,7 @@ export const Hero = HeroFocalPointTemplate.bind({})
 Hero.storyName = 'HeroFocalPoint'
 Hero.args = {
   eyebrow: 'Robotics at JPL',
-  title: 'FreeClimber: LEMUR 3',
+  title: 'FreeClimber: LEMUR 3',
   summary:
     'Crawl, walk and even climb rock walls, this robot was designed to operate in extreme terrains.',
   image: {
