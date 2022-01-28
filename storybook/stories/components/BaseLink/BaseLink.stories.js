@@ -1,3 +1,13 @@
+import React from 'react'
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs'
 import { BaseLinkTemplate } from './BaseLink.js'
 
 export default {
@@ -65,12 +75,23 @@ export default {
       description: {
         component: 'Base component for links.',
       },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories includePrimary={true} title="All buttons" />
+        </>
+      ),
     },
   },
 }
 
-export const Primary = BaseLinkTemplate.bind({})
-Primary.args = {
+export const PrimaryLink = BaseLinkTemplate.bind({})
+PrimaryLink.storyName = 'Primary'
+PrimaryLink.args = {
   text: 'Explore',
   variant: 'primary',
   link: '#',

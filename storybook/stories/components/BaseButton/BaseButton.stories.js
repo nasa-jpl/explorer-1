@@ -8,7 +8,6 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs'
-
 import { BaseButtonTemplate } from './BaseButton.js'
 
 export default {
