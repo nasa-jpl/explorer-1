@@ -54,6 +54,7 @@
     "@storybook/addon-a11y": "^6.4.17",
     "@storybook/addon-docs": "^6.4.17",
     "@storybook/addon-essentials": "^6.4.17",
+    "@storybook/addon-links": "^6.4.17",
     "@storybook/html": "^6.4.17",
     "@whitespace/storybook-addon-html": "^5.0.0",
     "browser-sync": "^2.27.7",
