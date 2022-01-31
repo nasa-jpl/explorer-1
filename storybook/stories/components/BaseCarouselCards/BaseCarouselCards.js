@@ -113,7 +113,7 @@ export const BaseCarouselCardsTemplate = ({
           <div class="swiper-wrapper">
             ${slides}
           </div>
-          <div class="swiper-navigation lg:block absolute top-0 left-0 hidden w-full">
+          <div class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full">
             <div class="xl:-ml-22 top-1/2 absolute left-0 z-30 -ml-20">
               <button
                 aria-label="${heading} - Previous slide"
