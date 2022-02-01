@@ -1,7 +1,7 @@
-import { ArticleCarouselItemTemplate } from './ArticleCarouselItem.js'
+import { BlockArticleCarouselItemTemplate } from './BlockArticleCarouselItem.js'
 
 export default {
-  title: 'Components/Blocks/ArticleCarousel/ArticleCarouselItem',
+  title: 'Components/Blocks/BlockArticleCarousel/BlockArticleCarouselItem',
   argTypes: {
     url: {
       type: { name: 'string', required: true },
@@ -21,7 +21,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Single item used in `ArticleCarousel`',
+        component: 'Single item used in `BlockArticleCarousel`',
       },
     },
     html: {
@@ -30,8 +30,8 @@ export default {
   },
 }
 
-export const SingleItem = ArticleCarouselItemTemplate.bind({})
-SingleItem.storyName = 'ArticleCarouselItem'
+export const SingleItem = BlockArticleCarouselItemTemplate.bind({})
+SingleItem.storyName = 'BlockArticleCarouselItem'
 SingleItem.args = {
   url: '#',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',
