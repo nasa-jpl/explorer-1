@@ -1,11 +1,11 @@
-import { ArticleCarouselTemplate } from './ArticleCarousel.js'
+import { BlockArticleCarouselTemplate } from './BlockArticleCarousel.js'
 export default {
-  title: 'Components/Blocks/ArticleCarousel',
+  title: 'Components/Blocks/BlockArticleCarousel',
   argTypes: {
     items: {
       type: { name: 'Array', required: true },
       description:
-        'Array of slide data objects. See `ArticleCarouselItem` for data structure.',
+        'Array of slide data objects. See `BlockArticleCarouselItem` for data structure.',
     },
   },
   parameters: {
@@ -31,7 +31,7 @@ export default {
   excludeStories: /.*Data$/,
 }
 
-const ArticleCarouselData = [
+const BlockArticleCarouselData = [
   {
     url: '#',
     title: 'How engineers at NASA-JPL persevered to develop a ventilator',
@@ -89,14 +89,14 @@ const ArticleCarouselData = [
   },
 ]
 
-export const Carousel = ArticleCarouselTemplate.bind({})
+export const Carousel = BlockArticleCarouselTemplate.bind({})
 Carousel.args = {
   heading: 'Related Pages',
-  items: ArticleCarouselData,
+  items: BlockArticleCarouselData,
 }
 
-export const TwoSlides = ArticleCarouselTemplate.bind({})
+export const TwoSlides = BlockArticleCarouselTemplate.bind({})
 TwoSlides.args = {
   heading: 'Related Pages',
-  items: ArticleCarouselData.slice(0, 2),
+  items: BlockArticleCarouselData.slice(0, 2),
 }

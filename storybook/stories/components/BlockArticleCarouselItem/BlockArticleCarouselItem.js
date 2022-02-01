@@ -2,7 +2,7 @@ import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 import { IconArrowTemplate } from '../Icons/IconArrow'
 
-export const ArticleCarouselItemTemplate = ({
+export const BlockArticleCarouselItemTemplate = ({
   url,
   title,
   label,
