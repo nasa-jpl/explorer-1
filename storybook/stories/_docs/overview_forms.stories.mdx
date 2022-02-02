@@ -1,0 +1,95 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { ReactDocsComponentList } from './ReactDocsComponentList'
+
+<Meta title="Components/Forms/Overview" parameters={{ viewMode: 'docs' }} />
+
+# Form Components
+
+Form styles are currently limited to text inputs and text areas. Explorer 1 does not include any form functionality other than native HTML form controls. If you require more functionality in your forms,
+you will need to build that into your implementation of the design system.
+
+You can construct a form by combining the following components:
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'TextInput',
+      description:
+        'A simple text input with stylized label, placeholder text, and "required" asterisk, if applicable.',
+      storyId: 'components-forms-textinput--default',
+      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-2xs',
+    },
+    {
+      heading: 'TextArea',
+      description:
+        'A simple text area input with stylized label, placeholder text, and "required" asterisk, if applicable.',
+      storyId: 'components-forms-textarea--default',
+      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-xs',
+    },
+    {
+      heading: 'BaseButton',
+      description:
+        'Our usual base button component. This component is not limited to usage in forms.',
+      storyId: 'components-base-basebutton--primary-button',
+    },
+  ]}
+/>
+
+<br />
+
+## Example Form
+
+Below is an example form that was created using the above components and a couple `div` wrappers to adjust spacing between fields.
+
+<Canvas className="">
+  <Story name="Overview">
+    {`
+      <form>
+        <div class="mb-8">
+          <div class="mb-2">
+            <label for="name" class="text-subtitle text-gray-dark">
+              Name
+            </label>
+          </div>
+          <input
+            type="text"
+            name="name"
+            placeholder="enter your name"
+            class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus-blue focus:shadow-jpl"
+          />
+        </div>
+        <div class="mb-4">
+          <div class="mb-2">
+            <label for="message" class="text-subtitle text-gray-dark">
+              Message
+            </label>
+            <span class="text-xl text-jpl-red-dark font-bold">*</span>
+          </div>
+          <textarea
+            name="message"
+            required="true"
+            placeholder="enter your message..."
+            cols="40"
+            rows="5"
+            class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus-blue focus:shadow-jpl"
+          ></textarea>
+        </div>
+        <button
+          class="BaseButton text-contrast-none inline-block -primary"
+          aria-label="Submit"
+        >
+          <span class="label block">Submit</span>
+        </button>
+      </form>
+  `}
+  </Story>
+</Canvas>
+
+Depending on your framework, you will need to modify the `<form>` attributes and possibly convert the submit `<button>` to an input, such as:
+
+```html
+<input
+  type="submit"
+  class="BaseButton text-contrast-none inline-block -primary"
+/>
+```

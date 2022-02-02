@@ -2,7 +2,7 @@ import { BaseVideoBgData } from '../BaseVideoBg/BaseVideoBg.stories'
 import { HeroFeatureTemplate } from './HeroFeature'
 
 export default {
-  title: 'Components/Heroes/HeroFeature',
+  title: 'Components/Blocks/Heroes/HeroFeature',
   excludeStories: /.*Data$/,
   argTypes: {
     label: {
@@ -38,10 +38,15 @@ export default {
       clearable: false,
       list: [
         {
-          name: 'FullWidthDocs',
-          class: 'sbdocs-preview-full-width',
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
           default: true,
-          visible: false,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
         },
       ],
     },

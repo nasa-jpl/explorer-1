@@ -1,13 +1,13 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs'
 
 <Meta
-  title="Brand Identity/Grid and Layout"
+  title="Components/Base/Grid and Layout"
   parameters={{ viewMode: 'docs' }}
 />
 
 # Grid and Layout
 
-We use a 12-column grid paired with our [Responsive Design](?path=/docs/brand-identity-responsive-design--overview) strategy to create all of our page and component layouts.
+We use a 12-column grid paired with our [Responsive Design](?path=/docs/getting-started-responsive-design--responsive-design) strategy to create all of our page and component layouts.
 
 > The examples on this page assume you are viewing this page on a desktop. Examples may not appear correct on smaller screens.
 
@@ -15,7 +15,8 @@ We use a 12-column grid paired with our [Responsive Design](?path=/docs/brand-id
   - [Example Usage](#example-usage)
 - [Mixed Bleed](#mixed-bleed)
   - [Example Usage](#example-usage-1)
-- [Full Page Mockup](#full-page-mockup)
+- [Page layout recommendations](#page-layout-recommendations)
+- [Full Page Example](#full-page-example)
 
 ## BaseGrid
 
@@ -57,7 +58,7 @@ Although `.BaseGrid` is always used with or wrapped by a `.container`, `.BaseGri
 }
 ```
 
-Things like margins and container can be applied as needed, such as:
+Adjustments like margins and container can be applied as needed, such as:
 
 ```html
 <div class="BaseGrid container mx-auto">
@@ -92,10 +93,10 @@ Some common component layouts:
     {`
       <div class="BaseGrid container mx-auto border border-jpl-red-light">
         <div class="col-start-2 col-end-8 bg-black text-white px-4 py-10">
-          About the mission
+          Primary content
         </div>
         <div class="col-start-8 col-end-12 bg-black text-white px-4 py-10">
-          Instrument list
+          Secondary content
         </div>
       </div>
     `}
@@ -200,7 +201,7 @@ These named lines are used to construct the following `col-start-` and `col-end-
 
 ### Example Usage
 
-Responsive styles within the component will need to be determined on a case-by-base basis. Usage of this class is best followed by observing the examples.
+Responsive styles within MixedBleed will need to be determined on a case-by-base basis. Usage of this class is best followed by observing existing usage and examples.
 
 #### Simple mixed bleed
 
@@ -266,95 +267,140 @@ When elements of an indented MixedBleed area must align with the BaseGrid, we ne
   </Story>
 </Canvas>
 
----
+## Page layout recommendations
 
-## Full Page Mockup
+Explorer 1 components vary in width. This can make page layouts challenging if the entire content area is bound by a single `.container` div, a strategy that is commonly used on other websites. For Explorer 1, we recommend avoiding this strategy and instead giving each section or component on the page its own set of layout markup.
+
+[Blocks](?path=/docs/components-blocks-overview--page) provided by Explorer 1 are compatible with this strategy. However, if a block notes that "layout assumptions have been made," this means that the entire layout for that block is already included in the markup, and you shouldn't include any additional layout. Doing so could break the display of that block.
+
+View the code below for an example of how to give each section its own set of layout markup. You can also see this strategy employed in the [Full Page Example](#full-page-example).
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story name="Page layout">
+    {`
+      <!-- first section -->
+      <div class="bg-gray-light mb-5">
+        <div class="max-w-screen-3xl mx-auto bg-black text-white p-6">
+          Component with content bound <code>.max-w-screen-3xl</code> but with a background color that extends beyond <code>3xl</code>
+        </div>
+      </div>
+      <!-- second section -->
+      <div class="container lg:BaseGrid mx-auto mb-5">
+        <div class="col-start-3 col-end-11 bg-gray-light p-6">
+          Component filling columns 3-10 on large screens and above.
+        </div>
+      </div>
+      <!-- third section -->
+      <div class="container BaseGrid mx-auto mb-5">
+        <div class="col-start-2 col-end-12 lg:col-start-4 lg:col-end-10 bg-gray-light p-6">
+          Component filling columns 4-9 on large screens and above and columns 2-11 on smaller screens.
+        </div>
+      </div>
+      <!-- fourth section -->
+      <div class="container mx-auto bg-gray-light p-6 mb-5">
+        Component with content bound by <code>.container</code>
+      </div>
+      <!-- fifth section -->
+      <div class="max-w-screen-3xl mx-auto bg-gray-light p-6 mb-5">
+        Component with content bound by <code>.max-w-screen-3xl</code>
+      </div>
+      <!-- sixth section -->
+      <div class="container lg:BaseGrid mx-auto">
+        <div class="col-start-3 col-end-11 bg-gray-light p-6">
+          Another component filling columns 3-10 on large screens and above.
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+<br />
+
+## Full Page Example
 
 An example of the foundations of a full page layout.
 
 <Canvas className="sbdocs-preview-full-width">
-  <Story name="FullPageDemo">
+  <Story name="Full Page Example">
     {`
-      <div class="w-full">
-        <div class="bg-black text-white py-5 mb-10">
-          <div class="max-w-screen-2xl mx-auto border border-white p-3">
-            Top Hat
-          </div>
+      <div class="bg-black text-white py-5 mb-10">
+        <div class="max-w-screen-2xl mx-auto border border-white p-3">
+          Top Hat
         </div>
-        <div class="bg-black mb-20 py-10">
-          <div class="container mx-auto text-white">
-              Page title with full bleed background<br>
-              Lorem ipsum dolor sit amet<br>
-              Consectatur
-          </div>
+      </div>
+      <div class="bg-black mb-20 py-10">
+        <div class="container mx-auto text-white">
+            Page title with full bleed background<br>
+            Lorem ipsum dolor sit amet<br>
+            Consectatur
         </div>
-        <div class="MixedBleedGrid mb-20">
-          <div class="col-start-indent-col-2 col-end-container bg-gray-light-mid py-10 border border-jpl-red-light">
-            <div class="grid grid-cols-11 gap-5">
-              <div class="col-start-2 col-end-7">
-                Countdown Timer
-              </div>
-              <div class="col-start-7 col-end-12">
-                Distance to Target
-              </div>
+      </div>
+      <div class="MixedBleedGrid mb-20">
+        <div class="col-start-indent-col-2 col-end-container bg-gray-light-mid py-10 border border-jpl-red-light">
+          <div class="grid grid-cols-11 gap-5">
+            <div class="col-start-2 col-end-7">
+              Countdown Timer
             </div>
-          </div>
-          <div class="col-start-container-end col-end-bleed bg-gray-light-mid"></div>
-        </div>
-        <div class="BaseGrid container mx-auto mb-20 py-10">
-          <div class="col-start-2 col-end-8">
-            About the mission
-          </div>
-          <div class="col-start-8 col-end-12">
-            Instrument list
-          </div>
-        </div>
-        <div class="bg-black mb-20">
-          <div class="BaseGrid container mx-auto">
-            <div class="col-start-6 col-end-11 text-white border-b border-white py-5 my-10">
-              Full bleed background with BaseGrid inner container
+            <div class="col-start-7 col-end-12">
+              Distance to Target
             </div>
           </div>
         </div>
-        <div class="BaseGrid container mx-auto mb-20">
-          <div class="col-start-2 col-end-7 py-10">
-            Mission Data
-          </div>
-          <div class="col-start-7 col-end-12 bg-black py-10 text-white text-center">
-            Square Image
+        <div class="col-start-container-end col-end-bleed bg-gray-light-mid"></div>
+      </div>
+      <div class="BaseGrid container mx-auto mb-20 py-10">
+        <div class="col-start-2 col-end-8">
+          About the mission
+        </div>
+        <div class="col-start-8 col-end-12">
+          Instrument list
+        </div>
+      </div>
+      <div class="bg-black mb-20">
+        <div class="BaseGrid container mx-auto">
+          <div class="col-start-6 col-end-11 text-white border-b border-white py-5 my-10">
+            Full bleed background with BaseGrid inner container
           </div>
         </div>
-        <div class="BaseGrid container mx-auto mb-20">
-          <div class="col-start-3 col-end-11 py-10 text-center border-t border-b">
-            Blockquote
-          </div>
+      </div>
+      <div class="BaseGrid container mx-auto mb-20">
+        <div class="col-start-2 col-end-7 py-10">
+          Mission Data
         </div>
+        <div class="col-start-7 col-end-12 bg-black py-10 text-white text-center">
+          Square Image
+        </div>
+      </div>
+      <div class="BaseGrid container mx-auto mb-20">
+        <div class="col-start-3 col-end-11 py-10 text-center border-t border-b">
+          Blockquote
+        </div>
+      </div>
+      <div class="MixedBleedGrid mb-20">
+        <div class="col-start-indent-col-2 col-end-bleed px-5 py-10 border border-jpl-red-light">
+          Gallery Container
+        </div>
+      </div>
+      <div class="BaseGrid container mx-auto mb-2">
+        <div class="col-start-2 col-end-9 p-5 bg-gray-light-mid ">
+          Link 1
+        </div>
+      </div>
+      <div class="BaseGrid container mx-auto mb-20">
+        <div class="col-start-2 col-end-9 p-5 bg-gray-light-mid ">
+          Link 2
+        </div>
+      </div>
+      <div class="bg-gray-light-mid">
         <div class="MixedBleedGrid mb-20">
           <div class="col-start-indent-col-2 col-end-bleed px-5 py-10 border border-jpl-red-light">
             Gallery Container
           </div>
         </div>
-        <div class="BaseGrid container mx-auto mb-2">
-          <div class="col-start-2 col-end-9 p-5 bg-gray-light-mid ">
-            Link 1
-          </div>
-        </div>
-        <div class="BaseGrid container mx-auto mb-20">
-          <div class="col-start-2 col-end-9 p-5 bg-gray-light-mid ">
-            Link 2
-          </div>
-        </div>
-        <div class="bg-gray-light-mid">
-          <div class="MixedBleedGrid mb-20">
-            <div class="col-start-indent-col-2 col-end-bleed px-5 py-10 border border-jpl-red-light">
-              Gallery Container
-            </div>
-          </div>
-        </div>
-        <div class="bg-black py-20">
-          <div class="container mx-auto text-white">
-              Footer
-          </div>
+      </div>
+      <div class="bg-black py-20">
+        <div class="container mx-auto text-white">
+            Footer
         </div>
       </div>
     `}

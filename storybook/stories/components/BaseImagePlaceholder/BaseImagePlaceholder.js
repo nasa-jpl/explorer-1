@@ -38,7 +38,7 @@ export const BaseImagePlaceholderTemplate = ({
         })
       : placeholder
       ? `<div>${placeholder}</div>`
-      : ''
+      : '<div></div>'
   return `<div${renderWrapperClass}>
   <div class="BaseImagePlaceholder ${theme} ${aspectRatio} ${noLogo}">
     ${slot}

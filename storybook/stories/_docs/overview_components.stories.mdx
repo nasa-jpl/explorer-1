@@ -1,0 +1,38 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { ReactDocsComponentList } from './ReactDocsComponentList'
+
+<Meta title="Components/Overview" parameters={{ viewMode: 'docs' }} />
+
+# Components
+
+Explorer 1 comprises components that range from very simple, single-purpose elements to complex combinations of multiple other components. We've categorized these into a few broad buckets, but the lines between them are blurry.
+
+- **[Base](?path=/docs/components-base-overview--page)** components are the simplest elements that sometimes stand on their own, but more often are used in combination with others to assemble larger components. Examples include [BaseLink](?path=/docs/components-base-baselink--primary-link), [BaseButton](?path=/docs/components-base-basebutton--primary-button), and [BaseHeading](?path=/docs/components-base-baseheading--h-1).
+- **[Blocks](?path=/docs/components-blocks-overview--page)** are components that combine multiple other components or are otherwise more complex. Examples include [BlockImage](?path=/docs/components-blocks-blockimage--standard), [BlockQuote](?path=/docs/components-blocks-blockquote--default), and [BlockTeaser](?path=/docs/components-blocks-blockteaser--default).
+- We also break out **[Form](?path=/docs/components-forms-overview--overview)** and **[Search](?path=/docs/components-search-overview--page)** components into their own groups because they have their own significant complexities that relate to their user interactions.
+
+## Base vs. block components
+
+To illustrate the difference between base and block components, consider images. We have both `BaseImage` and `BlockImage` components. The difference is that `BaseImage` is nothing more than the `<img>` element (with our minimum set of attributes, wrapped in a div), whereas `BlockImage` combines a `BaseImage` with a `BaseImageCaption` (plus a few other bells and whistles).
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'BaseImage',
+      description: 'Just an image, nothing else.',
+      storyId: 'components-base-baseimage--default',
+    },
+    {
+      heading: 'BaseImageCaption',
+      description: 'Just the caption.',
+      storyId: 'components-base-baseimagecaption--default',
+    },
+    {
+      heading: 'BlockImage',
+      description:
+        '`BlockImage` = `BaseImage` + `BaseImageCaption`, plus adding support for expanding the image in a lightbox and styling it to be a full-bleed image.',
+      storyId: 'components-blocks-blockimage--standard',
+      fullWidth: true,
+    },
+  ]}
+/>

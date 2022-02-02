@@ -1,3 +1,13 @@
+import React from 'react'
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs'
 import { BaseButtonTemplate } from './BaseButton.js'
 
 export default {
@@ -59,6 +69,16 @@ export default {
       description: {
         component: 'Base component for buttons.',
       },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories includePrimary={true} title="All buttons" />
+        </>
+      ),
     },
   },
 }

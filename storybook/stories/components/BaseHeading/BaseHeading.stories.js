@@ -1,3 +1,13 @@
+import React from 'react'
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs'
 import { BaseHeadingTemplate } from './BaseHeading'
 
 export default {
@@ -34,6 +44,16 @@ export default {
         component:
           'Base component for headings. Allows for different sizes with html tags for semantic markup.',
       },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories includePrimary={true} title="All heading levels" />
+        </>
+      ),
     },
   },
 }

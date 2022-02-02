@@ -2,7 +2,7 @@ import { BaseVideoBgData } from '../BaseVideoBg/BaseVideoBg.stories'
 import { HeroMediaTemplate } from './HeroMedia'
 
 export default {
-  title: 'Components/Heroes/HeroMedia',
+  title: 'Components/Blocks/Heroes/HeroMedia',
   excludeStories: /.*Data$/,
   decorators: [
     (Story) => `<div id="storyRoot" class="absolute inset-0">${Story()}</div>`,
@@ -29,12 +29,24 @@ export default {
     html: {
       root: '#storyRoot',
     },
-    viewMode: 'story',
-    previewTabs: {
-      'storybook/docs/panel': {
-        hidden: true,
-      },
+    viewMode: 'docs',
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
+          default: true,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
+        },
+      ],
     },
+    docs: { inlineStories: false, iframeHeight: 700 },
   },
 }
 

@@ -8,7 +8,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component:
+          'A BlockImage floated to one side of a BlockText. Note: The text does not wrap under the image. Includes page layout assumptions.',
       },
     },
   },

@@ -1,0 +1,121 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { ReactDocsComponentList } from './ReactDocsComponentList'
+
+<Meta title="Components/Base/Overview" parameters={{ viewMode: 'docs' }} />
+
+# Base Components
+
+Base components are the simplest elements that sometimes stand on their own, but more often are used in combination with others to assemble larger components.
+
+- [Layout](#layout)
+- [Basic elements](#basic-elements)
+- [Carousels](#carousels)
+- [Other](#other)
+
+<br />
+
+## Layout
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'Grid & Layout',
+      description:
+        'Start here to learn about the grid and create page layouts.',
+      storyId: 'components-base-grid-and-layout--base-grid',
+      fullWidth: true,
+    },
+  ]}
+/>
+
+<br />
+
+## Basic elements
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'BaseLink',
+      description: 'Simple link with several style variations.',
+      storyId: 'components-base-baselink--primary-link',
+    },
+    {
+      heading: 'BaseButton',
+      description: 'Simple button with several style variations.',
+      storyId: 'components-base-basebutton--primary-button',
+    },
+    {
+      heading: 'BaseHeading',
+      description:
+        'Base component for headings. Allows for retaining semantic markup while varying the text size.',
+      storyId: 'components-base-baseheading--h-1',
+    },
+    {
+      heading: 'AnimationCaret',
+      description:
+        'This component appends an animated caret to a line of text.',
+      storyId: 'components-base-animationcaret--default',
+    },
+  ]}
+/>
+
+<br />
+
+## Media
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'BaseImage',
+      description: 'Basic image component with a minimum set of attributes.',
+      storyId: 'components-base-baseimage--default',
+    },
+    {
+      heading: 'BaseImageCaption',
+      description: 'Caption text used with both images and videos.',
+      storyId: 'components-base-baseimagecaption--default',
+    },
+    {
+      heading: 'BaseImagePlaceholder',
+      description:
+        'A backdrop for lazy-loaded images that can fill a set aspect ratio.',
+      storyId: 'components-base-baseimageplaceholder--no-image',
+    },
+    {
+      heading: 'BaseVideoBg',
+      description:
+        "A video component that autoplays a muted video and retains the video's aspect ratio. Useful for creating background video layouts.",
+      storyId: 'components-base-basevideobg--base',
+    },
+  ]}
+/>
+
+<br />
+
+## Carousels
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'BaseCarouselCards',
+      description:
+        'The base card component used in blocks BlockArticleCarousel and BlockFactCards.',
+      storyId: 'components-base-basecarouselcards--base-carousel',
+    },
+  ]}
+/>
+
+<br />
+
+## Other
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'BasePlaceholder',
+      description:
+        'An animated content placeholder, useful when loading content.',
+      storyId: 'components-base-baseplaceholder--default',
+    },
+  ]}
+/>

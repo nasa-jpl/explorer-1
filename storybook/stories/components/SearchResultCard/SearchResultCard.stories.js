@@ -5,39 +5,40 @@ export default {
   excludeStories: /.*Data$/,
   argTypes: {
     link: {
-      type: { name: 'string', required: false },
-      description: '',
+      type: { name: 'string', required: true },
+      description: 'The URL that the card should link to',
     },
     type: {
       type: { name: 'string', required: false },
-      description: '',
+      description: 'Primary label for the item',
     },
     topic: {
       type: { name: 'string', required: false },
-      description: '',
-    },
-    date: {
-      type: 'string',
-      description: '',
-      control: {
-        type: 'date',
-      },
+      description: 'Secondary label for the item',
     },
     title: {
-      type: { name: 'string', required: false },
+      type: { name: 'string', required: true },
       description: '',
     },
     summary: {
       type: { name: 'string', required: false },
       description: 'Summary/description of the item',
     },
+    date: {
+      type: 'string',
+      description: 'The date of the item (usually publication date).',
+      control: {
+        type: 'date',
+      },
+    },
     image: {
       type: { name: 'object', required: false },
-      description: 'Image object',
+      description:
+        'Image thumbnail. Expand the object to see the full data structure.',
     },
     featured: {
       type: 'boolean',
-      description: '',
+      description: 'If the item should be styled as a featured result.',
       control: {
         type: 'boolean',
       },
@@ -61,12 +62,12 @@ export default {
 
 export const SearchResultCardData = {
   link: '/topics/placeholder-slug-1',
-  type: 'news',
+  type: 'News',
   topic: 'Moon',
-  date: 'May 22, 2018',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',
   summary:
     "On April 30, the Food and Drug Administration approved VITAL for a ventilator Emergency Use Authorization. Developed in just 37 days by NASA's Jet Propulsion Laboratory in response to the coronavirus pandemic, VITAL (short for Ventilator Intervention Technology Accessible Locally) wouldn't replace current hospital ventilators, which can treat a broader range of medical issues.",
+  date: 'May 22, 2018',
   image: {
     src: {
       url: 'https://placekitten.com/490/490',

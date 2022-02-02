@@ -3,8 +3,8 @@ import { BaseButtonTemplate } from '../BaseButton/BaseButton.js'
 import { BaseLinkTemplate } from '../BaseLink/BaseLink.js'
 import { IconNextTemplate } from '../Icons/IconNext'
 import { IconPrevTemplate } from '../Icons/IconPrev'
-import { ArticleCarouselItemTemplate } from '../ArticleCarouselItem/ArticleCarouselItem.js'
-import { RoboticsDetailFactsItemTemplate } from '../RoboticsDetailFactsItem/RoboticsDetailFactsItem.js'
+import { BlockArticleCarouselItemTemplate } from '../BlockArticleCarouselItem/BlockArticleCarouselItem.js'
+import { BlockFactCardsItemTemplate } from '../BlockFactCardsItem/BlockFactCardsItem.js'
 
 export const BaseCarouselCardsTemplate = ({
   noLinks,
@@ -47,16 +47,16 @@ export const BaseCarouselCardsTemplate = ({
         slides += `${BaseCarouselCardsItemDemoTemplate({
           title: value.title,
         })}`
-      } else if (slideTemplate === 'ArticleCarouselItem') {
-        slides += `${ArticleCarouselItemTemplate({
+      } else if (slideTemplate === 'BlockArticleCarouselItem') {
+        slides += `${BlockArticleCarouselItemTemplate({
           url: value.url,
           title: value.title,
           label: value.label,
           image: value.thumbnailImage,
           customClass: 'swiper-slide',
         })}`
-      } else if (slideTemplate === 'RoboticsDetailFactsItem') {
-        slides += `${RoboticsDetailFactsItemTemplate({
+      } else if (slideTemplate === 'BlockFactCardsItem') {
+        slides += `${BlockFactCardsItemTemplate({
           type: value.type,
           title: value.title,
           text: value.text,
@@ -113,7 +113,7 @@ export const BaseCarouselCardsTemplate = ({
           <div class="swiper-wrapper">
             ${slides}
           </div>
-          <div class="swiper-navigation lg:block absolute top-0 left-0 hidden w-full">
+          <div class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full">
             <div class="xl:-ml-22 top-1/2 absolute left-0 z-30 -ml-20">
               <button
                 aria-label="${heading} - Previous slide"

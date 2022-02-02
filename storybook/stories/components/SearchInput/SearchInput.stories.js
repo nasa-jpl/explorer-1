@@ -1,7 +1,7 @@
 import { SearchInputTemplate } from './SearchInput'
 
 export default {
-  title: 'Components/Forms/SearchInput',
+  title: 'Components/Search/SearchInput',
   argTypes: {
     placeholder: {
       type: { name: 'string', required: false },
@@ -19,6 +19,7 @@ export default {
 }
 
 export const Default = SearchInputTemplate.bind({})
+Default.storyName = 'SearchInput'
 Default.args = {
   placeholder: '',
 }

@@ -1,9 +1,63 @@
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import customTheme from './customTheme.js'
 import '../dist/css/explorer-1.min.css'
 import '../dist/js/explorer-1.min.js'
 import './canvas.css'
 
+// viewports that match our tailwind config
+const customViewports = {
+  screenSm: {
+    name: 'screen-sm',
+    styles: {
+      width: '640px',
+      height: '100%',
+    },
+  },
+  screenMd: {
+    name: 'screen-md',
+    styles: {
+      width: '768px',
+      height: '100%',
+    },
+  },
+  screenLg: {
+    name: 'screen-lg',
+    styles: {
+      width: '1024px',
+      height: '100%',
+    },
+  },
+  screenXl: {
+    name: 'screen-xl',
+    styles: {
+      width: '1280px',
+      height: '100%',
+    },
+  },
+  screen2xl: {
+    name: 'screen-2xl',
+    styles: {
+      width: '1440px',
+      height: '100%',
+    },
+  },
+  screen3xl: {
+    name: 'screen-3xl',
+    styles: {
+      width: '1800px',
+      height: '100%',
+    },
+  },
+}
+
 export const parameters = {
+  viewport: {
+    viewports: {
+      ...MINIMAL_VIEWPORTS,
+      ...customViewports,
+    },
+  },
+
   // themes are used to switch the wrapper between ThemeLight and ThemeDark
   themes: {
     clearable: false,
@@ -61,15 +115,18 @@ export const parameters = {
           'Icons',
           'Themes',
           'Responsive Design',
-          'Grid and Layout',
         ],
         'Components',
         [
+          'Overview',
           'Base',
-          ['Overview'],
+          ['Overview', 'Grid and Layout'],
           'Blocks',
-          ['Overview', 'BlockStreamfield'],
-          'Heroes',
+          ['Overview', 'Heroes', ['Overview']],
+          'Forms',
+          ['Overview', 'TextInput', 'TextArea'],
+          'Search',
+          ['Overview'],
         ],
         'Layouts',
       ],
