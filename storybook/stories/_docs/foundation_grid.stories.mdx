@@ -1,13 +1,10 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs'
 
-<Meta
-  title="Components/Base/Grid and Layout"
-  parameters={{ viewMode: 'docs' }}
-/>
+<Meta title="Foundation/Grid and Layout" parameters={{ viewMode: 'docs' }} />
 
 # Grid and Layout
 
-We use a 12-column grid paired with our [Responsive Design](?path=/docs/getting-started-responsive-design--responsive-design) strategy to create all of our page and component layouts.
+We use a 12-column grid paired with our [Responsive Design](?path=/docs/guides-responsive-design--responsive-design) strategy to create all of our page and component layouts.
 
 > The examples on this page assume you are viewing this page on a desktop. Examples may not appear correct on smaller screens.
 
@@ -218,11 +215,9 @@ Starts at `indent-col-2` (col-2 of the `BaseGrid`) and bleeds fully to the right
 <Canvas className="sbdocs-preview-full-width">
   <Story name="MixedBleed">
     {`
-      <div>
-        <div class="MixedBleedGrid mb-10">
-          <div class="col-start-indent-col-2 col-end-bleed text-white bg-black px-4 py-10">
-            Gallery Container (inner layout not dependent on grid)
-          </div>
+      <div class="MixedBleedGrid">
+        <div class="col-start-indent-col-2 col-end-bleed text-white bg-black px-4 py-10">
+          Gallery Container (inner layout not dependent on grid)
         </div>
       </div>
     `}
