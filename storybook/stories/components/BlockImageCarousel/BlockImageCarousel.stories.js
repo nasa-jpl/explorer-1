@@ -1,9 +1,10 @@
+import { Default } from '../BaseImageCaption/BaseImageCaption.stories'
 import { BlockImageCarouselTemplate } from './BlockImageCarousel'
 
 export default {
   title: 'Components/Blocks/BlockImageCarousel',
   decorators: [
-    (Story) => `<div id="storyRoot" class="container">${Story()}</div>`,
+    (Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`,
   ],
   argTypes: {
     images: {
@@ -15,11 +16,23 @@ export default {
     html: {
       root: '#storyRoot',
     },
-    viewMode: 'story',
-    previewTabs: {
-      'storybook/docs/panel': {
-        hidden: true,
-      },
+    viewMode: 'docs',
+    docs: { inlineStories: false, iframeHeight: 850 },
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
+          default: true,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
+        },
+      ],
     },
   },
   excludeStories: /.*Data$/,
@@ -88,4 +101,5 @@ export const BlockImageCarouselData = {
 }
 
 export const Carousel = BlockImageCarouselTemplate.bind({})
+Carousel.storyName = 'BlockImageCarousel'
 Carousel.args = BlockImageCarouselData

@@ -21,11 +21,30 @@ export default {
     html: {
       root: '#storyRoot',
     },
-    viewMode: 'story',
-    previewTabs: {
-      'storybook/docs/panel': {
-        hidden: true,
+    viewMode: 'docs',
+    docs: {
+      inlineStories: false,
+      iframeHeight: 1050,
+      description: {
+        component:
+          'A wide screen version of BlockImageCarousel that includes a cover image with a text overlay. Includes page layout assumptions and uses a max width of `max-w-screen-3xl`.',
       },
+    },
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
+          default: true,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
+        },
+      ],
     },
   },
 }

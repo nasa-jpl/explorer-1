@@ -13,7 +13,7 @@ export const FancyboxButtonTemplate = ({
   }
   if (image.credit || image.caption) {
     fancybox += ` data-caption="`
-    if (image.caption) fancybox += image.caption
+    if (image.caption) fancybox += image.caption.replace(/<[^>]*>?/gm, '')
     if (image.caption && image.credit) fancybox += ' '
     if (image.credit) fancybox += `Credit: ${image.credit}`
     fancybox += `"`

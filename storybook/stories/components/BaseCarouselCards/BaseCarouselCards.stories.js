@@ -1,9 +1,6 @@
 import { BaseCarouselCardsTemplate } from './BaseCarouselCards.js'
 export default {
   title: 'Components/Base/BaseCarouselCards',
-  decorators: [
-    (Story) => `<div id="storyRoot" class="w-full">${Story()}</div>`,
-  ],
   argTypes: {
     heading: {
       type: 'string',
@@ -12,7 +9,7 @@ export default {
     variant: {
       type: 'string',
       description:
-        'Sets the vertical center of next/prev button. `-cards` will center them within a fixed height corresponding to a 16:9 area. This is useful when a slide includes an image with text below it (see `ArticleCarousel`). `-tiles` will center the pagination within the height of the entire slide.',
+        'Sets the vertical center of next/prev button. `-cards` will center them within a fixed height corresponding to a 16:9 area. This is useful when a slide includes an image with text below it (see `BlockArticleCarousel`). `-tiles` will center the pagination within the height of the entire slide.',
       control: {
         type: 'select',
         options: ['-cards', '-tiles'],
@@ -55,14 +52,30 @@ export default {
     },
   },
   parameters: {
-    html: {
-      root: '#storyRoot',
-    },
-    viewMode: 'story',
-    previewTabs: {
-      'storybook/docs/panel': {
-        hidden: true,
+    viewMode: 'docs',
+    docs: {
+      inlineStories: false,
+      iframeHeight: 400,
+      description: {
+        component:
+          'The base carousel component used in BlockArticleCarousel and BlockFactCards. Includes page layout assumptions.',
       },
+    },
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
+          default: true,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
+        },
+      ],
     },
   },
   excludeStories: /.*Data$/,

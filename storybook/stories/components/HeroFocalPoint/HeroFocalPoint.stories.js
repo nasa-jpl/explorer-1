@@ -1,7 +1,7 @@
 import { HeroFocalPointTemplate } from './HeroFocalPoint'
 
 export default {
-  title: 'Components/Heroes/HeroFocalPoint',
+  title: 'Components/Blocks/Heroes/HeroFocalPoint',
   argTypes: {
     eyebrow: {
       type: { name: 'string', required: false },
@@ -22,7 +22,23 @@ export default {
     },
   },
   parameters: {
-    viewMode: 'story',
+    viewMode: 'docs',
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
+          default: true,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
+        },
+      ],
+    },
     docs: {
       description: {
         component:
@@ -36,7 +52,7 @@ export const Hero = HeroFocalPointTemplate.bind({})
 Hero.storyName = 'HeroFocalPoint'
 Hero.args = {
   eyebrow: 'Robotics at JPL',
-  title: 'FreeClimber: LEMUR 3',
+  title: 'FreeClimber: LEMUR 3',
   summary:
     'Crawl, walk and even climb rock walls, this robot was designed to operate in extreme terrains.',
   image: {

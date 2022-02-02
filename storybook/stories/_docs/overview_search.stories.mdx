@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/addon-docs'
+import { ReactDocsComponentList } from './ReactDocsComponentList'
+
+<Meta title="Components/Search/Overview" parameters={{ viewMode: 'docs' }} />
+
+# Search Components
+
+Styles for a basic search input field and result items are available for use. Explorer 1 only provides styles for search components, it does not provide any search functionality.
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'SearchInput',
+      description:
+        'Includes a stylized search icon and a darker border than standard form inputs.',
+      storyId: 'components-search-searchinput--default',
+    },
+    {
+      heading: 'SearchResultCard',
+      description:
+        'Standard search result. Styles for a featured result are also available.',
+      storyId: 'components-search-searchresultcard--standard-result',
+      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-xs',
+      fullWidth: true,
+    },
+  ]}
+/>

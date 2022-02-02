@@ -25,7 +25,7 @@ export default {
 
 export const BlockQuoteData = {
   quote:
-    "“A nice thing about it is it doesn't shatter. If impacted, it bends rather than breaks and still has good optical properties”",
+    "“A nice thing about it is it doesn't shatter. If impacted, it bends rather than breaks and still has good optical properties.”",
   attribution: 'Amy Ross, Spacesuit Designer',
   quoteLink: {
     externalLink: '',

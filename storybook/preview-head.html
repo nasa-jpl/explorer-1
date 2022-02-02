@@ -20,26 +20,35 @@
   /* make docs have full width iframes
   ** rescopes width to all nested divs, not the container wrapper */
   .sbdocs.sbdocs-content {
-    max-width: none;
+    max-width: 1950px;
   }
   .sbdocs.sbdocs-content > * {
     width: 100%;
-    max-width: 1000px;
+    max-width: 950px;
     margin-left: auto;
     margin-right: auto;
   }
-  .sbdocs.sbdocs-content > div[id*='anchor--'] {
+  .sbdocs.sbdocs-content > div[id*='anchor--'],
+  .sbdocs.sbdocs-content .reactdocs-content {
     max-width: none;
   }
-  .sbdocs.sbdocs-content > div[id*='anchor--'] > * {
+  .sbdocs.sbdocs-content > div[id*='anchor--'] > *,
+  .sbdocs.sbdocs-content .reactdocs-content > div,
+  .reactdocs-container {
     width: 100%;
-    max-width: 1000px;
+    max-width: 950px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .sbdocs.sbdocs-content .sbdocs-pre {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* custom border color for h2 to match gray-light-mid */
+  .sbdocs.sbdocs-h2 {
+    border-bottom: 1px solid rgba(216, 216, 216, 1);
   }
 
   /* .sbdocs-preview-full-width overrides max width in doc view
@@ -50,6 +59,41 @@
     max-width: none !important;
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  /* unset the mysterious height that storybook adds to Canvas doc blocks rendered via a React component */
+  .sbdocs.sbdocs-content
+    .reactdocs-content
+    .sbdocs-preview
+    .docs-story
+    div[height='20'] {
+    height: unset;
+  }
+
+  /* sometimes inline stories still need an explicit height set */
+  .sbdocs-inline-height .docs-story {
+    height: 500px !important;
+  }
+  .sbdocs-inline-height-2xs .docs-story {
+    height: 200px !important;
+  }
+  .sbdocs-inline-height-xs .docs-story {
+    height: 300px !important;
+  }
+  .sbdocs-inline-height-sm .docs-story {
+    height: 400px !important;
+  }
+  .sbdocs-inline-height-lg .docs-story {
+    height: 600px !important;
+  }
+  .sbdocs-inline-height-xl .docs-story {
+    height: 700px !important;
+  }
+  .sbdocs-inline-height-2xl .docs-story {
+    height: 800px !important;
+  }
+  .sbdocs-inline-height .docs-story > div:first-child {
+    height: inherit !important;
   }
 
   /* sbdocs link style */
