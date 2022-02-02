@@ -46,7 +46,7 @@ import { IconSocialYoutubeTemplate } from './IconSocialYoutube'
 import { IconTimeTemplate } from './IconTime'
 
 export default {
-  title: 'Brand Identity/Icons',
+  title: 'Foundation/Icons',
   argTypes: {
     customClass: {
       type: 'string',

@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Guides/Accessibility" parameters={{ viewMode: 'docs' }} />
+
+# Accessibility
+
+Usage of Explorer 1 must be in compliance with [Section 508 of the Rehabilitation Act of 2001](https://www.access-board.gov/guidelines-and-standards/communications-and-it/about-the-ict-refresh/final-rule/text-of-the-standards-and-guidelines) which states that:
+
+> Electronic content shall conform to Level A and Level AA Success Criteria and Conformance Requirements in [WCAG 2.0](https://www.w3.org/TR/WCAG20/)
+
+## Our QA Strategy
+
+To meet compliance requirements, we use the following strategy:
+
+1. When developing a component, employ best practices to make individual components accessible.
+2. Follow up with [manual testing](#manual-testing) of the component.
+3. Use automated accessibility tests as part of our CI/CD process for any final checks.
+4. Finally, run checks (manual and automated) on select full pages.
+
+### Automated testing options
+
+Automated tests are a good baseline, but note they can only find [30 to 40% of issues](https://alphagov.github.io/accessibility-tool-audit/).
+
+- For individual components, the Explorer 1 Storybook uses the [a11y addon](https://github.com/storybookjs/storybook/tree/master/addons/a11y), and in some cases [Axe](https://www.deque.com/axe/) in jsdom via Storyshots
+- For full pages, [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) checks are recommended.
+
+### Manual testing
+
+When conducting manual accessibility testing, check for the following as a baseline:
+
+- Keyboard-only navigation is possible
+- Screen reader announces the UI as expected
+- Mobile touch interaction testing with iOS Safari or Android
+- Zoom the whole browser UI, or font size, or on-screen magnifier
