@@ -243,7 +243,7 @@ require('@fancyapps/ui')
 
 ## Component templates (HTML)
 
-Reference the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/) for HTML snippets you can use to create components and build your pages. Step-by-step instructions on how to copy HTML snippets can be found on the [Getting Started Guide for Developers](https://nasa-jpl.github.io/explorer-1/?path=/docs/getting-started-developer--page#html-templates) page.
+Reference the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/) for HTML snippets you can use to create components and build your pages. Step-by-step instructions on how to copy HTML snippets can be found on the [Getting Started Guide for Developers](https://nasa-jpl.github.io/explorer-1/?path=/docs/getting-started-developer--page#components-and-html-templates) page.
 
 ## For contributing developers
 
