@@ -2,7 +2,7 @@
 name: Feature request
 about: Request a new feature or suggest an idea for improving Explorer 1
 title: ''
-labels: enhancement, feature request
+labels: 'enhancement, feature request'
 assignees: ''
 ---
 
