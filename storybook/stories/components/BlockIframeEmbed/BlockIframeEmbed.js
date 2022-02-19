@@ -1,4 +1,6 @@
+import { BaseIframeTemplate } from '../BaseIframe/BaseIframe'
 import { BaseImageCaptionTemplate } from '../BaseImageCaption/BaseImageCaption'
+import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 
 export const BlockIframeEmbedTemplate = ({ title, url, height, caption }) => {
   if (caption) {
@@ -9,20 +11,23 @@ export const BlockIframeEmbedTemplate = ({ title, url, height, caption }) => {
     caption = `<div class="lg:px-0 p-4 pb-0">${baseImageCaption}</div>`
   }
 
-  height = height ? height : 400
+  const baseIframe = BaseIframeTemplate({
+    title,
+    url,
+    height,
+  })
 
-  let template = `
-  <iframe
-    loading="lazy"
-    title="${title}"
-    data-src="${url}"
-    width="90%"
-    height="${height}"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen="allowfullscreen"
-    class="BlockIframeEmbed"
-    src="${url}"
-  ></iframe>
+  const iframeMarkup = height
+    ? baseIframe
+    : // default to 16:9 responsive if no height is provided
+      BaseImagePlaceholderTemplate({
+        aspectRatio: 'aspect-ratio-sixteen-nine',
+        theme: 'dark-theme',
+        placeholder: baseIframe,
+      })
+
+  const template = `
+  ${iframeMarkup}
   ${caption}
   `
 
