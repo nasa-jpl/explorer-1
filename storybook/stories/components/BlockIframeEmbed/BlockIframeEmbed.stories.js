@@ -35,7 +35,7 @@ export default {
 }
 
 const BlockIframeEmbedData = {
-  title: 'Perserverance Rover Embed',
+  title: 'Perseverance Rover Embed',
   url: 'https://mars.nasa.gov/gltf_embed/25042',
   caption:
     '<p>Click (or touch) and drag to interact with this 3D model of the Mars 2020 Perseverance Rover. Learn more about the mission at <a href="mars.nasa.gov/mars2020/">mars.nasa.gov/mars2020/</a>.</p>',

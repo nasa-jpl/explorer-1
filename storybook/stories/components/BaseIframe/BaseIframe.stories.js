@@ -34,7 +34,7 @@ export default {
 }
 
 const BaseIframeData = {
-  title: 'Perserverance Rover Embed',
+  title: 'Perseverance Rover Embed',
   url: 'https://mars.nasa.gov/gltf_embed/25042',
   height: 400,
 }
