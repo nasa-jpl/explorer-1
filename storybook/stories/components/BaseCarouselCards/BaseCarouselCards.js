@@ -4,7 +4,7 @@ import { BaseLinkTemplate } from '../BaseLink/BaseLink.js'
 import { IconNextTemplate } from '../Icons/IconNext'
 import { IconPrevTemplate } from '../Icons/IconPrev'
 import { BlockLinkCardTemplate } from '../BlockLinkCard/BlockLinkCard.js'
-import { BlockFactCardsItemTemplate } from '../BlockFactCardsItem/BlockFactCardsItem.js'
+import { BlockCardTemplate } from '../BlockCard/BlockCard.js'
 
 export const BaseCarouselCardsTemplate = ({
   noLinks,
@@ -55,8 +55,8 @@ export const BaseCarouselCardsTemplate = ({
           image: value.thumbnailImage,
           customClass: 'swiper-slide',
         })}`
-      } else if (slideTemplate === 'BlockFactCardsItem') {
-        slides += `${BlockFactCardsItemTemplate({
+      } else if (slideTemplate === 'BlockCard') {
+        slides += `${BlockCardTemplate({
           type: value.type,
           title: value.title,
           text: value.text,

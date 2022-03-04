@@ -1,6 +1,6 @@
-import { BlockFactCardsTemplate } from './BlockFactCards.js'
+import { BlockCardGroupTemplate } from './BlockCardGroup.js'
 export default {
-  title: 'Components/Blocks/BlockFactCards',
+  title: 'Components/Blocks/BlockCardGroup',
   decorators: [
     (Story) =>
       `<div id="storyRoot" class="lg:container max-w-screen-3xl mx-auto">${Story()}</div>`,
@@ -12,7 +12,7 @@ export default {
         required: true,
       },
       description:
-        'Array of card objects. See `BlockFactCardsItem` for data structure.',
+        'Array of `BlockCard` objects. See `BlockCard` for data structure.',
     },
   },
   parameters: {
@@ -22,14 +22,14 @@ export default {
     docs: {
       description: {
         component:
-          'Displays several cards in a row that will wrap to the next line. On mobile, the cards condense into a carousel. Note that the mobile view will only work when viewing the Storybook Canvas.',
+          'Displays several `BlockCard`s in a row that will wrap to the next line. On mobile, the cards condense into a carousel. Note that the mobile view will only work when viewing the Storybook Canvas.',
       },
     },
   },
   excludeStories: /.*Data$/,
 }
 
-const BlockFactCardsData = [
+const BlockCardGroupData = [
   {
     type: 'Factoid 1',
     title: 'Nimble Limbs',
@@ -89,7 +89,8 @@ const BlockFactCardsData = [
   },
 ]
 
-export const Group = BlockFactCardsTemplate.bind({})
+export const Group = BlockCardGroupTemplate.bind({})
+Group.storyName = 'BlockCardGroup'
 Group.args = {
-  items: BlockFactCardsData,
+  items: BlockCardGroupData,
 }

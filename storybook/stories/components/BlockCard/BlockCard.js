@@ -1,7 +1,7 @@
 import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 import { BaseHeadingTemplate } from '../BaseHeading/BaseHeading'
 
-export const BlockFactCardsItemTemplate = ({
+export const BlockCardTemplate = ({
   type,
   title,
   text,
