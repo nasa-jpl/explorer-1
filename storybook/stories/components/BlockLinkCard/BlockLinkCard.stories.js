@@ -1,7 +1,7 @@
-import { BlockArticleCarouselItemTemplate } from './BlockArticleCarouselItem.js'
+import { BlockLinkCardTemplate } from './BlockLinkCard.js'
 
 export default {
-  title: 'Components/Blocks/BlockArticleCarousel/BlockArticleCarouselItem',
+  title: 'Components/Blocks/BlockLinkCard',
   argTypes: {
     url: {
       type: { name: 'string', required: true },
@@ -21,7 +21,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Single item used in `BlockArticleCarousel`',
+        component: 'Single item used in `BlockLinkCarousel`',
       },
     },
     html: {
@@ -30,8 +30,8 @@ export default {
   },
 }
 
-export const SingleItem = BlockArticleCarouselItemTemplate.bind({})
-SingleItem.storyName = 'BlockArticleCarouselItem'
+export const SingleItem = BlockLinkCardTemplate.bind({})
+SingleItem.storyName = 'BlockLinkCard'
 SingleItem.args = {
   url: '#',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',

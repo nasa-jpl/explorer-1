@@ -2,7 +2,7 @@ import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 import { IconArrowTemplate } from '../Icons/IconArrow'
 
-export const BlockArticleCarouselItemTemplate = ({
+export const BlockLinkCardTemplate = ({
   url,
   title,
   label,

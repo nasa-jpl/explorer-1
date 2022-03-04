@@ -3,7 +3,7 @@ import { BaseButtonTemplate } from '../BaseButton/BaseButton.js'
 import { BaseLinkTemplate } from '../BaseLink/BaseLink.js'
 import { IconNextTemplate } from '../Icons/IconNext'
 import { IconPrevTemplate } from '../Icons/IconPrev'
-import { BlockArticleCarouselItemTemplate } from '../BlockArticleCarouselItem/BlockArticleCarouselItem.js'
+import { BlockLinkCardTemplate } from '../BlockLinkCard/BlockLinkCard.js'
 import { BlockFactCardsItemTemplate } from '../BlockFactCardsItem/BlockFactCardsItem.js'
 
 export const BaseCarouselCardsTemplate = ({
@@ -47,8 +47,8 @@ export const BaseCarouselCardsTemplate = ({
         slides += `${BaseCarouselCardsItemDemoTemplate({
           title: value.title,
         })}`
-      } else if (slideTemplate === 'BlockArticleCarouselItem') {
-        slides += `${BlockArticleCarouselItemTemplate({
+      } else if (slideTemplate === 'BlockLinkCard') {
+        slides += `${BlockLinkCardTemplate({
           url: value.url,
           title: value.title,
           label: value.label,

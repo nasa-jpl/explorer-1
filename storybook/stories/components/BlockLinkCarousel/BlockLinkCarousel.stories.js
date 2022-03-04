@@ -1,11 +1,11 @@
-import { BlockArticleCarouselTemplate } from './BlockArticleCarousel.js'
+import { BlockLinkCarouselTemplate } from './BlockLinkCarousel.js'
 export default {
-  title: 'Components/Blocks/BlockArticleCarousel',
+  title: 'Components/Blocks/BlockLinkCarousel',
   argTypes: {
     items: {
       type: { name: 'Array', required: true },
       description:
-        'Array of slide data objects. See `BlockArticleCarouselItem` for data structure.',
+        'Array of slide data objects. See `BlockLinkCard` for data structure.',
     },
   },
   parameters: {
@@ -31,7 +31,7 @@ export default {
   excludeStories: /.*Data$/,
 }
 
-const BlockArticleCarouselData = [
+const BlockLinkCarouselData = [
   {
     url: '#',
     title: 'How engineers at NASA-JPL persevered to develop a ventilator',
@@ -89,14 +89,14 @@ const BlockArticleCarouselData = [
   },
 ]
 
-export const Carousel = BlockArticleCarouselTemplate.bind({})
+export const Carousel = BlockLinkCarouselTemplate.bind({})
 Carousel.args = {
   heading: 'Related Pages',
-  items: BlockArticleCarouselData,
+  items: BlockLinkCarouselData,
 }
 
-export const TwoSlides = BlockArticleCarouselTemplate.bind({})
+export const TwoSlides = BlockLinkCarouselTemplate.bind({})
 TwoSlides.args = {
   heading: 'Related Pages',
-  items: BlockArticleCarouselData.slice(0, 2),
+  items: BlockLinkCarouselData.slice(0, 2),
 }
