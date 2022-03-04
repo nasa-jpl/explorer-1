@@ -1,6 +1,6 @@
 import { BaseCarouselCardsTemplate } from '../BaseCarouselCards/BaseCarouselCards.js'
 
-export const BlockArticleCarouselTemplate = ({ heading, items }) => {
+export const BlockLinkCarouselTemplate = ({ heading, items }) => {
   // set defaults
   if (!heading) heading = ''
 
@@ -8,6 +8,6 @@ export const BlockArticleCarouselTemplate = ({ heading, items }) => {
     heading: heading,
     variant: '-cards',
     cards: items,
-    slideTemplate: 'BlockArticleCarouselItem',
+    slideTemplate: 'BlockLinkCard',
   })
 }

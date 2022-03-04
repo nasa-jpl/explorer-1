@@ -9,7 +9,7 @@ export default {
     variant: {
       type: 'string',
       description:
-        'Sets the vertical center of next/prev button. `-cards` will center them within a fixed height corresponding to a 16:9 area. This is useful when a slide includes an image with text below it (see `BlockArticleCarousel`). `-tiles` will center the pagination within the height of the entire slide.',
+        'Sets the vertical center of next/prev button. `-cards` will center them within a fixed height corresponding to a 16:9 area. This is useful when a slide includes an image with text below it (see `BlockLinkCarousel`). `-tiles` will center the pagination within the height of the entire slide.',
       control: {
         type: 'select',
         options: ['-cards', '-tiles'],
@@ -58,7 +58,7 @@ export default {
       iframeHeight: 400,
       description: {
         component:
-          'The base carousel component used in BlockArticleCarousel and BlockFactCards. Includes page layout assumptions.',
+          'The base carousel component used in BlockLinkCarousel and BlockFactCards. Includes page layout assumptions.',
       },
     },
     themes: {
