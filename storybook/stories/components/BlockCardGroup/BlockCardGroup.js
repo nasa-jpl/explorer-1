@@ -1,11 +1,11 @@
 import { BaseCarouselCardsTemplate } from '../BaseCarouselCards/BaseCarouselCards.js'
-import { BlockFactCardsItemTemplate } from '../BlockFactCardsItem/BlockFactCardsItem.js'
+import { BlockCardTemplate } from '../BlockCard/BlockCard.js'
 
-export const BlockFactCardsTemplate = ({ items }) => {
+export const BlockCardGroupTemplate = ({ items }) => {
   let facts = ''
   if (items.length > 0) {
     for (const [index, value] of items.entries()) {
-      facts += BlockFactCardsItemTemplate({
+      facts += BlockCardTemplate({
         type: value.type,
         title: value.title,
         text: value.text,
@@ -18,12 +18,12 @@ export const BlockFactCardsTemplate = ({ items }) => {
     variant: '-tiles',
     cards: items,
     indent: 'col-1',
-    slideTemplate: 'BlockFactCardsItem',
+    slideTemplate: 'BlockCard',
     noLinks: true,
   })
 
   return `
-    <div class="BlockFactCards">
+    <div class="BlockCardGroup">
       <div
         class="md:grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 hidden gap-8"
       >

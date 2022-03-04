@@ -58,7 +58,7 @@ export default {
       iframeHeight: 400,
       description: {
         component:
-          'The base carousel component used in BlockLinkCarousel and BlockFactCards. Includes page layout assumptions.',
+          'The base carousel component used in BlockLinkCarousel and BlockCardGroup. Includes page layout assumptions.',
       },
     },
     themes: {

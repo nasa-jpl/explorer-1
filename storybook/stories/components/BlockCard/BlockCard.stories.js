@@ -1,7 +1,7 @@
-import { BlockFactCardsItemTemplate } from './BlockFactCardsItem'
+import { BlockCardTemplate } from './BlockCard'
 
 export default {
-  title: 'Components/Blocks/BlockFactCards/BlockFactCardsItem',
+  title: 'Components/Blocks/BlockCard',
   argTypes: {
     type: {
       type: { name: 'string', required: true },
@@ -27,11 +27,14 @@ export default {
         component: '',
       },
     },
+    html: {
+      root: '#storyRoot',
+    },
   },
 }
 
-export const Item = BlockFactCardsItemTemplate.bind({})
-Item.storyName = 'BlockFactCardsItem'
+export const Item = BlockCardTemplate.bind({})
+Item.storyName = 'BlockCard'
 Item.args = {
   type: 'Factoid',
   title: 'Nimble Limbs',
@@ -48,12 +51,13 @@ Item.args = {
   },
 }
 Item.decorators = [
-  (Story) => `<div class="relative grid grid-cols-4 gap-4">${Story()}</div>`,
+  (Story) =>
+    `<div class="container"><div id="storyRoot" class="w-1/2">${Story()}</div>`,
 ]
 Item.parameters = {
   docs: {
     description: {
-      component: 'Single item used in `BlockFactCards`',
+      component: 'Single item used in `BlockCardGroup`',
     },
   },
 }
