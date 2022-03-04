@@ -2,7 +2,7 @@ import { IconArrowTemplate } from '../Icons/IconArrow'
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 import { BaseVideoBgTemplate } from '../BaseVideoBg/BaseVideoBg'
 
-export const HeroFeatureTemplate = ({
+export const HeroMediumTemplate = ({
   label,
   cta,
   url,
@@ -13,7 +13,7 @@ export const HeroFeatureTemplate = ({
   return `
   <section
     aria-label="Feature"
-    class="HeroFeature ThemeDark relative flex items-center overflow-hidden"
+    class="HeroMedium ThemeDark relative flex items-center overflow-hidden"
   >
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       ${

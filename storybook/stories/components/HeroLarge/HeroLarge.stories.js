@@ -1,7 +1,7 @@
-import { HeroFocalPointTemplate } from './HeroFocalPoint'
+import { HeroLargeTemplate } from './HeroLarge'
 
 export default {
-  title: 'Components/Blocks/Heroes/HeroFocalPoint',
+  title: 'Components/Blocks/Heroes/Large',
   argTypes: {
     eyebrow: {
       type: { name: 'string', required: false },
@@ -42,14 +42,14 @@ export default {
     docs: {
       description: {
         component:
-          "`HeroFocalPoint` works best with background images that have a focal point on the right side of the image. The markup and styles attempt to keep the right side of the image visible on smaller screens rather than doing a center crop. This works best in tandem with Wagtail image renditions, so it isn't foolproof, but it sets up a decent basis.",
+          "`HeroLarge` works best with background images that have a focal point on the right side of the image. The markup and styles attempt to keep the right side of the image visible on smaller screens rather than doing a center crop. This works best in tandem with Wagtail image renditions, so it isn't foolproof, but it sets up a decent basis.",
       },
     },
   },
 }
 
-export const Hero = HeroFocalPointTemplate.bind({})
-Hero.storyName = 'HeroFocalPoint'
+export const Hero = HeroLargeTemplate.bind({})
+Hero.storyName = 'Large'
 Hero.args = {
   eyebrow: 'Robotics at JPL',
   title: 'FreeClimber: LEMUR 3',
