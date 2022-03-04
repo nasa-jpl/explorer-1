@@ -1,8 +1,8 @@
 import { BaseVideoBgData } from '../BaseVideoBg/BaseVideoBg.stories'
-import { HeroFeatureTemplate } from './HeroFeature'
+import { HeroMediumTemplate } from './HeroMedium'
 
 export default {
-  title: 'Components/Blocks/Heroes/HeroFeature',
+  title: 'Components/Blocks/Heroes/Medium',
   excludeStories: /.*Data$/,
   argTypes: {
     label: {
@@ -54,7 +54,7 @@ export default {
   },
 }
 
-const HeroFeatureData = {
+const HeroMediumData = {
   label: 'Featured',
   cta: 'View',
   url: '/news/new-maps-open-roads-to-research/',
@@ -76,11 +76,11 @@ const HeroFeatureData = {
   },
 }
 
-export const Default = HeroFeatureTemplate.bind({})
-Default.args = HeroFeatureData
+export const Default = HeroMediumTemplate.bind({})
+Default.args = HeroMediumData
 
-export const Video = HeroFeatureTemplate.bind({})
+export const Video = HeroMediumTemplate.bind({})
 Video.args = {
-  ...HeroFeatureData,
+  ...HeroMediumData,
   video: BaseVideoBgData,
 }

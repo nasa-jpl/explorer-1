@@ -1,6 +1,6 @@
-export const HeroFocalPointTemplate = ({ image, eyebrow, title, summary }) => {
+export const HeroLargeTemplate = ({ image, eyebrow, title, summary }) => {
   return `
-  <div class="HeroFocalPoint max-w-screen-3xl relative mx-auto">
+  <div class="HeroLarge max-w-screen-3xl relative mx-auto">
     <div class="absolute inset-0 z-10 bg-black">
       <picture>
         <source media="(min-width: 768px)" srcset="${image.srcSet}" />

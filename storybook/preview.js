@@ -123,7 +123,7 @@ export const parameters = {
           'Base',
           ['Overview'],
           'Blocks',
-          ['Overview', 'Heroes', ['Overview']],
+          ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
           'Forms',
           ['Overview', 'TextInput', 'TextArea'],
           'Search',
