@@ -1,4 +1,4 @@
-import { AnimationCaretTemplate } from '../AnimationCaret/AnimationCaret'
+import { MixinAnimationCaretTemplate } from '../MixinAnimationCaret/MixinAnimationCaret'
 
 export const BaseLinkTemplate = ({
   text,
@@ -18,12 +18,12 @@ export const BaseLinkTemplate = ({
   if (!caretWrapperClass) caretWrapperClass = ''
 
   if (caretInline && caret) {
-    template = AnimationCaretTemplate({
+    template = MixinAnimationCaretTemplate({
       text,
       customClass: 'caret-inline',
     })
   } else if (variantType === 'primary' || caret) {
-    template = AnimationCaretTemplate({
+    template = MixinAnimationCaretTemplate({
       text,
       customClass: caretWrapperClass,
     })

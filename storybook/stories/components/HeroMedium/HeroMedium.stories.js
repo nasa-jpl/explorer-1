@@ -1,4 +1,4 @@
-import { BaseVideoBgData } from '../BaseVideoBg/BaseVideoBg.stories'
+import { MixinVideoBgData } from '../MixinVideoBg/MixinVideoBg.stories.mdx'
 import { HeroMediumTemplate } from './HeroMedium'
 
 export default {
@@ -82,5 +82,5 @@ Default.args = HeroMediumData
 export const Video = HeroMediumTemplate.bind({})
 Video.args = {
   ...HeroMediumData,
-  video: BaseVideoBgData,
+  video: MixinVideoBgData,
 }

@@ -128,6 +128,8 @@ export const parameters = {
           ['Overview', 'TextInput', 'TextArea'],
           'Search',
           ['Overview'],
+          'Mixins',
+          ['Overview', 'MixinAnimationCaret', 'MixinVideoBg', 'MixinCarousel'],
         ],
       ],
     },

@@ -1,4 +1,4 @@
-import { BaseCarouselCardsTemplate } from '../BaseCarouselCards/BaseCarouselCards.js'
+import { MixinCarouselTemplate } from '../MixinCarousel/MixinCarousel.js'
 import { BlockCardTemplate } from '../BlockCard/BlockCard.js'
 
 export const BlockCardGroupTemplate = ({ items }) => {
@@ -13,7 +13,7 @@ export const BlockCardGroupTemplate = ({ items }) => {
       })
     }
   }
-  const mobileCarousel = BaseCarouselCardsTemplate({
+  const mobileCarousel = MixinCarouselTemplate({
     customClass: 'md:hidden sm:px-10 sm:-ml-10 py-10 -mt-10',
     variant: '-tiles',
     cards: items,

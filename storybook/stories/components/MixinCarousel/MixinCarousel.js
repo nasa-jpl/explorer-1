@@ -1,4 +1,4 @@
-import { BaseCarouselCardsItemDemoTemplate } from './BaseCarouselCardsItemDemo.js'
+import { MixinCarouselItemDemoTemplate } from './MixinCarouselItemDemo.js'
 import { BaseButtonTemplate } from '../BaseButton/BaseButton.js'
 import { BaseLinkTemplate } from '../BaseLink/BaseLink.js'
 import { IconNextTemplate } from '../Icons/IconNext'
@@ -6,7 +6,7 @@ import { IconPrevTemplate } from '../Icons/IconPrev'
 import { BlockLinkCardTemplate } from '../BlockLinkCard/BlockLinkCard.js'
 import { BlockCardTemplate } from '../BlockCard/BlockCard.js'
 
-export const BaseCarouselCardsTemplate = ({
+export const MixinCarouselTemplate = ({
   noLinks,
   heading,
   link,
@@ -44,7 +44,7 @@ export const BaseCarouselCardsTemplate = ({
   if (cards.length > 0) {
     for (const [index, value] of cards.entries()) {
       if (!slideTemplate) {
-        slides += `${BaseCarouselCardsItemDemoTemplate({
+        slides += `${MixinCarouselItemDemoTemplate({
           title: value.title,
         })}`
       } else if (slideTemplate === 'BlockLinkCard') {
@@ -97,7 +97,7 @@ export const BaseCarouselCardsTemplate = ({
 
   return `
   <${element}
-    class="BaseCarouselCards w-full overflow-x-hidden ${variant} ${customClass}"
+    class="MixinCarousel w-full overflow-x-hidden ${variant} ${customClass}"
     aria-label="${heading}"
   >
     <div class="BaseGrid container overflow-x-visible ${centerClass}">

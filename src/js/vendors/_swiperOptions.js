@@ -3,7 +3,7 @@
  */
 
 const swiperOptions = {
-  BaseCarouselCards: {
+  MixinCarousel: {
     slidesPerView: 1.25,
     speed: 500,
     threshold: 20, // swipe threshold in px

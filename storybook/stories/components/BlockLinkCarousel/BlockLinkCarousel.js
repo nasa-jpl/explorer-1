@@ -1,10 +1,10 @@
-import { BaseCarouselCardsTemplate } from '../BaseCarouselCards/BaseCarouselCards.js'
+import { MixinCarouselTemplate } from '../MixinCarousel/MixinCarousel.js'
 
 export const BlockLinkCarouselTemplate = ({ heading, items }) => {
   // set defaults
   if (!heading) heading = ''
 
-  return BaseCarouselCardsTemplate({
+  return MixinCarouselTemplate({
     heading: heading,
     variant: '-cards',
     cards: items,

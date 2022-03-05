@@ -1,4 +1,4 @@
-export const BaseCarouselCardsItemDemoTemplate = ({ title }) => {
+export const MixinCarouselItemDemoTemplate = ({ title }) => {
   if (!title) title = 'Title'
 
   return `

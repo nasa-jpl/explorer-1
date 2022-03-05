@@ -1,6 +1,6 @@
-import { BaseCarouselCardsTemplate } from './BaseCarouselCards.js'
+import { MixinCarouselTemplate } from './MixinCarousel.js'
 export default {
-  title: 'Components/Base/BaseCarouselCards',
+  title: 'Components/Mixins/MixinCarousel',
   argTypes: {
     heading: {
       type: 'string',
@@ -58,7 +58,7 @@ export default {
       iframeHeight: 400,
       description: {
         component:
-          'The base carousel component used in BlockLinkCarousel and BlockCardGroup. Includes page layout assumptions.',
+          'A carousel mixin that is configured for multiple visible slides. Used in `BlockLinkCarousel` and `BlockCardGroup` (mobile version). Includes page layout assumptions.',
       },
     },
     themes: {
@@ -81,9 +81,9 @@ export default {
   excludeStories: /.*Data$/,
 }
 
-export const BaseCarousel = BaseCarouselCardsTemplate.bind({})
-BaseCarousel.storyName = 'BaseCarouselCards'
-BaseCarousel.args = {
+export const MixinCarousel = MixinCarouselTemplate.bind({})
+MixinCarousel.storyName = 'Default'
+MixinCarousel.args = {
   heading: 'Heading',
   variant: '-tiles',
   cards: [
@@ -100,9 +100,9 @@ BaseCarousel.args = {
   center: true,
 }
 
-export const BaseCarouselWLink = BaseCarouselCardsTemplate.bind({})
-BaseCarouselWLink.storyName = 'BaseCarouselCards w/ Link'
-BaseCarouselWLink.args = {
+export const MixinCarouselWLink = MixinCarouselTemplate.bind({})
+MixinCarouselWLink.storyName = 'MixinCarousel w/ Link'
+MixinCarouselWLink.args = {
   heading: 'Heading',
   variant: '-tiles',
   link: '#',
