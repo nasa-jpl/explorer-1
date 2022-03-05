@@ -1,7 +1,7 @@
-export const AnimationCaretTemplate = ({ text, customClass }) => {
+export const MixinAnimationCaretTemplate = ({ text, customClass }) => {
   if (!customClass) customClass = ''
   return `
-    <span class="AnimationCaret ${customClass}">
+    <span class="MixinAnimationCaret ${customClass}">
       <span>${text}</span>
       <span aria-hidden="true" class="arrow-wrapper text-theme-red ml-1">
         <span class="arrow">

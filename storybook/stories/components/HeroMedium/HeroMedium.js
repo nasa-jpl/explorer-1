@@ -1,6 +1,6 @@
 import { IconArrowTemplate } from '../Icons/IconArrow'
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
-import { BaseVideoBgTemplate } from '../BaseVideoBg/BaseVideoBg'
+import { MixinVideoBgTemplate } from '../MixinVideoBg/MixinVideoBg'
 
 export const HeroMediumTemplate = ({
   label,
@@ -18,7 +18,7 @@ export const HeroMediumTemplate = ({
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       ${
         video
-          ? BaseVideoBgTemplate({
+          ? MixinVideoBgTemplate({
               file: video.file,
               ogg: video.ogg,
               webm: video.webm,

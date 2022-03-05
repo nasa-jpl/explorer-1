@@ -1,4 +1,4 @@
-import { BaseVideoBgData } from '../BaseVideoBg/BaseVideoBg.stories'
+import { MixinVideoBgData } from '../MixinVideoBg/MixinVideoBg.stories.mdx'
 import { HeroMediaTemplate } from './HeroMedia'
 
 export default {
@@ -86,7 +86,7 @@ NoLink.args = {
 
 export const Video = HeroMediaTemplate.bind({})
 Video.args = {
-  video: BaseVideoBgData,
+  video: MixinVideoBgData,
   caption:
     '<p>Lorem ipsum dolor sit amet. <a href="#">A link in the caption</a> testing render.</p>',
   credit: 'NASA/JPL',

@@ -1,4 +1,4 @@
-export const BaseVideoBgTemplate = ({ file, webm, ogg }) => {
+export const MixinVideoBgTemplate = ({ file, webm, ogg }) => {
   return `
   <video
     loop="loop"

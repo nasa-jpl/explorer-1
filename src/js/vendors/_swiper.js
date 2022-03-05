@@ -6,9 +6,9 @@
 import Swiper, { Navigation, Pagination, Lazy, A11y } from 'swiper'
 import swiperOptions from './_swiperOptions.js'
 
-const BaseCarouselCards = new Swiper('.BaseCarouselCards .swiper', {
+const MixinCarousel = new Swiper('.MixinCarousel .swiper', {
   modules: [Navigation, Lazy, A11y, Pagination],
-  ...swiperOptions.BaseCarouselCards,
+  ...swiperOptions.MixinCarousel,
 })
 
 const BlockImageCarousel = new Swiper('.BlockImageCarousel .swiper', {
