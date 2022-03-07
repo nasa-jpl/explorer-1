@@ -1,10 +1,7 @@
 import { MixinCarouselItemDemoTemplate } from './MixinCarouselItemDemo.js'
-import { BaseButtonTemplate } from '../BaseButton/BaseButton.js'
 import { BaseLinkTemplate } from '../BaseLink/BaseLink.js'
 import { IconNextTemplate } from '../Icons/IconNext'
 import { IconPrevTemplate } from '../Icons/IconPrev'
-import { BlockLinkCardTemplate } from '../BlockLinkCard/BlockLinkCard.js'
-import { BlockCardTemplate } from '../BlockCard/BlockCard.js'
 
 export const MixinCarouselTemplate = ({
   noLinks,
@@ -12,17 +9,18 @@ export const MixinCarouselTemplate = ({
   link,
   linkTitle,
   variant,
-  cards,
+  items,
   indent,
   center,
-  slideTemplate,
   customClass,
+  slot,
 }) => {
   // set defaults
   if (!variant) variant = '-cards'
   if (!heading) heading = ''
   if (!linkTitle) linkTitle = ''
   if (!customClass) customClass = ''
+  if (!items) items = ''
 
   // create element type based on noLinks
   let element = 'nav'
@@ -39,34 +37,19 @@ export const MixinCarouselTemplate = ({
   if (!!center) centerClass = 'mx-auto'
   else if (center === false) centerClass = ''
 
-  // create slides array from cards. This must be defined for each type of card template we'd like to use.
-  let slides = ''
-  if (cards.length > 0) {
-    for (const [index, value] of cards.entries()) {
-      if (!slideTemplate) {
-        slides += `${MixinCarouselItemDemoTemplate({
+  // default rendering of slides if items are provided.
+  // generally, components using MixinCarousel will pre-render all slides and pass them via the `slot` variable
+  // for example usage, see BlockLinkCarousel and BlockCardGroup
+  if (!slot && items) {
+    slot = ''
+    if (items.length > 0) {
+      for (const [index, value] of items.entries()) {
+        slot += `${MixinCarouselItemDemoTemplate({
           title: value.title,
-        })}`
-      } else if (slideTemplate === 'BlockLinkCard') {
-        slides += `${BlockLinkCardTemplate({
-          url: value.url,
-          title: value.title,
-          label: value.label,
-          image: value.thumbnailImage,
-          customClass: 'swiper-slide',
-        })}`
-      } else if (slideTemplate === 'BlockCard') {
-        slides += `${BlockCardTemplate({
-          type: value.type,
-          title: value.title,
-          text: value.text,
-          image: value.image,
-          customClass: 'swiper-slide mb-5',
         })}`
       }
     }
   }
-
   const headingTemplate = `
   <div
     class="lg:pl-0 col-start-1 col-end-13 px-4 mb-1 ${colStart}"
@@ -111,7 +94,7 @@ export const MixinCarouselTemplate = ({
         >
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
-            ${slides}
+            ${slot}
           </div>
           <div class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full">
             <div class="xl:-ml-22 top-1/2 absolute left-0 z-30 -ml-20">

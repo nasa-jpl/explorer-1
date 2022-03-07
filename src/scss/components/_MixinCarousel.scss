@@ -94,6 +94,8 @@
   }
 
   &.-tiles {
+    @apply pb-5;
+
     .swiper {
       .swiper-navigation {
         top: 50%;

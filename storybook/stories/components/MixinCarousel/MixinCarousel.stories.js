@@ -18,7 +18,7 @@ export default {
         defaultValue: { summary: '-cards' },
       },
     },
-    cards: {
+    items: {
       type: { name: 'array', required: true },
       description: 'Array of slide data objects',
     },
@@ -86,7 +86,7 @@ MixinCarousel.storyName = 'Default'
 MixinCarousel.args = {
   heading: 'Heading',
   variant: '-tiles',
-  cards: [
+  items: [
     { title: 'Title 1' },
     { title: 'Title 2' },
     { title: 'Title 3' },
@@ -107,7 +107,7 @@ MixinCarouselWLink.args = {
   variant: '-tiles',
   link: '#',
   linkTitle: 'View all',
-  cards: [
+  items: [
     { title: 'Title 1' },
     { title: 'Title 2' },
     { title: 'Title 3' },

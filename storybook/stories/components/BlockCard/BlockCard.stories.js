@@ -24,7 +24,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component:
+          'Features a drop shadow and a stylized red label, no hover effects. Card used in `BlockCardGroup`.',
       },
     },
     html: {
@@ -33,9 +34,9 @@ export default {
   },
 }
 
-export const Item = BlockCardTemplate.bind({})
-Item.storyName = 'BlockCard'
-Item.args = {
+export const Card = BlockCardTemplate.bind({})
+Card.storyName = 'BlockCard'
+Card.args = {
   type: 'Factoid',
   title: 'Nimble Limbs',
   text: 'The robot has four limbs, each with seven degrees of freedom.',
@@ -50,11 +51,11 @@ Item.args = {
     alt: 'Fourth image',
   },
 }
-Item.decorators = [
+Card.decorators = [
   (Story) =>
-    `<div class="container"><div id="storyRoot" class="w-1/2">${Story()}</div>`,
+    `<div class="container"><div id="storyRoot" class="md:w-1/2">${Story()}</div>`,
 ]
-Item.parameters = {
+Card.parameters = {
   docs: {
     description: {
       component: 'Single item used in `BlockCardGroup`',

@@ -2,6 +2,17 @@ import { BlockLinkCarouselTemplate } from './BlockLinkCarousel.js'
 export default {
   title: 'Components/Blocks/BlockLinkCarousel',
   argTypes: {
+    itemType: {
+      type: 'string',
+      description: 'Type of item used for each slide',
+      control: {
+        type: 'select',
+        options: ['BlockLinkCard', 'BlockLinkTile'],
+      },
+      table: {
+        defaultValue: { summary: 'BlockLinkCard' },
+      },
+    },
     items: {
       type: { name: 'Array', required: true },
       description:
