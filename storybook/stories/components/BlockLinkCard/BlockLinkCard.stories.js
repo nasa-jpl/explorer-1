@@ -15,13 +15,14 @@ export default {
   },
   decorators: [
     (Story) =>
-      `<div id="storyRoot" class="relative grid grid-cols-2 gap-3">${Story()}</div>`,
+      `<div class="container"><div id="storyRoot" class="md:w-1/2">${Story()}</div></div>`,
   ],
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Single item used in `BlockLinkCarousel`',
+        component:
+          'Features a an image followed by text, with a hover effect. Recommended for use with longer text. `BlockLinkCard` is an item type available for use in `BlockLinkCarousel`.',
       },
     },
     html: {
@@ -30,9 +31,9 @@ export default {
   },
 }
 
-export const SingleItem = BlockLinkCardTemplate.bind({})
-SingleItem.storyName = 'BlockLinkCard'
-SingleItem.args = {
+export const Card = BlockLinkCardTemplate.bind({})
+Card.storyName = 'BlockLinkCard'
+Card.args = {
   url: '#',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',
   label: 'Solar System',

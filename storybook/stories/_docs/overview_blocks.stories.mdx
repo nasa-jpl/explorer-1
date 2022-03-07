@@ -10,6 +10,7 @@ Self contained components that combine multiple other components or are otherwis
 - [Hero blocks](#hero-blocks)
 - [Text and information blocks](#text-and-information-blocks)
 - [Media and media galleries](#media-and-media-galleries)
+- [Card types](#card-types)
 
 <br />
 
@@ -126,6 +127,31 @@ Reserved for the top of the page. Learn more about our heroes on the [heroes ove
       storyId: 'components-blocks-blockimagegallery--default',
       fullWidth: true,
       fullCanvas: true,
+    },
+  ]}
+/>
+
+## Card Types
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'BlockCard',
+      description:
+        'Features a drop shadow and a stylized red label, no hover effects. Card used in `BlockCardGroup`.',
+      storyId: 'components-blocks-blockcard--card',
+    },
+    {
+      heading: 'BlockLinkCard',
+      description:
+        'Features an image followed by text, with a hover effect. Recommended for use with longer text. `BlockLinkCard` is an item type available for use in `BlockLinkCarousel`. ',
+      storyId: 'components-blocks-blocklinkcard--card',
+    },
+    {
+      heading: 'BlockLinkTile',
+      description:
+        'Features an image with a text overlay, with a hover effect. Recommended for use with shorter text. `BlockLinkTile` is an item type option available in `BlockLinkCarousel`.',
+      storyId: 'components-blocks-blocklinktile--card',
     },
   ]}
 />
