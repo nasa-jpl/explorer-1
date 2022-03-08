@@ -8,8 +8,7 @@ export default {
     },
   },
   decorators: [
-    (Story) =>
-      `<div class="container"><div id="storyRoot" class="md:w-1/2">${Story()}</div></div>`,
+    (Story) => `<div id="storyRoot" class="max-w-xl">${Story()}</div>`,
   ],
   parameters: {
     viewMode: 'docs',

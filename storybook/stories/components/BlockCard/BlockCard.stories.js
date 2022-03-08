@@ -20,6 +20,9 @@ export default {
       description: 'Image object',
     },
   },
+  decorators: [
+    (Story) => `<div id="storyRoot" class="max-w-xl">${Story()}</div>`,
+  ],
   parameters: {
     viewMode: 'docs',
     docs: {
@@ -49,16 +52,5 @@ Card.args = {
     srcSet:
       'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w',
     alt: 'Fourth image',
-  },
-}
-Card.decorators = [
-  (Story) =>
-    `<div class="container"><div id="storyRoot" class="md:w-1/2">${Story()}</div>`,
-]
-Card.parameters = {
-  docs: {
-    description: {
-      component: 'Single item used in `BlockCardGroup`',
-    },
   },
 }
