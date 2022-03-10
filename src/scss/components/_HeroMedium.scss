@@ -1,5 +1,11 @@
+/* Deprecation warning:
+ * Usage of the .HeroFeature class is deprecated and will be removed in the next major release. Use .HeroMedium instead.
+ */
+
 .HeroMedium,
-.HeroMedium.swiper-slide {
+.HeroMedium.swiper-slide,
+.HeroFeature,
+.HeroFeature.swiper-slide {
   // somewhat arbitrary heights
   // portrait on small screens
   //height: 500px;

@@ -1,4 +1,9 @@
-.MixinAnimationCaret {
+/* Deprecation warning:
+ * Usage of the .AnimationCaret class is deprecated and will be removed in the next major release. Use .MixinAnimationCaret instead.
+ */
+
+.MixinAnimationCaret,
+.AnimationCaret {
   @apply flex items-center;
 
   > .arrow-wrapper {
