@@ -1,6 +1,4 @@
-@import 'components/AnimationCaret';
 @import 'components/BaseButton';
-@import 'components/BaseCarouselCards';
 @import 'components/BaseIframe';
 @import 'components/BaseImage';
 @import 'components/BaseImageCaption';
@@ -16,9 +14,9 @@
 @import 'components/BlockTeaser';
 @import 'components/BlockText';
 @import 'components/BlockVideoEmbed';
-@import 'components/HeroFeature';
-@import 'components/HeroFocalPoint';
 @import 'components/HeroMedia';
+@import 'components/HeroMedium';
+@import 'components/HeroLarge';
 @import 'components/Icon360';
 @import 'components/IconArrow';
 @import 'components/IconArrows';
@@ -55,3 +53,5 @@
 @import 'components/IconStop';
 @import 'components/IconTime';
 @import 'components/IconVolume';
+@import 'components/MixinAnimationCaret';
+@import 'components/MixinCarousel';

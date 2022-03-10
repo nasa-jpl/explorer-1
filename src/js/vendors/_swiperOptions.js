@@ -3,7 +3,7 @@
  */
 
 const swiperOptions = {
-  BaseCarouselCards: {
+  MixinCarousel: {
     slidesPerView: 1.25,
     speed: 500,
     threshold: 20, // swipe threshold in px
@@ -68,5 +68,10 @@ const swiperOptions = {
     },
   },
 }
+
+/* Deprecation warning:
+ * BaseCarouselCards is deprecated and will be removed in the next major release. Use MixinCarousel instead.
+ */
+Object.assign(swiperOptions, { BaseCarouselCards: swiperOptions.MixinCarousel })
 
 export default swiperOptions

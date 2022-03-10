@@ -6,10 +6,16 @@
 import Swiper, { Navigation, Pagination, Lazy, A11y } from 'swiper'
 import swiperOptions from './_swiperOptions.js'
 
-const BaseCarouselCards = new Swiper('.BaseCarouselCards .swiper', {
-  modules: [Navigation, Lazy, A11y, Pagination],
-  ...swiperOptions.BaseCarouselCards,
-})
+/* Deprecation warning:
+ * .BaseCarouselCards is deprecated and will be removed in the next major release. Use .MixinCarousel instead.
+ */
+const MixinCarousel = new Swiper(
+  '.MixinCarousel .swiper, .BaseCarouselCards .swiper',
+  {
+    modules: [Navigation, Lazy, A11y, Pagination],
+    ...swiperOptions.MixinCarousel,
+  }
+)
 
 const BlockImageCarousel = new Swiper('.BlockImageCarousel .swiper', {
   modules: [Navigation, Lazy, A11y, Pagination],

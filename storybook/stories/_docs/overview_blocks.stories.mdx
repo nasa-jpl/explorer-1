@@ -10,6 +10,7 @@ Self contained components that combine multiple other components or are otherwis
 - [Hero blocks](#hero-blocks)
 - [Text and information blocks](#text-and-information-blocks)
 - [Media and media galleries](#media-and-media-galleries)
+- [Card types](#card-types)
 
 <br />
 
@@ -62,18 +63,18 @@ Reserved for the top of the page. Learn more about our heroes on the [heroes ove
       fullWidth: true,
     },
     {
-      heading: 'BlockFactCards',
+      heading: 'BlockCardGroup',
       description:
         'A collection of smaller cards that support images, labels, headings, and descriptions, laid out in a grid on medium and larger screens, or in a carousel on small screens.',
-      storyId: 'components-blocks-blockfactcards--group',
+      storyId: 'components-blocks-blockcardgroup--group',
       canvasClass: 'sbdocs-inline-height',
       fullWidth: true,
     },
     {
-      heading: 'BlockArticleCarousel',
+      heading: 'BlockLinkCarousel',
       description:
         'A mixed-bleed carousel with more than one slide visible at a time.',
-      storyId: 'components-blocks-blockarticlecarousel--carousel',
+      storyId: 'components-blocks-blocklinkcarousel--carousel',
       canvasClass: 'sbdocs-inline-height',
       fullWidth: true,
     },
@@ -126,6 +127,31 @@ Reserved for the top of the page. Learn more about our heroes on the [heroes ove
       storyId: 'components-blocks-blockimagegallery--default',
       fullWidth: true,
       fullCanvas: true,
+    },
+  ]}
+/>
+
+## Card Types
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'BlockCard',
+      description:
+        'Features a drop shadow and a stylized red label, no hover effects. Card used in `BlockCardGroup`.',
+      storyId: 'components-blocks-blockcard--card',
+    },
+    {
+      heading: 'BlockLinkCard',
+      description:
+        'Features an image followed by text, with a hover effect. Recommended for use with longer text. `BlockLinkCard` is an item type available for use in `BlockLinkCarousel`. ',
+      storyId: 'components-blocks-blocklinkcard--card',
+    },
+    {
+      heading: 'BlockLinkTile',
+      description:
+        'Features an image with a text overlay, with a hover effect. Recommended for use with shorter text. `BlockLinkTile` is an item type option available in `BlockLinkCarousel`.',
+      storyId: 'components-blocks-blocklinktile--card',
     },
   ]}
 />

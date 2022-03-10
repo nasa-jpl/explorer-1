@@ -1,6 +1,6 @@
 // re-used keyframe animations go here
 
-// Prev/next buttons in carousels. See BaseCarouselCards or HomepageMissionsCarousel for usage example
+// Prev/next buttons in carousels. See MixinCarousel or HomepageMissionsCarousel for usage example
 @keyframes arrow-carousel-next-anim {
   0% {
     transform: translateX(0);

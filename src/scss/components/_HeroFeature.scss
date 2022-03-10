@@ -1,12 +1,5 @@
-.HeroFeature,
-.HeroFeature.swiper-slide {
-  // somewhat arbitrary heights
-  // portrait on small screens
-  //height: 500px;
-  min-height: 400px;
-  // landscape on larger screens
-  @screen lg {
-    height: 600px;
-    min-height: 600px;
-  }
-}
+/* Deprecation warning:
+ * _HeroFeature.scss is deprecated and will be removed in the next major release. Use _HeroMedium.scss instead.
+ */
+
+@import 'HeroMedium';
