@@ -1,5 +1,5 @@
 import { BaseImageCaptionTemplate } from '../BaseImageCaption/BaseImageCaption'
-import { BaseVideoBgTemplate } from '../BaseVideoBg/BaseVideoBg'
+import { MixinVideoBgTemplate } from '../MixinVideoBg/MixinVideoBg'
 import { IconInfoTemplate } from '../Icons/IconInfo'
 import { IconCloseTemplate } from '../Icons/IconClose'
 
@@ -17,7 +17,7 @@ export const HeroMediaTemplate = ({ image, video, caption, credit, url }) => {
                   image.src.height
                 }" alt="${image.alt}"/>`
               : video
-              ? BaseVideoBgTemplate({
+              ? MixinVideoBgTemplate({
                   file: video.file,
                   webm: video.webm,
                   ogg: video.ogg,

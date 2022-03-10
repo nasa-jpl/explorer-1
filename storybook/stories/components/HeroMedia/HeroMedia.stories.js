@@ -1,8 +1,8 @@
-import { BaseVideoBgData } from '../BaseVideoBg/BaseVideoBg.stories'
+import { MixinVideoBgData } from '../MixinVideoBg/MixinVideoBg.stories.mdx'
 import { HeroMediaTemplate } from './HeroMedia'
 
 export default {
-  title: 'Components/Blocks/Heroes/HeroMedia',
+  title: 'Components/Blocks/Heroes/Media Only',
   excludeStories: /.*Data$/,
   decorators: [
     (Story) => `<div id="storyRoot" class="absolute inset-0">${Story()}</div>`,
@@ -67,8 +67,8 @@ export const HeroMediaData = {
   url: '/images/image-123/',
 }
 
-export const Hero = HeroMediaTemplate.bind({})
-Hero.args = HeroMediaData
+export const Default = HeroMediaTemplate.bind({})
+Default.args = HeroMediaData
 
 export const NoCaption = HeroMediaTemplate.bind({})
 NoCaption.args = {
@@ -86,7 +86,7 @@ NoLink.args = {
 
 export const Video = HeroMediaTemplate.bind({})
 Video.args = {
-  video: BaseVideoBgData,
+  video: MixinVideoBgData,
   caption:
     '<p>Lorem ipsum dolor sit amet. <a href="#">A link in the caption</a> testing render.</p>',
   credit: 'NASA/JPL',

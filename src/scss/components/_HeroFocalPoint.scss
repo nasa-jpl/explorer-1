@@ -1,19 +1,5 @@
-.HeroFocalPoint {
-  .content-wrapper {
-    @screen lg {
-      min-height: 548px; // maintains 1440x770 aspect ratio
-    }
+/* Deprecation warning:
+ * _HeroFocalPoint.scss is deprecated and will be removed in the next major release. Use _HeroLarge.scss instead.
+ */
 
-    @screen xl {
-      min-height: 684px; // maintains 1440x770 aspect ratio
-    }
-
-    @screen 2xl {
-      min-height: 770px; // 1440x770
-    }
-
-    @screen 3xl {
-      min-height: 963px; // maintains 1440x770 aspect ratio
-    }
-  }
-}
+@import 'HeroLarge';
