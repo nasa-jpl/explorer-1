@@ -69,4 +69,9 @@ const swiperOptions = {
   },
 }
 
+/* Deprecation warning:
+ * BaseCarouselCards is deprecated and will be removed in the next major release. Use MixinCarousel instead.
+ */
+Object.assign(swiperOptions, { BaseCarouselCards: swiperOptions.MixinCarousel })
+
 export default swiperOptions

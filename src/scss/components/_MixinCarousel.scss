@@ -1,4 +1,9 @@
-.MixinCarousel {
+/* Deprecation warning:
+ * Usage of the .BaseCarouselCards class is deprecated and will be removed in the next major release. Use .MixinCarousel instead.
+ */
+
+.MixinCarousel,
+.BaseCarouselCards {
   .swiper {
     @apply overflow-visible #{!important};
 
