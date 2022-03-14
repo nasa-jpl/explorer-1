@@ -21,17 +21,23 @@ export const BlockLinkCarouselTemplate = ({ heading, items, itemType }) => {
         renderedSlides += `${BlockLinkCardTemplate({
           url: value.url,
           title: value.title,
+          headingLevel: value.headingLevel,
           label: value.label,
+          secondaryLabel: value.secondaryLabel,
           image: value.thumbnailImage,
           customClass: 'swiper-slide',
+          compact: value.compact,
         })}`
       } else if (itemType === 'BlockLinkTile') {
         renderedSlides += `${BlockLinkTileTemplate({
           url: value.url,
           title: value.title,
+          headingLevel: value.headingLevel,
           label: value.label,
+          secondaryLabel: value.secondaryLabel,
           image: value.thumbnailImage,
           customClass: 'swiper-slide',
+          compact: value.compact,
         })}`
       }
     }
