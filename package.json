@@ -46,7 +46,7 @@
   "dependencies": {
     "@fancyapps/ui": "^4.0.26",
     "@tailwindcss/forms": "^0.3.4",
-    "swiper": "^8.0.2",
+    "swiper": "^8.0.7",
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
