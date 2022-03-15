@@ -57,7 +57,7 @@
     "@storybook/addon-links": "^6.4.19",
     "@storybook/html": "^6.4.19",
     "@whitespace/storybook-addon-html": "^5.0.0",
-    "browser-sync": "^2.27.7",
+    "browser-sync": "^2.27.9",
     "eslint": "^8.11.0",
     "eslint-plugin-storybook": "^0.5.7",
     "lazysizes": "^5.3.0",
