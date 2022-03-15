@@ -11,7 +11,9 @@ Documentation on how to run this project locally and add more components.
   - [JavaScript](#javascript)
 - [Linting and Formatting](#linting-and-formatting)
 - [Pull request guidance](#pull-request-guidance)
-- [Publishing to npm](#publishing-to-npm)
+- [npm package](#npm-package)
+  - [Testing the package locally](#testing-the-package-locally)
+  - [Publishing to npm](#publishing-to-npm)
 
 ## Getting started
 
@@ -352,7 +354,44 @@ In cases where a PR is not worth noting in the release notes, you can also tell 
 
 Finally, don't fret about this too much! The Release Drafter configuration and labeling scheme may take some time to fine-tune, and the drafted release notes can always be manually edited before final publication.
 
-## Publishing to npm
+## npm package
+
+### Testing the package locally
+
+1. Go to the root of your local working copy of explorer-1
+   ```bash
+   $ cd path/to/explorer-1
+   ```
+2. Create a symlink from your global `node_modules` directory to the local explorer-1 directory
+   ```bash
+   $ npm link
+   ```
+3. In the root of the project you want to test explorer-1 in, add the symlink. This works even if you had previously installed the production version of explorer-1.
+   ```bash
+   $ npm link @nasa-jpl/explorer-1
+   ```
+4. Run your tests
+
+When you're done, remove the symlink from your project with:
+
+```bash
+$ npm unlink --no-save @nasa-jpl/explorer-1
+$ npm i
+```
+
+You can also remove the global symlink when you're in the root of your local explorer-1 repo, though this isn't necessary:
+
+```bash
+$ cd path/to/explorer-1
+$ npm unlink
+```
+
+Depending on your project, you may encounter other quirks, particularly if you compiler caches builds, or if your compiler runs within docker.
+
+- If your compiler has a cache, delete the cache before compiling frontend assets.
+- If your compiler runs in a docker container, you will likely need to find a way to compile frontend assets outside of docker, as symlinks to your global `node_modules` folder will not work in a container.
+
+### Publishing to npm
 
 If any changes were made to the src files, be sure to [build to dist](#getting-started) before publishing to NPM.
 
