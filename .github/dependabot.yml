@@ -9,10 +9,13 @@ updates:
     schedule:
       interval: daily
     ignore:
-      # ignore all @storybook dependencies except @storybook/html
+      # ignore all @storybook dependencies except @storybook/html to flag when an update is available
+      # then update all at once with `npx sb@latest upgrade`
       - dependency-name: '@storybook/addon-a11y'
       - dependency-name: '@storybook/addon-docs'
       - dependency-name: '@storybook/addon-essentials'
+      - dependency-name: '@storybook/addon-links'
+      - dependency-name: 'eslint-plugin-storybook'
     reviewers:
       - 'nasa-jpl/dl-webdev'
   # Fetch and update latest `github-actions` packages
