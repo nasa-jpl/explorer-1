@@ -66,7 +66,7 @@ export const BlockLinkCardTemplate = ({
   let template = `
     ${baseImagePlaceholder}
     <div
-      class="transition-translate can-hover:group-hover:delay-200 can-hover:group-hover:-translate-y-3 duration-200 ease-in transform ${
+      class="transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform ${
         compact
           ? 'can-hover:group-hover:-translate-y-2'
           : 'can-hover:group-hover:-translate-y-3'
