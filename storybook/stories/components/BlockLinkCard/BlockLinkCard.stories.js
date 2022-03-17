@@ -6,11 +6,30 @@ export default {
     url: {
       type: { name: 'string', required: true },
     },
-    objectFitClass: {
-      table: { disable: true },
+    title: {
+      type: { name: 'string', required: false },
     },
-    imageClass: {
-      table: { disable: true },
+    headingLevel: {
+      type: { name: 'string', required: false },
+      description:
+        'Change the heading level for semantic markup. This does not affect the style of the heading. Leave blank to use `<p>`.',
+      control: {
+        type: 'select',
+        options: [null, 'h2', 'h3', 'h4', 'h5'],
+      },
+    },
+    label: {
+      type: { name: 'string', required: false },
+    },
+    secondaryLabel: {
+      type: { name: 'string', required: false },
+    },
+    compact: {
+      type: { name: 'boolean', required: false },
+      description: 'Use styling for condensed layouts.',
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   decorators: [
@@ -36,6 +55,7 @@ Card.args = {
   url: '#',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',
   label: 'Solar System',
+  secondaryLabel: 'Earth',
   image: {
     alt: 'Alt text for image',
     src: {
@@ -46,4 +66,5 @@ Card.args = {
     srcSet:
       'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w',
   },
+  compact: false,
 }
