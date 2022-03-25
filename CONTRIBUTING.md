@@ -12,6 +12,7 @@ Documentation on how to run this project locally and add more components.
 - [Linting and Formatting](#linting-and-formatting)
 - [Pull request guidance](#pull-request-guidance)
 - [Publishing to npm](#publishing-to-npm)
+- [Contribution licensing](#contribution-licensing)
 
 ## Getting started
 
@@ -364,3 +365,7 @@ If any changes were made to the src files, be sure to [build to dist](#getting-s
    ```bash
    npm publish
    ```
+
+## Contribution licensing
+
+All contributions to this project will be released under the same MIT License as the overall project. By submitting a pull request, you are agreeing to comply with these terms.
