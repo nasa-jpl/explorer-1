@@ -366,13 +366,15 @@ Finally, don't fret about this too much! The Release Drafter configuration and l
    ```bash
    $ npm link
    ```
-3. In the root of the project you want to test explorer-1 in, add the symlink. This works even if you had previously installed the production version of explorer-1.
+3. In the root* of the project you want to test explorer-1 in, add a symlink from the project's `node_modules` to your global `node_modules`. This results in a two-part symlink chain: Your project's `node_modules/@nasa-jpl/explorer-1` ➡️ npm's global `node_modules/@nasa-jpl/explorer-1` ➡️ your cloned explorer-1 repo. This works even if you had previously installed the production version of explorer-1.
+
+   _* Note: Currenly in WCP, you must go into `cms/theme/static-src` before running this command._
    ```bash
    $ npm link @nasa-jpl/explorer-1
    ```
 4. Run your tests
 
-When you're done, remove the symlink from your project with:
+When you're done, remove the symlink from your project and reinstall the project's currently-specified published version of explorer-1 with:
 
 ```bash
 $ npm unlink --no-save @nasa-jpl/explorer-1
@@ -382,7 +384,6 @@ $ npm i
 You can also remove the global symlink when you're in the root of your local explorer-1 repo, though this isn't necessary:
 
 ```bash
-$ cd path/to/explorer-1
 $ npm unlink
 ```
 
