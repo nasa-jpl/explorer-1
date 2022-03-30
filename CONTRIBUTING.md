@@ -5,15 +5,14 @@ Documentation on how to run this project locally and add more components.
 - [Getting started](#getting-started)
   - [View the test page](#view-the-test-page)
   - [View the Storybook](#view-the-storybook)
+  - [Testing your changes as a dependency in another project](#testing-your-changes-as-a-dependency-in-another-project)
 - [Adding components](#adding-components)
   - [Storybook](#storybook)
   - [SCSS](#scss)
   - [JavaScript](#javascript)
 - [Linting and Formatting](#linting-and-formatting)
 - [Pull request guidance](#pull-request-guidance)
-- [npm package](#npm-package)
-  - [Testing the package locally](#testing-the-package-locally)
-  - [Publishing to npm](#publishing-to-npm)
+- [Publishing to npm](#publishing-to-npm)
 - [Contribution licensing](#contribution-licensing)
 
 ## Getting started
@@ -49,6 +48,42 @@ Storybook deploys to GitHub pages and is available to the public. Storybook uses
    ```
 
 As you're working on component CSS or JS, you'll need to re-run `npm run build` in order to see your changes reflected in Storybook.
+
+### Testing your changes as a dependency in another project
+
+1. From the root of your local clone of explorer-1, create a symlink from your global `node_modules` directory to the local explorer-1 directory:
+   ```bash
+   npm link
+   ```
+2. Then in the same directory as the `package.json` file of the project you want to test explorer-1 in (usually the root of the project), add a symlink from the project's `node_modules` to your global `node_modules`:
+
+   ```bash
+   npm link @nasa-jpl/explorer-1
+   ```
+
+   This results in a two-part symlink chain: Your project's `node_modules/@nasa-jpl/explorer-1` ➡️ npm's global `node_modules/@nasa-jpl/explorer-1` ➡️ your cloned explorer-1 repo. This works even if you had previously installed the production version of explorer-1.
+
+   _\* Note: Currently in WCP, you must go into `cms/theme/static-src` before running this command._
+
+3. Run your tests.
+
+4. When you're done, remove the symlink from your project and reinstall the project's currently-specified published version of explorer-1 with:
+
+   ```bash
+   npm unlink --no-save @nasa-jpl/explorer-1
+   npm i
+   ```
+
+5. Optional: you can now remove the global symlink when you're in the root of your local clone of explorer-1:
+
+   ```bash
+   npm unlink
+   ```
+
+Depending on the project you are testing, you may encounter other quirks, particularly if you compiler caches builds, or if your compiler runs within docker.
+
+- If your compiler has a cache, delete the cache before compiling frontend assets.
+- If your compiler runs in a docker container, you will likely need to find a way to compile frontend assets outside of docker, as symlinks to your global `node_modules` folder will not work in a container.
 
 ## Adding components
 
@@ -355,47 +390,7 @@ In cases where a PR is not worth noting in the release notes, you can also tell 
 
 Finally, don't fret about this too much! The Release Drafter configuration and labeling scheme may take some time to fine-tune, and the drafted release notes can always be manually edited before final publication.
 
-## npm package
-
-### Testing the package locally
-
-1. Go to the root of your local working copy of explorer-1
-   ```bash
-   $ cd path/to/explorer-1
-   ```
-2. Create a symlink from your global `node_modules` directory to the local explorer-1 directory
-   ```bash
-   $ npm link
-   ```
-3. In the root\* of the project you want to test explorer-1 in, add a symlink from the project's `node_modules` to your global `node_modules`. This results in a two-part symlink chain: Your project's `node_modules/@nasa-jpl/explorer-1` ➡️ npm's global `node_modules/@nasa-jpl/explorer-1` ➡️ your cloned explorer-1 repo. This works even if you had previously installed the production version of explorer-1.
-
-   _\* Note: Currenly in WCP, you must go into `cms/theme/static-src` before running this command._
-
-   ```bash
-   $ npm link @nasa-jpl/explorer-1
-   ```
-
-4. Run your tests
-
-When you're done, remove the symlink from your project and reinstall the project's currently-specified published version of explorer-1 with:
-
-```bash
-$ npm unlink --no-save @nasa-jpl/explorer-1
-$ npm i
-```
-
-You can also remove the global symlink when you're in the root of your local explorer-1 repo, though this isn't necessary:
-
-```bash
-$ npm unlink
-```
-
-Depending on your project, you may encounter other quirks, particularly if you compiler caches builds, or if your compiler runs within docker.
-
-- If your compiler has a cache, delete the cache before compiling frontend assets.
-- If your compiler runs in a docker container, you will likely need to find a way to compile frontend assets outside of docker, as symlinks to your global `node_modules` folder will not work in a container.
-
-### Publishing to npm
+## Publishing to npm
 
 If any changes were made to the src files, be sure to [build to dist](#getting-started) before publishing to NPM.
 
