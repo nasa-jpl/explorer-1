@@ -70,7 +70,7 @@
     "parcel-namer-rewrite": "^2.0.0-rc.2",
     "postcss": "^8.4.12",
     "postcss-preset-env": "^7.4.2",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.1",
     "rimraf": "^3.0.2",
     "storybook-addon-themes": "^6.1.0",
     "stylelint": "^13.13.1",
