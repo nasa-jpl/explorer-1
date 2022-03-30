@@ -63,8 +63,6 @@ As you're working on component CSS or JS, you'll need to re-run `npm run build` 
 
    This results in a two-part symlink chain: Your project's `node_modules/@nasa-jpl/explorer-1` ➡️ npm's global `node_modules/@nasa-jpl/explorer-1` ➡️ your cloned explorer-1 repo. This works even if you had previously installed the production version of explorer-1.
 
-   _\* Note: Currently in WCP, you must go into `cms/theme/static-src` before running this command._
-
 3. Run your tests.
 
 4. When you're done, remove the symlink from your project and reinstall the project's currently-specified published version of explorer-1 with:
