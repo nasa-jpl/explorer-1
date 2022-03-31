@@ -25,7 +25,8 @@
     "build-storybook": "build-storybook -c storybook -o storybook_compiled",
     "lint:js": "eslint --cache '**/*.{vue,js}' --report-unused-disable-directives --ignore-path .gitignore",
     "lint:style": "stylelint --cache '**/*.{vue,css,scss}' '!dist/**/*' --ignore-path .gitignore",
-    "lint:format": "prettier --check '**/?(.)*.{html,md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --ignore-path .gitignore"
+    "lint:format": "prettier --check '**/?(.)*.{html,md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --ignore-path .gitignore",
+    "percy": "percy storybook http://localhost:6006"
   },
   "parcel-namer-rewrite": {
     "rules": {
@@ -55,6 +56,8 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.3.2",
+    "@percy/cli": "^1.0.0-beta.76",
+    "@percy/storybook": "^4.1.0",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-docs": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
