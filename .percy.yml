@@ -1,0 +1,9 @@
+version: 2
+storybook:
+  args: {}
+  queryParams: {}
+  waitForTimeout: 200
+  waitForSelector: ''
+  additionalSnapshots: []
+  include: ['Colors', 'Typography', 'Icons', 'Grid and Layout', 'Components']
+  exclude: ['Lazy Loading']
