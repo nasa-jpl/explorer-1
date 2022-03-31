@@ -5,5 +5,13 @@ storybook:
   waitForTimeout: 200
   waitForSelector: ''
   additionalSnapshots: []
-  include: ['Colors', 'Typography', 'Icons', 'Grid and Layout', 'Components']
-  exclude: ['Lazy Loading']
+  include:
+    [
+      'Colors',
+      'Typography',
+      'Grid and Layout: BaseGrid',
+      'Grid and Layout: MixedBleedGridLines',
+      'Grid and Layout: Full Page Example',
+      'Components',
+    ]
+  exclude: ['Lazy Loading', 'BaseHeading']
