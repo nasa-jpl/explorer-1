@@ -6,6 +6,7 @@ Documentation on how to run this project locally and add more components.
   - [View the test page](#view-the-test-page)
   - [View the Storybook](#view-the-storybook)
   - [Testing your changes as a dependency in another project](#testing-your-changes-as-a-dependency-in-another-project)
+  - [Percy](#percy)
 - [Adding components](#adding-components)
   - [Storybook](#storybook)
   - [SCSS](#scss)
@@ -82,6 +83,24 @@ Depending on the project you are testing, you may encounter other quirks, partic
 
 - If your compiler has a cache, delete the cache before compiling frontend assets.
 - If your compiler runs in a docker container, you will likely need to find a way to compile frontend assets outside of docker, as symlinks to your global `node_modules` folder will not work in a container.
+
+### Percy
+
+This project includes boilerplate configuration for [Percy's Storybook integration](https://docs.percy.io/docs/storybook#configuration). To use it:
+
+1. Export your project's `PERCY_TOKEN`
+   ```
+   export PERCY_TOKEN="<your-project-token>"
+   ```
+2. Run storybook locally:
+   ```
+   npm run storybook
+   ```
+3. Run Percy
+   ```
+   npm run percy
+   ```
+4. Your snapshots will then appear in your Percy project.
 
 ## Adding components
 
