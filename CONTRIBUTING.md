@@ -86,7 +86,7 @@ Depending on the project you are testing, you may encounter other quirks, partic
 
 ### Percy
 
-This project includes boilerplate for [Percy's Storybook integration](https://docs.percy.io/docs/storybook#configuration). To use it:
+This project includes boilerplate configuration for [Percy's Storybook integration](https://docs.percy.io/docs/storybook#configuration). To use it:
 
 1. Export your project's `PERCY_TOKEN`
    ```
@@ -100,7 +100,7 @@ This project includes boilerplate for [Percy's Storybook integration](https://do
    ```
    npm run percy
    ```
-4. You snapshots will then appear in your Percy project.
+4. Your snapshots will then appear in your Percy project.
 
 ## Adding components
 
