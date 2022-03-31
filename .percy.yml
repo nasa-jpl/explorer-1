@@ -1,0 +1,17 @@
+version: 2
+storybook:
+  args: {}
+  queryParams: {}
+  waitForTimeout: 200
+  waitForSelector: ''
+  additionalSnapshots: []
+  include:
+    [
+      'Colors',
+      'Typography',
+      'Grid and Layout: BaseGrid',
+      'Grid and Layout: MixedBleedGridLines',
+      'Grid and Layout: Full Page Example',
+      'Components',
+    ]
+  exclude: ['Lazy Loading', 'BaseHeading']
