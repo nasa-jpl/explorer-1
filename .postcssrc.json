@@ -2,12 +2,6 @@
   "plugins": {
     "tailwindcss": {
       "config": "./tailwind.config.js"
-    },
-    "postcss-preset-env": {
-      "stage": 2,
-      "features": {
-        "focus-within-pseudo-class": false
-      }
     }
   }
 }
