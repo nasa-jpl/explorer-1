@@ -1,3 +1,7 @@
+/* Deprecation warning:
+ * _BaseIframe.scss the BaseIframe class name is deprecated and will be removed in the next major release. Use the TailwindCSS classes directly instead.
+ */
+
 .BaseIframe {
   @apply w-full border-none;
 }

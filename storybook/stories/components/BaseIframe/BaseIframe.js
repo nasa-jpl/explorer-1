@@ -8,7 +8,6 @@ export const BaseIframeTemplate = ({ title, url, height }) => {
     ${height ? `height="${height}"` : ``}
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen="allowfullscreen"
-    class="BaseIframe"
     src="${url}"
   ></iframe>`
 }
