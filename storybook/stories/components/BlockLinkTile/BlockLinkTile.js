@@ -20,6 +20,7 @@ export const BlockLinkTileTemplate = ({
     noLogo: true,
     aspectRatio: compact ? 'aspect-ratio-one-one' : 'aspect-ratio-eight-seven',
     src: image.src.url,
+    src_webp: image.src_webp,
     srcset: image.srcset,
     alt: '',
     width: image.src.width,

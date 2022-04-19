@@ -60,12 +60,13 @@ Card.args = {
   image: {
     alt: 'Alt text for image',
     src: {
-      url: 'https://picsum.photos/490/430',
+      url: 'https://picsum.photos/id/1002/490/430',
       width: 490,
       height: 430,
     },
+    src_webp: 'https://picsum.photos/id/1002/490/430.webp',
     srcSet:
-      'https://picsum.photos/490/430 320w, https://picsum.photos/490/430 1024w',
+      'https://picsum.photos/id/1002/490/430 320w, https://picsum.photos/id/1002/490/430 1024w',
   },
   compact: false,
 }

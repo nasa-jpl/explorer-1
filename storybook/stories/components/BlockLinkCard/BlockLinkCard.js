@@ -25,6 +25,7 @@ export const BlockLinkCardTemplate = ({
       compact ? '' : 'lg:mb-10'
     }`,
     src: image.src.url,
+    src_webp: image.src_webp,
     srcset: image.srcset,
     alt: image.alt,
     width: image.src.width,

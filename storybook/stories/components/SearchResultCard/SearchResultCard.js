@@ -74,6 +74,7 @@ export const SearchResultCardTemplate = ({
         ${BaseImagePlaceholderTemplate({
           theme: 'dark-theme',
           src: image.src.url,
+          src_webp: image.src_webp,
           srcset: image.srcSet,
           alt: image.alt,
           width: image.src.width,

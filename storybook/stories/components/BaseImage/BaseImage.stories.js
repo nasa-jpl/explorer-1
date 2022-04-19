@@ -54,6 +54,7 @@ export default {
 
 export const BaseImageData = {
   src: 'https://picsum.photos/800/400',
+  src_webp: 'https://picsum.photos/800/400.webp',
   srcset: 'https://picsum.photos/800/400 800w, ',
   alt: 'Alt text for image',
   width: 800,
