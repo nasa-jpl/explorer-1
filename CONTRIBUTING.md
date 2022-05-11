@@ -411,6 +411,8 @@ Finally, don't fret about this too much! The Release Drafter configuration and l
 
 If any changes were made to the src files, be sure to [build to dist](#getting-started) before publishing to NPM.
 
+Don't forget to update the version number in `package.json` and run `npm install` to propagate it to `package-lock.json`!
+
 1. Login to the public npm registry with your account that has permission to manage this package
    ```bash
    npm login
