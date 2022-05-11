@@ -1,0 +1,9 @@
+.HeroSmall,
+.HeroSmall.swiper-slide {
+  min-height: 200px;
+
+  @screen lg {
+    height: 360px;
+    min-height: 360px;
+  }
+}
