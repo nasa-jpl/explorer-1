@@ -59,10 +59,11 @@ Card.args = {
   image: {
     alt: 'Alt text for image',
     src: {
-      url: 'https://picsum.photos/800/400',
+      url: 'https://picsum.photos/id/1002/800/400',
       width: 800,
       height: 400,
     },
+    src_webp: 'https://picsum.photos/id/1002/800/400.webp',
     srcSet:
       'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w',
   },

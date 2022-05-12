@@ -33,6 +33,7 @@ export const BlockTeaserTemplate = ({
       image
         ? BaseImageTemplate({
             src: image.src,
+            src_webp: image.src_webp,
             srcset: image.srcset,
             alt: '',
             width: image.width,

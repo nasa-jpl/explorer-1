@@ -25,6 +25,7 @@ export const BlockInlineImageTemplate = ({
   let baseImagePlaceholder = BaseImagePlaceholderTemplate({
     theme: 'dark-theme',
     src: image.src.url,
+    src_webp: image.src_webp,
     srcset: image.src.url,
     alt: image.alt,
     width: image.src.width,

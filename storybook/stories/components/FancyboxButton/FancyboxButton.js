@@ -18,7 +18,7 @@ export const FancyboxButtonTemplate = ({
     if (image.credit) fancybox += `Credit: ${image.credit}`
     fancybox += `"`
   }
-  fancybox += ` data-src="${image.src.url}"`
+  fancybox += ` data-src="${image.original_webp || image.original}"`
 
   let baseButton = BaseButtonTemplate({
     variant,

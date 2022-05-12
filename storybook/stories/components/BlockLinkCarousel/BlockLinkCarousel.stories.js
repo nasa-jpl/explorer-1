@@ -54,6 +54,8 @@ const BlockLinkCarouselData = [
         width: 512,
         height: 288,
       },
+      src_webp:
+        'https://images.unsplash.com/photo-1447433865958-f402f562b843?fit=crop&crop=entropy&cs=tinysrgb&w=512&h=288&q=80&fm=webp',
       alt: 'Alt text',
     },
   },
@@ -67,6 +69,8 @@ const BlockLinkCarouselData = [
         width: 512,
         height: 288,
       },
+      src_webp:
+        'https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?fit=crop&crop=entropy&cs=tinysrgb&w=512&h=288&q=80&fm=webp',
       alt: 'Alt text',
     },
   },
@@ -81,6 +85,8 @@ const BlockLinkCarouselData = [
         width: 512,
         height: 288,
       },
+      src_webp:
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&crop=entropy&cs=tinysrgb&w=512&h=288&q=80&fm=webp',
       alt: 'Alt text',
     },
   },
@@ -95,6 +101,8 @@ const BlockLinkCarouselData = [
         width: 512,
         height: 288,
       },
+      src_webp:
+        'https://images.unsplash.com/photo-1597322054151-cdb3e1236362?fit=crop&crop=entropy&cs=tinysrgb&w=512&h=288&q=80&fm=webp',
       alt: 'Alt text',
     },
   },

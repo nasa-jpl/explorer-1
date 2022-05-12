@@ -46,12 +46,14 @@ export const BlockTeaserData = {
   image: {
     full: {
       src: 'https://source.unsplash.com/pZ-XFIrJMtE/1096x400',
+      src_webp: 'https://source.unsplash.com/pZ-XFIrJMtE/1096x400.webp',
       srcset: 'https://source.unsplash.com/pZ-XFIrJMtE/1096x400',
       width: 1096,
       height: 400,
     },
     half: {
       src: 'https://source.unsplash.com/pZ-XFIrJMtE/540x400',
+      src_webp: 'https://source.unsplash.com/pZ-XFIrJMtE/540x400.webp',
       srcset: 'https://source.unsplash.com/pZ-XFIrJMtE/540x400',
       width: 548,
       height: 400,

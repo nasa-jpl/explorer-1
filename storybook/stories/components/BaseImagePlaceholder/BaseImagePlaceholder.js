@@ -8,6 +8,7 @@ export const BaseImagePlaceholderTemplate = ({
   placeholder,
   // BaseImage props
   src,
+  src_webp,
   srcset,
   alt,
   width,
@@ -28,6 +29,7 @@ export const BaseImagePlaceholderTemplate = ({
     src || srcset
       ? BaseImageTemplate({
           src: src,
+          src_webp: src_webp,
           srcset: srcset,
           alt: alt,
           width: width,

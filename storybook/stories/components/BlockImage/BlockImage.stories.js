@@ -50,14 +50,16 @@ export const BlockImageData = {
     credit: 'NASA/JPL',
     url: '/image/placeholder/',
     linkText: 'Full Image Details',
-    original: 'https://placekitten.com/869/700',
+    original: 'https://picsum.photos/id/1018/1738/1400',
+    original_webp: 'https://picsum.photos/id/1018/1738/1400.webp',
     src: {
       height: 700,
-      url: 'https://placekitten.com/869/700',
+      url: 'https://picsum.photos/id/1018/869/700',
       width: 869,
     },
+    src_webp: 'https://picsum.photos/id/1018/869/700.webp',
     srcSet:
-      'https://placekitten.com/320/258 320w, https://placekitten.com/869/700 1024w',
+      'https://picsum.photos/id/1018/320/258 320w, https://picsum.photos/id/1018/869/700 1024w',
   },
   imageFullBleed: {
     alt: 'Fourth image',
@@ -66,11 +68,14 @@ export const BlockImageData = {
     credit: 'NASA/JPL',
     url: '/image/placeholder/',
     linkText: 'Full Image Details',
+    original: 'https://picsum.photos/id/222/3600/1800',
+    original_webp: 'https://picsum.photos/id/222/3600/1800.webp',
     src: {
       width: 1800,
       height: 900,
-      url: 'https://picsum.photos/1800/900',
+      url: 'https://picsum.photos/id/222/1800/900',
     },
+    src_webp: 'https://picsum.photos/id/222/1800/900.webp',
   },
 }
 
