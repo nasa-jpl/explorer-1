@@ -1,7 +1,3 @@
-mark {
-  @apply bg-alert-gold-light p-0.5 border border-alert-gold rounded;
-
-  .SearchResultCard .bg-dark-blue & {
-    @apply bg-gray-dark p-0.5 border border-gray-mid-dark rounded text-white;
-  }
+.SearchResultCard .bg-dark-blue mark {
+  @apply bg-gray-dark p-0.5 border border-gray-mid-dark rounded text-white;
 }
