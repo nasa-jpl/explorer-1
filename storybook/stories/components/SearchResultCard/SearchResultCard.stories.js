@@ -66,7 +66,7 @@ export const SearchResultCardData = {
   topic: 'Moon',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',
   summary:
-    "On April 30, the Food and Drug Administration approved VITAL for a ventilator Emergency Use Authorization. Developed in just 37 days by NASA's Jet Propulsion Laboratory in response to the coronavirus pandemic, VITAL (short for Ventilator Intervention Technology Accessible Locally) wouldn't replace current hospital ventilators, which can treat a broader range of medical issues.",
+    "On April 30, the Food and Drug Administration approved VITAL for a ventilator <mark>Emergency Use Authorization</mark>. Developed in just 37 days by NASA's Jet Propulsion Laboratory in response to the coronavirus pandemic, VITAL (short for Ventilator Intervention Technology Accessible Locally) wouldn't replace current hospital ventilators, which can treat a broader range of medical issues.",
   date: 'May 22, 2018',
   image: {
     src: {
