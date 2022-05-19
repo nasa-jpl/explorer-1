@@ -11,9 +11,12 @@ const foundationColors = {
   'jpl-red': '#E31937',
   'jpl-red-light': '#E73B54',
   'jpl-red-dark': '#C1152E',
+  'jpl-red-darker': '#5C0411',
   'jpl-aqua': '#489FDF',
   blue: '#8BCBFA',
   'dark-blue': '#004562',
+  'jpl-sky-blue': '#53C8ED',
+  'jpl-sky-blue-dark': '#0080A4',
   green: '#14C97A',
 }
 
@@ -31,6 +34,7 @@ const semanticColors = {
 
 const grayScale = {
   white: '#FFFFFF',
+  'off-white': '#FAFAFA',
   'gray-light': '#F5F5F5',
   'gray-light-mid': '#D8D8D8',
   'gray-mid': '#949494',
@@ -173,6 +177,8 @@ module.exports = {
       'jpl-red-w50': foundationColors['jpl-red'] + ' 50%',
       'jpl-red-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
       'jpl-red-light-w50': foundationColors['jpl-red-light'] + ' 50%',
+      'jpl-sky-blue-w50': foundationColors['jpl-sky-blue'] + ' 50%',
+      'jpl-sky-blue-dark-w50': foundationColors['jpl-sky-blue-dark'] + ' 50%',
       'white-w50': grayScale.white + ' 50%',
       'gray-dark-w50': grayScale['gray-dark'] + ' 50%',
       'facebook-w50': socialColors.facebook + ' 50%',
