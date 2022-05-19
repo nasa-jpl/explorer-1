@@ -42,8 +42,9 @@ export const BaseLinkTemplate = ({
   }
 
   if (variantType === 'primary' || variantType === 'secondary') {
-    computedClass =
-      'text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
+    computedClass = `${
+      variantType === 'primary' ? '-primary' : '-secondary'
+    } text-subtitle text-theme-red can-hover:hover:text-theme-red-hover`
   } else if (variantType === 'default') {
     computedClass =
       '-default underline text-theme-red can-hover:hover:text-theme-red-hover'
@@ -58,9 +59,9 @@ export const BaseLinkTemplate = ({
         href="${link}"
         target="${theTarget}"
         rel="${theRel}"
-        class="group cursor-pointer${computedClass ? ` ${computedClass}` : ''}${
-    linkClass ? ` ${linkClass}` : ''
-  }"
+        class="BaseLink group cursor-pointer${
+          computedClass ? ` ${computedClass}` : ''
+        }${linkClass ? ` ${linkClass}` : ''}"
       >
         ${template}
       </a>

@@ -1,0 +1,38 @@
+.ThemeInternal {
+  .BaseLink {
+    &.-primary,
+    &.-secondary,
+    &.-default {
+      @apply text-jpl-sky-blue-dark;
+
+      @include hover {
+        @apply text-jpl-sky-blue;
+      }
+    }
+
+    &.-light {
+      // ThemeDark
+      @apply text-jpl-sky-blue;
+
+      @include hover {
+        @apply text-jpl-sky-blue-dark;
+      }
+
+      &.-primary {
+        @include hover {
+          @apply text-jpl-sky-blue;
+        }
+      }
+    }
+
+    .MixinAnimationCaret .arrow-wrapper {
+      @apply text-jpl-sky-blue-dark;
+    }
+
+    @include hover {
+      .MixinAnimationCaret .arrow-wrapper {
+        @apply text-jpl-sky-blue;
+      }
+    }
+  }
+}
