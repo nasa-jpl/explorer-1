@@ -176,6 +176,7 @@ module.exports = {
       'transparent-w25': 'transparent 25%',
       'jpl-red-w50': foundationColors['jpl-red'] + ' 50%',
       'jpl-red-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
+      'jpl-red-darker-w50': foundationColors['jpl-red-darker'] + ' 50%',
       'jpl-red-light-w50': foundationColors['jpl-red-light'] + ' 50%',
       'jpl-sky-blue-w50': foundationColors['jpl-sky-blue'] + ' 50%',
       'jpl-sky-blue-dark-w50': foundationColors['jpl-sky-blue-dark'] + ' 50%',

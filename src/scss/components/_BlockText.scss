@@ -76,4 +76,14 @@
       }
     }
   }
+
+  .ThemeInternal & {
+    a {
+      @apply text-jpl-sky-blue-dark;
+
+      @include hover {
+        @apply text-jpl-sky-blue;
+      }
+    }
+  }
 }

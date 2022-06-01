@@ -100,10 +100,8 @@
       @apply text-white;
     }
   }
-}
 
-.ThemeLight {
-  .BaseButton {
+  .ThemeLight & {
     &.-primary {
       @apply text-white bg-jpl-red to-jpl-red-dark-w50;
     }
@@ -117,10 +115,8 @@
       }
     }
   }
-}
 
-.ThemeDark {
-  .BaseButton {
+  .ThemeDark & {
     &.-primary {
       @apply text-white bg-jpl-red-light to-jpl-red-w50;
     }
@@ -131,6 +127,47 @@
       @include hover {
         // including a bg color resolves pixelation inconsistencies between browsers
         @apply text-white border-jpl-red bg-jpl-red;
+      }
+    }
+  }
+}
+
+.ThemeInternal {
+  .BaseButton {
+    &.-primary {
+      @apply bg-jpl-sky-blue-dark to-jpl-sky-blue-w50;
+    }
+
+    &.-secondary {
+      @apply text-jpl-sky-blue-dark border-jpl-sky-blue-dark to-jpl-sky-blue-w50;
+
+      @include hover {
+        @apply text-white border-jpl-sky-blue;
+      }
+    }
+
+    &.-dark {
+      @include hover {
+        @apply text-gray-dark;
+      }
+    }
+  }
+
+  .ThemeLight,
+  .ThemeDark,
+  &.ThemeLight,
+  &.ThemeDark {
+    .BaseButton {
+      &.-primary {
+        @apply bg-jpl-sky-blue-dark to-jpl-sky-blue-w50;
+      }
+
+      &.-secondary {
+        @apply text-jpl-sky-blue-dark border-jpl-sky-blue-dark to-jpl-sky-blue-w50;
+
+        @include hover {
+          @apply text-white border-jpl-sky-blue bg-jpl-sky-blue;
+        }
       }
     }
   }
