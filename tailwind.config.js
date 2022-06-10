@@ -135,7 +135,7 @@ module.exports = {
       lg: '1.125rem', // 18px
       base: '1rem', // 16px
       sm: '0.875rem', // 14px
-      // xs: '0.75rem', // 12px
+      xs: '0.75rem', // 12px
     },
     lineHeight: {
       // Basic set of line heights. Major text styles tend to have their custom line height.

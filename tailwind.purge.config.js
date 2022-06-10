@@ -19,6 +19,7 @@ module.exports = {
     content: [
       'storybook/stories/**/*.mdx',
       'storybook/stories/**/*.js',
+      'src/js/components/**/*.js',
       // Ignore the component docs, used for development only.
       path.join(wwwSrc, 'components/!(_docs)/**/*.vue'),
       path.join(wwwSrc, 'layouts/**/*.vue'),
