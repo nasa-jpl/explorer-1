@@ -51,25 +51,3 @@
     }
   }
 }
-
-// .ThemeInternal {
-//   .BaseImageCaption {
-//     > div > .the-caption-text {
-//       a {
-//         @apply text-jpl-sky-blue-dark;
-
-//         @include hover {
-//           @apply text-jpl-sky-blue;
-//         }
-
-//         .ThemeDark & {
-//           @apply text-jpl-sky-blue;
-
-//           @include hover {
-//             @apply text-jpl-sky-blue-dark;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
