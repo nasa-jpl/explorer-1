@@ -6,32 +6,54 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs'
 
 ## Internal Theme
 
-Apply a body class of `.ThemeInternal` to your build to reflect JPL's internal color scheme. Currently, this only overrides `BaseLink` colors.
+Apply a body class of `.ThemeInternal` to your build to reflect JPL's internal color scheme. The difference between the internal theme and the default theme is subtle: for the most part, only link colors are changed to `jpl-sky-blue` and `jpl-sky-blue-dark`.
 
-The following story is wrapped in the class `ThemeInternal` for demonstration purposes.
+```html
+<body class="ThemeInternal">
+  <!-- page layout and components go here -->
+</body>
+```
+
+The following story shows a direct comparison of how BaseLink changes when using `.ThemeInternal` vs the default theme (no body class).
 
 <Canvas>
   <Story name="Internal">
     {`
-      <div class="ThemeInternal">
-        <!-- BaseLink -->
-        <div>
-          <a
-            href="#"
-            target=""
-            rel=""
-            class="BaseLink group cursor-pointer -secondary text-subtitle text-theme-red can-hover:hover:text-theme-red-hover"
-          >
-            BaseLink
-          </a>
+      <div>
+        <div class="ThemeInternal">
+          <!-- BaseLink -->
+          <div>
+            <a
+              href="#"
+              target=""
+              rel=""
+              class="BaseLink group cursor-pointer -default underline text-theme-red can-hover:hover:text-theme-red-hover"
+            >
+              Internal Theme: BaseLink 
+            </a>
+          </div>
+          <!-- /BaseLink -->
         </div>
-        <!-- /BaseLink -->
+        <div>
+          <!-- BaseLink -->
+          <div>
+            <a
+              href="#"
+              target=""
+              rel=""
+              class="BaseLink group cursor-pointer -default underline text-theme-red can-hover:hover:text-theme-red-hover"
+            >
+              Default Theme: BaseLink
+            </a>
+          </div>
+          <!-- /BaseLink -->
+        </div>
       </div>
     `}
   </Story>
 </Canvas>
 
-You can switch to view this theme on any Storybook story using the toolbar menu (the "picture" icon).
+By default, all stories displayed within this Storybook do <em>not</em> use the internal theme. However, you can set the theme by clicking on the "picture" icon in the toolbar menu. You can test this with the above story--changing the theme to use ThemeInternal should make both links appear blue. Note: some documentation pages use iframes to display components, which circumvents the theme switcher. Thus, for the most accurate representation of the internal theme, we recommend checking the component in the Canvas tab.
 
 ## Light & Dark Themes
 
