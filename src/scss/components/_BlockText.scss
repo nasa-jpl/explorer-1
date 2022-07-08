@@ -1,9 +1,9 @@
 .BlockText {
   a {
-    @apply text-jpl-red underline cursor-pointer break-words;
+    @apply text-theme-color underline cursor-pointer break-words;
 
     @include hover {
-      @apply text-jpl-red-dark;
+      @apply text-theme-color-hover;
     }
   }
 
@@ -73,16 +73,6 @@
         .ThemeDark & {
           @apply bg-jpl-red-light;
         }
-      }
-    }
-  }
-
-  .ThemeInternal & {
-    a {
-      @apply text-jpl-sky-blue-dark;
-
-      @include hover {
-        @apply text-jpl-sky-blue;
       }
     }
   }

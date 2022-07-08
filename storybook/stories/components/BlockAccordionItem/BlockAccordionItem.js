@@ -28,7 +28,7 @@ export const BlockAccordionItemTemplate = ({
             ${title}
           </span>
 
-          <span class="BlockAccordion-icon pointer-events-none flex-shrink-0 text-theme-red text-xs transform transition-transform">
+          <span class="BlockAccordion-icon pointer-events-none flex-shrink-0 text-xs text-theme-color transform transition-transform">
             ${IconPlusTemplate({})}
           </span>
         </button>

@@ -106,45 +106,62 @@ For components that have light and dark themes, add theme rules to the end of yo
 
 ## Adaptive Text Colors
 
-Usage of `text-jpl-red` vs `text-jpl-red-light` in context of `ThemeLight` and `ThemeDark` ensures that the contrast of `jpl-red` is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created these text classes that follow this rule automatically.
+Usage of `.text-jpl-red` vs `.text-jpl-red-light` (or the `.text-jpl-sky-blue` variants for internal sites) in the correct context of `.ThemeLight` and `.ThemeDark` ensures that the contrast of the text color is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created text color classes that follow this rule automatically. These color classes also check for usage of `.ThemeInternal`.
 
 ```
-.text-theme-red
-.text-theme-red-hover
+.text-theme-color
+.text-theme-color-hover
 ```
 
-### Definition
+### Definition (excerpt)
 
 ```css
-.text-theme-red {
+.text-theme-color {
   @apply text-jpl-red;
   .ThemeDark & {
     @apply text-jpl-red-light;
   }
 }
-.text-theme-red-hover {
+.text-theme-color-hover {
   @apply text-jpl-red-dark;
   .ThemeDark & {
     @apply text-jpl-red;
   }
 }
+...
 ```
 
 ### Usage
 
-Try switching the theme from `ThemeLight` to `ThemeDark` using the toolbar at the top of the screen. You will notice a slight change of the red color between the two:
+Below are examples of all combinations (note: using the theme switcher in the toolbar will override the below examples):
 
 <Canvas>
   <Story name="Adaptive Text Colors">
     {`
-      <a class="cursor-pointer font-bold text-theme-red can-hover:hover:text-theme-red-hover">
-        Link Text
-      </a>
+      <p class="ThemeLight p-4">
+        <a class="cursor-pointer font-bold text-theme-color can-hover:hover:text-theme-color-hover">
+          ThemeLight (usually the default)
+        </a>
+      </p>
+      <p class="ThemeDark bg-black p-4">
+        <a class="cursor-pointer font-bold text-theme-color can-hover:hover:text-theme-color-hover">
+          ThemeDark
+        </a>
+      </p>
+      <div class="ThemeInternal">
+        <p class="ThemeLight p-4">
+          <a class="cursor-pointer font-bold text-theme-color can-hover:hover:text-theme-color-hover">
+            ThemeInternal ThemeLight
+          </a>
+        </p>
+        <p class="ThemeDark bg-black p-4">
+          <a class="cursor-pointer font-bold text-theme-color can-hover:hover:text-theme-color-hover">
+            ThemeInternal ThemeDark
+          </a>
+        </p>
+      </div>
     `}
   </Story>
 </Canvas>
-
-> Currently, these classes only work when used inline. In the future, they may be rewritten as a
-> plugin to make them compatible with the `@apply` directive.
 
 See [BaseLink](?path=/docs/components-base-baselink--primary-link) for a real usage example.
