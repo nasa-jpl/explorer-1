@@ -105,7 +105,7 @@ h3,
 
 h4,
 .text-h4 {
-  @apply font-semibold text-3xl;
+  @apply font-semibold text-3xl tracking-normal;
   line-height: 1.75rem; // 28px
 
   @screen md {
@@ -123,7 +123,7 @@ h4,
 
 h5,
 .text-h5 {
-  @apply font-semibold text-xl;
+  @apply font-semibold text-xl tracking-normal;
   line-height: 1.625rem; // 26px
 
   @screen md {
