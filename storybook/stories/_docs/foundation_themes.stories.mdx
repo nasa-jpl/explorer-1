@@ -24,10 +24,7 @@ The following story shows a direct comparison of how BaseLink changes when using
           <!-- BaseLink -->
           <div>
             <a
-              href="#"
-              target=""
-              rel=""
-              class="BaseLink group cursor-pointer -default underline text-theme-red can-hover:hover:text-theme-red-hover"
+              class="group cursor-pointer -default underline text-theme-color can-hover:hover:text-theme-color-hover"
             >
               Internal Theme: BaseLink 
             </a>
@@ -38,10 +35,7 @@ The following story shows a direct comparison of how BaseLink changes when using
           <!-- BaseLink -->
           <div>
             <a
-              href="#"
-              target=""
-              rel=""
-              class="BaseLink group cursor-pointer -default underline text-theme-red can-hover:hover:text-theme-red-hover"
+              class="group cursor-pointer -default underline text-theme-color can-hover:hover:text-theme-color-hover"
             >
               Default Theme: BaseLink
             </a>
@@ -53,11 +47,13 @@ The following story shows a direct comparison of how BaseLink changes when using
   </Story>
 </Canvas>
 
-By default, all stories displayed within this Storybook do <em>not</em> use the internal theme. However, you can set the theme by clicking on the "picture" icon in the toolbar menu. You can test this with the above story--changing the theme to use ThemeInternal should make both links appear blue. Note: some documentation pages use iframes to display components, which circumvents the theme switcher. Thus, for the most accurate representation of the internal theme, we recommend checking the component in the Canvas tab.
+By default, all stories displayed within this Storybook do not use the internal theme. You can enable the theme by clicking on the "picture" icon in the toolbar menu and selecting "ThemeInternal." You can test this with the above story--switching to ThemeInternal should make both links appear blue.
+
+**Note:** some documentation pages use iframes to display components, which ignores the theme switcher. Thus, for the most accurate representation of the internal theme, we recommend checking the component in the Canvas tab.
 
 ## Light & Dark Themes
 
-The light and dark themes in Explorer 1 are structured differently from the "Internal Theme," and are **not intended for use as a body class**. These themes are used to set the context per component or template, and also our [adaptive text colors](#adaptive-text-colors). Explorer 1 defaults to a light color scheme, but you may wish to provide site editors or visitors with the option to set a dark theme on a particular page or throughout your site. To handle switching between light and dark themes, a parent class will need to be set. Individual components that have theme-specific styling will then use these classes as ancestor selectors when setting colors.
+`.ThemeLight` and `.ThemeDark` in Explorer 1 are structured differently from `.ThemeInternal`, and are **not intended for use as a body class**. These themes should only ever be used on the wrapper for an individual component or group of components.
 
 <Story name="Light and Dark">
   {`
@@ -68,12 +64,26 @@ The light and dark themes in Explorer 1 are structured differently from the "Int
   `}
 </Story>
 
-These are currently set at the page template level. If that scope is too wide, it can be scoped to surround appropriate layout elements within as needed.
+These are often set on a page template wrapper. If that scope is too wide, usage can be scoped to layout elements within as needed. Again, these should not be used as a body class, as that is reserved for `.ThemeInternal`.
 
 ```html
 <body>
-  <div class="ThemeLight">
+  <div class="ThemeDark">
     <!-- the rest of the page -->
+  </div>
+</body>
+```
+
+A more complex example showing nested usage:
+
+```html
+<body class="ThemeInternal">
+  <div class="ThemeDark">
+    <!-- components  -->
+    <div class="ThemeLight">
+      <!-- a component that should use light colors regardless of its ancestors -->
+    </div>
+    <!-- more components -->
   </div>
 </body>
 ```
