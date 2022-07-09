@@ -148,6 +148,9 @@ Once your tooling and `tailwind.config.js` is set up, you can import SCSS files 
 @import '@nasa-jpl/explorer-1/src/scss/polyfills';
 @import '@nasa-jpl/explorer-1/src/scss/animations';
 
+// Themes: include this if you want to use the internal theme colors
+@import '@nasa-jpl/explorer-1/src/scss/themes/internal';
+
 // Components: include all components
 // Alternative: cherry-pick from _components.scss and include only those that are needed
 @import '@nasa-jpl/explorer-1/src/scss/components';
