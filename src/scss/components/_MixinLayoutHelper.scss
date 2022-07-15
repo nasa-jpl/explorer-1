@@ -1,0 +1,31 @@
+// Converts the original LayoutHelper Vue component to extracted CSS classes
+// Check the Layout docs in storybook for usage examples.
+
+// always use indent-col-base within BaseGrid unless a block is full width (max-w-screen-3xl) or isn't using BaseGrid
+@layer base {
+  .indent-col-base {
+    @apply col-start-1 col-end-13; // full width of grid container
+  }
+
+  .indent-col-2 {
+    @screen lg {
+      @apply col-start-2 col-end-12;
+    }
+  }
+
+  .indent-col-3 {
+    @screen lg {
+      @apply col-start-3 col-end-11;
+    }
+  }
+
+  .indent-col-4 {
+    @screen md {
+      @apply col-start-3 col-end-11;
+    }
+
+    @screen lg {
+      @apply col-start-4 col-end-10;
+    }
+  }
+}

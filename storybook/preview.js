@@ -113,6 +113,7 @@ export const parameters = {
           'Colors',
           'Typography',
           'Icons',
+          'Logos',
           'Themes',
           'Grid and Layout',
           'Responsive Design',
