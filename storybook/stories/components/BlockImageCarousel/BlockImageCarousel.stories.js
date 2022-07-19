@@ -32,6 +32,11 @@ export default {
           class: ['ThemeDark', 'sbdocs-preview-full-width'],
           color: '#000000',
         },
+        {
+          name: 'ThemeInternal',
+          class: ['ThemeInternal', 'sbdocs-preview-full-width'],
+          color: '#53C8ED',
+        },
       ],
     },
   },

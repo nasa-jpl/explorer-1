@@ -92,6 +92,15 @@ Primary_Button.args = {
   compact: false,
   disabled: false,
 }
+export const Primary_Internal_Button = BaseButtonTemplate.bind({})
+Primary_Internal_Button.args = {
+  label: 'Explore',
+  variant: 'primary',
+  link: '#',
+  caret: false,
+  compact: false,
+  disabled: false,
+}
 
 export const Secondary_Button = BaseButtonTemplate.bind({})
 Secondary_Button.args = {

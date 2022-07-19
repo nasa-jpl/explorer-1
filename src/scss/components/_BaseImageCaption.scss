@@ -7,18 +7,10 @@
     }
 
     a {
-      @apply text-jpl-red underline cursor-pointer;
+      @apply text-theme-color underline cursor-pointer;
 
       @include hover {
-        @apply text-jpl-red-dark;
-      }
-
-      .ThemeDark & {
-        @apply text-jpl-red-light;
-
-        @include hover {
-          @apply text-jpl-red-dark;
-        }
+        @apply text-theme-color-hover;
       }
     }
   }

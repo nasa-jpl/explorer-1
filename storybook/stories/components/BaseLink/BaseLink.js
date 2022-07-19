@@ -42,11 +42,12 @@ export const BaseLinkTemplate = ({
   }
 
   if (variantType === 'primary' || variantType === 'secondary') {
-    computedClass =
-      'text-subtitle text-theme-red can-hover:hover:text-theme-red-hover'
+    computedClass = `${
+      variantType === 'primary' ? '-primary' : '-secondary'
+    } text-subtitle text-theme-color can-hover:hover:text-theme-color-hover`
   } else if (variantType === 'default') {
     computedClass =
-      '-default underline text-theme-red can-hover:hover:text-theme-red-hover'
+      '-default underline text-theme-color can-hover:hover:text-theme-color-hover'
   }
 
   let renderWrapperClass = ''
