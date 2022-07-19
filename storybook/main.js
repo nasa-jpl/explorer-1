@@ -20,4 +20,7 @@ module.exports = {
   features: {
     postcss: false,
   },
+  core: {
+    disableTelemetry: true,
+  },
 }
