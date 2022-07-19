@@ -1,9 +1,9 @@
 .BlockText {
   a {
-    @apply text-jpl-red underline cursor-pointer break-words;
+    @apply text-theme-color underline cursor-pointer break-words;
 
     @include hover {
-      @apply text-jpl-red-dark;
+      @apply text-theme-color-hover;
     }
   }
 
