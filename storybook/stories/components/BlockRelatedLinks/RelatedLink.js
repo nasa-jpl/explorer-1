@@ -7,16 +7,16 @@ export const RelatedLinkTemplate = ({ variant, link, text }) => {
     variant == 'document'
       ? IconDownloadTemplate({
           customClass:
-            'text-jpl-red xl:mx-4 flex-none ml-4 text-2xl leading-normal text-3xl',
+            'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-3xl',
         })
       : variant == 'internal'
       ? IconArrowTemplate({
           customClass:
-            'text-jpl-red xl:mx-4 flex-none ml-4 text-2xl leading-normal text-3xl',
+            'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-3xl',
         })
       : IconExternalTemplate({
           customClass:
-            'text-jpl-red xl:mx-4 flex-none ml-4 text-2xl leading-normal text-lg',
+            'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-lg',
         })
   let target = variant == 'external' ? '_blank' : '_self'
 

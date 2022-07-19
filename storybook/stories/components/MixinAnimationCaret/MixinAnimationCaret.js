@@ -3,7 +3,7 @@ export const MixinAnimationCaretTemplate = ({ text, customClass }) => {
   return `
     <span class="MixinAnimationCaret ${customClass}">
       <span>${text}</span>
-      <span aria-hidden="true" class="arrow-wrapper text-theme-red ml-1">
+      <span aria-hidden="true" class="arrow-wrapper text-theme-color ml-1">
         <span class="arrow">
           <svg
             width="8"

@@ -1,3 +1,5 @@
+@import 'typography-theme-colors';
+
 // typography styles
 html {
   @apply font-primary;
@@ -207,34 +209,6 @@ h5,
 
   @screen xl {
     font-size: 2.25rem; // 36px
-  }
-}
-
-@responsive {
-  @variants hover {
-    .text-theme-red {
-      @apply text-jpl-red;
-
-      .ThemeLight & {
-        @apply text-jpl-red;
-      }
-
-      .ThemeDark & {
-        @apply text-jpl-red-light;
-      }
-    }
-
-    .text-theme-red-hover {
-      @apply text-jpl-red-dark;
-
-      .ThemeLight & {
-        @apply text-jpl-red-dark;
-      }
-
-      .ThemeDark & {
-        @apply text-jpl-red;
-      }
-    }
   }
 }
 

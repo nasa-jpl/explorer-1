@@ -100,10 +100,8 @@
       @apply text-white;
     }
   }
-}
 
-.ThemeLight {
-  .BaseButton {
+  .ThemeLight & {
     &.-primary {
       @apply text-white bg-jpl-red to-jpl-red-dark-w50;
     }
@@ -117,10 +115,8 @@
       }
     }
   }
-}
 
-.ThemeDark {
-  .BaseButton {
+  .ThemeDark & {
     &.-primary {
       @apply text-white bg-jpl-red-light to-jpl-red-w50;
     }
