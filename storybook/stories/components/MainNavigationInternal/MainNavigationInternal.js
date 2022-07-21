@@ -1,11 +1,13 @@
 import { SearchInputTemplate } from '../SearchInput/SearchInput'
+import { IconCloseTemplate } from '../Icons/IconClose'
+import { IconDropdownTemplate } from '../Icons/IconDropdown'
 import { IconExternalTemplate } from '../Icons/IconExternal'
 import { IconSearchTemplate } from '../Icons/IconSearch'
-import { IconCloseTemplate } from '../Icons/IconClose'
 
 export const MainNavigationInternalTemplate = ({}) => {
   const primaryNavItems = [
     {
+      id: 1,
       title: 'Home',
       url: '#',
       isExternal: false,
@@ -13,6 +15,7 @@ export const MainNavigationInternalTemplate = ({}) => {
       isMegaMenu: false,
     },
     {
+      id: 2,
       title: 'Menu Item',
       url: '#',
       isExternal: false,
@@ -33,49 +36,80 @@ export const MainNavigationInternalTemplate = ({}) => {
           isActive: false,
           subItems: null,
         },
+        {
+          title: 'Sub 3 w/ Sub',
+          url: '#',
+          isExternal: false,
+          isActive: false,
+          subItems: [
+            {
+              title: 'SubSub 1',
+              url: '#',
+              isExternal: false,
+              isActive: false,
+              subItems: null,
+            },
+            {
+              title: 'SubSub 2',
+              url: 'https://www.jpl.nasa.gov',
+              isExternal: true,
+              isActive: false,
+              subItems: null,
+            },
+          ],
+        },
       ],
+    },
+    {
+      id: 3,
+      title: 'External',
+      url: 'https://www.jpl.nasa.gov/',
+      isExternal: true,
+      isActive: false,
+      isMegaMenu: false,
     },
   ]
   let menuItems = ''
   if (primaryNavItems.length > 0) {
     for (const [index, item] of primaryNavItems.entries()) {
       menuItems += `<li class="${item.isActive ? 'active' : ''}">
-      ${
-        item.isMegaMenu
-          ? `
-<button class="toggle-menu-panel flex flex-nowrap items-center w-full lg:w-auto"
-  id="ddtoggle_{{ item.pk }}" 
-  aria-haspopup="true" 
-  aria-expanded="false"
-  >
-    <span class="pointer-events-none" data-text="{{ item.text }}">
-      {{ item.text }}
-    </span>
-    {% include "components/Icons/IconDropdown.html" %}
-  </button>
+        ${
+          item.isMegaMenu
+            ? `
+            <button class="toggle-menu-panel flex flex-nowrap items-center w-full lg:w-auto"
+              id="ddtoggle_${item.id}" 
+              aria-haspopup="true" 
+              aria-expanded="false"
+              >
+              <span class="pointer-events-none" data-text="${item.title}">
+                ${item.title}
+              </span>
+              ${IconDropdownTemplate({})}
+            </button>
 
-  <div class="panel-wrapper lg:absolute inset-0 spacer z-0 invisible"> 
-    {% sub_menu item template="menus/sub_menu-mega.html" %}
-  </div>
+            <div class="panel-wrapper lg:absolute inset-0 spacer z-0 invisible"> 
+              {% sub_menu item template="menus/sub_menu-mega.html" %}
+            </div>
           `
-          : `
-    <a href="${item.url}" class="block"${
-              item.url.startsWith('h') ? ` target="_blank" rel="noopener"` : ''
-            }>
-    <span class="inline-block" data-text="${item.title}">
-    ${item.title}
-    </span>
-    ${
-      item.url.startsWith('h')
-        ? ` <span class="text-xs ml-1">
-        ${IconExternalTemplate({})}
-      </span>`
-        : ''
-    }
-  </a>
-
-    `
-      }
+            : `
+          <a href="${item.url}" class="block"${
+                item.url.startsWith('h')
+                  ? ` target="_blank" rel="noopener"`
+                  : ''
+              }>
+            <span class="inline-block" data-text="${item.title}">
+              ${item.title}
+            </span>
+            ${
+              item.url.startsWith('h')
+                ? ` <span class="text-xs ml-1">
+                ${IconExternalTemplate({})}
+              </span>`
+                : ''
+            }
+          </a>
+        `
+        }
       </li>
       `
     }
@@ -97,7 +131,7 @@ export const MainNavigationInternalTemplate = ({}) => {
         ${menuItems}
       </ul>
       <div class="hidden lg:block border-t-3 border-transparent relative z-10">
-        <button id="NavSearchOpen" aria-label="Open search" class="flex flex-nowrap items-center py-6 px-1 border-b-3 can-hover:hover:text-gray-mid-dark focus:border-gray-dark focus:border-opacity-20 focus:outline-none">
+        <button id="NavSearchOpen" aria-label="Open search" class="flex flex-nowrap items-center py-6 px-1 border-b-3 can-hover:hover:text-gray-mid-dark focus:border-gray-dark focus:border-opacity-20 focus:outline-none border-transparent">
           <span class="font-medium leading-tight pr-2">
             Search
           </span>
@@ -109,7 +143,7 @@ export const MainNavigationInternalTemplate = ({}) => {
       <div class="BaseGrid container mx-auto h-full">
         <div class="indent-col-base indent-col-2 px-4">
           <div class="flex flex-row items-center h-full pb-2">
-            <form id="NavDesktopSearchForm" action="#" method="get" class="flex-grow">\
+            <form id="NavDesktopSearchForm" action="#" method="get" class="flex-grow">
               ${SearchInputTemplate({
                 inputId: 'NavSearchInput',
                 compact: true,
