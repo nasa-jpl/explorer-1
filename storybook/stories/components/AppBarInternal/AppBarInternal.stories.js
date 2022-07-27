@@ -1,7 +1,7 @@
 import { AppBarInternalTemplate } from './AppBarInternal'
 
 export default {
-  title: 'Components/Headers/Internal/AppBar',
+  title: 'Global Layout/Headers/Internal/Elements/AppBar',
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',

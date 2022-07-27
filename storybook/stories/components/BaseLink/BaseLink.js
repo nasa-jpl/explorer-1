@@ -1,9 +1,13 @@
 import { MixinAnimationCaretTemplate } from '../MixinAnimationCaret/MixinAnimationCaret'
+import { IconArrowTemplate } from '../Icons/IconArrow'
+import { IconDownloadTemplate } from '../Icons/IconDownload'
+import { IconExternalTemplate } from '../Icons/IconExternal'
 
 export const BaseLinkTemplate = ({
   text,
   variant,
   link,
+  icon,
   caret,
   caretInline,
   caretWrapperClass,
@@ -13,6 +17,7 @@ export const BaseLinkTemplate = ({
   linkClass,
   wrapperClass,
 }) => {
+  if (!icon) icon = ''
   let template = text ? text : 'Full Image Details'
   let variantType = variant ? variant.toLowerCase() : ''
   if (!caretWrapperClass) caretWrapperClass = ''
@@ -53,6 +58,15 @@ export const BaseLinkTemplate = ({
   let renderWrapperClass = ''
   if (wrapperClass) renderWrapperClass = ` class="${wrapperClass}"`
 
+  const iconTemplate =
+    icon === 'document'
+      ? IconDownloadTemplate({})
+      : icon === 'internal'
+      ? IconArrowTemplate({})
+      : icon === 'external'
+      ? IconExternalTemplate({})
+      : ''
+
   return `
     <div${renderWrapperClass}>
       <a
@@ -63,7 +77,10 @@ export const BaseLinkTemplate = ({
     linkClass ? ` ${linkClass}` : ''
   }"
       >
-        ${template}
+        <span class="break-words">
+          ${template}
+        </span>
+        ${iconTemplate}
       </a>
     </div>  
   `

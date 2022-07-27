@@ -1,5 +1,5 @@
-import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 import { InternalNavHighlightTemplate } from '../MainNavigationInternal/InternalNavHighlight'
+import { InternalNavSectionTemplate } from '../MainNavigationInternal/InternalNavSection'
 
 export const MainNavigationInternalMenuPanelTemplate = ({
   id,
@@ -42,8 +42,13 @@ export const MainNavigationInternalMenuPanelTemplate = ({
                 : ''
             }`
       }">`
-      for (const [index, item] of sections.entries()) {
-        sectionsWrapperTemplate += `section ${index}`
+      for (const [index, section] of sections.entries()) {
+        sectionsWrapperTemplate += InternalNavSectionTemplate({
+          heading: section.heading,
+          headingLink: section.headingLink,
+          menuItems: section.menuItems,
+          isActive: section.isActive,
+        })
       }
       sectionsWrapperTemplate += `</div>`
     }
@@ -60,7 +65,6 @@ export const MainNavigationInternalMenuPanelTemplate = ({
       </div>
     </div>
   </div>
-
   `
   }
 }

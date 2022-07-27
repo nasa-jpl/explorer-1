@@ -1,7 +1,7 @@
 import { MainNavigationInternalMenuPanelTemplate } from './MainNavigationInternalMenuPanel'
 
 export default {
-  title: 'Components/Headers/Internal/Header/MenuPanel',
+  title: 'Global Layout/Headers/Internal/Elements/MenuPanel',
   excludeStories: /.*Data$/,
   // argTypes: {
   //   menuItems: {
@@ -9,9 +9,37 @@ export default {
   //     description: 'Complex object of menu items',
   //   },
   // },
-  // parameters: {
-  //   viewMode: 'canvas',
-  // },
+  parameters: {
+    viewMode: 'docs',
+    themes: {
+      clearable: false,
+      list: [
+        {
+          name: 'ThemeLight',
+          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          color: '#ffffff',
+          default: true,
+        },
+        {
+          name: 'ThemeDark',
+          class: ['ThemeDark', 'sbdocs-preview-full-width'],
+          color: '#000000',
+        },
+        {
+          name: 'ThemeInternal',
+          class: ['ThemeInternal', 'sbdocs-preview-full-width'],
+          color: '#53C8ED',
+        },
+      ],
+    },
+
+    html: {
+      root: '#storyRoot',
+    },
+  },
+  decorators: [
+    (Story) => `<div id="storyRoot" class="MainNavigation">${Story()}</div>`,
+  ],
 }
 
 export const MainNavigationInternalMenuPanelData = {
@@ -46,19 +74,75 @@ export const MainNavigationInternalMenuPanelData = {
   // unlimited
   sections: [
     {
-      heading: 'Section 1',
+      heading: 'Section as Item 1',
       headingLink: '#',
-      menutems: [
+      isActive: false,
+    },
+    {
+      heading: 'Section as Item 2 Acive',
+      headingLink: '#',
+    },
+    {
+      heading: 'Section 2',
+      headingLink: '#',
+      menuItems: [
         {
           title: 'Item 1',
           url: '#',
-          isExternal: false,
           isActive: false,
         },
         {
           title: 'Item 2',
+          url: '#',
+          isActive: false,
+        },
+        {
+          title: 'Item 3',
+          url: '#',
+          isActive: false,
+        },
+        {
+          title: 'Item 3',
+          url: '#',
+          isActive: false,
+        },
+        {
+          title: 'Item 3',
+          url: '#',
+          isActive: false,
+        },
+        {
+          title: 'Item 3',
+          url: '#',
+          isActive: false,
+        },
+        {
+          title: 'Item 3',
+          url: '#',
+          isActive: false,
+        },
+        {
+          title: 'Item 4',
           url: 'https://www.jpl.nasa.gov',
-          isExternal: true,
+          isActive: false,
+        },
+      ],
+    },
+    {
+      menuItems: [
+        {
+          title: 'Item 1',
+          url: '#',
+          isActive: false,
+        },
+        {
+          title: 'Item 2',
+          url: '#',
+          isActive: false,
+        },
+        {
+          title: 'Item 3',
+          url: 'https://www.jpl.nasa.gov',
           isActive: false,
         },
       ],

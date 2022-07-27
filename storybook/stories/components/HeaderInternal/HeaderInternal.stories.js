@@ -1,7 +1,7 @@
 import { HeaderInternalTemplate } from './HeaderInternal'
 
 export default {
-  title: 'Components/Headers/Internal/Header',
+  title: 'Global Layout/Headers/Internal',
   excludeStories: /.*Data$/,
   argTypes: {
     menuItems: {
@@ -11,6 +11,28 @@ export default {
   },
   parameters: {
     viewMode: 'docs',
+    themes: {
+      clearable: false,
+      list: [
+        // {
+        //   name: 'ThemeLight',
+        //   class: ['ThemeLight', 'sbdocs-preview-full-width'],
+        //   color: '#ffffff',
+        //   default: true,
+        // },
+        // {
+        //   name: 'ThemeDark',
+        //   class: ['ThemeDark', 'sbdocs-preview-full-width'],
+        //   color: '#000000',
+        // },
+        {
+          name: 'ThemeInternal',
+          class: ['ThemeInternal', 'sbdocs-preview-full-width'],
+          color: '#53C8ED',
+          default: true,
+        },
+      ],
+    },
   },
 }
 
@@ -84,8 +106,9 @@ export const HeaderInternalData = {
   ],
 }
 
-export const Default = HeaderInternalTemplate.bind({})
-Default.args = HeaderInternalData
+export const Basic = HeaderInternalTemplate.bind({})
+// Default.storyName = 'Internal'
+Basic.args = HeaderInternalData
 
 export const SignIn = HeaderInternalTemplate.bind({})
 SignIn.storyName = 'With Sign In'

@@ -123,6 +123,14 @@ export const parameters = {
           'Grid and Layout',
           'Responsive Design',
         ],
+        'Global Layout',
+        [
+          'Overview',
+          'Headers',
+          ['Overview', 'External', 'Internal'],
+          'Footers',
+          ['Overview', 'External', 'Internal'],
+        ],
         'Components',
         [
           'Overview',

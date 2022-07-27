@@ -254,6 +254,20 @@
           @apply border-b border-transparent;
         }
 
+        svg {
+          @apply inline-block;
+
+          &.IconExternal {
+            // Compensating for oversized external link icon SVG
+            font-size: 0.875em;
+          }
+
+          &.IconDownload {
+            position: relative;
+            top: -0.125rem;
+          }
+        }
+
         @include hover {
           @apply text-gray-dark;
 
@@ -277,25 +291,23 @@
             @apply inline-block ml-1 align-baseline text-xs;
           }
         }
-        // BaseLink overrides for icon handling
-        &.BaseLink {
-          -webkit-column-break-inside: avoid;
-          page-break-inside: avoid;
-          break-inside: avoid;
-          @apply block;
+        // overrides for icon handling
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        @apply block;
 
-          svg {
-            &.IconArrow {
-              @apply hidden;
-            }
+        svg {
+          &.IconArrow {
+            @apply hidden;
+          }
 
-            &.IconDownload {
-              @apply text-sm ml-1;
-            }
+          &.IconDownload {
+            @apply text-sm ml-1;
+          }
 
-            &.IconExternal {
-              @apply text-xs ml-1;
-            }
+          &.IconExternal {
+            @apply text-xs ml-1;
           }
         }
       }
