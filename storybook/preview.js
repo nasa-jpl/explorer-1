@@ -127,7 +127,12 @@ export const parameters = {
         [
           'Overview',
           'Headers',
-          ['Overview', 'External', 'Internal'],
+          [
+            'Overview',
+            'External',
+            'For Internal Sites',
+            ['*', 'Elements', ['AppBar', 'Panel', 'Highlight', 'Section']],
+          ],
           'Footers',
           ['Overview', 'External', 'Internal'],
         ],

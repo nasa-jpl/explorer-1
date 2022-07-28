@@ -1,6 +1,6 @@
 import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 
-export const InternalNavHighlightTemplate = ({
+export const NavInternalHighlightTemplate = ({
   title,
   description,
   image,
@@ -14,7 +14,7 @@ export const InternalNavHighlightTemplate = ({
   if (!link) link = ''
   if (!ariaLabel) ariaLabel = ''
 
-  return `<div class="NavHighlight mb-6 lg:mb-0 lg:w-5/6">
+  return `<div class="NavInternalHighlight mb-6 lg:mb-0 lg:w-5/6">
     ${
       title
         ? `<p class="font-normal text-2xl lg:text-xl xl:text-2xl mb-4">

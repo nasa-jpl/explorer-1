@@ -9,16 +9,16 @@
  */
 
 let navOpened = null
-const GlobalHeader = document.getElementById('GlobalHeader')
+const HeaderInternal = document.getElementById('HeaderInternal')
 const NavBgOverlay = document.getElementById('NavBgOverlay')
-const MainNavigation = document.getElementById('MainNavigationContainer')
+const NavInternal = document.getElementById('NavInternalContainer')
 const NavMobileToggle = document.getElementById('NavMobileToggle')
 const NavMobileSearchInput = document.getElementById('NavMobileSearchInput')
 
 const toggleNavMobileVisibility = (e) => {
-  GlobalHeader.classList.toggle('h-screen')
-  GlobalHeader.classList.toggle('overflow-y-scroll')
-  MainNavigation.classList.toggle('hidden')
+  HeaderInternal.classList.toggle('h-screen')
+  HeaderInternal.classList.toggle('overflow-y-scroll')
+  NavInternal.classList.toggle('hidden')
   NavMobileToggle.classList.toggle('expanded')
   if (NavMobileToggle.classList.contains('expanded')) {
     NavMobileToggle.setAttribute('aria-label', 'Close menu')
@@ -74,7 +74,7 @@ const handleNavClick = (e) => {
     handleNavClickInsideDropdown(e)
   } else if (
     e.target.classList &&
-    e.target.classList.contains('toggle-menu-panel')
+    e.target.classList.contains('toggle-NavInternalPanel')
   ) {
     handleNavDropdown(e.target)
   } else if (navOpened) {
@@ -85,9 +85,9 @@ const handleNavClick = (e) => {
 const resetNav = (e) => {
   document.body.classList.remove('overflow-hidden', 'lg:overflow-hidden')
   NavBgOverlay.classList.add('invisible-overlay')
-  GlobalHeader.classList.remove('h-screen')
-  GlobalHeader.classList.remove('overflow-y-scroll')
-  MainNavigation.classList.add('hidden')
+  HeaderInternal.classList.remove('h-screen')
+  HeaderInternal.classList.remove('overflow-y-scroll')
+  NavInternal.classList.add('hidden')
   NavMobileToggle.classList.remove('expanded')
   NavMobileToggle.setAttribute('aria-label', 'Open menu')
   if (navOpened) {

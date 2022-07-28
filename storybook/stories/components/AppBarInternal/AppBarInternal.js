@@ -16,9 +16,9 @@ export const AppBarInternalTemplate = ({
   // prop defaults
   if (!orgNumber) orgNumber = ''
   if (!siteTitle) siteTitle = ''
-  if (includeMobileMenuToggle === null) includeMobileMenuToggle = false
-  if (includeSignIn === null) includeSignIn = false
-  if (signedIn === null) signedIn = false
+  if (includeMobileMenuToggle == undefined) includeMobileMenuToggle = false
+  if (includeSignIn == undefined) includeSignIn = false
+  if (signedIn == undefined) signedIn = false
   if (!userData) userData = {}
   if (!logInUrl) logInUrl = '#'
   if (!logOutUrl) logOutUrl = '#'

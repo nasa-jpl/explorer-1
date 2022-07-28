@@ -3,80 +3,26 @@ import { IconCloseTemplate } from '../Icons/IconClose'
 import { IconDropdownTemplate } from '../Icons/IconDropdown'
 import { IconExternalTemplate } from '../Icons/IconExternal'
 import { IconSearchTemplate } from '../Icons/IconSearch'
+import { NavInternalPanelTemplate } from '../NavInternal/NavInternalPanel'
 
-export const MainNavigationInternalTemplate = ({}) => {
-  const primaryNavItems = [
-    {
-      id: 1,
-      title: 'Home',
-      url: '#',
-      isExternal: false,
-      isActive: true,
-      isMegaMenu: false,
-    },
-    {
-      id: 2,
-      title: 'Menu Item',
-      url: '#',
-      isExternal: false,
-      isActive: false,
-      isMegaMenu: true,
-      menuItems: [
-        {
-          title: 'Sub 1',
-          url: '#',
-          isExternal: false,
-          isActive: false,
-          subItems: null,
-        },
-        {
-          title: 'Sub 2',
-          url: '#',
-          isExternal: false,
-          isActive: false,
-          subItems: null,
-        },
-        {
-          title: 'Sub 3 w/ Sub',
-          url: '#',
-          isExternal: false,
-          isActive: false,
-          subItems: [
-            {
-              title: 'SubSub 1',
-              url: '#',
-              isExternal: false,
-              isActive: false,
-              subItems: null,
-            },
-            {
-              title: 'SubSub 2',
-              url: 'https://www.jpl.nasa.gov',
-              isExternal: true,
-              isActive: false,
-              subItems: null,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: 'External',
-      url: 'https://www.jpl.nasa.gov/',
-      isExternal: true,
-      isActive: false,
-      isMegaMenu: false,
-    },
-  ]
-  let menuItems = ''
-  if (primaryNavItems.length > 0) {
-    for (const [index, item] of primaryNavItems.entries()) {
-      menuItems += `<li class="${item.isActive ? 'active' : ''}">
+export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
+  if (includeSearch == undefined) includeSearch = false
+  if (!menuItems) menuItems = []
+
+  let menuItemsTemplate = ''
+  if (menuItems.length > 0) {
+    for (const [index, item] of menuItems.entries()) {
+      const isMegaMenu =
+        (item.menuItems && item.menuItems.length > 0) ||
+        (item.highlights && item.highlights.length > 0)
+          ? true
+          : false
+
+      menuItemsTemplate += `<li class="${item.isActive ? 'active' : ''}">
         ${
-          item.isMegaMenu
+          isMegaMenu
             ? `
-            <button class="toggle-menu-panel flex flex-nowrap items-center w-full lg:w-auto"
+            <button class="toggle-NavInternalPanel flex flex-nowrap items-center w-full lg:w-auto"
               id="ddtoggle_${item.id}" 
               aria-haspopup="true" 
               aria-expanded="false"
@@ -87,8 +33,19 @@ export const MainNavigationInternalTemplate = ({}) => {
               ${IconDropdownTemplate({})}
             </button>
 
-            <div class="panel-wrapper lg:absolute inset-0 spacer z-0 invisible"> 
-              {% sub_menu item template="menus/sub_menu-mega.html" %}
+            <div class="panel-wrapper lg:absolute inset-0 spacer z-0 invisible">
+              <!-- Insert NavInternalPanel here -->${NavInternalPanelTemplate({
+                id: item.id,
+                title: item.title,
+                url: item.url,
+                isActive: item.isActive,
+                repeatInPanel: item.repeatInPanel,
+                repeatedTitle: item.repeatedTitle,
+                highlights: item.highlights,
+                menuItems: item.menuItems,
+                allowSectionBreaks: item.allowSectionBreaks,
+                allowSectionColumns: item.allowSectionColumns,
+              })}<!-- End NavInternalPanel -->
             </div>
           `
             : `
@@ -116,30 +73,42 @@ export const MainNavigationInternalTemplate = ({}) => {
   }
 
   return `
-  <nav class="MainNavigation" aria-label="Main">
-  <div class="flex lg:hidden">
+  <nav class="NavInternal" aria-label="Main">
+  ${
+    includeSearch
+      ? `<div class="flex lg:hidden">
     <form id="NavMobileSearchForm" action="#" method="get" class="pt-6 pb-4 px-4 w-full">
       ${SearchInputTemplate({
         inputId: 'NavMobileSearchInput',
         compact: false,
       })}
     </form>
-  </div>
+  </div>`
+      : ''
+  }
   <div class="w-full relative lg:shadow-lg z-20 bg-white">
     <div class="lg:container mx-auto lg:flex justify-between">
-      <ul class="top-level lg:flex flex-nowrap lg:overflow-x-auto">
-        ${menuItems}
+      <ul class="top-level lg:flex flex-nowrap lg:overflow-x-auto ${
+        !includeSearch ? 'pt-6 lg:pt-0' : ''
+      }">
+        ${menuItemsTemplate}
       </ul>
-      <div class="hidden lg:block border-t-3 border-transparent relative z-10">
+      ${
+        includeSearch
+          ? `<div class="hidden lg:block border-t-3 border-transparent relative z-10">
         <button id="NavSearchOpen" aria-label="Open search" class="flex flex-nowrap items-center py-6 px-1 border-b-3 can-hover:hover:text-gray-mid-dark focus:border-gray-dark focus:border-opacity-20 focus:outline-none border-transparent">
           <span class="font-medium leading-tight pr-2">
             Search
           </span>
           ${IconSearchTemplate({})}
         </button>
-      </div>
+      </div>`
+          : ''
+      }
     </div>
-    <div id="NavSearchContainer" class="hidden absolute inset-0 bg-white z-10">
+    ${
+      includeSearch
+        ? `<div id="NavSearchContainer" class="hidden absolute inset-0 bg-white z-10">
       <div class="BaseGrid container mx-auto h-full">
         <div class="indent-col-base indent-col-2 px-4">
           <div class="flex flex-row items-center h-full pb-2">
@@ -156,7 +125,9 @@ export const MainNavigationInternalTemplate = ({}) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>`
+        : ''
+    }
   </div>
 </nav>
   `

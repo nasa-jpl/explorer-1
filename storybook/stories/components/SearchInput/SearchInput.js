@@ -2,7 +2,7 @@ import { IconSearchTemplate } from '../Icons/IconSearch'
 
 export const SearchInputTemplate = ({ inputId, placeholder, compact }) => {
   if (!placeholder) placeholder = ''
-  if (compact === null) compact = false
+  if (compact == undefined) compact = false
   const iconTemplate = IconSearchTemplate({})
   const underlinedInputTemplate = compact
     ? `

@@ -1,4 +1,4 @@
-.MainNavigation {
+.NavInternal {
   // mobile-first
   @apply relative overflow-y-auto h-full left-0 right-0 z-20;
   // unset mobile-specific styles
@@ -147,7 +147,7 @@
     }
   }
 
-  .menu-panel {
+  .NavInternalPanel {
     @apply bg-off-white;
 
     @screen lg {
@@ -175,7 +175,7 @@
       }
     }
 
-    .sub-menu-item {
+    .NavInternalSection {
       -webkit-column-break-inside: avoid;
       page-break-inside: avoid;
       break-inside: avoid;
@@ -194,7 +194,7 @@
     }
 
     &.allow-breaks {
-      .sub-menu-item {
+      .NavInternalSection {
         -webkit-column-break-inside: auto;
         page-break-inside: auto;
         break-inside: auto;
@@ -202,15 +202,15 @@
       }
     }
 
-    p.sub-menu-item:last-of-type {
+    p.NavInternalSection:last-of-type {
       @apply mb-6;
     }
 
-    .sub-menu-item.has-children {
+    .NavInternalSection.has-children {
       @apply mb-6;
     }
 
-    .sub-menu-item:last-child {
+    .NavInternalSection:last-child {
       @apply mb-0;
 
       @screen lg {
@@ -242,7 +242,7 @@
     }
 
     /* stylelint-disable no-duplicate-selectors */
-    .sub-menu-item {
+    .NavInternalSection {
       a {
         @apply text-gray-mid-dark leading-tight transition-colors text-lg font-medium;
 

@@ -1,32 +1,32 @@
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 import { IconExternalTemplate } from '../Icons/IconExternal'
 
-export const InternalNavSectionTemplate = ({
-  heading,
-  headingLink,
+export const NavInternalSectionTemplate = ({
+  title,
+  url,
   menuItems,
   isActive,
 }) => {
   // set defaults
-  if (!heading) heading = ''
-  if (!headingLink) headingLink = ''
+  if (!title) title = ''
+  if (!url) url = ''
   if (!menuItems) menuItems = []
-  if (isActive === null) isActive = false
+  if (isActive == undefined) isActive = false
+
+  // derive other constants
   const hasMenuItems = menuItems.length > 0 ? true : false
 
-  const headingTemplate = heading
-    ? headingLink
-      ? `<a href="${headingLink}" class="inline-block w-full p-2 pl-0 
-      ${isActive ? ' active' : ''}
-      ${hasMenuItems ? 'text-subtitle' : ''}
-        "
->
+  const headingTemplate = title
+    ? url
+      ? `<a href="${url}" class="inline-block w-full p-2 pl-0 ${
+          isActive ? ' active' : ''
+        } ${hasMenuItems ? 'text-subtitle' : ''}">
   <span>
-    ${heading}
+    ${title}
   </span>
-  ${headingLink.startsWith('h') ? `${IconExternalTemplate({})}` : ''}
+  ${url.startsWith('h') ? `${IconExternalTemplate({})}` : ''}
 </a>`
-      : `<p class="text-subtitle inline-block w-full p-2 pl-0">${heading}</p>`
+      : `<p class="text-subtitle inline-block w-full p-2 pl-0">${title}</p>`
     : ''
 
   let menuItemsTemplate = ''
@@ -46,7 +46,7 @@ export const InternalNavSectionTemplate = ({
     menuItemsTemplate += `</ul>`
   }
 
-  return `<div class="sub-menu-item w-full ${
+  return `<div class="NavInternalSection w-full ${
     hasMenuItems ? 'has-children' : ''
   }">
     ${headingTemplate}

@@ -1,0 +1,31 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { ReactDocsComponentList } from './ReactDocsComponentList'
+
+<Meta
+  title="Global Layout/Headers/Overview"
+  parameters={{ viewMode: 'docs' }}
+/>
+
+# Headers
+
+Lorem ipsum dolor sit amet.
+
+- Internal Header
+- External Header
+
+## Internal vs. External usage
+
+Lorem ipsum dolor sit amet.
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'Internal Header',
+      description:
+        'Includes a text overlay. Height of 200px (flexible) on small screens; fixed at 360px on larger screens.',
+      storyId: 'global-layout-headers-for-internal-sites--with-navigation',
+      fullWidth: true,
+      fullCanvas: true,
+    },
+  ]}
+/>

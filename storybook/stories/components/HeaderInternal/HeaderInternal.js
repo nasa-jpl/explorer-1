@@ -1,35 +1,41 @@
 import { AppBarInternalTemplate } from '../AppBarInternal/AppBarInternal'
-import { MainNavigationInternalTemplate } from '../MainNavigationInternal/MainNavigationInternal'
+import { NavInternalTemplate } from '../NavInternal/NavInternal'
 
 export const HeaderInternalTemplate = ({
   orgNumber,
   siteTitle,
   includeSignIn,
+  includeSearch,
+  menuItems,
 }) => {
   // prop defaults
   if (!orgNumber) orgNumber = ''
   if (!siteTitle) siteTitle = ''
-  if (includeSignIn === null) includeSignIn = false
+  if (includeSignIn == undefined) includeSignIn = false
+  if (includeSearch == undefined) includeSearch = false
+  if (!menuItems) menuItems = []
 
   const AppBar = AppBarInternalTemplate({
     orgNumber: orgNumber,
     siteTitle: siteTitle,
-    includeMobileMenuToggle: true,
+    includeMobileMenuToggle: menuItems.length > 0 ? true : false,
     includeSignIn: includeSignIn,
   })
 
   return `
-  <div class="z-60 fixed top-3 right-20 text-center">
-    <button id="SkipLink" class="focus:not-sr-only sr-only text-white bg-jpl-sky-blue-dark font-bold text-subtitle">
-      Skip to main content
-    </button>
-  </div>
-  <header id="GlobalHeader" class="sticky top-0 z-30">
+  <header id="HeaderInternal" class="sticky top-0 z-30">
     ${AppBar}
-    <div id="MainNavigationContainer" class="bg-white lg:block hidden">
-    ${MainNavigationInternalTemplate({})}
+    ${
+      menuItems.length > 0
+        ? `<div id="NavInternalContainer" class="bg-white lg:block hidden">
+    ${NavInternalTemplate({
+      includeSearch: includeSearch,
+      menuItems: menuItems,
+    })}
     <div id="NavBgOverlay" class="fixed z-0 inset-0 hidden lg:block opacity-80 bg-black invisible-overlay"></div>
-    <div class="bg-white fixed inset-0 lg:hidden z-0"></div>
+    <div class="bg-white fixed inset-0 lg:hidden z-0"></div>`
+        : ''
+    }
   </div>
   </header>
   `
