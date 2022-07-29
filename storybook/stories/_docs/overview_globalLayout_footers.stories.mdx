@@ -1,0 +1,25 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs'
+import { ReactDocsComponentList } from './ReactDocsComponentList'
+
+<Meta
+  title="Global Layout/Footers/Overview"
+  parameters={{ viewMode: 'docs' }}
+/>
+
+# Footers
+
+Footers are to be placed at the very top of your website or application. Header styles are specific to your site's visibility (internal vs. external/public). If you are using the [Internal Theme](/?path=/docs/foundation-themes--internal), be sure to use the [Internal Header](/?path=/docs/global-layout-headers-for-internal-sites--with-navigation). If your website or application is public-facing, be sure to use the External header (coming soon).
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'Internal Footer',
+      description: 'Simple footer with preset links.',
+      storyId: 'global-layout-footers-for-internal-sites--for-internal-sites',
+      fullWidth: true,
+      fullCanvas: true,
+    },
+  ]}
+/>
+
+A footer for public-facing (external) sites is coming soon.

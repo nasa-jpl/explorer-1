@@ -6,6 +6,7 @@ import { IconSocialTwitterTemplate } from '../Icons/IconSocialTwitter'
 import { IconSocialInstagramTemplate } from '../Icons/IconSocialInstagram'
 import { IconSocialYoutubeTemplate } from '../Icons/IconSocialYoutube'
 import { IconExpandTemplate } from '../Icons/IconExpand'
+import { IconExternalTemplate } from '../Icons/IconExternal'
 
 export const BaseButtonTemplate = ({
   label,
@@ -15,9 +16,12 @@ export const BaseButtonTemplate = ({
   compact,
   disabled,
   icon,
+  iconOnly,
   cssClass,
   fancybox,
+  target,
 }) => {
+  if (iconOnly == undefined) iconOnly = false
   fancybox = fancybox ? fancybox : ''
   let ariaLabel = label
   let iconTemplate = ''
@@ -30,6 +34,7 @@ export const BaseButtonTemplate = ({
   else if (icon == 'twitter') iconTemplate = IconSocialTwitterTemplate({})
   else if (icon == 'instagram') iconTemplate = IconSocialInstagramTemplate({})
   else if (icon == 'youtube') iconTemplate = IconSocialYoutubeTemplate({})
+  else if (icon == 'external') iconTemplate = IconExternalTemplate({})
   else if (caret) iconTemplate = IconCaretTemplate({})
 
   // setup classnames
@@ -40,7 +45,7 @@ export const BaseButtonTemplate = ({
 
   if (compact) computedClass += ' -compact'
   if (cssClass) computedClass += ' ' + cssClass
-  if (icon) {
+  if (iconOnly) {
     computedClass += ' -icon-only'
     label = ''
   }
@@ -61,7 +66,9 @@ export const BaseButtonTemplate = ({
     return `
       <a 
         href="${link}" 
-        class="BaseButton text-contrast-none inline-block ${computedClass}"
+        class="BaseButton text-contrast-none inline-block ${computedClass}" ${
+      target ? `target="${target}"` : ''
+    }
         aria-label="${ariaLabel}"
       >
         <span class="label block">
