@@ -5,7 +5,7 @@ export default {
   argTypes: {
     customClass: {
       type: 'string',
-      description: 'Use Tailwind CSS utility classes if needed.',
+      description: 'Use Tailwind CSS classes to adjust color and size.',
       control: { type: 'text' },
     },
   },
@@ -14,6 +14,6 @@ export default {
   },
 }
 
-export const Default = LogoJPLTemplate.bind({})
-Default.storyName = 'LogoJPL'
-Default.args = { customClass: '' }
+export const Standard = LogoJPLTemplate.bind({})
+Standard.storyName = 'LogoJPL'
+Standard.args = { customClass: 'text-6xl text-jpl-red' }

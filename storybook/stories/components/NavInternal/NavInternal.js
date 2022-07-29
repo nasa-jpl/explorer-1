@@ -73,62 +73,65 @@ export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
   }
 
   return `
-  <nav class="NavInternal" aria-label="Main">
-  ${
-    includeSearch
-      ? `<div class="flex lg:hidden">
-    <form id="NavMobileSearchForm" action="#" method="get" class="pt-6 pb-4 px-4 w-full">
-      ${SearchInputTemplate({
-        inputId: 'NavMobileSearchInput',
-        compact: false,
-      })}
-    </form>
-  </div>`
-      : ''
-  }
-  <div class="w-full relative lg:shadow-lg z-20 bg-white">
-    <div class="lg:container mx-auto lg:flex justify-between">
-      <ul class="top-level lg:flex flex-nowrap lg:overflow-x-auto ${
-        !includeSearch ? 'pt-6 lg:pt-0' : ''
-      }">
-        ${menuItemsTemplate}
-      </ul>
+  <div id="NavInternalContainer" class="bg-white lg:block hidden">
+    <nav class="NavInternal" aria-label="Main">
+    ${
+      includeSearch
+        ? `<div class="flex lg:hidden">
+      <form id="NavMobileSearchForm" action="#" method="get" class="pt-6 pb-4 px-4 w-full">
+        ${SearchInputTemplate({
+          inputId: 'NavMobileSearchInput',
+          compact: false,
+        })}
+      </form>
+    </div>`
+        : ''
+    }
+    <div class="w-full relative lg:shadow-lg z-20 bg-white">
+      <div class="lg:container mx-auto lg:flex justify-between">
+        <ul class="top-level lg:flex flex-nowrap lg:overflow-x-auto ${
+          !includeSearch ? 'pt-6 lg:pt-0' : ''
+        }">
+          ${menuItemsTemplate}
+        </ul>
+        ${
+          includeSearch
+            ? `<div class="hidden lg:block border-t-3 border-transparent relative z-10">
+          <button id="NavSearchOpen" aria-label="Open search" class="flex flex-nowrap items-center py-6 px-1 border-b-3 can-hover:hover:text-gray-mid-dark focus:border-gray-dark focus:border-opacity-20 focus:outline-none border-transparent">
+            <span class="font-medium leading-tight pr-2">
+              Search
+            </span>
+            ${IconSearchTemplate({})}
+          </button>
+        </div>`
+            : ''
+        }
+      </div>
       ${
         includeSearch
-          ? `<div class="hidden lg:block border-t-3 border-transparent relative z-10">
-        <button id="NavSearchOpen" aria-label="Open search" class="flex flex-nowrap items-center py-6 px-1 border-b-3 can-hover:hover:text-gray-mid-dark focus:border-gray-dark focus:border-opacity-20 focus:outline-none border-transparent">
-          <span class="font-medium leading-tight pr-2">
-            Search
-          </span>
-          ${IconSearchTemplate({})}
-        </button>
+          ? `<div id="NavSearchContainer" class="hidden absolute inset-0 bg-white z-10">
+        <div class="BaseGrid container mx-auto h-full">
+          <div class="indent-col-base indent-col-2 px-4">
+            <div class="flex flex-row items-center h-full pb-2">
+              <form id="NavDesktopSearchForm" action="#" method="get" class="flex-grow">
+                ${SearchInputTemplate({
+                  inputId: 'NavSearchInput',
+                  compact: true,
+                  placeholder: 'Search this site&hellip;',
+                })}
+              </form>
+              <button id="NavSearchClose" aria-label="Close search" class="flex flex-nowrap flex-shrink-0 items-center p-2 text-black text-xs focus:outline-none focus:ring-2">
+                ${IconCloseTemplate({})}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>`
           : ''
       }
     </div>
-    ${
-      includeSearch
-        ? `<div id="NavSearchContainer" class="hidden absolute inset-0 bg-white z-10">
-      <div class="BaseGrid container mx-auto h-full">
-        <div class="indent-col-base indent-col-2 px-4">
-          <div class="flex flex-row items-center h-full pb-2">
-            <form id="NavDesktopSearchForm" action="#" method="get" class="flex-grow">
-              ${SearchInputTemplate({
-                inputId: 'NavSearchInput',
-                compact: true,
-                placeholder: 'Search this site&hellip;',
-              })}
-            </form>
-            <button id="NavSearchClose" aria-label="Close search" class="flex flex-nowrap flex-shrink-0 items-center p-2 text-black text-xs focus:outline-none focus:ring-2">
-              ${IconCloseTemplate({})}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>`
-        : ''
-    }
-  </div>
-</nav>
+  </nav>
+  <div id="NavBgOverlay" class="fixed z-0 inset-0 hidden lg:block opacity-80 bg-black invisible-overlay"></div>
+  <div class="bg-white fixed inset-0 lg:hidden z-0"></div>
   `
 }

@@ -3,30 +3,25 @@ import { NavInternalHighlightTemplate } from './NavInternalHighlight'
 export default {
   title: 'Global Layout/Headers/For Internal Sites/Elements/Highlight',
   excludeStories: /.*Data$/,
-  // argTypes: {
-  //   menuItems: {
-  //     type: { name: 'array', required: false },
-  //     description: 'Complex object of menu items',
-  //   },
-  // },
   parameters: {
     viewMode: 'docs',
-
+    docs: {
+      description: {
+        component:
+          'Highlighted content intended for use within [NavInternalPanel](/?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic) ',
+      },
+    },
     html: {
       root: '#storyRoot',
     },
   },
   decorators: [
-    (Story) =>
-      `<div id="storyRoot" class="NavInternal w-96">
-        <!-- Start Component -->
-          ${Story()}<!-- End Component -->
-      </div>`,
+    (Story) => `<div id="storyRoot" class="NavInternal w-96">${Story()}</div>`,
   ],
 }
 
 export const NavInternalHighlightData = {
-  title: 'This Highlight',
+  title: 'A Highlight',
   description: 'Lorem ipsum dolor sit amet consectatur adipscing',
   image: {
     src: 'http://placekitten.com/512/288',

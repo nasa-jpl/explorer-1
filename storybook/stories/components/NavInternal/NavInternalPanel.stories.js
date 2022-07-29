@@ -10,11 +10,33 @@ export default {
     },
     menuItems: {
       type: { name: 'array', required: false },
-      description: 'Menu items, included nested menus.',
+      description: 'Menu items, including nested menus.',
+    },
+    allowSectionBreaks: {
+      type: { name: 'boolean', required: false },
+      description:
+        'If a nav [Section](/?path=/docs/global-layout-headers-for-internal-sites-elements-section--basic-heading) can flow into the next column (only applies if `allowSectionColumns` is `true`.',
+      table: {
+        defaultValue: { summary: 'true' },
+      },
+    },
+    allowSectionColumns: {
+      type: { name: 'boolean', required: false },
+      description:
+        'If multiple columns should be used to display nav [Sections](/?path=/docs/global-layout-headers-for-internal-sites-elements-section--basic-heading). If set to `false`, all nav items will appear in a single column. Useful if you only have a couple items in the nav.',
+      table: {
+        defaultValue: { summary: 'true' },
+      },
     },
   },
   parameters: {
     viewMode: 'docs',
+    docs: {
+      description: {
+        component:
+          'The contents of a mega-menu-style dropdown. Intended for use within the [Internal Header](global-layout-headers-for-internal-sites--with-navigation)',
+      },
+    },
     themes: {
       clearable: false,
       list: [
@@ -36,7 +58,6 @@ export default {
         },
       ],
     },
-
     html: {
       root: '#storyRoot',
     },
@@ -97,6 +118,7 @@ export const menuItemsData = [
 export const menuItemsNestedData = [
   {
     title: 'Section A',
+    url: '',
     menuItems: [
       menuItemsData[0],
       menuItemsData[2],
@@ -106,6 +128,7 @@ export const menuItemsNestedData = [
   },
   {
     title: 'Section B',
+    url: '',
     menuItems: [
       menuItemsData[5],
       menuItemsData[6],
@@ -115,6 +138,7 @@ export const menuItemsNestedData = [
   },
   {
     title: 'Section C',
+    url: '',
     menuItems: [menuItemsData[7], menuItemsData[4]],
   },
 ]

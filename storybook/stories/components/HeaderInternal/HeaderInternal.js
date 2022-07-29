@@ -27,16 +27,13 @@ export const HeaderInternalTemplate = ({
     ${AppBar}
     ${
       menuItems.length > 0
-        ? `<div id="NavInternalContainer" class="bg-white lg:block hidden">
+        ? `
     ${NavInternalTemplate({
       includeSearch: includeSearch,
       menuItems: menuItems,
-    })}
-    <div id="NavBgOverlay" class="fixed z-0 inset-0 hidden lg:block opacity-80 bg-black invisible-overlay"></div>
-    <div class="bg-white fixed inset-0 lg:hidden z-0"></div>`
+    })}`
         : ''
     }
-  </div>
   </header>
   `
 }
