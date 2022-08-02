@@ -4,9 +4,27 @@ export default {
   title: 'Global Layout/Headers/For Internal Sites/Elements/Panel',
   excludeStories: /.*Data$/,
   argTypes: {
+    title: {
+      type: { name: 'string', required: false },
+      description: 'The link text of the parent menu item for this panel.',
+    },
+    url: {
+      type: { name: 'string', required: false },
+      description: 'The link URL of the parent menu item for this panel.',
+    },
+    repeatInPanel: {
+      type: { name: 'boolean', required: false },
+      description:
+        'Enable to display the parent menu item as a link at the top of this panel. This may be useful because top-level menu items with panels cannot be clicked on to go to their URL; clicking only opens and closes the panel.',
+    },
+    repeatedTitle: {
+      type: { name: 'string', required: false },
+      description:
+        'When `repeatInPanel` is true, this property may be set to change the text of the parent menu item link in the panel. For example, if the parent menu item’s title is “Processes” and the panel has a subset of the most popular processes, you might want the parent menu item link to be “View all processes”',
+    },
     highlights: {
       type: { name: 'array', required: false },
-      description: 'This template is optimized for a maximum of 3 highlights',
+      description: 'This template is optimized for a maximum of 3 highlights.',
     },
     menuItems: {
       type: { name: 'array', required: false },
@@ -71,47 +89,38 @@ export const menuItemsData = [
   {
     title: 'Nam Cursus',
     url: '#',
-    isActive: false,
   },
   {
     title: 'Pellentesque Iaculis Vel',
     url: '#',
-    isActive: false,
   },
   {
     title: 'In Bibendum Imperdiet Mauris',
     url: '#',
-    isActive: false,
   },
   {
     title: 'Placerat Lorem',
     url: '#',
-    isActive: false,
   },
   {
     title: 'Maecenas Viverra',
     url: '#',
-    isActive: false,
   },
   {
     title: 'Suspendisse Vestibulum',
     url: '#',
-    isActive: false,
   },
   {
     title: 'Nunc Tincidunt Gravida Vel',
     url: '#',
-    isActive: false,
   },
   {
     title: 'Sed Placerat',
     url: '#',
-    isActive: false,
   },
   {
     title: 'Donec Feugiat Eu',
     url: '#',
-    isActive: false,
   },
 ]
 

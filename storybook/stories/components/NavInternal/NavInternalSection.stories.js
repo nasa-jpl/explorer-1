@@ -1,8 +1,5 @@
 import { NavInternalSectionTemplate } from './NavInternalSection'
-import {
-  menuItemsData,
-  menuItemsNestedData,
-} from '../NavInternal/NavInternalPanel.stories'
+import { menuItemsData, menuItemsNestedData } from './NavInternalPanel.stories'
 
 export default {
   title: 'Global Layout/Headers/For Internal Sites/Elements/Section',
@@ -29,7 +26,7 @@ export default {
     docs: {
       description: {
         component:
-          'A flexible component that can accommodate a variety of menu item heirarchies. Usage can range from single-level menu items (one component per item) to a list of menu items with a linked heading. Intended for use within [NavInternalPanel](/?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic) ',
+          'A flexible component that can accommodate a variety of menu item hierarchies. Usage can range from single-level menu items (one component per item) to a list of menu items with a linked heading. Intended for use within [NavInternalPanel](/?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic) ',
       },
     },
     html: {
@@ -38,7 +35,12 @@ export default {
   },
   decorators: [
     (Story) =>
-      `<div class="NavInternal"><div id="storyRoot" class="NavInternalPanel">${Story()}</div></div>`,
+      `<div class="NavInternal">
+  <div id="storyRoot" class="NavInternalPanel">
+
+${Story()}
+  </div>
+</div>`,
   ],
 }
 

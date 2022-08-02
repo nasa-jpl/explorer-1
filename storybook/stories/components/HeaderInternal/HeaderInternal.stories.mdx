@@ -1,6 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
 import { HeaderInternalTemplate } from './HeaderInternal'
-import { NavInternalPanelTemplate } from '../NavInternal/NavInternalPanel'
 import { NavInternalData } from '../NavInternal/NavInternal.stories'
 export const HeaderInternalData = {
   orgNumber: '18x',
@@ -45,7 +44,7 @@ export const HeaderInternalData = {
 
 Configurable to accommodate just an AppBar or complex site navigation, along with optional search and sign in/out buttons.
 
-Note: to view with functioning dropdowns, you must switch to <strong>Canvas View</strong>.
+Note: to view with functioning dropdowns and search field expansion, you must switch to <strong>Canvas View</strong>.
 
 - [With Navigation](#top)
 - [With Sign In Buttons](#with-sign-in-buttons)
@@ -53,6 +52,8 @@ Note: to view with functioning dropdowns, you must switch to <strong>Canvas View
 - [How to configure dropdowns and menu items](#configuring-dropdowns-and-menu-items)
 
 <span id="top"></span>
+
+## With Navigation
 
 <Canvas>
   <Story
@@ -75,9 +76,11 @@ Note: to view with functioning dropdowns, you must switch to <strong>Canvas View
   </Story>
 </Canvas>
 
-## Props
+### Props
 
 <ArgsTable story="With Navigation" />
+
+<span id="with-sign-in-buttons"></span>
 
 ## With Sign In buttons
 
@@ -94,6 +97,8 @@ Note: to view with functioning dropdowns, you must switch to <strong>Canvas View
 </Canvas>
 
 <ArgsTable story="With Sign In" />
+
+<span id="just-the-appbar"></span>
 
 ## Just the AppBar
 
@@ -126,11 +131,15 @@ Note: to view with functioning dropdowns, you must switch to <strong>Canvas View
 
 <ArgsTable story="AppBar Only With Sign In" />
 
+<span id="configuring-dropdowns-and-menu-items"></span>
+
 ## Configuring dropdowns and menu items
 
 The create your own menu items, you can either copy the html template as rendered here and manually edit as needed, or you can populate the `menuItems` array to have the template generated for you in Storybook. Either way, be sure that each menu item is given a unique id.
 
 To populate the `menuItems` array, a specific structure for each object in the array must be followed. Use the examples below as starting points to construct your array. You can then update the `menuItems` value in the [Props Table](#props) at the top of the page (or in Canvas view). Be sure to switch to raw data values when doing this.
+
+Items in `menuItems` can be given a property of `isActive: true` to highlight them with a red underline to indicate that they are the page you are on (or section you are in).
 
 ### Example of a single menu item, no dropdown
 
@@ -146,7 +155,7 @@ The navigation assumes you are using relative links for local links and will aut
 
 This data would create similar navigation links such as "Home" and "External" in the example [at the top of this page](#top)
 
-### Example of a simple combination
+### Example panel with a simple combination
 
 One highlight, and several single-level nav items.
 
@@ -158,7 +167,7 @@ One highlight, and several single-level nav items.
   {JSON.stringify(HeaderInternalData.menuItems[1], null, 2)}
 </code>
 
-### Example of no highlights
+### Example panel with no highlights
 
 <div class="sbdocs-preview-full-width">
   <Story id="global-layout-headers-for-internal-sites-elements-panel--no-highlights" />
@@ -170,7 +179,7 @@ Note the lack of `highlights` in the data structure below:
   {JSON.stringify(HeaderInternalData.menuItems[2], null, 2)}
 </code>
 
-### Example with highlights only
+### Example panel with highlights only
 
 <div class="sbdocs-preview-full-width">
   <Story id="global-layout-headers-for-internal-sites-elements-panel--all-highlights" />
@@ -182,7 +191,7 @@ Note the lack of `menuItems` in the data structure below:
   {JSON.stringify(HeaderInternalData.menuItems[3], null, 2)}
 </code>
 
-### Example with navigation headings
+### Example panel with navigation headings
 
 <div class="sbdocs-preview-full-width">
   <Story id="global-layout-headers-for-internal-sites-elements-panel--with-headings" />
@@ -194,7 +203,9 @@ Note the nested `menuItems` array within each top-level `menuItem`. For more det
   {JSON.stringify(HeaderInternalData.menuItems[4], null, 2)}
 </code>
 
-### Example of a combination
+### Example panel with a more complex combination
+
+One highlight, section headings, and allowing breaks across columns.
 
 <div class="sbdocs-preview-full-width">
   <Story id="global-layout-headers-for-internal-sites-elements-panel--combination" />

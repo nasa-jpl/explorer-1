@@ -5,7 +5,7 @@ import {
   NavInternalPanelAllHighlightsData,
   NavInternalPanelWithHeadingsData,
   NavInternalPanelCombinationData,
-} from '../NavInternal/NavInternalPanel.stories'
+} from './NavInternalPanel.stories'
 
 export default {
   title: 'Global Layout/Headers/For Internal Sites/Elements/Navigation',
@@ -55,7 +55,6 @@ export const NavInternalData = {
       id: 1,
       title: 'Home',
       url: '#',
-      isActive: false,
     },
     {
       id: 2,
@@ -82,7 +81,6 @@ export const NavInternalData = {
       id: 7,
       title: 'External',
       url: 'https://www.jpl.nasa.gov/',
-      isActive: false,
     },
   ],
 }
