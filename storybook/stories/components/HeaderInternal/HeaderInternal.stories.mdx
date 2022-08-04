@@ -36,9 +36,9 @@ Configurable to accommodate just an AppBar or complex site navigation, along wit
 Note: to view with functioning dropdowns and search field expansion, you must switch to <strong>Canvas View</strong>.
 
 - [With Navigation](#top)
-- [With Sign In Buttons](#with-sign-in-buttons)
+  - [With Sign In Buttons](#with-sign-in-buttons)
+  - [How to configure dropdowns and menu items](#configuring-dropdowns-and-menu-items)
 - [AppBar Only](#just-the-appbar)
-- [How to configure dropdowns and menu items](#configuring-dropdowns-and-menu-items)
 
 <span id="top"></span>
 
@@ -88,39 +88,6 @@ Note: to view with functioning dropdowns and search field expansion, you must sw
 </Canvas>
 
 <ArgsTable story="With Sign In" />
-
-<span id="just-the-appbar"></span>
-
-## Just the AppBar
-
-<Canvas>
-  <Story
-    name="AppBar Only"
-    args={{ ...HeaderInternalData, menuItems: [], includeSearch: false }}
-  >
-    {HeaderInternalTemplate.bind({})}
-  </Story>
-</Canvas>
-
-<ArgsTable story="AppBar Only" />
-
-### With Sign In buttons
-
-<Canvas>
-  <Story
-    name="AppBar Only With Sign In"
-    args={{
-      ...HeaderInternalData,
-      menuItems: [],
-      includeSearch: false,
-      includeSignIn: true,
-    }}
-  >
-    {HeaderInternalTemplate.bind({})}
-  </Story>
-</Canvas>
-
-<ArgsTable story="AppBar Only With Sign In" />
 
 <span id="configuring-dropdowns-and-menu-items"></span>
 
@@ -206,6 +173,37 @@ One highlight, section headings, and allowing breaks across columns.
   {JSON.stringify(HeaderInternalData.menuItems[5], null, 2)}
 </code>
 
---
+> In all of the above examples, `allowSectionBreaks` and `allowSectionColumns` can be modified as needed. For information on what these are, see documentation on the Internal Navigation [Panel](?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic)
 
-In all of the above examples, `allowSectionBreaks` and `allowSectionColumns` can be modified as needed. For information on what these are, see documentation on the Internal Navigation [Panel](?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic)
+<span id="just-the-appbar"></span>
+
+## Just the AppBar
+
+<Canvas>
+  <Story
+    name="AppBar Only"
+    args={{ ...HeaderInternalData, menuItems: [], includeSearch: false }}
+  >
+    {HeaderInternalTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="AppBar Only" />
+
+### With Sign In buttons
+
+<Canvas>
+  <Story
+    name="AppBar Only With Sign In"
+    args={{
+      ...HeaderInternalData,
+      menuItems: [],
+      includeSearch: false,
+      includeSignIn: true,
+    }}
+  >
+    {HeaderInternalTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="AppBar Only With Sign In" />
