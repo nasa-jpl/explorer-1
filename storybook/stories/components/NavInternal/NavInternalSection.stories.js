@@ -26,7 +26,7 @@ export default {
     docs: {
       description: {
         component:
-          'A flexible component that can accommodate a variety of menu item hierarchies. Usage can range from single-level menu items (one component per item) to a list of menu items with a linked heading. Intended for use within [NavInternalPanel](/?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic) ',
+          'A flexible component that can accommodate a variety of menu item hierarchies. Usage can range from single-level menu items (one component per item) to a list of menu items with a linked heading. Intended for use within [NavInternalPanel](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic) ',
       },
     },
     html: {
