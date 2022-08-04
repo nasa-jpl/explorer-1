@@ -10,6 +10,7 @@ import { IconExternalTemplate } from '../Icons/IconExternal'
 
 export const BaseButtonTemplate = ({
   label,
+  ariaLabel,
   variant,
   link,
   caret,
@@ -23,7 +24,6 @@ export const BaseButtonTemplate = ({
 }) => {
   if (iconOnly == undefined) iconOnly = false
   fancybox = fancybox ? fancybox : ''
-  let ariaLabel = label
   let iconTemplate = ''
   let computedClass = ''
 
@@ -47,6 +47,7 @@ export const BaseButtonTemplate = ({
   if (cssClass) computedClass += ' ' + cssClass
   if (iconOnly) {
     computedClass += ' -icon-only'
+    ariaLabel ? (ariaLabel = ariaLabel) : (ariaLabel = label)
     label = ''
   }
 
@@ -54,8 +55,9 @@ export const BaseButtonTemplate = ({
     return `
       <button 
         disabled="disabled"
-        class="BaseButton text-contrast-none inline-block ${computedClass}"
-        aria-label="${ariaLabel}"
+        class="BaseButton text-contrast-none inline-block ${computedClass}" ${
+      ariaLabel ? `aria-label="${ariaLabel}"` : ''
+    }
       >
         <span class="label block">
           ${label}${iconTemplate}
@@ -67,9 +69,16 @@ export const BaseButtonTemplate = ({
       <a 
         href="${link}" 
         class="BaseButton text-contrast-none inline-block ${computedClass}" ${
-      target ? `target="${target}"` : ''
+      target
+        ? `
+        target="${target}"`
+        : ''
+    } ${
+      ariaLabel
+        ? `
+        aria-label="${ariaLabel}"`
+        : ''
     }
-        aria-label="${ariaLabel}"
       >
         <span class="label block">
           ${label}${iconTemplate}
@@ -79,9 +88,12 @@ export const BaseButtonTemplate = ({
   } else {
     return `
       <button 
-        class="BaseButton text-contrast-none inline-block ${computedClass}"
-        aria-label="${ariaLabel}"
-        ${fancybox}
+        class="BaseButton text-contrast-none inline-block ${computedClass}" ${
+      ariaLabel
+        ? `
+        aria-label="${ariaLabel}"`
+        : ''
+    } ${fancybox}
       >
         <span class="label block">
           ${label}${iconTemplate}

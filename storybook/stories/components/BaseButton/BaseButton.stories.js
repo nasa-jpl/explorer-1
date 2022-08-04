@@ -17,6 +17,11 @@ export default {
       type: 'string',
       description: 'Button label',
     },
+    ariaLabel: {
+      type: 'string',
+      description:
+        "ARIA label. Recommended if your button label isn't descriptive, or if it only contains an icon.",
+    },
     variant: {
       type: 'string',
       description: 'Button variant type',
