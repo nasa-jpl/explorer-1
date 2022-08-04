@@ -72,7 +72,7 @@ export const FooterInternalTemplate = ({
               link: 'https://www.jpl.nasa.gov/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-center lg:hidden text-jpl-sky-blue can-hover:hover:text-jpl-sky-blue-dark',
+                'flex flex-nowrap items-baseline lg:hidden text-jpl-sky-blue can-hover:hover:text-jpl-sky-blue-dark',
               target: '_blank',
             })}
           </li>
