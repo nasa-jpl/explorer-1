@@ -16,7 +16,7 @@ export default {
     docs: {
       description: {
         component:
-          'Navigation with mega-menu dropdowns. Note: mobile view will only work when used with the [Internal Header](/?path=/docs/global-layout-headers-for-internal-sites--with-navigation).',
+          'Navigation with mega-menu dropdowns. Note: mobile view will only work when used with the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--with-navigation).',
       },
     },
     html: {
@@ -25,17 +25,6 @@ export default {
     themes: {
       clearable: false,
       list: [
-        {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
-          color: '#ffffff',
-          default: true,
-        },
-        {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
-        },
         {
           name: 'ThemeInternal',
           class: ['ThemeInternal', 'sbdocs-preview-full-width'],

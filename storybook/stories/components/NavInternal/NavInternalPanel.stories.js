@@ -52,27 +52,17 @@ export default {
     docs: {
       description: {
         component:
-          'The contents of a mega-menu-style dropdown. Intended for use within the [Internal Header](global-layout-headers-for-internal-sites--with-navigation)',
+          'The contents of a mega-menu-style dropdown. Intended for use within the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--with-navigation)',
       },
     },
     themes: {
       clearable: false,
       list: [
         {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
-          color: '#ffffff',
-          default: true,
-        },
-        {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
-        },
-        {
           name: 'ThemeInternal',
           class: ['ThemeInternal', 'sbdocs-preview-full-width'],
           color: '#53C8ED',
+          default: true,
         },
       ],
     },
