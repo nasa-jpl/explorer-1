@@ -1,4 +1,7 @@
-.LogoJPL {
-  width: 2.25em;
-  height: auto;
+@layer base {
+  .LogoJPL {
+    @apply w-18; // 4.5rem // 72px with base text size of 16px
+
+    height: auto;
+  }
 }

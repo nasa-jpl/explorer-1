@@ -1,8 +1,8 @@
-export const LogoJPLTemplate = ({ customClass }) => {
-  if (!customClass) customClass = ''
+export const LogoJPLTemplate = ({ colorClass }) => {
+  if (!colorClass) colorClass = 'text-jpl-red'
   return `
     <svg
-      class="LogoJPL ${customClass}"
+      class="LogoJPL ${colorClass}"
       width="74"
       height="22"
       viewBox="0 0 74 22"

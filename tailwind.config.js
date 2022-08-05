@@ -264,6 +264,7 @@ module.exports = {
       spacing: {
         '2px': '2px',
         14: '3.5rem',
+        14.5: '3.625rem',
         18: '4.5rem',
         22: '5.5rem',
         25: '6.25rem',
