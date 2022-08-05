@@ -69,7 +69,7 @@ export const AppBarInternalTemplate = ({
     <div class="bg-gradient-to-r from-jpl-red to-jpl-red-darker text-white font-medium relative z-10">
       <div class="flex flex-row px-4 lg:container mx-auto py-2 items-center justify-between">
         <div class="flex flex-row items-center py-px">
-          <a href="//js.jpl.nasa.gov" aria-label="JPL Space" class="block lg:text-sm mr-10">
+          <a href="//js.jpl.nasa.gov" aria-label="JPL Space" class="block mr-10">
             ${LogoJPLTemplate({ colorClass: 'text-white lg:w-14.5' })}
           </a>
           <a class="hidden lg:flex flex-row items-center text-3xl py-px leading-tighter tracking-wide" href="/" title="${siteTitle}">
