@@ -93,6 +93,7 @@ module.exports = {
         '2xl': '1320px',
         '3xl': '1320px',
       },
+      padding: '1rem', // use .px-0 as needed to override default padding
     },
     colors: {
       ...foundationColors,
@@ -209,6 +210,9 @@ module.exports = {
         scaleIn: 'scaleIn 300ms ease-in forwards',
         rotate: 'rotate 1s linear infinite',
       },
+      borderWidth: {
+        3: '3px',
+      },
       boxShadow: {
         jpl: '-4px 5px 60px 0 rgba(0, 0, 0, 0.1)',
       },
@@ -260,6 +264,7 @@ module.exports = {
       spacing: {
         '2px': '2px',
         14: '3.5rem',
+        14.5: '3.625rem',
         18: '4.5rem',
         22: '5.5rem',
         25: '6.25rem',

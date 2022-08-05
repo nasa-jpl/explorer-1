@@ -1,0 +1,363 @@
+.NavInternal {
+  // mobile-first
+  @apply relative overflow-y-auto h-full left-0 right-0 z-20;
+  // unset mobile-specific styles
+  @screen lg {
+    position: unset; // required
+    overflow-y: unset; // required
+    left: unset;
+    right: unset;
+    height: unset;
+    z-index: unset;
+  }
+
+  .panel-wrapper {
+    // complex transitions, so cannot use tailwind classes
+    visibility: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms,
+      max-height 0s linear 300s;
+    @apply h-0 overflow-hidden;
+
+    @screen lg {
+      height: unset;
+    }
+
+    &.spacer::before {
+      content: '';
+      @apply block relative z-0 w-full h-full shadow-lg;
+    }
+  }
+
+  li.expanded {
+    .panel-wrapper {
+      // complex transitions, so cannot use tailwind classes
+      visibility: visible;
+      max-height: 100%;
+      opacity: 1;
+      transition: visibility 0s, opacity 300ms, max-height 0s;
+      @apply h-auto overflow-visible;
+
+      @screen lg {
+        height: unset;
+      }
+    }
+  }
+
+  .top-level {
+    // horizontal scroll overflow
+    // custom scrollbars for horizontal scroll
+    // see https://css-tricks.com/the-current-state-of-styling-scrollbars/#an-updated-version-of-a-fairly-consistently-styled-scrollbar-across-firefox-safari-chrome
+    // TODO: remove these scrollbar styles once arrow buttons are in place
+    &::-webkit-scrollbar {
+      width: 1px; // needs to be set, but value doesn't seem to matter
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 6px;
+      border: 6px solid white;
+      border-left: none;
+      border-right: none;
+    }
+
+    > li {
+      @screen lg {
+        @apply border-t-3 border-transparent;
+      }
+
+      > button,
+      > a {
+        @apply cursor-pointer px-4 py-3 border-l-3 border-transparent text-xl text-gray-dark font-medium text-left leading-tight;
+
+        @screen lg {
+          @apply mx-4 px-1 py-6 border-l-0 border-b-3 relative z-10 text-base whitespace-nowrap h-full;
+        }
+
+        &:focus {
+          @apply border-gray-dark border-opacity-20 outline-none;
+        }
+
+        @include hover {
+          @apply text-gray-mid-dark;
+        }
+        // bold invisible psuedo element to prevent layout shift on hover
+        > span {
+          @apply inline-flex flex-col;
+
+          &::after {
+            content: attr(data-text);
+            content: attr(data-text) / '';
+            user-select: none;
+            @apply font-bold invisible h-0 overflow-hidden pointer-events-none;
+
+            @media speech {
+              @apply hidden;
+            }
+          }
+        }
+      }
+
+      > button {
+        .IconDropdown {
+          font-size: 0.6rem;
+          @apply ml-2 pointer-events-none flex-shrink-0;
+        }
+      }
+
+      &:first-child {
+        @screen lg {
+          > button,
+          > a {
+            @apply ml-0 pl-0;
+          }
+        }
+      }
+
+      &:last-child {
+        @screen lg {
+          > button,
+          > a {
+            @apply mr-0 pr-0;
+          }
+        }
+      }
+
+      &.active,
+      &.ancestor {
+        > button,
+        > a {
+          @apply font-bold border-jpl-red;
+        }
+      }
+
+      &.expanded {
+        > button {
+          @apply font-bold border-black;
+        }
+      }
+    }
+  }
+
+  .NavInternalPanel {
+    @apply bg-off-white;
+
+    @screen lg {
+      max-height: 60vh;
+      @apply overflow-y-auto;
+    }
+
+    // non-grid columns and layout ---------------------------------//
+    @responsive {
+      .auto-cols-2,
+      .auto-cols-3 {
+        column-gap: 3.5rem; // corresponds with grid .gap-14
+      }
+
+      .auto-cols-2 {
+        column-count: 2;
+      }
+
+      .auto-cols-3 {
+        column-count: 3;
+      }
+
+      .no-auto-cols {
+        column-count: auto;
+      }
+    }
+
+    .NavInternalSection {
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      // browser-specific rules for consistent multicol break-inside behavior
+      // see: https://www.browserstack.com/guide/create-browser-specific-css
+      // firefox
+      @supports (-moz-appearance: none) {
+        display: inline-grid;
+      }
+      // safari 11+
+      @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+          display: inline-grid;
+        }
+      }
+    }
+
+    &.allow-breaks {
+      .NavInternalSection {
+        -webkit-column-break-inside: auto;
+        page-break-inside: auto;
+        break-inside: auto;
+        display: block;
+      }
+    }
+
+    p.NavInternalSection:last-of-type {
+      @apply mb-6;
+    }
+
+    .NavInternalSection.has-children {
+      @apply mb-6;
+    }
+
+    .NavInternalSection:last-child {
+      @apply mb-0;
+
+      @screen lg {
+        @apply mb-6;
+      }
+    }
+    // /end of non-grid columns and layout styles ------------------//
+
+    .repeated-item {
+      a {
+        @apply text-jpl-sky-blue-dark leading-tight transition-colors text-lg font-medium;
+
+        span {
+          @apply border-b border-transparent;
+        }
+
+        @include hover {
+          @apply text-jpl-sky-blue;
+        }
+
+        &.active {
+          @apply text-black;
+
+          > span {
+            @apply border-jpl-red;
+          }
+        }
+      }
+    }
+
+    /* stylelint-disable no-duplicate-selectors */
+    .NavInternalSection {
+      a {
+        @apply text-gray-mid-dark leading-tight transition-colors text-lg font-medium;
+
+        @screen lg {
+          @apply text-base font-normal;
+        }
+
+        > span {
+          @apply border-b border-transparent;
+        }
+
+        svg {
+          @apply inline-block;
+
+          &.IconExternal {
+            // Compensating for oversized external link icon SVG
+            font-size: 0.875em;
+          }
+
+          &.IconDownload {
+            position: relative;
+            top: -0.125rem;
+          }
+        }
+
+        @include hover {
+          @apply text-gray-dark;
+
+          > span {
+            @apply border-gray-dark;
+          }
+        }
+
+        &.text-subtitle {
+          @apply text-jpl-sky-blue-dark transition-colors;
+
+          > span {
+            @apply border-0;
+          }
+
+          @include hover {
+            @apply text-jpl-sky-blue;
+          }
+
+          svg.IconExternal {
+            @apply inline-block ml-1 align-baseline text-xs;
+          }
+        }
+        // overrides for icon handling
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        @apply block;
+
+        svg {
+          &.IconArrow {
+            @apply hidden;
+          }
+
+          &.IconDownload {
+            @apply text-sm ml-1;
+          }
+
+          &.IconExternal {
+            @apply text-xs ml-1;
+          }
+        }
+      }
+
+      > .text-subtitle {
+        @apply text-lg;
+
+        @screen lg {
+          @apply text-base;
+        }
+      }
+
+      a.active,
+      a.text-subtitle.active {
+        @apply text-black;
+
+        > span {
+          @apply border-b border-jpl-red;
+        }
+      }
+    }
+  }
+}
+
+#NavMobileToggle {
+  .IconClose {
+    @apply hidden;
+  }
+
+  &.expanded {
+    .IconMenu {
+      @apply hidden;
+    }
+
+    .IconClose {
+      @apply block;
+    }
+  }
+}
+
+#NavBgOverlay {
+  // complex transitions, so cannot use tailwind classes
+  visibility: visible;
+  opacity: 0.8;
+  transition: visibility 0s linear 0s, opacity 300ms;
+  // must use a custom class, cannot use .invisible, or else other rules will get erroneously created
+  // see: https://github.jpl.nasa.gov/18x/WCP/issues/492
+  &.invisible-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+  }
+}

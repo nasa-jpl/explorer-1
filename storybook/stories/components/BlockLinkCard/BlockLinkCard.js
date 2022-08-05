@@ -14,7 +14,7 @@ export const BlockLinkCardTemplate = ({
 }) => {
   if (!headingLevel) headingLevel = 'p'
   if (!customClass) customClass = ''
-  if (compact === null) {
+  if (compact == undefined) {
     compact = false
   }
   let baseImagePlaceholder = BaseImagePlaceholderTemplate({

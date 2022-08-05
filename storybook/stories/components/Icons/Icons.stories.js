@@ -44,6 +44,7 @@ import { IconSocialInstagramTemplate } from './IconSocialInstagram'
 import { IconSocialTwitterTemplate } from './IconSocialTwitter'
 import { IconSocialYoutubeTemplate } from './IconSocialYoutube'
 import { IconTimeTemplate } from './IconTime'
+import { IconUserTemplate } from './IconUser'
 
 export default {
   title: 'Foundation/Icons',
@@ -146,6 +147,9 @@ Search.args = IconData
 
 export const Time = IconTimeTemplate.bind()
 Time.args = IconData
+
+export const User = IconUserTemplate.bind()
+User.args = IconData
 
 export const SocialEmail = IconSocialEmailTemplate.bind()
 SocialEmail.args = { customClass: 'text-base text-black' }

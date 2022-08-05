@@ -17,6 +17,11 @@ export default {
       type: 'string',
       description: 'Button label',
     },
+    ariaLabel: {
+      type: 'string',
+      description:
+        "ARIA label. Recommended if your button label isn't descriptive, or if it only contains an icon.",
+    },
     variant: {
       type: 'string',
       description: 'Button variant type',
@@ -62,6 +67,36 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    icon: {
+      type: 'string',
+      description: 'Button variant type',
+      control: {
+        type: 'select',
+        options: [
+          'next',
+          'prev',
+          'expand',
+          'external',
+          'facebook',
+          'twitter',
+          'instagram',
+          'youtube',
+        ],
+      },
+      table: {
+        defaultValue: { summary: 'none' },
+      },
+    },
+    iconOnly: {
+      type: 'boolean',
+      description: 'If the button will only include an icon and no text.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
   },
   parameters: {
     viewMode: 'docs',
@@ -91,6 +126,8 @@ Primary_Button.args = {
   caret: false,
   compact: false,
   disabled: false,
+  icon: null,
+  iconOnly: false,
 }
 export const Primary_Internal_Button = BaseButtonTemplate.bind({})
 Primary_Internal_Button.args = {
@@ -134,6 +171,7 @@ Primary_Icon_Button.args = {
   compact: false,
   disabled: false,
   icon: 'next',
+  iconOnly: true,
 }
 
 export const Secondary_Icon_Button = BaseButtonTemplate.bind({})
@@ -145,6 +183,7 @@ Secondary_Icon_Button.args = {
   compact: false,
   disabled: false,
   icon: 'next',
+  iconOnly: true,
 }
 
 export const Dark_Icon_Button = BaseButtonTemplate.bind({})
@@ -156,6 +195,7 @@ Dark_Icon_Button.args = {
   compact: false,
   disabled: false,
   icon: 'next',
+  iconOnly: true,
 }
 Dark_Icon_Button.decorators = [
   (Story) => `<div class="p-5 bg-dark-blue">${Story()}</div>`,
@@ -170,6 +210,7 @@ export const Social_Icon_Button = () => {
     compact: true,
     disabled: false,
     icon: 'facebook',
+    iconOnly: true,
     cssClass: '-facebook w-12 h-12 text-2xl mr-3',
   })
   let twitter = BaseButtonTemplate({
@@ -180,6 +221,7 @@ export const Social_Icon_Button = () => {
     compact: true,
     disabled: false,
     icon: 'twitter',
+    iconOnly: true,
     cssClass: '-twitter w-12 h-12 text-2xl mr-3',
   })
   let instagram = BaseButtonTemplate({
@@ -190,6 +232,7 @@ export const Social_Icon_Button = () => {
     compact: true,
     disabled: false,
     icon: 'instagram',
+    iconOnly: true,
     cssClass: '-instagram w-12 h-12 text-2xl mr-3',
   })
   let youtube = BaseButtonTemplate({
@@ -200,6 +243,7 @@ export const Social_Icon_Button = () => {
     compact: true,
     disabled: false,
     icon: 'youtube',
+    iconOnly: true,
     cssClass: '-youtube w-12 h-12 text-2xl mr-3',
   })
 
@@ -228,4 +272,5 @@ Disabled_Icon_Button.args = {
   compact: false,
   disabled: true,
   icon: 'next',
+  iconOnly: true,
 }
