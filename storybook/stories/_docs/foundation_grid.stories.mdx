@@ -110,7 +110,7 @@ Some common component layouts:
 
 ## Mixed Bleed
 
-Some components only bleed to one side of the screen. There is a `.MixedBleedGrid` class available for use that sets named grid lines.
+Some components only bleed to one side of the screen. There is a `.MixedBleedGrid` class available for use that sets named grid lines. Note that these grid lines assume `.container` has zero padding.
 
 | Named Line        | Description                          |
 | :---------------- | :----------------------------------- |
@@ -152,11 +152,13 @@ These named lines are used to construct the following `col-start-` and `col-end-
 }
 ```
 
+Note the usage of `.px-0` in addition to `.container` in the example below:
+
 <Canvas className="sbdocs-preview-full-width">
   <Story name="MixedBleedGridLines">
     {`
       <div class="max-w-screen-3xl mx-auto bg-white">
-        <div class="BaseGrid container mx-auto bg-gray-light-mid mb-5">
+        <div class="BaseGrid container px-0 mx-auto bg-gray-light-mid mb-5">
           <div class="text-center text-white bg-gray-mid-dark py-4">1</div>
           <div class="text-center text-white bg-gray-mid-dark py-4">2</div>
           <div class="text-center text-white bg-gray-mid-dark py-4">3</div>

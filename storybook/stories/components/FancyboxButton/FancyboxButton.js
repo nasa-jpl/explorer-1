@@ -25,6 +25,7 @@ export const FancyboxButtonTemplate = ({
     icon,
     label,
     fancybox,
+    iconOnly: true,
   })
 
   return baseButton

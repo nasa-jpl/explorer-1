@@ -6,20 +6,24 @@ import { IconSocialTwitterTemplate } from '../Icons/IconSocialTwitter'
 import { IconSocialInstagramTemplate } from '../Icons/IconSocialInstagram'
 import { IconSocialYoutubeTemplate } from '../Icons/IconSocialYoutube'
 import { IconExpandTemplate } from '../Icons/IconExpand'
+import { IconExternalTemplate } from '../Icons/IconExternal'
 
 export const BaseButtonTemplate = ({
   label,
+  ariaLabel,
   variant,
   link,
   caret,
   compact,
   disabled,
   icon,
+  iconOnly,
   cssClass,
   fancybox,
+  target,
 }) => {
+  if (iconOnly == undefined) iconOnly = false
   fancybox = fancybox ? fancybox : ''
-  let ariaLabel = label
   let iconTemplate = ''
   let computedClass = ''
 
@@ -30,6 +34,7 @@ export const BaseButtonTemplate = ({
   else if (icon == 'twitter') iconTemplate = IconSocialTwitterTemplate({})
   else if (icon == 'instagram') iconTemplate = IconSocialInstagramTemplate({})
   else if (icon == 'youtube') iconTemplate = IconSocialYoutubeTemplate({})
+  else if (icon == 'external') iconTemplate = IconExternalTemplate({})
   else if (caret) iconTemplate = IconCaretTemplate({})
 
   // setup classnames
@@ -40,8 +45,9 @@ export const BaseButtonTemplate = ({
 
   if (compact) computedClass += ' -compact'
   if (cssClass) computedClass += ' ' + cssClass
-  if (icon) {
+  if (iconOnly) {
     computedClass += ' -icon-only'
+    ariaLabel ? (ariaLabel = ariaLabel) : (ariaLabel = label)
     label = ''
   }
 
@@ -49,8 +55,9 @@ export const BaseButtonTemplate = ({
     return `
       <button 
         disabled="disabled"
-        class="BaseButton text-contrast-none inline-block ${computedClass}"
-        aria-label="${ariaLabel}"
+        class="BaseButton text-contrast-none inline-block ${computedClass}" ${
+      ariaLabel ? `aria-label="${ariaLabel}"` : ''
+    }
       >
         <span class="label block">
           ${label}${iconTemplate}
@@ -61,8 +68,17 @@ export const BaseButtonTemplate = ({
     return `
       <a 
         href="${link}" 
-        class="BaseButton text-contrast-none inline-block ${computedClass}"
-        aria-label="${ariaLabel}"
+        class="BaseButton text-contrast-none inline-block ${computedClass}" ${
+      target
+        ? `
+        target="${target}"`
+        : ''
+    } ${
+      ariaLabel
+        ? `
+        aria-label="${ariaLabel}"`
+        : ''
+    }
       >
         <span class="label block">
           ${label}${iconTemplate}
@@ -72,9 +88,12 @@ export const BaseButtonTemplate = ({
   } else {
     return `
       <button 
-        class="BaseButton text-contrast-none inline-block ${computedClass}"
-        aria-label="${ariaLabel}"
-        ${fancybox}
+        class="BaseButton text-contrast-none inline-block ${computedClass}" ${
+      ariaLabel
+        ? `
+        aria-label="${ariaLabel}"`
+        : ''
+    } ${fancybox}
       >
         <span class="label block">
           ${label}${iconTemplate}

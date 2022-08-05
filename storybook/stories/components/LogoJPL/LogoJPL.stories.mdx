@@ -1,0 +1,69 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { LogoJPLTemplate } from './LogoJPL'
+
+<Meta
+  title="Foundation/Logos/LogoJPL"
+  component={LogoJPLTemplate}
+  parameters={{
+    viewMode: 'docs',
+  }}
+/>
+
+# JPL Logo
+
+The JPL Logo has strict color usage restrictions and should only be used on internal sites, namely in the [AppBar](?path=/docs/global-layout-headers-for-internal-sites-elements-overview--page).
+
+You can change the size of the logo by using [TailwindCSS width classes](https://v2.tailwindcss.com/docs/width). Explorer 1 includes other widths not documented by Tailwind. You can find all custom widths in the [appendix](?path=/docs/appendix-tailwindcss--page), in the `extend.spacing` object.
+
+## On light backgrounds
+
+### Standard
+
+<Canvas>
+  <Story
+    name="Standard"
+    storyName="Standard"
+    args={{ colorClass: 'text-jpl-red' }}
+    argTypes={{
+      colorClass: {
+        type: 'string',
+        description: 'Only a few color options are allowed.',
+        control: {
+          type: 'select',
+          options: ['text-jpl-red', 'text-black', 'text-white'],
+        },
+        table: {
+          defaultValue: { summary: 'text-jpl-red' },
+        },
+      },
+    }}
+  >
+    {LogoJPLTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+<span id="with-sign-in-buttons"></span>
+
+### Black
+
+<Canvas>
+  <Story name="Black" args={{ colorClass: 'text-black' }}>
+    {LogoJPLTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## On dark backgrounds
+
+### White
+
+<Canvas>
+  <Story
+    name="White"
+    args={{ colorClass: 'text-white' }}
+    decorators={[(Story) => `<div class="p-5 bg-black">${Story()}</div>`]}
+  >
+    {LogoJPLTemplate.bind({})}
+  </Story>
+</Canvas>

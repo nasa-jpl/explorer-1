@@ -21,5 +21,11 @@ export default {
 export const Default = SearchInputTemplate.bind({})
 Default.storyName = 'SearchInput'
 Default.args = {
-  placeholder: '',
+  placeholder: 'Search this site&hellip;',
+}
+
+export const Compact = SearchInputTemplate.bind({})
+Compact.args = {
+  compact: true,
+  placeholder: 'Search this site&hellip;',
 }
