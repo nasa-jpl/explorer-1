@@ -15,6 +15,8 @@ We use a 12-column grid paired with our [Responsive Design](?path=/docs/guides-r
 - [Page layout recommendations](#page-layout-recommendations)
 - [Full Page Example](#full-page-example)
 
+<span id="basegrid"></span>
+
 ## BaseGrid
 
 There is a globally available `.BaseGrid` class that is the basis of our main grid, which contains `12` columns with a gutter of `gap-6`.
@@ -69,6 +71,8 @@ If you just need a container and no grid, you can simply omit the `BaseGrid`:
 <div class="container mx-auto">Content with no grid</div>
 ```
 
+<span id="example-usage"></span>
+
 ### Example Usage
 
 Some common component layouts:
@@ -101,6 +105,8 @@ Some common component layouts:
 </Canvas>
 
 ---
+
+<span id="mixed-bleed"></span>
 
 ## Mixed Bleed
 
@@ -196,6 +202,8 @@ These named lines are used to construct the following `col-start-` and `col-end-
   </Story>
 </Canvas>
 
+<span id="example-usage-1"></span>
+
 ### Example Usage
 
 Responsive styles within MixedBleed will need to be determined on a case-by-base basis. Usage of this class is best followed by observing existing usage and examples.
@@ -262,6 +270,8 @@ When elements of an indented MixedBleed area must align with the BaseGrid, we ne
   </Story>
 </Canvas>
 
+<span id="page-layout-recommendations"></span>
+
 ## Page layout recommendations
 
 Explorer 1 components vary in width. This can make page layouts challenging if the entire content area is bound by a single `.container` div, a strategy that is commonly used on other websites. For Explorer 1, we recommend avoiding this strategy and instead giving each section or component on the page its own set of layout markup.
@@ -310,6 +320,8 @@ View the code below for an example of how to give each section its own set of la
 </Canvas>
 
 <br />
+
+<span id="full-page-example"></span>
 
 ## Full Page Example
 
