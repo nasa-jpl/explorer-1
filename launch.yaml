@@ -1,6 +1,6 @@
 phases:
   setup:
-    - npm ci
+    - npm install
     - npm run build-storybook
 routes:
   storybook:
