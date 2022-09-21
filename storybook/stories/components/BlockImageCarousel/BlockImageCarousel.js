@@ -47,12 +47,14 @@ export const BlockImageCarouselTemplate = ({
               cssClass: 'z-10 border-collapse px-1 py-2 swiper-prev xl:text-xl',
               icon: 'prev',
               label: 'Previous slide',
+              iconOnly: true,
             })}
             ${BaseButtonTemplate({
               variant: 'primary',
               cssClass: 'z-10 border-collapse px-1 py-2 swiper-next xl:text-xl',
               icon: 'next',
               label: 'Next slide',
+              iconOnly: true,
             })}
           </div>
         </div>
