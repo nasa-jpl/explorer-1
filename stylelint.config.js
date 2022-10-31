@@ -3,14 +3,11 @@ module.exports = {
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
   rules: {
-    'color-hex-length': 'long',
-    'declaration-block-trailing-semicolon': null,
-    'no-descending-specificity': null,
     'at-rule-empty-line-before': [
       'always',
       {
         except: ['first-nested'],
-        ignore: ['after-comment', 'blockless-after-same-name-blockless'],
+        ignore: ['after-comment', 'blockless-after-blockless'],
         ignoreAtRules: ['apply'],
       },
     ],
@@ -19,18 +16,35 @@ module.exports = {
       {
         // Ignore at-rules introduced by Tailwind and Sass via PostCSS.
         ignoreAtRules: [
-          'tailwind',
-          'variants',
-          'responsive',
           'apply',
-          'screen',
-          'layer',
-          'include',
-          'mixin',
-          'for',
-          'use',
           'extend',
+          'for',
+          'function',
+          'include',
+          'layer',
+          'mixin',
+          'responsive',
+          'return',
+          'screen',
+          'tailwind',
+          'use',
+          'variants',
         ],
+      },
+    ],
+    'color-hex-length': 'long',
+    'declaration-block-trailing-semicolon': null,
+    'function-name-case': [
+      'lower',
+      {
+        ignoreFunctions: ['pxToRem'],
+      },
+    ],
+    'no-descending-specificity': null,
+    'no-invalid-position-at-import-rule': [
+      true,
+      {
+        ignoreAtRules: ['use'], // Sass will not compile if `@use` is not before all other rules.
       },
     ],
   },
