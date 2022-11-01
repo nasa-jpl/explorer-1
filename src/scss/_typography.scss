@@ -109,7 +109,8 @@ h3,
 
 h4,
 .text-h4 {
-  @apply font-medium;
+  // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h4
+  @apply font-medium tracking-normal;
   font-size: pxToRem(22);
   line-height: 1.25;
 
@@ -130,7 +131,8 @@ h4,
 
 h5,
 .text-h5 {
-  @apply font-medium;
+  // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h5
+  @apply font-medium tracking-normal;
   font-size: pxToRem(20);
   line-height: 1.25;
 
@@ -150,7 +152,8 @@ h5,
 
 h6,
 .text-h6 {
-  @apply font-bold;
+  // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h6
+  @apply font-bold tracking-normal;
   font-size: pxToRem(18);
   line-height: 1.666666667;
 
