@@ -7,261 +7,261 @@
   @return math.div($pxValue, 16) * 1rem;
 }
 
-// typography styles
-html {
-  @apply font-primary;
+@layer base {
+  html {
+    @apply font-primary;
 
-  /* Make type rendering look crisper */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    /* Make type rendering look crisper */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  /* Disable auto-enlargement of small text in Safari */
-  text-size-adjust: 100%;
+    /* Disable auto-enlargement of small text in Safari */
+    text-size-adjust: 100%;
 
-  /* Enable kerning and optional ligatures */
-  text-rendering: optimizeLegibility;
-}
+    /* Enable kerning and optional ligatures */
+    text-rendering: optimizeLegibility;
+  }
 
-/* stylelint-disable at-rule-empty-line-before, declaration-empty-line-before */
+  /* stylelint-disable at-rule-empty-line-before, declaration-empty-line-before */
+  .text-h1-alt {
+    @apply font-bold tracking-tighter;
+    font-size: pxToRem(45);
+    line-height: 1;
 
-.text-h1-alt {
-  @apply font-bold tracking-tighter;
-  font-size: pxToRem(45);
-  line-height: 1;
+    @screen sm {
+      font-size: pxToRem(54.5);
+    }
+    @screen md {
+      @apply tracking-tightest;
+      font-size: pxToRem(65.5);
+    }
+    @screen lg {
+      font-size: pxToRem(72);
+    }
+    @screen xl {
+      font-size: pxToRem(100);
+    }
+  }
 
-  @screen sm {
-    font-size: pxToRem(54.5);
-  }
-  @screen md {
-    @apply tracking-tightest;
-    font-size: pxToRem(65.5);
-  }
-  @screen lg {
-    font-size: pxToRem(72);
-  }
-  @screen xl {
-    font-size: pxToRem(100);
-  }
-}
-
-h1,
-.text-h1 {
-  @apply font-medium tracking-tighter;
-  font-size: pxToRem(42);
-  line-height: 1.15;
-
-  @screen sm {
-    font-size: pxToRem(62.75);
-  }
-  @screen md {
-    font-size: pxToRem(65.75);
-    letter-spacing: -1.5px;
-  }
-  @screen lg {
-    font-size: pxToRem(69);
-  }
-  @screen xl {
-    font-size: pxToRem(72.25);
-  }
-}
-
-h2,
-.text-h2 {
-  @apply font-medium tracking-tight;
-  font-size: pxToRem(36);
-  line-height: 1.25;
-
-  @screen sm {
-    font-size: pxToRem(38);
-  }
-  @screen md {
-    @apply tracking-tighter;
-    font-size: pxToRem(40);
-  }
-  @screen lg {
+  h1,
+  .text-h1 {
+    @apply font-medium tracking-tighter;
     font-size: pxToRem(42);
-  }
-  @screen xl {
-    font-size: pxToRem(44);
-  }
-}
+    line-height: 1.15;
 
-h3,
-.text-h3 {
-  @apply font-medium tracking-tight;
-  font-size: pxToRem(27);
-  line-height: 1.25;
+    @screen sm {
+      font-size: pxToRem(62.75);
+    }
+    @screen md {
+      font-size: pxToRem(65.75);
+      letter-spacing: -1.5px;
+    }
+    @screen lg {
+      font-size: pxToRem(69);
+    }
+    @screen xl {
+      font-size: pxToRem(72.25);
+    }
+  }
 
-  @screen sm {
-    font-size: pxToRem(28.25);
-  }
-  @screen md {
-    @apply tracking-tighter;
-    font-size: pxToRem(30);
-  }
-  @screen lg {
-    font-size: pxToRem(31.25);
-  }
-  @screen xl {
-    font-size: pxToRem(33);
-  }
-}
+  h2,
+  .text-h2 {
+    @apply font-medium tracking-tight;
+    font-size: pxToRem(36);
+    line-height: 1.25;
 
-h4,
-.text-h4 {
-  // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h4
-  @apply font-medium tracking-normal;
-  font-size: pxToRem(22);
-  line-height: 1.25;
+    @screen sm {
+      font-size: pxToRem(38);
+    }
+    @screen md {
+      @apply tracking-tighter;
+      font-size: pxToRem(40);
+    }
+    @screen lg {
+      font-size: pxToRem(42);
+    }
+    @screen xl {
+      font-size: pxToRem(44);
+    }
+  }
 
-  @screen sm {
-    font-size: pxToRem(23.25);
-  }
-  @screen md {
-    @apply tracking-tight;
-    font-size: pxToRem(24.75);
-  }
-  @screen lg {
-    font-size: pxToRem(25.75);
-  }
-  @screen xl {
+  h3,
+  .text-h3 {
+    @apply font-medium tracking-tight;
     font-size: pxToRem(27);
-  }
-}
+    line-height: 1.25;
 
-h5,
-.text-h5 {
-  // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h5
-  @apply font-medium tracking-normal;
-  font-size: pxToRem(20);
-  line-height: 1.25;
+    @screen sm {
+      font-size: pxToRem(28.25);
+    }
+    @screen md {
+      @apply tracking-tighter;
+      font-size: pxToRem(30);
+    }
+    @screen lg {
+      font-size: pxToRem(31.25);
+    }
+    @screen xl {
+      font-size: pxToRem(33);
+    }
+  }
 
-  @screen sm {
-    font-size: pxToRem(21);
-  }
-  @screen md {
-    font-size: pxToRem(22.25);
-  }
-  @screen lg {
-    font-size: pxToRem(23.25);
-  }
-  @screen xl {
-    font-size: pxToRem(24.25);
-  }
-}
-
-h6,
-.text-h6 {
-  // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h6
-  @apply font-bold tracking-normal;
-  font-size: pxToRem(18);
-  line-height: 1.666666667;
-
-  @screen sm {
-    font-size: pxToRem(19);
-  }
-  @screen md {
-    font-size: pxToRem(20);
-  }
-  @screen lg {
-    font-size: pxToRem(21);
-  }
-  @screen xl {
+  h4,
+  .text-h4 {
+    // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h4
+    @apply font-medium tracking-normal;
     font-size: pxToRem(22);
+    line-height: 1.25;
+
+    @screen sm {
+      font-size: pxToRem(23.25);
+    }
+    @screen md {
+      @apply tracking-tight;
+      font-size: pxToRem(24.75);
+    }
+    @screen lg {
+      font-size: pxToRem(25.75);
+    }
+    @screen xl {
+      font-size: pxToRem(27);
+    }
   }
-}
 
-.text-subtitle {
-  @apply font-secondary uppercase text-base leading-tight tracking-wider;
-}
-
-.text-subtitle-sm {
-  @apply font-secondary uppercase text-sm leading-tight tracking-wider;
-}
-
-.text-body-lg {
-  font-size: pxToRem(18);
-  line-height: 1.666666667;
-
-  @screen sm {
-    font-size: pxToRem(19);
-  }
-  @screen md {
+  h5,
+  .text-h5 {
+    // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h5
+    @apply font-medium tracking-normal;
     font-size: pxToRem(20);
-  }
-  @screen lg {
-    font-size: pxToRem(21);
-  }
-  @screen xl {
-    font-size: pxToRem(22);
-  }
-}
+    line-height: 1.25;
 
-.text-body-md {
-  font-size: pxToRem(16);
-  line-height: 1.666666667;
+    @screen sm {
+      font-size: pxToRem(21);
+    }
+    @screen md {
+      font-size: pxToRem(22.25);
+    }
+    @screen lg {
+      font-size: pxToRem(23.25);
+    }
+    @screen xl {
+      font-size: pxToRem(24.25);
+    }
+  }
 
-  @screen lg {
+  h6,
+  .text-h6 {
+    // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h6
+    @apply font-bold tracking-normal;
     font-size: pxToRem(18);
-  }
-}
+    line-height: 1.666666667;
 
-.text-body-sm {
-  font-size: pxToRem(14);
-  line-height: 1.666666667;
-
-  @screen lg {
-    font-size: pxToRem(16);
-  }
-}
-
-.text-body-xs {
-  font-size: pxToRem(14);
-  line-height: 1.666666667;
-}
-
-// for stats areas (i.e. missions and robotics)
-.text-stats-xl {
-  @apply font-extrabold;
-
-  font-size: 2.125rem; // 34px
-
-  @screen lg {
-    font-size: 2.4rem;
+    @screen sm {
+      font-size: pxToRem(19);
+    }
+    @screen md {
+      font-size: pxToRem(20);
+    }
+    @screen lg {
+      font-size: pxToRem(21);
+    }
+    @screen xl {
+      font-size: pxToRem(22);
+    }
   }
 
-  @screen xl {
-    font-size: 2.75rem; // 44px
+  .text-subtitle {
+    @apply font-secondary uppercase text-base leading-tight tracking-wider;
   }
-}
 
-.text-stats-lg {
-  @apply font-extrabold;
+  .text-subtitle-sm {
+    @apply font-secondary uppercase text-sm leading-tight tracking-wider;
+  }
 
-  font-size: 2.125rem; // 34px
+  .text-body-lg {
+    font-size: pxToRem(18); // Based on Tailwind's text-lg
+    line-height: 1.666666667;
 
-  @screen lg {
+    @screen sm {
+      font-size: pxToRem(19);
+    }
+    @screen md {
+      font-size: pxToRem(20);
+    }
+    @screen lg {
+      font-size: pxToRem(21);
+    }
+    @screen xl {
+      font-size: pxToRem(22);
+    }
+  }
+
+  .text-body-md {
+    font-size: pxToRem(16); // Based on Tailwind's text-base
+    line-height: 1.666666667;
+
+    @screen lg {
+      font-size: pxToRem(18);
+    }
+  }
+
+  .text-body-sm {
+    font-size: pxToRem(14); // Based on Tailwind's text-sm
+    line-height: 1.666666667;
+
+    @screen lg {
+      font-size: pxToRem(16);
+    }
+  }
+
+  .text-body-xs {
+    font-size: pxToRem(14); // Based on Tailwind's text-sm, but doesn't scale up
+    line-height: 1.666666667;
+  }
+
+  // for stats areas (i.e. missions and robotics)
+  .text-stats-xl {
+    @apply font-extrabold;
+
     font-size: 2.125rem; // 34px
+
+    @screen lg {
+      font-size: 2.4rem;
+    }
+
+    @screen xl {
+      font-size: 2.75rem; // 44px
+    }
   }
 
-  @screen xl {
-    font-size: 2.25rem; // 36px
-  }
-}
+  .text-stats-lg {
+    @apply font-extrabold;
 
-// text readability class
-// use this in areas where text is overlaying an image
-// managed separately for the navigation since we can't @apply these classes there
-@responsive {
-  .text-contrast {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    font-size: 2.125rem; // 34px
+
+    @screen lg {
+      font-size: 2.125rem; // 34px
+    }
+
+    @screen xl {
+      font-size: 2.25rem; // 36px
+    }
   }
 
-  .text-contrast-none {
-    text-shadow: none;
-  }
-}
+  // text readability class
+  // use this in areas where text is overlaying an image
+  // managed separately for the navigation since we can't @apply these classes there
+  @responsive {
+    .text-contrast {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
 
-mark {
-  @apply bg-alert-gold-light p-0.5 border border-alert-gold rounded;
+    .text-contrast-none {
+      text-shadow: none;
+    }
+  }
+
+  mark {
+    @apply bg-alert-gold-light p-0.5 border border-alert-gold rounded;
+  }
 }
