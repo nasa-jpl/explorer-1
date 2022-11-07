@@ -42,7 +42,7 @@ export const HeroSmallTemplate = ({ label, cta, url, title, image, video }) => {
               ? `<p class="text-subtitle lg:mb-3 mb-2">${label}<span class="sr-only">.</span></p>`
               : ''
           }
-          <p class="text-h4 mb-0">
+          <p class="text-h3 font-semibold tracking-normal mb-0">
             <span class="mr-2">${title}</span>
             <span class="text-jpl-red-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-4xl transition-all duration-200 ease-in">
               ${IconArrowTemplate({ customClass: 'inline' })}
