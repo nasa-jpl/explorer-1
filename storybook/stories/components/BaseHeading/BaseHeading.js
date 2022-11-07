@@ -8,6 +8,7 @@ export const BaseHeadingTemplate = ({ text, size, tag, headingClass }) => {
     h3: 'text-h3',
     h4: 'text-h4',
     h5: 'text-h5',
+    h6: 'text-h6',
   }
   computedClass += sizes[size]
 

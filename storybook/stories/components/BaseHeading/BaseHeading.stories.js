@@ -21,7 +21,7 @@ export default {
       description: 'The display size of the heading.',
       control: {
         type: 'select',
-        options: ['h1', 'h2', 'h3', 'h4', 'h5'],
+        options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       },
       table: {
         defaultValue: { summary: 'h3' },
@@ -33,7 +33,7 @@ export default {
         'The semantic heading tag if different from the display size (ex: a heading looks like an `h4`, but semantically, it is an `h1`.',
       control: {
         type: 'select',
-        options: ['h1', 'h2', 'h3', 'h4', 'h5'],
+        options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       },
     },
   },
@@ -72,3 +72,6 @@ H4.args = { text: 'Heading 4', size: 'h4', tag: 'h4' }
 
 export const H5 = BaseHeadingTemplate.bind({})
 H5.args = { text: 'Heading 5', size: 'h5', tag: 'h5' }
+
+export const H6 = BaseHeadingTemplate.bind({})
+H6.args = { text: 'Heading 6', size: 'h6', tag: 'h6' }
