@@ -50,17 +50,17 @@
     line-height: 1.15;
 
     @screen sm {
-      font-size: pxToRem(62.75);
+      font-size: pxToRem(46);
     }
     @screen md {
-      font-size: pxToRem(65.75);
+      font-size: pxToRem(50);
       letter-spacing: -1.5px;
     }
     @screen lg {
-      font-size: pxToRem(69);
+      font-size: pxToRem(54);
     }
     @screen xl {
-      font-size: pxToRem(72.25);
+      font-size: pxToRem(58);
     }
   }
 
@@ -221,7 +221,7 @@
 
   // for stats areas (i.e. missions and robotics)
   .text-stats-xl {
-    @apply font-extrabold;
+    @apply font-extrabold leading-none;
 
     font-size: 2.125rem; // 34px
 
@@ -235,7 +235,7 @@
   }
 
   .text-stats-lg {
-    @apply font-extrabold;
+    @apply font-extrabold leading-none;
 
     font-size: 2.125rem; // 34px
 
