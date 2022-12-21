@@ -7,13 +7,7 @@
     }
   }
 
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  p {
     @apply mb-5;
 
     @screen lg {
@@ -25,11 +19,33 @@
     }
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-10 lg:mt-18 mb-5;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
   hr {
     @apply border-gray-light-mid border-t my-5;
 
     @screen lg {
       @apply my-8;
+    }
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+      @apply mt-5 lg:mt-8;
     }
 
     &:last-child {
