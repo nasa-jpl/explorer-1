@@ -1,0 +1,25 @@
+.BlockBackToTop {
+  > button {
+    @apply hidden;
+
+    &.always-visible {
+      @apply block;
+    }
+  }
+
+  .IconDropdown {
+    @apply transform rotate-180 text-sm;
+
+    @screen sm {
+      @apply mr-2;
+    }
+  }
+
+  .label-text {
+    @apply hidden;
+
+    @screen sm {
+      @apply block;
+    }
+  }
+}

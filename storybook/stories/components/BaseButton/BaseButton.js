@@ -7,6 +7,7 @@ import { IconSocialInstagramTemplate } from '../Icons/IconSocialInstagram'
 import { IconSocialYoutubeTemplate } from '../Icons/IconSocialYoutube'
 import { IconExpandTemplate } from '../Icons/IconExpand'
 import { IconExternalTemplate } from '../Icons/IconExternal'
+import { IconDropdownTemplate } from '../Icons/IconDropdown'
 
 export const BaseButtonTemplate = ({
   label,
@@ -17,11 +18,13 @@ export const BaseButtonTemplate = ({
   compact,
   disabled,
   icon,
+  iconBefore,
   iconOnly,
   cssClass,
   fancybox,
   target,
 }) => {
+  if (iconBefore == undefined) iconBefore = false
   if (iconOnly == undefined) iconOnly = false
   fancybox = fancybox ? fancybox : ''
   let iconTemplate = ''
@@ -35,6 +38,7 @@ export const BaseButtonTemplate = ({
   else if (icon == 'instagram') iconTemplate = IconSocialInstagramTemplate({})
   else if (icon == 'youtube') iconTemplate = IconSocialYoutubeTemplate({})
   else if (icon == 'external') iconTemplate = IconExternalTemplate({})
+  else if (icon == 'dropdown') iconTemplate = IconDropdownTemplate({})
   else if (caret) iconTemplate = IconCaretTemplate({})
 
   // setup classnames
@@ -51,6 +55,10 @@ export const BaseButtonTemplate = ({
     label = ''
   }
 
+  const content = iconBefore
+    ? `${iconTemplate}<span class="label-text">${label}</span>`
+    : `<span class="label-text">${label}</span>${iconTemplate}`
+
   if (disabled) {
     return `
       <button 
@@ -60,7 +68,7 @@ export const BaseButtonTemplate = ({
     }
       >
         <span class="label block">
-          ${label}${iconTemplate}
+          ${content}
         </span>
       </button>
     `
@@ -81,7 +89,7 @@ export const BaseButtonTemplate = ({
     }
       >
         <span class="label block">
-          ${label}${iconTemplate}
+          ${content}
         </span>
       </a>
     `
@@ -96,7 +104,7 @@ export const BaseButtonTemplate = ({
     } ${fancybox}
       >
         <span class="label block">
-          ${label}${iconTemplate}
+          ${content}
         </span>
       </button>
     `
