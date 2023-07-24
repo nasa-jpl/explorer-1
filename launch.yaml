@@ -1,0 +1,10 @@
+phases:
+  setup:
+    - npm install
+    - npm run build-storybook
+routes:
+  storybook:
+    route: /
+    type: static
+    options:
+      path: storybook_compiled
