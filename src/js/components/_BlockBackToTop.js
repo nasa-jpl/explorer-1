@@ -4,8 +4,7 @@
  **
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const backToTop = document.getElementById('BackToTop')
+const initBackToTop = (backToTop) => {
   const backToTopBtn = backToTop.querySelector('button')
   const threshold = parseInt(backToTop.dataset.threshold) || 300
   const scrollTo = parseInt(backToTop.dataset.scrollto) || 0
@@ -26,4 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', onScroll)
   backToTopBtn.addEventListener('click', scrollToTop)
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTopElements = document.querySelectorAll('.BlockBackToTop')
+  backToTopElements.forEach(initBackToTop)
 })
