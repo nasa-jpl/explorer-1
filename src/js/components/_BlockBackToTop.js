@@ -5,15 +5,15 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const backToTopBtn = document
-    .getElementById('BackToTop')
-    .querySelector('button')
+  const backToTop = document.getElementById('BackToTop')
+  const backToTopBtn = backToTop.querySelector('button')
+  const threshold = parseInt(backToTop.dataset.threshold) || 300
+  const scrollTo = parseInt(backToTop.dataset.scrollto) || 0
   const alwaysVisible = backToTopBtn.classList.contains('always-visible')
-  const threshold = 300
 
   const onScroll = () => {
     if (!alwaysVisible) {
-      showBackToTop = window.scrollY > threshold
+      let showBackToTop = window.scrollY > threshold
       showBackToTop
         ? (backToTopBtn.style.display = 'block')
         : (backToTopBtn.style.display = 'none')
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: scrollTo, behavior: 'smooth' })
   }
 
   window.addEventListener('scroll', onScroll)

@@ -1,7 +1,14 @@
 import { BaseButtonTemplate } from '../BaseButton/BaseButton'
 
-export const BlockBackToTopTemplate = ({ alwaysVisible }) => {
-  return `<div id="BackToTop" class="BlockBackToTop">
+export const BlockBackToTopTemplate = ({
+  alwaysVisible,
+  threshold,
+  scrollTo,
+}) => {
+  if (!threshold) threshold = ''
+  if (!scrollTo) scrollTo = ''
+
+  return `<div id="BackToTop" class="BlockBackToTop" data-threshold="${threshold}" data-scrollto="${scrollTo}">
   ${BaseButtonTemplate({
     variant: 'primary',
     cssClass: `z-60 ${alwaysVisible ? 'always-visible' : ''}`,
