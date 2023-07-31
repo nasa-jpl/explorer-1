@@ -6,9 +6,19 @@
 
 const initBackToTop = (backToTop) => {
   const backToTopBtn = backToTop.querySelector('button')
-  const threshold = parseInt(backToTop.dataset.threshold) || 300
-  const scrollTo = parseInt(backToTop.dataset.scrollto) || 0
-  const alwaysVisible = backToTopBtn.classList.contains('always-visible')
+  const threshold = parseFloat(backToTop.dataset.threshold) || 300
+  const scrollTo = parseFloat(backToTop.dataset.scrollto) || 0
+  const alwaysVisible = backToTop.dataset.alwaysvisible === 'true'
+
+  const debounce = (func, wait = 0) => {
+    let timeoutId
+    return (...args) => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        func(...args)
+      }, wait)
+    }
+  }
 
   const onScroll = () => {
     if (!alwaysVisible) {
@@ -19,12 +29,17 @@ const initBackToTop = (backToTop) => {
     }
   }
 
+  const debouncedOnScroll = debounce(onScroll, 500)
+
   const scrollToTop = () => {
     window.scrollTo({ top: scrollTo, behavior: 'smooth' })
   }
 
-  window.addEventListener('scroll', onScroll)
-  backToTopBtn.addEventListener('click', scrollToTop)
+  if (!alwaysVisible) {
+    backToTopBtn.style.display = 'none'
+    window.addEventListener('scroll', debouncedOnScroll, { passive: true })
+    backToTopBtn.addEventListener('click', scrollToTop)
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

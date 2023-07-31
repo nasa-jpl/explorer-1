@@ -2,6 +2,10 @@
   > button {
     @apply hidden;
 
+    @media print {
+      @apply hidden;
+    }
+
     &.always-visible {
       @apply block;
     }

@@ -5,7 +5,11 @@ export default {
   argTypes: {
     alwaysVisible: {
       type: 'boolean',
-      description: 'Toggles visibility based on the scrolling position.',
+      description:
+        'Allows component to be visible regardless of the scrolling position for presentation purposes.',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
     },
     threshold: {
       type: 'number',
@@ -22,6 +26,10 @@ export default {
       table: {
         defaultValue: { summary: '0' },
       },
+    },
+    buttonClass: {
+      type: 'string',
+      description: 'Custom button CSS class.',
     },
   },
   parameters: {
