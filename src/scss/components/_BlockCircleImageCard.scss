@@ -1,15 +1,13 @@
 .BlockCircleImageCard {
-  $smallsize: 90px;
-  $largesize: 130px;
+  $circlesize: 90px;
+
+  @screen lg {
+    $circlesize: 130px;
+  }
 
   img.BaseImage {
-    width: $smallsize;
-    height: $smallsize;
-
-    @screen lg {
-      width: $largesize;
-      height: $largesize;
-    }
+    width: $circlesize;
+    height: $circlesize;
   }
 
   .BaseImagePlaceholder {
@@ -18,37 +16,21 @@
 
   &.imageOnLeft {
     > div:first-of-type {
-      left: calc(-1 * $smallsize / 2);
-
-      @screen lg {
-        left: calc(-1 * $largesize / 2);
-      }
+      left: calc(-1 * $circlesize / 2);
     }
 
     .content {
-      padding-left: calc($smallsize / 2 + 32px);
-
-      @screen lg {
-        padding-left: calc($largesize / 2 + 32px);
-      }
+      padding-left: calc($circlesize / 2 + 2rem);
     }
   }
 
   &.imageOnRight {
     > div:first-of-type {
-      right: calc(-1 * $smallsize / 2);
-
-      @screen lg {
-        right: calc(-1 * $largesize / 2);
-      }
+      right: calc(-1 * $circlesize / 2);
     }
 
     .content {
-      padding-right: calc($smallsize / 2 + 32px);
-
-      @screen lg {
-        padding-right: calc($largesize / 2 + 32px);
-      }
+      padding-right: calc($circlesize / 2 + 2rem);
     }
   }
 }

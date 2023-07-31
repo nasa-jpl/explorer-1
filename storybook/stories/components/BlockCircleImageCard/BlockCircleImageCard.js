@@ -2,17 +2,13 @@ import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImageP
 import { BaseHeadingTemplate } from '../BaseHeading/BaseHeading'
 
 export const BlockCircleImageCardTemplate = ({
-  type,
+  type = 'imageOnLeft',
   title,
   label,
-  secondaryLabel,
+  secondaryLabel = '',
   image,
-  customClass,
+  customClass = '',
 }) => {
-  if (!type) type = 'imageOnLeft'
-  if (!secondaryLabel) secondaryLabel = ''
-  if (!customClass) customClass = ''
-
   return `
   <div class="BlockCircleImageCard shadow-jpl relative ${type} ${customClass}">
     ${BaseImagePlaceholderTemplate({
