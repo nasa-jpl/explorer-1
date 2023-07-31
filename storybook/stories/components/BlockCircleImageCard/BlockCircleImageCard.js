@@ -3,6 +3,7 @@ import { BaseHeadingTemplate } from '../BaseHeading/BaseHeading'
 
 export const BlockCircleImageCardTemplate = ({
   type = 'imageOnLeft',
+  imageOnRight = false,
   title,
   label,
   secondaryLabel = '',
@@ -10,7 +11,9 @@ export const BlockCircleImageCardTemplate = ({
   customClass = '',
 }) => {
   return `
-  <div class="BlockCircleImageCard shadow-jpl relative ${type} ${customClass}">
+  <div class="BlockCircleImageCard shadow-jpl ${
+    imageOnRight ? 'imageOnRight' : ''
+  } ${customClass}">
     ${BaseImagePlaceholderTemplate({
       theme: 'transparent-theme',
       src: image.src.url,
@@ -20,7 +23,7 @@ export const BlockCircleImageCardTemplate = ({
       height: image.src.height,
       objectFitClass: 'object-cover',
       imageClass: 'rounded-full border-4 border-white',
-      wrapperClass: `absolute h-full`,
+      wrapperClass: `h-full`,
     })}
     <div class="content relative px-8 py-8">
       <div class="text-gray-dark text-subtitle mb-3">${label}</div>

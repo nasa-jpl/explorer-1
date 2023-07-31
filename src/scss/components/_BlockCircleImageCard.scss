@@ -1,36 +1,21 @@
 .BlockCircleImageCard {
-  $circlesize: 90px;
+  --image-size: 90px;
+
+  display: flex;
+  align-items: center;
+  gap: calc(var(--image-size) / 2);
 
   @screen lg {
-    $circlesize: 130px;
-  }
-
-  img.BaseImage {
-    width: $circlesize;
-    height: $circlesize;
+    --image-size: 130px;
   }
 
   .BaseImagePlaceholder {
-    display: flex;
-  }
-
-  &.imageOnLeft {
-    > div:first-of-type {
-      left: calc(-1 * $circlesize / 2);
-    }
-
-    .content {
-      padding-left: calc($circlesize / 2 + 2rem);
-    }
+    width: var(--image-size);
+    height: var(--image-size);
+    margin: 0 calc(-1 * var(--image-size) / 2);
   }
 
   &.imageOnRight {
-    > div:first-of-type {
-      right: calc(-1 * $circlesize / 2);
-    }
-
-    .content {
-      padding-right: calc($circlesize / 2 + 2rem);
-    }
+    flex-direction: row-reverse;
   }
 }

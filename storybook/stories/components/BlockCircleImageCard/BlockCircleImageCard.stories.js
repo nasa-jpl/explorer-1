@@ -3,15 +3,11 @@ import { BlockCircleImageCardTemplate } from './BlockCircleImageCard'
 export default {
   title: 'Components/Blocks/BlockCircleImageCard',
   argTypes: {
-    type: {
-      type: { name: 'string', required: false },
+    imageOnRight: {
+      type: { name: 'boolean', required: false },
       description: 'Determines position of the image',
-      control: {
-        type: 'select',
-        options: ['imageOnLeft', 'imageOnRight'],
-      },
       table: {
-        defaultValue: { summary: 'imageOnLeft' },
+        defaultValue: { summary: 'false' },
       },
     },
     title: {
@@ -51,18 +47,18 @@ export default {
 export const Card = BlockCircleImageCardTemplate.bind({})
 Card.storyName = 'BlockCircleImageCard'
 Card.args = {
-  type: 'imageOnRight',
+  imageOnRight: false,
   title: 'First Flight of Technology for Returning Warheads from Space',
   label: 'September 20, 1956',
   secondaryLabel: 'Re-entry test vehicle program',
   image: {
     src: {
-      url: 'https://picsum.photos/122/122',
-      width: 122,
-      height: 122,
+      url: 'https://picsum.photos/130/130',
+      width: 130,
+      height: 130,
     },
     srcSet:
-      'https://picsum.photos/90/90 320w, https://picsum.photos/122/122 1024w',
+      'https://picsum.photos/90/90 320w, https://picsum.photos/130/130 1024w',
     alt: 'Alt text for image',
   },
 }
