@@ -1,7 +1,7 @@
-import { BlockBackToTopTemplate } from './BlockBackToTop.js'
+import { BackToTopTemplate } from './BackToTop.js'
 
 export default {
-  title: 'Components/Blocks/BlockBackToTop',
+  title: 'Components/Utilities/BackToTop',
   argTypes: {
     alwaysVisible: {
       type: 'boolean',
@@ -43,6 +43,6 @@ export default {
   },
 }
 
-export const Default = BlockBackToTopTemplate.bind({})
-Default.storyName = 'BlockBackToTop'
+export const Default = BackToTopTemplate.bind({})
+Default.storyName = 'BackToTop'
 Default.args = { alwaysVisible: true, threshold: 300, scrollTo: 0 }

@@ -43,6 +43,6 @@ const initBackToTop = (backToTop) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const backToTopElements = document.querySelectorAll('.BlockBackToTop')
+  const backToTopElements = document.querySelectorAll('.BackToTop')
   backToTopElements.forEach(initBackToTop)
 })
