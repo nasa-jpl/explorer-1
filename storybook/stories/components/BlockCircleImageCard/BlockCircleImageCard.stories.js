@@ -35,7 +35,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Features an image in a circle, no hover effects.',
+        component:
+          'Features a circular image alongside text, with a drop shadow and no hover effects. The image can be positioned on the left or the right.',
       },
     },
     html: {
