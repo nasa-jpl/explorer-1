@@ -8,7 +8,7 @@ const initBackToTop = (backToTop) => {
   const backToTopBtn = backToTop.querySelector('button')
   const threshold = parseFloat(backToTop.dataset.threshold) || 300
   const scrollTo = parseFloat(backToTop.dataset.scrollto) || 0
-  const alwaysVisible = backToTop.dataset.alwaysvisible === 'true'
+  const alwaysVisible = backToTop.dataset.alwaysvisible
 
   const debounce = (func, wait = 0) => {
     let timeoutId

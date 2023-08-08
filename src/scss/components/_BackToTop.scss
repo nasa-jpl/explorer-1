@@ -5,8 +5,10 @@
     @media print {
       @apply hidden;
     }
+  }
 
-    &.always-visible {
+  &[data-alwaysvisible] {
+    > button {
       @apply block;
     }
   }
@@ -20,10 +22,10 @@
   }
 
   .label-text {
-    @apply hidden;
+    @apply sr-only;
 
     @screen sm {
-      @apply block;
+      @apply not-sr-only;
     }
   }
 }

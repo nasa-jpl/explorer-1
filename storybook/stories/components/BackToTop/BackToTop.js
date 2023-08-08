@@ -6,10 +6,12 @@ export const BackToTopTemplate = ({
   scrollTo = '',
   buttonClass = '',
 }) => {
-  return `<div class="BackToTop" data-alwaysvisible=${alwaysVisible} data-threshold="${threshold}" data-scrollto="${scrollTo}">
+  return `<div class="BackToTop" ${
+    alwaysVisible ? 'data-alwaysvisible' : ''
+  } data-threshold="${threshold}" data-scrollto="${scrollTo}">
   ${BaseButtonTemplate({
     variant: 'primary',
-    cssClass: `z-60 ${alwaysVisible ? 'always-visible' : ''} 
+    cssClass: `z-60 
     ${buttonClass ? buttonClass : ''}`,
     compact: true,
     icon: 'dropdown',
