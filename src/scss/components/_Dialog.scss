@@ -1,0 +1,19 @@
+.Dialog {
+  // Make sure the dialog container and all its descendants are not visible and not focusable when it is hidden
+  .dialog-container[aria-hidden='true'] {
+    display: none;
+  }
+
+  .dialog-overlay,
+  .dialog-box {
+    @apply animate-fadeIn;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  .button-close {
+    top: -2rem;
+  }
+}
