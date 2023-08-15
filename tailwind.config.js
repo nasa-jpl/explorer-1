@@ -45,9 +45,10 @@ const grayScale = {
 
 const socialColors = {
   facebook: '#3b5998',
-  twitter: '#00acee',
+  twitter: '#000000',
   instagram: '#dd2a7b',
-  youtube: '#FF0000',
+  youtube: '#ff0000',
+  reddit: '#ff5700',
 }
 
 // Font stack optimised for built-in fonts of each major operating system, with support for emojis.
@@ -187,6 +188,7 @@ module.exports = {
       'twitter-w50': socialColors.twitter + ' 50%',
       'instagram-w50': socialColors.instagram + ' 50%',
       'youtube-w50': socialColors.youtube + ' 50%',
+      'reddit-w50': socialColors.reddit + ' 50%',
       'transparent-black-90': 'rgba(0, 0, 0, 0.9)',
       'transparent-black-75': 'rgba(0, 0, 0, 0.75)',
       'transparent-black-50': 'rgba(0, 0, 0, 0.5)',
