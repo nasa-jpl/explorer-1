@@ -1,0 +1,21 @@
+.BlockCircleImageCard {
+  --image-size: 90px;
+
+  display: flex;
+  align-items: center;
+  gap: calc(var(--image-size) / 2);
+
+  @screen lg {
+    --image-size: 130px;
+  }
+
+  .BaseImagePlaceholder {
+    width: var(--image-size);
+    height: var(--image-size);
+    margin: 0 calc(-1 * var(--image-size) / 2);
+  }
+
+  &.imageOnRight {
+    flex-direction: row-reverse;
+  }
+}
