@@ -1,0 +1,31 @@
+.BackToTop {
+  > button {
+    @apply hidden;
+
+    @media print {
+      @apply hidden;
+    }
+  }
+
+  &[data-alwaysvisible] {
+    > button {
+      @apply block;
+    }
+  }
+
+  .IconDropdown {
+    @apply transform rotate-180 text-sm;
+
+    @screen sm {
+      @apply mr-2;
+    }
+  }
+
+  .label-text {
+    @apply sr-only;
+
+    @screen sm {
+      @apply not-sr-only;
+    }
+  }
+}

@@ -81,10 +81,21 @@ export default {
           'twitter',
           'instagram',
           'youtube',
+          'dropdown',
         ],
       },
       table: {
         defaultValue: { summary: 'none' },
+      },
+    },
+    iconBefore: {
+      type: 'boolean',
+      description: 'If the icon should be positioned before the text.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: 'false' },
       },
     },
     iconOnly: {
@@ -127,6 +138,7 @@ Primary_Button.args = {
   compact: false,
   disabled: false,
   icon: null,
+  iconBefore: false,
   iconOnly: false,
 }
 export const Primary_Internal_Button = BaseButtonTemplate.bind({})
