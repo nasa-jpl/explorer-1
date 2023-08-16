@@ -48,7 +48,7 @@ const socialColors = {
   twitter: '#000000',
   instagram: '#dd2a7b',
   youtube: '#ff0000',
-  reddit: '#ff5700',
+  reddit: '#ff4500',
 }
 
 // Font stack optimised for built-in fonts of each major operating system, with support for emojis.
