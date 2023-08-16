@@ -43,6 +43,7 @@ import { IconSocialFacebookTemplate } from './IconSocialFacebook'
 import { IconSocialInstagramTemplate } from './IconSocialInstagram'
 import { IconSocialTwitterTemplate } from './IconSocialTwitter'
 import { IconSocialYoutubeTemplate } from './IconSocialYoutube'
+import { IconSocialRedditTemplate } from './IconSocialReddit'
 import { IconTimeTemplate } from './IconTime'
 import { IconUserTemplate } from './IconUser'
 
@@ -160,11 +161,14 @@ SocialFacebook.args = { customClass: 'text-base text-facebook' }
 export const SocialInstagram = IconSocialInstagramTemplate.bind()
 SocialInstagram.args = { customClass: 'text-base text-instagram' }
 
-export const SocialTwitter = IconSocialTwitterTemplate.bind()
-SocialTwitter.args = { customClass: 'text-base text-twitter' }
+export const SocialReddit = IconSocialRedditTemplate.bind()
+SocialReddit.args = { customClass: 'text-base text-reddit' }
 
 export const SocialYoutube = IconSocialYoutubeTemplate.bind()
 SocialYoutube.args = { customClass: 'text-base text-youtube' }
+
+export const SocialX = IconSocialTwitterTemplate.bind()
+SocialX.args = { customClass: 'text-base text-twitter' }
 
 // Square Icons
 

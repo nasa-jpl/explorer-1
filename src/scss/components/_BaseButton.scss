@@ -79,6 +79,14 @@
         @apply bg-youtube border-youtube;
       }
     }
+
+    &.-reddit {
+      @apply to-reddit-w50;
+
+      @include hover {
+        @apply bg-reddit border-reddit;
+      }
+    }
   }
 
   &.-compact {

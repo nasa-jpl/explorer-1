@@ -81,6 +81,7 @@ export default {
           'twitter',
           'instagram',
           'youtube',
+          'reddit',
           'dropdown',
         ],
       },
@@ -215,7 +216,7 @@ Dark_Icon_Button.decorators = [
 
 export const Social_Icon_Button = () => {
   let facebook = BaseButtonTemplate({
-    label: 'Explore',
+    label: 'Facebook',
     variant: 'social',
     link: '#',
     caret: false,
@@ -226,7 +227,7 @@ export const Social_Icon_Button = () => {
     cssClass: '-facebook w-12 h-12 text-2xl mr-3',
   })
   let twitter = BaseButtonTemplate({
-    label: 'Explore',
+    label: 'X',
     variant: 'social',
     link: '#',
     caret: false,
@@ -237,7 +238,7 @@ export const Social_Icon_Button = () => {
     cssClass: '-twitter w-12 h-12 text-2xl mr-3',
   })
   let instagram = BaseButtonTemplate({
-    label: 'Explore',
+    label: 'Instagram',
     variant: 'social',
     link: '#',
     caret: false,
@@ -248,7 +249,7 @@ export const Social_Icon_Button = () => {
     cssClass: '-instagram w-12 h-12 text-2xl mr-3',
   })
   let youtube = BaseButtonTemplate({
-    label: 'Explore',
+    label: 'YouTube',
     variant: 'social',
     link: '#',
     caret: false,
@@ -258,8 +259,19 @@ export const Social_Icon_Button = () => {
     iconOnly: true,
     cssClass: '-youtube w-12 h-12 text-2xl mr-3',
   })
+  let reddit = BaseButtonTemplate({
+    label: 'Reddit',
+    variant: 'social',
+    link: '#',
+    caret: false,
+    compact: true,
+    disabled: false,
+    icon: 'reddit',
+    iconOnly: true,
+    cssClass: '-reddit w-12 h-12 text-2xl mr-3',
+  })
 
-  return `${facebook} ${twitter} ${instagram} ${youtube}`
+  return `${facebook} ${twitter} ${instagram} ${youtube} ${reddit}`
 }
 Social_Icon_Button.decorators = [
   (Story) => `<div class="p-5 flex items-center">${Story()}</div>`,
