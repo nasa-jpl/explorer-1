@@ -5,6 +5,7 @@ import { IconSocialFacebookTemplate } from '../Icons/IconSocialFacebook'
 import { IconSocialTwitterTemplate } from '../Icons/IconSocialTwitter'
 import { IconSocialInstagramTemplate } from '../Icons/IconSocialInstagram'
 import { IconSocialYoutubeTemplate } from '../Icons/IconSocialYoutube'
+import { IconSocialRedditTemplate } from '../Icons/IconSocialReddit'
 import { IconExpandTemplate } from '../Icons/IconExpand'
 import { IconExternalTemplate } from '../Icons/IconExternal'
 import { IconDropdownTemplate } from '../Icons/IconDropdown'
@@ -37,6 +38,7 @@ export const BaseButtonTemplate = ({
   else if (icon == 'twitter') iconTemplate = IconSocialTwitterTemplate({})
   else if (icon == 'instagram') iconTemplate = IconSocialInstagramTemplate({})
   else if (icon == 'youtube') iconTemplate = IconSocialYoutubeTemplate({})
+  else if (icon == 'reddit') iconTemplate = IconSocialRedditTemplate({})
   else if (icon == 'external') iconTemplate = IconExternalTemplate({})
   else if (icon == 'dropdown') iconTemplate = IconDropdownTemplate({})
   else if (caret) iconTemplate = IconCaretTemplate({})
