@@ -1,5 +1,11 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs'
 
+import { IconLocationTemplate } from '../components/Icons/IconLocation'
+
+export const testHeadingIcon = IconLocationTemplate({
+  customClass: 'inline',
+})
+
 <Meta title="Foundation/Typography" parameters={{ viewMode: 'docs' }} />
 
 # Typography
@@ -191,6 +197,32 @@ Note:
         <p class="mt-8"><mark>Highlighted text</mark></p>
         <code>mark</code>
       </div>
+    `}
+  </Story>
+</Canvas>
+
+## Headings Icons
+
+We can also add icons next to the headings.
+
+<Canvas>
+  <Story name="Heading Icons">
+    {`
+      <div>
+        <p class="text-h1-alt mt-8">${testHeadingIcon}Header H1 Alt</p>
+        <code>.text-h1-alt</code>
+        <p class="text-h1 mt-8">${testHeadingIcon}Header H1</p>
+        <code>h1, .text-h1</code>
+        <p class="text-h2 mt-8">${testHeadingIcon}Header H2</p>
+        <code>h2, .text-h2</code>
+        <p class="text-h3 mt-8">${testHeadingIcon}Header H3</p>
+        <code>h3, .text-h3</code>
+        <p class="text-h4 mt-8">${testHeadingIcon}Header H4</p>
+        <code>h4, .text-h4</code>
+        <p class="text-h5 mt-8">${testHeadingIcon}Header H5</p>
+        <code>h5, .text-h5</code>
+        <p class="text-h6 mt-8">${testHeadingIcon}Header H6</p>
+        <code>h6, .text-h6</code>
     `}
   </Story>
 </Canvas>
