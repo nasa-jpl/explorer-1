@@ -14,9 +14,8 @@ export const DialogTemplate = ({
         <div id="${dialogId}"
         aria-labelledby="${ariaLabelledBy}" aria-hidden='true'
         class="dialog-container fixed top-0 left-0 z-50 flex w-full h-full overflow-auto" >
-            <div class="dialog-overlay ${
-              overlayClose ? 'data-a11y-dialog-hide' : ''
-            }
+            <div ${overlayClose ? 'data-a11y-dialog-hide' : ''}
+            class="dialog-overlay 
             bg-gray-dark bg-opacity-90 fixed top-0 left-0 w-full h-full"></div> 
             <div class="container m-auto">
                 <div role="document" class="dialog-box ${dialogBoxClass} relative m-auto bg-white">
