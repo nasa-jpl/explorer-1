@@ -1,4 +1,10 @@
-export const BaseHeadingTemplate = ({ text, size, tag, headingClass }) => {
+export const BaseHeadingTemplate = ({
+  text,
+  size,
+  tag,
+  icon = '',
+  headingClass,
+}) => {
   let computedClass = headingClass ? headingClass + ' ' : ''
   if (!size) size = 'h3' // default
   if (!tag) tag = size
@@ -12,5 +18,8 @@ export const BaseHeadingTemplate = ({ text, size, tag, headingClass }) => {
   }
   computedClass += sizes[size]
 
-  return `<${tag} class="${computedClass}">${text}</${tag}>`
+  // Use a space between the icon and text so its size is proportional to the font size.
+  const iconWrapper = icon ? `${icon} ` : ''
+
+  return `<${tag} class="${computedClass}">${iconWrapper}${text}</${tag}>`
 }
