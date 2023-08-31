@@ -78,6 +78,11 @@ export const parameters = {
         class: 'ThemeInternal',
         color: '#53C8ED',
       },
+      {
+        name: 'ThemeEDU',
+        class: 'ThemeEDU',
+        color: '#9438E0',
+      },
     ],
   },
 

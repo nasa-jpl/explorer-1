@@ -1,0 +1,151 @@
+/* EDU theme text styles
+ * kept in a separate scss file for easier use in components
+ * ex: import this file in a vue component to be able to @apply these classes
+ */
+
+/* Deprecation warning:
+ * .text-theme-red and .text-theme-red-hover are deprecated and will be removed in the next major release.
+ * Use .text-theme-color and .text-theme-color-hover instead.
+ */
+
+@layer utilities {
+  @responsive {
+    .ThemeEDU {
+      .text-theme-color,
+      .text-theme-red,
+      .hover\:text-theme-color:hover,
+      .hover\:text-theme-red:hover {
+        @apply text-edu-purple-dark;
+      }
+
+      .text-theme-color-hover,
+      .text-theme-red-hover,
+      .hover\:text-theme-color-hover:hover,
+      .hover\:text-theme-red-hover:hover {
+        @apply text-edu-purple;
+      }
+
+      .border-jpl-red-light,
+      .hover\:border-jpl-red-light:hover {
+        @apply border-edu-peach;
+      }
+
+      .border-jpl-red,
+      .hover\:border-jpl-red:hover {
+        @apply border-edu-purple;
+      }
+
+      .border-jpl-red-dark,
+      .hover\:border-jpl-red-dark:hover {
+        @apply border-edu-purple-dark;
+      }
+
+      .bg-jpl-red-light,
+      .hover\:bg-jpl-red-light:hover {
+        @apply bg-edu-peach;
+      }
+
+      .bg-jpl-red,
+      .hover\:bg-jpl-red:hover {
+        @apply bg-edu-purple;
+      }
+
+      .bg-jpl-red-dark,
+      .hover\:bg-jpl-red-dark:hover {
+        @apply bg-edu-purple-dark;
+      }
+
+      .ThemeLight {
+        .text-theme-color,
+        .text-theme-red,
+        .hover\:text-theme-color:hover,
+        .hover\:text-theme-red:hover {
+          @apply text-edu-purple-dark;
+        }
+
+        .text-theme-color-hover,
+        .text-theme-red-hover,
+        .hover\:text-theme-color-hover:hover,
+        .hover\:text-theme-red-hover:hover {
+          @apply text-edu-purple;
+        }
+
+        .border-jpl-red-light,
+        .hover\:border-jpl-red-light:hover {
+          @apply border-edu-peach;
+        }
+
+        .border-jpl-red,
+        .hover\:border-jpl-red:hover {
+          @apply border-edu-purple;
+        }
+
+        .border-jpl-red-dark,
+        .hover\:border-jpl-red-dark:hover {
+          @apply border-edu-purple-dark;
+        }
+
+        .bg-jpl-red-light,
+        .hover\:bg-jpl-red-light:hover {
+          @apply bg-edu-peach;
+        }
+
+        .bg-jpl-red,
+        .hover\:bg-jpl-red:hover {
+          @apply bg-edu-purple;
+        }
+
+        .bg-jpl-red-dark,
+        .hover\:bg-jpl-red-dark:hover {
+          @apply bg-edu-purple-dark;
+        }
+      }
+
+      .ThemeDark {
+        .text-theme-color,
+        .text-theme-red,
+        .hover\:text-theme-color:hover,
+        .hover\:text-theme-red:hover {
+          @apply text-edu-purple;
+        }
+
+        .text-theme-color-hover,
+        .text-theme-red-hover,
+        .hover\:text-theme-color-hover:hover,
+        .hover\:text-theme-red-hover:hover {
+          @apply text-edu-purple-dark;
+        }
+
+        .border-jpl-red-light,
+        .hover\:border-jpl-red-light:hover {
+          @apply border-edu-peach;
+        }
+
+        .border-jpl-red,
+        .hover\:border-jpl-red:hover {
+          @apply border-edu-purple;
+        }
+
+        .border-jpl-red-dark,
+        .hover\:border-jpl-red-dark:hover {
+          @apply border-edu-purple-dark;
+        }
+
+        .bg-jpl-red-light,
+        .hover\:bg-jpl-red-light:hover {
+          @apply bg-edu-peach;
+        }
+
+        .bg-jpl-red,
+        .hover\:bg-jpl-red:hover {
+          @apply bg-edu-purple;
+        }
+
+        .bg-jpl-red-dark,
+        .hover\:bg-jpl-red-dark:hover {
+          @apply bg-edu-purple-dark;
+        }
+      }
+    }
+  }
+}

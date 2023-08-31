@@ -43,7 +43,7 @@
 
       &.swiper-dot-active {
         > span {
-          @apply bg-jpl-red;
+          @apply bg-theme-color;
         }
       }
     }

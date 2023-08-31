@@ -4,7 +4,7 @@
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
-
+const plugin = require('tailwindcss/plugin')
 const purgeConfig = require('./tailwind.purge.config.js')
 
 const foundationColors = {
@@ -18,6 +18,19 @@ const foundationColors = {
   'jpl-sky-blue': '#53C8ED',
   'jpl-sky-blue-dark': '#0080A4',
   green: '#14C97A',
+}
+
+const eduColors = {
+  'edu-purple': '#9438E0',
+  'edu-purple-dark': '#741EBB',
+  'edu-teal': '#007E99',
+  'edu-peach': '#FF5555',
+}
+
+const themeColors = {
+  'theme-color': 'var(--color-theme-color)',
+  'theme-color-light': 'var(--color-theme-color-light)',
+  'theme-color-dark': 'var(--color-theme-color-dark)',
 }
 
 const semanticColors = {
@@ -98,6 +111,8 @@ module.exports = {
     },
     colors: {
       ...foundationColors,
+      ...eduColors,
+      ...themeColors,
       ...grayScale,
       ...semanticColors,
       ...socialColors,
@@ -319,7 +334,32 @@ module.exports = {
     borderColor: ['responsive', 'hover', 'focus', 'group-hover'],
     animation: ['responsive', 'motion-safe', 'motion-reduce'],
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    /**
+     * CSS Custom properties from design tokens.
+     */
+    plugin(({ addBase }) => {
+      addBase({
+        ':root': {
+          '--color-theme-color': foundationColors['jpl-red'],
+          '--color-theme-color-light': foundationColors['jpl-red-light'],
+          '--color-theme-color-dark': foundationColors['jpl-red-dark'],
+        },
+        '.ThemeDark': {
+          '--color-theme-color': foundationColors['jpl-red-light'],
+        },
+        '.ThemeEDU': {
+          '--color-theme-color': eduColors['edu-purple'],
+          '--color-theme-color-light': eduColors['edu-peach'],
+          '--color-theme-color-dark': eduColors['edu-purple-dark'],
+        },
+        '.ThemeEDU .ThemeDark': {
+          '--color-theme-color': eduColors['edu-peach'],
+        },
+      })
+    }),
+  ],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,

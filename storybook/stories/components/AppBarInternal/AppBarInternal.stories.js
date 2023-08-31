@@ -25,6 +25,12 @@ export default {
           color: '#53C8ED',
           default: true,
         },
+        {
+          name: 'ThemeEDU',
+          class: ['ThemeEDU', 'sbdocs-preview-full-width'],
+          color: '#9438E0',
+          default: true,
+        },
       ],
     },
   },

@@ -41,6 +41,11 @@ export default {
           class: ['ThemeInternal', 'sbdocs-preview-full-width'],
           color: '#53C8ED',
         },
+        {
+          name: 'ThemeEDU',
+          class: ['ThemeEDU', 'sbdocs-preview-full-width'],
+          color: '#9438E0',
+        },
       ],
     },
   },

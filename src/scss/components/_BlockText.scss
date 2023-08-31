@@ -86,14 +86,10 @@
         content: '';
         width: 30px;
         height: 2px;
-        @apply bg-jpl-red block absolute top-0 left-0 mt-3;
+        @apply bg-theme-color block absolute top-0 left-0 mt-3;
 
         @screen sm {
           @apply mt-4;
-        }
-
-        .ThemeDark & {
-          @apply bg-jpl-red-light;
         }
       }
     }

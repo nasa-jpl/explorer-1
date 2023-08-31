@@ -17,7 +17,7 @@
 
   > hr {
     max-width: 100px;
-    @apply border-t mx-auto border-jpl-red-light;
+    @apply border-t mx-auto border-theme-color-light;
 
     @screen lg {
       max-width: 120px;
@@ -26,7 +26,7 @@
 
   > .quote {
     line-height: 1.4; // custom
-    @apply font-primary italic text-xl font-medium py-4 text-jpl-red;
+    @apply font-primary italic text-xl font-medium py-4 text-theme-color;
 
     @screen lg {
       font-size: 1.875rem; // custom  // 30px
@@ -51,11 +51,11 @@
 .ThemeLight {
   .BlockQuote {
     > hr {
-      @apply border-jpl-red;
+      @apply border-theme-color;
     }
 
     > .quote {
-      @apply text-jpl-red;
+      @apply text-theme-color;
     }
 
     > div > div > .attribution-text {
@@ -67,7 +67,7 @@
 .ThemeDark {
   .BlockQuote {
     > hr {
-      @apply border-jpl-red-light;
+      @apply border-theme-color-light;
     }
 
     > .quote {
