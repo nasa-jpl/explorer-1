@@ -8,8 +8,8 @@
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "engines": {
-    "node": "14.19.0",
-    "npm": "^6.14.16"
+    "node": "^16.20.2",
+    "npm": "^8.19.4"
   },
   "scripts": {
     "start": "npm run dev",
