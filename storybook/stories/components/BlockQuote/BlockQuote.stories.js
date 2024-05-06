@@ -34,7 +34,7 @@ export const BlockQuoteData = {
     },
   },
   thumbnail: {
-    src: 'https://placekitten.com/80/80',
+    src: 'https://picsum.photos/80/80',
     alt: 'An image',
   },
 }

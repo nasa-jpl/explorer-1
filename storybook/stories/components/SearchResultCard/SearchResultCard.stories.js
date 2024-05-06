@@ -70,11 +70,11 @@ export const SearchResultCardData = {
   date: 'May 22, 2018',
   image: {
     src: {
-      url: 'https://placekitten.com/490/490',
+      url: 'https://picsum.photos/490/490',
       width: 490,
       height: 490,
     },
-    srcSet: 'https://placekitten.com/490/490 320w',
+    srcSet: 'https://picsum.photos/490/490 320w',
     alt: 'Alt text',
   },
   featured: false,
