@@ -41,10 +41,10 @@ PortraitImage.args = {
       '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel porttitor urna. Maecenas at est laoreet, sagittis risus a, rutrum ipsum. Quisque tincidunt lacus nunc, dapibus facilisis felis scelerisque sit amet. </p>',
     credit: 'NASA/JPL',
     detailUrl: '/image/placeholder/',
-    original: 'https://placekitten.com/500/600',
+    original: 'https://picsum.photos/500/600',
     src: {
       height: 600,
-      url: 'https://placekitten.com/500/600',
+      url: 'https://picsum.photos/500/600',
       width: 500,
     },
   },

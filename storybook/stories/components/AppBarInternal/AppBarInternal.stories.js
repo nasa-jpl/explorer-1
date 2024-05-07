@@ -38,7 +38,7 @@ export const AppBarInternalData = {
   userData: {
     firstName: 'First',
     lastName: 'Last',
-    photo: 'https://placekitten.com/150/200',
+    photo: 'https://picsum.photos/150/200',
   },
   logInUrl: '#',
   logOutUrl: '#',

@@ -45,14 +45,14 @@ export const BlockTeaserData = {
   fullWidthImage: false,
   image: {
     full: {
-      src: 'https://source.unsplash.com/pZ-XFIrJMtE/1096x400',
-      srcset: 'https://source.unsplash.com/pZ-XFIrJMtE/1096x400',
+      src: 'https://picsum.photos/1096/400',
+      srcset: 'https://picsum.photos/1096/400',
       width: 1096,
       height: 400,
     },
     half: {
-      src: 'https://source.unsplash.com/pZ-XFIrJMtE/540x400',
-      srcset: 'https://source.unsplash.com/pZ-XFIrJMtE/540x400',
+      src: 'https://picsum.photos/540/400',
+      srcset: 'https://picsum.photos/540/400',
       width: 548,
       height: 400,
     },
