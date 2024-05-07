@@ -50,14 +50,14 @@ export const BlockImageData = {
     credit: 'NASA/JPL',
     url: '/image/placeholder/',
     linkText: 'Full Image Details',
-    original: 'https://placekitten.com/869/700',
+    original: 'https://picsum.photos/869/700',
     src: {
       height: 700,
-      url: 'https://placekitten.com/869/700',
+      url: 'https://picsum.photos/869/700',
       width: 869,
     },
     srcSet:
-      'https://placekitten.com/320/258 320w, https://placekitten.com/869/700 1024w',
+      'https://picsum.photos/320/258 320w, https://picsum.photos/869/700 1024w',
   },
   imageFullBleed: {
     alt: 'Fourth image',

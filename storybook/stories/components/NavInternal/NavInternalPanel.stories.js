@@ -185,7 +185,7 @@ export const NavInternalPanelAllHighlightsData = {
       description:
         'Praesent in eros iaculis, pulvinar est ut, maximus nisl. Vestibulum rutrum accumsan.',
       image: {
-        src: 'http://placekitten.com/512/288?image=12',
+        src: 'http://picsum.photos/512/288?random=1',
         width: '512',
         height: '288',
         alt: 'Alt text',
@@ -198,7 +198,7 @@ export const NavInternalPanelAllHighlightsData = {
       description:
         'Vivamus rutrum, nibh eu euismod imperdiet, elit ante dapibus risus, ut rutrum.',
       image: {
-        src: 'http://placekitten.com/512/288?image=9',
+        src: 'http://picsum.photos/512/288?random=2',
         width: '512',
         height: '288',
         alt: 'Alt text',
@@ -211,7 +211,7 @@ export const NavInternalPanelAllHighlightsData = {
       description:
         'Aliquam nisi nisi, iaculis sed iaculis et, rutrum quis orci. Quisque maximus.',
       image: {
-        src: 'http://placekitten.com/512/288?image=8',
+        src: 'http://picsum.photos/512/288?random=3',
         width: '512',
         height: '288',
         alt: 'Alt text',
@@ -242,7 +242,7 @@ export const NavInternalPanelCombinationData = {
       description:
         'Praesent in eros iaculis, pulvinar est ut, maximus nisl. Vestibulum rutrum accumsan.',
       image: {
-        src: 'http://placekitten.com/512/288?image=12',
+        src: 'http://picsum.photos/512/288?random=4',
         width: '512',
         height: '288',
         alt: 'Alt text',

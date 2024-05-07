@@ -24,7 +24,7 @@ export const NavInternalHighlightData = {
   title: 'A Highlight',
   description: 'Lorem ipsum dolor sit amet consectatur adipscing',
   image: {
-    src: 'http://placekitten.com/512/288',
+    src: 'http://picsum.photos/512/288',
     width: '512',
     height: '288',
     alt: 'Alt text',
