@@ -1,4 +1,4 @@
-import { MixinVideoBgData } from '../MixinVideoBg/MixinVideoBg.stories.mdx'
+import { MixinVideoBgData } from '../MixinVideoBg/MixinVideoBg.stories'
 import { HeroMediaTemplate } from './HeroMedia'
 
 export default {
@@ -30,23 +30,7 @@ export default {
       root: '#storyRoot',
     },
     viewMode: 'docs',
-    themes: {
-      clearable: false,
-      list: [
-        {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
-          color: '#ffffff',
-          default: true,
-        },
-        {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
-        },
-      ],
-    },
-    docs: { inlineStories: false, iframeHeight: 700 },
+    docs: { inlineStories: false, iframeHeight: 700, description: { component: 'No text overlay, just an image or video with a caption below.'} },
   },
 }
 

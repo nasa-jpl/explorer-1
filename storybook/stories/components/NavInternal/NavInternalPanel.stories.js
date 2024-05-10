@@ -52,7 +52,7 @@ export default {
     docs: {
       description: {
         component:
-          'The contents of a mega-menu-style dropdown. Intended for use within the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--with-navigation)',
+          'The contents of a mega-menu-style dropdown. Intended for use within the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--docs)',
       },
     },
     themes: {
@@ -256,8 +256,9 @@ export const NavInternalPanelCombinationData = {
   allowSectionColumns: true,
 }
 
-export const Basic = NavInternalPanelTemplate.bind({})
-Basic.args = NavInternalPanelBasicData
+export const Default = NavInternalPanelTemplate.bind({})
+Default.storyName = 'Basic'
+Default.args = NavInternalPanelBasicData
 
 export const NoHighlights = NavInternalPanelTemplate.bind({})
 NoHighlights.args = NavInternalPanelNoHighlightsData

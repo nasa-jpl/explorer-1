@@ -1,20 +1,10 @@
-import React from 'react'
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs'
-
 import { BlockImageTemplate } from './BlockImage'
 import { BlockImageFullBleedTemplate } from './BlockImageFullBleed'
 import { BlockImageStandardTemplate } from './BlockImageStandard'
 
 export default {
   title: 'Components/Blocks/BlockImage',
+  tags: ['autodocs'],
   argTypes: {
     fullBleed: {
       control: { type: 'boolean' },
@@ -25,18 +15,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'An image block that includes a caption and lightbox.',
+        component: 'The combination of BaseImage and BaseImageCaption, plus adding support for expanding the image in a lightbox and styling it to be a full-bleed image.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories includePrimary={true} title="All BlockImage variants" />
-        </>
-      ),
     },
   },
 }
@@ -74,9 +54,10 @@ export const BlockImageData = {
   },
 }
 
-export const Standard = BlockImageStandardTemplate.bind({})
-Standard.args = { image: BlockImageData.image, fullBleed: false }
-Standard.parameters = {
+export const Default = BlockImageStandardTemplate.bind({})
+Default.storyName = 'Standard'
+Default.args = { image: BlockImageData.image, fullBleed: false }
+Default.parameters = {
   docs: {
     storyDescription:
       'Standard image block that has a fluid width to fill any container. Most popular variant of `BlockImage`.',

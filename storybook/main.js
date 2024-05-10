@@ -1,9 +1,15 @@
 module.exports = {
+  framework: {
+    name: '@storybook/html-vite',
+    options: {},
+  },
+
   stories: [
-    './stories/**/*.stories.mdx',
-    './stories/**/*.stories.@(js|jsx|ts|tsx)',
+    './stories/**/*.docs.mdx',
+    './stories/**/*.stories.@(js|ts)'
   ],
   staticDirs: ['./../dist', './static'],
+
   addons: [
     {
       name: '@storybook/addon-essentials',
@@ -12,15 +18,16 @@ module.exports = {
         actions: false,
       },
     },
-    '@storybook/addon-a11y',
-    '@whitespace/storybook-addon-html',
-    'storybook-addon-themes',
+    '@storybook/addon-a11y', 
+    // '@whitespace/storybook-addon-html', 
+    '@storybook/addon-mdx-gfm'
   ],
-  // removes deprecation warning
-  features: {
-    postcss: false,
-  },
+
   core: {
     disableTelemetry: true,
   },
+
+  docs: {
+    autodocs: true
+  }
 }

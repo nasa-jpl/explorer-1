@@ -16,22 +16,11 @@ export default {
     docs: {
       description: {
         component:
-          'Navigation with mega-menu dropdowns. Note: mobile view will only work when used with the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--with-navigation).',
+          'Navigation with mega-menu dropdowns. Note: mobile view will only work when used with the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--docs).',
       },
     },
     html: {
       root: '#storyRoot',
-    },
-    themes: {
-      clearable: false,
-      list: [
-        {
-          name: 'ThemeInternal',
-          class: ['ThemeInternal', 'sbdocs-preview-full-width'],
-          color: '#53C8ED',
-          default: true,
-        },
-      ],
     },
   },
   decorators: [(Story) => `<div id="storyRoot">${Story()}</div>`],

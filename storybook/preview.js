@@ -3,6 +3,7 @@ import customTheme from './customTheme.js'
 import '../dist/css/explorer-1.min.css'
 import '../dist/js/explorer-1.min.js'
 import './canvas.css'
+import { withGlobals } from "./withGlobals"
 
 // viewports that match our tailwind config
 const customViewports = {
@@ -50,118 +51,128 @@ const customViewports = {
   },
 }
 
-export const parameters = {
-  viewport: {
-    viewports: {
-      ...MINIMAL_VIEWPORTS,
-      ...customViewports,
+const preview = {
+  globalTypes: {
+    themesConfig: {
+      defaultValue: [
+        "ThemeLight",
+        "ThemeInternal",
+        "ThemeDark",
+      ],
+      method: 'css', 
     },
-  },
-
-  // themes are used to switch the wrapper between ThemeLight and ThemeDark
-  themes: {
-    clearable: false,
-    list: [
-      {
-        name: 'ThemeLight',
-        class: 'ThemeLight',
-        color: '#ffffff',
-        default: true,
-      },
-      {
-        name: 'ThemeDark',
-        class: 'ThemeDark',
-        color: '#000000',
-      },
-      {
-        name: 'ThemeInternal',
-        class: 'ThemeInternal',
-        color: '#53C8ED',
-      },
-    ],
-  },
-
-  // options for the html tab add-on
-  html: {
-    removeEmptyComments: true,
-  },
-
-  // set docs as the default viewMode. This can be overridden at the component level
-  viewMode: 'docs',
-
-  // set the theme for docs (same as UI)
-  docs: {
-    theme: customTheme,
-  },
-
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-    // show full documentation for each property
-    // see: https://storybook.js.org/docs/react/essentials/controls#show-full-documentation-for-each-property
-    expanded: true,
-  },
-
-  options: {
-    storySort: {
-      order: [
-        'Introduction',
-        'Roadmap',
-        'Getting Started',
-        ['Developer'],
-        'Guides',
-        'Foundation',
-        [
-          'Colors',
-          'Typography',
-          'Icons',
-          'Logos',
-          'Themes',
-          'Grid and Layout',
-          'Responsive Design',
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: "ThemeLight",
+      toolbar: {
+        title: 'Theme',
+        // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
+        icon: 'eye',
+        items: [ 
+          { value: 'ThemeLight', icon: 'circlehollow', title: 'Light' },
+          { value: 'ThemeDark', icon: 'circle', title: 'Dark' },
+          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal' },
         ],
-        'Global Layout',
-        [
-          'Overview',
-          'Headers',
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [
+    withGlobals
+  ],
+  parameters: {
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+    // add custom viewports to the toolbar
+    viewport: {
+      viewports: {
+        ...MINIMAL_VIEWPORTS,
+        ...customViewports,
+      },
+    },
+    // options for the html tab add-on
+    html: {
+      removeEmptyComments: true,
+    },
+    // set the theme for docs (same as UI)
+    docs: {
+      theme: customTheme,
+    },
+    // sort stories in the sidebar
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: [
+          'Introduction',
+          'Roadmap',
+          'Getting Started',
+          ['Developer'],
+          'Guides',
+          'Foundation',
+          [
+            'Colors',
+            'Typography',
+            'Icons',
+            'Logos',
+            'Themes',
+            'Grid and Layout',
+            'Responsive Design',
+          ],
+          'Global Layout',
           [
             'Overview',
-            'External',
-            'For Internal Sites',
+            'Headers',
             [
-              '*',
-              'Elements',
+              'Overview',
+              'External',
+              'For Internal Sites',
               [
-                'Overview',
-                'AppBar',
-                'Navigation',
-                'Panel',
-                'Highlight',
-                'Section',
+                '*',
+                'Elements',
+                [
+                  'Overview',
+                  'AppBar',
+                  'Navigation',
+                  'Panel',
+                  'Highlight',
+                  'Section',
+                ],
               ],
             ],
+            'Footers',
+            ['Overview', 'External', 'Internal'],
           ],
-          'Footers',
-          ['Overview', 'External', 'Internal'],
+          'Components',
+          [
+            'Overview',
+            'Base',
+            ['Overview'],
+            'Blocks',
+            ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
+            'Forms',
+            ['Overview', 'TextInput', 'TextArea'],
+            'Search',
+            ['Overview'],
+            'Mixins',
+            ['Overview', 'MixinAnimationCaret', 'MixinVideoBg', 'MixinCarousel'],
+            'Utilities',
+            ['Overview', '*']
+          ],
         ],
-        'Components',
-        [
-          'Overview',
-          'Base',
-          ['Overview'],
-          'Blocks',
-          ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
-          'Forms',
-          ['Overview', 'TextInput', 'TextArea'],
-          'Search',
-          ['Overview'],
-          'Mixins',
-          ['Overview', 'MixinAnimationCaret', 'MixinVideoBg', 'MixinCarousel'],
-        ],
-      ],
+      },
+    },
+    backgrounds: {
+      default: "light",
+      grid: {
+        disable: true,
+      },
     },
   },
 }
+
+
+export default preview

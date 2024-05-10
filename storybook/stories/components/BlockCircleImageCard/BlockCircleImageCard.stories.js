@@ -2,6 +2,7 @@ import { BlockCircleImageCardTemplate } from './BlockCircleImageCard'
 
 export default {
   title: 'Components/Blocks/BlockCircleImageCard',
+  tags: ['autodocs'],
   argTypes: {
     imageOnRight: {
       type: { name: 'boolean', required: false },
@@ -45,9 +46,9 @@ export default {
   },
 }
 
-export const Card = BlockCircleImageCardTemplate.bind({})
-Card.storyName = 'BlockCircleImageCard'
-Card.args = {
+export const Default = BlockCircleImageCardTemplate.bind({})
+Default.storyName = 'BlockCircleImageCard'
+Default.args = {
   imageOnRight: false,
   title: 'First Flight of Technology for Returning Warheads from Space',
   label: 'September 20, 1956',

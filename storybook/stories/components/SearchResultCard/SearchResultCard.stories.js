@@ -54,7 +54,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component: 'Standard search result, with a highlighted occurrence of the query that returned the result. Styles for a featured result are also available.',
       },
     },
   },
@@ -80,8 +80,9 @@ export const SearchResultCardData = {
   featured: false,
 }
 
-export const StandardResult = SearchResultCardTemplate.bind({})
-StandardResult.args = SearchResultCardData
+export const Default = SearchResultCardTemplate.bind({})
+Default.storyName = 'Standard Result'
+Default.args = SearchResultCardData
 
 export const FeaturedResult = SearchResultCardTemplate.bind({})
 FeaturedResult.args = { ...SearchResultCardData, featured: true }

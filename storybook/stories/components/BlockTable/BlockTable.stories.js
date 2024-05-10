@@ -2,6 +2,7 @@ import { BlockTableTemplate } from './BlockTable'
 
 export default {
   title: 'Components/Blocks/BlockTable',
+  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     caption: {
@@ -13,11 +14,18 @@ export default {
       description: 'An array of table data objects.',
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: 'A simple table with some basic formatting.',
+      },
+    },
+  },
 }
 
-export const Table = BlockTableTemplate.bind({})
-Table.storyName = 'BlockTable'
-Table.args = {
+export const Default = BlockTableTemplate.bind({})
+Default.storyName = 'BlockTable'
+Default.args = {
   caption: 'Third row intentionally blank to test parsing.',
   table: {
     data: [

@@ -2,6 +2,7 @@ import { BlockLinkTileTemplate } from './BlockLinkTile.js'
 
 export default {
   title: 'Components/Blocks/BlockLinkTile',
+  tags: ['autodocs'],
   argTypes: {
     url: {
       type: { name: 'string', required: true },
@@ -50,9 +51,9 @@ export default {
   },
 }
 
-export const Card = BlockLinkTileTemplate.bind({})
-Card.storyName = 'BlockLinkTile'
-Card.args = {
+export const Default = BlockLinkTileTemplate.bind({})
+Default.storyName = 'BlockLinkTile'
+Default.args = {
   url: '#',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',
   label: 'Solar System',

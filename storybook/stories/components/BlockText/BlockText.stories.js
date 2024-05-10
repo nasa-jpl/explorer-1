@@ -2,6 +2,7 @@ import { BlockTextTemplate } from './BlockText'
 
 export default {
   title: 'Components/Blocks/BlockText',
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       type: 'string',
@@ -23,7 +24,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component: 'Standard wrapper for one or more paragraphs and lists that takes a `text-body-<size>` class.',
       },
     },
   },

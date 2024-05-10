@@ -1,8 +1,8 @@
-import { Default } from '../BaseImageCaption/BaseImageCaption.stories'
 import { BlockImageCarouselTemplate } from './BlockImageCarousel'
 
 export default {
   title: 'Components/Blocks/BlockImageCarousel',
+  tags: ['autodocs'],
   decorators: [
     (Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`,
   ],
@@ -17,7 +17,7 @@ export default {
       root: '#storyRoot',
     },
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 850 },
+    docs: { inlineStories: false, iframeHeight: 850, description: { component: 'A simple image carousel with the option to open images in a lightbox.'}},
     themes: {
       clearable: false,
       list: [
@@ -105,6 +105,6 @@ export const BlockImageCarouselData = {
   ],
 }
 
-export const Carousel = BlockImageCarouselTemplate.bind({})
-Carousel.storyName = 'BlockImageCarousel'
-Carousel.args = BlockImageCarouselData
+export const Default = BlockImageCarouselTemplate.bind({})
+Default.storyName = 'BlockImageCarousel'
+Default.args = BlockImageCarouselData

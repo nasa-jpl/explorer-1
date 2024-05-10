@@ -1,13 +1,3 @@
-import React from 'react'
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs'
 import { Icon360Template } from './Icon360'
 import { IconArrowTemplate } from './IconArrow'
 import { IconArrowsTemplate } from './IconArrows'
@@ -49,6 +39,7 @@ import { IconUserTemplate } from './IconUser'
 
 export default {
   title: 'Foundation/Icons',
+  tags: ['autodocs'],
   argTypes: {
     customClass: {
       type: 'string',
@@ -60,16 +51,6 @@ export default {
   parameters: {
     viewMode: 'docs',
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories includePrimary={true} title="All icons" />
-        </>
-      ),
       description: {
         component:
           'Icons are rendered by inserting their SVG markup directly into the DOM. We encourage taking advantage of your templating system to do this in a more developer-friendly way than copying and pasting the entire HTML code. For example, in our Django templates, we store the SVG markup in individual template files and then insert it with Django’s `include` tag, like so: `{% include "components/Icons/IconClose.html" %}`.' +

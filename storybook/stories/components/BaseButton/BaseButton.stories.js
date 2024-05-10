@@ -1,17 +1,8 @@
-import React from 'react'
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs'
 import { BaseButtonTemplate } from './BaseButton.js'
 
 export default {
   title: 'Components/Base/BaseButton',
+  tags: ['autodocs'],
   argTypes: {
     label: {
       type: 'string',
@@ -111,27 +102,18 @@ export default {
     },
   },
   parameters: {
-    viewMode: 'docs',
+    // viewMode: 'docs',
     docs: {
       description: {
-        component: 'Base component for buttons.',
+        component: 'Simple button with several style variations.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories includePrimary={true} title="All buttons" />
-        </>
-      ),
     },
   },
 }
 
-export const Primary_Button = BaseButtonTemplate.bind({})
-Primary_Button.args = {
+export const Default = BaseButtonTemplate.bind({})
+Default.storyName = 'Primary Button'
+Default.args = {
   label: 'Explore',
   variant: 'primary',
   link: '#',

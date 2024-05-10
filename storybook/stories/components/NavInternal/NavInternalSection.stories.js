@@ -44,8 +44,9 @@ ${Story()}
   ],
 }
 
-export const BasicHeading = NavInternalSectionTemplate.bind({})
-BasicHeading.args = menuItemsNestedData[0]
+export const Default = NavInternalSectionTemplate.bind({})
+Default.storyName = "Basic Heading"
+Default.args = menuItemsNestedData[0]
 
 export const WithHeadingLink = NavInternalSectionTemplate.bind({})
 WithHeadingLink.args = { ...menuItemsNestedData[0], url: '#' }

@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks'
+import { ReactDocsComponentList } from './ReactDocsComponentList'
+import * as MixinAnimationCaretStories from './../components/MixinAnimationCaret/MixinAnimationCaret.stories'
+import * as MixinVideoBgStories from './../components/MixinVideoBg/MixinVideoBg.stories'
+import * as MixinCarouselStories from './../components/MixinCarousel/MixinCarousel.stories'
+
+<Meta title="Components/Mixins/Overview" />
+
+# Mixins
+
+Mixins are intended for developer use when creating new components, but aren't meant to be used alone, as they usually require additional components to function properly, or additional markup for accessibility. General users of Explorer 1 should look at [Base](?path=/docs/components-base-overview--docs) and [Block](?path=/docs/components-blocks-overview--docs) components instead.
+
+<br />
+
+<ReactDocsComponentList
+  components={[
+    {
+      heading: 'MixinAnimationCaret',
+      meta: MixinAnimationCaretStories,
+      path: '/docs/components-mixins-mixinanimationcaret--docs',
+    },
+    {
+      heading: 'MixinVideoBg',
+      customDescription:
+        "A video mixin that autoplays a muted video and retains the video's aspect ratio. Useful for creating background video layouts.",
+      meta: MixinVideoBgStories,
+      path: '/docs/components-mixins-mixinvideobg--docs',
+      fullWidth: true,
+      fullCanvas: true,
+    },
+    {
+      heading: 'MixinCarousel',
+      meta: MixinCarouselStories,
+      path: '/docs/components-mixins-mixincarousel--docs',
+      fullWidth: true,
+      fullCanvas: true,
+    },
+  ]}
+/>

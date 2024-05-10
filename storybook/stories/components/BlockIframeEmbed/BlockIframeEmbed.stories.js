@@ -2,6 +2,7 @@ import { BlockIframeEmbedTemplate } from './BlockIframeEmbed'
 
 export default {
   title: 'Components/Blocks/BlockIframeEmbed',
+  tags: ['autodocs'],
   argTypes: {
     title: {
       type: { name: 'string', required: true },
@@ -25,7 +26,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component: 'An iframe embed with an optional caption. View the component to see a demo.',
       },
     },
     html: {

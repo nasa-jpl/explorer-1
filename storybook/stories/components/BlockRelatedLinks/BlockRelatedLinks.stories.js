@@ -2,6 +2,7 @@ import { BlockRelatedLinksTemplate } from './BlockRelatedLinks'
 
 export default {
   title: 'Components/Blocks/BlockRelatedLinks',
+  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     heading: {
@@ -19,7 +20,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component: 'A list of links formatted with background colors and icons indicating the type of link.',
       },
     },
   },
@@ -51,8 +52,9 @@ export const BlockRelatedLinksData = {
   ],
 }
 
-export const Block = BlockRelatedLinksTemplate.bind({})
-Block.args = {
+export const Default = BlockRelatedLinksTemplate.bind({})
+Default.storyName = 'Block'
+Default.args = {
   heading: BlockRelatedLinksData.heading,
   links: BlockRelatedLinksData.links,
 }

@@ -1,6 +1,7 @@
 import { BlockLinkCarouselTemplate } from './BlockLinkCarousel.js'
 export default {
   title: 'Components/Blocks/BlockLinkCarousel',
+  tags: ['autodocs'],
   argTypes: {
     itemType: {
       type: 'string',
@@ -21,7 +22,7 @@ export default {
   },
   parameters: {
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 650 },
+    docs: { inlineStories: false, iframeHeight: 650, description: { component: 'A mixed-bleed carousel with more than one slide visible at a time.'} },
     themes: {
       clearable: false,
       list: [
@@ -105,8 +106,9 @@ const BlockLinkCarouselData = [
   },
 ]
 
-export const Carousel = BlockLinkCarouselTemplate.bind({})
-Carousel.args = {
+export const Default = BlockLinkCarouselTemplate.bind({})
+Default.storyName = 'Carousel'
+Default.args = {
   heading: 'Related Pages',
   items: BlockLinkCarouselData,
 }

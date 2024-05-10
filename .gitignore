@@ -30,3 +30,6 @@ out/
 # Linter caches
 .eslintcache
 .stylelintcache
+
+# logs
+.log
