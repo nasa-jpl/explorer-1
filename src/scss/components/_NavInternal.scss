@@ -83,7 +83,7 @@
         }
 
         &:focus {
-          @apply border-gray-dark border-opacity-20 outline-none;
+          @apply border-gray-dark/20 outline-none;
         }
 
         @include hover {
@@ -109,7 +109,7 @@
       > button {
         .IconDropdown {
           font-size: 0.6rem;
-          @apply ml-2 pointer-events-none flex-shrink-0;
+          @apply ml-2 pointer-events-none shrink-0;
         }
       }
 
@@ -156,7 +156,7 @@
     }
 
     // non-grid columns and layout ---------------------------------//
-    @responsive {
+    @layer utilities {
       .auto-cols-2,
       .auto-cols-3 {
         column-gap: 3.5rem; // corresponds with grid .gap-14

@@ -18,7 +18,7 @@
   }
 }
 
-@responsive {
+@layer utilities {
   // Aspect Ratio None
   .aspect-ratio-none {
     > div:first-of-type {
@@ -98,4 +98,5 @@
   .aspect-ratio-square {
     @include aspect-ratio(1, 1);
   }
+
 }

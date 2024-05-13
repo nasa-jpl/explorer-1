@@ -8,49 +8,45 @@
  * Use .text-theme-color and .text-theme-color-hover instead.
  */
 @layer utilities {
-  @responsive {
-    @variants hover {
-      .text-theme-color,
-      .text-theme-red {
-        @apply text-jpl-red;
-      }
+  .text-theme-color,
+  .text-theme-red {
+    @apply text-jpl-red;
+  }
 
-      .text-theme-color-hover,
-      .text-theme-red-hover {
-        @apply text-jpl-red-dark;
-      }
+  .text-theme-color-hover,
+  .text-theme-red-hover {
+    @apply text-jpl-red-dark;
+  }
+
+  .ThemeLight {
+    .text-theme-color,
+    .text-theme-red,
+    .hover\:text-theme-color:hover,
+    .hover\:text-theme-red:hover {
+      @apply text-jpl-red;
     }
 
-    .ThemeLight {
-      .text-theme-color,
-      .text-theme-red,
-      .hover\:text-theme-color:hover,
-      .hover\:text-theme-red:hover {
-        @apply text-jpl-red;
-      }
+    .text-theme-color-hover,
+    .text-theme-red-hover,
+    .hover\:text-theme-color-hover:hover,
+    .hover\:text-theme-red-hover:hover {
+      @apply text-jpl-red-dark;
+    }
+  }
 
-      .text-theme-color-hover,
-      .text-theme-red-hover,
-      .hover\:text-theme-color-hover:hover,
-      .hover\:text-theme-red-hover:hover {
-        @apply text-jpl-red-dark;
-      }
+  .ThemeDark {
+    .text-theme-color,
+    .text-theme-red,
+    .hover\:text-theme-color:hover,
+    .hover\:text-theme-red:hover {
+      @apply text-jpl-red-light;
     }
 
-    .ThemeDark {
-      .text-theme-color,
-      .text-theme-red,
-      .hover\:text-theme-color:hover,
-      .hover\:text-theme-red:hover {
-        @apply text-jpl-red-light;
-      }
-
-      .text-theme-color-hover,
-      .text-theme-red-hover,
-      .hover\:text-theme-color-hover:hover,
-      .hover\:text-theme-red-hover:hover {
-        @apply text-jpl-red;
-      }
+    .text-theme-color-hover,
+    .text-theme-red-hover,
+    .hover\:text-theme-color-hover:hover,
+    .hover\:text-theme-red-hover:hover {
+      @apply text-jpl-red;
     }
   }
 }
