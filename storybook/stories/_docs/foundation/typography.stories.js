@@ -189,7 +189,7 @@ export const HeadingIcons = {
 }
 
 const TextContrastTemplate = () => `<div style="background-image: url(http://source.unsplash.com/b-P6xrDMFSU); background-color: #000;" class="bg-cover bg-no-repeat bg-center">
-  <div class="p-10 bg-black bg-opacity-30">
+  <div class="p-10 bg-black/30">
     <span class="text-h3 text-white text-contrast">
       This text uses a text shadow that increases readability when used with a semi-transparent overlay.
     </span>

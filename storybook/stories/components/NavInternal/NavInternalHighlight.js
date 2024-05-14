@@ -50,7 +50,7 @@ export const NavInternalHighlightTemplate = ({
             noLogo: true,
             objectFitClass: 'object-cover',
             imageClass:
-              'can-hover:group-hover:delay-200 can-hover:group-hover:scale-100 absolute top-0 left-0 w-full transition-all duration-200 ease-in transform scale-105',
+              'can-hover:group-hover:delay-200 can-hover:group-hover:scale-100 absolute top-0 left-0 w-full transition-all duration-200 ease-in scale-105',
             src: image.src,
             width: image.width,
             height: image.height,

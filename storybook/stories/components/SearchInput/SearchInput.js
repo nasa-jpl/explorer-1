@@ -10,7 +10,7 @@ export const SearchInputTemplate = ({ inputId, placeholder, compact }) => {
       <span class="border-jpl-red-light absolute z-20 h-0 border-b-2 select-none">
         <!-- TODO: auto-update with input value using javascript -->
       </span>
-      <span class="border-black absolute inset-x-0 z-10 h-0 border-b-2 border-opacity-50 select-none"></span>
+      <span class="border-black/50 absolute inset-x-0 z-10 h-0 border-b-2 select-none"></span>
     </div>
   `
     : ''

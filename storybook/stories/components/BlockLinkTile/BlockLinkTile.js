@@ -56,11 +56,11 @@ export const BlockLinkTileTemplate = ({
   let template = `
   <div class="relative">
     <div
-      class="lg:group-hover:scale-105 min-h-66 transition-all duration-200 ease-in delay-200 transform scale-100 bg-black"
+      class="lg:group-hover:scale-105 min-h-66 transition-all duration-200 ease-in delay-200 scale-100 bg-black"
     >
       ${baseImagePlaceholder}
       <div class="gradient-overlay bg-gradient-to-b from-transparent to-black min-h-1/2 absolute inset-x-0 bottom-0"></div>
-      <div class="bg-opacity-15 absolute inset-0 bg-black"></div>
+      <div class="absolute inset-0 bg-black/15"></div>
     </div>
     <div class="absolute inset-x-0 bottom-0">
       <div
