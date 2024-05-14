@@ -18,7 +18,7 @@ export const BlockAccordionItemTemplate = ({
 
   const template = `
     <div class="border-b border-gray-light-mid">
-      <${heading_level} class="text-body-lg">
+      <${heading_level} class="text-body-lg tracking-normal font-normal">
         <button aria-expanded="false"
           class="BlockAccordion-trigger group flex flex-nowrap justify-between items-center w-full p-4 xl:py-6 can-hover:hover:underline focus:outline-none focus:underline"
           aria-controls="${item_panel_id}"
