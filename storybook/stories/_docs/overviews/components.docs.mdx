@@ -1,8 +1,8 @@
 import { Meta, Canvas, Story } from '@storybook/blocks'
-import { ReactDocsComponentList } from './ReactDocsComponentList'
-import * as BaseImageStories from './../components/BaseImage/BaseImage.stories'
-import * as BaseImageCaptionStories from './../components/BaseImageCaption/BaseImageCaption.stories'
-import * as BlockImageStories from './../components/BlockImage/BlockImage.stories'
+import { ComponentList } from './../utils/ComponentList'
+import * as BaseImageStories from './../../components/BaseImage/BaseImage.stories'
+import * as BaseImageCaptionStories from './../../components/BaseImageCaption/BaseImageCaption.stories'
+import * as BlockImageStories from './../../components/BlockImage/BlockImage.stories'
 
 <Meta title="Components/Overview" parameters={{ viewMode: 'docs' }} />
 
@@ -19,7 +19,7 @@ Explorer 1 comprises components that range from very simple, single-purpose elem
 
 To illustrate the difference between base and block components, consider images. We have both `BaseImage` and `BlockImage` components. The difference is that `BaseImage` is nothing more than the `<img>` element (with our minimum set of attributes, wrapped in a div), whereas `BlockImage` combines a `BaseImage` with a `BaseImageCaption` (plus a few other bells and whistles).
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'BaseImage',

@@ -26,7 +26,6 @@ const ResponsiveDesignTemplate = () => `<div class="bg-gray-light border">
   </div>
 </div>`
 
-export const ResponsiveDesign = {
-  render: ResponsiveDesignTemplate.bind({})
+export const Demo = {
+  render: ResponsiveDesignTemplate.bind({}),
 }
-

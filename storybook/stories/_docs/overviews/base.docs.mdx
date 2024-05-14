@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/blocks'
-import { ReactDocsComponentList } from './ReactDocsComponentList'
-import * as BaseButtonStories from './../components/BaseButton/BaseButton.stories'
-import * as BaseHeadingStories from './../components/BaseHeading/BaseHeading.stories'
-import * as BaseImageStories from './../components/BaseImage/BaseImage.stories'
-import * as BaseImageCaptionStories from './../components/BaseImageCaption/BaseImageCaption.stories'
-import * as BaseImagePlaceholderStories from './../components/BaseImagePlaceholder/BaseImagePlaceholder.stories'
-import * as BaseLinkStories from './../components/BaseLink/BaseLink.stories'
-import * as BasePlaceholderStories from './../components/BasePlaceholder/BasePlaceholder.stories'
+import { ComponentList } from './../utils/ComponentList'
+import * as BaseButtonStories from './../../components/BaseButton/BaseButton.stories'
+import * as BaseHeadingStories from './../../components/BaseHeading/BaseHeading.stories'
+import * as BaseImageStories from './../../components/BaseImage/BaseImage.stories'
+import * as BaseImageCaptionStories from './../../components/BaseImageCaption/BaseImageCaption.stories'
+import * as BaseImagePlaceholderStories from './../../components/BaseImagePlaceholder/BaseImagePlaceholder.stories'
+import * as BaseLinkStories from './../../components/BaseLink/BaseLink.stories'
+import * as BasePlaceholderStories from './../../components/BasePlaceholder/BasePlaceholder.stories'
 
 <Meta title="Components/Base/Overview" />
 
@@ -24,7 +24,7 @@ Base components are the simplest elements that sometimes stand on their own, but
 
 ## Basic elements
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'BaseLink',
@@ -44,14 +44,13 @@ Base components are the simplest elements that sometimes stand on their own, but
   ]}
 />
 
-
 <br />
 
 <span id="media"></span>
 
 ## Media
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'BaseImage',
@@ -65,7 +64,8 @@ Base components are the simplest elements that sometimes stand on their own, but
     },
     {
       heading: 'BaseImagePlaceholder',
-      customDescription: 'A backdrop for lazy-loaded images that can fill a set aspect ratio.',
+      customDescription:
+        'A backdrop for lazy-loaded images that can fill a set aspect ratio.',
       meta: BaseImagePlaceholderStories,
       path: '/docs/components-base-baseimageplaceholder--docs',
     },
@@ -78,7 +78,7 @@ Base components are the simplest elements that sometimes stand on their own, but
 
 ## Other
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'BasePlaceholder',

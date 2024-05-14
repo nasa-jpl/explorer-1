@@ -41,6 +41,5 @@ const ExampleFormTemplate = () => `<form>
 </form>`
 
 export const Default = {
-  render: ExampleFormTemplate.bind({})
+  render: ExampleFormTemplate.bind({}),
 }
-

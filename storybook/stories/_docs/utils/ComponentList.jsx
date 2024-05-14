@@ -3,13 +3,13 @@
  */
 
 import React from 'react'
-import { ReactDocsComponentItem } from './ReactDocsComponentItem'
+import { ComponentItem } from './ComponentItem'
 
-export function ReactDocsComponentList(props) {
+export function ComponentList(props) {
   return (
     <div className="reactdocs-content">
       {props.components.map((component, index) => {
-        return <ReactDocsComponentItem key={index} {...component} />
+        return <ComponentItem key={index} {...component} />
       })}
     </div>
   )

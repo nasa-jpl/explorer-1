@@ -1,6 +1,6 @@
 import { Meta, Canvas, Story } from '@storybook/blocks'
-import { ReactDocsComponentList } from './ReactDocsComponentList'
-import * as FooterInternalStories from './../components/FooterInternal/FooterInternal.stories'
+import { ComponentList } from './../utils/ComponentList'
+import * as FooterInternalStories from './../../components/FooterInternal/FooterInternal.stories'
 
 <Meta title="Global Layout/Footers/Overview" />
 
@@ -8,7 +8,7 @@ import * as FooterInternalStories from './../components/FooterInternal/FooterInt
 
 Footers are to be placed at the very bottom of your website or application. Footer styles are specific to your site's visibility (internal vs. external/public). If you are using the [Internal Theme](/?path=/docs/foundation-themes--internal), be sure to use the [Internal Footer](/?path=/docs/global-layout-footers-for-internal-sites--for-internal-sites). If your website or application is public-facing, be sure to use the External footer (coming soon).
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'Internal Footer',

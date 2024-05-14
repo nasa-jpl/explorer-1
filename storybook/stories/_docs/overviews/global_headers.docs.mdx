@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/blocks'
-import { ReactDocsComponentList } from './ReactDocsComponentList'
-import * as HeaderInternalStories from './../components/HeaderInternal/HeaderInternal.stories'
+import { ComponentList } from './../utils/ComponentList'
+import * as HeaderInternalStories from './../../components/HeaderInternal/HeaderInternal.stories'
 
 <Meta title="Global Layout/Headers/Overview" />
 
@@ -10,7 +10,7 @@ Headers are to be placed at the very top of your website or application. Header 
 
 Note: to view with functioning dropdowns and search field expansion, you must go to [an individual story and switch to **Canvas View**](?path=/story/global-layout-headers-for-internal-sites--default).
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'Internal Header',

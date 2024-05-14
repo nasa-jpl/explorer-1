@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/blocks'
-import { ReactDocsComponentList } from './ReactDocsComponentList'
-import * as HeroSmallStories from './../components/HeroSmall/HeroSmall.stories'
-import * as HeroMediumStories from './../components/HeroMedium/HeroMedium.stories'
-import * as HeroLargeStories from './../components/HeroLarge/HeroLarge.stories'
-import * as HeroMediaStories from './../components/HeroMedia/HeroMedia.stories'
+import { ComponentList } from './../utils/ComponentList'
+import * as HeroSmallStories from './../../components/HeroSmall/HeroSmall.stories'
+import * as HeroMediumStories from './../../components/HeroMedium/HeroMedium.stories'
+import * as HeroLargeStories from './../../components/HeroLarge/HeroLarge.stories'
+import * as HeroMediaStories from './../../components/HeroMedia/HeroMedia.stories'
 
 <Meta title="Components/Blocks/Heroes/Overview" />
 
@@ -11,7 +11,7 @@ import * as HeroMediaStories from './../components/HeroMedia/HeroMedia.stories'
 
 Hero components are reserved for usage at the top of the page. There should only be one hero per page. All hero blocks include page layout assumptions and use a max width of `max-w-screen-3xl`.
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'Small',

@@ -1,9 +1,9 @@
 import { Meta, Canvas, Story } from '@storybook/blocks'
-import { ReactDocsComponentList } from './ReactDocsComponentList'
-import * as ExampleFormStories from './overview_forms.example.stories'
-import * as FormTextInputStories from './../components/FormTextInput/FormTextInput.stories'
-import * as FormTextAreaStories from './../components/FormTextArea/FormTextArea.stories'
-import * as BaseButtonStories from './../components/BaseButton/BaseButton.stories'
+import { ComponentList } from './../utils/ComponentList'
+import * as ExampleFormStories from './forms.example.stories'
+import * as FormTextInputStories from './../../components/FormTextInput/FormTextInput.stories'
+import * as FormTextAreaStories from './../../components/FormTextArea/FormTextArea.stories'
+import * as BaseButtonStories from './../../components/BaseButton/BaseButton.stories'
 
 <Meta title="Components/Forms/Overview" />
 
@@ -14,7 +14,7 @@ you will need to build that into your implementation of the design system.
 
 You can construct a form by combining the following components:
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'TextInput',
@@ -43,6 +43,7 @@ You can construct a form by combining the following components:
 ## Example Form
 
 Below is an example form that was created using the above components and a couple `div` wrappers to adjust spacing between fields.
+
 <Canvas meta={ExampleFormStories} of={ExampleFormStories.Default} />
 
 Depending on your framework, you will need to modify the `<form>` attributes and possibly convert the submit `<button>` to an input, such as:

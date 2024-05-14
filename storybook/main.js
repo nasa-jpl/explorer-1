@@ -4,10 +4,7 @@ module.exports = {
     options: {},
   },
 
-  stories: [
-    './stories/**/*.docs.mdx',
-    './stories/**/*.stories.@(js|ts)'
-  ],
+  stories: ['./stories/**/*.docs.mdx', './stories/**/*.stories.@(js|ts)'],
   staticDirs: ['./../dist', './static'],
 
   addons: [
@@ -18,9 +15,9 @@ module.exports = {
         actions: false,
       },
     },
-    '@storybook/addon-a11y', 
-    // '@whitespace/storybook-addon-html', 
-    '@storybook/addon-mdx-gfm'
+    '@storybook/addon-a11y',
+    '@whitespace/storybook-addon-html',
+    '@storybook/addon-mdx-gfm',
   ],
 
   core: {
@@ -28,6 +25,6 @@ module.exports = {
   },
 
   docs: {
-    autodocs: true
-  }
+    autodocs: true,
+  },
 }

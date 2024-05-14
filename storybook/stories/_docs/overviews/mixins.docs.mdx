@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/blocks'
-import { ReactDocsComponentList } from './ReactDocsComponentList'
-import * as MixinAnimationCaretStories from './../components/MixinAnimationCaret/MixinAnimationCaret.stories'
-import * as MixinVideoBgStories from './../components/MixinVideoBg/MixinVideoBg.stories'
-import * as MixinCarouselStories from './../components/MixinCarousel/MixinCarousel.stories'
+import { ComponentList } from './../utils/ComponentList'
+import * as MixinAnimationCaretStories from './../../components/MixinAnimationCaret/MixinAnimationCaret.stories'
+import * as MixinVideoBgStories from './../../components/MixinVideoBg/MixinVideoBg.stories'
+import * as MixinCarouselStories from './../../components/MixinCarousel/MixinCarousel.stories'
 
 <Meta title="Components/Mixins/Overview" />
 
@@ -12,7 +12,7 @@ Mixins are intended for developer use when creating new components, but aren't m
 
 <br />
 
-<ReactDocsComponentList
+<ComponentList
   components={[
     {
       heading: 'MixinAnimationCaret',

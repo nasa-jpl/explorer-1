@@ -5,7 +5,7 @@
 import React from 'react'
 import { Canvas, Description } from '@storybook/blocks'
 
-export function ReactDocsComponentItem(props) {
+export function ComponentItem(props) {
   /*
     props: {
       heading,      // required: heading for the card, usually component name
@@ -43,7 +43,7 @@ export function ReactDocsComponentItem(props) {
 
     return (
       <div className={wrapperClass}>
-      <div
+        <div
           className={
             'reactdocs-container pr-5' + (props.fullWidth ? '' : ' lg:w-1/2')
           }
@@ -54,12 +54,14 @@ export function ReactDocsComponentItem(props) {
             </a>
           </h3>
           <p>
-            {props.customDescription 
-            ? props.customDescription
-            : props.meta
-              ? <Description of={props.meta} />
+            {props.customDescription ? (
+              props.customDescription
+            ) : props.meta ? (
+              <Description of={props.meta} />
+            ) : (
               // props.meta.default.parameters.docs.description.component
-              : ''}
+              ''
+            )}
           </p>
         </div>
 
@@ -72,7 +74,11 @@ export function ReactDocsComponentItem(props) {
               <div className="text-gray-mid">View component for details</div>
             </a>
           ) : (
-            <Canvas className={props.canvasClass} meta={props.meta} of={props.meta.Default} />
+            <Canvas
+              className={props.canvasClass}
+              meta={props.meta}
+              of={props.meta.Default}
+            />
           )}
         </div>
       </div>
