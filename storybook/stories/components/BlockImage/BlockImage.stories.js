@@ -15,7 +15,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'The combination of BaseImage and BaseImageCaption, plus adding support for expanding the image in a lightbox and styling it to be a full-bleed image.',
+        component:
+          'The combination of BaseImage and BaseImageCaption, plus adding support for expanding the image in a lightbox and styling it to be a full-bleed image.',
       },
     },
   },

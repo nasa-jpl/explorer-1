@@ -8,7 +8,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'A combination of heading and unordered list, bordered on top and bottom. List items can have multiple paragraphs.',
+        component:
+          'A combination of heading and unordered list, bordered on top and bottom. List items can have multiple paragraphs.',
       },
     },
   },

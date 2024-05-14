@@ -43,7 +43,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A combination of label, heading, description, and button in a box on the left with an image on the right. On smaller screens, the image appears above the box with the text elements.',
+        component:
+          'A combination of label, heading, description, and button in a box on the left with an image on the right. On smaller screens, the image appears above the box with the text elements.',
       },
     },
   },

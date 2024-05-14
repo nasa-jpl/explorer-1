@@ -54,7 +54,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Standard search result, with a highlighted occurrence of the query that returned the result. Styles for a featured result are also available.',
+        component:
+          'Standard search result, with a highlighted occurrence of the query that returned the result. Styles for a featured result are also available.',
       },
     },
   },

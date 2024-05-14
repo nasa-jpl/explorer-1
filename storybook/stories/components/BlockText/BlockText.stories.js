@@ -24,7 +24,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Standard wrapper for one or more paragraphs and lists that takes a `text-body-<size>` class.',
+        component:
+          'Standard wrapper for one or more paragraphs and lists that takes a `text-body-<size>` class.',
       },
     },
   },

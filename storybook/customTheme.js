@@ -15,4 +15,3 @@ export default create({
   // brandUrl: 'https://example.com',
   brandImage: 'brand-jpl-logo.svg',
 })
-

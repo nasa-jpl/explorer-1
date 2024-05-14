@@ -3,7 +3,7 @@ import customTheme from './customTheme.js'
 import '../dist/css/explorer-1.min.css'
 import '../dist/js/explorer-1.min.js'
 import './canvas.css'
-import { withGlobals } from "./withGlobals"
+import { withGlobals } from './withGlobals'
 
 // viewports that match our tailwind config
 const customViewports = {
@@ -54,21 +54,17 @@ const customViewports = {
 const preview = {
   globalTypes: {
     themesConfig: {
-      defaultValue: [
-        "ThemeLight",
-        "ThemeInternal",
-        "ThemeDark",
-      ],
-      method: 'css', 
+      defaultValue: ['ThemeLight', 'ThemeInternal', 'ThemeDark'],
+      method: 'css',
     },
     theme: {
       description: 'Global theme for components',
-      defaultValue: "ThemeLight",
+      defaultValue: 'ThemeLight',
       toolbar: {
         title: 'Theme',
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
-        items: [ 
+        items: [
           { value: 'ThemeLight', icon: 'circlehollow', title: 'Light' },
           { value: 'ThemeDark', icon: 'circle', title: 'Dark' },
           { value: 'ThemeInternal', icon: 'collapse', title: 'Internal' },
@@ -77,9 +73,7 @@ const preview = {
       },
     },
   },
-  decorators: [
-    withGlobals
-  ],
+  decorators: [withGlobals],
   parameters: {
     controls: {
       matchers: {
@@ -105,7 +99,7 @@ const preview = {
     // sort stories in the sidebar
     options: {
       storySort: {
-        method: "alphabetical",
+        method: 'alphabetical',
         order: [
           'Introduction',
           'Roadmap',
@@ -158,21 +152,25 @@ const preview = {
             'Search',
             ['Overview'],
             'Mixins',
-            ['Overview', 'MixinAnimationCaret', 'MixinVideoBg', 'MixinCarousel'],
+            [
+              'Overview',
+              'MixinAnimationCaret',
+              'MixinVideoBg',
+              'MixinCarousel',
+            ],
             'Utilities',
-            ['Overview', '*']
+            ['Overview', '*'],
           ],
         ],
       },
     },
     backgrounds: {
-      default: "light",
+      default: 'light',
       grid: {
         disable: true,
       },
     },
   },
 }
-
 
 export default preview

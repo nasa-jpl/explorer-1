@@ -24,7 +24,7 @@
     "build-storybook": "storybook build -c storybook -o storybook_compiled",
     "lint:js": "eslint --cache '**/*.{vue,js}' --report-unused-disable-directives --ignore-path .gitignore",
     "lint:style": "stylelint --cache '**/*.{vue,css,scss}' '!dist/**/*' --ignore-path .gitignore",
-    "lint:format": "prettier --check '**/?(.)*.{html,md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --ignore-path .gitignore",
+    "lint:format": "prettier --check '**/?(.)*.{html,md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --write --ignore-path .gitignore",
     "percy": "percy storybook http://localhost:6006",
     "percy:dry-run": "percy storybook http://localhost:6006 --dry-run"
   },

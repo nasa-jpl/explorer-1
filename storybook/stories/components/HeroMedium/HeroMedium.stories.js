@@ -36,9 +36,10 @@ export default {
     },
     docs: {
       description: {
-        components: 'Includes a text overlay. Height of 400px (flexible) on small screens; fixed at 600px on larger screens.'
-      }
-    }
+        components:
+          'Includes a text overlay. Height of 400px (flexible) on small screens; fixed at 600px on larger screens.',
+      },
+    },
   },
 }
 

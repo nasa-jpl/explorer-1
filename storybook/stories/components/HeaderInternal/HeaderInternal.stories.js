@@ -29,9 +29,10 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Configurable to accommodate just an AppBar or complex site navigation, along with optional search and sign in/out buttons'
-      }
-    }
+        component:
+          'Configurable to accommodate just an AppBar or complex site navigation, along with optional search and sign in/out buttons',
+      },
+    },
   },
 }
 
@@ -49,8 +50,8 @@ export const AppBarOnly = HeaderInternalTemplate.bind({})
 AppBarOnly.args = {
   ...HeaderInternalData,
   includeSignIn: true,
-  menuItems: [], 
-  includeSearch: false
+  menuItems: [],
+  includeSearch: false,
 }
 
 export const AppBarWithSignIn = HeaderInternalTemplate.bind({})

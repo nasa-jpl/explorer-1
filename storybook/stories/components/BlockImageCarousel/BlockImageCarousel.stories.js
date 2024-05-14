@@ -17,7 +17,14 @@ export default {
       root: '#storyRoot',
     },
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 850, description: { component: 'A simple image carousel with the option to open images in a lightbox.'}},
+    docs: {
+      inlineStories: false,
+      iframeHeight: 850,
+      description: {
+        component:
+          'A simple image carousel with the option to open images in a lightbox.',
+      },
+    },
     themes: {
       clearable: false,
       list: [

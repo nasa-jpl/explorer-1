@@ -3,7 +3,7 @@ export const getStoryOverview = (meta) => {
   preppedStory.parameters = {
     docs: {
       description: {
-        story: meta.default.parameters.docs.description.component
+        story: meta.default.parameters.docs.description.component,
       },
     },
   }

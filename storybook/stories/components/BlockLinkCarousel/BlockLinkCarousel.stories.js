@@ -22,7 +22,14 @@ export default {
   },
   parameters: {
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 650, description: { component: 'A mixed-bleed carousel with more than one slide visible at a time.'} },
+    docs: {
+      inlineStories: false,
+      iframeHeight: 650,
+      description: {
+        component:
+          'A mixed-bleed carousel with more than one slide visible at a time.',
+      },
+    },
     themes: {
       clearable: false,
       list: [

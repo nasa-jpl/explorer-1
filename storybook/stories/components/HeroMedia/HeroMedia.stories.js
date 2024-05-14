@@ -30,7 +30,14 @@ export default {
       root: '#storyRoot',
     },
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 700, description: { component: 'No text overlay, just an image or video with a caption below.'} },
+    docs: {
+      inlineStories: false,
+      iframeHeight: 700,
+      description: {
+        component:
+          'No text overlay, just an image or video with a caption below.',
+      },
+    },
   },
 }
 

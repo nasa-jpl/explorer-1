@@ -30,7 +30,14 @@ export default {
       root: '#storyRoot',
     },
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 500, description: { component: 'A block with expandable sections. Has an option to allowing multiple sections to remain open at a time.'} },
+    docs: {
+      inlineStories: false,
+      iframeHeight: 500,
+      description: {
+        component:
+          'A block with expandable sections. Has an option to allowing multiple sections to remain open at a time.',
+      },
+    },
   },
   excludeStories: /.*Data$/,
 }

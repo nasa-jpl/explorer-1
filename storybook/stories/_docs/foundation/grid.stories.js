@@ -25,20 +25,22 @@ const BaseGridTemplate = () => `<div class="max-w-screen-3xl mx-auto">
 </div>`
 
 export const BaseGrid = {
-  render: BaseGridTemplate.bind({})
+  render: BaseGridTemplate.bind({}),
 }
 
-const ComponentATemplate = () => `<div class="BaseGrid container mx-auto border border-jpl-red-light">
+const ComponentATemplate =
+  () => `<div class="BaseGrid container mx-auto border border-jpl-red-light">
   <div class="col-start-4 col-end-10 bg-black text-white px-4 py-10">
     Starts at col 4 and ends at the col 10 line.
   </div>
 </div>`
 
 export const ComponentA = {
-  render: ComponentATemplate.bind({})
+  render: ComponentATemplate.bind({}),
 }
 
-const ComponentBTemplate = () => `<div class="BaseGrid container mx-auto border border-jpl-red-light">
+const ComponentBTemplate =
+  () => `<div class="BaseGrid container mx-auto border border-jpl-red-light">
   <div class="col-start-2 col-end-8 bg-black text-white px-4 py-10">
     Primary content
   </div>
@@ -48,10 +50,11 @@ const ComponentBTemplate = () => `<div class="BaseGrid container mx-auto border 
 </div>`
 
 export const ComponentB = {
-  render: ComponentBTemplate.bind({})
+  render: ComponentBTemplate.bind({}),
 }
 
-const MixedBleedGridLinesTemplate = () => `<div class="max-w-screen-3xl mx-auto bg-white">
+const MixedBleedGridLinesTemplate =
+  () => `<div class="max-w-screen-3xl mx-auto bg-white">
   <div class="BaseGrid container px-0 mx-auto bg-gray-light-mid mb-5">
     <div class="text-center text-white bg-gray-mid-dark py-4">1</div>
     <div class="text-center text-white bg-gray-mid-dark py-4">2</div>
@@ -96,7 +99,7 @@ const MixedBleedGridLinesTemplate = () => `<div class="max-w-screen-3xl mx-auto 
 </div>`
 
 export const MixedBleedGridLines = {
-  render: MixedBleedGridLinesTemplate.bind({})
+  render: MixedBleedGridLinesTemplate.bind({}),
 }
 const MixedBleedTemplate = () => `<div class="MixedBleedGrid">
   <div class="col-start-indent-col-2 col-end-bleed text-white bg-black px-4 py-10">
@@ -105,7 +108,7 @@ const MixedBleedTemplate = () => `<div class="MixedBleedGrid">
 </div>`
 
 export const MixedBleed = {
-  render: MixedBleedTemplate.bind({})
+  render: MixedBleedTemplate.bind({}),
 }
 
 const MixedBleedComplexTemplate = () => `<div>
@@ -125,7 +128,7 @@ const MixedBleedComplexTemplate = () => `<div>
 </div>`
 
 export const MixedBleedComplex = {
-  render: MixedBleedComplexTemplate.bind({})
+  render: MixedBleedComplexTemplate.bind({}),
 }
 
 const PageLayoutTemplate = () => `<!-- first section -->
@@ -162,10 +165,11 @@ const PageLayoutTemplate = () => `<!-- first section -->
 </div>`
 
 export const PageLayout = {
-  render: PageLayoutTemplate.bind({})
+  render: PageLayoutTemplate.bind({}),
 }
 
-const FullPageExampleTemplate = () => `<div class="bg-black text-white py-5 mb-10">
+const FullPageExampleTemplate =
+  () => `<div class="bg-black text-white py-5 mb-10">
   <div class="max-w-screen-2xl mx-auto border border-white p-3">
     Top Hat
   </div>
@@ -247,6 +251,5 @@ const FullPageExampleTemplate = () => `<div class="bg-black text-white py-5 mb-1
 </div>`
 
 export const FullPageExample = {
-  render: FullPageExampleTemplate.bind({})
+  render: FullPageExampleTemplate.bind({}),
 }
-

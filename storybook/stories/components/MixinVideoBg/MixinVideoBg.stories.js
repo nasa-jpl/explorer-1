@@ -26,13 +26,13 @@ export default {
     },
   },
   parameters: {
-    docs: { 
+    docs: {
       description: {
         component: `This mixin is a simple \`<video>\` component that autoplays a muted video and retains the video's aspect ratio. Often used as a background when positioned \`absolute\` with other content set as an overlay, or used as a way to loop a muted video without video controls.
   See the following stories for implementation examples:
 
   - [Hero: Medium](?path=/docs/components-blocks-heroes-medium--docs) - with content overlay
-  - [Hero: Media Only](?path=/story/components-blocks-heroes-media-only--video) - no content overlay`
+  - [Hero: Media Only](?path=/story/components-blocks-heroes-media-only--video) - no content overlay`,
       },
     },
   },

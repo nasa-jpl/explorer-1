@@ -63,39 +63,71 @@ This data would create similar navigation links such as "Home" and "External" in
 
 One highlight, and several single-level nav items.
 
-<Canvas class="sbdocs-preview-full-width" meta={NavInternalPanelStories} of={NavInternalPanelStories.Default} />
+<Canvas
+  class="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.Default}
+/>
 
-<Controls of={NavInternalPanelStories.Default} include={['menuItems', 'highlights']} />
+<Controls
+  of={NavInternalPanelStories.Default}
+  include={['menuItems', 'highlights']}
+/>
 
 ### Example panel with no highlights
 
-<Canvas class="sbdocs-preview-full-width" meta={NavInternalPanelStories} of={NavInternalPanelStories.NoHighlights} />
+<Canvas
+  class="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.NoHighlights}
+/>
 
 Note the lack of `highlights` in the data structure below:
 
-<Controls of={NavInternalPanelStories.NoHighlights} include={['menuItems', 'highlights']} />
+<Controls
+  of={NavInternalPanelStories.NoHighlights}
+  include={['menuItems', 'highlights']}
+/>
 
 ### Example panel with highlights only
 
-<Canvas class="sbdocs-preview-full-width" meta={NavInternalPanelStories} of={NavInternalPanelStories.AllHighlights} />
+<Canvas
+  class="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.AllHighlights}
+/>
 
 Note the lack of `menuItems` in the data structure below:
 
-<Controls of={NavInternalPanelStories.AllHighlights} include={['menuItems', 'highlights']} />
+<Controls
+  of={NavInternalPanelStories.AllHighlights}
+  include={['menuItems', 'highlights']}
+/>
 
 ### Example panel with navigation headings
 
-<Canvas class="sbdocs-preview-full-width" meta={NavInternalPanelStories} of={NavInternalPanelStories.WithHeadings} />
+<Canvas
+  class="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.WithHeadings}
+/>
 
 Note the nested `menuItems` array within each top-level `menuItem`. For more details on how these work, view the nav [Section](?path=/story/global-layout-headers-for-internal-sites-elements-panel--with-headings) documentation.
 
-<Controls of={NavInternalPanelStories.WithHeadings} include={['menuItems', 'highlights']} />
+<Controls
+  of={NavInternalPanelStories.WithHeadings}
+  include={['menuItems', 'highlights']}
+/>
 
 ### Example panel with a more complex combination
 
 One highlight, section headings, and allowing breaks across columns.
 
-<Canvas class="sbdocs-preview-full-width" meta={NavInternalPanelStories} of={NavInternalPanelStories.Combination} />
+<Canvas
+  class="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.Combination}
+/>
 
 <Controls of={NavInternalPanelStories.Combination} />
 

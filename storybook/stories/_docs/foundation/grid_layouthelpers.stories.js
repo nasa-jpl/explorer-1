@@ -2,7 +2,8 @@ export default {
   title: 'Foundation/Grid and Layout/Column Layout Helpers',
 }
 
-const BaseWidthTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
+const BaseWidthTemplate =
+  () => `<div class="BaseGrid container mx-auto border border-black py-4">
   <div class="indent-col-base border border-success-green p-4">
     <code>.indent-col-base</code>
   </div>
@@ -10,7 +11,8 @@ const BaseWidthTemplate = () => `<div class="BaseGrid container mx-auto border b
 
 export const BaseWidth = BaseWidthTemplate.bind()
 
-const ColTwoStartTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
+const ColTwoStartTemplate =
+  () => `<div class="BaseGrid container mx-auto border border-black py-4">
   <div class="indent-col-base indent-col-2 border border-success-green p-4">
     <code>.indent-col-base.indent-col-2</code>
   </div>
@@ -28,7 +30,8 @@ ColTwoStart.parameters = {
   },
 }
 
-const ColThreeStartTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
+const ColThreeStartTemplate =
+  () => `<div class="BaseGrid container mx-auto border border-black py-4">
   <div class="indent-col-base indent-col-3 border border-success-green p-4">
     <code>.indent-col-base.indent-col-3</code>
   </div>
@@ -39,7 +42,8 @@ export const ColThreeStart = {
   render: ColThreeStartTemplate.bind({}),
 }
 
-const ColFourStartTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
+const ColFourStartTemplate =
+  () => `<div class="BaseGrid container mx-auto border border-black py-4">
   <div class="indent-col-base indent-col-4 border border-success-green p-4">
     <code>.indent-col-base.indent-col-4</code>
   </div>
@@ -49,4 +53,3 @@ export const ColFourStart = {
   name: 'Start at col-4',
   render: ColFourStartTemplate.bind({}),
 }
-

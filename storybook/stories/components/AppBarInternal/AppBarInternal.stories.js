@@ -7,9 +7,10 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Displays JPL branding, the org or name of the site, and optionally a sign in/out widget.'
-      }
-    }
+        component:
+          'Displays JPL branding, the org or name of the site, and optionally a sign in/out widget.',
+      },
+    },
   },
 }
 

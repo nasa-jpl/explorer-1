@@ -29,8 +29,7 @@ export default {
     // viewMode: 'story',
     docs: {
       description: {
-        component:
-          "Simple footer with preset links.",
+        component: 'Simple footer with preset links.',
       },
     },
   },

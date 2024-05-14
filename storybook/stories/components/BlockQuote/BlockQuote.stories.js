@@ -18,7 +18,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'A big, fancy pull quote, with optional attribution and link. Can also be used for non-quotation callouts.',
+        component:
+          'A big, fancy pull quote, with optional attribution and link. Can also be used for non-quotation callouts.',
       },
     },
   },

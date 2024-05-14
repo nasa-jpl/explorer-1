@@ -20,7 +20,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'A list of links formatted with background colors and icons indicating the type of link.',
+        component:
+          'A list of links formatted with background colors and icons indicating the type of link.',
       },
     },
   },

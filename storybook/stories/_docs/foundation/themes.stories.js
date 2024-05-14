@@ -28,7 +28,7 @@ const InternalTemplate = () => `<div>
 </div>`
 
 export const Internal = {
-  render: InternalTemplate.bind({})
+  render: InternalTemplate.bind({}),
 }
 
 const AdaptiveTextTemplate = () => `<p class="ThemeLight p-4">
@@ -55,6 +55,5 @@ const AdaptiveTextTemplate = () => `<p class="ThemeLight p-4">
 </div>`
 
 export const AdaptiveText = {
-  render: AdaptiveTextTemplate.bind({})
+  render: AdaptiveTextTemplate.bind({}),
 }
-

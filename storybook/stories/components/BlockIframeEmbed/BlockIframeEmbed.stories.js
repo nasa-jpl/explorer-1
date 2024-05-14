@@ -26,7 +26,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'An iframe embed with an optional caption. View the component to see a demo.',
+        component:
+          'An iframe embed with an optional caption. View the component to see a demo.',
       },
     },
     html: {

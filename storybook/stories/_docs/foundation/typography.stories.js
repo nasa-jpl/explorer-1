@@ -92,7 +92,7 @@ const FontsTemplate = () => `<div class="Fonts md:grid-cols-2 grid gap-2 mt-4">
 </div>`
 
 export const Fonts = {
-  render: FontsTemplate.bind({})
+  render: FontsTemplate.bind({}),
 }
 
 const TextColorTemplate = () => `<div>
@@ -127,7 +127,7 @@ const TextColorTemplate = () => `<div>
 </div>`
 
 export const TextColor = {
-  render: TextColorTemplate.bind({})
+  render: TextColorTemplate.bind({}),
 }
 
 const TextStylesTemplate = () => `<div>
@@ -160,7 +160,7 @@ const TextStylesTemplate = () => `<div>
 </div>`
 
 export const TextStyles = {
-  render: TextStylesTemplate.bind({})
+  render: TextStylesTemplate.bind({}),
 }
 
 const testHeadingIcon = IconLocationTemplate({
@@ -185,10 +185,11 @@ const HeadingIconsTemplate = () => `<div>
 </div>`
 
 export const HeadingIcons = {
-  render: HeadingIconsTemplate.bind({})
+  render: HeadingIconsTemplate.bind({}),
 }
 
-const TextContrastTemplate = () => `<div style="background-image: url(http://source.unsplash.com/b-P6xrDMFSU); background-color: #000;" class="bg-cover bg-no-repeat bg-center">
+const TextContrastTemplate =
+  () => `<div style="background-image: url(http://source.unsplash.com/b-P6xrDMFSU); background-color: #000;" class="bg-cover bg-no-repeat bg-center">
   <div class="p-10 bg-black/30">
     <span class="text-h3 text-white text-contrast">
       This text uses a text shadow that increases readability when used with a semi-transparent overlay.
@@ -197,6 +198,5 @@ const TextContrastTemplate = () => `<div style="background-image: url(http://sou
 </div>`
 
 export const TextContrast = {
-  render: TextContrastTemplate.bind({})
+  render: TextContrastTemplate.bind({}),
 }
-
