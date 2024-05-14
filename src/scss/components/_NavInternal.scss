@@ -16,7 +16,9 @@
     visibility: hidden;
     max-height: 0;
     opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms,
+    transition:
+      visibility 0s linear 300ms,
+      opacity 300ms,
       max-height 0s linear 300s;
     @apply h-0 overflow-hidden;
 
@@ -36,7 +38,10 @@
       visibility: visible;
       max-height: 100%;
       opacity: 1;
-      transition: visibility 0s, opacity 300ms, max-height 0s;
+      transition:
+        visibility 0s,
+        opacity 300ms,
+        max-height 0s;
       @apply h-auto overflow-visible;
 
       @screen lg {
@@ -55,14 +60,14 @@
     }
 
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+    scrollbar-color: rgba(0 0 0 / 40%) transparent;
 
     &::-webkit-scrollbar-track {
       background: transparent;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0 0 0 / 40%);
       border-radius: 6px;
       border: 6px solid white;
       border-left: none;
@@ -186,6 +191,7 @@
         display: inline-grid;
       }
       // safari 11+
+      /* stylelint-disable-next-line */
       @media not all and (min-resolution: 0.001dpcm) {
         @supports (-webkit-appearance: none) and (stroke-color: transparent) {
           display: inline-grid;
@@ -352,12 +358,16 @@
   // complex transitions, so cannot use tailwind classes
   visibility: visible;
   opacity: 0.8;
-  transition: visibility 0s linear 0s, opacity 300ms;
+  transition:
+    visibility 0s linear 0s,
+    opacity 300ms;
   // must use a custom class, cannot use .invisible, or else other rules will get erroneously created
   // see: https://github.jpl.nasa.gov/18x/WCP/issues/492
   &.invisible-overlay {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms;
+    transition:
+      visibility 0s linear 300ms,
+      opacity 300ms;
   }
 }

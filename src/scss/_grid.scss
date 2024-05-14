@@ -29,6 +29,7 @@
       grid-template-columns: [bleed-start] auto [container-start] 110px [indent-col-2] 110px [indent-col-3] 1100px [container-end] auto [bleed-end];
       @apply grid;
     }
+
     .col-start-bleed {
       grid-column-start: bleed-start;
     }

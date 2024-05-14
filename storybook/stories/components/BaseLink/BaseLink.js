@@ -62,10 +62,10 @@ export const BaseLinkTemplate = ({
     icon === 'document'
       ? IconDownloadTemplate({})
       : icon === 'internal'
-      ? IconArrowTemplate({})
-      : icon === 'external'
-      ? IconExternalTemplate({})
-      : ''
+        ? IconArrowTemplate({})
+        : icon === 'external'
+          ? IconExternalTemplate({})
+          : ''
 
   return `
     <div${renderWrapperClass}>
@@ -74,8 +74,8 @@ export const BaseLinkTemplate = ({
         target="${theTarget}"
         rel="${theRel}"
         class="group cursor-pointer${computedClass ? ` ${computedClass}` : ''}${
-    linkClass ? ` ${linkClass}` : ''
-  }"
+          linkClass ? ` ${linkClass}` : ''
+        }"
       >
         <span class="break-words">
           ${template}

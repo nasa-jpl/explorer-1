@@ -19,7 +19,7 @@
     text-size-adjust: 100%;
 
     /* Enable kerning and optional ligatures */
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizelegibility;
   }
 
   /* stylelint-disable at-rule-empty-line-before, declaration-empty-line-before */
@@ -154,7 +154,7 @@
     // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h6
     @apply font-bold tracking-normal;
     font-size: pxToRem(18);
-    line-height: 1.666666667;
+    line-height: 1.6667;
 
     @screen sm {
       font-size: pxToRem(19);
@@ -197,7 +197,7 @@
 
   .text-body-lg {
     font-size: pxToRem(18); // Based on Tailwind's text-lg
-    line-height: 1.666666667;
+    line-height: 1.6667;
 
     @screen sm {
       font-size: pxToRem(19);
@@ -215,7 +215,7 @@
 
   .text-body-md {
     font-size: pxToRem(16); // Based on Tailwind's text-base
-    line-height: 1.666666667;
+    line-height: 1.6667;
 
     @screen lg {
       font-size: pxToRem(18);
@@ -224,7 +224,7 @@
 
   .text-body-sm {
     font-size: pxToRem(14); // Based on Tailwind's text-sm
-    line-height: 1.666666667;
+    line-height: 1.6667;
 
     @screen lg {
       font-size: pxToRem(16);
@@ -233,7 +233,7 @@
 
   .text-body-xs {
     font-size: pxToRem(14); // Based on Tailwind's text-sm, but doesn't scale up
-    line-height: 1.666666667;
+    line-height: 1.6667;
   }
 
   // for stats areas (i.e. missions and robotics)
@@ -271,7 +271,7 @@
 
   @layer utilities {
     .text-contrast {
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+      text-shadow: 1px 1px 2px rgba(0 0 0 / 70%);
     }
 
     .text-contrast-none {

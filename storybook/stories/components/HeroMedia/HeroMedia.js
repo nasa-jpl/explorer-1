@@ -17,12 +17,12 @@ export const HeroMediaTemplate = ({ image, video, caption, credit, url }) => {
                   image.src.height
                 }" alt="${image.alt}"/>`
               : video
-              ? MixinVideoBgTemplate({
-                  file: video.file,
-                  webm: video.webm,
-                  ogg: video.ogg,
-                })
-              : ''
+                ? MixinVideoBgTemplate({
+                    file: video.file,
+                    webm: video.webm,
+                    ogg: video.ogg,
+                  })
+                : ''
           }
         </div>
         ${

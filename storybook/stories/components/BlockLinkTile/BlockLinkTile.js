@@ -70,10 +70,10 @@ export const BlockLinkTileTemplate = ({
       >
         ${labelTemplate}
         <${headingLevel} class="text-xl leading-tight tracking-tight transition-all duration-200 ease-in delay-200 ${
-    compact
-      ? 'font-semibold mb-0 lg:group-hover:mb-1'
-      : 'font-medium mb-1 lg:group-hover:mb-3 sm:text-6xl md:text-3xl xl:text-6xl'
-  }">
+          compact
+            ? 'font-semibold mb-0 lg:group-hover:mb-1'
+            : 'font-medium mb-1 lg:group-hover:mb-3 sm:text-6xl md:text-3xl xl:text-6xl'
+        }">
           ${title}
         </${headingLevel}>
         <div class="lg:block lg:-ml-3 lg:opacity-0 lg:group-hover:ml-0 lg:group-hover:opacity-100 lg:-mb-3 relative z-20 hidden text-3xl leading-normal transition-all duration-200 ease-in delay-200">

@@ -37,8 +37,8 @@ export const BaseImagePlaceholderTemplate = ({
           objectFitClass: objectFitClass,
         })
       : placeholder
-      ? `<div>${placeholder}</div>`
-      : '<div></div>'
+        ? `<div>${placeholder}</div>`
+        : '<div></div>'
   return `<div${renderWrapperClass}>
   <div class="BaseImagePlaceholder ${theme} ${aspectRatio} ${noLogo}">
     ${slot}

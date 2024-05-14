@@ -24,7 +24,7 @@ export const HeroMediumTemplate = ({
               webm: video.webm,
             })
           : image
-          ? `
+            ? `
         <picture>
           <source media="(min-width: 768px)" srcset="${image.srcSet}" />
           <source media="(min-width: 420px)" srcset="${image.screenMd.url}" />
@@ -37,7 +37,7 @@ export const HeroMediumTemplate = ({
             alt=""
           />
         </picture>`
-          : ''
+            : ''
       }
     </div>
     <div class="lg:flex lg:items-end lg:relative lg:h-full absolute bottom-0 z-20 w-full">
