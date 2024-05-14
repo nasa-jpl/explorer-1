@@ -74,8 +74,8 @@ export const BlockLinkCardTemplate = ({
     >
       ${labelTemplate}
       <${headingLevel} class="text-gray-dark text-xl font-medium leading-tight tracking-tight ${
-        compact ? 'text-xl' : 'lg:text-3xl'
-      }">
+    compact ? 'text-xl' : 'lg:text-3xl'
+  }">
         ${title}
       </${headingLevel}>
     </div>

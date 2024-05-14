@@ -16,9 +16,7 @@
     visibility: hidden;
     max-height: 0;
     opacity: 0;
-    transition:
-      visibility 0s linear 300ms,
-      opacity 300ms,
+    transition: visibility 0s linear 300ms, opacity 300ms,
       max-height 0s linear 300s;
     @apply h-0 overflow-hidden;
 
@@ -38,10 +36,7 @@
       visibility: visible;
       max-height: 100%;
       opacity: 1;
-      transition:
-        visibility 0s,
-        opacity 300ms,
-        max-height 0s;
+      transition: visibility 0s, opacity 300ms, max-height 0s;
       @apply h-auto overflow-visible;
 
       @screen lg {
@@ -358,16 +353,12 @@
   // complex transitions, so cannot use tailwind classes
   visibility: visible;
   opacity: 0.8;
-  transition:
-    visibility 0s linear 0s,
-    opacity 300ms;
+  transition: visibility 0s linear 0s, opacity 300ms;
   // must use a custom class, cannot use .invisible, or else other rules will get erroneously created
   // see: https://github.jpl.nasa.gov/18x/WCP/issues/492
   &.invisible-overlay {
     visibility: hidden;
     opacity: 0;
-    transition:
-      visibility 0s linear 300ms,
-      opacity 300ms;
+    transition: visibility 0s linear 300ms, opacity 300ms;
   }
 }
