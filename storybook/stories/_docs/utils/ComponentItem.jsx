@@ -17,6 +17,23 @@ export function ComponentItem(props) {
       hideCanvas,   // optional: if the canvas should be hidden
     }
   */
+
+  const hrefTo = (path) => {
+    return new Promise((resolve) => {
+      const { location } = document
+  
+      // Drop the `iframe.html` from the preview path
+      const sbPath = location.pathname.replace(/iframe\.html$/, '')
+      const url = `${location.origin + sbPath}?${Object.entries({ path })
+        .map((item) => `${item[0]}=${item[1]}`)
+        .join('&')}`
+      
+      parent.window.location = url
+    })
+  }
+  const navigate = (path) => {
+    hrefTo(path)
+  }
   if (props.meta) {
     let wrapperClass = 'text-base'
     if (props.fullWidth) {
@@ -38,7 +55,7 @@ export function ComponentItem(props) {
 
     let linkUrl = undefined
     if (props.path) {
-      linkUrl = '/?path=' + props.path
+      linkUrl = '?path=' + props.path
     }
 
     return (
@@ -49,20 +66,19 @@ export function ComponentItem(props) {
           }
         >
           <h3 className="text-base tracking-tight font-medium mt-3 mb-3">
-            <a className="sbdocs sbdocs-a font-medium" href={linkUrl}>
+            <button className="sbdocs sbdocs-a font-medium" onClick={() => {navigate(props.path)}}>
               {props.heading}
-            </a>
+            </button>
           </h3>
-          <p>
+          <div>
             {props.customDescription ? (
               props.customDescription
             ) : props.meta ? (
               <Description of={props.meta} />
             ) : (
-              // props.meta.default.parameters.docs.description.component
               ''
             )}
-          </p>
+          </div>
         </div>
 
         <div className={canvasWrapperClass}>
