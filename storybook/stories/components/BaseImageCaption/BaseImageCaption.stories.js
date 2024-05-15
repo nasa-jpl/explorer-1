@@ -2,7 +2,6 @@ import { BaseImageCaptionTemplate } from './BaseImageCaption'
 
 export default {
   title: 'Components/Base/BaseImageCaption',
-  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     caption: {

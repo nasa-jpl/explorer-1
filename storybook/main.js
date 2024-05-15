@@ -36,7 +36,5 @@ export default {
     disableTelemetry: true,
   },
 
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
 }

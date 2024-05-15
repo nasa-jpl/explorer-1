@@ -2,7 +2,6 @@ import { BlockLinkCardTemplate } from './BlockLinkCard.js'
 
 export default {
   title: 'Components/Blocks/BlockLinkCard',
-  tags: ['autodocs'],
   argTypes: {
     url: {
       type: { name: 'string', required: true },

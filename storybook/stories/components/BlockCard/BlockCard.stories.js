@@ -2,7 +2,6 @@ import { BlockCardTemplate } from './BlockCard'
 
 export default {
   title: 'Components/Blocks/BlockCard',
-  tags: ['autodocs'],
   argTypes: {
     type: {
       type: { name: 'string', required: true },

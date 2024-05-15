@@ -73,7 +73,9 @@ const preview = {
       },
     },
   },
+
   decorators: [withGlobals],
+
   parameters: {
     controls: {
       matchers: {
@@ -171,6 +173,8 @@ const preview = {
       },
     },
   },
+
+  tags: ['autodocs'],
 }
 
 export default preview

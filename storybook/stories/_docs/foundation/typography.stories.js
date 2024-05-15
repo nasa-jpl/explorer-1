@@ -2,6 +2,7 @@ import { IconLocationTemplate } from './../../components/Icons/IconLocation'
 
 export default {
   title: 'Foundation/Typography',
+  tags: ['!autodocs'],
 }
 
 const FontsTemplate = () => `<div class="Fonts md:grid-cols-2 grid gap-2 mt-4">

@@ -3,7 +3,6 @@ import { BaseImageData } from '../BaseImage/BaseImage.stories.js'
 
 export default {
   title: 'Components/Base/BaseImagePlaceholder',
-  tags: ['autodocs'],
   argTypes: {
     aspectRatio: {
       type: 'string',

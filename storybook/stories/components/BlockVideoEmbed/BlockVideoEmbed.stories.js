@@ -2,7 +2,6 @@ import { BlockVideoEmbedTemplate } from './BlockVideoEmbed'
 
 export default {
   title: 'Components/Blocks/BlockVideoEmbed',
-  tags: ['autodocs'],
   argTypes: {
     embed: {
       type: 'string',

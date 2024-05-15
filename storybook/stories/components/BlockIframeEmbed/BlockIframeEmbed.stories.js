@@ -2,7 +2,6 @@ import { BlockIframeEmbedTemplate } from './BlockIframeEmbed'
 
 export default {
   title: 'Components/Blocks/BlockIframeEmbed',
-  tags: ['autodocs'],
   argTypes: {
     title: {
       type: { name: 'string', required: true },

@@ -4,7 +4,6 @@ import { BlockImageStandardTemplate } from './BlockImageStandard'
 
 export default {
   title: 'Components/Blocks/BlockImage',
-  tags: ['autodocs'],
   argTypes: {
     fullBleed: {
       control: { type: 'boolean' },

@@ -2,7 +2,6 @@ import { BlockRelatedLinksTemplate } from './BlockRelatedLinks'
 
 export default {
   title: 'Components/Blocks/BlockRelatedLinks',
-  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     heading: {

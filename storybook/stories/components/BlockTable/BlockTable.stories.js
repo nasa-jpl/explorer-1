@@ -2,7 +2,6 @@ import { BlockTableTemplate } from './BlockTable'
 
 export default {
   title: 'Components/Blocks/BlockTable',
-  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     caption: {

@@ -2,7 +2,6 @@ import { BaseLinkTemplate } from './BaseLink.js'
 
 export default {
   title: 'Components/Base/BaseLink',
-  tags: ['autodocs'],
   argTypes: {
     text: {
       type: 'string',
