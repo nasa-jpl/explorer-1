@@ -2,7 +2,6 @@ import { BlockLinkTileTemplate } from './BlockLinkTile.js'
 
 export default {
   title: 'Components/Blocks/BlockLinkTile',
-  tags: ['autodocs'],
   argTypes: {
     url: {
       type: { name: 'string', required: true },

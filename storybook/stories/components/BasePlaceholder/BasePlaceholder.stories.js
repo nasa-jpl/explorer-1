@@ -2,7 +2,6 @@ import { BasePlaceholderTemplate } from './BasePlaceholder'
 
 export default {
   title: 'Components/Base/BasePlaceholder',
-  tags: ['autodocs'],
   parameters: {
     viewMode: 'docs',
     docs: {

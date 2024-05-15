@@ -2,7 +2,6 @@ import { BaseButtonTemplate } from './BaseButton.js'
 
 export default {
   title: 'Components/Base/BaseButton',
-  tags: ['autodocs'],
   argTypes: {
     label: {
       type: 'string',

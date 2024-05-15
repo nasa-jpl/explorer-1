@@ -2,7 +2,6 @@ import { BlockAccordionItemTemplate } from './BlockAccordionItem'
 
 export default {
   title: 'Components/Blocks/BlockAccordion/BlockAccordionItem',
-  tags: ['autodocs'],
   decorators: [
     (Story) =>
       `<div id="storyRoot" class="BlockAccordion mx-auto container">${Story()}</div>`,

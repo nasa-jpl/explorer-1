@@ -2,7 +2,6 @@ import { BaseIframeTemplate } from './BaseIframe'
 
 export default {
   title: 'Components/Base/BaseIframe',
-  tags: ['autodocs'],
   argTypes: {
     title: {
       type: { name: 'string', required: true },

@@ -12,6 +12,7 @@ export const HeaderInternalData = {
 export default {
   title: 'Global Layout/Headers/For Internal Sites',
   excludeStories: /.*Data$/,
+  tags: ['!autodocs'],
   argTypes: {
     includeSearch: {
       type: { name: 'boolean', required: false },

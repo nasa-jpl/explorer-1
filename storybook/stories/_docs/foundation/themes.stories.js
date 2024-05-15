@@ -1,5 +1,6 @@
 export default {
   title: 'Foundation/Themes',
+  tags: ['!autodocs'],
 }
 
 const InternalTemplate = () => `<div>

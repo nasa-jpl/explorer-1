@@ -1,7 +1,6 @@
 import { BlockLinkCarouselTemplate } from './BlockLinkCarousel.js'
 export default {
   title: 'Components/Blocks/BlockLinkCarousel',
-  tags: ['autodocs'],
   argTypes: {
     itemType: {
       type: 'string',

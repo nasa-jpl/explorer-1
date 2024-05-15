@@ -2,7 +2,6 @@ import { BlockTextTemplate } from './BlockText'
 
 export default {
   title: 'Components/Blocks/BlockText',
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       type: 'string',

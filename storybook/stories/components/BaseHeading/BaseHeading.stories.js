@@ -6,7 +6,6 @@ import { IconUserTemplate } from '../Icons/IconUser'
 
 export default {
   title: 'Components/Base/BaseHeading',
-  tags: ['autodocs'],
   argTypes: {
     text: {
       type: 'string',

@@ -2,7 +2,6 @@ import { BlockQuoteTemplate } from './BlockQuote'
 
 export default {
   title: 'Components/Blocks/BlockQuote',
-  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     quote: {

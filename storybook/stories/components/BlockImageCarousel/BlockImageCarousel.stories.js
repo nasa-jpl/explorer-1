@@ -2,7 +2,6 @@ import { BlockImageCarouselTemplate } from './BlockImageCarousel'
 
 export default {
   title: 'Components/Blocks/BlockImageCarousel',
-  tags: ['autodocs'],
   decorators: [
     (Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`,
   ],
