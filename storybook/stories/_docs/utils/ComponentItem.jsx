@@ -53,11 +53,6 @@ export function ComponentItem(props) {
       canvasWrapperClass += ' lg:w-1/2'
     }
 
-    let linkUrl = undefined
-    if (props.path) {
-      linkUrl = '?path=' + props.path
-    }
-
     return (
       <div className={wrapperClass}>
         <div
@@ -83,12 +78,12 @@ export function ComponentItem(props) {
 
         <div className={canvasWrapperClass}>
           {props.hideCanvas ? (
-            <a
-              href={linkUrl}
+            <button
               className="mt-6 p-6 flex justify-center shadow-sm border border-gray-light-mid rounded-md items-center"
+              onClick={() => {navigate(props.path)}}
             >
               <div className="text-gray-mid">View component for details</div>
-            </a>
+            </button>
           ) : (
             <Canvas
               className={props.canvasClass}
