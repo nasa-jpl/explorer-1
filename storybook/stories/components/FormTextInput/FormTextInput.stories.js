@@ -20,7 +20,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component:
+          'A simple text input with stylized label, placeholder text, and "required" asterisk, if applicable.',
       },
     },
   },

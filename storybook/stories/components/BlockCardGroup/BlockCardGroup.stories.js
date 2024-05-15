@@ -1,6 +1,7 @@
 import { BlockCardGroupTemplate } from './BlockCardGroup.js'
 export default {
   title: 'Components/Blocks/BlockCardGroup',
+  tags: ['autodocs'],
   decorators: [
     (Story) =>
       `<div id="storyRoot" class="lg:container max-w-screen-3xl mx-auto">${Story()}</div>`,
@@ -89,8 +90,8 @@ const BlockCardGroupData = [
   },
 ]
 
-export const Group = BlockCardGroupTemplate.bind({})
-Group.storyName = 'BlockCardGroup'
-Group.args = {
+export const Default = BlockCardGroupTemplate.bind({})
+Default.storyName = 'BlockCardGroup'
+Default.args = {
   items: BlockCardGroupData,
 }

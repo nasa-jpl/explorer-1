@@ -2,6 +2,7 @@ import { BlockLinkCardTemplate } from './BlockLinkCard.js'
 
 export default {
   title: 'Components/Blocks/BlockLinkCard',
+  tags: ['autodocs'],
   argTypes: {
     url: {
       type: { name: 'string', required: true },
@@ -40,7 +41,7 @@ export default {
     docs: {
       description: {
         component:
-          'Features a an image followed by text, with a hover effect. Recommended for use with longer text. `BlockLinkCard` is an item type available for use in `BlockLinkCarousel`.',
+          'Features an image followed by text, with a hover effect. Recommended for use with longer text. `BlockLinkCard` is an item type available for use in `BlockLinkCarousel`.',
       },
     },
     html: {
@@ -49,9 +50,9 @@ export default {
   },
 }
 
-export const Card = BlockLinkCardTemplate.bind({})
-Card.storyName = 'BlockLinkCard'
-Card.args = {
+export const Default = BlockLinkCardTemplate.bind({})
+Default.storyName = 'BlockLinkCard'
+Default.args = {
   url: '#',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',
   label: 'Solar System',

@@ -2,6 +2,7 @@ import { BlockVideoEmbedTemplate } from './BlockVideoEmbed'
 
 export default {
   title: 'Components/Blocks/BlockVideoEmbed',
+  tags: ['autodocs'],
   argTypes: {
     embed: {
       type: 'string',
@@ -14,6 +15,13 @@ export default {
     credit: {
       type: 'string',
       description: 'Video credit',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'A video embed with placeholder, plus an optional caption.',
+      },
     },
   },
 }

@@ -3,6 +3,7 @@ import { BlockImageCarouselTemplate } from '../BlockImageCarousel/BlockImageCaro
 
 export default {
   title: 'Components/Blocks/BlockImageGallery',
+  tags: ['autodocs'],
   decorators: [
     (Story) =>
       `<div id="storyRoot" class="max-w-screen-3xl mx-auto">${Story()}</div>`,

@@ -81,9 +81,8 @@ export default {
   excludeStories: /.*Data$/,
 }
 
-export const MixinCarousel = MixinCarouselTemplate.bind({})
-MixinCarousel.storyName = 'Default'
-MixinCarousel.args = {
+export const Default = MixinCarouselTemplate.bind({})
+Default.args = {
   heading: 'Heading',
   variant: '-tiles',
   items: [

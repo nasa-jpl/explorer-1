@@ -1,10 +1,12 @@
 /* styles that are applied to story canvas */
 
+html.ThemeLight,
 body.ThemeLight,
 .ThemeLight .sbdocs-preview {
   background: #ffffff;
 }
 
+html.ThemeDark,
 body.ThemeDark,
 .ThemeDark .sbdocs-preview {
   background: #000000;

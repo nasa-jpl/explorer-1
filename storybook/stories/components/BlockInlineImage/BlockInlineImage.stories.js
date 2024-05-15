@@ -3,13 +3,14 @@ import { BlockImageData } from '../BlockImage/BlockImage.stories'
 
 export default {
   title: 'Components/Blocks/BlockInlineImage',
+  tags: ['autodocs'],
   excludeStories: /.*(Data)$/,
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
         component:
-          'A BlockImage floated to one side of a BlockText. Note: The text does not wrap under the image. Includes page layout assumptions.',
+          'A BlockImage floated to one side of a BlockText. Note: The text does not wrap under the image.',
       },
     },
   },
@@ -23,8 +24,9 @@ export const BlockInlineImageData = {
   image: BlockImageData.image,
 }
 
-export const AlignRight = BlockInlineImageTemplate.bind({})
-AlignRight.args = BlockInlineImageData
+export const Default = BlockInlineImageTemplate.bind({})
+Default.storyName = 'Align Right'
+Default.args = BlockInlineImageData
 
 export const AlignLeft = BlockInlineImageTemplate.bind({})
 AlignLeft.args = {

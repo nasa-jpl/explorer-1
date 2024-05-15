@@ -2,12 +2,14 @@ import { BlockKeyPointsTemplate } from './BlockKeyPoints'
 
 export default {
   title: 'Components/Blocks/BlockKeyPoints',
+  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component:
+          'A combination of heading and unordered list, bordered on top and bottom. List items can have multiple paragraphs.',
       },
     },
   },
@@ -25,6 +27,6 @@ export const BlockKeyPointsData = {
   ],
 }
 
-export const KeyPoint = BlockKeyPointsTemplate.bind({})
-KeyPoint.storyName = 'BlockKeyPoints'
-KeyPoint.args = BlockKeyPointsData
+export const Default = BlockKeyPointsTemplate.bind({})
+Default.storyName = 'BlockKeyPoints'
+Default.args = BlockKeyPointsData

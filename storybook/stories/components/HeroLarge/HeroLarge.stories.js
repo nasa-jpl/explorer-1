@@ -22,23 +22,6 @@ export default {
     },
   },
   parameters: {
-    viewMode: 'docs',
-    themes: {
-      clearable: false,
-      list: [
-        {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
-          color: '#ffffff',
-          default: true,
-        },
-        {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
-        },
-      ],
-    },
     docs: {
       description: {
         component:
@@ -48,9 +31,9 @@ export default {
   },
 }
 
-export const Hero = HeroLargeTemplate.bind({})
-Hero.storyName = 'Large'
-Hero.args = {
+export const Default = HeroLargeTemplate.bind({})
+Default.storyName = 'Large'
+Default.args = {
   eyebrow: 'Robotics at JPL',
   title: 'FreeClimber: LEMUR 3',
   summary:

@@ -30,7 +30,7 @@ export const BlockLinkCardTemplate = ({
     width: image.src.width,
     height: image.src.height,
     imageClass:
-      'can-hover:group-hover:delay-200 can-hover:group-hover:scale-100 absolute top-0 left-0 w-full transition-all duration-200 ease-in transform scale-105',
+      'can-hover:group-hover:delay-200 can-hover:group-hover:scale-100 absolute top-0 left-0 w-full transition-all duration-200 ease-in scale-105',
     objectFitClass: 'object-cover',
   })
   let iconArrow = IconArrowTemplate({})
@@ -66,7 +66,7 @@ export const BlockLinkCardTemplate = ({
   let template = `
     ${baseImagePlaceholder}
     <div
-      class="transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform ${
+      class="transition-translate can-hover:group-hover:delay-200 duration-200 ease-in ${
         compact
           ? 'can-hover:group-hover:-translate-y-2'
           : 'can-hover:group-hover:-translate-y-3'

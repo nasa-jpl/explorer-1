@@ -1,13 +1,3 @@
-import React from 'react'
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs'
 import { BaseHeadingTemplate } from './BaseHeading'
 
 import { IconLocationTemplate } from '../Icons/IconLocation'
@@ -16,6 +6,7 @@ import { IconUserTemplate } from '../Icons/IconUser'
 
 export default {
   title: 'Components/Base/BaseHeading',
+  tags: ['autodocs'],
   argTypes: {
     text: {
       type: 'string',
@@ -46,25 +37,15 @@ export default {
     docs: {
       description: {
         component:
-          'Base component for headings. Allows for different sizes with html tags for semantic markup.',
+          'Base component for headings. Allows for retaining semantic markup while varying the text size.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories includePrimary={true} title="All heading levels" />
-        </>
-      ),
     },
   },
 }
 
-export const H1 = BaseHeadingTemplate.bind({})
-H1.storyName = 'H1'
-H1.args = { text: 'Heading 1', size: 'h1', tag: 'h1' }
+export const Default = BaseHeadingTemplate.bind({})
+Default.storyName = 'H1'
+Default.args = { text: 'Heading 1', size: 'h1', tag: 'h1' }
 
 export const H2 = BaseHeadingTemplate.bind({})
 H2.storyName = 'H2'

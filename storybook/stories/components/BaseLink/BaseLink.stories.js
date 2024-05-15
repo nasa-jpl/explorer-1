@@ -1,17 +1,8 @@
-import React from 'react'
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs'
 import { BaseLinkTemplate } from './BaseLink.js'
 
 export default {
   title: 'Components/Base/BaseLink',
+  tags: ['autodocs'],
   argTypes: {
     text: {
       type: 'string',
@@ -73,25 +64,15 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Base component for links.',
+        component: 'Simple link with several style variations.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories includePrimary={true} title="All buttons" />
-        </>
-      ),
     },
   },
 }
 
-export const PrimaryLink = BaseLinkTemplate.bind({})
-PrimaryLink.storyName = 'Primary'
-PrimaryLink.args = {
+export const Default = BaseLinkTemplate.bind({})
+Default.storyName = 'Primary'
+Default.args = {
   text: 'Explore',
   variant: 'primary',
   link: '#',

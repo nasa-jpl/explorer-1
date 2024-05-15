@@ -1,13 +1,18 @@
 <script>
   let domContentAlreadyLoaded = false
-
   document.addEventListener('DOMContentLoaded', (e) => {
     if (domContentAlreadyLoaded) {
-      var tag = document.createElement('script')
-      tag.src = 'js/explorer-1.min.js'
-      document.getElementsByTagName('head')[0].appendChild(tag)
-
-      e.stopPropagation()
+      // only add the script if it hasn't been added yet
+      const scriptTag = document.querySelector('[src="js/explorer-1.min.js"]')
+      if (!scriptTag) {
+        var tag = document.createElement('script')
+        tag.src = 'js/explorer-1.min.js'
+        document.getElementsByTagName('head')[0].appendChild(tag)
+        e.stopPropagation()
+      } else {
+        scriptTag.remove()
+        domContentAlreadyLoaded = false
+      }
     }
     domContentAlreadyLoaded = true
   })
@@ -15,7 +20,7 @@
 
 <style type="text/css">
   /* styles for docs tab */
-  @import 'css/font-face.css';
+  /* @import 'css/font-face.css'; */
 
   /* make docs have full width iframes
   ** rescopes width to all nested divs, not the container wrapper */
@@ -41,9 +46,17 @@
     margin-right: auto;
   }
 
-  .sbdocs.sbdocs-content .sbdocs-pre {
+  /* .sbdocs.sbdocs-content .sbdocs-pre {
     margin-left: auto;
     margin-right: auto;
+  } */
+  .sbdocs.sbdocs-content > pre {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sbdocs .sbdocs-content ol {
+    list-style-type: decimal;
   }
 
   /* custom border color for h2 to match gray-light-mid */
@@ -55,7 +68,8 @@
   ** use this class via the `className` prop on Canvas
   */
   .sbdocs.sbdocs-content .sbdocs-preview-full-width,
-  .sbdocs-preview-full-width .sbdocs.sbdocs-content .sbdocs-preview {
+  .sbdocs-preview-full-width .sbdocs.sbdocs-content .sbdocs-preview,
+  .sbdocs.sbdocs-content .sb-anchor .sbdocs-preview {
     max-width: none !important;
     margin-top: 2rem;
     margin-bottom: 2rem;

@@ -2,12 +2,13 @@ import { BasePlaceholderTemplate } from './BasePlaceholder'
 
 export default {
   title: 'Components/Base/BasePlaceholder',
+  tags: ['autodocs'],
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
         component:
-          'An animated loading component frequently used as a placeholder for `SearchResultCard`',
+          'An animated content placeholder, useful when loading content.',
       },
     },
   },
