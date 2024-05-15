@@ -35,6 +35,4 @@ export default {
   core: {
     disableTelemetry: true,
   },
-
-  docs: {},
 }
