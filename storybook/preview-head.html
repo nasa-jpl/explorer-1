@@ -20,8 +20,14 @@
 
 <style type="text/css">
   /* styles for docs tab */
-  /* @import 'css/font-face.css'; */
+  @import 'css/font-face.css';
 
+  #storybook-docs
+    .sbdocs
+    .sbdocs-content
+    *:not(.sbdocs-preview, .sbdocs-preview *) {
+    font-family: Metropolis, sans-serif !important;
+  }
   /* make docs have full width iframes
   ** rescopes width to all nested divs, not the container wrapper */
   .sbdocs.sbdocs-content {

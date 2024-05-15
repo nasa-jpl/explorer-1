@@ -2,7 +2,6 @@ import { BlockCircleImageCardTemplate } from './BlockCircleImageCard'
 
 export default {
   title: 'Components/Blocks/BlockCircleImageCard',
-  tags: ['autodocs'],
   argTypes: {
     imageOnRight: {
       type: { name: 'boolean', required: false },

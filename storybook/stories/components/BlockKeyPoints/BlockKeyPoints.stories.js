@@ -2,7 +2,6 @@ import { BlockKeyPointsTemplate } from './BlockKeyPoints'
 
 export default {
   title: 'Components/Blocks/BlockKeyPoints',
-  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',

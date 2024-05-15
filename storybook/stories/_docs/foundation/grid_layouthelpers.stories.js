@@ -1,5 +1,6 @@
 export default {
   title: 'Foundation/Grid and Layout/Column Layout Helpers',
+  tags: ['!autodocs'],
 }
 
 const BaseWidthTemplate =

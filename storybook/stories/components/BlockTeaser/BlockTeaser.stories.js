@@ -2,7 +2,6 @@ import { BlockTeaserTemplate } from './BlockTeaser'
 
 export default {
   title: 'Components/Blocks/BlockTeaser',
-  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     fullWidthImage: {

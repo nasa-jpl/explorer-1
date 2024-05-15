@@ -1,5 +1,6 @@
 export default {
   title: 'Foundation/Grid and Layout',
+  tags: ['!autodocs'],
 }
 
 const BaseGridTemplate = () => `<div class="max-w-screen-3xl mx-auto">

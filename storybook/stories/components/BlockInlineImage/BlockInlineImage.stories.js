@@ -3,7 +3,6 @@ import { BlockImageData } from '../BlockImage/BlockImage.stories'
 
 export default {
   title: 'Components/Blocks/BlockInlineImage',
-  tags: ['autodocs'],
   excludeStories: /.*(Data)$/,
   parameters: {
     viewMode: 'docs',

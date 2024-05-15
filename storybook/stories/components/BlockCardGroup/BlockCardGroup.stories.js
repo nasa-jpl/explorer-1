@@ -1,7 +1,6 @@
 import { BlockCardGroupTemplate } from './BlockCardGroup.js'
 export default {
   title: 'Components/Blocks/BlockCardGroup',
-  tags: ['autodocs'],
   decorators: [
     (Story) =>
       `<div id="storyRoot" class="lg:container max-w-screen-3xl mx-auto">${Story()}</div>`,

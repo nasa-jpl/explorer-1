@@ -1,5 +1,6 @@
 export default {
   title: 'Guides/Responsive Design',
+  tags: ['!autodocs'],
 }
 
 const ResponsiveDesignTemplate = () => `<div class="bg-gray-light border">
