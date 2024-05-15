@@ -29,6 +29,10 @@ jobs:
 
       - name: Build static Storybook 🛠
         run: npm run build-storybook
+      
+        # https://github.com/JamesIves/github-pages-deploy-action/issues/1475#issuecomment-1824079512
+      - name: Add nojekyll file to read underscore files 📋
+        run: cd storybook_compiled && touch .nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
