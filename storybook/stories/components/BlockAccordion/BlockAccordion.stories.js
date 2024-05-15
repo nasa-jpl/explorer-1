@@ -1,8 +1,8 @@
-import { Default } from '../BaseImageCaption/BaseImageCaption.stories'
 import { BlockAccordionTemplate } from './BlockAccordion'
 
 export default {
   title: 'Components/Blocks/BlockAccordion',
+  tags: ['autodocs'],
   decorators: [
     (Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`,
   ],
@@ -30,7 +30,14 @@ export default {
       root: '#storyRoot',
     },
     viewMode: 'docs',
-    docs: { inlineStories: false, iframeHeight: 500 },
+    docs: {
+      inlineStories: false,
+      iframeHeight: 500,
+      description: {
+        component:
+          'A block with expandable sections. Has an option to allowing multiple sections to remain open at a time.',
+      },
+    },
   },
   excludeStories: /.*Data$/,
 }
@@ -63,6 +70,6 @@ export const BlockAccordionData = {
   ],
 }
 
-export const Accordion = BlockAccordionTemplate.bind({})
-Accordion.storyName = 'BlockAccordion'
-Accordion.args = BlockAccordionData
+export const Default = BlockAccordionTemplate.bind({})
+Default.storyName = 'BlockAccordion'
+Default.args = BlockAccordionData

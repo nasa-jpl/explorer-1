@@ -5,27 +5,11 @@ export default {
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',
-    themes: {
-      clearable: false,
-      list: [
-        {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
-          color: '#ffffff',
-          default: true,
-        },
-        {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
-        },
-        {
-          name: 'ThemeInternal',
-          class: ['ThemeInternal', 'sbdocs-preview-full-width'],
-          color: '#53C8ED',
-          default: true,
-        },
-      ],
+    docs: {
+      description: {
+        component:
+          'Displays JPL branding, the org or name of the site, and optionally a sign in/out widget.',
+      },
     },
   },
 }
@@ -44,6 +28,6 @@ export const AppBarInternalData = {
   logOutUrl: '#',
 }
 
-export const Basic = AppBarInternalTemplate.bind({})
-Basic.storyName = 'AppBar'
-Basic.args = AppBarInternalData
+export const Default = AppBarInternalTemplate.bind({})
+Default.storyName = 'AppBar'
+Default.args = AppBarInternalData

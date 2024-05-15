@@ -137,7 +137,7 @@ export const FooterInternalTemplate = ({
       </div>
     </div>
   </div>
-  <div class="bg-white bg-opacity-10">
+  <div class="bg-white/10">
     <div class="lg:BaseGrid container mx-auto py-4">
       <div class="indent-col-base indent-col-2 text-body-xs">
         Information in this system is sensitive and must be handled in accordance with all applicable rules. See

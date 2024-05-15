@@ -1,9 +1,14 @@
-module.exports = {
-  stories: [
-    './stories/**/*.stories.mdx',
-    './stories/**/*.stories.@(js|jsx|ts|tsx)',
-  ],
+import remarkGfm from 'remark-gfm'
+
+export default {
+  framework: {
+    name: '@storybook/html-vite',
+    options: {},
+  },
+
+  stories: ['./stories/**/*.docs.mdx', './stories/**/*.stories.@(js|ts)'],
   staticDirs: ['./../dist', './static'],
+
   addons: [
     {
       name: '@storybook/addon-essentials',
@@ -12,15 +17,26 @@ module.exports = {
         actions: false,
       },
     },
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
     '@storybook/addon-a11y',
     '@whitespace/storybook-addon-html',
-    'storybook-addon-themes',
+    // '@storybook/addon-mdx-gfm',
   ],
-  // removes deprecation warning
-  features: {
-    postcss: false,
-  },
+
   core: {
     disableTelemetry: true,
+  },
+
+  docs: {
+    autodocs: true,
   },
 }

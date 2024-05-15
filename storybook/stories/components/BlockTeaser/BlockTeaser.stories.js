@@ -2,6 +2,7 @@ import { BlockTeaserTemplate } from './BlockTeaser'
 
 export default {
   title: 'Components/Blocks/BlockTeaser',
+  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     fullWidthImage: {
@@ -37,6 +38,14 @@ export default {
     link: {
       type: 'string',
       description: 'Button URL',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A combination of label, heading, description, and button in a box on the left with an image on the right. On smaller screens, the image appears above the box with the text elements.',
+      },
     },
   },
 }

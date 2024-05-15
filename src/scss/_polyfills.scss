@@ -2,22 +2,24 @@
 
 // object-contain Polyfills
 
-/* prettier-ignore */
-.object-contain {
-  font-family: "object-fit: contain";/* stylelint-disable-line */
-}
+@layer base {
+  /* prettier-ignore */
+  .object-contain {
+    font-family: "object-fit: contain";/* stylelint-disable-line */
+  }
 
-/* prettier-ignore */
-.object-cover {
-  font-family: "object-fit: cover";/* stylelint-disable-line */
-}
+  /* prettier-ignore */
+  .object-cover {
+    font-family: "object-fit: cover";/* stylelint-disable-line */
+  }
 
-/* prettier-ignore */
-.object-fill {
-  font-family: "object-fit: fill";/* stylelint-disable-line */
-}
+  /* prettier-ignore */
+  .object-fill {
+    font-family: "object-fit: fill";/* stylelint-disable-line */
+  }
 
-/* prettier-ignore */
-.object-scale-down {
-  font-family: "object-fit: scale-down";/* stylelint-disable-line */
+  /* prettier-ignore */
+  .object-scale-down {
+    font-family: "object-fit: scale-down";/* stylelint-disable-line */
+  }
 }

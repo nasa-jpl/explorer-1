@@ -8,5 +8,7 @@
 @import 'npm:@fancyapps/ui/dist/fancybox.css';
 @import 'npm:swiper/swiper-bundle.css';
 
-// vendor overrides
-@import 'vendors/fancybox_customizations';
+@layer utilities {
+  // vendor overrides
+  @import 'vendors/fancybox_customizations';
+}

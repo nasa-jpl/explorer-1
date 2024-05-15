@@ -3,6 +3,7 @@ import { BlockRelatedLinksData } from './BlockRelatedLinks.stories'
 
 export default {
   title: 'Components/Blocks/BlockRelatedLinks/SingleLink',
+  tags: ['autodocs'],
   argTypes: {
     text: {
       type: { name: 'string', required: true },

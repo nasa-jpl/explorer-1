@@ -5,7 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 
-const purgeConfig = require('./tailwind.purge.config.js')
+const contentConfig = require('./tailwind.content.config.js')
 
 const foundationColors = {
   'jpl-red': '#E31937',
@@ -70,6 +70,7 @@ const fallbackFontStack = [
 ]
 
 module.exports = {
+  mode: 'jit',
   darkMode: 'class',
   theme: {
     screens: {
@@ -304,21 +305,21 @@ module.exports = {
     },
   },
 
-  variants: {
-    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
-    textDecoration: ['responsive', 'hover', 'focus', 'group-hover'],
-    textOpacity: ['hover', 'group-hover'],
-    backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
-    transformOrigin: ['responsive', 'hover'],
-    translate: ['responsive', 'hover', 'focus', 'group-hover'],
-    transitionDelay: ['responsive', 'group-hover'],
-    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
-    scale: ['responsive', 'hover', 'focus', 'group-hover'],
-    margin: ['responsive', 'group-hover'],
-    borderWidth: ['responsive', 'hover', 'focus', 'group-hover'],
-    borderColor: ['responsive', 'hover', 'focus', 'group-hover'],
-    animation: ['responsive', 'motion-safe', 'motion-reduce'],
-  },
+  // variants: {
+  //   textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+  //   textDecoration: ['responsive', 'hover', 'focus', 'group-hover'],
+  //   textOpacity: ['hover', 'group-hover'],
+  //   backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
+  //   transformOrigin: ['responsive', 'hover'],
+  //   translate: ['responsive', 'hover', 'focus', 'group-hover'],
+  //   transitionDelay: ['responsive', 'group-hover'],
+  //   opacity: ['responsive', 'hover', 'focus', 'group-hover'],
+  //   scale: ['responsive', 'hover', 'focus', 'group-hover'],
+  //   margin: ['responsive', 'group-hover'],
+  //   borderWidth: ['responsive', 'hover', 'focus', 'group-hover'],
+  //   borderColor: ['responsive', 'hover', 'focus', 'group-hover'],
+  //   animation: ['responsive', 'motion-safe', 'motion-reduce'],
+  // },
   plugins: [require('@tailwindcss/forms')],
   future: {
     removeDeprecatedGapUtilities: true,
@@ -327,6 +328,6 @@ module.exports = {
     standardFontWeights: true,
   },
   // override this at the project level
-  // TODO: change purge settings to purge against storybook files once all stories are added (thus all HTML)
-  ...purgeConfig,
+  // TODO: change settings to include all stories, not just www
+  ...contentConfig,
 }

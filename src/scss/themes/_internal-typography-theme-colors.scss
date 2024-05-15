@@ -9,8 +9,22 @@
  */
 
 @layer utilities {
-  @responsive {
-    .ThemeInternal {
+  .ThemeInternal {
+    .text-theme-color,
+    .text-theme-red,
+    .hover\:text-theme-color:hover,
+    .hover\:text-theme-red:hover {
+      @apply text-jpl-sky-blue-dark;
+    }
+
+    .text-theme-color-hover,
+    .text-theme-red-hover,
+    .hover\:text-theme-color-hover:hover,
+    .hover\:text-theme-red-hover:hover {
+      @apply text-jpl-sky-blue;
+    }
+
+    .ThemeLight {
       .text-theme-color,
       .text-theme-red,
       .hover\:text-theme-color:hover,
@@ -24,37 +38,21 @@
       .hover\:text-theme-red-hover:hover {
         @apply text-jpl-sky-blue;
       }
+    }
 
-      .ThemeLight {
-        .text-theme-color,
-        .text-theme-red,
-        .hover\:text-theme-color:hover,
-        .hover\:text-theme-red:hover {
-          @apply text-jpl-sky-blue-dark;
-        }
-
-        .text-theme-color-hover,
-        .text-theme-red-hover,
-        .hover\:text-theme-color-hover:hover,
-        .hover\:text-theme-red-hover:hover {
-          @apply text-jpl-sky-blue;
-        }
+    .ThemeDark {
+      .text-theme-color,
+      .text-theme-red,
+      .hover\:text-theme-color:hover,
+      .hover\:text-theme-red:hover {
+        @apply text-jpl-sky-blue;
       }
 
-      .ThemeDark {
-        .text-theme-color,
-        .text-theme-red,
-        .hover\:text-theme-color:hover,
-        .hover\:text-theme-red:hover {
-          @apply text-jpl-sky-blue;
-        }
-
-        .text-theme-color-hover,
-        .text-theme-red-hover,
-        .hover\:text-theme-color-hover:hover,
-        .hover\:text-theme-red-hover:hover {
-          @apply text-jpl-sky-blue-dark;
-        }
+      .text-theme-color-hover,
+      .text-theme-red-hover,
+      .hover\:text-theme-color-hover:hover,
+      .hover\:text-theme-red-hover:hover {
+        @apply text-jpl-sky-blue-dark;
       }
     }
   }

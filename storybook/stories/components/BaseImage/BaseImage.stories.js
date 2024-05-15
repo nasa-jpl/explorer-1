@@ -2,6 +2,7 @@ import { BaseImageTemplate } from './BaseImage.js'
 
 export default {
   title: 'Components/Base/BaseImage',
+  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     src: {

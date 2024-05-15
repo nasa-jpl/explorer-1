@@ -55,14 +55,14 @@
     }
 
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+    scrollbar-color: rgba(0 0 0 / 40%) transparent;
 
     &::-webkit-scrollbar-track {
       background: transparent;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0 0 0 / 40%);
       border-radius: 6px;
       border: 6px solid white;
       border-left: none;
@@ -83,7 +83,7 @@
         }
 
         &:focus {
-          @apply border-gray-dark border-opacity-20 outline-none;
+          @apply border-gray-dark/20 outline-none;
         }
 
         @include hover {
@@ -109,7 +109,7 @@
       > button {
         .IconDropdown {
           font-size: 0.6rem;
-          @apply ml-2 pointer-events-none flex-shrink-0;
+          @apply ml-2 pointer-events-none shrink-0;
         }
       }
 
@@ -156,7 +156,7 @@
     }
 
     // non-grid columns and layout ---------------------------------//
-    @responsive {
+    @layer utilities {
       .auto-cols-2,
       .auto-cols-3 {
         column-gap: 3.5rem; // corresponds with grid .gap-14
@@ -186,6 +186,7 @@
         display: inline-grid;
       }
       // safari 11+
+      /* stylelint-disable-next-line */
       @media not all and (min-resolution: 0.001dpcm) {
         @supports (-webkit-appearance: none) and (stroke-color: transparent) {
           display: inline-grid;

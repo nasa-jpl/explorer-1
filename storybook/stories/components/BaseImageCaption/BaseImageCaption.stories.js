@@ -2,6 +2,7 @@ import { BaseImageCaptionTemplate } from './BaseImageCaption'
 
 export default {
   title: 'Components/Base/BaseImageCaption',
+  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     caption: {
@@ -26,7 +27,7 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component: 'Caption text used with both images and videos.',
       },
     },
   },

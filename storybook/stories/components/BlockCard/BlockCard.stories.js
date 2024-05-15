@@ -2,6 +2,7 @@ import { BlockCardTemplate } from './BlockCard'
 
 export default {
   title: 'Components/Blocks/BlockCard',
+  tags: ['autodocs'],
   argTypes: {
     type: {
       type: { name: 'string', required: true },
@@ -37,9 +38,9 @@ export default {
   },
 }
 
-export const Card = BlockCardTemplate.bind({})
-Card.storyName = 'BlockCard'
-Card.args = {
+export const Default = BlockCardTemplate.bind({})
+Default.storyName = 'BlockCard'
+Default.args = {
   type: 'Factoid',
   title: 'Nimble Limbs',
   text: 'The robot has four limbs, each with seven degrees of freedom.',

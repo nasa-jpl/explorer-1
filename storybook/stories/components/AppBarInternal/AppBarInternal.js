@@ -40,11 +40,11 @@ export const AppBarInternalTemplate = ({
           </span>
           ${
             userData.photo
-              ? `<span class="block flex-shrink-0 w-6 h-6 overflow-hidden rounded-full border-2 border-white bg-white">
+              ? `<span class="block shrink-0 w-6 h-6 overflow-hidden rounded-full border-2 border-white bg-white">
               <img class="object-cover w-6 h-6" src="${userData.photo}" alt="${userData.firstName} ${userData.lastName}'s profile photo" />
             </span>`
               : `
-            <span class="block flex-shrink-0">
+            <span class="block shrink-0">
               ${IconUserTemplate({})}
             </span>
             `
@@ -57,7 +57,7 @@ export const AppBarInternalTemplate = ({
         <span class="hidden lg:block mr-2">
           Sign In
         </span>
-        <span class="block flex-shrink-0">
+        <span class="block shrink-0">
           ${IconUserTemplate({})}
         </span>
       </a>

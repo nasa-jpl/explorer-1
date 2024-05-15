@@ -29,7 +29,7 @@ export const HeroMediaTemplate = ({ image, video, caption, credit, url }) => {
           caption
             ? `
         <div class="lg:hidden absolute bottom-0 left-0 w-full h-auto mx-auto">
-          <button id="HeroMediaCaptionToggle" class="bg-opacity-90 text-gray-dark flex items-center justify-center w-12 h-12 ml-auto bg-white cursor-pointer focus:outline-none focus:ring-2" aria-label="Toggle caption">
+          <button id="HeroMediaCaptionToggle" class="text-gray-dark flex items-center justify-center w-12 h-12 ml-auto bg-white/90 cursor-pointer focus:outline-none focus:ring-2" aria-label="Toggle caption">
             ${IconInfoTemplate({})}
             ${IconCloseTemplate({})}
           </button>
@@ -39,7 +39,7 @@ export const HeroMediaTemplate = ({ image, video, caption, credit, url }) => {
       </div>
       ${
         caption
-          ? `<div id="HeroMediaCaption" class="max-w-screen-3xl bg-gray-light bg-opacity-90 lg:bg-opacity-100 lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto hidden">${BaseImageCaptionTemplate(
+          ? `<div id="HeroMediaCaption" class="max-w-screen-3xl bg-gray-light/90 lg:bg-gray-light/100 lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto hidden">${BaseImageCaptionTemplate(
               { caption, credit, url, linkText: 'Full Image Details' }
             )}</div>`
           : ''

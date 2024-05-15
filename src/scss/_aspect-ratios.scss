@@ -18,7 +18,7 @@
   }
 }
 
-@responsive {
+@layer utilities {
   // Aspect Ratio None
   .aspect-ratio-none {
     > div:first-of-type {

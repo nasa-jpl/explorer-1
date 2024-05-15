@@ -1,37 +1,35 @@
 // additional grid utilities
-@responsive {
+@layer base {
   .BaseGrid {
     @apply grid grid-cols-12 gap-6;
   }
-}
 
-.MixedBleedGrid {
-  @screen sm {
-    grid-template-columns: [bleed-start] auto [container-start] 53.33px [indent-col-2] 53.33px [indent-col-3] 533.33px [container-end] auto [bleed-end];
-    @apply grid gap-0;
-  }
+  .MixedBleedGrid {
+    @screen sm {
+      grid-template-columns: [bleed-start] auto [container-start] 53.33px [indent-col-2] 53.33px [indent-col-3] 533.33px [container-end] auto [bleed-end];
+      @apply grid gap-0;
+    }
 
-  @screen md {
-    grid-template-columns: [bleed-start] auto [container-start] 64px [indent-col-2] 64px [indent-col-3] 640px [container-end] auto [bleed-end];
-    @apply grid;
-  }
+    @screen md {
+      grid-template-columns: [bleed-start] auto [container-start] 64px [indent-col-2] 64px [indent-col-3] 640px [container-end] auto [bleed-end];
+      @apply grid;
+    }
 
-  @screen lg {
-    grid-template-columns: [bleed-start] auto [container-start] 85.33px [indent-col-2] 85.33px [indent-col-3] 853.33px [container-end] auto [bleed-end];
-    @apply grid;
-  }
+    @screen lg {
+      grid-template-columns: [bleed-start] auto [container-start] 85.33px [indent-col-2] 85.33px [indent-col-3] 853.33px [container-end] auto [bleed-end];
+      @apply grid;
+    }
 
-  @screen xl {
-    grid-template-columns: [bleed-start] auto [container-start] 108px [indent-col-2] 108px [indent-col-3] 1088px [container-end] auto [bleed-end];
-    @apply grid;
-  }
+    @screen xl {
+      grid-template-columns: [bleed-start] auto [container-start] 108px [indent-col-2] 108px [indent-col-3] 1088px [container-end] auto [bleed-end];
+      @apply grid;
+    }
 
-  @screen 2xl {
-    grid-template-columns: [bleed-start] auto [container-start] 110px [indent-col-2] 110px [indent-col-3] 1100px [container-end] auto [bleed-end];
-    @apply grid;
-  }
+    @screen 2xl {
+      grid-template-columns: [bleed-start] auto [container-start] 110px [indent-col-2] 110px [indent-col-3] 1100px [container-end] auto [bleed-end];
+      @apply grid;
+    }
 
-  @responsive {
     .col-start-bleed {
       grid-column-start: bleed-start;
     }
@@ -64,24 +62,24 @@
       grid-column-end: bleed-end;
     }
   }
-}
 
-// --------------------------------------
-// vertical spacing for navigation offset
-// --------------------------------------
+  // --------------------------------------
+  // vertical spacing for navigation offset
+  // --------------------------------------
 
-// applied globally via /layouts/default.vue
-.nav-offset {
-  @apply pt-18; // height of mobile header
+  // applied globally via /layouts/default.vue
+  .nav-offset {
+    @apply pt-18; // height of mobile header
 
-  @screen lg {
-    @apply pt-0;
+    @screen lg {
+      @apply pt-0;
+    }
   }
-}
 
-// for use on pages with flush-top hero sections
-.-nav-offset {
-  @screen lg {
-    @apply -mt-29; // just a little more than -28 to get rid of the barely visible white line
+  // for use on pages with flush-top hero sections
+  .-nav-offset {
+    @screen lg {
+      @apply -mt-29; // just a little more than -28 to get rid of the barely visible white line
+    }
   }
 }

@@ -8,8 +8,8 @@
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "engines": {
-    "node": "^16.20.2",
-    "npm": "^8.19.4"
+    "node": "^20.13.1",
+    "npm": "^10.5.2"
   },
   "scripts": {
     "start": "npm run dev",
@@ -20,13 +20,13 @@
     "build:clean": "rimraf ./dist && rimraf .parcel-cache",
     "watch": "rimraf ./src/.parcel/ && parcel ./src/index.html --dist-dir ./src/.parcel/",
     "browsersync": "browser-sync start --config bs.config.js",
-    "storybook": "start-storybook -c storybook -p 6006",
-    "storybook-nocache": "start-storybook -c storybook -p 6006 --no-manager-cache",
-    "build-storybook": "build-storybook -c storybook -o storybook_compiled",
+    "storybook": "storybook dev -c storybook -p 6006 --ci",
+    "build-storybook": "storybook build -c storybook -o storybook_compiled",
     "lint:js": "eslint --cache '**/*.{vue,js}' --report-unused-disable-directives --ignore-path .gitignore",
     "lint:style": "stylelint --cache '**/*.{vue,css,scss}' '!dist/**/*' --ignore-path .gitignore",
-    "lint:format": "prettier --check '**/?(.)*.{html,md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --ignore-path .gitignore",
-    "percy": "percy storybook http://localhost:6006"
+    "lint:format": "prettier --check '**/?(.)*.{html,md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --write --ignore-path .gitignore",
+    "percy": "percy storybook http://localhost:6006",
+    "percy:dry-run": "percy storybook http://localhost:6006 --dry-run"
   },
   "parcel-namer-rewrite": {
     "rules": {
@@ -50,33 +50,41 @@
   ],
   "dependencies": {
     "@fancyapps/ui": "^4.0.26",
-    "@tailwindcss/forms": "^0.3.4",
-    "swiper": "^8.0.7",
-    "tailwindcss": "^2.2.19"
+    "@tailwindcss/forms": "^0.5.7",
+    "swiper": "^8.0.7"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.4.1",
-    "@percy/cli": "^1.0.0-beta.76",
-    "@percy/storybook": "^4.3.3",
-    "@storybook/addon-a11y": "^6.5.10",
-    "@storybook/addon-docs": "^6.5.10",
-    "@storybook/addon-essentials": "^6.5.10",
-    "@storybook/addon-links": "^6.5.10",
-    "@storybook/html": "^6.5.10",
-    "@whitespace/storybook-addon-html": "^5.0.0",
-    "browser-sync": "^2.27.9",
-    "eslint": "^8.12.0",
-    "eslint-plugin-storybook": "^0.6.3",
+    "@percy/cli": "^1.28.6",
+    "@percy/storybook": "^6.0.0-beta.0",
+    "@storybook/addon-a11y": "^8.0.10",
+    "@storybook/addon-docs": "^8.0.10",
+    "@storybook/addon-essentials": "^8.0.10",
+    "@storybook/addon-links": "^8.0.10",
+    "@storybook/addon-mdx-gfm": "^8.0.10",
+    "@storybook/html": "^8.0.10",
+    "@storybook/html-vite": "^8.0.10",
+    "@storybook/manager-api": "^8.0.10",
+    "@storybook/theming": "^8.0.10",
+    "@whitespace/storybook-addon-html": "^6.1.0",
+    "autoprefixer": "^10.4.19",
+    "browser-sync": "^3.0.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "lazysizes": "^5.3.0",
     "npm-run-all": "^4.1.5",
     "parcel": "^2.4.1",
     "parcel-namer-rewrite": "^2.0.0-rc.2",
-    "postcss": "^8.4.12",
-    "prettier": "^2.6.2",
-    "rimraf": "^3.0.2",
-    "storybook-addon-themes": "^6.1.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^22.0.0"
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "remark-gfm": "^4.0.0",
+    "rimraf": "^5.0.5",
+    "storybook": "^8.0.10",
+    "storybook-addon-theme-changer": "^0.2.2",
+    "stylelint": "^16.5.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.11"
   }
 }

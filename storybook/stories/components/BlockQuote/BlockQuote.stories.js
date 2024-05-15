@@ -2,6 +2,7 @@ import { BlockQuoteTemplate } from './BlockQuote'
 
 export default {
   title: 'Components/Blocks/BlockQuote',
+  tags: ['autodocs'],
   excludeStories: /.*Data$/,
   argTypes: {
     quote: {
@@ -17,7 +18,8 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component: '',
+        component:
+          'A big, fancy pull quote, with optional attribution and link. Can also be used for non-quotation callouts.',
       },
     },
   },

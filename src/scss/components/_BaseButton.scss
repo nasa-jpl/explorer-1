@@ -34,7 +34,7 @@
   }
 
   &.-dark {
-    @apply px-12 bg-transparent text-white border border-white border-opacity-40 to-white-w50;
+    @apply px-12 bg-transparent text-white border border-white/40 to-white-w50;
 
     @include hover {
       @apply text-dark-blue border-white bg-white;
