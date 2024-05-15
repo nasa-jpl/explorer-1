@@ -1,0 +1,10 @@
+import{B as c}from"./BaseImagePlaceholder-KhPDDuZV.js";import{B as d}from"./BaseHeading-2dYQ5eTW.js";const n=({type:r="imageOnLeft",imageOnRight:s=!1,title:o,label:i,secondaryLabel:a="",image:e,customClass:l=""})=>`
+  <div class="BlockCircleImageCard shadow-jpl ${s?"imageOnRight":""} ${l}">
+    ${c({theme:"transparent-theme",src:e.src.url,srcset:e.srcSet,alt:e.alt,width:e.src.width,height:e.src.height,objectFitClass:"object-cover",imageClass:"rounded-full border-4 border-white",wrapperClass:"h-full"})}
+    <div class="content relative px-8 py-8">
+      <div class="text-gray-dark text-subtitle mb-3">${i}</div>
+      ${a?`<div class="text-gray-mid-dark text-subtitle">${a}</div>`:""}
+      ${d({text:o,size:"h5",tag:"h3",headingClass:"mt-3"})}
+    </div>
+  </div>
+  `,m={title:"Components/Blocks/BlockCircleImageCard",tags:["autodocs"],argTypes:{imageOnRight:{type:{name:"boolean",required:!1},description:"Determines position of the image",table:{defaultValue:{summary:"false"}}},title:{type:{name:"string",required:!0},description:"Heading"},label:{type:{name:"string",required:!0},description:"Subtitle"},secondaryLabel:{type:{name:"string",required:!1},description:"Secondary subtitle"},image:{type:{name:"object",required:!0},description:"Image object"}},decorators:[r=>`<div id="storyRoot" class="max-w-xl mx-auto container">${r()}</div>`],parameters:{viewMode:"docs",docs:{description:{component:"Features a circular image alongside text, with a drop shadow and no hover effects. The image can be positioned on the left or the right."}},html:{root:"#storyRoot"}}},t=n.bind({});t.storyName="BlockCircleImageCard";t.args={imageOnRight:!1,title:"First Flight of Technology for Returning Warheads from Space",label:"September 20, 1956",secondaryLabel:"Re-entry test vehicle program",image:{src:{url:"https://picsum.photos/130/130",width:130,height:130},srcSet:"https://picsum.photos/90/90 320w, https://picsum.photos/130/130 1024w",alt:"Alt text for image"}};const p=["Default"],u=Object.freeze(Object.defineProperty({__proto__:null,Default:t,__namedExportsOrder:p,default:m},Symbol.toStringTag,{value:"Module"}));export{u as B};

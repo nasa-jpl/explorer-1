@@ -1,0 +1,1 @@
+const o=({src:$,srcset:a,alt:f,width:d,height:i,imageClass:n,wrapperClass:m,objectFitClass:B})=>($||($=""),a||(a=""),f||(f=""),d||(d=""),i||(i=""),n||(n=""),B||(B=""),`<div${m?` class="${m}"`:""}>${$?`<img class="BaseImage ${n} ${B} lazyload" data-src="${$}" data-srcset="${a}" alt="${f}" width="${d}" height="${i}" loading="lazy" />`:""}</div>`);export{o as B};
