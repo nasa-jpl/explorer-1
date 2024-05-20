@@ -19,7 +19,7 @@ Note: to view with functioning dropdowns and search field expansion, you must sw
 
 ## With Navigation
 
-<Canvas of={Stories.Default} />
+<Canvas className="sbdocs-preview-full-width" of={Stories.Default} />
 
 <span id="props"></span>
 
@@ -31,7 +31,7 @@ Note: to view with functioning dropdowns and search field expansion, you must sw
 
 ## With Sign In buttons
 
-<Canvas of={Stories.WithSignIn} />
+<Canvas className="sbdocs-preview-full-width" of={Stories.WithSignIn} />
 
 <Controls of={Stories.WithSignIn} />
 
@@ -64,7 +64,7 @@ This data would create similar navigation links such as "Home" and "External" in
 One highlight, and several single-level nav items.
 
 <Canvas
-  class="sbdocs-preview-full-width"
+  className="sbdocs-preview-full-width"
   meta={NavInternalPanelStories}
   of={NavInternalPanelStories.Default}
 />
@@ -77,7 +77,7 @@ One highlight, and several single-level nav items.
 ### Example panel with no highlights
 
 <Canvas
-  class="sbdocs-preview-full-width"
+  className="sbdocs-preview-full-width"
   meta={NavInternalPanelStories}
   of={NavInternalPanelStories.NoHighlights}
 />
@@ -92,7 +92,7 @@ Note the lack of `highlights` in the data structure below:
 ### Example panel with highlights only
 
 <Canvas
-  class="sbdocs-preview-full-width"
+  className="sbdocs-preview-full-width"
   meta={NavInternalPanelStories}
   of={NavInternalPanelStories.AllHighlights}
 />
@@ -107,7 +107,7 @@ Note the lack of `menuItems` in the data structure below:
 ### Example panel with navigation headings
 
 <Canvas
-  class="sbdocs-preview-full-width"
+  className="sbdocs-preview-full-width"
   meta={NavInternalPanelStories}
   of={NavInternalPanelStories.WithHeadings}
 />
@@ -124,7 +124,7 @@ Note the nested `menuItems` array within each top-level `menuItem`. For more det
 One highlight, section headings, and allowing breaks across columns.
 
 <Canvas
-  class="sbdocs-preview-full-width"
+  className="sbdocs-preview-full-width"
   meta={NavInternalPanelStories}
   of={NavInternalPanelStories.Combination}
 />

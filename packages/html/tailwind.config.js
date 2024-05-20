@@ -13,12 +13,12 @@ module.exports = {
   content: [
     './src/docs/**/*.{js,ts,mdx}',
     './src/components/**/*.{js,ts,mdx}',
-    './src/js/components/**/*.{js,ts,mdx}',
+    './src/assets/js/components/**/*.{js,ts,mdx}',
     './.www-frontend_temp/components/!(_docs)/**/*.vue',
     './.www-frontend_temp/layouts/**/*.vue',
     './.www-frontend_temp/pages/**/*.vue',
     './.www-frontend_temp/mixins/**/*.vue',
     './.www-frontend_temp/plugins/**/*.js',
     './.www-frontend_temp/nuxt.config.js',
-  ]
+  ],
 }

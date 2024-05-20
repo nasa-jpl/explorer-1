@@ -1,5 +1,5 @@
 import { HeaderInternalTemplate } from './HeaderInternal'
-import { NavInternalData } from '../NavInternal/NavInternal.stories'
+import { NavInternalData } from './../NavInternal/NavInternal.stories'
 
 export const HeaderInternalData = {
   orgNumber: '18x',

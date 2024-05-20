@@ -1,5 +1,5 @@
-import { AppBarInternalTemplate } from '../AppBarInternal/AppBarInternal'
-import { NavInternalTemplate } from '../NavInternal/NavInternal'
+import { AppBarInternalTemplate } from './../AppBarInternal/AppBarInternal'
+import { NavInternalTemplate } from './../NavInternal/NavInternal'
 
 export const HeaderInternalTemplate = ({
   orgNumber,

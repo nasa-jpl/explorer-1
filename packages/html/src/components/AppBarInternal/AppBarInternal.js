@@ -1,7 +1,7 @@
-import { LogoJPLTemplate } from '../LogoJPL/LogoJPL'
-import { IconCloseTemplate } from '../Icons/IconClose'
-import { IconMenuTemplate } from '../Icons/IconMenu'
-import { IconUserTemplate } from '../Icons/IconUser'
+import { LogoJPLTemplate } from './../LogoJPL/LogoJPL'
+import { IconCloseTemplate } from './../Icons/IconClose'
+import { IconMenuTemplate } from './../Icons/IconMenu'
+import { IconUserTemplate } from './../Icons/IconUser'
 
 export const AppBarInternalTemplate = ({
   orgNumber,
