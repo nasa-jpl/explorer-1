@@ -25,7 +25,8 @@
     "@explorer-1/html": "workspace:*",
     "@fancyapps/ui": "^4.0.26",
     "@tailwindcss/forms": "^0.5.7",
-    "swiper": "^8.0.7"
+    "swiper": "^8.0.7",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@percy/cli": "^1.28.6",
@@ -53,5 +54,10 @@
     "storybook": "^8.1.1",
     "tailwindcss": "^3.4.3",
     "vite": "^5.2.11"
+  },
+  "overrides": {
+    "react-remove-scroll": {
+      "tslib": "^2.6.2"
+    }
   }
 }

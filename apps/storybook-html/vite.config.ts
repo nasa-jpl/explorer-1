@@ -8,5 +8,6 @@ export default defineConfig({
     alias: {
       'css/': './.storybook/static/dist/css',
     },
+    preserveSymlinks: true,
   },
 });

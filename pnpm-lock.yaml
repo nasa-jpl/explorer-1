@@ -41,6 +41,9 @@ importers:
       swiper:
         specifier: ^8.0.7
         version: 8.4.7
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
     devDependencies:
       '@percy/cli':
         specifier: ^1.28.6
