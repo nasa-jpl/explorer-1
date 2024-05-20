@@ -1,7 +1,11 @@
-export default {
+import type { Meta, StoryObj } from '@storybook/html';
+
+const meta: Meta = {
   title: 'Foundation/Grid and Layout/Column Layout Helpers',
   tags: ['!autodocs'],
 }
+
+export default meta
 
 const BaseWidthTemplate =
   () => `<div class="BaseGrid container mx-auto border border-black py-4">
@@ -10,7 +14,7 @@ const BaseWidthTemplate =
   </div>
 </div>`
 
-export const BaseWidth = BaseWidthTemplate.bind()
+export const BaseWidth: StoryObj = BaseWidthTemplate.bind({})
 
 const ColTwoStartTemplate =
   () => `<div class="BaseGrid container mx-auto border border-black py-4">
@@ -19,7 +23,7 @@ const ColTwoStartTemplate =
   </div>
 </div>`
 
-export const ColTwoStart = {
+export const ColTwoStart: StoryObj = {
   name: 'Start at col-2',
   render: ColTwoStartTemplate.bind({}),
 }
@@ -38,7 +42,7 @@ const ColThreeStartTemplate =
   </div>
 </div>`
 
-export const ColThreeStart = {
+export const ColThreeStart: StoryObj = {
   name: 'Start at col-3',
   render: ColThreeStartTemplate.bind({}),
 }
@@ -50,7 +54,7 @@ const ColFourStartTemplate =
   </div>
 </div>`
 
-export const ColFourStart = {
+export const ColFourStart: StoryObj = {
   name: 'Start at col-4',
   render: ColFourStartTemplate.bind({}),
 }

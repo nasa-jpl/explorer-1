@@ -36,4 +36,3 @@ out/
 
 # copied assets
 apps/**/.storybook/static/dist
-apps/**/.storybook/docs
