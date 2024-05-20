@@ -29,9 +29,6 @@ importers:
 
   apps/storybook-html:
     dependencies:
-      '@explorer-1/html':
-        specifier: workspace:*
-        version: link:../../packages/html
       '@fancyapps/ui':
         specifier: ^4.0.26
         version: 4.0.31
@@ -41,10 +38,19 @@ importers:
       swiper:
         specifier: ^8.0.7
         version: 8.4.7
-      tslib:
-        specifier: ^2.6.2
-        version: 2.6.2
+      tailwindcss:
+        specifier: ^3.4.3
+        version: 3.4.3
     devDependencies:
+      '@explorer-1/html':
+        specifier: workspace:*
+        version: link:../../packages/html
+      '@explorer-1/prettier-config':
+        specifier: workspace:*
+        version: link:../../packages/prettier
+      '@explorer-1/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
       '@percy/cli':
         specifier: ^1.28.6
         version: 1.28.6(typescript@5.4.5)
@@ -114,9 +120,9 @@ importers:
       storybook:
         specifier: ^8.1.1
         version: 8.1.1(@babel/preset-env@7.24.5(@babel/core@7.24.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      tailwindcss:
-        specifier: ^3.4.3
-        version: 3.4.3
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
       vite:
         specifier: ^5.2.11
         version: 5.2.11(@types/node@20.12.12)(lightningcss@1.25.0)(sass@1.77.2)
@@ -127,6 +133,12 @@ importers:
         specifier: ^3.2.47
         version: 3.4.27(typescript@5.4.5)
     devDependencies:
+      '@explorer-1/prettier-config':
+        specifier: workspace:*
+        version: link:../../packages/prettier
+      '@explorer-1/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
       '@rushstack/eslint-patch':
         specifier: ^1.2.0
         version: 1.10.3
@@ -196,10 +208,10 @@ importers:
     devDependencies:
       stylelint:
         specifier: ^16.5.0
-        version: 16.5.0
+        version: 16.5.0(typescript@5.4.5)
       stylelint-config-standard-scss:
         specifier: ^13.1.0
-        version: 13.1.0(postcss@8.4.38)(stylelint@16.5.0)
+        version: 13.1.0(postcss@8.4.38)(stylelint@16.5.0(typescript@5.4.5))
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
@@ -214,7 +226,7 @@ importers:
         version: 4.0.31
       '@parcel/config-default':
         specifier: ^2.12.0
-        version: 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)
+        version: 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)(typescript@5.4.5)
       '@tailwindcss/forms':
         specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.4.3)
@@ -222,6 +234,9 @@ importers:
         specifier: ^8.0.7
         version: 8.4.7
     devDependencies:
+      '@explorer-1/prettier-config':
+        specifier: workspace:*
+        version: link:../prettier
       '@parcel/transformer-sass':
         specifier: ^2.7.0
         version: 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
@@ -242,7 +257,7 @@ importers:
         version: 4.1.5
       parcel:
         specifier: ^2.7.0
-        version: 2.12.0(@swc/helpers@0.5.11)(postcss@8.4.38)
+        version: 2.12.0(@swc/helpers@0.5.11)(postcss@8.4.38)(typescript@5.4.5)
       parcel-namer-rewrite:
         specifier: ^2.0.0-rc.2
         version: 2.0.0-rc.3(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
@@ -257,13 +272,17 @@ importers:
         version: 5.0.7
       stylelint:
         specifier: ^16.5.0
-        version: 16.5.0
+        version: 16.5.0(typescript@5.4.5)
       stylelint-config-standard-scss:
         specifier: ^13.1.0
-        version: 13.1.0(postcss@8.4.38)(stylelint@16.5.0)
+        version: 13.1.0(postcss@8.4.38)(stylelint@16.5.0(typescript@5.4.5))
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
+
+  packages/prettier: {}
+
+  packages/tsconfig: {}
 
   packages/vue: {}
 
@@ -8254,14 +8273,14 @@ snapshots:
       - '@parcel/core'
       - '@swc/helpers'
 
-  '@parcel/config-default@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)':
+  '@parcel/config-default@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)(typescript@5.4.5)':
     dependencies:
       '@parcel/bundler-default': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
       '@parcel/compressor-raw': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
       '@parcel/core': 2.12.0(@swc/helpers@0.5.11)
       '@parcel/namer-default': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
       '@parcel/optimizer-css': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
-      '@parcel/optimizer-htmlnano': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)
+      '@parcel/optimizer-htmlnano': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)(typescript@5.4.5)
       '@parcel/optimizer-image': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
       '@parcel/optimizer-svgo': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
       '@parcel/optimizer-swc': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
@@ -8394,10 +8413,10 @@ snapshots:
       - '@parcel/core'
       - '@swc/helpers'
 
-  '@parcel/optimizer-htmlnano@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)':
+  '@parcel/optimizer-htmlnano@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)(typescript@5.4.5)':
     dependencies:
       '@parcel/plugin': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)
-      htmlnano: 2.1.1(postcss@8.4.38)(svgo@2.8.0)
+      htmlnano: 2.1.1(postcss@8.4.38)(svgo@2.8.0)(typescript@5.4.5)
       nullthrows: 1.1.1
       posthtml: 0.16.6
       svgo: 2.8.0
@@ -11571,12 +11590,14 @@ snapshots:
     optionalDependencies:
       typescript: 5.4.5
 
-  cosmiconfig@9.0.0:
+  cosmiconfig@9.0.0(typescript@5.4.5):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
+    optionalDependencies:
+      typescript: 5.4.5
 
   cross-spawn@6.0.5:
     dependencies:
@@ -12664,9 +12685,9 @@ snapshots:
 
   html-tags@3.3.1: {}
 
-  htmlnano@2.1.1(postcss@8.4.38)(svgo@2.8.0):
+  htmlnano@2.1.1(postcss@8.4.38)(svgo@2.8.0)(typescript@5.4.5):
     dependencies:
-      cosmiconfig: 9.0.0
+      cosmiconfig: 9.0.0(typescript@5.4.5)
       posthtml: 0.16.6
       timsort: 0.3.0
     optionalDependencies:
@@ -13922,9 +13943,9 @@ snapshots:
       - '@parcel/core'
       - '@swc/helpers'
 
-  parcel@2.12.0(@swc/helpers@0.5.11)(postcss@8.4.38):
+  parcel@2.12.0(@swc/helpers@0.5.11)(postcss@8.4.38)(typescript@5.4.5):
     dependencies:
-      '@parcel/config-default': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)
+      '@parcel/config-default': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(postcss@8.4.38)(typescript@5.4.5)
       '@parcel/core': 2.12.0(@swc/helpers@0.5.11)
       '@parcel/diagnostic': 2.12.0
       '@parcel/events': 2.12.0
@@ -14950,42 +14971,42 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  stylelint-config-recommended-scss@14.0.0(postcss@8.4.38)(stylelint@16.5.0):
+  stylelint-config-recommended-scss@14.0.0(postcss@8.4.38)(stylelint@16.5.0(typescript@5.4.5)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.4.38)
-      stylelint: 16.5.0
-      stylelint-config-recommended: 14.0.0(stylelint@16.5.0)
-      stylelint-scss: 6.3.0(stylelint@16.5.0)
+      stylelint: 16.5.0(typescript@5.4.5)
+      stylelint-config-recommended: 14.0.0(stylelint@16.5.0(typescript@5.4.5))
+      stylelint-scss: 6.3.0(stylelint@16.5.0(typescript@5.4.5))
     optionalDependencies:
       postcss: 8.4.38
 
-  stylelint-config-recommended@14.0.0(stylelint@16.5.0):
+  stylelint-config-recommended@14.0.0(stylelint@16.5.0(typescript@5.4.5)):
     dependencies:
-      stylelint: 16.5.0
+      stylelint: 16.5.0(typescript@5.4.5)
 
-  stylelint-config-standard-scss@13.1.0(postcss@8.4.38)(stylelint@16.5.0):
+  stylelint-config-standard-scss@13.1.0(postcss@8.4.38)(stylelint@16.5.0(typescript@5.4.5)):
     dependencies:
-      stylelint: 16.5.0
-      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.38)(stylelint@16.5.0)
-      stylelint-config-standard: 36.0.0(stylelint@16.5.0)
+      stylelint: 16.5.0(typescript@5.4.5)
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.38)(stylelint@16.5.0(typescript@5.4.5))
+      stylelint-config-standard: 36.0.0(stylelint@16.5.0(typescript@5.4.5))
     optionalDependencies:
       postcss: 8.4.38
 
-  stylelint-config-standard@36.0.0(stylelint@16.5.0):
+  stylelint-config-standard@36.0.0(stylelint@16.5.0(typescript@5.4.5)):
     dependencies:
-      stylelint: 16.5.0
-      stylelint-config-recommended: 14.0.0(stylelint@16.5.0)
+      stylelint: 16.5.0(typescript@5.4.5)
+      stylelint-config-recommended: 14.0.0(stylelint@16.5.0(typescript@5.4.5))
 
-  stylelint-scss@6.3.0(stylelint@16.5.0):
+  stylelint-scss@6.3.0(stylelint@16.5.0(typescript@5.4.5)):
     dependencies:
       known-css-properties: 0.30.0
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.16
       postcss-value-parser: 4.2.0
-      stylelint: 16.5.0
+      stylelint: 16.5.0(typescript@5.4.5)
 
-  stylelint@16.5.0:
+  stylelint@16.5.0(typescript@5.4.5):
     dependencies:
       '@csstools/css-parser-algorithms': 2.6.3(@csstools/css-tokenizer@2.3.1)
       '@csstools/css-tokenizer': 2.3.1
@@ -14994,7 +15015,7 @@ snapshots:
       '@dual-bundle/import-meta-resolve': 4.1.0
       balanced-match: 2.0.0
       colord: 2.9.3
-      cosmiconfig: 9.0.0
+      cosmiconfig: 9.0.0(typescript@5.4.5)
       css-functions-list: 3.2.2
       css-tree: 2.3.1
       debug: 4.3.4

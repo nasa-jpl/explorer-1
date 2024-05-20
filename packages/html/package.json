@@ -25,6 +25,7 @@
     "lint:style": "stylelint --cache '**/*.{vue,css,scss}' '!dist/**/*' --ignore-path .gitignore",
     "lint:format": "prettier --check '**/?(.)*.{html,md,mdx,css,scss,js,ts,vue,json,yaml,yml}' '!dist/**/*' --write --ignore-path .gitignore"
   },
+  "prettier": "@explorer-1/prettier-config",
   "parcel-namer-rewrite": {
     "rules": {
       "index.js": "js/explorer-1.min.js",
@@ -53,6 +54,7 @@
     "swiper": "^8.0.7"
   },
   "devDependencies": {
+    "@explorer-1/prettier-config": "workspace:*",
     "@parcel/transformer-sass": "^2.7.0",
     "autoprefixer": "^10.4.19",
     "browser-sync": "^3.0.2",

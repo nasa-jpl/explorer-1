@@ -12,6 +12,7 @@
     "url": "https://github.com/chromaui/intro-storybook-vue-template/issues"
   },
   "license": "MIT",
+  "prettier": "@explorer-1/prettier-config",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -26,6 +27,8 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@explorer-1/prettier-config": "workspace:*",
+    "@explorer-1/tsconfig": "workspace:*",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/addon-interactions": "^7.6.6",

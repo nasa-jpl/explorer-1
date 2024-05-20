@@ -11,6 +11,7 @@
     "node": "^20.13.1",
     "npm": "^10.5.2"
   },
+  "prettier": "@explorer-1/prettier-config",
   "scripts": {
     "dev": "pnpm run storybook-html:storybook",
     "storybook-html:prepare": "pnpm run storybook-html:prepare:clean && pnpm run storybook-html:prepare:static",
@@ -22,13 +23,15 @@
     "storybook-html:percy:dry-run": "percy storybook http://localhost:6006 --dry-run"
   },
   "dependencies": {
-    "@explorer-1/html": "workspace:*",
     "@fancyapps/ui": "^4.0.26",
     "@tailwindcss/forms": "^0.5.7",
     "swiper": "^8.0.7",
-    "tslib": "^2.6.2"
+    "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
+    "@explorer-1/html": "workspace:*",
+    "@explorer-1/prettier-config": "workspace:*",
+    "@explorer-1/tsconfig": "workspace:*",
     "@percy/cli": "^1.28.6",
     "@percy/storybook": "^6.0.0-beta.0",
     "@storybook/addon-a11y": "^8.1.1",
@@ -52,7 +55,7 @@
     "remark-gfm": "^4.0.0",
     "rimraf": "^5.0.5",
     "storybook": "^8.1.1",
-    "tailwindcss": "^3.4.3",
+    "tslib": "^2.6.2",
     "vite": "^5.2.11"
   },
   "overrides": {
