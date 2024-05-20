@@ -1,0 +1,55 @@
+import { Meta, Story, Canvas } from '@storybook/blocks';
+import * as Stories from './typography.stories';
+import { IconLocationTemplate } from './../../components/Icons/IconLocation';
+
+export const testHeadingIcon = IconLocationTemplate({
+  customClass: 'inline',
+});
+
+<Meta of={Stories} />
+
+# Typography
+
+## Fonts
+
+Below are all fonts used in the design system.
+
+### Metropolis
+
+Metropolis is used for all heading levels and body copy.
+
+### Archivo Narrow
+
+Archivo Narrow is used for subtitles and buttons and is always used in UPPERCASE.
+
+<Canvas of={Stories.Fonts} />
+
+## Text Colors
+
+Here are colors intended for text, depending on the background. **Note:** Some of these colors will not pass contrast requirements if used on a different background.
+
+<Canvas of={Stories.TextColor} />
+
+## Text Styles
+
+All of the text styles used across the project, each with its reusable component class.
+Prefer reusing those classes over individual utility classes, as each text style has different properties between desktop and mobile viewports.
+
+Note:
+
+- All heading levels also have the corresponding text styles directly applied for convenience.
+- This can still be overridden by adding another relevant class.
+
+<Canvas of={Stories.TextStyles} />
+
+### Heading Icons
+
+We can also add icons next to the headings.
+
+<Canvas of={Stories.HeadingIcons} />
+
+## Text Contrast
+
+In areas where text overlays an image, use this `.text-contrast` class in conjunction with a semi-transparent overlay (ex. `bg-black/*`) to improve readability. `.text-contrast` also works with tailwind breakpoints.
+
+<Canvas of={Stories.TextContrast} />

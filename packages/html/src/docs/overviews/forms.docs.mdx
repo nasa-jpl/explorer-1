@@ -1,0 +1,56 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import { ComponentList } from './../utils/ComponentList';
+import * as ExampleFormStories from './forms.example.stories';
+import * as FormTextInputStories from './../../components/FormTextInput/FormTextInput.stories';
+import * as FormTextAreaStories from './../../components/FormTextArea/FormTextArea.stories';
+import * as BaseButtonStories from './../../components/BaseButton/BaseButton.stories';
+
+<Meta title="Components/Forms/Overview" />
+
+# Form Components
+
+Form styles are currently limited to text inputs and text areas. Explorer 1 does not include any form functionality other than native HTML form controls. If you require more functionality in your forms,
+you will need to build that into your implementation of the design system.
+
+You can construct a form by combining the following components:
+
+<ComponentList
+  components={[
+    {
+      heading: 'TextInput',
+      meta: FormTextInputStories,
+      path: '/docs/components-forms-textinput--docs',
+      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-2xs',
+    },
+    {
+      heading: 'TextArea',
+      meta: FormTextAreaStories,
+      path: '/docs/components-forms-textarea--docs',
+      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-xs',
+    },
+    {
+      heading: 'BaseButton',
+      customDescription:
+        'Our usual base button component. This component is not limited to usage in forms.',
+      meta: BaseButtonStories,
+      path: '/docs/components-base-basebutton--docs',
+    },
+  ]}
+/>
+
+<br />
+
+## Example Form
+
+Below is an example form that was created using the above components and a couple `div` wrappers to adjust spacing between fields.
+
+<Canvas meta={ExampleFormStories} of={ExampleFormStories.Default} />
+
+Depending on your framework, you will need to modify the `<form>` attributes and possibly convert the submit `<button>` to an input, such as:
+
+```html
+<input
+  type="submit"
+  class="BaseButton text-contrast-none inline-block -primary"
+/>
+```

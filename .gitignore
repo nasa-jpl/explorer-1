@@ -7,7 +7,7 @@ npm-debug.log
 
 # parcel.js
 .parcel-cache
-/src/.parcel
+.parcel
 
 # Storybook
 storybook_compiled
@@ -33,3 +33,7 @@ out/
 
 # logs
 .log
+
+# copied assets
+apps/**/.storybook/static/dist
+apps/**/.storybook/docs

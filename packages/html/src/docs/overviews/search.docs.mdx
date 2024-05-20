@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/blocks';
+import { ComponentList } from './../utils/ComponentList';
+import * as SearchInputStories from './../../components/SearchInput/SearchInput.stories';
+import * as SearchResultCardStories from './../../components/SearchResultCard/SearchResultCard.stories';
+
+<Meta title="Components/Search/Overview" parameters={{ viewMode: 'docs' }} />
+
+# Search Components
+
+Styles for a basic search input field and result items are available for use. Explorer 1 only provides styles for search components, it does not provide any search functionality.
+
+<ComponentList
+  components={[
+    {
+      heading: 'SearchInput',
+      meta: SearchInputStories,
+      path: '/docs/components-search-searchinput--docs',
+    },
+    {
+      heading: 'SearchResultCard',
+      meta: SearchResultCardStories,
+      path: '/docs/components-search-searchresultcard--docs',
+      canvasClass: 'sbdocs-inline-height sbdocs-inline-height-xs',
+      fullWidth: true,
+    },
+  ]}
+/>

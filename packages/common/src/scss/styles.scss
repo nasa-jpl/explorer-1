@@ -1,0 +1,23 @@
+// tailwind --------------------
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// vendors / node_modules
+@import 'vendors';
+
+// main elements
+@import 'forms';
+@import 'hover';
+@import 'fonts';
+@import 'aspect-ratios';
+@import 'grid';
+@import 'typography';
+@import 'polyfills';
+@import 'animations';
+
+// themes
+@import 'themes/internal';
+
+// components
+@import 'components';

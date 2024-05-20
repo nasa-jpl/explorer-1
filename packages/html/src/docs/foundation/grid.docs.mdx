@@ -1,0 +1,172 @@
+import { Meta, Story, Canvas } from '@storybook/blocks';
+import * as Stories from './grid.stories';
+
+<Meta of={Stories} />
+
+# Grid and Layout
+
+We use a 12-column grid paired with our [Responsive Design](?path=/docs/guides-responsive-design--docs) strategy to create all of our page and component layouts.
+
+> The examples on this page assume you are viewing this page on a desktop. Examples may not appear correct on smaller screens.
+
+- [BaseGrid](#basegrid)
+  - [Example Usage](#example-usage)
+- [Mixed Bleed](#mixed-bleed)
+  - [Example Usage](#example-usage-1)
+- [Page layout recommendations](#page-layout-recommendations)
+- [Full Page Example](#full-page-example)
+
+<span id="basegrid"></span>
+
+## BaseGrid
+
+There is a globally available `.BaseGrid` class that is the basis of our main grid, which contains `12` columns with a gutter of `gap-6`.
+
+<Canvas className="sbdocs-preview-full-width" of={Stories.BaseGrid} />
+
+Although `.BaseGrid` is always used with or wrapped by a `.container`, `.BaseGrid` itself does not include any margins or container behavior. This is to allow for maximum flexibility when using this class in your components:
+
+```css
+.BaseGrid {
+  @apply grid grid-cols-12 gap-6;
+}
+```
+
+Adjustments like margins and container can be applied as needed, such as:
+
+```html
+<div class="BaseGrid container mx-auto">
+  Centered 12 col grid bound by container
+</div>
+```
+
+If you just need a container and no grid, you can simply omit the `BaseGrid`:
+
+```html
+<div class="container mx-auto">Content with no grid</div>
+```
+
+<span id="example-usage"></span>
+
+### Example Usage
+
+Some common component layouts:
+
+<Canvas className="sbdocs-preview-full-width" of={Stories.ComponentA} />
+
+<Canvas className="sbdocs-preview-full-width" of={Stories.ComponentB} />
+
+---
+
+<span id="mixed-bleed"></span>
+
+## Mixed Bleed
+
+Some components only bleed to one side of the screen. There is a `.MixedBleedGrid` class available for use that sets named grid lines. Note that these grid lines assume `.container` has zero padding.
+
+| Named Line        | Description                          |
+| :---------------- | :----------------------------------- |
+| `bleed-start`     | Left edge of the viewport            |
+| `container-start` | Left edge of the standard container  |
+| `indent-col-2`    | Aligns with column 2 in `BaseGrid`   |
+| `indent-col-3`    | Aligns with column 3 in `BaseGrid`   |
+| `container-end`   | Right edge of the standard container |
+| `bleed-end`       | Right edge of the viewport           |
+
+These named lines are used to construct the following `col-start-` and `col-end-` classes:
+
+```css
+@responsive {
+  .col-start-bleed {
+    grid-column-start: bleed-start;
+  }
+  .col-end-container-start {
+    grid-column-end: container-start;
+  }
+  .col-start-container {
+    grid-column-start: container-start;
+  }
+  .col-start-indent-col-2 {
+    grid-column-start: indent-col-2;
+  }
+  .col-start-indent-col-3 {
+    grid-column-start: indent-col-3;
+  }
+  .col-end-container {
+    grid-column-end: container-end;
+  }
+  .col-start-container-end {
+    grid-column-start: container-end;
+  }
+  .col-end-bleed {
+    grid-column-end: bleed-end;
+  }
+}
+```
+
+Note the usage of `.px-0` in addition to `.container` in the example below:
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.MixedBleedGridLines}
+/>
+
+<span id="example-usage-1"></span>
+
+### Example Usage
+
+Responsive styles within MixedBleed will need to be determined on a case-by-base basis. Usage of this class is best followed by observing existing usage and examples.
+
+#### Simple mixed bleed
+
+Starts at `indent-col-2` (col-2 of the `BaseGrid`) and bleeds fully to the right.
+
+```html
+<div class="MixedBleedGrid">
+  <div class="col-start-indent-col-2 col-end-bleed">
+    Indented to col-2 and bleeds right
+  </div>
+</div>
+```
+
+<Canvas className="sbdocs-preview-full-width" of={Stories.MixedBleed} />
+
+#### Complex mixed bleed
+
+When elements of an indented MixedBleed area must align with the BaseGrid, we need to get a bit more creative. We will still use mixed bleed grid lines, but we will not use `BaseGrid` within since the container is already indented. We instead need to use a custom grid for this use-case. Luckily, with Tailwind CSS, this is fairly straightforward. The nested grid should contain the number of columns offset by the amount that is already indented, and no `gap` should be used.
+
+```html
+<div class="MixedBleedGrid">
+  <div class="col-start-indent-col-3 col-end-container bg-black">
+    <div class="grid grid-cols-10">
+      <div class="col-start-2 col-end-7">Text aligned with apparent col 4</div>
+      <div class="col-start-7 col-end-11">Text aligned with apparent col 9</div>
+    </div>
+  </div>
+  <div class="col-start-container-end col-end-bleed bg-black"></div>
+</div>
+```
+
+<Canvas className="sbdocs-preview-full-width" of={Stories.MixedBleedComplex} />
+
+<span id="page-layout-recommendations"></span>
+
+## Page layout recommendations
+
+Explorer 1 components vary in width. This can make page layouts challenging if the entire content area is bound by a single `.container` div, a strategy that is commonly used on other websites. For Explorer 1, we recommend avoiding this strategy and instead giving each section or component on the page its own set of layout markup.
+
+[Blocks](?path=/docs/components-blocks-overview--docs) provided by Explorer 1 are compatible with this strategy. However, if a block notes that "layout assumptions have been made," this means that the entire layout for that block is already included in the markup, and you shouldn't include any additional layout. Doing so could break the display of that block.
+
+View the code below for an example of how to give each section its own set of layout markup. You can also see this strategy employed in the [Full Page Example](#full-page-example).
+
+<Canvas className="sbdocs-preview-full-width" of={Stories.PageLayout} />
+
+<br />
+
+<span id="full-page-example"></span>
+
+## Full Page Example
+
+An example of the foundations of a full page layout.
+
+<Canvas className="sbdocs-preview-full-width" of={Stories.FullPageExample} />
