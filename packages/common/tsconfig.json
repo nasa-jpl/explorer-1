@@ -1,5 +1,0 @@
-{
-  "extends": "@explorer-1/tsconfig/index.json",
-  "exclude": ["node_modules"],
-  "include": ["./src/**/*"]
-}

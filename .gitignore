@@ -34,5 +34,6 @@ out/
 # logs
 .log
 
-# copied assets
+# copied assets when preparing builds
 apps/**/.storybook/static/dist
+packages/**/src/assets/fonts
