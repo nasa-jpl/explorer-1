@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'node:path'
 import vue from '@vitejs/plugin-vue'
-
+import explorer1ViteConfig from '@explorer-1/vue/vite.config'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
@@ -10,18 +9,8 @@ export default defineConfig({
       usePolling: true
     }
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
-      }
-    }
-  },
+  css: explorer1ViteConfig.css,
   resolve: {
-    alias: {
-      // need these until common has been converted to vite
-      'npm:@fancyapps': resolve(__dirname, './node_modules/@fancyapps'),
-      'npm:swiper': resolve(__dirname, './node_modules/swiper')
-    }
+    alias: explorer1ViteConfig.resolve.alias
   }
 })

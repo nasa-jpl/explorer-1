@@ -48,35 +48,35 @@ i: install
 
 ## HTML: run Storybook
 storybook-html:
-	pnpm run --filter storybook-html dev
+	pnpm run --filter @explorer-1/storybook-html dev
 
 ## HTML: run Vite
 html-dev:
-	pnpm run --filter html dev
+	pnpm run --filter @explorer-1/html dev
 
 ## HTML: build assets
 html-build:
-	pnpm run --filter html build
+	pnpm run --filter @explorer-1/html build
 
 ## Vue: run Storybook
 storybook-vue:
-	pnpm run --filter storybook-vue dev
+	pnpm run --filter @explorer-1/storybook-vue dev
 
 ## Vue: run Vite
 vue-dev:
-	pnpm run --filter vue dev
+	pnpm run --filter @explorer-1/vue dev
 
 ## Vue: build assets
 vue-build:
-	pnpm run --filter vue build
+	pnpm run --filter @explorer-1/vue build
 
 ## Nuxt: run module playground
 nuxt-dev:
-	pnpm run --filter nuxt dev
+	pnpm run --filter @explorer-1/nuxt dev
 
 ## Nuxt: build module
 nuxt-build:
-	pnpm run --filter nuxt build
+	pnpm run --filter @explorer-1/nuxt build
 
 # TODO: convert these to filtered pnpm equivalents
 ## storybook-html: update to the latest version of Storybook
