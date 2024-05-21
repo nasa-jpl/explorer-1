@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'node:path'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
@@ -19,8 +20,8 @@ export default defineConfig({
   resolve: {
     alias: {
       // need these until common has been converted to vite
-      'npm:@fancyapps': './node_modules/@fancyapps',
-      'npm:swiper': './node_modules/swiper'
+      'npm:@fancyapps': resolve(__dirname, './node_modules/@fancyapps'),
+      'npm:swiper': resolve(__dirname, './node_modules/swiper')
     }
   }
 })
