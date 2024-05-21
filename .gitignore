@@ -15,9 +15,6 @@ storybook_compiled
 # PyCharm
 .idea
 
-# vscode
-.vscode
-
 # IntelliJ
 out/
 

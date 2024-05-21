@@ -1,9 +1,9 @@
-import { IconLocationTemplate } from './../../components/Icons/IconLocation';
+import { IconLocationTemplate } from './../../components/Icons/IconLocation'
 
 export default {
   title: 'Foundation/Typography',
-  tags: ['!autodocs'],
-};
+  tags: ['!autodocs']
+}
 
 const FontsTemplate = () => `<div class="Fonts md:grid-cols-2 grid gap-2 mt-4">
   <div>
@@ -12,7 +12,7 @@ const FontsTemplate = () => `<div class="Fonts md:grid-cols-2 grid gap-2 mt-4">
       <br />
       <code class="text-base">.font-primary</code>
     </h3>
-    <ol class="inline-block">
+    <ol class="list-none inline-block">
       <li>
         <span class="leading-loose">
           <span class="capitalize font-primary font-light">
@@ -67,7 +67,7 @@ const FontsTemplate = () => `<div class="Fonts md:grid-cols-2 grid gap-2 mt-4">
       <br />
       <code class="text-base">.font-secondary</code>
     </h3>
-    <ol class="inline-block">
+    <ol class="list-none inline-block">
       <li></li>
       <li></li>
       <li></li>
@@ -90,11 +90,11 @@ const FontsTemplate = () => `<div class="Fonts md:grid-cols-2 grid gap-2 mt-4">
       <li></li>
     </ol>
   </div>
-</div>`;
+</div>`
 
 export const Fonts = {
-  render: FontsTemplate.bind({}),
-};
+  render: FontsTemplate.bind({})
+}
 
 const TextColorTemplate = () => `<div>
   <div class="md:grid-cols-3 inline-grid gap-4 p-8 mt-8 bg-white">
@@ -125,11 +125,11 @@ const TextColorTemplate = () => `<div>
       <code class="text-jpl-red-light">.text-jpl-red-light</code>
     </div>
   </div>
-</div>`;
+</div>`
 
 export const TextColor = {
-  render: TextColorTemplate.bind({}),
-};
+  render: TextColorTemplate.bind({})
+}
 
 const TextStylesTemplate = () => `<div>
   <p class="text-h1-alt mt-8">Header H1 Alt</p>
@@ -158,15 +158,15 @@ const TextStylesTemplate = () => `<div>
   <code>.text-body-xs</code>
   <p class="mt-8"><mark>Highlighted text</mark></p>
   <code>mark</code>
-</div>`;
+</div>`
 
 export const TextStyles = {
-  render: TextStylesTemplate.bind({}),
-};
+  render: TextStylesTemplate.bind({})
+}
 
 const testHeadingIcon = IconLocationTemplate({
-  customClass: 'inline',
-});
+  customClass: 'inline'
+})
 
 const HeadingIconsTemplate = () => `<div>
   <p class="text-h1-alt mt-8">${testHeadingIcon}Header H1 Alt</p>
@@ -183,11 +183,11 @@ const HeadingIconsTemplate = () => `<div>
   <code>h5, .text-h5</code>
   <p class="text-h6 mt-8">${testHeadingIcon}Header H6</p>
   <code>h6, .text-h6</code>
-</div>`;
+</div>`
 
 export const HeadingIcons = {
-  render: HeadingIconsTemplate.bind({}),
-};
+  render: HeadingIconsTemplate.bind({})
+}
 
 const TextContrastTemplate =
   () => `<div style="background-image: url(http://source.unsplash.com/b-P6xrDMFSU); background-color: #000;" class="bg-cover bg-no-repeat bg-center">
@@ -196,8 +196,8 @@ const TextContrastTemplate =
       This text uses a text shadow that increases readability when used with a semi-transparent overlay.
     </span>
   </div>
-</div>`;
+</div>`
 
 export const TextContrast = {
-  render: TextContrastTemplate.bind({}),
-};
+  render: TextContrastTemplate.bind({})
+}

@@ -11,7 +11,7 @@ export default {
     './../node_modules/@explorer-1/html/src/**/*.stories.@(js|ts)',
     './../node_modules/@explorer-1/html/src/**/*.docs.@(mdx|jsx)'
   ],
-  staticDirs: ['./static'],
+  staticDirs: ['./../public'],
 
   addons: [
     {

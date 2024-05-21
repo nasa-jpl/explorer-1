@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-console.log('vite config accessed')
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  server: {
+    watch: {
+      usePolling: true
+    }
+  },
   css: {
     preprocessorOptions: {
       scss: {
@@ -17,15 +21,6 @@ export default defineConfig({
       // need these until common has been converted to vite
       'npm:@fancyapps': './node_modules/@fancyapps',
       'npm:swiper': './node_modules/swiper'
-    }
-  },
-  build: {
-    rollupOptions: {
-      output: {
-        assetFileNames: 'assets/[name].[ext]',
-        entryFileNames: 'assets/[name].js',
-        chunkFileNames: 'assets/[name].js'
-      }
     }
   }
 })

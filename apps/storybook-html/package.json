@@ -13,14 +13,14 @@
   },
   "prettier": "@explorer-1/prettier-config",
   "scripts": {
-    "dev": "pnpm run storybook-html:storybook",
-    "storybook-html:prepare": "pnpm run storybook-html:prepare:clean && pnpm run storybook-html:prepare:static",
-    "storybook-html:prepare:clean": "rimraf ./.storybook/static/dist",
-    "storybook-html:prepare:static": "cp -R ./node_modules/@explorer-1/html/dist/ ./.storybook/static/dist",
-    "storybook-html:storybook": "pnpm run storybook-html:prepare && storybook dev -c .storybook -p 6006 --ci",
-    "storybook-html:build": "storybook build -c .storybook -o storybook_compiled",
-    "storybook-html:percy": "percy storybook http://localhost:6006",
-    "storybook-html:percy:dry-run": "percy storybook http://localhost:6006 --dry-run"
+    "dev": "pnpm run storybook",
+    "prepare": "pnpm run prepare:clean && pnpm run prepare:public",
+    "prepare:clean": "rimraf ./public/dist",
+    "prepare:public": "cp -R ./node_modules/@explorer-1/html/dist/ ./public/dist",
+    "storybook": "pnpm run prepare && storybook dev -c .storybook -p 6006 --ci",
+    "build": "pnpm run prepare && storybook build -c .storybook -o storybook_compiled",
+    "percy": "percy storybook http://localhost:6006",
+    "percy:dry-run": "percy storybook http://localhost:6006 --dry-run"
   },
   "dependencies": {
     "@fancyapps/ui": "^4.0.26",

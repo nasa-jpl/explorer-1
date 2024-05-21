@@ -1,13 +1,13 @@
-import { fileURLToPath, URL } from 'node:url';
-import { defineConfig } from 'vite';
+import { fileURLToPath, URL } from 'node:url'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  publicDir: './static/',
+  publicDir: './../public/',
   resolve: {
     alias: {
-      'css/': './.storybook/static/dist/css',
+      'css/': './public/dist/css'
     },
-    preserveSymlinks: true,
-  },
-});
+    preserveSymlinks: true
+  }
+})
