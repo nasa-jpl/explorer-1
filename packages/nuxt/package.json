@@ -22,8 +22,6 @@
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
-    "test": "vitest run",
-    "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "prettier": "@explorer-1/prettier-config",
@@ -47,7 +45,6 @@
     "changelogen": "^0.5.5",
     "nuxt": "^3.11.2",
     "typescript": "latest",
-    "vitest": "^1.6.0",
     "vue-tsc": "^2.0.16"
   }
 }

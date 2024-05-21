@@ -70,6 +70,14 @@ vue-dev:
 vue-build:
 	pnpm run --filter vue build
 
+## Nuxt: run module playground
+nuxt-dev:
+	pnpm run --filter nuxt dev
+
+## Nuxt: build module
+nuxt-build:
+	pnpm run --filter nuxt build
+
 # TODO: convert these to filtered pnpm equivalents
 ## storybook-html: update to the latest version of Storybook
 # storybook-html-update:
