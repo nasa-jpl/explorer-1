@@ -1,7 +1,8 @@
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import explorer1ViteConfig from '@explorer-1/vue/vite.config'
-// https://vitejs.dev/config/
+
+// TODO: import applicable config keys from '@explorer-1/vue/vite.config'
 export default defineConfig({
   plugins: [vue()],
   server: {
@@ -9,8 +10,18 @@ export default defineConfig({
       usePolling: true
     }
   },
-  css: explorer1ViteConfig.css,
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
+      }
+    }
+  },
   resolve: {
-    alias: explorer1ViteConfig.resolve.alias
+    alias: {
+      // need these until common has been converted to vite
+      'npm:@fancyapps': resolve(__dirname, './node_modules/@fancyapps'),
+      'npm:swiper': resolve(__dirname, './node_modules/swiper')
+    }
   }
 })

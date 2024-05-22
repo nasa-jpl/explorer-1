@@ -14,11 +14,9 @@ RESET  := $(shell $(TERM_TEXT) sgr0)
 TARGET_MAX_CHAR_NUM := 23
 .DEFAULT_GOAL := help
 
-## NVM: Runs nvm-use to set the project's node version
 nvm-use:
 	. ${HOME}/.nvm/nvm.sh && nvm use
 
-## NVM: Will error with link to install nvm if it's not installed
 check-nvm:
 ifndef NVM_EXISTS
 	@echo '$(YELLOW)Node Version Manager not found 😿$(RESET)'
@@ -36,7 +34,6 @@ else
 	@echo '⏭️  postinstall will check $(GREEN)workspaces$(RESET) with $(YELLOW)manypkg$(RESET)...'
 endif
 
-## NVM: Mixin to use nvm in make commands. Example usage: `make nvm CMD="npm i"`
 nvm:
 	make check-nvm && $(CMD)
 
@@ -48,48 +45,60 @@ i: install
 
 ## HTML: run Storybook
 html-storybook:
-	pnpm run --filter @explorer-1/html-storybook dev
+	pnpm --filter @explorer-1/html-storybook dev
 
 ## HTML: run Vite
 html-dev:
-	pnpm run --filter @explorer-1/html dev
+	pnpm --filter @explorer-1/html dev
 
 ## HTML: build assets
 html-build:
-	pnpm run --filter @explorer-1/html build
+	pnpm --filter @explorer-1/html build
 
 ## Vue: run Storybook
 vue-storybook:
-	pnpm run --filter @explorer-1/vue-storybook dev
+	pnpm --filter @explorer-1/vue-storybook dev
 
 ## Vue: run Vite
 vue-dev:
-	pnpm run --filter @explorer-1/vue dev
+	pnpm --filter @explorer-1/vue dev
 
 ## Vue: build assets
 vue-build:
-	pnpm run --filter @explorer-1/vue build
+	pnpm --filter @explorer-1/vue build
 
 ## Nuxt: run module playground
 nuxt-dev:
-	pnpm run --filter @explorer-1/nuxt dev
+	pnpm --filter @explorer-1/nuxt dev
 
 ## Nuxt: build module
 nuxt-build:
-	pnpm run --filter @explorer-1/nuxt build
+	pnpm --filter @explorer-1/nuxt build
 
-# TODO: convert these to filtered pnpm equivalents
-## html-storybook: update to the latest version of Storybook
+# TODO: Below helper commands not running as expected change dir first, then pnpm dlx...
+# ## HTML: update Storybook
 # html-storybook-update:
-# 	npx storybook@latest upgrade
+# 	pnpm --dir apps/html-storybook dlx storybook@latest upgrade --config-dir apps/html-storybook/.storybook
 
-# ## html-storybook: run Storybook automigrations
+# ## HTML: run Storybook automigrations
 # html-storybook-migrate:
-# 	npx storybook automigrate
+# 	pnpm --dir apps/html-storybook dlx storybook automigrate --config-dir apps/html-storybook/.storybook
 
-# ## html-storybook: check health
+# ## HTML: check Storybook health
 # html-storybook-doctor:
-# 	npx storybook automigrate
+# 	pnpm --dir apps/html-storybook dlx storybook doctor --config-dir apps/html-storybook/.storybook
+
+# ## Vue: update Storybook
+# vue-storybook-update:
+# 	pnpm --dir apps/vue-storybook dlx storybook@latest upgrade --config-dir apps/vue-storybook/.storybook
+
+# ## Vue: run Storybook automigrations
+# vue-storybook-migrate:
+# 	pnpm --dir apps/vue-storybook dlx storybook automigrate --config-dir apps/vue-storybook/.storybook
+
+# ## Vue: check Storybook health
+# vue-storybook-doctor:
+# 	pnpm --dir apps/vue-storybook dlx storybook doctor --config-dir apps/vue-storybook/.storybook
 
 ## General: Show Makefile help / View all commands @default make target
 help:
