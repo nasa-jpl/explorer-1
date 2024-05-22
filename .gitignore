@@ -70,3 +70,7 @@ storybook_compiled
 # copied assets when preparing builds
 apps/**/.storybook/static/dist
 packages/**/src/assets/fonts
+
+# dist
+dist
+!packages/**/dist
