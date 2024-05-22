@@ -18,7 +18,7 @@
   }
 
   &.-primary {
-    @apply px-12 text-white bg-jpl-red to-jpl-red-dark-w50;
+    @apply px-12 text-white bg-action-color to-action-color-dark-w50;
 
     & > .label {
       @apply border-2 border-transparent;
@@ -26,10 +26,10 @@
   }
 
   &.-secondary {
-    @apply px-12 bg-transparent text-jpl-red border-2 border-jpl-red to-jpl-red-dark-w50;
+    @apply px-12 bg-transparent text-action-color border-2 border-action-color to-action-color-dark-w50;
 
     @include hover {
-      @apply text-white border-jpl-red-dark;
+      @apply text-white border-action-color-dark;
     }
   }
 
@@ -111,30 +111,30 @@
 
   .ThemeLight & {
     &.-primary {
-      @apply text-white bg-jpl-red to-jpl-red-dark-w50;
+      @apply text-white bg-action-color to-action-color-dark-w50;
     }
 
     &.-secondary {
-      @apply text-jpl-red bg-transparent border-jpl-red to-jpl-red-dark-w50;
+      @apply text-action-color bg-transparent border-action-color to-action-color-dark-w50;
 
       @include hover {
         // including a bg color resolves pixelation inconsistencies between browsers
-        @apply text-white border-jpl-red-dark bg-jpl-red-dark;
+        @apply text-white border-action-color-dark bg-action-color-dark;
       }
     }
   }
 
   .ThemeDark & {
     &.-primary {
-      @apply text-white bg-jpl-red-light to-jpl-red-w50;
+      @apply text-white bg-action-color-light to-action-color-w50;
     }
 
     &.-secondary {
-      @apply text-jpl-red-light bg-transparent border-jpl-red-light to-jpl-red-w50;
+      @apply text-action-color-light bg-transparent border-action-color-light to-action-color-w50;
 
       @include hover {
         // including a bg color resolves pixelation inconsistencies between browsers
-        @apply text-white border-jpl-red bg-jpl-red;
+        @apply text-white border-action-color bg-action-color;
       }
     }
   }

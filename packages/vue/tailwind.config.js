@@ -11,6 +11,8 @@ import explorer1Config from '@explorer-1/common/tailwind.config'
 export default {
   ...explorer1Config,
   content: [
+    './index.html',
+    './src/App.vue',
     './src/components/**/*.vue',
     './.www-frontend_temp/components/!(_docs)/**/*.vue',
     './.www-frontend_temp/layouts/**/*.vue',

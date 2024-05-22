@@ -51,6 +51,8 @@ html-storybook:
 html-dev:
 	pnpm --filter @explorer-1/html dev
 
+html: html-dev
+
 ## HTML: build assets
 html-build:
 	pnpm --filter @explorer-1/html build
@@ -62,6 +64,8 @@ vue-storybook:
 ## Vue: run Vite
 vue-dev:
 	pnpm --filter @explorer-1/vue dev
+
+vue: vue-dev
 
 ## Vue: build assets
 vue-build:
