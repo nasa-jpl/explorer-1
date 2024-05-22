@@ -47,8 +47,8 @@ install: check-nvm
 i: install
 
 ## HTML: run Storybook
-storybook-html:
-	pnpm run --filter @explorer-1/storybook-html dev
+html-storybook:
+	pnpm run --filter @explorer-1/html-storybook dev
 
 ## HTML: run Vite
 html-dev:
@@ -59,8 +59,8 @@ html-build:
 	pnpm run --filter @explorer-1/html build
 
 ## Vue: run Storybook
-storybook-vue:
-	pnpm run --filter @explorer-1/storybook-vue dev
+vue-storybook:
+	pnpm run --filter @explorer-1/vue-storybook dev
 
 ## Vue: run Vite
 vue-dev:
@@ -79,16 +79,16 @@ nuxt-build:
 	pnpm run --filter @explorer-1/nuxt build
 
 # TODO: convert these to filtered pnpm equivalents
-## storybook-html: update to the latest version of Storybook
-# storybook-html-update:
+## html-storybook: update to the latest version of Storybook
+# html-storybook-update:
 # 	npx storybook@latest upgrade
 
-# ## storybook-html: run Storybook automigrations
-# storybook-html-migrate:
+# ## html-storybook: run Storybook automigrations
+# html-storybook-migrate:
 # 	npx storybook automigrate
 
-# ## storybook-html: check health
-# storybook-html-doctor:
+# ## html-storybook: check health
+# html-storybook-doctor:
 # 	npx storybook automigrate
 
 ## General: Show Makefile help / View all commands @default make target

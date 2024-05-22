@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "@explorer-1/html": "workspace:^",
-    "@explorer-1/storybook-html": "workspace:^",
-    "@explorer-1/storybook-vue": "workspace:^",
+    "@explorer-1/html-storybook": "workspace:^",
+    "@explorer-1/vue-storybook": "workspace:^",
     "@explorer-1/vue": "workspace:^",
     "@types/node": "^20.12.12"
   },

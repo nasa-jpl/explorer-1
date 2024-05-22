@@ -1,5 +1,5 @@
 {
-  "name": "@explorer-1/storybook-vue",
+  "name": "@explorer-1/vue-storybook",
   "version": "0.0.0",
   "private": true,
   "prettier": "@explorer-1/prettier-config",

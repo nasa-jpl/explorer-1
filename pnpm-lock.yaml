@@ -14,20 +14,20 @@ importers:
       '@explorer-1/html':
         specifier: workspace:^
         version: link:packages/html
-      '@explorer-1/storybook-html':
+      '@explorer-1/html-storybook':
         specifier: workspace:^
-        version: link:apps/storybook-html
-      '@explorer-1/storybook-vue':
-        specifier: workspace:^
-        version: link:apps/storybook-vue
+        version: link:apps/html-storybook
       '@explorer-1/vue':
         specifier: workspace:^
         version: link:packages/vue
+      '@explorer-1/vue-storybook':
+        specifier: workspace:^
+        version: link:apps/vue-storybook
       '@types/node':
         specifier: ^20.12.12
         version: 20.12.12
 
-  apps/storybook-html:
+  apps/html-storybook:
     dependencies:
       '@fancyapps/ui':
         specifier: ^4.0.26
@@ -127,7 +127,7 @@ importers:
         specifier: ^5.2.11
         version: 5.2.11(@types/node@20.12.12)(lightningcss@1.25.0)(sass@1.77.2)(terser@5.31.0)
 
-  apps/storybook-vue:
+  apps/vue-storybook:
     dependencies:
       '@fancyapps/ui':
         specifier: ^4.0.26
