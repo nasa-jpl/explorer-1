@@ -12,7 +12,7 @@ export default {
     './../node_modules/@explorer-1/html/src/**/*.docs.@(mdx|jsx)'
   ],
 
-  staticDirs: ['./../public'],
+  staticDirs: ['./../public', './../node_modules/@explorer-1/common-storybook/src/public'],
 
   addons: [
     {
@@ -41,4 +41,4 @@ export default {
   },
 
   docs: {}
-};
+}

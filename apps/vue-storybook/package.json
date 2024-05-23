@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@explorer-1/common": "workspace:*",
+    "@explorer-1/common-storybook": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
     "@explorer-1/vue": "workspace:*",

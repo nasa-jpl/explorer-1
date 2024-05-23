@@ -1,14 +1,14 @@
 // customizing Storybook's manager UI
 // see config options: https://storybook.js.org/docs/vue/configure/features-and-behavior
 
-import { addons } from '@storybook/manager-api';
-import customTheme from './customTheme';
+import { addons } from '@storybook/manager-api'
+import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 
 // to collapse all sections and use custom theme
 addons.setConfig({
   theme: customTheme,
-  sidebar: { showRoots: false },
-});
+  sidebar: { showRoots: false }
+})
 
 /* Custom script that if a node type of "group" is clicked, storybook will immediately open the first child.
  * This is a temporary workaround for a feature request that is yet to be implemented: https://github.com/storybookjs/storybook/issues/2863
