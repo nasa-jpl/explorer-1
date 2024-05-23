@@ -342,7 +342,11 @@ export default {
     require('@tailwindcss/forms'),
     require('tailwindcss-themer')({
       defaultTheme: {
-        extend: defaultTheme
+        extend: {
+          // ...defaultTheme,
+          colors: defaultTheme.colors,
+          gradientColorStops: defaultTheme.gradientColorStops
+        }
       },
       themes: [
         {

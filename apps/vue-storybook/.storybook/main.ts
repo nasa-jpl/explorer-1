@@ -1,7 +1,18 @@
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 const config = {
   stories: ['./../stories/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-essentials', '@chromatic-com/storybook'],
+  addons: [
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        actions: false,
+        backgrounds: false,
+        outlines: false
+      }
+    },
+    '@storybook/addon-a11y',
+    '@whitespace/storybook-addon-html'
+  ],
 
   framework: {
     name: '@storybook/vue3-vite',
