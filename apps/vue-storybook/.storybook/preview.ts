@@ -4,10 +4,10 @@ import useMockComponents from './_mock-components.js'
 import { StoryContext } from '@storybook/types'
 import { VueRenderer, setup, type Preview } from '@storybook/vue3'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import './../../html-storybook/.storybook/canvas.css'
-import './../node_modules/@explorer-1/vue/src/assets/scss/styles.scss'
+import '@explorer-1/common-storybook/src/config/canvas.css'
+import '@explorer-1/vue/src/assets/scss/styles.scss'
 
-import { withGlobals } from './../../html-storybook/.storybook/withGlobals.js'
+import { withGlobals } from '@explorer-1/common-storybook/src/config/withGlobals'
 setup((app: App, context?: StoryContext<VueRenderer>) => {
   app.component('Swiper', Swiper)
   app.component('SwiperSlide', SwiperSlide)

@@ -1,9 +1,9 @@
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
-import customTheme from './customTheme.js'
+import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/html/dist/css/explorer-1.min.css'
 import '@explorer-1/html/dist/js/explorer-1.min.js'
-import './canvas.css'
-import { withGlobals } from './withGlobals'
+import '@explorer-1/common-storybook/src/config/canvas.css'
+import { withGlobals } from '@explorer-1/common-storybook/src/config/withGlobals'
 
 // viewports that match our tailwind config
 const customViewports = {
@@ -54,10 +54,15 @@ const customViewports = {
 const preview = {
   globalTypes: {
     themesConfig: {
+<<<<<<< HEAD
       defaultValue: {
         options: ['ThemeVariantLight', 'ThemeInternal'],
         method: 'css'
       }
+=======
+      defaultValue: ['ThemeLight', 'ThemeInternal', 'ThemeDark'],
+      method: 'css'
+>>>>>>> feature/monorepo
     },
     theme: {
       description: 'Global Theme',
@@ -67,6 +72,7 @@ const preview = {
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
         items: [
+<<<<<<< HEAD
           { value: 'ThemeVariantLight', icon: 'circlehollow', title: 'Default Theme' },
           { value: 'ThemeInternal', icon: 'collapse', title: 'Internal Theme' }
         ],
@@ -92,6 +98,14 @@ const preview = {
         ],
         dynamicTitle: true
       }
+=======
+          { value: 'ThemeLight', icon: 'circlehollow', title: 'Light' },
+          { value: 'ThemeDark', icon: 'circle', title: 'Dark' },
+          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal' }
+        ],
+        dynamicTitle: true
+      }
+>>>>>>> feature/monorepo
     }
   },
 
