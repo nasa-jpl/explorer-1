@@ -5,36 +5,34 @@ export default {
   argTypes: {
     type: {
       type: { name: 'string', required: true },
-      description: 'Label',
+      description: 'Label'
     },
     title: {
       type: { name: 'string', required: true },
-      description: 'Title',
+      description: 'Title'
     },
     text: {
       type: { name: 'string', required: true },
-      description: 'Summary/description of the item',
+      description: 'Summary/description of the item'
     },
     image: {
       type: { name: 'object', required: false },
-      description: 'Image object',
-    },
+      description: 'Image object'
+    }
   },
-  decorators: [
-    (Story) => `<div id="storyRoot" class="max-w-xl">${Story()}</div>`,
-  ],
+  decorators: [(Story) => `<div id="storyRoot" class="max-w-xl">${Story()}</div>`],
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
         component:
-          'Features a drop shadow and a stylized red label, no hover effects. Card used in `BlockCardGroup`.',
-      },
+          'Features a drop shadow and a stylized red label, no hover effects. Card used in `BlockCardGroup`.'
+      }
     },
     html: {
-      root: '#storyRoot',
-    },
-  },
+      root: '#storyRoot'
+    }
+  }
 }
 
 export const Default = BlockCardTemplate.bind({})
@@ -47,10 +45,9 @@ Default.args = {
     src: {
       url: 'https://picsum.photos/800/400',
       width: 800,
-      height: 400,
+      height: 400
     },
-    srcSet:
-      'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w',
-    alt: 'Fourth image',
-  },
+    srcSet: 'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w',
+    alt: 'Fourth image'
+  }
 }

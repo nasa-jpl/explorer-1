@@ -14,7 +14,7 @@ export const BaseImagePlaceholderTemplate = ({
   height,
   imageWrapperClass,
   objectFitClass,
-  imageClass,
+  imageClass
 }) => {
   // interpret props
   if (!theme) theme = 'light-theme'
@@ -34,11 +34,11 @@ export const BaseImagePlaceholderTemplate = ({
           height: height,
           imageClass: imageClass ? imageClass : '',
           wrapperClass: imageWrapperClass ? imageWrapperClass : '',
-          objectFitClass: objectFitClass,
+          objectFitClass: objectFitClass
         })
       : placeholder
-      ? `<div>${placeholder}</div>`
-      : '<div></div>'
+        ? `<div>${placeholder}</div>`
+        : '<div></div>'
   return `<div${renderWrapperClass}>
   <div class="BaseImagePlaceholder ${theme} ${aspectRatio} ${noLogo}">
     ${slot}

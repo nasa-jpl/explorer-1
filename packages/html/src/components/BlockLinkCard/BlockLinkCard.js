@@ -10,7 +10,7 @@ export const BlockLinkCardTemplate = ({
   secondaryLabel,
   image,
   customClass,
-  compact,
+  compact
 }) => {
   if (!headingLevel) headingLevel = 'p'
   if (!customClass) customClass = ''
@@ -21,9 +21,7 @@ export const BlockLinkCardTemplate = ({
     theme: 'dark-theme',
     noLogo: true,
     aspectRatio: 'aspect-ratio-sixteen-nine',
-    wrapperClass: `bg-gray-dark relative mb-6 overflow-hidden ${
-      compact ? '' : 'lg:mb-10'
-    }`,
+    wrapperClass: `bg-gray-dark relative mb-6 overflow-hidden ${compact ? '' : 'lg:mb-10'}`,
     src: image.src.url,
     srcset: image.srcset,
     alt: image.alt,
@@ -31,16 +29,14 @@ export const BlockLinkCardTemplate = ({
     height: image.src.height,
     imageClass:
       'can-hover:group-hover:delay-200 can-hover:group-hover:scale-100 absolute top-0 left-0 w-full transition-all duration-200 ease-in scale-105',
-    objectFitClass: 'object-cover',
+    objectFitClass: 'object-cover'
   })
   let iconArrow = IconArrowTemplate({})
   let labelTemplate = ''
   if (label || secondaryLabel) {
     labelTemplate = `
       <div class="flex flex-wrap">
-        <p class="text-subtitle divide-gray-mid flex divide-x ${
-          compact ? 'mb-2' : 'mb-4'
-        }">
+        <p class="text-subtitle divide-gray-mid flex divide-x ${compact ? 'mb-2' : 'mb-4'}">
           ${
             label
               ? `
@@ -67,15 +63,13 @@ export const BlockLinkCardTemplate = ({
     ${baseImagePlaceholder}
     <div
       class="transition-translate can-hover:group-hover:delay-200 duration-200 ease-in ${
-        compact
-          ? 'can-hover:group-hover:-translate-y-2'
-          : 'can-hover:group-hover:-translate-y-3'
+        compact ? 'can-hover:group-hover:-translate-y-2' : 'can-hover:group-hover:-translate-y-3'
       }"
     >
       ${labelTemplate}
       <${headingLevel} class="text-gray-dark text-xl font-medium leading-tight tracking-tight ${
-    compact ? 'text-xl' : 'lg:text-3xl'
-  }">
+        compact ? 'text-xl' : 'lg:text-3xl'
+      }">
         ${title}
       </${headingLevel}>
     </div>
@@ -90,7 +84,7 @@ export const BlockLinkCardTemplate = ({
     link: url,
     text: template,
     computedClass: 'block pb-5',
-    wrapperClass: 'group ' + customClass,
+    wrapperClass: 'group ' + customClass
   })
 
   return baseLink

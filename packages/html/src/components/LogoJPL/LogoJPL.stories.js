@@ -10,21 +10,20 @@ const Stories = {
       description: 'Only a few color options are allowed.',
       control: {
         type: 'select',
-        options: ['text-jpl-red', 'text-black', 'text-white'],
+        options: ['text-jpl-red', 'text-black', 'text-white']
       },
       table: {
-        defaultValue: { summary: 'text-jpl-red' },
-      },
-    },
+        defaultValue: { summary: 'text-jpl-red' }
+      }
+    }
   },
   parameters: {
     docs: {
       description: {
-        component:
-          `The JPL Logo has strict color usage restrictions and should only be used on internal sites, namely in the [AppBar](?path=/docs/global-layout-headers-for-internal-sites-elements-overview--docs).`,
-      },
-    },
-  },
+        component: `The JPL Logo has strict color usage restrictions and should only be used on internal sites, namely in the [AppBar](?path=/docs/global-layout-headers-for-internal-sites-elements-overview--docs).`
+      }
+    }
+  }
 }
 
 export const Default = LogoJPLTemplate.bind({})
@@ -38,4 +37,4 @@ export const White = LogoJPLTemplate.bind({})
 White.args = { colorClass: 'text-white' }
 White.decorators = [(Story) => `<div class="p-5 bg-black">${Story()}</div>`]
 
-export default Stories;
+export default Stories

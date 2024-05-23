@@ -1,6 +1,6 @@
 export default {
   title: 'Guides/Responsive Design',
-  tags: ['!autodocs'],
+  tags: ['!autodocs']
 }
 
 const ResponsiveDesignTemplate = () => `<div class="bg-gray-light border">
@@ -28,5 +28,5 @@ const ResponsiveDesignTemplate = () => `<div class="bg-gray-light border">
 </div>`
 
 export const Demo = {
-  render: ResponsiveDesignTemplate.bind({}),
+  render: ResponsiveDesignTemplate.bind({})
 }

@@ -6,11 +6,10 @@ export default {
     viewMode: 'docs',
     docs: {
       description: {
-        component:
-          'An animated content placeholder, useful when loading content.',
-      },
-    },
-  },
+        component: 'An animated content placeholder, useful when loading content.'
+      }
+    }
+  }
 }
 
 export const Default = BasePlaceholderTemplate.bind()

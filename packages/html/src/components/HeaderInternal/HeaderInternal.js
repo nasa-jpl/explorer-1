@@ -6,7 +6,7 @@ export const HeaderInternalTemplate = ({
   siteTitle,
   includeSignIn,
   includeSearch,
-  menuItems,
+  menuItems
 }) => {
   // prop defaults
   if (!orgNumber) orgNumber = ''
@@ -19,7 +19,7 @@ export const HeaderInternalTemplate = ({
     orgNumber: orgNumber,
     siteTitle: siteTitle,
     includeMobileMenuToggle: menuItems.length > 0 ? true : false,
-    includeSignIn: includeSignIn,
+    includeSignIn: includeSignIn
   })
 
   return `
@@ -30,7 +30,7 @@ export const HeaderInternalTemplate = ({
         ? `
     ${NavInternalTemplate({
       includeSearch: includeSearch,
-      menuItems: menuItems,
+      menuItems: menuItems
     })}`
         : ''
     }

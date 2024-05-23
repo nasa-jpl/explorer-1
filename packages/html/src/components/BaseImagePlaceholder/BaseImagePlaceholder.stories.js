@@ -26,47 +26,47 @@ export default {
           'aspect-ratio-eight-seven',
           'aspect-ratio-four-three',
           'aspect-ratio-four-five',
-          'aspect-ratio-twentyone-nine',
-        ],
+          'aspect-ratio-twentyone-nine'
+        ]
       },
       table: {
-        defaultValue: { summary: 'aspect-ratio-none' },
-      },
+        defaultValue: { summary: 'aspect-ratio-none' }
+      }
     },
     theme: {
       type: 'string',
       description: 'Theme color for the placeholder background.',
       control: {
         type: 'select',
-        options: ['light-theme', 'dark-theme', 'transparent-theme'],
+        options: ['light-theme', 'dark-theme', 'transparent-theme']
       },
       table: {
-        defaultValue: { summary: 'light-theme' },
-      },
+        defaultValue: { summary: 'light-theme' }
+      }
     },
     noLogo: {
       type: 'boolean',
-      description: 'If a JPL logo should appear when there is no image',
+      description: 'If a JPL logo should appear when there is no image'
     },
     src: {
       type: { name: 'string', required: true },
-      description: 'Passed to `BaseImage`.',
+      description: 'Passed to `BaseImage`.'
     },
     srcset: {
       type: 'string',
-      description: 'Passed to `BaseImage`.',
+      description: 'Passed to `BaseImage`.'
     },
     alt: {
       type: { name: 'string', required: true },
-      description: 'Passed to `BaseImage`.',
+      description: 'Passed to `BaseImage`.'
     },
     width: {
       type: { name: 'number', required: true },
-      description: 'Passed to `BaseImage`.',
+      description: 'Passed to `BaseImage`.'
     },
     height: {
       type: { name: 'number', required: true },
-      description: 'Passed to `BaseImage`.',
+      description: 'Passed to `BaseImage`.'
     },
     objectFitClass: {
       type: 'string',
@@ -79,16 +79,16 @@ export default {
           'object-contain',
           'object-cover',
           'object-fill',
-          'object-scale-down',
-        ],
+          'object-scale-down'
+        ]
       },
       table: {
-        defaultValue: { summary: 'object-contain' },
-      },
+        defaultValue: { summary: 'object-contain' }
+      }
     },
     imageClass: {
-      table: { disable: true },
-    },
+      table: { disable: true }
+    }
   },
   parameters: {
     docs: {
@@ -103,26 +103,26 @@ export default {
 ## Accessibility notes
 
 BaseImagePlaceholder is a presentational element consisting of a single \`div\` with a background image (JPL Logo), without semantic meaning, it simply prevents page load becoming janky by setting a 'placeholder' for the images that are yet to be loaded with \`loading="lazy"\` or LazySizes fallback. As such it should not need to meet color contrast requirements.
-          `,
-      },
-    },
-  },
+          `
+      }
+    }
+  }
 }
 
 export const Basic = BaseImagePlaceholderTemplate.bind({})
 Basic.args = {
   noLogo: false,
-  ...BaseImageData,
+  ...BaseImageData
 }
 export const Default = BaseImagePlaceholderTemplate.bind({})
 Default.args = {
   aspectRatio: 'aspect-ratio-two-one',
-  noLogo: false,
+  noLogo: false
 }
 export const LazyLoading = BaseImagePlaceholderTemplate.bind({})
 LazyLoading.args = {
   noLogo: false,
-  ...BaseImageData,
+  ...BaseImageData
 }
 LazyLoading.decorators = [
   (Story) => `
@@ -134,14 +134,14 @@ LazyLoading.decorators = [
       ${Story()}
     </div>
   </div>
-  `,
+  `
 ]
 LazyLoading.parameters = {
   html: {
-    root: '#storyRoot',
+    root: '#storyRoot'
   },
   docs: {
     storyDescription:
-      "`BaseImagePlaceholder` is compatible with `BaseImage`'s lazy loading behavior.",
-  },
+      "`BaseImagePlaceholder` is compatible with `BaseImage`'s lazy loading behavior."
+  }
 }

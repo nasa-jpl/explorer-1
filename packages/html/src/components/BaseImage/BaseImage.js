@@ -6,7 +6,7 @@ export const BaseImageTemplate = ({
   height,
   imageClass,
   wrapperClass,
-  objectFitClass,
+  objectFitClass
 }) => {
   if (!src) src = ''
   if (!srcset) srcset = ''

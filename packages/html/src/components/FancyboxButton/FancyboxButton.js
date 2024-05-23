@@ -1,12 +1,6 @@
 import { BaseButtonTemplate } from '../BaseButton/BaseButton'
 
-export const FancyboxButtonTemplate = ({
-  variant,
-  fancyboxGallery,
-  image,
-  icon,
-  label,
-}) => {
+export const FancyboxButtonTemplate = ({ variant, fancyboxGallery, image, icon, label }) => {
   let fancybox = `data-fancybox`
   if (fancyboxGallery) {
     fancybox += `="${fancyboxGallery}"`
@@ -25,7 +19,7 @@ export const FancyboxButtonTemplate = ({
     icon,
     label,
     fancybox,
-    iconOnly: true,
+    iconOnly: true
   })
 
   return baseButton

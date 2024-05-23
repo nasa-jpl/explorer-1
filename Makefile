@@ -47,6 +47,10 @@ i: install
 html-storybook:
 	pnpm --filter @explorer-1/html-storybook dev
 
+## HTML: build Storybook
+html-storybook-build:
+	pnpm --filter @explorer-1/html-storybook build
+
 ## HTML: run Vite
 html-dev:
 	pnpm --filter @explorer-1/html dev
@@ -60,6 +64,10 @@ html-build:
 ## Vue: run Storybook
 vue-storybook:
 	pnpm --filter @explorer-1/vue-storybook dev
+
+## Vue: build Storybook
+vue-storybook-build:
+	pnpm --filter @explorer-1/vue-storybook build
 
 ## Vue: run Vite
 vue-dev:

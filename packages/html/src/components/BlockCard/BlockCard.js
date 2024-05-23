@@ -1,13 +1,7 @@
 import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 import { BaseHeadingTemplate } from '../BaseHeading/BaseHeading'
 
-export const BlockCardTemplate = ({
-  type,
-  title,
-  text,
-  image,
-  customClass,
-}) => {
+export const BlockCardTemplate = ({ type, title, text, image, customClass }) => {
   if (!customClass) customClass = ''
 
   return `
@@ -26,7 +20,7 @@ export const BlockCardTemplate = ({
         width: image.src.width,
         height: image.src.height,
         aspectRatio: 'aspect-ratio-sixteen-nine',
-        objectFitClass: 'object-cover',
+        objectFitClass: 'object-cover'
       })}
     </div>
     `
@@ -39,7 +33,7 @@ export const BlockCardTemplate = ({
         text: title,
         size: 'h5',
         tag: 'h3',
-        headingClass: 'mt-4 mb-2',
+        headingClass: 'mt-4 mb-2'
       })}
       <p class="text-body-sm">${text}</p>
     </div>

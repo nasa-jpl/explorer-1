@@ -5,8 +5,6 @@ export const FormInputLabelTemplate = ({ label, required, inputName }) => {
   <label for="${inputName}" class="text-subtitle text-gray-dark">
     ${label}
   </label>
-  ${
-    required ? `<span class="text-xl text-jpl-red-dark font-bold">*</span>` : ''
-  }
+  ${required ? `<span class="text-xl text-jpl-red-dark font-bold">*</span>` : ''}
 </div>`
 }

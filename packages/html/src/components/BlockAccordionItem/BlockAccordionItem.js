@@ -1,12 +1,7 @@
 import { IconPlusTemplate } from '../Icons/IconPlus'
 import { BlockTextTemplate } from '../BlockText/BlockText'
 
-export const BlockAccordionItemTemplate = ({
-  item_id,
-  heading_level,
-  title,
-  body,
-}) => {
+export const BlockAccordionItemTemplate = ({ item_id, heading_level, title, body }) => {
   // set defaults
   if (!item_id) item_id = ''
   if (!heading_level) heading_level = 'h2'

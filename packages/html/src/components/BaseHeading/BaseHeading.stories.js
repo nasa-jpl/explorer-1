@@ -8,18 +8,18 @@ export default {
   title: 'Components/Base/BaseHeading',
   argTypes: {
     text: {
-      type: 'string',
+      type: 'string'
     },
     size: {
       type: { name: 'string', required: true },
       description: 'The display size of the heading.',
       control: {
         type: 'select',
-        options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+        options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
       },
       table: {
-        defaultValue: { summary: 'h3' },
-      },
+        defaultValue: { summary: 'h3' }
+      }
     },
     tag: {
       type: { name: 'string', required: false },
@@ -27,19 +27,19 @@ export default {
         'The semantic heading tag if different from the display size (ex: a heading looks like an `h4`, but semantically, it is an `h1`.',
       control: {
         type: 'select',
-        options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-      },
-    },
+        options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+      }
+    }
   },
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
         component:
-          'Base component for headings. Allows for retaining semantic markup while varying the text size.',
-      },
-    },
-  },
+          'Base component for headings. Allows for retaining semantic markup while varying the text size.'
+      }
+    }
+  }
 }
 
 export const Default = BaseHeadingTemplate.bind({})
@@ -80,5 +80,5 @@ HeadingsWithIcons.args = {
   text: 'Heading 3',
   size: 'h3',
   tag: 'h3',
-  headingClass: 'mt-8',
+  headingClass: 'mt-8'
 }

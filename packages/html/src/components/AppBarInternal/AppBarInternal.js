@@ -11,7 +11,7 @@ export const AppBarInternalTemplate = ({
   signedIn,
   userData,
   logInUrl,
-  logOutUrl,
+  logOutUrl
 }) => {
   // prop defaults
   if (!orgNumber) orgNumber = ''

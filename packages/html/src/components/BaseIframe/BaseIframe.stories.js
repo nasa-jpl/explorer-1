@@ -5,38 +5,35 @@ export default {
   argTypes: {
     title: {
       type: { name: 'string', required: true },
-      description: 'Iframe title used for accessibility',
+      description: 'Iframe title used for accessibility'
     },
     url: {
       type: { name: 'string', required: true },
-      description: 'Link to the embed source',
+      description: 'Link to the embed source'
     },
     height: {
       type: { name: 'integer', required: false },
-      description: 'Iframe embed height',
-    },
+      description: 'Iframe embed height'
+    }
   },
-  decorators: [
-    (Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`,
-  ],
+  decorators: [(Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`],
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
-        component:
-          'Basic iframe markup. For responsive sizing, use `BlockIframeEmbed`.',
-      },
+        component: 'Basic iframe markup. For responsive sizing, use `BlockIframeEmbed`.'
+      }
     },
     html: {
-      root: '#storyRoot',
-    },
-  },
+      root: '#storyRoot'
+    }
+  }
 }
 
 const BaseIframeData = {
   title: 'Perseverance Rover Embed',
   url: 'https://mars.nasa.gov/gltf_embed/25042',
-  height: 400,
+  height: 400
 }
 
 export const Default = BaseIframeTemplate.bind({})

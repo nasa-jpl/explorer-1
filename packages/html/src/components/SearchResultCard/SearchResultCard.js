@@ -10,7 +10,7 @@ export const SearchResultCardTemplate = ({
   title,
   summary,
   date,
-  image,
+  image
 }) => {
   return BaseLinkTemplate({
     link,
@@ -56,7 +56,7 @@ export const SearchResultCardTemplate = ({
                 text: title,
                 size: 'h5',
                 tag: 'h5',
-                headingClass: 'mb-3',
+                headingClass: 'mb-3'
               })
             : ''
         }
@@ -80,7 +80,7 @@ export const SearchResultCardTemplate = ({
           height: image.src.height,
           imageWrapperClass: 'sm:object-cover object-cover',
           aspectRatio: 'aspect-ratio-one-one',
-          objectFitClass: 'object-contain',
+          objectFitClass: 'object-contain'
         })}
       </div>`
           : ''
@@ -97,9 +97,7 @@ export const SearchResultCardTemplate = ({
           <div class="text-subtitle mb-3">
             ${type ? `<span>${type}<span class="sr-only">.</span></span>` : ''}
             ${type && topic ? `<span class="mx-1">|</span>` : ''}
-            ${
-              topic ? `<span>${topic}<span class="sr-only">.</span></span>` : ''
-            }
+            ${topic ? `<span>${topic}<span class="sr-only">.</span></span>` : ''}
           </div>`
               : ''
           }
@@ -109,15 +107,11 @@ export const SearchResultCardTemplate = ({
                   text: title,
                   size: 'h5',
                   tag: 'h5',
-                  headingClass: 'mb-4',
+                  headingClass: 'mb-4'
                 })
               : ''
           }
-          ${
-            summary
-              ? `<p class="lg:block text-body-sm hidden mb-3">${summary}</p>`
-              : ''
-          }
+          ${summary ? `<p class="lg:block text-body-sm hidden mb-3">${summary}</p>` : ''}
           ${date ? `<p>${date}</p>` : ''}
         </div>
       </div>
@@ -133,6 +127,6 @@ export const SearchResultCardTemplate = ({
     `
     }
 
-  `,
+  `
   })
 }

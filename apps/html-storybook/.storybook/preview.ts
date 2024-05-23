@@ -54,15 +54,10 @@ const customViewports = {
 const preview = {
   globalTypes: {
     themesConfig: {
-<<<<<<< HEAD
       defaultValue: {
         options: ['ThemeVariantLight', 'ThemeInternal'],
         method: 'css'
       }
-=======
-      defaultValue: ['ThemeLight', 'ThemeInternal', 'ThemeDark'],
-      method: 'css'
->>>>>>> feature/monorepo
     },
     theme: {
       description: 'Global Theme',
@@ -72,7 +67,6 @@ const preview = {
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
         items: [
-<<<<<<< HEAD
           { value: 'ThemeVariantLight', icon: 'circlehollow', title: 'Default Theme' },
           { value: 'ThemeInternal', icon: 'collapse', title: 'Internal Theme' }
         ],
@@ -98,14 +92,6 @@ const preview = {
         ],
         dynamicTitle: true
       }
-=======
-          { value: 'ThemeLight', icon: 'circlehollow', title: 'Light' },
-          { value: 'ThemeDark', icon: 'circle', title: 'Dark' },
-          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal' }
-        ],
-        dynamicTitle: true
-      }
->>>>>>> feature/monorepo
     }
   },
 

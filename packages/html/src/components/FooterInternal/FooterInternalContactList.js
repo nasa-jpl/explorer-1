@@ -13,7 +13,7 @@ export const FooterInternalContactListTemplate = ({ title, items }) => {
         variant: 'none',
         linkClass: 'text-jpl-sky-blue can-hover:hover:text-jpl-sky-blue-dark',
         text: item.name,
-        link: `mailto:${item.email}`,
+        link: `mailto:${item.email}`
       })}
       ${index + 1 === items.length ? '' : ','}
       </li>`

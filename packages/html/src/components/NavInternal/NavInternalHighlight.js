@@ -1,12 +1,6 @@
 import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImagePlaceholder'
 
-export const NavInternalHighlightTemplate = ({
-  title,
-  description,
-  image,
-  link,
-  ariaLabel,
-}) => {
+export const NavInternalHighlightTemplate = ({ title, description, image, link, ariaLabel }) => {
   // set defaults
   if (!title) title = ''
   if (!description) description = ''
@@ -43,8 +37,7 @@ export const NavInternalHighlightTemplate = ({
     ${
       image && image.src
         ? `${BaseImagePlaceholderTemplate({
-            wrapperClass:
-              'hidden lg:block bg-gray-dark relative overflow-hidden',
+            wrapperClass: 'hidden lg:block bg-gray-dark relative overflow-hidden',
             theme: 'dark-theme',
             aspectRatio: 'aspect-ratio-sixteen-nine',
             noLogo: true,
@@ -54,7 +47,7 @@ export const NavInternalHighlightTemplate = ({
             src: image.src,
             width: image.width,
             height: image.height,
-            alt: image.alt,
+            alt: image.alt
           })}
           ${
             link

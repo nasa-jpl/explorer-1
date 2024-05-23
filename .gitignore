@@ -73,4 +73,5 @@ packages/**/src/assets/fonts
 
 # dist
 dist
+!apps/**/dist/.gitkeep
 !packages/**/dist

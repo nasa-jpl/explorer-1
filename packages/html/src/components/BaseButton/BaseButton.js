@@ -23,7 +23,7 @@ export const BaseButtonTemplate = ({
   iconOnly,
   cssClass,
   fancybox,
-  target,
+  target
 }) => {
   if (iconBefore == undefined) iconBefore = false
   if (iconOnly == undefined) iconOnly = false
@@ -66,8 +66,8 @@ export const BaseButtonTemplate = ({
       <button 
         disabled="disabled"
         class="BaseButton text-contrast-none inline-block ${computedClass}" ${
-      ariaLabel ? `aria-label="${ariaLabel}"` : ''
-    }
+          ariaLabel ? `aria-label="${ariaLabel}"` : ''
+        }
       >
         <span class="label block">
           ${content}
@@ -79,16 +79,16 @@ export const BaseButtonTemplate = ({
       <a 
         href="${link}" 
         class="BaseButton text-contrast-none inline-block ${computedClass}" ${
-      target
-        ? `
+          target
+            ? `
         target="${target}"`
-        : ''
-    } ${
-      ariaLabel
-        ? `
+            : ''
+        } ${
+          ariaLabel
+            ? `
         aria-label="${ariaLabel}"`
-        : ''
-    }
+            : ''
+        }
       >
         <span class="label block">
           ${content}
@@ -99,11 +99,11 @@ export const BaseButtonTemplate = ({
     return `
       <button 
         class="BaseButton text-contrast-none inline-block ${computedClass}" ${
-      ariaLabel
-        ? `
+          ariaLabel
+            ? `
         aria-label="${ariaLabel}"`
-        : ''
-    } ${fancybox}
+            : ''
+        } ${fancybox}
       >
         <span class="label block">
           ${content}

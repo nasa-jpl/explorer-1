@@ -4,7 +4,7 @@ export const BackToTopTemplate = ({
   alwaysVisible = false,
   threshold = '',
   scrollTo = '',
-  buttonClass = '',
+  buttonClass = ''
 }) => {
   return `<div class="BackToTop" ${
     alwaysVisible ? 'data-alwaysvisible' : ''
@@ -16,7 +16,7 @@ export const BackToTopTemplate = ({
     compact: true,
     icon: 'dropdown',
     iconBefore: true,
-    label: 'Back to top',
+    label: 'Back to top'
   })}
   </div>`
 }

@@ -13,7 +13,7 @@ export const MixinCarouselTemplate = ({
   indent,
   center,
   customClass,
-  slot,
+  slot
 }) => {
   // set defaults
   if (!variant) variant = '-cards'
@@ -45,7 +45,7 @@ export const MixinCarouselTemplate = ({
     if (items.length > 0) {
       for (const [index, value] of items.entries()) {
         slot += `${MixinCarouselItemDemoTemplate({
-          title: value.title,
+          title: value.title
         })}`
       }
     }
@@ -70,7 +70,7 @@ export const MixinCarouselTemplate = ({
               wrapperClass: 'sm:block hidden',
               text: linkTitle,
               variant: 'primary',
-              link: link,
+              link: link
             })
           : ''
       }
