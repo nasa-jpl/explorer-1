@@ -6,18 +6,15 @@ export const RelatedLinkTemplate = ({ variant, link, text }) => {
   let icon =
     variant == 'document'
       ? IconDownloadTemplate({
-          customClass:
-            'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-3xl',
+          customClass: 'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-3xl'
         })
       : variant == 'internal'
-      ? IconArrowTemplate({
-          customClass:
-            'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-3xl',
-        })
-      : IconExternalTemplate({
-          customClass:
-            'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-lg',
-        })
+        ? IconArrowTemplate({
+            customClass: 'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-3xl'
+          })
+        : IconExternalTemplate({
+            customClass: 'text-theme-color xl:mx-4 flex-none ml-4 text-2xl leading-normal text-lg'
+          })
   let target = variant == 'external' ? '_blank' : '_self'
 
   return `

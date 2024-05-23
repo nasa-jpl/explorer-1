@@ -1,10 +1,5 @@
 import { FormInputLabelTemplate } from '../FormInputLabel/FormInputLabel.js'
-export const FormTextAreaTemplate = ({
-  placeholder,
-  label,
-  inputName,
-  required,
-}) => {
+export const FormTextAreaTemplate = ({ placeholder, label, inputName, required }) => {
   // interpret props
   if (!placeholder) placeholder = ''
   if (!inputName) inputName = 'input_name'
@@ -12,7 +7,7 @@ export const FormTextAreaTemplate = ({
     ? FormInputLabelTemplate({
         label,
         inputName,
-        required,
+        required
       })
     : ''
   return `${labelTemplate}

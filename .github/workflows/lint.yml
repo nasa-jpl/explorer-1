@@ -24,10 +24,10 @@ jobs:
         run: pnpm install
 
       - name: Lint scripts 🏗
-        run: pnpm run lint:js
+        run: pnpm --filter @explorer-1/html lint:js
 
       - name: Lint styles 💅
-        run: pnpm run lint:style
+        run: pnpm --filter @explorer-1/html lint:style
 
       - name: Check Prettier ✨
-        run: pnpm run lint:format
+        run: pnpm --filter @explorer-1/html lint:format

@@ -4,7 +4,7 @@ import {
   NavInternalPanelNoHighlightsData,
   NavInternalPanelAllHighlightsData,
   NavInternalPanelWithHeadingsData,
-  NavInternalPanelCombinationData,
+  NavInternalPanelCombinationData
 } from './NavInternalPanel.stories'
 
 export default {
@@ -16,14 +16,14 @@ export default {
     docs: {
       description: {
         component:
-          'Navigation with mega-menu dropdowns. Note: mobile view will only work when used with the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--docs).',
-      },
+          'Navigation with mega-menu dropdowns. Note: mobile view will only work when used with the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--docs).'
+      }
     },
     html: {
-      root: '#storyRoot',
-    },
+      root: '#storyRoot'
+    }
   },
-  decorators: [(Story) => `<div id="storyRoot">${Story()}</div>`],
+  decorators: [(Story) => `<div id="storyRoot">${Story()}</div>`]
 }
 
 export const NavInternalData = {
@@ -32,35 +32,35 @@ export const NavInternalData = {
     {
       id: 1,
       title: 'Home',
-      url: '#',
+      url: '#'
     },
     {
       id: 2,
       isActive: true,
-      ...NavInternalPanelBasicData,
+      ...NavInternalPanelBasicData
     },
     {
       id: 3,
-      ...NavInternalPanelNoHighlightsData,
+      ...NavInternalPanelNoHighlightsData
     },
     {
       id: 4,
-      ...NavInternalPanelAllHighlightsData,
+      ...NavInternalPanelAllHighlightsData
     },
     {
       id: 5,
-      ...NavInternalPanelWithHeadingsData,
+      ...NavInternalPanelWithHeadingsData
     },
     {
       id: 6,
-      ...NavInternalPanelCombinationData,
+      ...NavInternalPanelCombinationData
     },
     {
       id: 7,
       title: 'External',
-      url: 'https://www.jpl.nasa.gov/',
-    },
-  ],
+      url: 'https://www.jpl.nasa.gov/'
+    }
+  ]
 }
 
 export const Default = NavInternalTemplate.bind({})

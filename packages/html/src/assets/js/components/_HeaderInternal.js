@@ -72,10 +72,7 @@ const handleNavClick = (e) => {
     toggleNavMobileVisibility(e)
     // comment out next line if opened menu item should be preserved when toggling the menu
     handleNavClickInsideDropdown(e)
-  } else if (
-    e.target.classList &&
-    e.target.classList.contains('toggle-NavInternalPanel')
-  ) {
+  } else if (e.target.classList && e.target.classList.contains('toggle-NavInternalPanel')) {
     handleNavDropdown(e.target)
   } else if (navOpened) {
     handleNavClickInsideDropdown(e)

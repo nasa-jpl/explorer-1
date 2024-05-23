@@ -5,26 +5,26 @@ export default {
   argTypes: {
     label: {
       type: { name: 'string', required: false },
-      description: 'A label for the field. Leave blank to remove.',
+      description: 'A label for the field. Leave blank to remove.'
     },
     inputName: {
       type: { name: 'string', required: false },
       description:
-        'Machine-readable name for the form field. Should be unique to other fields in the form.',
+        'Machine-readable name for the form field. Should be unique to other fields in the form.'
     },
     placeholder: {
-      type: { name: 'string', required: false },
-    },
+      type: { name: 'string', required: false }
+    }
   },
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
         component:
-          'A simple text area input with stylized label, placeholder text, and "required" asterisk, if applicable.',
-      },
-    },
-  },
+          'A simple text area input with stylized label, placeholder text, and "required" asterisk, if applicable.'
+      }
+    }
+  }
 }
 
 export const Default = FormTextAreaTemplate.bind({})
@@ -33,5 +33,5 @@ Default.args = {
   label: 'Label',
   placeholder: 'placeholder text...',
   inputName: 'message_input',
-  required: false,
+  required: false
 }

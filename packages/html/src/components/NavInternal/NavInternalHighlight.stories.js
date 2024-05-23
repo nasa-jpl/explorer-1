@@ -8,16 +8,14 @@ export default {
     docs: {
       description: {
         component:
-          'Highlighted content intended for use within [NavInternalPanel](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic) ',
-      },
+          'Highlighted content intended for use within [NavInternalPanel](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic) '
+      }
     },
     html: {
-      root: '#storyRoot',
-    },
+      root: '#storyRoot'
+    }
   },
-  decorators: [
-    (Story) => `<div id="storyRoot" class="NavInternal w-96">${Story()}</div>`,
-  ],
+  decorators: [(Story) => `<div id="storyRoot" class="NavInternal w-96">${Story()}</div>`]
 }
 
 export const NavInternalHighlightData = {
@@ -27,10 +25,10 @@ export const NavInternalHighlightData = {
     src: 'http://picsum.photos/512/288',
     width: '512',
     height: '288',
-    alt: 'Alt text',
+    alt: 'Alt text'
   },
   link: '#',
-  ariaLabel: 'Go to this Highlight',
+  ariaLabel: 'Go to this Highlight'
 }
 
 export const Default = NavInternalHighlightTemplate.bind({})

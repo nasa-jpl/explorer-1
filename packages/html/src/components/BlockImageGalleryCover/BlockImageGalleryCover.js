@@ -5,7 +5,7 @@ export const BlockImageGalleryCoverTemplate = ({
   title,
   description,
   fancyboxGallery,
-  image,
+  image
 }) => {
   return `
   <div class="swiper-slide group">
@@ -27,7 +27,7 @@ export const BlockImageGalleryCoverTemplate = ({
         image,
         fancyboxGallery,
         imageClass: 'swiper-lazy',
-        imageFitClass: 'object-cover',
+        imageFitClass: 'object-cover'
       })}
     </div>
   </div>

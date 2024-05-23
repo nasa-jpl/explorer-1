@@ -2,11 +2,7 @@ import { BlockImageGalleryCoverTemplate } from '../BlockImageGalleryCover/BlockI
 import { BlockImageStandardTemplate } from '../BlockImage/BlockImageStandard'
 import { BaseButtonTemplate } from '../BaseButton/BaseButton'
 
-export const BlockImageCarouselTemplate = ({
-  images,
-  galleryCoverImage,
-  fancyboxGallery,
-}) => {
+export const BlockImageCarouselTemplate = ({ images, galleryCoverImage, fancyboxGallery }) => {
   let slides = ''
   if (images.length > 0) {
     for (const [index, value] of images.entries()) {
@@ -15,7 +11,7 @@ export const BlockImageCarouselTemplate = ({
         imageClass: 'swiper-lazy',
         imageCaptionClass: 'slide-caption',
         imageCaptionWrapperClass: 'lg:pt-3 px-4 pt-10',
-        fancyboxGallery: 'ImageGalleryName',
+        fancyboxGallery: 'ImageGalleryName'
       })}</div>`
     }
   }
@@ -33,7 +29,7 @@ export const BlockImageCarouselTemplate = ({
                 title: galleryCoverImage.title,
                 description: galleryCoverImage.description,
                 fancyboxGallery: 'ImageGalleryName',
-                image: galleryCoverImage.image,
+                image: galleryCoverImage.image
               })
             : ''
         }
@@ -47,14 +43,14 @@ export const BlockImageCarouselTemplate = ({
               cssClass: 'z-10 border-collapse px-1 py-2 swiper-prev xl:text-xl',
               icon: 'prev',
               label: 'Previous slide',
-              iconOnly: true,
+              iconOnly: true
             })}
             ${BaseButtonTemplate({
               variant: 'primary',
               cssClass: 'z-10 border-collapse px-1 py-2 swiper-next xl:text-xl',
               icon: 'next',
               label: 'Next slide',
-              iconOnly: true,
+              iconOnly: true
             })}
           </div>
         </div>

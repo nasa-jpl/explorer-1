@@ -8,12 +8,10 @@ export const BlockCircleImageCardTemplate = ({
   label,
   secondaryLabel = '',
   image,
-  customClass = '',
+  customClass = ''
 }) => {
   return `
-  <div class="BlockCircleImageCard shadow-jpl ${
-    imageOnRight ? 'imageOnRight' : ''
-  } ${customClass}">
+  <div class="BlockCircleImageCard shadow-jpl ${imageOnRight ? 'imageOnRight' : ''} ${customClass}">
     ${BaseImagePlaceholderTemplate({
       theme: 'transparent-theme',
       src: image.src.url,
@@ -23,7 +21,7 @@ export const BlockCircleImageCardTemplate = ({
       height: image.src.height,
       objectFitClass: 'object-cover',
       imageClass: 'rounded-full border-4 border-white',
-      wrapperClass: `h-full`,
+      wrapperClass: `h-full`
     })}
     <div class="content relative px-8 py-8">
       <div class="text-gray-dark text-subtitle mb-3">${label}</div>
@@ -36,7 +34,7 @@ export const BlockCircleImageCardTemplate = ({
         text: title,
         size: 'h5',
         tag: 'h3',
-        headingClass: 'mt-3',
+        headingClass: 'mt-3'
       })}
     </div>
   </div>

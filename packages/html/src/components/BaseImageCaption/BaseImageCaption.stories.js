@@ -6,30 +6,30 @@ export default {
   argTypes: {
     caption: {
       type: { name: 'string', required: true },
-      description: 'Accepts rich text and plain text.',
+      description: 'Accepts rich text and plain text.'
     },
     credit: {
       type: { name: 'string', required: false },
       description:
-        'Optional credit information. Limited rich text accepted (text styles and links only, no line or paragraph breaks).',
+        'Optional credit information. Limited rich text accepted (text styles and links only, no line or paragraph breaks).'
     },
     url: {
       type: { name: 'string', required: false },
-      description: 'Link to a page with more information/details.',
+      description: 'Link to a page with more information/details.'
     },
     linkText: {
       type: { name: 'string', required: false },
-      description: 'Link text.',
-    },
+      description: 'Link text.'
+    }
   },
   parameters: {
     viewMode: 'docs',
     docs: {
       description: {
-        component: 'Caption text used with both images and videos.',
-      },
-    },
-  },
+        component: 'Caption text used with both images and videos.'
+      }
+    }
+  }
 }
 
 export const BaseImageCaptionData = {
@@ -37,7 +37,7 @@ export const BaseImageCaptionData = {
     '<p>Aliquam finibus accumsan dapibus. In <a href="#">sagittis et sapien</a> nec vehicula. Suspendisse euismod consequat risus, vel dignissim elit scelerisque sed. Nullam elit ipsum, suscipit ut quam et, molestie aliquam leo.</p>',
   credit: 'NASA/JPL',
   url: '#',
-  linkText: 'Full Image Details',
+  linkText: 'Full Image Details'
 }
 
 export const Default = BaseImageCaptionTemplate.bind({})

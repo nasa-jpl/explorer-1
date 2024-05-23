@@ -14,10 +14,10 @@ export const HeroSmallTemplate = ({ label, cta, url, title, image, video }) => {
           ? MixinVideoBgTemplate({
               file: video.file,
               ogg: video.ogg,
-              webm: video.webm,
+              webm: video.webm
             })
           : image
-          ? `
+            ? `
         <picture>
           <source media="(min-width: 768px)" srcset="${image.srcSet}" />
           <source media="(min-width: 420px)" srcset="${image.screenMd.url}" />
@@ -30,7 +30,7 @@ export const HeroSmallTemplate = ({ label, cta, url, title, image, video }) => {
             alt=""
           />
         </picture>`
-          : ''
+            : ''
       }
     </div>
     <div class="lg:flex lg:items-end lg:relative lg:h-full z-20 w-full">
@@ -55,7 +55,7 @@ export const HeroSmallTemplate = ({ label, cta, url, title, image, video }) => {
           text: cta,
           caretWrapperClass: 'py-3',
           wrapperClass: 'lg:block hidden',
-          linkClass: 'inline-block',
+          linkClass: 'inline-block'
         })}
       </div>
     </div>

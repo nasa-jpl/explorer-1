@@ -26,7 +26,7 @@ export const BlockLinkCarouselTemplate = ({ heading, items, itemType }) => {
           secondaryLabel: value.secondaryLabel,
           image: value.thumbnailImage,
           customClass: 'swiper-slide',
-          compact: value.compact,
+          compact: value.compact
         })}`
       } else if (itemType === 'BlockLinkTile') {
         renderedSlides += `${BlockLinkTileTemplate({
@@ -37,7 +37,7 @@ export const BlockLinkCarouselTemplate = ({ heading, items, itemType }) => {
           secondaryLabel: value.secondaryLabel,
           image: value.thumbnailImage,
           customClass: 'swiper-slide',
-          compact: value.compact,
+          compact: value.compact
         })}`
       }
     }
@@ -46,6 +46,6 @@ export const BlockLinkCarouselTemplate = ({ heading, items, itemType }) => {
   return MixinCarouselTemplate({
     heading: heading,
     variant: variant,
-    slot: renderedSlides,
+    slot: renderedSlides
   })
 }

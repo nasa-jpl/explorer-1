@@ -8,7 +8,7 @@ export const BlockTeaserTemplate = ({
   heading,
   introduction,
   buttonText,
-  link,
+  link
 }) => {
   let theHeading = ''
   if (heading) {
@@ -38,28 +38,22 @@ export const BlockTeaserTemplate = ({
             width: image.width,
             height: image.height,
             imageClass: `cover-bg${fullWidthImage ? ' -full' : ''}`,
-            objectFitClass: 'object-contain',
+            objectFitClass: 'object-contain'
           })
         : ''
     }
     <div class="${
-      image && fullWidthImage
-        ? 'relative lg:text-white lg:text-contrast z-20'
-        : ''
+      image && fullWidthImage ? 'relative lg:text-white lg:text-contrast z-20' : ''
     } grid lg:col-start-2 lg:col-end-5 px-10 lg:px-0 lg:py-16 py-8">
       <div class="my-auto">
         ${label ? `<h2 class="text-subtitle">` + label + `</h2>` : ''}
         ${theHeading}
-        ${
-          introduction
-            ? `<p class="text-body-md lg:mt-2 mt-4">` + introduction + `</p>`
-            : ''
-        }
+        ${introduction ? `<p class="text-body-md lg:mt-2 mt-4">` + introduction + `</p>` : ''}
         ${BaseButtonTemplate({
           variant: 'primary',
           link,
           cssClass: 'mt-8',
-          label: buttonText,
+          label: buttonText
         })}
       </div>
     </div>

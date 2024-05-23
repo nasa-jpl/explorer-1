@@ -2,12 +2,7 @@ import { FooterInternalContactListTemplate } from '../FooterInternal/FooterInter
 import { BaseButtonTemplate } from '../BaseButton/BaseButton'
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 
-export const FooterInternalTemplate = ({
-  siteEditors,
-  siteManagers,
-  dateUpdated,
-  version,
-}) => {
+export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated, version }) => {
   // prop defaults
   if (!siteEditors) siteEditors = []
   if (!siteManagers) siteManagers = []
@@ -22,7 +17,7 @@ export const FooterInternalTemplate = ({
         siteEditors.length > 0
           ? FooterInternalContactListTemplate({
               title: 'Site Editors',
-              items: siteEditors,
+              items: siteEditors
             })
           : ''
       }
@@ -31,7 +26,7 @@ export const FooterInternalTemplate = ({
         siteManagers.length > 0
           ? FooterInternalContactListTemplate({
               title: 'Site Managers',
-              items: siteManagers,
+              items: siteManagers
             })
           : ''
       }
@@ -64,7 +59,7 @@ export const FooterInternalTemplate = ({
               link: 'https://www.jpl.nasa.gov/',
               icon: 'external',
               cssClass: 'hidden lg:inline-block',
-              target: '_blank',
+              target: '_blank'
             })}
             ${BaseLinkTemplate({
               variant: 'none',
@@ -73,7 +68,7 @@ export const FooterInternalTemplate = ({
               icon: 'external',
               linkClass:
                 'flex flex-nowrap items-baseline lg:hidden text-jpl-sky-blue can-hover:hover:text-jpl-sky-blue-dark',
-              target: '_blank',
+              target: '_blank'
             })}
           </li>
           <li class="mb-2 lg:mb-8 lg:mr-8">
@@ -83,7 +78,7 @@ export const FooterInternalTemplate = ({
               link: 'https://js.jpl.nasa.gov/',
               icon: 'external',
               cssClass: 'hidden lg:inline-block',
-              target: '_blank',
+              target: '_blank'
             })}
             ${BaseLinkTemplate({
               variant: 'none',
@@ -92,7 +87,7 @@ export const FooterInternalTemplate = ({
               icon: 'external',
               linkClass:
                 'flex flex-nowrap items-center lg:hidden text-jpl-sky-blue can-hover:hover:text-jpl-sky-blue-dark',
-              target: '_blank',
+              target: '_blank'
             })}
           </li>
           <li class="mb-2 lg:mb-8 lg:mr-8">
@@ -102,7 +97,7 @@ export const FooterInternalTemplate = ({
               link: 'https://www.caltech.edu/',
               icon: 'external',
               cssClass: 'hidden lg:inline-block',
-              target: '_blank',
+              target: '_blank'
             })}
             ${BaseLinkTemplate({
               variant: 'none',
@@ -111,7 +106,7 @@ export const FooterInternalTemplate = ({
               icon: 'external',
               linkClass:
                 'flex flex-nowrap items-center lg:hidden text-jpl-sky-blue can-hover:hover:text-jpl-sky-blue-dark',
-              target: '_blank',
+              target: '_blank'
             })}
           </li>
           <li class="mb-2 lg:mb-8 lg:mr-8">
@@ -121,7 +116,7 @@ export const FooterInternalTemplate = ({
               link: 'https://www.nasa.gov/',
               icon: 'external',
               cssClass: 'hidden lg:inline-block',
-              target: '_blank',
+              target: '_blank'
             })}
             ${BaseLinkTemplate({
               variant: 'none',
@@ -130,7 +125,7 @@ export const FooterInternalTemplate = ({
               icon: 'external',
               linkClass:
                 'flex flex-nowrap items-center lg:hidden text-jpl-sky-blue can-hover:hover:text-jpl-sky-blue-dark',
-              target: '_blank',
+              target: '_blank'
             })}
           </li>
         </ul>
@@ -150,7 +145,7 @@ export const FooterInternalTemplate = ({
             wrapperClass: 'inline',
             linkClass:
               'flex flex-nowrap items-center text-jpl-sky-blue can-hover:hover:text-jpl-sky-blue-dark',
-            target: '_blank',
+            target: '_blank'
           })}
         </div>
         for more information.

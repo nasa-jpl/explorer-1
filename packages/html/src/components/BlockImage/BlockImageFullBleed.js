@@ -5,7 +5,7 @@ import { BlockImageLightboxTemplate } from './BlockImageLightbox'
 export const BlockImageFullBleedTemplate = ({ image, fancyboxGallery }) => {
   let blockImageLightbox = BlockImageLightboxTemplate({
     image,
-    fancyboxGallery,
+    fancyboxGallery
   })
 
   let baseImagePlaceholder = BaseImagePlaceholderTemplate({
@@ -16,7 +16,7 @@ export const BlockImageFullBleedTemplate = ({ image, fancyboxGallery }) => {
     width: image.src.width,
     height: image.src.height,
     wrapperClass: 'aspect-ratio-sixteen-nine lg:aspect-ratio-two-one',
-    objectFitClass: 'object-cover',
+    objectFitClass: 'object-cover'
   })
 
   let baseImageCaption = ''
@@ -25,7 +25,7 @@ export const BlockImageFullBleedTemplate = ({ image, fancyboxGallery }) => {
       caption: image.caption,
       credit: image.credit,
       url: image.url,
-      linkText: image.linkText,
+      linkText: image.linkText
     })
     baseImageCaption = `<div class="max-w-screen-3xl p-4 pb-0 mx-auto">${baseImageCaptionTemplate}</div>`
   }

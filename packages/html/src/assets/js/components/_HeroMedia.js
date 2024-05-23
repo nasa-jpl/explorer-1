@@ -13,8 +13,5 @@ const handleHeroMediaCaptionToggleClick = (e) => {
 }
 
 if (HeroMediaCaptionToggle) {
-  HeroMediaCaptionToggle.addEventListener(
-    'click',
-    handleHeroMediaCaptionToggleClick
-  )
+  HeroMediaCaptionToggle.addEventListener('click', handleHeroMediaCaptionToggleClick)
 }

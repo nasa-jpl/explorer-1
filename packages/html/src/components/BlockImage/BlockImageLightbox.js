@@ -6,7 +6,7 @@ export const BlockImageLightboxTemplate = ({ image, fancyboxGallery }) => {
     fancyboxGallery,
     image: image,
     icon: 'expand',
-    label: 'View in lightbox',
+    label: 'View in lightbox'
   })
 
   return `

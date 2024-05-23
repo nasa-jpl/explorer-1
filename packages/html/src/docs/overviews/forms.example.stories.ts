@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Forms/ExampleForm',
+  title: 'Components/Forms/ExampleForm'
 }
 
 const ExampleFormTemplate = () => `<form>
@@ -41,5 +41,5 @@ const ExampleFormTemplate = () => `<form>
 </form>`
 
 export const Default = {
-  render: ExampleFormTemplate.bind({}),
+  render: ExampleFormTemplate.bind({})
 }

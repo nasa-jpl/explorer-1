@@ -3,23 +3,20 @@ import { BlockImageCarouselTemplate } from '../BlockImageCarousel/BlockImageCaro
 
 export default {
   title: 'Components/Blocks/BlockImageGallery',
-  decorators: [
-    (Story) =>
-      `<div id="storyRoot" class="max-w-screen-3xl mx-auto">${Story()}</div>`,
-  ],
+  decorators: [(Story) => `<div id="storyRoot" class="max-w-screen-3xl mx-auto">${Story()}</div>`],
   argTypes: {
     galleryCoverImage: {
       type: { name: 'array', required: true },
-      description: 'Cover information',
+      description: 'Cover information'
     },
     images: {
       type: { name: 'array', required: true },
-      description: 'An array of image data objects',
-    },
+      description: 'An array of image data objects'
+    }
   },
   parameters: {
     html: {
-      root: '#storyRoot',
+      root: '#storyRoot'
     },
     viewMode: 'docs',
     docs: {
@@ -27,8 +24,8 @@ export default {
       iframeHeight: 1050,
       description: {
         component:
-          'A wide screen version of BlockImageCarousel that includes a cover image with a text overlay. Includes page layout assumptions and uses a max width of `max-w-screen-3xl`.',
-      },
+          'A wide screen version of BlockImageCarousel that includes a cover image with a text overlay. Includes page layout assumptions and uses a max width of `max-w-screen-3xl`.'
+      }
     },
     themes: {
       clearable: false,
@@ -37,21 +34,21 @@ export default {
           name: 'ThemeLight',
           class: ['ThemeLight', 'sbdocs-preview-full-width'],
           color: '#ffffff',
-          default: true,
+          default: true
         },
         {
           name: 'ThemeDark',
           class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
+          color: '#000000'
         },
         {
           name: 'ThemeInternal',
           class: ['ThemeInternal', 'sbdocs-preview-full-width'],
-          color: '#53C8ED',
-        },
-      ],
-    },
-  },
+          color: '#53C8ED'
+        }
+      ]
+    }
+  }
 }
 
 export const Default = BlockImageCarouselTemplate.bind({})
@@ -66,7 +63,7 @@ Default.args = {
     image: {
       ...BlockImageCarouselData['images'][0],
       caption: '',
-      credit: '',
-    },
-  },
+      credit: ''
+    }
+  }
 }

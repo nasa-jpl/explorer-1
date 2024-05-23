@@ -19,9 +19,7 @@ export const SearchInputTemplate = ({ inputId, placeholder, compact }) => {
     !compact ? 'border border-gray-mid' : ''
   }">
     <div class="absolute inset-0 flex items-center">
-      <span class="relative z-20 ml-6 text-xl ${
-        compact ? 'text-black' : 'text-gray-mid'
-      }">
+      <span class="relative z-20 ml-6 text-xl ${compact ? 'text-black' : 'text-gray-mid'}">
         ${iconTemplate}
       </span>
     </div>

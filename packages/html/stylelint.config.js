@@ -8,15 +8,15 @@ module.exports = {
       {
         except: ['first-nested'],
         ignore: ['after-comment', 'blockless-after-blockless'],
-        ignoreAtRules: ['apply'],
-      },
+        ignoreAtRules: ['apply']
+      }
     ],
     'color-hex-length': 'long',
     'function-name-case': [
       'lower',
       {
-        ignoreFunctions: ['pxToRem'],
-      },
+        ignoreFunctions: ['pxToRem']
+      }
     ],
     'import-notation': null,
     'keyframes-name-pattern': null,
@@ -25,8 +25,8 @@ module.exports = {
     'no-invalid-position-at-import-rule': [
       true,
       {
-        ignoreAtRules: ['use'], // Sass will not compile if `@use` is not before all other rules.
-      },
+        ignoreAtRules: ['use'] // Sass will not compile if `@use` is not before all other rules.
+      }
     ],
     'scss/at-extend-no-missing-placeholder': null,
     'scss/at-function-pattern': null,
@@ -47,14 +47,14 @@ module.exports = {
           'screen',
           'tailwind',
           'use',
-          'variants',
-        ],
-      },
+          'variants'
+        ]
+      }
     ],
     'scss/dollar-variable-pattern': null,
     'scss/double-slash-comment-empty-line-before': null,
     'selector-class-pattern': null,
-    'selector-id-pattern': null,
+    'selector-id-pattern': null
   },
-  ignoreFiles: ['dist/**/*', 'node_modules/**/*'],
+  ignoreFiles: ['dist/**/*', 'node_modules/**/*']
 }

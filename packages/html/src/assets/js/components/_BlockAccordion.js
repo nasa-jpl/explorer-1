@@ -14,12 +14,8 @@ Array.prototype.slice
     var allowMultiple = accordion.hasAttribute('data-allow-multiple')
 
     // Create the array of toggle elements for the accordion group
-    var triggers = Array.prototype.slice.call(
-      accordion.querySelectorAll('.BlockAccordion-trigger')
-    )
-    var panels = Array.prototype.slice.call(
-      accordion.querySelectorAll('.BlockAccordion-panel')
-    )
+    var triggers = Array.prototype.slice.call(accordion.querySelectorAll('.BlockAccordion-trigger'))
+    var panels = Array.prototype.slice.call(accordion.querySelectorAll('.BlockAccordion-panel'))
 
     accordion.addEventListener('click', function (event) {
       var target = event.target
@@ -33,37 +29,25 @@ Array.prototype.slice
         if (!allowMultiple && active && active !== target) {
           // Set the expanded state on the triggering element
           active.setAttribute('aria-expanded', 'false')
-          active
-            .querySelector('.BlockAccordion-icon')
-            .classList.toggle('rotate-45')
+          active.querySelector('.BlockAccordion-icon').classList.toggle('rotate-45')
           // Hide the accordion sections, using aria-controls to specify the desired section
-          const panel = document.getElementById(
-            active.getAttribute('aria-controls')
-          )
+          const panel = document.getElementById(active.getAttribute('aria-controls'))
           panel.setAttribute('hidden', '')
         }
 
         if (!isExpanded) {
           // Set the expanded state on the triggering element
           target.setAttribute('aria-expanded', 'true')
-          target
-            .querySelector('.BlockAccordion-icon')
-            .classList.toggle('rotate-45')
+          target.querySelector('.BlockAccordion-icon').classList.toggle('rotate-45')
           // Hide the accordion sections, using aria-controls to specify the desired section
-          const panel = document.getElementById(
-            target.getAttribute('aria-controls')
-          )
+          const panel = document.getElementById(target.getAttribute('aria-controls'))
           panel.removeAttribute('hidden')
         } else if (isExpanded) {
           // Set the expanded state on the triggering element
           target.setAttribute('aria-expanded', 'false')
-          target
-            .querySelector('.BlockAccordion-icon')
-            .classList.toggle('rotate-45')
+          target.querySelector('.BlockAccordion-icon').classList.toggle('rotate-45')
           // Hide the accordion sections, using aria-controls to specify the desired section
-          const panel = document.getElementById(
-            target.getAttribute('aria-controls')
-          )
+          const panel = document.getElementById(target.getAttribute('aria-controls'))
           panel.setAttribute('hidden', '')
         }
 

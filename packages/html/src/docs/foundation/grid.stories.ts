@@ -1,7 +1,7 @@
 export default {
   title: 'Foundation/Grid and Layout',
-  tags: ['!autodocs'],
-};
+  tags: ['!autodocs']
+}
 
 const BaseGridTemplate = () => `<div class="max-w-screen-3xl mx-auto">
   <div class="BaseGrid container mx-auto mb-10 bg-gray-light-mid">
@@ -23,22 +23,22 @@ const BaseGridTemplate = () => `<div class="max-w-screen-3xl mx-auto">
       Container, but no grid
     </div>
   </div>
-</div>`;
+</div>`
 
 export const BaseGrid = {
-  render: BaseGridTemplate.bind({}),
-};
+  render: BaseGridTemplate.bind({})
+}
 
 const ComponentATemplate =
   () => `<div class="BaseGrid container mx-auto border border-jpl-red-light">
   <div class="col-start-4 col-end-10 bg-black text-white px-4 py-10">
     Starts at col 4 and ends at the col 10 line.
   </div>
-</div>`;
+</div>`
 
 export const ComponentA = {
-  render: ComponentATemplate.bind({}),
-};
+  render: ComponentATemplate.bind({})
+}
 
 const ComponentBTemplate =
   () => `<div class="BaseGrid container mx-auto border border-jpl-red-light">
@@ -48,14 +48,13 @@ const ComponentBTemplate =
   <div class="col-start-8 col-end-12 bg-black text-white px-4 py-10">
     Secondary content
   </div>
-</div>`;
+</div>`
 
 export const ComponentB = {
-  render: ComponentBTemplate.bind({}),
-};
+  render: ComponentBTemplate.bind({})
+}
 
-const MixedBleedGridLinesTemplate =
-  () => `<div class="max-w-screen-3xl mx-auto bg-white">
+const MixedBleedGridLinesTemplate = () => `<div class="max-w-screen-3xl mx-auto bg-white">
   <div class="BaseGrid container px-0 mx-auto bg-gray-light-mid mb-5">
     <div class="text-center text-white bg-gray-mid-dark py-4">1</div>
     <div class="text-center text-white bg-gray-mid-dark py-4">2</div>
@@ -97,20 +96,20 @@ const MixedBleedGridLinesTemplate =
       .col-end-bleed</code>
     </div>
   </div>
-</div>`;
+</div>`
 
 export const MixedBleedGridLines = {
-  render: MixedBleedGridLinesTemplate.bind({}),
-};
+  render: MixedBleedGridLinesTemplate.bind({})
+}
 const MixedBleedTemplate = () => `<div class="MixedBleedGrid">
   <div class="col-start-indent-col-2 col-end-bleed text-white bg-black px-4 py-10">
     Gallery Container (inner layout not dependent on grid)
   </div>
-</div>`;
+</div>`
 
 export const MixedBleed = {
-  render: MixedBleedTemplate.bind({}),
-};
+  render: MixedBleedTemplate.bind({})
+}
 
 const MixedBleedComplexTemplate = () => `<div>
   <div class="MixedBleedGrid mb-10">
@@ -126,11 +125,11 @@ const MixedBleedComplexTemplate = () => `<div>
     </div>
     <div class="col-start-container-end col-end-bleed bg-black"></div>
   </div>
-</div>`;
+</div>`
 
 export const MixedBleedComplex = {
-  render: MixedBleedComplexTemplate.bind({}),
-};
+  render: MixedBleedComplexTemplate.bind({})
+}
 
 const PageLayoutTemplate = () => `<!-- first section -->
 <div class="bg-gray-light mb-5">
@@ -163,14 +162,13 @@ const PageLayoutTemplate = () => `<!-- first section -->
   <div class="col-start-3 col-end-11 bg-gray-light p-6">
     Another component filling columns 3-10 on large screens and above.
   </div>
-</div>`;
+</div>`
 
 export const PageLayout = {
-  render: PageLayoutTemplate.bind({}),
-};
+  render: PageLayoutTemplate.bind({})
+}
 
-const FullPageExampleTemplate =
-  () => `<div class="bg-black text-white py-5 mb-10">
+const FullPageExampleTemplate = () => `<div class="bg-black text-white py-5 mb-10">
   <div class="max-w-screen-2xl mx-auto border border-white p-3">
     Top Hat
   </div>
@@ -249,8 +247,8 @@ const FullPageExampleTemplate =
   <div class="container mx-auto text-white">
       Footer
   </div>
-</div>`;
+</div>`
 
 export const FullPageExample = {
-  render: FullPageExampleTemplate.bind({}),
-};
+  render: FullPageExampleTemplate.bind({})
+}

@@ -23,9 +23,7 @@ const initBackToTop = (backToTop) => {
   const onScroll = () => {
     if (!alwaysVisible) {
       let showBackToTop = window.scrollY > threshold
-      showBackToTop
-        ? (backToTopBtn.style.display = 'block')
-        : (backToTopBtn.style.display = 'none')
+      showBackToTop ? (backToTopBtn.style.display = 'block') : (backToTopBtn.style.display = 'none')
     }
   }
 

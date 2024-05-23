@@ -1,10 +1,13 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
-import { ComponentList } from './../utils/ComponentList';
-import * as BaseImageStories from './../../components/BaseImage/BaseImage.stories';
-import * as BaseImageCaptionStories from './../../components/BaseImageCaption/BaseImageCaption.stories';
-import * as BlockImageStories from './../../components/BlockImage/BlockImage.stories';
+import { Meta, Canvas, Story } from '@storybook/blocks'
+import { ComponentList } from './../utils/ComponentList'
+import * as BaseImageStories from './../../components/BaseImage/BaseImage.stories'
+import * as BaseImageCaptionStories from './../../components/BaseImageCaption/BaseImageCaption.stories'
+import * as BlockImageStories from './../../components/BlockImage/BlockImage.stories'
 
-<Meta title="Components/Overview" parameters={{ viewMode: 'docs' }} />
+<Meta
+  title="Components/Overview"
+  parameters={{ viewMode: 'docs' }}
+/>
 
 # Components
 
@@ -25,13 +28,13 @@ To illustrate the difference between base and block components, consider images.
       heading: 'BaseImage',
       customDescription: 'Just an image, nothing else.',
       meta: BaseImageStories,
-      path: '/docs/components-base-baseimage--docs',
+      path: '/docs/components-base-baseimage--docs'
     },
     {
       heading: 'BaseImageCaption',
       customDescription: 'Just the caption.',
       path: '/docs/components-base-baseimagecaption--docs',
-      meta: BaseImageCaptionStories,
+      meta: BaseImageCaptionStories
     },
     {
       heading: 'BlockImage',
@@ -39,7 +42,7 @@ To illustrate the difference between base and block components, consider images.
         '`BlockImage` = `BaseImage` + `BaseImageCaption`, plus adding support for expanding the image in a lightbox and styling it to be a full-bleed image.',
       meta: BlockImageStories,
       path: '/docs/components-blocks-blockimage--docs',
-      fullWidth: true,
-    },
+      fullWidth: true
+    }
   ]}
 />

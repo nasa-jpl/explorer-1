@@ -44,16 +44,14 @@ export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
                 highlights: item.highlights,
                 menuItems: item.menuItems,
                 allowSectionBreaks: item.allowSectionBreaks,
-                allowSectionColumns: item.allowSectionColumns,
+                allowSectionColumns: item.allowSectionColumns
               })}<!-- End NavInternalPanel -->
             </div>
           `
             : `
           <a href="${item.url}" class="block"${
-                item.url.startsWith('h')
-                  ? ` target="_blank" rel="noopener"`
-                  : ''
-              }>
+            item.url.startsWith('h') ? ` target="_blank" rel="noopener"` : ''
+          }>
             <span class="inline-block" data-text="${item.title}">
               ${item.title}
             </span>
@@ -81,7 +79,7 @@ export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
       <form id="NavMobileSearchForm" action="#" method="get" class="pt-6 pb-4 px-4 w-full">
         ${SearchInputTemplate({
           inputId: 'NavMobileSearchInput',
-          compact: false,
+          compact: false
         })}
       </form>
     </div>`
@@ -117,7 +115,7 @@ export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
                 ${SearchInputTemplate({
                   inputId: 'NavSearchInput',
                   compact: true,
-                  placeholder: 'Search this site&hellip;',
+                  placeholder: 'Search this site&hellip;'
                 })}
               </form>
               <button id="NavSearchClose" aria-label="Close search" class="flex flex-nowrap shrink-0 items-center p-2 text-black text-xs focus:outline-none focus:ring-2">

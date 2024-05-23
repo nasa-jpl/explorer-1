@@ -1,11 +1,6 @@
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 
-export const BlockQuoteTemplate = ({
-  attribution,
-  thumbnail,
-  quoteLink,
-  quote,
-}) => {
+export const BlockQuoteTemplate = ({ attribution, thumbnail, quoteLink, quote }) => {
   let attributionTemplate = ''
   if (attribution) {
     thumbnail = thumbnail
@@ -19,7 +14,7 @@ export const BlockQuoteTemplate = ({
           wrapperClass: 'attribution-text',
           link: quoteLink.externalLink,
           caret: true,
-          externalTargetBlank: true,
+          externalTargetBlank: true
         })
       : `<div class="attribution-text"><span>${attribution}</span></div>`
     attributionTemplate = `

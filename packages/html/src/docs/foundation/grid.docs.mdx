@@ -1,5 +1,5 @@
-import { Meta, Story, Canvas } from '@storybook/blocks';
-import * as Stories from './grid.stories';
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import * as Stories from './grid.stories'
 
 <Meta of={Stories} />
 
@@ -22,7 +22,10 @@ We use a 12-column grid paired with our [Responsive Design](?path=/docs/guides-r
 
 There is a globally available `.BaseGrid` class that is the basis of our main grid, which contains `12` columns with a gutter of `gap-6`.
 
-<Canvas className="sbdocs-preview-full-width" of={Stories.BaseGrid} />
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.BaseGrid}
+/>
 
 Although `.BaseGrid` is always used with or wrapped by a `.container`, `.BaseGrid` itself does not include any margins or container behavior. This is to allow for maximum flexibility when using this class in your components:
 
@@ -35,9 +38,7 @@ Although `.BaseGrid` is always used with or wrapped by a `.container`, `.BaseGri
 Adjustments like margins and container can be applied as needed, such as:
 
 ```html
-<div class="BaseGrid container mx-auto">
-  Centered 12 col grid bound by container
-</div>
+<div class="BaseGrid container mx-auto">Centered 12 col grid bound by container</div>
 ```
 
 If you just need a container and no grid, you can simply omit the `BaseGrid`:
@@ -52,9 +53,15 @@ If you just need a container and no grid, you can simply omit the `BaseGrid`:
 
 Some common component layouts:
 
-<Canvas className="sbdocs-preview-full-width" of={Stories.ComponentA} />
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.ComponentA}
+/>
 
-<Canvas className="sbdocs-preview-full-width" of={Stories.ComponentB} />
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.ComponentB}
+/>
 
 ---
 
@@ -123,13 +130,14 @@ Starts at `indent-col-2` (col-2 of the `BaseGrid`) and bleeds fully to the right
 
 ```html
 <div class="MixedBleedGrid">
-  <div class="col-start-indent-col-2 col-end-bleed">
-    Indented to col-2 and bleeds right
-  </div>
+  <div class="col-start-indent-col-2 col-end-bleed">Indented to col-2 and bleeds right</div>
 </div>
 ```
 
-<Canvas className="sbdocs-preview-full-width" of={Stories.MixedBleed} />
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.MixedBleed}
+/>
 
 #### Complex mixed bleed
 
@@ -147,7 +155,10 @@ When elements of an indented MixedBleed area must align with the BaseGrid, we ne
 </div>
 ```
 
-<Canvas className="sbdocs-preview-full-width" of={Stories.MixedBleedComplex} />
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.MixedBleedComplex}
+/>
 
 <span id="page-layout-recommendations"></span>
 
@@ -159,7 +170,10 @@ Explorer 1 components vary in width. This can make page layouts challenging if t
 
 View the code below for an example of how to give each section its own set of layout markup. You can also see this strategy employed in the [Full Page Example](#full-page-example).
 
-<Canvas className="sbdocs-preview-full-width" of={Stories.PageLayout} />
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.PageLayout}
+/>
 
 <br />
 
@@ -169,4 +183,7 @@ View the code below for an example of how to give each section its own set of la
 
 An example of the foundations of a full page layout.
 
-<Canvas className="sbdocs-preview-full-width" of={Stories.FullPageExample} />
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.FullPageExample}
+/>

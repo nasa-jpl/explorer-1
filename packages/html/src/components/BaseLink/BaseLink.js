@@ -15,7 +15,7 @@ export const BaseLinkTemplate = ({
   externalTargetBlank,
   computedClass,
   linkClass,
-  wrapperClass,
+  wrapperClass
 }) => {
   if (!icon) icon = ''
   let template = text ? text : 'Full Image Details'
@@ -25,12 +25,12 @@ export const BaseLinkTemplate = ({
   if (caretInline && caret) {
     template = MixinAnimationCaretTemplate({
       text,
-      customClass: 'caret-inline',
+      customClass: 'caret-inline'
     })
   } else if (variantType === 'primary' || caret) {
     template = MixinAnimationCaretTemplate({
       text,
-      customClass: caretWrapperClass,
+      customClass: caretWrapperClass
     })
   }
 
@@ -51,8 +51,7 @@ export const BaseLinkTemplate = ({
       variantType === 'primary' ? '-primary' : '-secondary'
     } text-subtitle text-theme-color can-hover:hover:text-theme-color-hover`
   } else if (variantType === 'default') {
-    computedClass =
-      '-default underline text-theme-color can-hover:hover:text-theme-color-hover'
+    computedClass = '-default underline text-theme-color can-hover:hover:text-theme-color-hover'
   }
 
   let renderWrapperClass = ''
@@ -62,10 +61,10 @@ export const BaseLinkTemplate = ({
     icon === 'document'
       ? IconDownloadTemplate({})
       : icon === 'internal'
-      ? IconArrowTemplate({})
-      : icon === 'external'
-      ? IconExternalTemplate({})
-      : ''
+        ? IconArrowTemplate({})
+        : icon === 'external'
+          ? IconExternalTemplate({})
+          : ''
 
   return `
     <div${renderWrapperClass}>
@@ -74,8 +73,8 @@ export const BaseLinkTemplate = ({
         target="${theTarget}"
         rel="${theRel}"
         class="group cursor-pointer${computedClass ? ` ${computedClass}` : ''}${
-    linkClass ? ` ${linkClass}` : ''
-  }"
+          linkClass ? ` ${linkClass}` : ''
+        }"
       >
         <span class="break-words">
           ${template}

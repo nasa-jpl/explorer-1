@@ -7,7 +7,7 @@ export const BlockKeyPointsTemplate = ({ heading, listItem }) => {
         text: heading,
         size: 'h5',
         tag: 'h2',
-        headingClass: 'mb-5',
+        headingClass: 'mb-5'
       })
     : ''
 
@@ -17,7 +17,7 @@ export const BlockKeyPointsTemplate = ({ heading, listItem }) => {
     let indexClass = index + 1 === listLength ? 'mb-0' : 'mb-4'
     keyPoints += `<li class="flex ${indexClass}">${BlockTextTemplate({
       text: value.text,
-      variant: 'medium',
+      variant: 'medium'
     })}</li>`
   }
   keyPoints += '</ul>'

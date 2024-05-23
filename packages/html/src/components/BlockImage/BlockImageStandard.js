@@ -8,11 +8,11 @@ export const BlockImageStandardTemplate = ({
   imageClass,
   imageCaptionClass,
   imageCaptionWrapperClass,
-  imageFitClass,
+  imageFitClass
 }) => {
   let blockImageLightbox = BlockImageLightboxTemplate({
     image,
-    fancyboxGallery,
+    fancyboxGallery
   })
 
   let baseImagePlaceholder = BaseImagePlaceholderTemplate({
@@ -25,7 +25,7 @@ export const BlockImageStandardTemplate = ({
     wrapperClass: '',
     aspectRatio: 'aspect-ratio-sixteen-nine',
     objectFitClass: imageFitClass ? imageFitClass : 'object-contain',
-    imageClass,
+    imageClass
   })
 
   let baseImageCaption = ''
@@ -34,7 +34,7 @@ export const BlockImageStandardTemplate = ({
       caption: image.caption,
       credit: image.credit,
       url: image.url,
-      linkText: image.linkText,
+      linkText: image.linkText
     })
     baseImageCaption = `<div class="lg:px-0 ${
       imageCaptionWrapperClass ? imageCaptionWrapperClass : `p-4 pb-0`
@@ -47,10 +47,6 @@ export const BlockImageStandardTemplate = ({
     ${baseImagePlaceholder}
   </div>
   ${baseImageCaption}
-  ${
-    imageCaptionClass == 'slide-caption'
-      ? `<div class="pt-10 lg:hidden"></div>`
-      : ''
-  }
+  ${imageCaptionClass == 'slide-caption' ? `<div class="pt-10 lg:hidden"></div>` : ''}
   `
 }

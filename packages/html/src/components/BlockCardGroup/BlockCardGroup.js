@@ -11,7 +11,7 @@ export const BlockCardGroupTemplate = ({ items }) => {
           title: value.title,
           text: value.text,
           image: value.image,
-          customClass: isMobile ? 'swiper-slide md:mb-0 mb-5' : '',
+          customClass: isMobile ? 'swiper-slide md:mb-0 mb-5' : ''
         })
       }
     }
@@ -26,7 +26,7 @@ export const BlockCardGroupTemplate = ({ items }) => {
     slot: cardsMobile,
     indent: 'col-1',
     slideTemplate: 'BlockCard',
-    noLinks: true,
+    noLinks: true
   })
 
   return `

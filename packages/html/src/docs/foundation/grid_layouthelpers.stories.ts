@@ -1,14 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/html'
 
 const meta: Meta = {
   title: 'Foundation/Grid and Layout/Column Layout Helpers',
-  tags: ['!autodocs'],
+  tags: ['!autodocs']
 }
 
 export default meta
 
-const BaseWidthTemplate =
-  () => `<div class="BaseGrid container mx-auto border border-black py-4">
+const BaseWidthTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
   <div class="indent-col-base border border-success-green p-4">
     <code>.indent-col-base</code>
   </div>
@@ -16,8 +15,7 @@ const BaseWidthTemplate =
 
 export const BaseWidth: StoryObj = BaseWidthTemplate.bind({})
 
-const ColTwoStartTemplate =
-  () => `<div class="BaseGrid container mx-auto border border-black py-4">
+const ColTwoStartTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
   <div class="indent-col-base indent-col-2 border border-success-green p-4">
     <code>.indent-col-base.indent-col-2</code>
   </div>
@@ -25,14 +23,14 @@ const ColTwoStartTemplate =
 
 export const ColTwoStart: StoryObj = {
   name: 'Start at col-2',
-  render: ColTwoStartTemplate.bind({}),
+  render: ColTwoStartTemplate.bind({})
 }
 ColTwoStart.parameters = {
   docs: {
     source: {
-      state: 'open',
-    },
-  },
+      state: 'open'
+    }
+  }
 }
 
 const ColThreeStartTemplate =
@@ -44,7 +42,7 @@ const ColThreeStartTemplate =
 
 export const ColThreeStart: StoryObj = {
   name: 'Start at col-3',
-  render: ColThreeStartTemplate.bind({}),
+  render: ColThreeStartTemplate.bind({})
 }
 
 const ColFourStartTemplate =
@@ -56,5 +54,5 @@ const ColFourStartTemplate =
 
 export const ColFourStart: StoryObj = {
   name: 'Start at col-4',
-  render: ColFourStartTemplate.bind({}),
+  render: ColFourStartTemplate.bind({})
 }

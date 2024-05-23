@@ -9,15 +9,12 @@ import swiperOptions from './_swiperOptions.js'
 /* Deprecation warning:
  * .BaseCarouselCards is deprecated and will be removed in the next major release. Use .MixinCarousel instead.
  */
-const MixinCarousel = new Swiper(
-  '.MixinCarousel .swiper, .BaseCarouselCards .swiper',
-  {
-    modules: [Navigation, Lazy, A11y, Pagination],
-    ...swiperOptions.MixinCarousel,
-  }
-)
+const MixinCarousel = new Swiper('.MixinCarousel .swiper, .BaseCarouselCards .swiper', {
+  modules: [Navigation, Lazy, A11y, Pagination],
+  ...swiperOptions.MixinCarousel
+})
 
 const BlockImageCarousel = new Swiper('.BlockImageCarousel .swiper', {
   modules: [Navigation, Lazy, A11y, Pagination],
-  ...swiperOptions.BlockImageCarousel,
+  ...swiperOptions.BlockImageCarousel
 })

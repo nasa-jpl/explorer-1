@@ -3,12 +3,12 @@ import { FooterInternalTemplate } from './FooterInternal'
 const contactListData = [
   {
     name: 'Lorem Ipsum',
-    email: '#',
+    email: '#'
   },
   {
     name: 'Dolor Sit-Amet',
-    email: '#',
-  },
+    email: '#'
+  }
 ]
 
 export default {
@@ -16,23 +16,21 @@ export default {
   argTypes: {
     siteEditors: {
       type: { name: 'array', required: false },
-      description:
-        'Array of site editors. Object should include a `name` and `email`.',
+      description: 'Array of site editors. Object should include a `name` and `email`.'
     },
     siteManagers: {
       type: { name: 'array', required: false },
-      description:
-        'Array of site editors. Object should include a `name` and `email`.',
-    },
+      description: 'Array of site editors. Object should include a `name` and `email`.'
+    }
   },
   parameters: {
     // viewMode: 'story',
     docs: {
       description: {
-        component: 'Simple footer with preset links.',
-      },
-    },
-  },
+        component: 'Simple footer with preset links.'
+      }
+    }
+  }
 }
 
 export const Default = FooterInternalTemplate.bind({})
@@ -41,5 +39,5 @@ Default.args = {
   siteEditors: contactListData,
   siteManagers: contactListData,
   dateUpdated: 'July 28, 2022',
-  version: '1.0',
+  version: '1.0'
 }

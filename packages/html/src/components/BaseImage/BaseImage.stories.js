@@ -5,19 +5,19 @@ export default {
   excludeStories: /.*Data$/,
   argTypes: {
     src: {
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: true }
     },
     srcset: {
-      type: 'string',
+      type: 'string'
     },
     alt: {
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: true }
     },
     width: {
-      type: { name: 'number', required: true },
+      type: { name: 'number', required: true }
     },
     height: {
-      type: { name: 'number', required: true },
+      type: { name: 'number', required: true }
     },
     objectFitClass: {
       type: 'string',
@@ -30,26 +30,26 @@ export default {
           'object-contain',
           'object-cover',
           'object-fill',
-          'object-scale-down',
-        ],
+          'object-scale-down'
+        ]
       },
       table: {
-        defaultValue: { summary: 'object-contain' },
-      },
+        defaultValue: { summary: 'object-contain' }
+      }
     },
     imageClass: {
       type: 'string',
-      description: 'Apply any CSS class directly to the image element',
-    },
+      description: 'Apply any CSS class directly to the image element'
+    }
   },
   parameters: {
     docs: {
       description: {
         component:
-          'The BaseImage component is a simple `<img />` tag wrapped in a `<div>` and is used to render an image with object-fit classes and lazy loading properties.',
-      },
-    },
-  },
+          'The BaseImage component is a simple `<img />` tag wrapped in a `<div>` and is used to render an image with object-fit classes and lazy loading properties.'
+      }
+    }
+  }
 }
 
 export const BaseImageData = {
@@ -59,7 +59,7 @@ export const BaseImageData = {
   width: 800,
   height: 400,
   imageClass: '',
-  objectFitClass: 'object-contain',
+  objectFitClass: 'object-contain'
 }
 export const Default = BaseImageTemplate.bind({})
 Default.args = BaseImageData
@@ -76,10 +76,10 @@ LazyLoading.decorators = [
       ${Story()}
     </div>
   </div>
-  `,
+  `
 ]
 LazyLoading.parameters = {
   html: {
-    root: '#storyRoot',
-  },
+    root: '#storyRoot'
+  }
 }

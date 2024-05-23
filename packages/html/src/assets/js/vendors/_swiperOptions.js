@@ -16,32 +16,32 @@ const swiperOptions = {
     lazy: {
       loadPrevNext: true,
       loadOnTransitionStart: true,
-      loadPrevNextAmount: 2,
+      loadPrevNextAmount: 2
     },
     navigation: {
       nextEl: '.swiper-next',
-      prevEl: '.swiper-prev',
+      prevEl: '.swiper-prev'
     },
     breakpoints: {
       640: {
         slidesPerView: 1,
-        spaceBetween: 28,
+        spaceBetween: 28
       },
       768: {
         slidesPerView: 2,
-        spaceBetween: 28,
+        spaceBetween: 28
       },
       1280: {
         slidesPerView: 2,
-        spaceBetween: 56,
-      },
+        spaceBetween: 56
+      }
     },
     on: {
       init(swiper) {
         swiper.$el.removeClass('opacity-0')
         swiper.$el.addClass('opacity-100')
-      },
-    },
+      }
+    }
   },
   BlockImageCarousel: {
     slidesPerView: 1,
@@ -54,7 +54,7 @@ const swiperOptions = {
     lazy: true,
     navigation: {
       nextEl: '.swiper-next',
-      prevEl: '.swiper-prev',
+      prevEl: '.swiper-prev'
     },
     pagination: {
       el: '.swiper-pagination',
@@ -64,9 +64,9 @@ const swiperOptions = {
       bulletActiveClass: 'swiper-dot-active',
       renderBullet: function (index, className) {
         return `<button class="${className}" arial-label="Go to slide ${index}"><span></span></button>`
-      },
-    },
-  },
+      }
+    }
+  }
 }
 
 /* Deprecation warning:

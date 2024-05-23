@@ -4,7 +4,7 @@ export const BlockAccordionTemplate = ({
   accordion_id,
   heading_level,
   items,
-  allow_multiple_open,
+  allow_multiple_open
 }) => {
   if (!accordion_id) accordion_id = ''
   if (!heading_level) heading_level = 'h2'
@@ -21,7 +21,7 @@ export const BlockAccordionTemplate = ({
         heading_level: heading_level,
         item_id: `${group_id}_${item.item_id}`,
         title: item.title,
-        body: item.body,
+        body: item.body
       })}`
     }
   }

@@ -6,7 +6,7 @@ export const BlockIframeEmbedTemplate = ({ title, url, height, caption }) => {
   if (caption) {
     let baseImageCaption = BaseImageCaptionTemplate({
       caption,
-      url,
+      url
     })
     caption = `<div class="lg:px-0 p-4 pb-0">${baseImageCaption}</div>`
   }
@@ -14,7 +14,7 @@ export const BlockIframeEmbedTemplate = ({ title, url, height, caption }) => {
   const baseIframe = BaseIframeTemplate({
     title,
     url,
-    height,
+    height
   })
 
   const iframeMarkup = height
@@ -23,7 +23,7 @@ export const BlockIframeEmbedTemplate = ({ title, url, height, caption }) => {
       BaseImagePlaceholderTemplate({
         aspectRatio: 'aspect-ratio-sixteen-nine',
         theme: 'dark-theme',
-        placeholder: baseIframe,
+        placeholder: baseIframe
       })
 
   const template = `

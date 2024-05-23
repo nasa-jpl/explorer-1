@@ -3,23 +3,14 @@ import { BaseImagePlaceholderTemplate } from '../BaseImagePlaceholder/BaseImageP
 import { BaseImageCaptionTemplate } from '../BaseImageCaption/BaseImageCaption'
 import { BlockImageLightboxTemplate } from '../BlockImage/BlockImageLightbox'
 
-export const BlockInlineImageTemplate = ({
-  alignTo,
-  text,
-  image,
-  fancyboxGallery,
-}) => {
-  let align =
-    alignTo == 'right' ? 'col-start-8 lg:order-2' : 'col-start-1 lg:order-1'
-  let textAlignTo =
-    alignTo == 'right' ? 'col-start-3 lg:order-1' : 'col-start-6 lg:order-2'
-  let blockText = `<div class="flex col-span-5 ${textAlignTo}">${BlockTextTemplate(
-    { text }
-  )}</div>`
+export const BlockInlineImageTemplate = ({ alignTo, text, image, fancyboxGallery }) => {
+  let align = alignTo == 'right' ? 'col-start-8 lg:order-2' : 'col-start-1 lg:order-1'
+  let textAlignTo = alignTo == 'right' ? 'col-start-3 lg:order-1' : 'col-start-6 lg:order-2'
+  let blockText = `<div class="flex col-span-5 ${textAlignTo}">${BlockTextTemplate({ text })}</div>`
 
   let blockImageLightbox = BlockImageLightboxTemplate({
     image,
-    fancyboxGallery,
+    fancyboxGallery
   })
 
   let baseImagePlaceholder = BaseImagePlaceholderTemplate({
@@ -30,7 +21,7 @@ export const BlockInlineImageTemplate = ({
     width: image.src.width,
     height: image.src.height,
     wrapperClass: '',
-    objectFitClass: 'object-contain',
+    objectFitClass: 'object-contain'
   })
 
   let baseImageCaption = BaseImageCaptionTemplate({
@@ -38,7 +29,7 @@ export const BlockInlineImageTemplate = ({
     credit: image.credit,
     url: image.url,
     linkText: image.linkText,
-    computedClass: ' lg:mt-3 mt-2',
+    computedClass: ' lg:mt-3 mt-2'
   })
 
   let template = `

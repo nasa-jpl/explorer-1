@@ -17,5 +17,5 @@ module.exports = {
   open: true,
   logSnippet: false,
   reloadOnRestart: true,
-  files: ['./src'],
+  files: ['./src']
 }
