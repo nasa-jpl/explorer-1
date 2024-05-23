@@ -2,18 +2,11 @@ import { IconArrowTemplate } from '../Icons/IconArrow'
 import { BaseLinkTemplate } from '../BaseLink/BaseLink'
 import { MixinVideoBgTemplate } from '../MixinVideoBg/MixinVideoBg'
 
-export const HeroMediumTemplate = ({
-  label,
-  cta,
-  url,
-  title,
-  image,
-  video,
-}) => {
+export const HeroMediumTemplate = ({ label, cta, url, title, image, video }) => {
   return `
   <section
     aria-label="Feature"
-    class="HeroMedium ThemeDark relative flex items-center overflow-hidden"
+    class="HeroMedium ThemeVariantDark relative flex items-center overflow-hidden"
   >
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       ${
@@ -21,10 +14,10 @@ export const HeroMediumTemplate = ({
           ? MixinVideoBgTemplate({
               file: video.file,
               ogg: video.ogg,
-              webm: video.webm,
+              webm: video.webm
             })
           : image
-          ? `
+            ? `
         <picture>
           <source media="(min-width: 768px)" srcset="${image.srcSet}" />
           <source media="(min-width: 420px)" srcset="${image.screenMd.url}" />
@@ -37,7 +30,7 @@ export const HeroMediumTemplate = ({
             alt=""
           />
         </picture>`
-          : ''
+            : ''
       }
     </div>
     <div class="lg:flex lg:items-end lg:relative lg:h-full absolute bottom-0 z-20 w-full">
@@ -62,7 +55,7 @@ export const HeroMediumTemplate = ({
           text: cta,
           caretWrapperClass: 'py-3',
           wrapperClass: 'lg:block hidden',
-          linkClass: 'inline-block',
+          linkClass: 'inline-block'
         })}
       </div>
     </div>

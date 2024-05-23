@@ -4,6 +4,7 @@ import useMockComponents from './_mock-components.js'
 import { StoryContext } from '@storybook/types'
 import { VueRenderer, setup, type Preview } from '@storybook/vue3'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import './../../html-storybook/.storybook/canvas.css'
 import './../node_modules/@explorer-1/vue/src/assets/scss/styles.scss'
 
 import { withGlobals } from './../../html-storybook/.storybook/withGlobals.js'
@@ -22,7 +23,7 @@ const preview: Preview = {
     },
     variantsConfig: {
       defaultValue: {
-        variants: ['ThemeLight', 'ThemeDark'],
+        variants: ['ThemeVariantLight', 'ThemeVariantDark'],
         method: 'css'
       }
     },
@@ -43,14 +44,14 @@ const preview: Preview = {
     },
     variant: {
       description: 'Theme Variant',
-      defaultValue: 'ThemeLight',
+      defaultValue: 'ThemeVariantLight',
       toolbar: {
         title: 'Variant',
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
         items: [
-          { value: 'ThemeLight', icon: 'circlehollow', title: 'Light Variant' },
-          { value: 'ThemeDark', icon: 'circle', title: 'Dark Variant' }
+          { value: 'ThemeVariantLight', icon: 'circlehollow', title: 'Light Variant' },
+          { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' }
         ],
         dynamicTitle: true
       }

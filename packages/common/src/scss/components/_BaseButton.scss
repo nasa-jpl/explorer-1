@@ -109,7 +109,7 @@
     }
   }
 
-  .ThemeLight & {
+  .ThemeVariantLight & {
     &.-primary {
       @apply text-white bg-action-color to-action-color-dark-w50;
     }
@@ -124,7 +124,7 @@
     }
   }
 
-  .ThemeDark & {
+  .ThemeVariantDark & {
     &.-primary {
       @apply text-white bg-action-color-light to-action-color-w50;
     }

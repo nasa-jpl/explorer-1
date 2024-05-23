@@ -4,7 +4,7 @@ export default {
   argTypes: {
     heading: {
       type: 'string',
-      description: 'Heading text',
+      description: 'Heading text'
     },
     variant: {
       type: 'string',
@@ -12,44 +12,43 @@ export default {
         'Sets the vertical center of next/prev button. `-cards` will center them within a fixed height corresponding to a 16:9 area. This is useful when a slide includes an image with text below it (see `BlockLinkCarousel`). `-tiles` will center the pagination within the height of the entire slide.',
       control: {
         type: 'select',
-        options: ['-cards', '-tiles'],
+        options: ['-cards', '-tiles']
       },
       table: {
-        defaultValue: { summary: '-cards' },
-      },
+        defaultValue: { summary: '-cards' }
+      }
     },
     items: {
       type: { name: 'array', required: true },
-      description: 'Array of slide data objects',
+      description: 'Array of slide data objects'
     },
     indent: {
       type: 'string',
-      description:
-        'Sets the left indent of the carousel to the start of the selected grid column.',
+      description: 'Sets the left indent of the carousel to the start of the selected grid column.',
       control: {
         type: 'select',
-        options: ['col-1', 'col-2', 'col-3'],
+        options: ['col-1', 'col-2', 'col-3']
       },
       table: {
-        defaultValue: { summary: 'col-2' },
-      },
+        defaultValue: { summary: 'col-2' }
+      }
     },
     noLinks: {
       type: 'boolean',
       description:
         'If the slides are not linked to other pages, set this to `true`. This will change the wrapper element from `<nav>` to `<div>`.',
       table: {
-        defaultValue: { summary: false },
-      },
+        defaultValue: { summary: false }
+      }
     },
     center: {
       type: 'boolean',
       description:
         'Whether the main part of the carousel, including its indent, should be centered within its container. Usage of `center: false` is rare but can be useful when nesting the carousel within another complex layout.',
       table: {
-        defaultValue: { summary: true },
-      },
-    },
+        defaultValue: { summary: true }
+      }
+    }
   },
   parameters: {
     viewMode: 'docs',
@@ -58,27 +57,27 @@ export default {
       iframeHeight: 400,
       description: {
         component:
-          'A carousel mixin that is configured for multiple visible slides. Used in `BlockLinkCarousel` and `BlockCardGroup` (mobile version). Includes page layout assumptions.',
-      },
+          'A carousel mixin that is configured for multiple visible slides. Used in `BlockLinkCarousel` and `BlockCardGroup` (mobile version). Includes page layout assumptions.'
+      }
     },
     themes: {
       clearable: false,
       list: [
         {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          name: 'ThemeVariantLight',
+          class: ['ThemeVariantLight', 'sbdocs-preview-full-width'],
           color: '#ffffff',
-          default: true,
+          default: true
         },
         {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
-        },
-      ],
-    },
+          name: 'ThemeVariantDark',
+          class: ['ThemeVariantDark', 'sbdocs-preview-full-width'],
+          color: '#000000'
+        }
+      ]
+    }
   },
-  excludeStories: /.*Data$/,
+  excludeStories: /.*Data$/
 }
 
 export const Default = MixinCarouselTemplate.bind({})
@@ -92,11 +91,11 @@ Default.args = {
     { title: 'Title 4' },
     { title: 'Title 5' },
     { title: 'Title 6' },
-    { title: 'Title 7' },
+    { title: 'Title 7' }
   ],
   indent: 'lg:col-start-2',
   noLinks: false,
-  center: true,
+  center: true
 }
 
 export const MixinCarouselWLink = MixinCarouselTemplate.bind({})
@@ -113,9 +112,9 @@ MixinCarouselWLink.args = {
     { title: 'Title 4' },
     { title: 'Title 5' },
     { title: 'Title 6' },
-    { title: 'Title 7' },
+    { title: 'Title 7' }
   ],
   indent: 'lg:col-start-2',
   noLinks: true,
-  center: true,
+  center: true
 }

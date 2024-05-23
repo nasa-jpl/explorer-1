@@ -1,14 +1,14 @@
 /* styles that are applied to story canvas */
 
-html.ThemeLight,
-body.ThemeLight,
-.ThemeLight .sbdocs-preview {
+html.ThemeVariantLight,
+body.ThemeVariantLight,
+.ThemeVariantLight .sbdocs-preview {
   background: #ffffff;
 }
 
-html.ThemeDark,
-body.ThemeDark,
-.ThemeDark .sbdocs-preview {
+html.ThemeVariantDark,
+body.ThemeVariantDark,
+.ThemeVariantDark .sbdocs-preview {
   background: #000000;
 }
 

@@ -66,6 +66,8 @@ const socialColors = {
 }
 
 const uiColors = {
+  'theme-color': foundationColors['jpl-red'],
+  'theme-color-dark': foundationColors['jpl-red-dark'],
   'action-color': foundationColors['jpl-red'],
   'action-color-light': foundationColors['jpl-red-light'],
   'action-color-dark': foundationColors['jpl-red-dark'],
@@ -345,7 +347,7 @@ export default {
       themes: [
         {
           name: 'edu',
-          selectors: ['[data-theme="edu"]'],
+          selectors: ['.ThemeEdu', '[data-theme="edu"]'],
           extend: {
             colors: {
               'action-color': eduColors['edu-teal'],
@@ -359,6 +361,15 @@ export default {
               'action-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
               'action-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
               'action-color-light-w50': eduColors['edu-teal-light'] + ' 50%'
+            }
+          }
+        },
+        {
+          name: 'internal',
+          selectors: ['.ThemeInternal', '[data-theme="internal"]'],
+          extend: {
+            colors: {
+              'action-color': 'orange' // for testing
             }
           }
         }

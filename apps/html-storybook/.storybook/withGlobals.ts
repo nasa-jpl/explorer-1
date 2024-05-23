@@ -1,7 +1,6 @@
 import { useEffect, useGlobals } from '@storybook/preview-api'
 
 const getConfig = (config) => {
-  console.log(config)
   // default values
   let defaultMethod: string = 'css'
   let options: string[] | undefined = undefined

@@ -1,6 +1,6 @@
 export default {
   title: 'Foundation/Themes',
-  tags: ['!autodocs'],
+  tags: ['!autodocs']
 }
 
 const InternalTemplate = () => `<div>
@@ -29,32 +29,32 @@ const InternalTemplate = () => `<div>
 </div>`
 
 export const Internal = {
-  render: InternalTemplate.bind({}),
+  render: InternalTemplate.bind({})
 }
 
-const AdaptiveTextTemplate = () => `<p class="ThemeLight p-4">
+const AdaptiveTextTemplate = () => `<p class="ThemeVariantLight p-4">
   <a class="cursor-pointer font-bold text-theme-color can-hover:hover:text-theme-color-hover">
-    ThemeLight (usually the default)
+    ThemeVariantLight (usually the default)
   </a>
   </p>
-  <p class="ThemeDark bg-black p-4">
+  <p class="ThemeVariantDark bg-black p-4">
   <a class="cursor-pointer font-bold text-theme-color can-hover:hover:text-theme-color-hover">
-    ThemeDark
+    ThemeVariantDark
   </a>
   </p>
   <div class="ThemeInternal">
-  <p class="ThemeLight p-4">
+  <p class="ThemeVariantLight p-4">
     <a class="cursor-pointer font-bold text-theme-color can-hover:hover:text-theme-color-hover">
-      ThemeInternal ThemeLight
+      ThemeInternal ThemeVariantLight
     </a>
   </p>
-  <p class="ThemeDark bg-black p-4">
+  <p class="ThemeVariantDark bg-black p-4">
     <a class="cursor-pointer font-bold text-theme-color can-hover:hover:text-theme-color-hover">
-      ThemeInternal ThemeDark
+      ThemeInternal ThemeVariantDark
     </a>
   </p>
 </div>`
 
 export const AdaptiveText = {
-  render: AdaptiveTextTemplate.bind({}),
+  render: AdaptiveTextTemplate.bind({})
 }

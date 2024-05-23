@@ -12,7 +12,7 @@
     @apply text-jpl-red-dark;
   }
 
-  .ThemeLight {
+  .ThemeVariantLight {
     .text-theme-color,
     .hover\:text-theme-color:hover {
       @apply text-jpl-red;
@@ -24,7 +24,7 @@
     }
   }
 
-  .ThemeDark {
+  .ThemeVariantDark {
     .text-theme-color,
     .hover\:text-theme-color:hover {
       @apply text-jpl-red-light;

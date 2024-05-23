@@ -2,51 +2,48 @@ import { BlockImageCarouselTemplate } from './BlockImageCarousel'
 
 export default {
   title: 'Components/Blocks/BlockImageCarousel',
-  decorators: [
-    (Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`,
-  ],
+  decorators: [(Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`],
   argTypes: {
     images: {
       type: { name: 'array', required: true },
-      description: 'An array of image data objects',
-    },
+      description: 'An array of image data objects'
+    }
   },
   parameters: {
     html: {
-      root: '#storyRoot',
+      root: '#storyRoot'
     },
     viewMode: 'docs',
     docs: {
       inlineStories: false,
       iframeHeight: 850,
       description: {
-        component:
-          'A simple image carousel with the option to open images in a lightbox.',
-      },
+        component: 'A simple image carousel with the option to open images in a lightbox.'
+      }
     },
     themes: {
       clearable: false,
       list: [
         {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          name: 'ThemeVariantLight',
+          class: ['ThemeVariantLight', 'sbdocs-preview-full-width'],
           color: '#ffffff',
-          default: true,
+          default: true
         },
         {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
+          name: 'ThemeVariantDark',
+          class: ['ThemeVariantDark', 'sbdocs-preview-full-width'],
+          color: '#000000'
         },
         {
           name: 'ThemeInternal',
           class: ['ThemeInternal', 'sbdocs-preview-full-width'],
-          color: '#53C8ED',
-        },
-      ],
-    },
+          color: '#53C8ED'
+        }
+      ]
+    }
   },
-  excludeStories: /.*Data$/,
+  excludeStories: /.*Data$/
 }
 
 export const BlockImageCarouselData = {
@@ -60,10 +57,9 @@ export const BlockImageCarouselData = {
       src: {
         height: '576',
         url: 'https://picsum.photos/1024/576',
-        width: '1024',
+        width: '1024'
       },
-      srcSet:
-        'https://picsum.photos/320/180 320w, https://picsum.photos/1024/576 1024w',
+      srcSet: 'https://picsum.photos/320/180 320w, https://picsum.photos/1024/576 1024w'
     },
     {
       alt: 'Second image',
@@ -74,10 +70,9 @@ export const BlockImageCarouselData = {
       src: {
         height: '448',
         url: 'https://picsum.photos/1024/448',
-        width: '1024',
+        width: '1024'
       },
-      srcSet:
-        'https://picsum.photos/320/140 320w, https://picsum.photos/1024/448 1024w',
+      srcSet: 'https://picsum.photos/320/140 320w, https://picsum.photos/1024/448 1024w'
     },
     {
       alt: 'Third image',
@@ -88,10 +83,9 @@ export const BlockImageCarouselData = {
       src: {
         height: '800',
         url: 'https://picsum.photos/400/800',
-        width: '400',
+        width: '400'
       },
-      srcSet:
-        'https://picsum.photos/320/640 320w, https://picsum.photos/400/800 1024w',
+      srcSet: 'https://picsum.photos/320/640 320w, https://picsum.photos/400/800 1024w'
     },
     {
       alt: 'Fourth image',
@@ -103,12 +97,11 @@ export const BlockImageCarouselData = {
       src: {
         height: '700',
         url: 'https://picsum.photos/869/700',
-        width: '869',
+        width: '869'
       },
-      srcSet:
-        'https://picsum.photos/320/258 320w, https://picsum.photos/869/700 1024w',
-    },
-  ],
+      srcSet: 'https://picsum.photos/320/258 320w, https://picsum.photos/869/700 1024w'
+    }
+  ]
 }
 
 export const Default = BlockImageCarouselTemplate.bind({})

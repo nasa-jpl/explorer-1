@@ -7,17 +7,16 @@ export default {
       description: 'Type of item used for each slide',
       control: {
         type: 'select',
-        options: ['BlockLinkCard', 'BlockLinkTile'],
+        options: ['BlockLinkCard', 'BlockLinkTile']
       },
       table: {
-        defaultValue: { summary: 'BlockLinkCard' },
-      },
+        defaultValue: { summary: 'BlockLinkCard' }
+      }
     },
     items: {
       type: { name: 'Array', required: true },
-      description:
-        'Array of slide data objects. See `BlockLinkCard` for data structure.',
-    },
+      description: 'Array of slide data objects. See `BlockLinkCard` for data structure.'
+    }
   },
   parameters: {
     viewMode: 'docs',
@@ -25,33 +24,32 @@ export default {
       inlineStories: false,
       iframeHeight: 650,
       description: {
-        component:
-          'A mixed-bleed carousel with more than one slide visible at a time.',
-      },
+        component: 'A mixed-bleed carousel with more than one slide visible at a time.'
+      }
     },
     themes: {
       clearable: false,
       list: [
         {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
+          name: 'ThemeVariantLight',
+          class: ['ThemeVariantLight', 'sbdocs-preview-full-width'],
           color: '#ffffff',
-          default: true,
+          default: true
         },
         {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000',
+          name: 'ThemeVariantDark',
+          class: ['ThemeVariantDark', 'sbdocs-preview-full-width'],
+          color: '#000000'
         },
         {
           name: 'ThemeInternal',
           class: ['ThemeInternal', 'sbdocs-preview-full-width'],
-          color: '#53C8ED',
-        },
-      ],
-    },
+          color: '#53C8ED'
+        }
+      ]
+    }
   },
-  excludeStories: /.*Data$/,
+  excludeStories: /.*Data$/
 }
 
 const BlockLinkCarouselData = [
@@ -64,10 +62,10 @@ const BlockLinkCarouselData = [
       src: {
         url: 'https://picsum.photos/512/288',
         width: 512,
-        height: 288,
+        height: 288
       },
-      alt: 'Alt text',
-    },
+      alt: 'Alt text'
+    }
   },
   {
     url: '#',
@@ -77,10 +75,10 @@ const BlockLinkCarouselData = [
       src: {
         url: 'https://picsum.photos/512/288',
         width: 512,
-        height: 288,
+        height: 288
       },
-      alt: 'Alt text',
-    },
+      alt: 'Alt text'
+    }
   },
   {
     url: '#',
@@ -91,10 +89,10 @@ const BlockLinkCarouselData = [
       src: {
         url: 'https://picsum.photos/512/288',
         width: 512,
-        height: 288,
+        height: 288
       },
-      alt: 'Alt text',
-    },
+      alt: 'Alt text'
+    }
   },
   {
     url: '#',
@@ -105,22 +103,22 @@ const BlockLinkCarouselData = [
       src: {
         url: 'https://picsum.photos/512/288',
         width: 512,
-        height: 288,
+        height: 288
       },
-      alt: 'Alt text',
-    },
-  },
+      alt: 'Alt text'
+    }
+  }
 ]
 
 export const Default = BlockLinkCarouselTemplate.bind({})
 Default.storyName = 'Carousel'
 Default.args = {
   heading: 'Related Pages',
-  items: BlockLinkCarouselData,
+  items: BlockLinkCarouselData
 }
 
 export const TwoSlides = BlockLinkCarouselTemplate.bind({})
 TwoSlides.args = {
   heading: 'Related Pages',
-  items: BlockLinkCarouselData.slice(0, 2),
+  items: BlockLinkCarouselData.slice(0, 2)
 }

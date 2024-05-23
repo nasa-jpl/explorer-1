@@ -22,10 +22,10 @@
       }
     }
 
-    .ThemeLight,
-    .ThemeDark,
-    &.ThemeLight,
-    &.ThemeDark {
+    .ThemeVariantLight,
+    .ThemeVariantDark,
+    &.ThemeVariantLight,
+    &.ThemeVariantDark {
       .BaseButton {
         &.-primary {
           @apply bg-jpl-sky-blue-dark to-jpl-sky-blue-w50;
