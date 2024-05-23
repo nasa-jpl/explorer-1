@@ -1,9 +1,9 @@
-import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
-import customTheme from './customTheme.js';
-import '@explorer-1/html/dist/css/explorer-1.min.css';
-import '@explorer-1/html/dist/js/explorer-1.min.js';
-import './canvas.css';
-import { withGlobals } from './withGlobals';
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+import customTheme from './customTheme.js'
+import '@explorer-1/html/dist/css/explorer-1.min.css'
+import '@explorer-1/html/dist/js/explorer-1.min.js'
+import './canvas.css'
+import { withGlobals } from './withGlobals'
 
 // viewports that match our tailwind config
 const customViewports = {
@@ -11,67 +11,88 @@ const customViewports = {
     name: 'screen-sm',
     styles: {
       width: '640px',
-      height: '100%',
-    },
+      height: '100%'
+    }
   },
   screenMd: {
     name: 'screen-md',
     styles: {
       width: '768px',
-      height: '100%',
-    },
+      height: '100%'
+    }
   },
   screenLg: {
     name: 'screen-lg',
     styles: {
       width: '1024px',
-      height: '100%',
-    },
+      height: '100%'
+    }
   },
   screenXl: {
     name: 'screen-xl',
     styles: {
       width: '1280px',
-      height: '100%',
-    },
+      height: '100%'
+    }
   },
   screen2xl: {
     name: 'screen-2xl',
     styles: {
       width: '1440px',
-      height: '100%',
-    },
+      height: '100%'
+    }
   },
   screen3xl: {
     name: 'screen-3xl',
     styles: {
       width: '1800px',
-      height: '100%',
-    },
-  },
-};
+      height: '100%'
+    }
+  }
+}
 
 const preview = {
   globalTypes: {
     themesConfig: {
-      defaultValue: ['ThemeLight', 'ThemeInternal', 'ThemeDark'],
-      method: 'css',
+      defaultValue: {
+        options: ['ThemeLight', 'ThemeInternal'],
+        method: 'css'
+      }
     },
     theme: {
-      description: 'Global theme for components',
+      description: 'Global Theme',
       defaultValue: 'ThemeLight',
       toolbar: {
         title: 'Theme',
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
         items: [
-          { value: 'ThemeLight', icon: 'circlehollow', title: 'Light' },
-          { value: 'ThemeDark', icon: 'circle', title: 'Dark' },
-          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal' },
+          { value: 'ThemeLight', icon: 'circlehollow', title: 'Default Theme' },
+          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal Theme' }
         ],
-        dynamicTitle: true,
-      },
+        dynamicTitle: true
+      }
     },
+    variantsConfig: {
+      defaultValue: {
+        options: ['ThemeLight', 'ThemeDark'],
+        method: 'css'
+      }
+    },
+    variant: {
+      description: 'Theme Variant',
+      defaultValue: 'ThemeLight',
+      toolbar: {
+        title: 'Variant',
+        // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
+        icon: 'eye',
+        items: [
+          { value: 'ThemeLight', icon: 'circlehollow', title: 'Light Variant' },
+          { value: 'ThemeDark', icon: 'circle', title: 'Dark Variant' }
+        ],
+        dynamicTitle: true
+      }
+    }
   },
 
   decorators: [withGlobals],
@@ -80,23 +101,23 @@ const preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/,
-      },
+        date: /Date$/
+      }
     },
     // add custom viewports to the toolbar
     viewport: {
       viewports: {
         ...MINIMAL_VIEWPORTS,
-        ...customViewports,
-      },
+        ...customViewports
+      }
     },
     // options for the html tab add-on
     html: {
-      removeEmptyComments: true,
+      removeEmptyComments: true
     },
     // set the theme for docs (same as UI)
     docs: {
-      theme: customTheme,
+      theme: customTheme
     },
     // sort stories in the sidebar
     options: {
@@ -116,7 +137,7 @@ const preview = {
             'Logos',
             'Themes',
             'Grid and Layout',
-            'Responsive Design',
+            'Responsive Design'
           ],
           'Global Layout',
           [
@@ -129,18 +150,11 @@ const preview = {
               [
                 '*',
                 'Elements',
-                [
-                  'Overview',
-                  'AppBar',
-                  'Navigation',
-                  'Panel',
-                  'Highlight',
-                  'Section',
-                ],
-              ],
+                ['Overview', 'AppBar', 'Navigation', 'Panel', 'Highlight', 'Section']
+              ]
             ],
             'Footers',
-            ['Overview', 'External', 'Internal'],
+            ['Overview', 'External', 'Internal']
           ],
           'Components',
           [
@@ -154,27 +168,22 @@ const preview = {
             'Search',
             ['Overview'],
             'Mixins',
-            [
-              'Overview',
-              'MixinAnimationCaret',
-              'MixinVideoBg',
-              'MixinCarousel',
-            ],
+            ['Overview', 'MixinAnimationCaret', 'MixinVideoBg', 'MixinCarousel'],
             'Utilities',
-            ['Overview', '*'],
-          ],
-        ],
-      },
+            ['Overview', '*']
+          ]
+        ]
+      }
     },
     backgrounds: {
       default: 'light',
       grid: {
-        disable: true,
-      },
-    },
+        disable: true
+      }
+    }
   },
 
-  tags: ['autodocs', 'autodocs', 'autodocs'],
-};
+  tags: ['autodocs', 'autodocs', 'autodocs']
+}
 
-export default preview;
+export default preview
