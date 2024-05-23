@@ -20,27 +20,6 @@ export default {
       description: {
         component: 'A simple image carousel with the option to open images in a lightbox.'
       }
-    },
-    themes: {
-      clearable: false,
-      list: [
-        {
-          name: 'ThemeVariantLight',
-          class: ['ThemeVariantLight', 'sbdocs-preview-full-width'],
-          color: '#ffffff',
-          default: true
-        },
-        {
-          name: 'ThemeVariantDark',
-          class: ['ThemeVariantDark', 'sbdocs-preview-full-width'],
-          color: '#000000'
-        },
-        {
-          name: 'ThemeInternal',
-          class: ['ThemeInternal', 'sbdocs-preview-full-width'],
-          color: '#53C8ED'
-        }
-      ]
     }
   },
   excludeStories: /.*Data$/

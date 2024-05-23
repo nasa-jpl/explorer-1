@@ -55,17 +55,6 @@ export default {
           'The contents of a mega-menu-style dropdown. Intended for use within the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--docs)'
       }
     },
-    themes: {
-      clearable: false,
-      list: [
-        {
-          name: 'ThemeInternal',
-          class: ['ThemeInternal', 'sbdocs-preview-full-width'],
-          color: '#53C8ED',
-          default: true
-        }
-      ]
-    },
     html: {
       root: '#storyRoot'
     }

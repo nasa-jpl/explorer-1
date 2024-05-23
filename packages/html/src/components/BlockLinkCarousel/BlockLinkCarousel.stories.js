@@ -26,27 +26,6 @@ export default {
       description: {
         component: 'A mixed-bleed carousel with more than one slide visible at a time.'
       }
-    },
-    themes: {
-      clearable: false,
-      list: [
-        {
-          name: 'ThemeVariantLight',
-          class: ['ThemeVariantLight', 'sbdocs-preview-full-width'],
-          color: '#ffffff',
-          default: true
-        },
-        {
-          name: 'ThemeVariantDark',
-          class: ['ThemeVariantDark', 'sbdocs-preview-full-width'],
-          color: '#000000'
-        },
-        {
-          name: 'ThemeInternal',
-          class: ['ThemeInternal', 'sbdocs-preview-full-width'],
-          color: '#53C8ED'
-        }
-      ]
     }
   },
   excludeStories: /.*Data$/
