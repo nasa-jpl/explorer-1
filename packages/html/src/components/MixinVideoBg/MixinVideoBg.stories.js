@@ -1,11 +1,11 @@
 import { MixinVideoBgTemplate } from './MixinVideoBg'
-import videoMp4 from './../../../../common/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4'
-import videoWebm from './../../../../common/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm'
+import videoMp4 from './../../../node_modules/@explorer-1/common/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4'
+import videoWebm from './../../../node_modules/@explorer-1/common/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm'
 
 export const MixinVideoBgData = {
   file: videoMp4,
   webm: videoWebm,
-  ogg: 'static/media/storybook/static/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.ogv', // no webpack loader for ogg files
+  ogg: 'static/media/storybook/static/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.ogv' // no webpack loader for ogg files
 }
 
 export default {
@@ -14,16 +14,16 @@ export default {
   argTypes: {
     file: {
       type: { name: 'string', required: false },
-      description: 'source to `mp4` video file',
+      description: 'source to `mp4` video file'
     },
     webm: {
       type: { name: 'string', required: false },
-      description: 'source to `webm` video file',
+      description: 'source to `webm` video file'
     },
     ogg: {
       type: { name: 'string', required: false },
-      description: 'source to `ogg` video file',
-    },
+      description: 'source to `ogg` video file'
+    }
   },
   parameters: {
     docs: {
@@ -32,10 +32,10 @@ export default {
   See the following stories for implementation examples:
 
   - [Hero: Medium](?path=/docs/components-blocks-heroes-medium--docs) - with content overlay
-  - [Hero: Media Only](?path=/story/components-blocks-heroes-media-only--video) - no content overlay`,
-      },
-    },
-  },
+  - [Hero: Media Only](?path=/story/components-blocks-heroes-media-only--video) - no content overlay`
+      }
+    }
+  }
 }
 
 export const Default = MixinVideoBgTemplate.bind({})
