@@ -97,6 +97,7 @@ export default defineComponent({
       default: ''
     }
   },
+  emits: ['linkClicked', 'specificLinkClicked'],
   computed: {
     computedClass(): string {
       let classes = variants[this.variant]
