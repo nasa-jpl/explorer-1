@@ -28,7 +28,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies 🧱
-        run: pnpm ci
+        run: pnpm i
 
       - name: Build static Storybook 🛠
         run: make html-storybook-build
