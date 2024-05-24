@@ -9,7 +9,7 @@
     "build": "storybook build -c .storybook -o storybook_compiled",
     "percy": "percy storybook http://localhost:6006",
     "percy:dry-run": "percy storybook http://localhost:6006 --dry-run",
-    "lint": "eslint stories --debug",
+    "lint": "eslint stories",
     "lint:fix": "eslint stories --fix",
     "init-msw": "msw init public/"
   },

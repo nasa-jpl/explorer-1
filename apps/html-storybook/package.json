@@ -18,7 +18,7 @@
     "prepare:clean": "rimraf ./public/dist",
     "prepare:public": "cp -R ./node_modules/@explorer-1/html/dist/ ./public/dist",
     "storybook": "pnpm run prepare && storybook dev -c .storybook -p 6006 --ci",
-    "lint": "eslint .storybook --debug",
+    "lint": "eslint .storybook",
     "lint:fix": "eslint .storybook --fix",
     "build": "pnpm run prepare && storybook build -c .storybook -o storybook_compiled",
     "percy": "percy storybook http://localhost:6006",
