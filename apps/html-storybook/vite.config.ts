@@ -4,9 +4,6 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   publicDir: './../public/',
   resolve: {
-    alias: {
-      'css/': './public/dist/css'
-    },
     preserveSymlinks: true
   },
   css: {
