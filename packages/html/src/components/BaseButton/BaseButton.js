@@ -53,6 +53,7 @@ export const BaseButtonTemplate = ({
   if (cssClass) computedClass += ' ' + cssClass
   if (iconOnly) {
     computedClass += ' -icon-only'
+    // eslint-disable-next-line no-self-assign
     ariaLabel ? (ariaLabel = ariaLabel) : (ariaLabel = label)
     label = ''
   }
