@@ -9,5 +9,12 @@ export default defineConfig({
       'css/': './public/dist/css'
     },
     preserveSymlinks: true
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
+      }
+    }
   }
 })

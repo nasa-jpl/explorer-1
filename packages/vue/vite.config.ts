@@ -12,13 +12,6 @@ export default defineConfig({
       }
     }
   },
-  resolve: {
-    alias: {
-      // need these until common has been converted to vite
-      'npm:@fancyapps': resolve(__dirname, './node_modules/@fancyapps'),
-      'npm:swiper': resolve(__dirname, './node_modules/swiper')
-    }
-  },
   // build: {
   //   rollupOptions: {
   //     output: {

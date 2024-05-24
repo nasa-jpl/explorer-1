@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "shared assets for all flavors of explorer-1",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "author": "",
   "prettier": "@explorer-1/prettier-config",

@@ -16,12 +16,5 @@ export default defineConfig({
         additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
       }
     }
-  },
-  resolve: {
-    alias: {
-      // need these until common has been converted to vite
-      'npm:@fancyapps': resolve(__dirname, './node_modules/@fancyapps'),
-      'npm:swiper': resolve(__dirname, './node_modules/swiper')
-    }
   }
 })

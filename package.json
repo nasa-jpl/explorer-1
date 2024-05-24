@@ -1,20 +1,37 @@
 {
   "name": "explorer-1",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "type": "module",
+  "description": "Monorepo for JPL's design system, Explorer 1",
+  "keywords": [
+    "vue",
+    "design system",
+    "storybook",
+    "html",
+    "css",
+    "scss",
+    "tailwindcss"
+  ],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "clean": "rimraf \"**/node_modules\"",
+    "refresh": "pnpm clean && pnpm i",
+    "nuke": "rimraf pnpm-lock.yaml && pnpm refresh",
+    "preinstall": "npx --yes only-allow pnpm",
+    "preupdate": "npx --yes only-allow pnpm",
+    "lint": "pnpm run -r --if-present lint",
+    "lint:fix": "pnpm run -r --if-present lint:fix"
+  },
   "engines": {
     "node": "^20.13.1",
-    "npm": "^10.5.2"
+    "pnpm": ">=9.1.1",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1",
+    "@explorer-1/eslint-config": "workspace:^",
     "@explorer-1/html": "workspace:^",
     "@explorer-1/html-storybook": "workspace:^",
     "@explorer-1/vue": "workspace:^",

@@ -2,11 +2,16 @@ import { defineNuxtModule, addComponentsDir, installModule } from '@nuxt/kit'
 import { fileURLToPath } from 'node:url'
 import { resolve } from 'node:path'
 import explorer1ViteConfig from '@explorer-1/vue/vite.config'
+import path from 'path'
 
 export interface ModuleOptions {
   includeStyles: boolean
   includeComponents: boolean
 }
+
+// mimic CommonJS variables -- not needed if using CommonJS
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {

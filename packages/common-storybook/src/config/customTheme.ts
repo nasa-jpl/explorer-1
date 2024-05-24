@@ -13,5 +13,5 @@ export default create({
   // White Labeling
   brandTitle: 'JPL Design System',
   // brandUrl: 'https://example.com',
-  brandImage: 'brand-jpl-logo.svg',
+  brandImage: 'brand-jpl-logo.svg'
 })

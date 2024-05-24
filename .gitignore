@@ -43,15 +43,14 @@ out/
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+# Local History extension for VSCode
+.history
+
 # Testing
 reports
 coverage
 *.lcov
 .nyc_output
-
-# parcel.js
-.parcel-cache
-.parcel
 
 # Storybook
 storybook_compiled
@@ -73,5 +72,4 @@ packages/**/src/assets/fonts
 
 # dist
 dist
-!apps/**/dist/.gitkeep
 !packages/**/dist

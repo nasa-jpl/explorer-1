@@ -44,6 +44,7 @@ const i = {
       default: null
     }
   },
+  emits: ["click"],
   computed: {
     tag() {
       return this.disabled ? "button" : this.to ? "nuxt-link" : this.href ? "a" : "button";
@@ -64,7 +65,7 @@ const i = {
     a[s] = r;
   return a;
 }, m = { class: "label block" };
-function y(e, t, a, s, r, k) {
+function k(e, t, a, s, r, y) {
   return o(), f(d(e.tag), {
     class: u(["BaseButton text-contrast-none", e.variantClass]),
     "aria-label": e.ariaLabel,
@@ -82,7 +83,7 @@ function y(e, t, a, s, r, k) {
     _: 3
   }, 8, ["class", "aria-label", "disabled", "href", "to"]);
 }
-const B = /* @__PURE__ */ b(h, [["render", y]]);
+const B = /* @__PURE__ */ b(h, [["render", k]]);
 export {
   B as BaseButton
 };
