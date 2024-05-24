@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "npm run prepare && vite",
     "build": "npm run prepare && vue-tsc && vite build",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "preview": "vite preview",
     "prepare": "npm run prepare:fonts",
     "prepare:fonts": "cp -R ./node_modules/@explorer-1/common/src/fonts/ ./src/assets/fonts/"

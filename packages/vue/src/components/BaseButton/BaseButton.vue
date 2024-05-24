@@ -52,6 +52,7 @@ export default defineComponent({
       default: null
     }
   },
+  emits: ['click'],
   computed: {
     tag(): string {
       if (this.disabled) {
@@ -110,4 +111,3 @@ export default defineComponent({
 <style lang="scss">
 @import '@explorer-1/common/src/scss/components/BaseButton';
 </style>
-

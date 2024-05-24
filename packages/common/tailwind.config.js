@@ -16,8 +16,8 @@ const foundationColors = {
   'dark-blue': '#004562',
   'jpl-sky-blue': '#53C8ED',
   'jpl-sky-blue-dark': '#0080A4',
-  green: '#14C97A',
-};
+  green: '#14C97A'
+}
 
 const semanticColors = {
   'alert-gold': '#FFBA32',
@@ -28,8 +28,8 @@ const semanticColors = {
   'focus-blue': '#1871C9',
   'focus-blue-light': '#E8F1FA',
   'success-green': '#33A17B',
-  'success-green-light': '#E1F5EE',
-};
+  'success-green-light': '#E1F5EE'
+}
 
 const grayScale = {
   white: '#FFFFFF',
@@ -39,16 +39,16 @@ const grayScale = {
   'gray-mid': '#949494',
   'gray-mid-dark': '#6F6F6F',
   'gray-dark': '#222222',
-  black: '#000000',
-};
+  black: '#000000'
+}
 
 const socialColors = {
   facebook: '#3b5998',
   twitter: '#000000',
   instagram: '#dd2a7b',
   youtube: '#ff0000',
-  reddit: '#ff4500',
-};
+  reddit: '#ff4500'
+}
 
 // Font stack optimised for built-in fonts of each major operating system, with support for emojis.
 // Only displayed if the site’s web fonts fail to load.
@@ -65,8 +65,8 @@ const fallbackFontStack = [
   'Apple Color Emoji',
   'Segoe UI Emoji',
   'Segoe UI Symbol',
-  'Noto Color Emoji',
-];
+  'Noto Color Emoji'
+]
 
 export default {
   mode: 'jit',
@@ -82,7 +82,7 @@ export default {
       '4xl': '1900px',
       // Media queries to detect the user’s input modality real, non-simulated hover support.
       'can-hover': { raw: '(hover: hover)' },
-      'no-hover': { raw: '(hover: none)' },
+      'no-hover': { raw: '(hover: none)' }
     },
     container: {
       screens: {
@@ -92,9 +92,9 @@ export default {
         xl: '1280px',
         // See documentation for container widths and breakpoints setup.
         '2xl': '1320px',
-        '3xl': '1320px',
+        '3xl': '1320px'
       },
-      padding: '1rem', // use .px-0 as needed to override default padding
+      padding: '1rem' // use .px-0 as needed to override default padding
     },
     colors: {
       ...foundationColors,
@@ -102,11 +102,11 @@ export default {
       ...semanticColors,
       ...socialColors,
       transparent: 'transparent',
-      current: 'currentColor',
+      current: 'currentColor'
     },
     fontFamily: {
       primary: ['Metropolis', ...fallbackFontStack],
-      secondary: ['Archivo Narrow', 'Metropolis', ...fallbackFontStack],
+      secondary: ['Archivo Narrow', 'Metropolis', ...fallbackFontStack]
     },
     fontWeight: {
       // Commenting out anything Tailwind provides by default but we don’t use for this project.
@@ -117,7 +117,7 @@ export default {
       medium: 500,
       semibold: 600,
       bold: 700,
-      extrabold: 800,
+      extrabold: 800
       // black: 900,
     },
     fontSize: {
@@ -137,7 +137,7 @@ export default {
       lg: '1.125rem', // 18px
       base: '1rem', // 16px
       sm: '0.875rem', // 14px
-      xs: '0.75rem', // 12px
+      xs: '0.75rem' // 12px
     },
     lineHeight: {
       // Basic set of line heights. Major text styles tend to have their custom line height.
@@ -146,7 +146,7 @@ export default {
       tight: '1.25',
       // snug: '1.375',
       normal: '1.5',
-      relaxed: '1.75', // Default Tailwind is 1.625.
+      relaxed: '1.75' // Default Tailwind is 1.625.
       // loose: '2',
     },
     letterSpacing: {
@@ -155,7 +155,7 @@ export default {
       tight: '-0.5px',
       normal: '0',
       // wide: '0.5px',
-      wider: '1px',
+      wider: '1px'
       // widest: '2px',
     },
     scale: {
@@ -169,7 +169,7 @@ export default {
       105: '1.05',
       110: '1.1',
       125: '1.25',
-      150: '1.5',
+      150: '1.5'
     },
     gradientColorStops: (theme) => ({
       ...theme('colors'),
@@ -193,7 +193,7 @@ export default {
       'transparent-black-75': 'rgba(0, 0, 0, 0.75)',
       'transparent-black-50': 'rgba(0, 0, 0, 0.5)',
       'transparent-black-25': 'rgba(0, 0, 0, 0.25)',
-      'transparent-black-25-w50': 'rgba(0, 0, 0, 0.25) 50%',
+      'transparent-black-25-w50': 'rgba(0, 0, 0, 0.25) 50%'
     }),
     checkbox: {
       display: 'inline-block',
@@ -201,7 +201,7 @@ export default {
       flexShrink: 0,
       borderColor: grayScale['gray-dark'],
       borderWidth: 0,
-      borderRadius: 0,
+      borderRadius: 0
     },
     extend: {
       animation: {
@@ -210,42 +210,42 @@ export default {
         fadeInSlow: 'fadeIn 1000ms ease-in forwards',
         fadeOutSlow: 'fadeOut 1000ms ease-out forwards',
         scaleIn: 'scaleIn 300ms ease-in forwards',
-        rotate: 'rotate 1s linear infinite',
+        rotate: 'rotate 1s linear infinite'
       },
       borderWidth: {
-        3: '3px',
+        3: '3px'
       },
       boxShadow: {
-        jpl: '-4px 5px 60px 0 rgba(0, 0, 0, 0.1)',
+        jpl: '-4px 5px 60px 0 rgba(0, 0, 0, 0.1)'
       },
       inset: {
         // tailwind 2.0 will include these automatically
         '1/2': '50%',
         18: '4.5rem',
-        28: '7rem',
+        28: '7rem'
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },
-          '100%': { opacity: 1 },
+          '100%': { opacity: 1 }
         },
         fadeOut: {
           '100%': { opacity: 1 },
-          '0%': { opacity: 0 },
+          '0%': { opacity: 0 }
         },
         scaleIn: {
           '0%': { transform: 'scale(0)' },
-          '100%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1)' }
         },
         rotate: {
-          '100%': { transform: 'rotate(360deg)' },
-        },
+          '100%': { transform: 'rotate(360deg)' }
+        }
       },
       maxHeight: {
-        none: 'none',
+        none: 'none'
       },
       minWidth: {
-        12: '3rem',
+        12: '3rem'
       },
       minHeight: {
         none: 'none',
@@ -254,14 +254,14 @@ export default {
         18: '4.5rem',
         28: '7rem',
         66: '16rem',
-        100: '25rem',
+        100: '25rem'
       },
       opacity: {
         15: '0.15',
         30: '0.30',
         40: '0.40',
         90: '0.90',
-        98: '0.98',
+        98: '0.98'
       },
       spacing: {
         '2px': '2px',
@@ -283,32 +283,33 @@ export default {
         xl: '36rem',
         '2xl': '42rem',
         '3xl': '48rem',
-        '4xl': '56rem',
+        '4xl': '56rem'
       },
       transitionDuration: {
         2000: '2000ms',
         2500: '2500ms',
         3000: '3000ms',
         3500: '3500ms',
-        5000: '5000ms',
+        5000: '5000ms'
       },
       transitionProperty: {
-        'border-opacity': 'border-opacity',
+        'border-opacity': 'border-opacity'
       },
       translate: {
-        '-3/7': '-42.8571429%',
+        '-3/7': '-42.8571429%'
       },
       zIndex: {
-        60: 60,
-      },
-    },
+        60: 60
+      }
+    }
   },
 
+  // eslint-disable-next-line no-undef
   plugins: [require('@tailwindcss/forms')],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
     defaultLineHeights: true,
-    standardFontWeights: true,
-  },
-};
+    standardFontWeights: true
+  }
+}

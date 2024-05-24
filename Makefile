@@ -37,11 +37,25 @@ endif
 nvm:
 	make check-nvm && $(CMD)
 
-## install dependencies
+## Install: node_modules dependencies with pnpm
 install: check-nvm
 	pnpm install
 
 i: install
+
+## Clean: remove node_modules
+clean:
+	pnpm run clean
+
+## Refresh: remove node_modules and install
+refresh:
+	pnpm run refresh
+
+fresh: refresh
+
+## Nuke: clean and reinstall node_modules
+nuke:
+	pnpm run nuke
 
 ## HTML: run Storybook
 html-storybook:
@@ -82,6 +96,14 @@ nuxt-dev:
 ## Nuxt: build module
 nuxt-build:
 	pnpm --filter @explorer-1/nuxt build
+
+## Lint: run ESLint
+lint:
+	pnpm run lint
+
+## Lint fix: run ESLint
+lint-fix:
+	pnpm run lint:fix
 
 # TODO: Below helper commands not running as expected change dir first, then pnpm dlx...
 # ## HTML: update Storybook

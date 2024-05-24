@@ -9,8 +9,8 @@
     "build": "storybook build -c .storybook -o storybook_compiled",
     "percy": "percy storybook http://localhost:6006",
     "percy:dry-run": "percy storybook http://localhost:6006 --dry-run",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
+    "lint": "eslint stories",
+    "lint:fix": "eslint stories --fix",
     "init-msw": "msw init public/"
   },
   "dependencies": {
@@ -33,9 +33,6 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/eslint-config-prettier": "^7.1.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.34.0",
-    "eslint-plugin-storybook": "^0.8.0",
-    "eslint-plugin-vue": "^9.9.0",
     "msw": "^1.2.1",
     "msw-storybook-addon": "^2.0.2",
     "postcss": "^8.4.38",
