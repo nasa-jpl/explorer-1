@@ -1,5 +1,5 @@
-/** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin')
+import type { Config } from 'tailwindcss'
+import type { CustomThemeConfig } from 'tailwindcss/types/config'
 /*
  ** TailwindCSS Configuration File
  **
@@ -105,7 +105,7 @@ const fallbackFontStack = [
   'Segoe UI Symbol',
   'Noto Color Emoji'
 ]
-const defaultTheme = {
+const defaultTheme: Partial<CustomThemeConfig> = {
   screens: {
     sm: '640px',
     md: '768px',
@@ -137,14 +137,14 @@ const defaultTheme = {
   },
   fontWeight: {
     // Commenting out anything Tailwind provides by default but we don’t use for this project.
-    // thin: 100,
-    // extralight: 200,
-    light: 300,
-    normal: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700,
-    extrabold: 800
+    // thin: '100',
+    // extralight: '200',
+    light: '300',
+    normal: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+    extrabold: '800'
     // black: 900,
   },
   fontSize: {
@@ -257,12 +257,12 @@ const defaultTheme = {
     },
     keyframes: {
       fadeIn: {
-        '0%': { opacity: 0 },
-        '100%': { opacity: 1 }
+        '0%': { opacity: '0' },
+        '100%': { opacity: '1' }
       },
       fadeOut: {
-        '100%': { opacity: 1 },
-        '0%': { opacity: 0 }
+        '100%': { opacity: '1' },
+        '0%': { opacity: '0' }
       },
       scaleIn: {
         '0%': { transform: 'scale(0)' },
@@ -330,10 +330,11 @@ const defaultTheme = {
       '-3/7': '-42.8571429%'
     },
     zIndex: {
-      60: 60
+      60: '60'
     }
   }
 }
+
 export default {
   mode: 'jit',
   darkMode: 'class',
@@ -381,10 +382,7 @@ export default {
     })
   ],
   future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-    defaultLineHeights: true,
-    standardFontWeights: true,
     hoverOnlyWhenSupported: true
-  }
-}
+  },
+  content: []
+} satisfies Config
