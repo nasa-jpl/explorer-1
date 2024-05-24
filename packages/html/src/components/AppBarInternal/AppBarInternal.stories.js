@@ -1,5 +1,5 @@
 import { AppBarInternalTemplate } from './AppBarInternal'
-import AppBarInternalStoryMeta from './../../../node_modules/@explorer-1/common-storybook/src/story-data/AppBarInternal'
+import AppBarInternalStoryMeta from '@explorer-1/common-storybook/src/story-data/AppBarInternal'
 
 export default {
   ...AppBarInternalStoryMeta.meta
