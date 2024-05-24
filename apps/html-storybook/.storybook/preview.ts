@@ -1,6 +1,7 @@
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/html/src/assets/scss/styles.scss'
+import './../public/dist/css/font-face.css'
 import '@explorer-1/html/src/main.js'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 import { withGlobals } from '@explorer-1/common-storybook/src/config/withGlobals'
@@ -183,7 +184,7 @@ const preview = {
     }
   },
 
-  tags: ['autodocs', 'autodocs', 'autodocs']
+  tags: ['autodocs']
 }
 
 export default preview
