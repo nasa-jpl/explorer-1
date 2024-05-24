@@ -97,6 +97,8 @@ vue-build:
 nuxt-dev:
 	pnpm --filter @explorer-1/nuxt dev
 
+nuxt: nuxt-dev
+
 ## Nuxt: build module
 nuxt-build:
 	pnpm --filter @explorer-1/nuxt build
