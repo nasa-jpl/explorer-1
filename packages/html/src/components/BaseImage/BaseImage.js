@@ -1,3 +1,4 @@
+import 'lazysizes'
 export const BaseImageTemplate = ({
   src,
   srcset,
@@ -15,7 +16,6 @@ export const BaseImageTemplate = ({
   if (!height) height = ''
   if (!imageClass) imageClass = ''
   if (!objectFitClass) objectFitClass = ''
-
   return `<div${wrapperClass ? ` class="${wrapperClass}"` : ''}>${
     src
       ? `<img class="BaseImage ${imageClass} ${objectFitClass} lazyload" data-src="${src}" data-srcset="${srcset}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />`

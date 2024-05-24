@@ -1,38 +1,20 @@
 {
   "name": "@explorer-1/html",
-  "version": "2.0.1",
-  "description": "Packaged frontend assets for JPL's design system, Explorer 1",
-  "author": "JPL DesignLab",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nasa-jpl/explorer-1"
-  },
-  "engines": {
-    "node": "^20.13.1",
-    "npm": "^10.5.2"
-  },
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "run-p watch browsersync",
-    "fetch-www": "if ! git clone --depth 1 git@github.com:nasa-jpl/www-frontend.git .www-frontend_temp; then echo 'Updating temp copy of www-frontend' && cd .www-frontend_temp && git pull; fi",
-    "build": "npm run fetch-www && npm run build:clean && npm run build:fontfiles && parcel build ./src/index.js --no-source-maps && npm run build:fontcss",
+    "dev": "vite",
+    "build": "pnpm run fetch-www && pnpm run build:fontfiles && pnpm run build:vite && pnpm run build:fontcss",
+    "build:vite": "vite build",
     "build:fontfiles": "cp -R ./../common/src/fonts/ ./src/assets/fonts/",
-    "build:fontcss": "cp ./../common/src/scss/_fonts.scss ./dist/css/font-face.css",
-    "build:clean": "rimraf ./dist && rimraf .parcel-cache",
-    "watch": "rimraf ./src/.parcel/ && parcel ./src/index.html --dist-dir ./src/.parcel/",
-    "browsersync": "browser-sync start --config bs.config.js",
+    "build:fontcss": "cp ./../common/src/scss/_fonts.scss ./dist/assets/css/font-face.css",
+    "fetch-www": "if ! git clone --depth 1 git@github.com:nasa-jpl/www-frontend.git .www-frontend_temp; then echo 'Updating temp copy of www-frontend' && cd .www-frontend_temp && git pull; fi",
+    "preview": "vite preview",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
   "prettier": "@explorer-1/prettier-config",
-  "parcel-namer-rewrite": {
-    "rules": {
-      "index.js": "js/explorer-1.min.js",
-      "ArchivoNarrow-(.*)\\.woff2": "fonts/archivo-narrow/ArchivoNarrow-$1.woff2",
-      "Metropolis-(.*)\\.woff2": "fonts/metropolis/Metropolis-$1.woff2",
-      "index.css": "css/explorer-1.min.css"
-    }
-  },
   "browserslist": [
     ">2.5%",
     "last 4 versions",
@@ -46,27 +28,17 @@
     "not IE 11"
   ],
   "dependencies": {
-    "@explorer-1/common": "workspace:*",
     "@fancyapps/ui": "^4.0.26",
-    "@parcel/config-default": "^2.12.0",
     "@tailwindcss/forms": "^0.5.7",
     "swiper": "^8.0.7",
     "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
-    "@explorer-1/common-storybook": "workspace:*",
+    "@explorer-1/common": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
-    "@parcel/transformer-sass": "^2.7.0",
     "autoprefixer": "^10.4.19",
-    "browser-sync": "^3.0.2",
     "lazysizes": "^5.3.0",
-    "npm-run-all": "^4.1.5",
-    "parcel": "^2.7.0",
-    "parcel-namer-rewrite": "^2.0.0-rc.2",
-    "postcss": "^8.4.38",
-    "prettier": "^3.2.5",
-    "rimraf": "^5.0.5",
-    "stylelint": "^16.5.0",
-    "stylelint-config-standard-scss": "^13.1.0"
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
   }
 }

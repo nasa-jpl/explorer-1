@@ -3,10 +3,8 @@
 ** If you are not using Parcel, import each vendor directly, as needed.
 */
 
-// for @import 'npm:' usage, see https://parceljs.org/languages/css/#%40import
-// and https://github.com/parcel-bundler/parcel/issues/6002
-@import 'npm:@fancyapps/ui/dist/fancybox.css';
-@import 'npm:swiper/swiper-bundle.css';
+@import '@fancyapps/ui/dist/fancybox.css';
+@import 'swiper/swiper-bundle.css';
 
 @layer utilities {
   // vendor overrides
