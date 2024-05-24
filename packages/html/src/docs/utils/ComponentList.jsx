@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* Custom react component for rendering TOC of components
  * docs: https://storybook.js.org/docs/react/writing-docs/docs-page#custom-inline-rendering
  */
