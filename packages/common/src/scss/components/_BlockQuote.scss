@@ -48,7 +48,7 @@
   }
 }
 
-.ThemeLight {
+.ThemeVariantLight {
   .BlockQuote {
     > hr {
       @apply border-jpl-red;
@@ -64,7 +64,7 @@
   }
 }
 
-.ThemeDark {
+.ThemeVariantDark {
   .BlockQuote {
     > hr {
       @apply border-jpl-red-light;

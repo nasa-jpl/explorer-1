@@ -6,7 +6,7 @@ export const HeroMediumTemplate = ({ label, cta, url, title, image, video }) => 
   return `
   <section
     aria-label="Feature"
-    class="HeroMedium ThemeDark relative flex items-center overflow-hidden"
+    class="HeroMedium ThemeVariantDark relative flex items-center overflow-hidden"
   >
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       ${

@@ -59,22 +59,6 @@ export default {
         component:
           'A carousel mixin that is configured for multiple visible slides. Used in `BlockLinkCarousel` and `BlockCardGroup` (mobile version). Includes page layout assumptions.'
       }
-    },
-    themes: {
-      clearable: false,
-      list: [
-        {
-          name: 'ThemeLight',
-          class: ['ThemeLight', 'sbdocs-preview-full-width'],
-          color: '#ffffff',
-          default: true
-        },
-        {
-          name: 'ThemeDark',
-          class: ['ThemeDark', 'sbdocs-preview-full-width'],
-          color: '#000000'
-        }
-      ]
     }
   },
   excludeStories: /.*Data$/

@@ -54,20 +54,41 @@ const customViewports = {
 const preview = {
   globalTypes: {
     themesConfig: {
-      defaultValue: ['ThemeLight', 'ThemeInternal', 'ThemeDark'],
-      method: 'css'
+      defaultValue: {
+        options: ['ThemeVariantLight', 'ThemeInternal'],
+        method: 'css'
+      }
     },
     theme: {
-      description: 'Global theme for components',
-      defaultValue: 'ThemeLight',
+      description: 'Global Theme',
+      defaultValue: 'ThemeVariantLight',
       toolbar: {
         title: 'Theme',
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
         items: [
-          { value: 'ThemeLight', icon: 'circlehollow', title: 'Light' },
-          { value: 'ThemeDark', icon: 'circle', title: 'Dark' },
-          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal' }
+          { value: 'ThemeVariantLight', icon: 'circlehollow', title: 'Default Theme' },
+          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal Theme' }
+        ],
+        dynamicTitle: true
+      }
+    },
+    variantsConfig: {
+      defaultValue: {
+        options: ['ThemeVariantLight', 'ThemeVariantDark'],
+        method: 'css'
+      }
+    },
+    variant: {
+      description: 'Theme Variant',
+      defaultValue: 'ThemeVariantLight',
+      toolbar: {
+        title: 'Variant',
+        // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
+        icon: 'eye',
+        items: [
+          { value: 'ThemeVariantLight', icon: 'circlehollow', title: 'Light Variant' },
+          { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' }
         ],
         dynamicTitle: true
       }

@@ -25,13 +25,13 @@ By default, all stories displayed within this Storybook do not use the internal 
 
 ## Light & Dark Themes
 
-`.ThemeLight` and `.ThemeDark` in Explorer 1 are structured differently from `.ThemeInternal`, and are **not intended for use as a body class**. These themes should only ever be used on the wrapper for an individual component or group of components.
+`.ThemeVariantLight` and `.ThemeVariantDark` in Explorer 1 are structured differently from `.ThemeInternal`, and are **not intended for use as a body class**. These themes should only ever be used on the wrapper for an individual component or group of components.
 
 These are often set on a page template wrapper. If that scope is too wide, usage can be scoped to layout elements within as needed. Again, these should not be used as a body class, as that is reserved for `.ThemeInternal`.
 
 ```html
 <body>
-  <div class="ThemeDark">
+  <div class="ThemeVariantDark">
     <!-- the rest of the page -->
   </div>
 </body>
@@ -41,9 +41,9 @@ A more complex example showing nested usage:
 
 ```html
 <body class="ThemeInternal">
-  <div class="ThemeDark">
+  <div class="ThemeVariantDark">
     <!-- components  -->
-    <div class="ThemeLight">
+    <div class="ThemeVariantLight">
       <!-- a component that should use light colors regardless of its ancestors -->
     </div>
     <!-- more components -->
@@ -53,25 +53,25 @@ A more complex example showing nested usage:
 
 ### Key Points
 
-- `ThemeLight` is the default
+- `ThemeVariantLight` is the default
 - It is recommended that page templates always include the default theme.
-- If a page theme is controllable by a site editor, then include appropriate class bindings to switch between `.ThemeLight` or `.ThemeDark`
+- If a page theme is controllable by a site editor, then include appropriate class bindings to switch between `.ThemeVariantLight` or `.ThemeVariantDark`
 - These theme classes do not apply styles directly. Instead, components use them as an ancestor selector to modify their own styles.
 
 ### Usage in Storybook
 
-Storybook can mimic these theme choices. All stories are wrapped in `ThemeLight` by default. You can switch to `ThemeDark` on any story by using the toolbar menu (the icon looks like a picture). **Note that most components do not have a dark theme, and thus will appear "broken" when viewed with `ThemeDark`.**
+Storybook can mimic these theme choices. All stories are wrapped in `ThemeVariantLight` by default. You can switch to `ThemeVariantDark` on any story by using the toolbar menu (the icon looks like a picture). **Note that most components do not have a dark theme, and thus will appear "broken" when viewed with `ThemeVariantDark`.**
 
 ### Contributing developers: Writing light/dark theme styles for components
 
-For components that have light and dark themes, add theme rules to the end of your scss. The following is an example of a component whose background should be `bg-white` by default and in `ThemeLight` but `bg-black` in `ThemeDark`
+For components that have light and dark themes, add theme rules to the end of your scss. The following is an example of a component whose background should be `bg-white` by default and in `ThemeVariantLight` but `bg-black` in `ThemeVariantDark`
 
 ```scss
 .MyComponent {
   // set the default background color
   @apply bg-white;
-  // set the ThemeDark background color
-  .ThemeDark & {
+  // set the ThemeVariantDark background color
+  .ThemeVariantDark & {
     @apply bg-black;
   }
 }
@@ -79,7 +79,7 @@ For components that have light and dark themes, add theme rules to the end of yo
 
 ## Adaptive Text Colors
 
-Usage of `.text-jpl-red` vs `.text-jpl-red-light` (or the `.text-jpl-sky-blue` variants for internal sites) in the correct context of `.ThemeLight` and `.ThemeDark` ensures that the contrast of the text color is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created text color classes that follow this rule automatically. These color classes also check for usage of `.ThemeInternal`.
+Usage of `.text-jpl-red` vs `.text-jpl-red-light` (or the `.text-jpl-sky-blue` variants for internal sites) in the correct context of `.ThemeVariantLight` and `.ThemeVariantDark` ensures that the contrast of the text color is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created text color classes that follow this rule automatically. These color classes also check for usage of `.ThemeInternal`.
 
 ```css
 .text-theme-color
@@ -91,13 +91,13 @@ Usage of `.text-jpl-red` vs `.text-jpl-red-light` (or the `.text-jpl-sky-blue` v
 ```css
 .text-theme-color {
   @apply text-jpl-red;
-  .ThemeDark & {
+  .ThemeVariantDark & {
     @apply text-jpl-red-light;
   }
 }
 .text-theme-color-hover {
   @apply text-jpl-red-dark;
-  .ThemeDark & {
+  .ThemeVariantDark & {
     @apply text-jpl-red;
   }
 }

@@ -6,7 +6,7 @@
  */
 
 // import explorer 1's tailwind config
-import explorer1Config from '@explorer-1/common/tailwind.config';
+import explorer1Config from '@explorer-1/common/tailwind.config'
 
 export default {
   ...explorer1Config,
@@ -19,6 +19,6 @@ export default {
     './.www-frontend_temp/pages/**/*.vue',
     './.www-frontend_temp/mixins/**/*.vue',
     './.www-frontend_temp/plugins/**/*.js',
-    './.www-frontend_temp/nuxt.config.js',
-  ],
-};
+    './.www-frontend_temp/nuxt.config.js'
+  ]
+}

@@ -1,6 +1,6 @@
 export const HeroLargeTemplate = ({ image, eyebrow, title, summary }) => {
   return `
-  <section aria-label="Feature" class="HeroLarge ThemeDark max-w-screen-3xl relative mx-auto">
+  <section aria-label="Feature" class="HeroLarge ThemeVariantDark max-w-screen-3xl relative mx-auto">
     <div class="absolute inset-0 z-10 bg-black">
       <picture>
         <source media="(min-width: 768px)" srcset="${image.srcSet}" />
