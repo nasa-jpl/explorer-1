@@ -1,0 +1,78 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import * as Stories from './grid_layouthelpers.stories'
+
+<Meta of={Stories} />
+
+# Column Layout helpers
+
+Sometimes you may want to use a few common column indentations in your layouts for blocks on your page. Explorer 1 provides a few helper classes to aid in quickly creating these indented blocks. These helper classes also include responsive fallbacks.
+
+## .indent-col-base
+
+`.indent-col-base` is the **base class that you must add to any element that will use additional helper classes covered in this documentation**. Its immediate parent must be `.BaseGrid` (or any 12-column grid). It sets the width to start at the first column and end after the last column, i.e. full width.
+
+```css
+.indent-col-base {
+  @apply col-start-1 col-end-13; // full width of 12 grid container
+}
+```
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.BaseWidth}
+/>
+
+## .indent-col-2
+
+`.indent-col-2` adds to `.indent-col-base` by overriding the `col-start` and `col-end` for `lg` screens to indent content to the **second** column.
+
+```css
+.indent-col-2 {
+  @screen lg {
+    @apply col-start-2 col-end-12;
+  }
+}
+```
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.ColTwoStart}
+/>
+
+## .indent-col-3
+
+`.indent-col-3` adds to `.indent-col-base` by overriding the `col-start` and `col-end` for `lg` screens to indent content to the **third** column.
+
+```css
+.indent-col-3 {
+  @screen lg {
+    @apply col-start-3 col-end-11;
+  }
+}
+```
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.ColThreeStart}
+/>
+
+## .indent-col-4
+
+`.indent-col-4` adds to `.indent-col-base` by overriding the `col-start` and `col-end` for `lg` screens to indent content to the **fourth** column, and at `md` screens to the **third** column.
+
+```css
+.indent-col-4 {
+  @screen md {
+    @apply col-start-3 col-end-11;
+  }
+
+  @screen lg {
+    @apply col-start-4 col-end-10;
+  }
+}
+```
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.ColFourStart}
+/>

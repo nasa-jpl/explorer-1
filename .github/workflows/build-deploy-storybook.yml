@@ -18,24 +18,27 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Set up Node ⬢
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install dependencies 🧱
-        run: npm ci
+        run: pnpm ci
 
       - name: Build static Storybook 🛠
-        run: npm run build-storybook
-      
+        run: make html-storybook-build
+
         # https://github.com/JamesIves/github-pages-deploy-action/issues/1475#issuecomment-1824079512
       - name: Add nojekyll file to read underscore files 📋
-        run: cd storybook_compiled && touch .nojekyll
+        run: cd apps/html-storybook/storybook_compiled && touch .nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: storybook_compiled
+          folder: apps/html-storybook/storybook_compiled
           branch: gh-pages

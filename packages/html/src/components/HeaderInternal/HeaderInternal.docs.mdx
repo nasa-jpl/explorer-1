@@ -1,0 +1,154 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import * as Stories from './HeaderInternal.stories'
+import * as NavInternalPanelStories from './../NavInternal/NavInternalPanel.stories'
+
+<Meta of={Stories} />
+
+# Internal Header
+
+Configurable to accommodate just an AppBar or complex site navigation, along with optional search and sign in/out buttons.
+
+Note: to view with functioning dropdowns and search field expansion, you must switch to <strong>Canvas View</strong>.
+
+- [With Navigation](#top)
+  - [With Sign In Buttons](#with-sign-in-buttons)
+  - [How to configure dropdowns and menu items](#configuring-dropdowns-and-menu-items)
+- [AppBar Only](#just-the-appbar)
+
+<span id="top"></span>
+
+## With Navigation
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.Default}
+/>
+
+<span id="props"></span>
+
+### Props
+
+<Controls of={Stories.Default} />
+
+<span id="with-sign-in-buttons"></span>
+
+## With Sign In buttons
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  of={Stories.WithSignIn}
+/>
+
+<Controls of={Stories.WithSignIn} />
+
+<span id="configuring-dropdowns-and-menu-items"></span>
+
+## Configuring dropdowns and menu items
+
+The create your own menu items, you can either copy the html template as rendered here and manually edit as needed, or you can populate the `menuItems` array to have the template generated for you in Storybook. Either way, be sure that each menu item is given a unique id.
+
+To populate the `menuItems` array, a specific structure for each object in the array must be followed. Use the examples below as starting points to construct your array. You can then update the `menuItems` value in the [Props Table](#props) at the top of the page (or in Canvas view). Be sure to switch to raw data values when doing this.
+
+Items in `menuItems` can be given a property of `isActive: true` to highlight them with a red underline to indicate that they are the page you are on (or section you are in).
+
+### Example of a single menu item, no dropdown
+
+```json
+{ "id": 1, "title": "Home", "url": "#" }
+```
+
+The navigation assumes you are using relative links for local links and will auto-detect external links by checking for `h` (as in http or https) at the beginning of the url string.
+
+```json
+{ "id": 7, "title": "External", "url": "https://www.jpl.nasa.gov/" }
+```
+
+This data would create similar navigation links such as "Home" and "External" in the example [at the top of this page](#top)
+
+### Example panel with a simple combination
+
+One highlight, and several single-level nav items.
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.Default}
+/>
+
+<Controls
+  of={NavInternalPanelStories.Default}
+  include={['menuItems', 'highlights']}
+/>
+
+### Example panel with no highlights
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.NoHighlights}
+/>
+
+Note the lack of `highlights` in the data structure below:
+
+<Controls
+  of={NavInternalPanelStories.NoHighlights}
+  include={['menuItems', 'highlights']}
+/>
+
+### Example panel with highlights only
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.AllHighlights}
+/>
+
+Note the lack of `menuItems` in the data structure below:
+
+<Controls
+  of={NavInternalPanelStories.AllHighlights}
+  include={['menuItems', 'highlights']}
+/>
+
+### Example panel with navigation headings
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.WithHeadings}
+/>
+
+Note the nested `menuItems` array within each top-level `menuItem`. For more details on how these work, view the nav [Section](?path=/story/global-layout-headers-for-internal-sites-elements-panel--with-headings) documentation.
+
+<Controls
+  of={NavInternalPanelStories.WithHeadings}
+  include={['menuItems', 'highlights']}
+/>
+
+### Example panel with a more complex combination
+
+One highlight, section headings, and allowing breaks across columns.
+
+<Canvas
+  className="sbdocs-preview-full-width"
+  meta={NavInternalPanelStories}
+  of={NavInternalPanelStories.Combination}
+/>
+
+<Controls of={NavInternalPanelStories.Combination} />
+
+> In all of the above examples, `allowSectionBreaks` and `allowSectionColumns` can be modified as needed. For information on what these are, see documentation on the Internal Navigation [Panel](?path=/story/global-layout-headers-for-internal-sites-elements-panel--default)
+
+<span id="just-the-appbar"></span>
+
+## Just the AppBar
+
+<Canvas of={Stories.AppBarOnly} />
+
+<Controls of={Stories.AppBarOnly} />
+
+### With Sign In buttons
+
+<Canvas of={Stories.AppBarWithSignIn} />
+
+<Controls of={Stories.AppBarWithSignIn} />

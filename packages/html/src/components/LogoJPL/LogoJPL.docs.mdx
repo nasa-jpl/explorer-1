@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import * as Stories from './LogoJPL.stories'
+
+<Meta of={Stories} />
+
+# JPL Logo
+
+The JPL Logo has strict color usage restrictions and should only be used on internal sites, namely in the [AppBar](?path=/docs/global-layout-headers-for-internal-sites-elements-overview--docs).
+
+You can change the size of the logo by using [TailwindCSS width classes](https://v2.tailwindcss.com/docs/width). Explorer 1 includes other widths not documented by Tailwind. You can find all custom widths in the [appendix](?path=/docs/appendix-tailwindcss--docs), in the `extend.spacing` object.
+
+## On light backgrounds
+
+### Standard
+
+<Canvas of={Stories.Default} />
+
+<span id="with-sign-in-buttons"></span>
+
+### Black
+
+<Canvas of={Stories.Black} />
+
+## On dark backgrounds
+
+### White
+
+<Canvas of={Stories.White} />

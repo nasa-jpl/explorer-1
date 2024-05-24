@@ -1,35 +1,75 @@
-# mac OS
-.DS_Store
-
 # npm
 node_modules/
 npm-debug.log
 
-# parcel.js
-.parcel-cache
-/src/.parcel
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-# Storybook
-storybook_compiled
-
-# PyCharm
-.idea
-
-# vscode
-.vscode
-
-# IntelliJ
-out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
-
-# Tailwind
-.www-frontend_temp/
+# Temp directories
+.temp
+.tmp
+.cache
 
 # Linter caches
 .eslintcache
 .stylelintcache
 
-# logs
-.log
+# Logs
+*.log*
+
+# PyCharm
+.idea
+
+# Intellij
+out/
+*.iml
+.idea
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History extension for VSCode
+.history
+
+# Testing
+reports
+coverage
+*.lcov
+.nyc_output
+
+# Storybook
+storybook_compiled
+
+# Nuxt
+.nuxt
+.output
+.data
+.vercel_build_output
+.build-*
+.netlify
+
+# Tailwind
+.www-frontend_temp/
+
+# copied assets when preparing builds
+apps/**/.storybook/static/dist
+packages/**/src/assets/fonts
+
+# dist
+dist
+!packages/**/dist
