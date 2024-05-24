@@ -18,8 +18,9 @@ export default {
     {
       name: '@storybook/addon-essentials',
       options: {
+        actions: false,
         backgrounds: false,
-        actions: false
+        outlines: false
       }
     },
     {

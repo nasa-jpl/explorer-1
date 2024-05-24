@@ -1,5 +1,3 @@
-import type { Config } from 'tailwindcss'
-
 /*
  ** TailwindCSS Configuration File
  **
@@ -10,7 +8,7 @@ import type { Config } from 'tailwindcss'
 // import explorer 1's tailwind config
 import explorer1Config from '@explorer-1/common/tailwind.config'
 
-export default <Partial<Config>>{
+export default {
   ...explorer1Config,
   content: ['./node_modules/@explorer-1/vue/src/components/**/*.vue']
 }

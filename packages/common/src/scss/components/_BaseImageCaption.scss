@@ -15,11 +15,11 @@
     }
   }
 
-  .ThemeLight & {
+  .ThemeVariantLight & {
     @apply text-gray-mid-dark;
   }
 
-  .ThemeDark & {
+  .ThemeVariantDark & {
     @apply text-gray-mid;
   }
 }
