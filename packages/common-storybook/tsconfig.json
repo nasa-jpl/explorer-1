@@ -1,0 +1,5 @@
+{
+  "extends": "@explorer-1/tsconfig/storybook.json",
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*"]
+}

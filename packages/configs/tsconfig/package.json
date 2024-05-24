@@ -1,0 +1,9 @@
+{
+  "name": "@explorer-1/tsconfig",
+  "version": "1.0.0",
+  "description": "Shared tsconfig",
+  "main": "index.json",
+  "keywords": [
+    "tsconfig"
+  ]
+}

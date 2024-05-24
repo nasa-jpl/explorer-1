@@ -1,0 +1,10 @@
+{
+  "name": "@explorer-1/prettier-config",
+  "version": "1.0.0",
+  "description": "Shared prettier config",
+  "main": "index.json",
+  "keywords": [
+    "prettier",
+    "prettier-config"
+  ]
+}

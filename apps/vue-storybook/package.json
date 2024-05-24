@@ -1,0 +1,47 @@
+{
+  "name": "@explorer-1/vue-storybook",
+  "version": "0.0.0",
+  "private": true,
+  "prettier": "@explorer-1/prettier-config",
+  "scripts": {
+    "dev": "pnpm run storybook",
+    "storybook": "storybook dev -c .storybook -p 6006 --ci",
+    "build": "storybook build -c .storybook -o storybook_compiled",
+    "percy": "percy storybook http://localhost:6006",
+    "percy:dry-run": "percy storybook http://localhost:6006 --dry-run",
+    "lint": "eslint stories",
+    "lint:fix": "eslint stories --fix",
+    "init-msw": "msw init public/"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^4.0.26",
+    "@tailwindcss/forms": "^0.5.7",
+    "swiper": "^8.0.7",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@explorer-1/common": "workspace:*",
+    "@explorer-1/common-storybook": "workspace:*",
+    "@explorer-1/prettier-config": "workspace:*",
+    "@explorer-1/tsconfig": "workspace:*",
+    "@explorer-1/vue": "workspace:*",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@storybook/addon-essentials": "^8.1.2",
+    "@storybook/blocks": "^8.1.2",
+    "@storybook/vue3": "^8.1.2",
+    "@storybook/vue3-vite": "^8.1.2",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "autoprefixer": "^10.4.19",
+    "msw": "^1.2.1",
+    "msw-storybook-addon": "^2.0.2",
+    "postcss": "^8.4.38",
+    "rimraf": "^5.0.5",
+    "storybook": "^8.1.2",
+    "tailwindcss": "^3.4.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
+  }
+}
