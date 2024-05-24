@@ -42,7 +42,7 @@
       window.FRAMEWORK_OPTIONS = {};
       window.CHANNEL_OPTIONS = {};
       window.FEATURES = {"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false,"disallowImplicitActionsInRenderV8":true};
-      window.STORIES = [{"titlePrefix":"","directory":"./storybook/stories","files":"**/*.docs.mdx","importPathMatcher":"^\\.[\\\\/](?:storybook\\/stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.docs\\.mdx)$"},{"titlePrefix":"","directory":"./storybook/stories","files":"**/*.stories.@(js|ts)","importPathMatcher":"^\\.[\\\\/](?:storybook\\/stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|ts))$"}];
+      window.STORIES = [{"titlePrefix":"","directory":"./node_modules/@explorer-1/html/src","files":"**/*.stories.@(js|ts)","importPathMatcher":"^\\.[\\\\/](?:node_modules\\/@explorer-1\\/html\\/src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|ts))$"},{"titlePrefix":"","directory":"./node_modules/@explorer-1/html/src","files":"**/*.docs.@(mdx|jsx)","importPathMatcher":"^\\.[\\\\/](?:node_modules\\/@explorer-1\\/html\\/src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.docs\\.(mdx|jsx))$"}];
       window.DOCS_OPTIONS = {"defaultName":"Docs","autodocs":"tag"};
       window.TAGS_OPTIONS = {"dev-only":{"excludeFromDocsStories":true},"docs-only":{"excludeFromSidebar":true},"test-only":{"excludeFromSidebar":true,"excludeFromDocsStories":true}};
 
@@ -509,10 +509,10 @@
   document.addEventListener('DOMContentLoaded', (e) => {
     if (domContentAlreadyLoaded) {
       // only add the script if it hasn't been added yet
-      const scriptTag = document.querySelector('[src="js/explorer-1.min.js"]')
+      const scriptTag = document.querySelector('[src="dist/js/explorer-1.min.js"]')
       if (!scriptTag) {
         var tag = document.createElement('script')
-        tag.src = 'js/explorer-1.min.js'
+        tag.src = 'dist/js/explorer-1.min.js'
         document.getElementsByTagName('head')[0].appendChild(tag)
         e.stopPropagation()
       } else {
@@ -526,12 +526,12 @@
 
 <style type="text/css">
   /* styles for docs tab */
-  @import 'css/font-face.css';
+  /* @import 'css/font-face.css'; */
 
   #storybook-docs
     .sbdocs
     .sbdocs-content
-    *:not(.sbdocs-preview, .sbdocs-preview *) {
+    *:not(.sbdocs-preview, .sbdocs-preview *, pre, pre *, code, code *) {
     font-family: Metropolis, sans-serif !important;
   }
   /* make docs have full width iframes
@@ -567,7 +567,7 @@
     margin-right: auto;
   }
 
-  .sbdocs .sbdocs-content ol {
+  .sbdocs .sbdocs-content ol:not(.list-none) {
     list-style-type: decimal;
   }
 
@@ -588,11 +588,7 @@
   }
 
   /* unset the mysterious height that storybook adds to Canvas doc blocks rendered via a React component */
-  .sbdocs.sbdocs-content
-    .reactdocs-content
-    .sbdocs-preview
-    .docs-story
-    div[height='20'] {
+  .sbdocs.sbdocs-content .reactdocs-content .sbdocs-preview .docs-story div[height='20'] {
     height: unset;
   }
 
@@ -675,7 +671,7 @@
   }
 </style>
 
-    <script type="module" crossorigin src="./assets/iframe-DSghEARu.js"></script>
+    <script type="module" crossorigin src="./assets/iframe-CvNcXiub.js"></script>
   </head>
 
   <body>
