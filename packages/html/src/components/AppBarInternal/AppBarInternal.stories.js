@@ -18,7 +18,7 @@ export const Default = AppBarInternalTemplate.bind({})
 Default.storyName = 'AppBar'
 Default.args = AppBarInternalTemplate.stories.Default.args
 
-const AppBarInternalStoryMeta = {
+export const AppBarInternalStoryMeta = {
   stories: {
     Default: {
       storyName: 'AppBar',
