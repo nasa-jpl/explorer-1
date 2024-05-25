@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "npm run prepare && vite",
     "build": "npm run prepare && vue-tsc && vite build",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
     "preview": "vite preview",
     "prepare": "npm run prepare:fonts",
     "prepare:fonts": "cp -R ./node_modules/@explorer-1/common/src/fonts/ ./src/assets/fonts/"
@@ -24,11 +24,8 @@
   "devDependencies": {
     "@explorer-1/common": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^7.10.0",
-    "@typescript-eslint/parser": "^7.10.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.19",
-    "eslint-plugin-prettier-vue": "^5.0.0",
     "postcss": "^8.4.38",
     "typescript": "^5.2.2",
     "vite": "^5.2.11",

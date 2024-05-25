@@ -25,8 +25,8 @@ const compat = new FlatCompat({
 
 export default [
   js.configs.recommended,
-  ...compat.extends('plugin:storybook/recommended'),
   ...compat.extends('plugin:vue/vue3-recommended'),
+  ...compat.extends('plugin:storybook/recommended'),
   {
     files: [
       '**/*.vue',
@@ -59,6 +59,7 @@ export default [
       ecmaVersion: 'latest',
     },
     rules: {
+      'semi': 'off',
       '@stylistic/semi': ['warn', 'never'],
       // allow async-await
       'generator-star-spacing': 'off',
@@ -68,6 +69,7 @@ export default [
       'no-void': 'off',
       'multiline-ternary': 'off',
       'no-unused-vars': 'warn',
+      
       'no-undef': 'warn',
 
       'prefer-promise-reject-errors': 'off',
@@ -87,11 +89,14 @@ export default [
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/restrict-template-expressions': 'off',
       '@typescript-eslint/no-misused-promises': 'off',
       '@typescript-eslint/no-unsafe-argument': 'off',
-      'storybook/hierarchy-separator': 'warn',
+      'storybook/hierarchy-separator': 'off',
+      'storybook/prefer-pascal-case': 'off',
+      'storybook/story-exports': 'off',
       'vue/singleline-html-element-content-newline': 'off',
       'vue/max-attributes-per-line': 'off',
     },

@@ -34,7 +34,7 @@ export const MixinCarouselTemplate = ({
 
   // create centerClass based on center boolean
   let centerClass = 'mx-auto'
-  if (!!center) centerClass = 'mx-auto'
+  if (center) centerClass = 'mx-auto'
   else if (center === false) centerClass = ''
 
   // default rendering of slides if items are provided.
