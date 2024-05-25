@@ -11,8 +11,8 @@
     "build:fontcss": "cp ./../common/src/scss/_fonts.scss ./dist/assets/css/font-face.css",
     "fetch-www": "if ! git clone --depth 1 git@github.com:nasa-jpl/www-frontend.git .www-frontend_temp; then echo 'Updating temp copy of www-frontend' && cd .www-frontend_temp && git pull; fi",
     "preview": "vite preview",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
   },
   "prettier": "@explorer-1/prettier-config",
   "browserslist": [
