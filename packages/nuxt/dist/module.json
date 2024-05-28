@@ -3,7 +3,7 @@
   "configKey": "explorer1",
   "version": "0.0.0",
   "builder": {
-    "@nuxt/module-builder": "0.6.0",
+    "@nuxt/module-builder": "0.7.0",
     "unbuild": "2.0.0"
   }
 }
