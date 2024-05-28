@@ -4,6 +4,7 @@
 
 const swiperOptions = {
   MixinCarousel: {
+    init: false,
     slidesPerView: 1.25,
     speed: 500,
     threshold: 20, // swipe threshold in px
@@ -38,8 +39,8 @@ const swiperOptions = {
     },
     on: {
       init(swiper) {
-        swiper.$el.removeClass('opacity-0')
-        swiper.$el.addClass('opacity-100')
+        const classList = swiper.el.classList
+        classList.replace('opacity-0', 'opacity-100')
       }
     }
   },
