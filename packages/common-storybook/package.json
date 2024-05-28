@@ -9,7 +9,7 @@
     "@explorer-1/tsconfig": "workspace:*",
     "@storybook/blocks": "^8.1.2",
     "rimraf": "^5.0.5",
-    "storybook": "^8.1.2",
+    "storybook": "^8.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2"
   }
