@@ -1,18 +1,7 @@
 import { BlockImageGalleryCoverTemplate } from '../BlockImageGalleryCover/BlockImageGalleryCover'
 import { BlockImageStandardTemplate } from '../BlockImage/BlockImageStandard'
 import { BaseButtonTemplate } from '../BaseButton/BaseButton'
-// @ts-ignore
-// import Swiper, { Navigation, Pagination, Lazy, A11y } from 'swiper'
-// import swiperOptions from './../../assets/js/vendors/_swiperOptions.js'
 
-// @ts-ignore
-// import { initBlockImageCarousel } from './../../assets/js/vendors/_swiper.js'
-// function initBlockImageCarousel() {
-//   return new Swiper('.BlockImageCarousel .swiper', {
-//     modules: [Navigation, Lazy, A11y, Pagination],
-//     ...swiperOptions.BlockImageCarousel
-//   })
-// }
 export const BlockImageCarouselTemplate = ({ images, galleryCoverImage, fancyboxGallery }) => {
   let slides = ''
   if (images.length > 0) {
