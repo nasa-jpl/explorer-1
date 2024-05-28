@@ -39,7 +39,7 @@
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/vue": "workspace:*",
     "@nuxt/devtools": "^1.2.0",
-    "@nuxt/module-builder": "^0.6.0",
+    "@nuxt/module-builder": "^0.7.0",
     "@nuxt/schema": "^3.11.2",
     "@nuxt/test-utils": "^3.12.1",
     "@types/node": "^20.12.11",
