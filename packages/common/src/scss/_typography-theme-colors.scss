@@ -3,35 +3,33 @@
  * ex: import this file in a vue component to be able to @apply these classes
  */
 
-@layer utilities {
-  .text-theme-color {
+.text-theme-color {
+  @apply text-jpl-red;
+}
+
+.text-theme-color-hover {
+  @apply text-jpl-red-dark;
+}
+
+.ThemeVariantLight {
+  .text-theme-color,
+  .hover\:text-theme-color:hover {
     @apply text-jpl-red;
   }
 
-  .text-theme-color-hover {
+  .text-theme-color-hover,
+  .hover\:text-theme-color-hover:hover {
     @apply text-jpl-red-dark;
   }
+}
 
-  .ThemeVariantLight {
-    .text-theme-color,
-    .hover\:text-theme-color:hover {
-      @apply text-jpl-red;
-    }
-
-    .text-theme-color-hover,
-    .hover\:text-theme-color-hover:hover {
-      @apply text-jpl-red-dark;
-    }
+.ThemeVariantDark {
+  .text-theme-color,
+  .hover\:text-theme-color:hover {
+    @apply text-jpl-red-light;
   }
 
-  .ThemeVariantDark {
-    .text-theme-color,
-    .hover\:text-theme-color:hover {
-      @apply text-jpl-red-light;
-    }
-
-    .text-theme-color-hover .hover\:text-theme-color-hover:hover {
-      @apply text-jpl-red;
-    }
+  .text-theme-color-hover .hover\:text-theme-color-hover:hover {
+    @apply text-jpl-red;
   }
 }

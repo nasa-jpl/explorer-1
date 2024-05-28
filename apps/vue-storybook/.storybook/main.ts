@@ -7,18 +7,19 @@ const config = {
       options: {
         actions: false,
         backgrounds: false,
-        outlines: false,
-      },
+        outlines: false
+      }
     },
     '@storybook/addon-a11y',
     '@whitespace/storybook-addon-html',
+    'storybook-addon-vue-slots'
   ],
 
   framework: {
     name: '@storybook/vue3-vite',
-    options: {},
+    options: {}
   },
 
-  docs: {},
-};
-export default config;
+  docs: {}
+}
+export default config
