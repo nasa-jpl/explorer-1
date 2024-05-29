@@ -42,7 +42,5 @@ export default defineComponent({
 </template>
 
 <style lang="scss">
-@import '@explorer-1/common/src/scss/typography-theme-colors';
-// required for @apply text-theme-color in _BaseImageCaption.scss
 @import '@explorer-1/common/src/scss/components/BaseImageCaption';
 </style>

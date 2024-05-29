@@ -7,10 +7,10 @@
     }
 
     a {
-      @apply text-theme-color underline cursor-pointer;
+      @apply text-action-color underline cursor-pointer;
 
       @include hover {
-        @apply text-theme-color-hover;
+        @apply text-action-color-hover;
       }
     }
   }
