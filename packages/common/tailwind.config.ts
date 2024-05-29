@@ -1,102 +1,20 @@
 import type { Config } from 'tailwindcss'
 import type { CustomThemeConfig } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
+import themeColors, {
+  foundationColors,
+  grayScaleColors,
+  socialColors,
+  ThemeWww,
+  ThemeEdu,
+  ThemeInternal
+} from './tailwind.colors'
 /*
  ** TailwindCSS Configuration File
  **
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
-
-const foundationColors = {
-  'jpl-red': '#E31937',
-  'jpl-red-light': '#E73B54',
-  'jpl-red-dark': '#C1152E',
-  'jpl-red-darker': '#5C0411',
-  'jpl-aqua': '#489FDF',
-  blue: '#8BCBFA',
-  'dark-blue': '#004562',
-  green: '#14C97A'
-}
-
-const internalColors = {
-  'jpl-sky-blue': '#0080A4', // TODO: update with different color
-  'jpl-sky-blue-light': 'red', // '#00a0cc', // TODO: update with different color
-  'jpl-sky-blue-dark': '#006480', // TODO: update with different color
-  'jpl-sky-blue-darker': '#003c4d' // TODO: update with different color
-}
-
-const eduColors = {
-  'edu-purple': '#9438E0',
-  'edu-purple-light': '#A85EE6',
-  'edu-purple-dark': '#741EBB',
-  'edu-purple-darker': '#33283D',
-  'edu-teal': '#007E99',
-  'edu-teal-light': '#00a7cc', // TODO: update with different color
-  'edu-teal-dark': '#005366', // TODO: update with different color
-  'edu-peach': '#FF5555'
-}
-
-const semanticColors = {
-  'alert-gold': '#FFBA32',
-  'alert-gold-light': '#FFF9EB',
-  'disabled-gray': '#D8D8D8', // same as Light Mid Gray
-  'error-red': '#C1152E', // same as JPL Red Dark
-  'error-red-light': '#FFE8EB',
-  'focus-blue': '#1871C9',
-  'focus-blue-light': '#E8F1FA',
-  'success-green': '#33A17B',
-  'success-green-light': '#E1F5EE'
-}
-
-const grayScale = {
-  white: '#FFFFFF',
-  'off-white': '#FAFAFA',
-  'gray-light': '#F5F5F5',
-  'gray-light-mid': '#D8D8D8',
-  'gray-mid': '#949494',
-  'gray-mid-dark': '#6F6F6F',
-  'gray-dark': '#222222',
-  black: '#000000'
-}
-
-const socialColors = {
-  facebook: '#3b5998',
-  twitter: '#000000',
-  instagram: '#dd2a7b',
-  youtube: '#ff0000',
-  reddit: '#ff4500'
-}
-
-const uiColors = {
-  'action-color': foundationColors['jpl-red'],
-  'action-color-light': foundationColors['jpl-red-light'],
-  'action-color-dark': foundationColors['jpl-red-dark'],
-  'action-color-darker': foundationColors['jpl-red-darker'],
-  'emphasis-color': foundationColors['jpl-red'],
-  'emphasis-color-dark': foundationColors['jpl-red-dark'],
-  'highlight-color': foundationColors['jpl-red'],
-  'highlight-color-dark': foundationColors['jpl-red-dark']
-}
-
-const ThemeVariantColors = {
-  'theme-color': 'var(--color-theme-color)',
-  'theme-color-light': 'var(--color-theme-color-light)',
-  'theme-color-dark': 'var(--color-theme-color-dark)',
-  'theme-color-darker': 'var(--color-theme-color-darker)'
-}
-const themeColors = {
-  ...ThemeVariantColors,
-  ...foundationColors,
-  ...internalColors,
-  ...eduColors,
-  ...grayScale,
-  ...semanticColors,
-  ...socialColors,
-  ...uiColors,
-  transparent: 'transparent',
-  current: 'currentColor'
-}
 
 // Font stack optimised for built-in fonts of each major operating system, with support for emojis.
 // Only displayed if the site’s web fonts fail to load.
@@ -219,8 +137,8 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'jpl-red-light-w50': foundationColors['jpl-red-light'] + ' 50%',
     'jpl-sky-blue-w50': foundationColors['jpl-sky-blue'] + ' 50%',
     'jpl-sky-blue-dark-w50': foundationColors['jpl-sky-blue-dark'] + ' 50%',
-    'white-w50': grayScale.white + ' 50%',
-    'gray-dark-w50': grayScale['gray-dark'] + ' 50%',
+    'white-w50': grayScaleColors.white + ' 50%',
+    'gray-dark-w50': grayScaleColors['gray-dark'] + ' 50%',
     'facebook-w50': socialColors.facebook + ' 50%',
     'twitter-w50': socialColors.twitter + ' 50%',
     'instagram-w50': socialColors.instagram + ' 50%',
@@ -234,17 +152,13 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'theme-color-w50': 'var(--color-theme-color)' + ' 50%',
     'theme-color-dark-w50': 'var(--color-theme-color-dark)' + ' 50%',
     'theme-color-darker-w50': 'var(--color-theme-color-darker)' + ' 50%',
-    'theme-color-light-w50': 'var(--color-theme-color-light)' + ' 50%',
-    'action-color-w50': foundationColors['jpl-red'] + ' 50%',
-    'action-color-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
-    'action-color-darker-w50': foundationColors['jpl-red-dark'] + ' 50%',
-    'action-color-light-w50': foundationColors['jpl-red-light'] + ' 50%'
+    'theme-color-light-w50': 'var(--color-theme-color-light)' + ' 50%'
   },
   checkbox: {
     display: 'inline-block',
     verticalAlign: 'top',
     flexShrink: 0,
-    borderColor: grayScale['gray-dark'],
+    borderColor: grayScaleColors['gray-dark'],
     borderWidth: 0,
     borderRadius: 0
   },
@@ -349,137 +263,28 @@ const defaultTheme: Partial<CustomThemeConfig> = {
   }
 }
 
-const ThemeInternal = {
-  colors: {
-    // 'theme-color': 'var(--color-theme-color)',
-    // 'theme-color-light': internalColors['jpl-sky-blue-light'],
-    // 'theme-color-dark': internalColors['jpl-sky-blue-dark'],
-    'action-color': internalColors['jpl-sky-blue'],
-    'action-color-light': internalColors['jpl-sky-blue-light'],
-    'action-color-dark': internalColors['jpl-sky-blue-dark'],
-    'emphasis-color': internalColors['jpl-sky-blue'],
-    'emphasis-color-dark': internalColors['jpl-sky-blue-dark']
-  },
-  gradientColorStops: {
-    // 'theme-color-w50': internalColors['jpl-sky-blue'] + ' 50%',
-    // 'theme-color-dark-w50': internalColors['jpl-sky-blue-dark'] + ' 50%',
-    // 'theme-color-darker-w50': internalColors['jpl-sky-blue-dark'] + ' 50%',
-    // 'theme-color-light-w50': internalColors['jpl-sky-blue-light'] + ' 50%',
-    'action-color-w50': internalColors['jpl-sky-blue'] + ' 50%',
-    'action-color-dark-w50': internalColors['jpl-sky-blue-dark'] + ' 50%',
-    'action-color-darker-w50': internalColors['jpl-sky-blue-darker'] + ' 50%',
-    'action-color-light-w50': internalColors['jpl-sky-blue-light'] + ' 50%'
-  }
-}
-
 export default {
   mode: 'jit',
   darkMode: 'class',
   theme: defaultTheme,
   plugins: [
     require('@tailwindcss/forms'),
-    /**
-     * CSS Custom properties from design tokens.
-     */
-    // require('tailwindcss-themer')({
-    //   defaultTheme: {
-    //     extend: {
-    //       colors: defaultTheme.colors,
-    //       gradientColorStops: defaultTheme.gradientColorStops
-    //     }
-    //   },
-    //   themes: [
-    //     // {
-    //     //   name: 'internal-dark',
-    //     //   selectors: ['.ThemeInternalDark'],
-    //     //   extend: {
-    //     //     colors: {
-    //     //       ...ThemeInternal.colors,
-    //     //       'theme-color': 'var(--colors-theme-color)',
-    //     //       'theme-color-light': internalColors['jpl-sky-blue-light'],
-    //     //       'theme-color-dark': internalColors['jpl-sky-blue']
-    //     //     },
-    //     //     gradientColorStops: {
-    //     //       ...ThemeInternal.gradientColorStops,
-    //     //       'theme-color-w50': internalColors['jpl-sky-blue-light'] + ' 50%',
-    //     //       'theme-color-dark-w50': internalColors['jpl-sky-blue'] + ' 50%',
-    //     //       'theme-color-darker-w50': internalColors['jpl-sky-blue'] + ' 50%',
-    //     //       'theme-color-light-w50': internalColors['jpl-sky-blue-light'] + ' 50%'
-    //     //     }
-    //     //   }
-    //     // },
-    //     {
-    //       name: 'edu',
-    //       selectors: ['.ThemeEdu', '[data-theme="edu"]'],
-    //       extend: {
-    //         colors: {
-    //           // 'theme-color': eduColors['edu-teal'],
-    //           // 'theme-color-light': eduColors['edu-teal-light'],
-    //           // 'theme-color-dark': eduColors['edu-teal-dark'],
-    //           'action-color': eduColors['edu-teal'],
-    //           'action-color-light': eduColors['edu-teal-light'],
-    //           'action-color-dark': eduColors['edu-teal-dark'],
-    //           'emphasis-color': eduColors['edu-purple'],
-    //           'emphasis-color-dark': eduColors['edu-purple-dark']
-    //         },
-    //         gradientColorStops: {
-    //           // 'theme-color-w50': eduColors['edu-teal'] + ' 50%',
-    //           // 'theme-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
-    //           // 'theme-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
-    //           // 'theme-color-light-w50': eduColors['edu-teal-light'] + ' 50%',
-    //           'action-color-w50': eduColors['edu-teal'] + ' 50%',
-    //           'action-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
-    //           'action-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
-    //           'action-color-light-w50': eduColors['edu-teal-light'] + ' 50%'
-    //         }
-    //       }
-    //     },
-    //     {
-    //       name: 'internal',
-    //       selectors: ['.ThemeInternal', '[data-theme="internal"]'],
-    //       extend: ThemeInternal
-    //     }
-    //   ]
-    // }),
     plugin(({ addBase }) => {
       addBase({
-        ':root': {
-          '--color-theme-color': foundationColors['jpl-red'],
-          '--color-theme-color-light': foundationColors['jpl-red-light'],
-          '--color-theme-color-dark': foundationColors['jpl-red-dark'],
-          '--color-theme-color-darker': foundationColors['jpl-red-darker']
-          // '--gradientColorStop-theme-color-dark-w50': 'pink',
-          // '--gradientColorStop-theme-color-darker-w50': 'green',
-          // '--gradientColorStop-theme-color-light-w50': 'blue'
-        },
-        '.ThemeVariantDark': {
-          '--color-theme-color': 'pink',
-          '--color-theme-color-light': 'green',
-          '--color-theme-color-dark': 'blue',
-          '--color-theme-color-darker': 'purple'
-          // '--gradientColorStop-theme-color-dark-w50': 'pink',
-          // '--gradientColorStop-theme-color-darker-w50': 'green',
-          // '--gradientColorStop-theme-color-light-w50': 'blue'
-        },
-        '.ThemeInternal .ThemeVariantDark': {
-          '--color-theme-color': 'blue',
-          '--color-theme-color-light': 'pink',
-          '--color-theme-color-dark': 'green',
-          '--color-theme-color-darker': 'fuchsia'
-          // '--gradientColorStop-theme-color-dark-w50': 'pink',
-          // '--gradientColorStop-theme-color-darker-w50': 'green',
-          // '--gradientColorStop-theme-color-light-w50': 'purple'
-        }
+        // www theme
+        ':root, .ThemeVariantLight': ThemeWww.default,
+        '.ThemeVariantDark': ThemeWww.dark,
+        // edu theme
+        '.ThemeEdu, .ThemeEdu.ThemeVariantLight, .ThemeEdu .ThemeVariantLight': ThemeEdu.default,
+        '.ThemeEdu .ThemeVariantDark, .ThemeEdu.ThemeVariantDark': ThemeEdu.dark,
+        // internal theme
+        '.ThemeInternal, .ThemeInternal.ThemeVariantLight, .ThemeInternal .ThemeVariantLight':
+          ThemeInternal.default,
+        '.ThemeInternal .ThemeVariantDark, .ThemeInternal.ThemeVariantDark': ThemeInternal.dark
       })
     })
   ],
-  safelist: [
-    'ThemeVariantDark',
-    'ThemeVariantLight',
-    'ThemeEdu',
-    'ThemeInternal',
-    'to-theme-color-dark-w50'
-  ],
+  safelist: ['ThemeVariantDark', 'ThemeVariantLight', 'ThemeEdu', 'ThemeInternal'],
   future: {
     hoverOnlyWhenSupported: true
   },
