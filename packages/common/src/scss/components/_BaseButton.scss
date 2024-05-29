@@ -108,34 +108,4 @@
       @apply text-white;
     }
   }
-
-  //   .ThemeVariantLight & {
-  //     &.-primary {
-  //       @apply text-white bg-theme-color to-theme-color-dark-w50;
-  //     }
-
-  //     &.-secondary {
-  //       @apply text-theme-color bg-transparent border-theme-color to-theme-color-dark-w50;
-
-  //       @include hover {
-  //         // including a bg color resolves pixelation inconsistencies between browsers
-  //         @apply text-white border-theme-color-dark bg-theme-color-dark;
-  //       }
-  //     }
-  //   }
-
-  //   .ThemeVariantDark & {
-  //     &.-primary {
-  //       @apply text-white bg-theme-color-light to-theme-color-w50;
-  //     }
-
-  //     &.-secondary {
-  //       @apply text-theme-color-light bg-transparent border-theme-color-light to-theme-color-w50;
-
-  //       @include hover {
-  //         // including a bg color resolves pixelation inconsistencies between browsers
-  //         @apply text-white border-theme-color bg-theme-color;
-  //       }
-  //     }
-  //   }
 }

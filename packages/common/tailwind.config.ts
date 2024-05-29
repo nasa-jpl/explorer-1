@@ -271,22 +271,22 @@ export default {
     require('@tailwindcss/forms'),
     plugin(({ addBase }) => {
       addBase({
-        // www theme
+        // www theme selectors
         ':root, .ThemeVariantLight': ThemeWww.default,
         '.ThemeVariantDark': ThemeWww.dark,
-        // edu theme
+        // edu theme selectors
         '.ThemeEdu, .ThemeEdu.ThemeVariantLight, .ThemeEdu .ThemeVariantLight': ThemeEdu.default,
         '.ThemeEdu .ThemeVariantDark, .ThemeEdu.ThemeVariantDark': ThemeEdu.dark,
-        // internal theme
+        // internal theme selectors
         '.ThemeInternal, .ThemeInternal.ThemeVariantLight, .ThemeInternal .ThemeVariantLight':
           ThemeInternal.default,
         '.ThemeInternal .ThemeVariantDark, .ThemeInternal.ThemeVariantDark': ThemeInternal.dark
       })
     })
   ],
-  safelist: ['ThemeVariantDark', 'ThemeVariantLight', 'ThemeEdu', 'ThemeInternal'],
   future: {
     hoverOnlyWhenSupported: true
   },
+  safelist: ['ThemeVariantLight', 'ThemeVariantDark'],
   content: []
 } satisfies Config

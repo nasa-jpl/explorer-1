@@ -107,7 +107,6 @@ export default defineComponent({
       <slot name="icon"></slot>
     </span>
   </component>
-  <span class="ThemeInternal ThemeEdu ThemeVariantLight ThemeVariantDark"></span>
 </template>
 <style lang="scss">
 @import '@explorer-1/common/src/scss/components/BaseButton';

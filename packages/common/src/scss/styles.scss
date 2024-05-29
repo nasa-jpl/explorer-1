@@ -23,29 +23,3 @@
 
 // components
 @import 'components';
-
-// $jpl-sky-blue: 0 128 164; // 0080A4
-// $jpl-sky-blue-light: red; // #00a0cc
-// $jpl-sky-blue-dark: 0 100 128; // #006480
-// $jpl-sky-blue-darker: 0 60 77; // #003c4d
-
-// // overrides for light and dark variants of the themes
-// .ThemeVariantDark.ThemeInternal {
-//   --colors-theme-color: purple;
-//   --colors-theme-color-light: fuchsia;
-//   --colors-theme-color-dark: brown;
-//   --colors-theme-color-darker: orange;
-//   --gradientColorStops-theme-color-dark-w50: red;
-//   --gradientColorStops-theme-color-darker-w50: green;
-//   --gradientColorStops-theme-color-light-w50: blue;
-// }
-
-// @layer base {
-//   :root {
-//     --colors-theme-color: @apply --colors-action-color;
-//     --colors-theme-color-light: foundationColors[ 'jpl-red-light'] --colors-theme-color-dark: foundationColors[
-//       'jpl-red-dark'] --gradientColorStops-theme-color-dark-w50: foundationColors[ 'jpl-red-dark'] --gradientColorStops-theme-color-darker-w50:
-//       foundationColors[ 'jpl-red-darker'] --gradientColorStops-theme-color-light-w50:
-//       foundationColors[ 'jpl-red-light'];
-//   }
-// }
