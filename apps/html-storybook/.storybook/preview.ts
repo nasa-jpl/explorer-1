@@ -68,14 +68,14 @@ const preview = {
     },
     theme: {
       description: 'Global Theme',
-      defaultValue: 'defaultTheme',
+      defaultValue: 'ThemeDefault',
       toolbar: {
         title: 'Theme',
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
         items: [
           {
-            value: 'defaultTheme',
+            value: 'ThemeDefault',
             icon: 'circlehollow',
             title: 'Default Theme'
           },
