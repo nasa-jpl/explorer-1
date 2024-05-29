@@ -1,59 +1,59 @@
-/* internal theme text styles
- * kept in a separate scss file for easier use in components
- * ex: import this file in a vue component to be able to @apply these classes
- */
+// /* internal theme text styles
+//  * kept in a separate scss file for easier use in components
+//  * ex: import this file in a vue component to be able to @apply these classes
+//  */
 
-/* Deprecation warning:
- * .text-theme-red and .text-theme-red-hover are deprecated and will be removed in the next major release.
- * Use .text-theme-color and .text-theme-color-hover instead.
- */
+// /* Deprecation warning:
+//  * .text-theme-red and .text-theme-red-hover are deprecated and will be removed in the next major release.
+//  * Use .text-theme-color and .text-theme-color-hover instead.
+//  */
 
-@layer utilities {
-  .ThemeInternal {
-    .text-theme-color,
-    .text-theme-red,
-    .hover\:text-theme-color:hover,
-    .hover\:text-theme-red:hover {
-      @apply text-jpl-sky-blue-dark;
-    }
+// @layer utilities {
+//   .ThemeInternal {
+//     .text-theme-color,
+//     .text-theme-red,
+//     .hover\:text-theme-color:hover,
+//     .hover\:text-theme-red:hover {
+//       @apply text-jpl-sky-blue-dark;
+//     }
 
-    .text-theme-color-hover,
-    .text-theme-red-hover,
-    .hover\:text-theme-color-hover:hover,
-    .hover\:text-theme-red-hover:hover {
-      @apply text-jpl-sky-blue;
-    }
+//     .text-theme-color-hover,
+//     .text-theme-red-hover,
+//     .hover\:text-theme-color-hover:hover,
+//     .hover\:text-theme-red-hover:hover {
+//       @apply text-jpl-sky-blue;
+//     }
 
-    .ThemeVariantLight {
-      .text-theme-color,
-      .text-theme-red,
-      .hover\:text-theme-color:hover,
-      .hover\:text-theme-red:hover {
-        @apply text-jpl-sky-blue-dark;
-      }
+//     .ThemeVariantLight {
+//       .text-theme-color,
+//       .text-theme-red,
+//       .hover\:text-theme-color:hover,
+//       .hover\:text-theme-red:hover {
+//         @apply text-jpl-sky-blue-dark;
+//       }
 
-      .text-theme-color-hover,
-      .text-theme-red-hover,
-      .hover\:text-theme-color-hover:hover,
-      .hover\:text-theme-red-hover:hover {
-        @apply text-jpl-sky-blue;
-      }
-    }
+//       .text-theme-color-hover,
+//       .text-theme-red-hover,
+//       .hover\:text-theme-color-hover:hover,
+//       .hover\:text-theme-red-hover:hover {
+//         @apply text-jpl-sky-blue;
+//       }
+//     }
 
-    .ThemeVariantDark {
-      .text-theme-color,
-      .text-theme-red,
-      .hover\:text-theme-color:hover,
-      .hover\:text-theme-red:hover {
-        @apply text-jpl-sky-blue;
-      }
+//     .ThemeVariantDark {
+//       .text-theme-color,
+//       .text-theme-red,
+//       .hover\:text-theme-color:hover,
+//       .hover\:text-theme-red:hover {
+//         @apply text-jpl-sky-blue;
+//       }
 
-      .text-theme-color-hover,
-      .text-theme-red-hover,
-      .hover\:text-theme-color-hover:hover,
-      .hover\:text-theme-red-hover:hover {
-        @apply text-jpl-sky-blue-dark;
-      }
-    }
-  }
-}
+//       .text-theme-color-hover,
+//       .text-theme-red-hover,
+//       .hover\:text-theme-color-hover:hover,
+//       .hover\:text-theme-red-hover:hover {
+//         @apply text-jpl-sky-blue-dark;
+//       }
+//     }
+//   }
+// }

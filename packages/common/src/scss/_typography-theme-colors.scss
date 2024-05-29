@@ -3,33 +3,27 @@
  * ex: import this file in a vue component to be able to @apply these classes
  */
 
-.text-theme-color {
-  @apply text-jpl-red;
-}
-
 .text-theme-color-hover {
-  @apply text-jpl-red-dark;
+  @apply text-theme-color-dark;
 }
 
 .ThemeVariantLight {
-  .text-theme-color,
   .hover\:text-theme-color:hover {
-    @apply text-jpl-red;
+    @apply text-theme-color;
   }
 
   .text-theme-color-hover,
   .hover\:text-theme-color-hover:hover {
-    @apply text-jpl-red-dark;
+    @apply text-theme-color-dark;
   }
 }
 
 .ThemeVariantDark {
-  .text-theme-color,
   .hover\:text-theme-color:hover {
-    @apply text-jpl-red-light;
+    @apply text-theme-color-light;
   }
 
   .text-theme-color-hover .hover\:text-theme-color-hover:hover {
-    @apply text-jpl-red;
+    @apply text-theme-color;
   }
 }

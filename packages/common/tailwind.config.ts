@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import type { CustomThemeConfig } from 'tailwindcss/types/config'
+import plugin from 'tailwindcss/plugin'
 /*
  ** TailwindCSS Configuration File
  **
@@ -19,8 +20,10 @@ const foundationColors = {
 }
 
 const internalColors = {
-  'jpl-sky-blue': '#53C8ED',
-  'jpl-sky-blue-dark': '#0080A4'
+  'jpl-sky-blue': '#0080A4', // TODO: update with different color
+  'jpl-sky-blue-light': 'red', // '#00a0cc', // TODO: update with different color
+  'jpl-sky-blue-dark': '#006480', // TODO: update with different color
+  'jpl-sky-blue-darker': '#003c4d' // TODO: update with different color
 }
 
 const eduColors = {
@@ -29,8 +32,8 @@ const eduColors = {
   'edu-purple-dark': '#741EBB',
   'edu-purple-darker': '#33283D',
   'edu-teal': '#007E99',
-  'edu-teal-light': '#007E99', // TODO: update with different color
-  'edu-teal-dark': '#007E99', // TODO: update with different color
+  'edu-teal-light': '#00a7cc', // TODO: update with different color
+  'edu-teal-dark': '#005366', // TODO: update with different color
   'edu-peach': '#FF5555'
 }
 
@@ -68,15 +71,24 @@ const socialColors = {
 const uiColors = {
   'theme-color': foundationColors['jpl-red'],
   'theme-color-dark': foundationColors['jpl-red-dark'],
+  'theme-color-light': foundationColors['jpl-red-light'],
   'action-color': foundationColors['jpl-red'],
   'action-color-light': foundationColors['jpl-red-light'],
   'action-color-dark': foundationColors['jpl-red-dark'],
   'action-color-darker': foundationColors['jpl-red-darker'],
   'emphasis-color': foundationColors['jpl-red'],
-  'emphasis-color-dark': foundationColors['jpl-red-dark']
+  'emphasis-color-dark': foundationColors['jpl-red-dark'],
+  'highlight-color': foundationColors['jpl-red'],
+  'highlight-color-dark': foundationColors['jpl-red-dark']
 }
 
+const ThemeVariantColors = {
+  'theme-color': 'var(--color-theme-color)',
+  'theme-color-light': 'var(--color-theme-color-light)',
+  'theme-color-dark': 'var(--color-theme-color-dark)'
+}
 const themeColors = {
+  ...ThemeVariantColors,
   ...foundationColors,
   ...internalColors,
   ...eduColors,
@@ -221,6 +233,10 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'transparent-black-50': 'rgba(0 0 0 / 50%)',
     'transparent-black-25': 'rgba(0 0 0 / 25%)',
     'transparent-black-25-w50': 'rgba(0 0 0 / 25%) 50%',
+    'theme-color-w50': foundationColors['jpl-red'] + ' 50%',
+    'theme-color-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
+    'theme-color-darker-w50': foundationColors['jpl-red-dark'] + ' 50%',
+    'theme-color-light-w50': foundationColors['jpl-red-light'] + ' 50%',
     'action-color-w50': foundationColors['jpl-red'] + ' 50%',
     'action-color-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
     'action-color-darker-w50': foundationColors['jpl-red-dark'] + ' 50%',
@@ -335,12 +351,38 @@ const defaultTheme: Partial<CustomThemeConfig> = {
   }
 }
 
+const ThemeInternal = {
+  colors: {
+    // 'theme-color': 'var(--color-theme-color)',
+    // 'theme-color-light': internalColors['jpl-sky-blue-light'],
+    // 'theme-color-dark': internalColors['jpl-sky-blue-dark'],
+    'action-color': internalColors['jpl-sky-blue'],
+    'action-color-light': internalColors['jpl-sky-blue-light'],
+    'action-color-dark': internalColors['jpl-sky-blue-dark'],
+    'emphasis-color': internalColors['jpl-sky-blue'],
+    'emphasis-color-dark': internalColors['jpl-sky-blue-dark']
+  },
+  gradientColorStops: {
+    // 'theme-color-w50': internalColors['jpl-sky-blue'] + ' 50%',
+    // 'theme-color-dark-w50': internalColors['jpl-sky-blue-dark'] + ' 50%',
+    // 'theme-color-darker-w50': internalColors['jpl-sky-blue-dark'] + ' 50%',
+    // 'theme-color-light-w50': internalColors['jpl-sky-blue-light'] + ' 50%',
+    'action-color-w50': internalColors['jpl-sky-blue'] + ' 50%',
+    'action-color-dark-w50': internalColors['jpl-sky-blue-dark'] + ' 50%',
+    'action-color-darker-w50': internalColors['jpl-sky-blue-darker'] + ' 50%',
+    'action-color-light-w50': internalColors['jpl-sky-blue-light'] + ' 50%'
+  }
+}
+
 export default {
   mode: 'jit',
   darkMode: 'class',
   theme: defaultTheme,
   plugins: [
     require('@tailwindcss/forms'),
+    /**
+     * CSS Custom properties from design tokens.
+     */
     require('tailwindcss-themer')({
       defaultTheme: {
         extend: {
@@ -350,11 +392,33 @@ export default {
         }
       },
       themes: [
+        // {
+        //   name: 'internal-dark',
+        //   selectors: ['.ThemeInternalDark'],
+        //   extend: {
+        //     colors: {
+        //       ...ThemeInternal.colors,
+        //       'theme-color': 'var(--colors-theme-color)',
+        //       'theme-color-light': internalColors['jpl-sky-blue-light'],
+        //       'theme-color-dark': internalColors['jpl-sky-blue']
+        //     },
+        //     gradientColorStops: {
+        //       ...ThemeInternal.gradientColorStops,
+        //       'theme-color-w50': internalColors['jpl-sky-blue-light'] + ' 50%',
+        //       'theme-color-dark-w50': internalColors['jpl-sky-blue'] + ' 50%',
+        //       'theme-color-darker-w50': internalColors['jpl-sky-blue'] + ' 50%',
+        //       'theme-color-light-w50': internalColors['jpl-sky-blue-light'] + ' 50%'
+        //     }
+        //   }
+        // },
         {
           name: 'edu',
           selectors: ['.ThemeEdu', '[data-theme="edu"]'],
           extend: {
             colors: {
+              // 'theme-color': eduColors['edu-teal'],
+              // 'theme-color-light': eduColors['edu-teal-light'],
+              // 'theme-color-dark': eduColors['edu-teal-dark'],
               'action-color': eduColors['edu-teal'],
               'action-color-light': eduColors['edu-teal-light'],
               'action-color-dark': eduColors['edu-teal-dark'],
@@ -362,6 +426,10 @@ export default {
               'emphasis-color-dark': eduColors['edu-purple-dark']
             },
             gradientColorStops: {
+              // 'theme-color-w50': eduColors['edu-teal'] + ' 50%',
+              // 'theme-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
+              // 'theme-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
+              // 'theme-color-light-w50': eduColors['edu-teal-light'] + ' 50%',
               'action-color-w50': eduColors['edu-teal'] + ' 50%',
               'action-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
               'action-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
@@ -372,14 +440,79 @@ export default {
         {
           name: 'internal',
           selectors: ['.ThemeInternal', '[data-theme="internal"]'],
-          extend: {
-            colors: {
-              'action-color': 'orange' // for testing
-            }
-          }
+          extend: ThemeInternal
         }
       ]
     })
+    // plugin(({ addBase }) => {
+    //   addBase({
+    //     ':root': {
+    //       '--colors-theme-color': foundationColors['jpl-red'],
+    //       '--colors-theme-color-light': foundationColors['jpl-red-light'],
+    //       '--colors-theme-color-dark': foundationColors['jpl-red-dark'],
+    //       '--gradientColorStops-theme-color-dark-w50': foundationColors['jpl-red-dark'],
+    //       '--gradientColorStops-theme-color-darker-w50': foundationColors['jpl-red-darker'],
+    //       '--gradientColorStops-theme-color-light-w50': foundationColors['jpl-red-light']
+    //     },
+    //     '.ThemeInternal.ThemeVariantDark': {
+    //       '--colors-theme-color': '#0080a4',
+    //       '--colors-theme-color-light': 'red',
+    //       '--colors-theme-color-dark': '#006480',
+    //       '--colors-theme-color-darker': '#003c4d',
+    //       '--gradientColorStops-theme-color-dark-w50': 'pink',
+    //       '--gradientColorStops-theme-color-darker-w50': 'green',
+    //       '--gradientColorStops-theme-color-light-w50': 'blue'
+    //     }
+    //   })
+    // }),
+    // plugin(function ({ addUtilities }) {
+    //   addUtilities({
+    //     '.my-crazy-thing': {
+    //       background: 'red'
+    //     }
+    //   })
+    // })
+    // plugin(({ addBase }) => {
+    //   addBase({
+    //     '.ThemeInternal.ThemeVariantDark': {
+    //       border: '5px solid pink',
+    //       '--colors-theme-color': '#0080a4',
+    //       '--colors-theme-color-light': 'red',
+    //       '--colors-theme-color-dark': '#006480',
+    //       '--colors-theme-color-darker': '#003c4d',
+    //       '--gradientColorStops-theme-color-dark-w50': 'pink',
+    //       '--gradientColorStops-theme-color-darker-w50': 'green',
+    //       '--gradientColorStops-theme-color-light-w50': 'blue'
+    //     }
+    //     // ':root': {
+    //     //   '--colors-theme-color': foundationColors['jpl-red'],
+    //     //   '--colors-theme-color-light': foundationColors['jpl-red-light'],
+    //     //   '--colors-theme-color-dark': foundationColors['jpl-red-dark']
+    //     // },
+    //     // '.ThemeVariantDark.ThemeInternal': {
+    //     //   '--colors-theme-color': internalColors['jpl-sky-blue-light'],
+    //     //   '--colors-theme-color-light': internalColors['jpl-sky-blue-light'],
+    //     //   '--colors-theme-color-dark': internalColors['jpl-sky-blue'],
+    //     //   '--gradientColorStops-theme-color-w50': internalColors['jpl-sky-blue-light'] + ' 50%',
+    //     //   '--gradientColorStops-theme-color-dark-w50': internalColors['jpl-sky-blue'] + ' 50%',
+    //     //   '--gradientColorStops-theme-color-darker-w50':
+    //     //     internalColors['jpl-sky-blue-dark'] + ' 50%',
+    //     //   '--gradientColorStops-theme-color-light-w50':
+    //     //     internalColors['jpl-sky-blue-light'] + ' 50%'
+    //     // }
+    //     // '.ThemeVariantLight': {
+    //     //   '--colors-theme-color': foundationColors['jpl-red-light'],
+    //     // },
+    //     // '.ThemeEDU': {
+    //     //   '--colors-theme-color': eduColors['edu-purple'],
+    //     //   '--color-theme-color-light': eduColors['edu-peach'],
+    //     //   '--color-theme-color-dark': eduColors['edu-purple-dark'],
+    //     // },
+    //     // '.ThemeEDU .ThemeDark': {
+    //     //   '--colors-theme-color': eduColors['edu-peach'],
+    //     // },
+    //   })
+    // })
   ],
   future: {
     hoverOnlyWhenSupported: true

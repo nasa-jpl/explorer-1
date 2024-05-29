@@ -1,44 +1,44 @@
-@import 'internal-typography-theme-colors';
+// @import 'internal-typography-theme-colors';
 
-@layer utilities {
-  .ThemeInternal {
-    .BaseButton {
-      &.-primary {
-        @apply bg-jpl-sky-blue-dark to-jpl-sky-blue-w50;
-      }
+// @layer utilities {
+//   .ThemeInternal {
+//     .BaseButton {
+//       &.-primary {
+//         @apply bg-jpl-sky-blue-dark to-jpl-sky-blue-w50;
+//       }
 
-      &.-secondary {
-        @apply text-jpl-sky-blue-dark border-jpl-sky-blue-dark to-jpl-sky-blue-w50;
+//       &.-secondary {
+//         @apply text-jpl-sky-blue-dark border-jpl-sky-blue-dark to-jpl-sky-blue-w50;
 
-        @include hover {
-          @apply text-white border-jpl-sky-blue;
-        }
-      }
+//         @include hover {
+//           @apply text-white border-jpl-sky-blue;
+//         }
+//       }
 
-      &.-dark {
-        @include hover {
-          @apply text-gray-dark;
-        }
-      }
-    }
+//       &.-dark {
+//         @include hover {
+//           @apply text-gray-dark;
+//         }
+//       }
+//     }
 
-    .ThemeVariantLight,
-    .ThemeVariantDark,
-    &.ThemeVariantLight,
-    &.ThemeVariantDark {
-      .BaseButton {
-        &.-primary {
-          @apply bg-jpl-sky-blue-dark to-jpl-sky-blue-w50;
-        }
+//     .ThemeVariantLight,
+//     .ThemeVariantDark,
+//     &.ThemeVariantLight,
+//     &.ThemeVariantDark {
+//       .BaseButton {
+//         &.-primary {
+//           @apply bg-jpl-sky-blue-dark to-jpl-sky-blue-w50;
+//         }
 
-        &.-secondary {
-          @apply text-jpl-sky-blue-dark border-jpl-sky-blue-dark to-jpl-sky-blue-w50;
+//         &.-secondary {
+//           @apply text-jpl-sky-blue-dark border-jpl-sky-blue-dark to-jpl-sky-blue-w50;
 
-          @include hover {
-            @apply text-white border-jpl-sky-blue bg-jpl-sky-blue;
-          }
-        }
-      }
-    }
-  }
-}
+//           @include hover {
+//             @apply text-white border-jpl-sky-blue bg-jpl-sky-blue;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

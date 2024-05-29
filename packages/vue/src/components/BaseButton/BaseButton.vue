@@ -94,7 +94,7 @@ export default defineComponent({
 <template>
   <component
     :is="tag"
-    class="BaseButton text-contrast-none"
+    class="BaseButton text-contrast-none my-crazy-thing"
     :class="variantClass"
     :aria-label="ariaLabel"
     :disabled="disabled"

@@ -7,9 +7,9 @@ interface Variants {
 }
 
 export const variants: Variants = {
-  primary: 'text-subtitle text-emphasis-color hover:text-emphasis-color-dark',
-  secondary: 'text-subtitle text-emphasis-color hover:text-emphasis-color-dark',
-  default: '-default underline text-emphasis-color hover:text-emphasis-color-dark',
+  primary: 'text-subtitle text-theme-color hover:text-theme-color-dark dark:text-theme-color-light dark:hover:text-theme-color',
+  secondary: 'text-subtitle text-theme-color hover:text-theme-color-dark dark:text-theme-color-light dark:hover:text-theme-color',
+  default: '-default underline text-theme-color hover:text-theme-color-dark dark:text-theme-color-light dark:hover:text-theme-color',
   none: ''
 }
 

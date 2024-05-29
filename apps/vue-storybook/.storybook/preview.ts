@@ -18,7 +18,7 @@ const preview: Preview = {
     themesConfig: {
       defaultValue: {
         themes: ['Default', 'EDU', 'Internal'],
-        method: 'data-attr'
+        method: 'css'
       }
     },
     variantsConfig: {
@@ -40,8 +40,8 @@ const preview: Preview = {
             icon: 'circlehollow',
             title: 'Default Theme'
           },
-          { value: 'edu', icon: 'circle', title: 'EDU Theme' },
-          { value: 'internal', icon: 'collapse', title: 'Internal Theme' }
+          { value: 'ThemeEdu', icon: 'circle', title: 'EDU Theme' },
+          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal Theme' }
         ],
         dynamicTitle: true
       }
