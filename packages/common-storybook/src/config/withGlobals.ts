@@ -98,15 +98,15 @@ export const withGlobals = (StoryFn, context) => {
     useEffect(() => {
       if (variant) {
         const savedVariant = window.localStorage.getItem('data-variant')
-        document.documentElement.classList.remove(savedVariant)
-        document.documentElement.classList.add(variant)
+        document.body.classList.remove(savedVariant)
+        document.body.classList.add(variant)
         window.localStorage.setItem('data-variant', variant)
       }
     }, [variant])
   } else if (variantMethod === 'data-attr') {
     useEffect(() => {
       if (variant) {
-        document.documentElement.setAttribute('data-variant', variant)
+        document.body.setAttribute('data-variant', variant)
         window.localStorage.setItem('data-variant', variant)
       }
     }, [variant])

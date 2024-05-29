@@ -69,9 +69,6 @@ const socialColors = {
 }
 
 const uiColors = {
-  'theme-color': foundationColors['jpl-red'],
-  'theme-color-dark': foundationColors['jpl-red-dark'],
-  'theme-color-light': foundationColors['jpl-red-light'],
   'action-color': foundationColors['jpl-red'],
   'action-color-light': foundationColors['jpl-red-light'],
   'action-color-dark': foundationColors['jpl-red-dark'],
@@ -85,7 +82,8 @@ const uiColors = {
 const ThemeVariantColors = {
   'theme-color': 'var(--color-theme-color)',
   'theme-color-light': 'var(--color-theme-color-light)',
-  'theme-color-dark': 'var(--color-theme-color-dark)'
+  'theme-color-dark': 'var(--color-theme-color-dark)',
+  'theme-color-darker': 'var(--color-theme-color-darker)'
 }
 const themeColors = {
   ...ThemeVariantColors,
@@ -233,10 +231,10 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'transparent-black-50': 'rgba(0 0 0 / 50%)',
     'transparent-black-25': 'rgba(0 0 0 / 25%)',
     'transparent-black-25-w50': 'rgba(0 0 0 / 25%) 50%',
-    'theme-color-w50': foundationColors['jpl-red'] + ' 50%',
-    'theme-color-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
-    'theme-color-darker-w50': foundationColors['jpl-red-dark'] + ' 50%',
-    'theme-color-light-w50': foundationColors['jpl-red-light'] + ' 50%',
+    'theme-color-w50': 'var(--color-theme-color)' + ' 50%',
+    'theme-color-dark-w50': 'var(--color-theme-color-dark)' + ' 50%',
+    'theme-color-darker-w50': 'var(--color-theme-color-darker)' + ' 50%',
+    'theme-color-light-w50': 'var(--color-theme-color-light)' + ' 50%',
     'action-color-w50': foundationColors['jpl-red'] + ' 50%',
     'action-color-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
     'action-color-darker-w50': foundationColors['jpl-red-dark'] + ' 50%',
@@ -383,136 +381,104 @@ export default {
     /**
      * CSS Custom properties from design tokens.
      */
-    require('tailwindcss-themer')({
-      defaultTheme: {
-        extend: {
-          // ...defaultTheme,
-          colors: defaultTheme.colors,
-          gradientColorStops: defaultTheme.gradientColorStops
-        }
-      },
-      themes: [
-        // {
-        //   name: 'internal-dark',
-        //   selectors: ['.ThemeInternalDark'],
-        //   extend: {
-        //     colors: {
-        //       ...ThemeInternal.colors,
-        //       'theme-color': 'var(--colors-theme-color)',
-        //       'theme-color-light': internalColors['jpl-sky-blue-light'],
-        //       'theme-color-dark': internalColors['jpl-sky-blue']
-        //     },
-        //     gradientColorStops: {
-        //       ...ThemeInternal.gradientColorStops,
-        //       'theme-color-w50': internalColors['jpl-sky-blue-light'] + ' 50%',
-        //       'theme-color-dark-w50': internalColors['jpl-sky-blue'] + ' 50%',
-        //       'theme-color-darker-w50': internalColors['jpl-sky-blue'] + ' 50%',
-        //       'theme-color-light-w50': internalColors['jpl-sky-blue-light'] + ' 50%'
-        //     }
-        //   }
-        // },
-        {
-          name: 'edu',
-          selectors: ['.ThemeEdu', '[data-theme="edu"]'],
-          extend: {
-            colors: {
-              // 'theme-color': eduColors['edu-teal'],
-              // 'theme-color-light': eduColors['edu-teal-light'],
-              // 'theme-color-dark': eduColors['edu-teal-dark'],
-              'action-color': eduColors['edu-teal'],
-              'action-color-light': eduColors['edu-teal-light'],
-              'action-color-dark': eduColors['edu-teal-dark'],
-              'emphasis-color': eduColors['edu-purple'],
-              'emphasis-color-dark': eduColors['edu-purple-dark']
-            },
-            gradientColorStops: {
-              // 'theme-color-w50': eduColors['edu-teal'] + ' 50%',
-              // 'theme-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
-              // 'theme-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
-              // 'theme-color-light-w50': eduColors['edu-teal-light'] + ' 50%',
-              'action-color-w50': eduColors['edu-teal'] + ' 50%',
-              'action-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
-              'action-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
-              'action-color-light-w50': eduColors['edu-teal-light'] + ' 50%'
-            }
-          }
-        },
-        {
-          name: 'internal',
-          selectors: ['.ThemeInternal', '[data-theme="internal"]'],
-          extend: ThemeInternal
-        }
-      ]
-    })
-    // plugin(({ addBase }) => {
-    //   addBase({
-    //     ':root': {
-    //       '--colors-theme-color': foundationColors['jpl-red'],
-    //       '--colors-theme-color-light': foundationColors['jpl-red-light'],
-    //       '--colors-theme-color-dark': foundationColors['jpl-red-dark'],
-    //       '--gradientColorStops-theme-color-dark-w50': foundationColors['jpl-red-dark'],
-    //       '--gradientColorStops-theme-color-darker-w50': foundationColors['jpl-red-darker'],
-    //       '--gradientColorStops-theme-color-light-w50': foundationColors['jpl-red-light']
+    // require('tailwindcss-themer')({
+    //   defaultTheme: {
+    //     extend: {
+    //       colors: defaultTheme.colors,
+    //       gradientColorStops: defaultTheme.gradientColorStops
+    //     }
+    //   },
+    //   themes: [
+    //     // {
+    //     //   name: 'internal-dark',
+    //     //   selectors: ['.ThemeInternalDark'],
+    //     //   extend: {
+    //     //     colors: {
+    //     //       ...ThemeInternal.colors,
+    //     //       'theme-color': 'var(--colors-theme-color)',
+    //     //       'theme-color-light': internalColors['jpl-sky-blue-light'],
+    //     //       'theme-color-dark': internalColors['jpl-sky-blue']
+    //     //     },
+    //     //     gradientColorStops: {
+    //     //       ...ThemeInternal.gradientColorStops,
+    //     //       'theme-color-w50': internalColors['jpl-sky-blue-light'] + ' 50%',
+    //     //       'theme-color-dark-w50': internalColors['jpl-sky-blue'] + ' 50%',
+    //     //       'theme-color-darker-w50': internalColors['jpl-sky-blue'] + ' 50%',
+    //     //       'theme-color-light-w50': internalColors['jpl-sky-blue-light'] + ' 50%'
+    //     //     }
+    //     //   }
+    //     // },
+    //     {
+    //       name: 'edu',
+    //       selectors: ['.ThemeEdu', '[data-theme="edu"]'],
+    //       extend: {
+    //         colors: {
+    //           // 'theme-color': eduColors['edu-teal'],
+    //           // 'theme-color-light': eduColors['edu-teal-light'],
+    //           // 'theme-color-dark': eduColors['edu-teal-dark'],
+    //           'action-color': eduColors['edu-teal'],
+    //           'action-color-light': eduColors['edu-teal-light'],
+    //           'action-color-dark': eduColors['edu-teal-dark'],
+    //           'emphasis-color': eduColors['edu-purple'],
+    //           'emphasis-color-dark': eduColors['edu-purple-dark']
+    //         },
+    //         gradientColorStops: {
+    //           // 'theme-color-w50': eduColors['edu-teal'] + ' 50%',
+    //           // 'theme-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
+    //           // 'theme-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
+    //           // 'theme-color-light-w50': eduColors['edu-teal-light'] + ' 50%',
+    //           'action-color-w50': eduColors['edu-teal'] + ' 50%',
+    //           'action-color-dark-w50': eduColors['edu-teal-dark'] + ' 50%',
+    //           'action-color-darker-w50': eduColors['edu-teal-dark'] + ' 50%',
+    //           'action-color-light-w50': eduColors['edu-teal-light'] + ' 50%'
+    //         }
+    //       }
     //     },
-    //     '.ThemeInternal.ThemeVariantDark': {
-    //       '--colors-theme-color': '#0080a4',
-    //       '--colors-theme-color-light': 'red',
-    //       '--colors-theme-color-dark': '#006480',
-    //       '--colors-theme-color-darker': '#003c4d',
-    //       '--gradientColorStops-theme-color-dark-w50': 'pink',
-    //       '--gradientColorStops-theme-color-darker-w50': 'green',
-    //       '--gradientColorStops-theme-color-light-w50': 'blue'
+    //     {
+    //       name: 'internal',
+    //       selectors: ['.ThemeInternal', '[data-theme="internal"]'],
+    //       extend: ThemeInternal
     //     }
-    //   })
+    //   ]
     // }),
-    // plugin(function ({ addUtilities }) {
-    //   addUtilities({
-    //     '.my-crazy-thing': {
-    //       background: 'red'
-    //     }
-    //   })
-    // })
-    // plugin(({ addBase }) => {
-    //   addBase({
-    //     '.ThemeInternal.ThemeVariantDark': {
-    //       border: '5px solid pink',
-    //       '--colors-theme-color': '#0080a4',
-    //       '--colors-theme-color-light': 'red',
-    //       '--colors-theme-color-dark': '#006480',
-    //       '--colors-theme-color-darker': '#003c4d',
-    //       '--gradientColorStops-theme-color-dark-w50': 'pink',
-    //       '--gradientColorStops-theme-color-darker-w50': 'green',
-    //       '--gradientColorStops-theme-color-light-w50': 'blue'
-    //     }
-    //     // ':root': {
-    //     //   '--colors-theme-color': foundationColors['jpl-red'],
-    //     //   '--colors-theme-color-light': foundationColors['jpl-red-light'],
-    //     //   '--colors-theme-color-dark': foundationColors['jpl-red-dark']
-    //     // },
-    //     // '.ThemeVariantDark.ThemeInternal': {
-    //     //   '--colors-theme-color': internalColors['jpl-sky-blue-light'],
-    //     //   '--colors-theme-color-light': internalColors['jpl-sky-blue-light'],
-    //     //   '--colors-theme-color-dark': internalColors['jpl-sky-blue'],
-    //     //   '--gradientColorStops-theme-color-w50': internalColors['jpl-sky-blue-light'] + ' 50%',
-    //     //   '--gradientColorStops-theme-color-dark-w50': internalColors['jpl-sky-blue'] + ' 50%',
-    //     //   '--gradientColorStops-theme-color-darker-w50':
-    //     //     internalColors['jpl-sky-blue-dark'] + ' 50%',
-    //     //   '--gradientColorStops-theme-color-light-w50':
-    //     //     internalColors['jpl-sky-blue-light'] + ' 50%'
-    //     // }
-    //     // '.ThemeVariantLight': {
-    //     //   '--colors-theme-color': foundationColors['jpl-red-light'],
-    //     // },
-    //     // '.ThemeEDU': {
-    //     //   '--colors-theme-color': eduColors['edu-purple'],
-    //     //   '--color-theme-color-light': eduColors['edu-peach'],
-    //     //   '--color-theme-color-dark': eduColors['edu-purple-dark'],
-    //     // },
-    //     // '.ThemeEDU .ThemeDark': {
-    //     //   '--colors-theme-color': eduColors['edu-peach'],
-    //     // },
-    //   })
-    // })
+    plugin(({ addBase }) => {
+      addBase({
+        ':root': {
+          '--color-theme-color': foundationColors['jpl-red'],
+          '--color-theme-color-light': foundationColors['jpl-red-light'],
+          '--color-theme-color-dark': foundationColors['jpl-red-dark'],
+          '--color-theme-color-darker': foundationColors['jpl-red-darker']
+          // '--gradientColorStop-theme-color-dark-w50': 'pink',
+          // '--gradientColorStop-theme-color-darker-w50': 'green',
+          // '--gradientColorStop-theme-color-light-w50': 'blue'
+        },
+        '.ThemeVariantDark': {
+          '--color-theme-color': 'pink',
+          '--color-theme-color-light': 'green',
+          '--color-theme-color-dark': 'blue',
+          '--color-theme-color-darker': 'purple'
+          // '--gradientColorStop-theme-color-dark-w50': 'pink',
+          // '--gradientColorStop-theme-color-darker-w50': 'green',
+          // '--gradientColorStop-theme-color-light-w50': 'blue'
+        },
+        '.ThemeInternal .ThemeVariantDark': {
+          '--color-theme-color': 'blue',
+          '--color-theme-color-light': 'pink',
+          '--color-theme-color-dark': 'green',
+          '--color-theme-color-darker': 'fuchsia'
+          // '--gradientColorStop-theme-color-dark-w50': 'pink',
+          // '--gradientColorStop-theme-color-darker-w50': 'green',
+          // '--gradientColorStop-theme-color-light-w50': 'purple'
+        }
+      })
+    })
+  ],
+  safelist: [
+    'ThemeVariantDark',
+    'ThemeVariantLight',
+    'ThemeEdu',
+    'ThemeInternal',
+    'to-theme-color-dark-w50'
   ],
   future: {
     hoverOnlyWhenSupported: true

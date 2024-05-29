@@ -94,7 +94,7 @@ export default defineComponent({
 <template>
   <component
     :is="tag"
-    class="BaseButton text-contrast-none my-crazy-thing"
+    class="BaseButton text-contrast-none"
     :class="variantClass"
     :aria-label="ariaLabel"
     :disabled="disabled"
@@ -107,6 +107,7 @@ export default defineComponent({
       <slot name="icon"></slot>
     </span>
   </component>
+  <span class="ThemeInternal ThemeEdu ThemeVariantLight ThemeVariantDark"></span>
 </template>
 <style lang="scss">
 @import '@explorer-1/common/src/scss/components/BaseButton';
