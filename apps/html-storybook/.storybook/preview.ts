@@ -76,11 +76,11 @@ const preview = {
         items: [
           {
             value: 'ThemeDefault',
-            icon: 'circlehollow',
+            icon: 'home',
             title: 'Default Theme'
           },
-          { value: 'ThemeEdu', icon: 'circle', title: 'EDU Theme' },
-          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal Theme' }
+          { value: 'ThemeEdu', icon: 'globe', title: 'EDU Theme' },
+          { value: 'ThemeInternal', icon: 'key', title: 'Internal Theme' }
         ],
         dynamicTitle: true
       }
