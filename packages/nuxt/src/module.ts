@@ -1,17 +1,10 @@
-import { defineNuxtModule, addComponentsDir, installModule } from '@nuxt/kit'
-import { fileURLToPath } from 'node:url'
-import { resolve } from 'node:path'
+import { defineNuxtModule, addComponentsDir, installModule, createResolver } from '@nuxt/kit'
 import explorer1ViteConfig from '@explorer-1/vue/vite.config'
-import path from 'path'
 
 export interface ModuleOptions {
   includeStyles: boolean
   includeComponents: boolean
 }
-
-// mimic CommonJS variables -- not needed if using CommonJS
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -24,15 +17,16 @@ export default defineNuxtModule<ModuleOptions>({
     includeComponents: true
   },
   async setup(_options, _nuxt) {
-    const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
+    const resolver = createResolver(import.meta.url)
+    const runtimeDir = resolver.resolve('./runtime')
     if (_options.includeStyles) {
       await installModule('@nuxtjs/tailwindcss', {
-        configPath: resolve(runtimeDir, 'tailwind.config')
+        configPath: resolver.resolve(runtimeDir, 'tailwind.config')
       })
 
       // add explorer-1 css
       _nuxt.options.css.push(
-        resolve(__dirname, './../node_modules/@explorer-1/vue/src/assets/scss/styles.scss')
+        resolver.resolve('./../node_modules/@explorer-1/vue/src/assets/scss/', 'styles.scss')
       )
       // add postcss options
       _nuxt.options.postcss = {
@@ -61,7 +55,7 @@ export default defineNuxtModule<ModuleOptions>({
     if (_options.includeComponents) {
       // add all @explorer-1/vue components
       addComponentsDir({
-        path: resolve(__dirname, './../node_modules/@explorer-1/vue/src/components'),
+        path: resolver.resolve('./../node_modules/@explorer-1/vue/src/components'),
         global: true,
         pathPrefix: false,
         extensions: ['.vue']
