@@ -1,6 +1,0 @@
-import{B as r}from"./BaseImageCaption-vks4WUeh.js";import{B as a}from"./BaseImagePlaceholder-BjDXo6VY.js";const s=({embed:i,caption:t,credit:o})=>`
-  <div class="BlockVideoEmbed">
-    ${a({aspectRatio:"aspect-ratio-sixteen-nine",theme:"dark-theme",placeholder:i})}
-    ${t||o?`<div class="lg:px-0 p-4">${r({caption:t,credit:o})}</div>`:""}
-  </div>
-  `,d={title:"Components/Blocks/BlockVideoEmbed",argTypes:{embed:{type:"string",description:"Video embed `<iframe>` code"},caption:{type:"string",description:"Video caption"},credit:{type:"string",description:"Video credit"}},parameters:{docs:{description:{component:"A video embed with placeholder, plus an optional caption."}}}},e=s.bind({});e.storyName="BlockVideoEmbed";e.args={embed:`<iframe title="Meet NASA's Diana Trujillo" width="480" height="270" src="https://www.youtube.com/embed/vUuUyYqI83Q?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,caption:"<p>Get to know some of the diverse team of engineers and scientists working on NASA's next Mars rover, Perseverance.</p>",credit:"ISRO/NASA/JPL-Caltech/Brown University/USGS"};const c=["Default"],p=Object.freeze(Object.defineProperty({__proto__:null,Default:e,__namedExportsOrder:c,default:d},Symbol.toStringTag,{value:"Module"}));export{p as B};
