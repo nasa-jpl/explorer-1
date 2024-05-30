@@ -307,7 +307,7 @@ export default defineComponent({
 
 <style lang="scss">
 .MixinFancybox {
-  @apply relative; 
+  @apply relative;
 
   &:active {
     outline: none;

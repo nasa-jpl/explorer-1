@@ -23,7 +23,7 @@ declare const _default: import('vue').DefineComponent<{
     srcset: {
         type: StringConstructor;
         required: false;
-        default: boolean;
+        default: string;
     };
     alt: {
         type: StringConstructor;
@@ -64,7 +64,7 @@ declare const _default: import('vue').DefineComponent<{
     srcset: {
         type: StringConstructor;
         required: false;
-        default: boolean;
+        default: string;
     };
     alt: {
         type: StringConstructor;

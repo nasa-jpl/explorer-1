@@ -120,7 +120,7 @@ const ci = /* @__PURE__ */ S(Lt, [["render", Tt]]), et = {
     srcset: {
       type: String,
       required: !1,
-      default: !1
+      default: ""
     },
     alt: {
       type: String

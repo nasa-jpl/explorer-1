@@ -36,7 +36,7 @@ export default defineComponent({
     srcset: {
       type: String,
       required: false,
-      default: false
+      default: ''
     },
     alt: {
       type: String
