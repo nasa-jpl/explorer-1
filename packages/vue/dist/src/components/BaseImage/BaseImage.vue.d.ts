@@ -7,7 +7,7 @@ interface ObjectFitClasses {
 export declare const objectFitClasses: ObjectFitClasses;
 declare const _default: import('vue').DefineComponent<{
     imageClass: {
-        type: PropType<String>;
+        type: StringConstructor;
         required: false;
     };
     objectFitClass: {
@@ -48,7 +48,7 @@ declare const _default: import('vue').DefineComponent<{
     imageFailed(): void;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     imageClass: {
-        type: PropType<String>;
+        type: StringConstructor;
         required: false;
     };
     objectFitClass: {

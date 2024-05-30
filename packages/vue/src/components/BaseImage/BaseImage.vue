@@ -20,7 +20,7 @@ export default defineComponent({
   name: 'BaseImage',
   props: {
     imageClass: {
-      type: String as PropType<String>,
+      type: String,
       required: false
     },
     objectFitClass: {
