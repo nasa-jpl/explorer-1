@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import { Fancybox } from '@fancyapps/ui'
 import { Fullscreen } from '@fancyapps/ui/src/shared/utils/Fullscreen.js'

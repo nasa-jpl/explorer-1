@@ -1,6 +1,4 @@
 import BlockImage from '@explorer-1/vue/src/components/BlockImage/BlockImage.vue'
-import BlockImageStandard from '@explorer-1/vue/src/components/BlockImage/BlockImageStandard.vue'
-import BlockImageFullBleed from '@explorer-1/vue/src/components/BlockImage/BlockImageFullBleed.vue'
 
 export default {
   title: 'Components/Blocks/BlockImage',
@@ -10,7 +8,16 @@ export default {
       control: { type: 'boolean' }
     }
   },
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
+  parameters: {
+    viewMode: 'docs',
+    docs: {
+      description: {
+        component:
+          'The combination of BaseImage and BaseImageCaption, plus adding support for expanding the image in a lightbox and styling it to be a full-bleed image.'
+      }
+    }
+  }
 }
 
 // shared data
@@ -77,45 +84,19 @@ const BlockImageTemplate = (args) => ({
     <BlockImage v-bind="args" />`
 })
 
-const BlockImageFullBleedTemplate = (args) => ({
-  components: { BlockImageFullBleed },
-  setup() {
-    return { args }
-  },
-  template: `
-    <BlockImageFullBleed v-bind="args" />`
-})
-const BlockImageStandardTemplate = (args) => ({
-  components: { BlockImageStandard },
-  setup() {
-    return { args }
-  },
-  template: `
-    <BlockImageStandard v-bind="args" />`
-})
-
-export const StreamfieldBlock = BlockImageTemplate.bind({})
-StreamfieldBlock.args = {
+export const Standard = BlockImageTemplate.bind({})
+Standard.args = {
   data: BlockImageData,
   fullBleed: BlockImageData.fullBleed
 }
 
-export const StreamfieldBlockUnconstrainedStandard = BlockImageTemplate.bind({})
-StreamfieldBlockUnconstrainedStandard.args = {
+export const Unconstrained = BlockImageTemplate.bind({})
+Unconstrained.args = {
   data: {
     ...BlockImageData,
     constrain: false
   },
   fullBleed: BlockImageData.fullBleed
-}
-
-export const StreamfieldBlockUnconstrainedFullBleed = BlockImageTemplate.bind({})
-StreamfieldBlockUnconstrainedFullBleed.args = {
-  data: {
-    ...BlockImageData,
-    constrain: false
-  },
-  fullBleed: true
 }
 
 export const CustomCaption = BlockImageTemplate.bind({})
@@ -137,8 +118,20 @@ NoCaption.args = {
   fullBleed: BlockImageData.fullBleed
 }
 
-export const StandaloneFullBleed = BlockImageFullBleedTemplate.bind({})
-StandaloneFullBleed.args = { data: BlockImageData.imageFullBleed }
+export const FullBleed = BlockImageTemplate.bind({})
+FullBleed.args = {
+  data: {
+    ...BlockImageData,
+    constrain: true
+  },
+  fullBleed: true
+}
 
-export const StandaloneStandard = BlockImageStandardTemplate.bind({})
-StandaloneStandard.args = { data: BlockImageData.image }
+export const FullBleedUnconstrained = BlockImageTemplate.bind({})
+FullBleedUnconstrained.args = {
+  data: {
+    ...BlockImageData,
+    constrain: false
+  },
+  fullBleed: true
+}

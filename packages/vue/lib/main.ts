@@ -8,6 +8,7 @@ import IconCaret from './../src/components/Icons/IconCaret.vue'
 import IconLocation from './../src/components/Icons/IconLocation.vue'
 import IconUser from './../src/components/Icons/IconUser.vue'
 import MixinAnimationCaret from './../src/components/MixinAnimationCaret/MixinAnimationCaret.vue'
+import MixinFancybox from './../src/components/MixinFancybox/MixinFancybox.vue'
 
 export {
   BaseButton,
@@ -17,5 +18,6 @@ export {
   IconCaret,
   IconLocation,
   IconUser,
-  MixinAnimationCaret
+  MixinAnimationCaret,
+  MixinFancybox
 }

@@ -6,7 +6,7 @@ import type {ImageObject} from './../../interfaces'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import BaseImageCaption, { ImageCaptionObject } from './../BaseImageCaption/BaseImageCaption.vue'
+import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 
 export default defineComponent({
   name: 'BlockImageStandard',

@@ -1,3 +1,105 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
+import BaseImage from './../BaseImage/BaseImage.vue'
+import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
+import type {ImageObject} from './../../interfaces'
+
+export default defineComponent({
+  name: 'BlockImageFullBleed',
+  components: {
+    MixinFancybox,
+    BaseImage,
+    BaseImagePlaceholder,
+    BaseImageCaption,
+  },
+  props: {
+    data: {
+      type: (Object as PropType<ImageObject>),
+      required: false,
+    },
+    // if a caption should even be visible
+    displayCaption: {
+      type: Boolean,
+      default: true,
+    },
+    // overrides caption provided with image model
+    caption: {
+      type: String,
+      required: false,
+    },
+    // if the image should be constrained to a fixed aspect ratio (21:9 on smaller screens, 2:1 on larger screens)
+    constrain: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  data() {
+    return {
+      openTab: 1,
+    }
+  },
+  methods: {
+    getSrcSet: (srcSetObject: ImageObject): string => {
+  let srcSet = ''
+  const valid = Object.keys(srcSetObject).some(function (key) {
+    if (key.startsWith('screen')) {
+      return true
+    }
+    return false
+  })
+  if (valid) {
+    const srcSetArray: string[] = []
+    for (const [key, value] of Object.entries(srcSetObject)) {
+      if (key.startsWith('screen')) {
+        if (value.url && value.width) {
+          srcSetArray.push(`${value.url} ${value.width}w`)
+        }
+      }
+    }
+    srcSet = srcSetArray.join(', ')
+  }
+  return srcSet
+}
+  },
+  computed: {
+    theCaption(): string | undefined {
+      if (this.caption && this.caption.length > 2 && this.displayCaption) {
+        return this.caption
+      } else if (
+        this.displayCaption &&
+        this.data &&
+        this.data.caption &&
+        this.data.caption.length > 2
+      ) {
+        return this.data.caption
+      }
+      return undefined
+    },
+    theSrcSet(): string | undefined {
+      return this.theData ? this.getSrcSet(this.theData) : undefined
+    },
+    // reform the data object with the computed caption
+    theData(): ImageObject | undefined {
+      if (this.data) {
+        return {
+          ...this.data,
+          caption: this.theCaption,
+        }
+      }
+      return undefined
+    },
+    hasCaptionArea(): boolean {
+      if (this.data && (this.theCaption || this.data.credit || this.data.detailUrl)) {
+        return true
+      }
+      return false
+    },
+  },
+})
+</script>
 <template>
   <div v-if="theData">
     <div class="bg-gray-light">
@@ -22,15 +124,15 @@
               :srcset="
                 theData.srcSet && !constrain
                   ? theData.srcSet
-                  : mixinGetSrcSet(theData)
+                  : getSrcSet(theData)
               "
               :width="constrain ? theData.srcCropped.width : theData.src.width"
               :height="
                 constrain ? theData.srcCropped.height : theData.src.height
               "
               :alt="theData.alt"
-              :image-class="!constrain ? 'w-full h-auto' : null"
-              :object-fit-class="constrain ? 'cover' : null"
+              :image-class="!constrain ? 'w-full h-auto' : undefined"
+              :object-fit-class="constrain ? 'cover' : undefined"
               loading="lazy"
             />
           </BaseImagePlaceholder>
@@ -45,77 +147,3 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
-import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
-import BaseImage from './../BaseImage/BaseImage.vue'
-import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
-
-export default defineComponent({
-  name: 'BlockImageFullBleed',
-  components: {
-    MixinFancybox,
-    BaseImage,
-    BaseImagePlaceholder,
-    BaseImageCaption,
-  },
-  props: {
-    data: {
-      type: Object,
-      required: false,
-    },
-    // if a caption should even be visible
-    displayCaption: {
-      type: Boolean,
-      default: true,
-    },
-    // overrides caption provided with image model
-    caption: {
-      type: String,
-      required: false,
-    },
-    // if the image should be constrained to a fixed aspect ratio (21:9 on smaller screens, 2:1 on larger screens)
-    constrain: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  data() {
-    return {
-      openTab: 1,
-    }
-  },
-  computed: {
-    theCaption(): String | null {
-      if (this.caption && this.caption.length > 2 && this.displayCaption) {
-        return this.caption
-      } else if (
-        this.displayCaption &&
-        this.data &&
-        this.data.caption &&
-        this.data.caption.length > 2
-      ) {
-        return this.data.caption
-      }
-      return null
-    },
-    // reform the data object with the computed caption
-    theData(): object | null {
-      if (this.data) {
-        return {
-          ...this.data,
-          caption: this.theCaption,
-        }
-      }
-      return null
-    },
-    hasCaptionArea(): string | false {
-      if (this.data) {
-        return this.theCaption || this.data.credit || this.data.detailUrl
-      }
-      return false
-    },
-  },
-})
-</script>

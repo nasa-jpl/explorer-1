@@ -18,7 +18,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Custom */
+    "allowJs": true
   },
   "exclude": ["node_modules"],
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],

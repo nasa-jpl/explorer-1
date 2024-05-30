@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import IconExpand from '@explorer-1/vue/src/components/Icons/IconArrows.vue'
+import IconExpand from '@explorer-1/vue/src/components/Icons/IconExpand.vue'
 
 export default defineComponent({
   name: 'MixinFancyboxOpenButton',
@@ -30,7 +30,7 @@ export default defineComponent({
   @apply relative lg:absolute pointer-events-none lg:inset-0 cursor-pointer z-10;
 
   .BaseButton {
-    @apply -top-px -right-px absolute focus:outline-none  xl:text-xl inline-block;
+    @apply -top-px -right-px absolute focus:outline-none xl:text-xl inline-block;
   }
 }
 </style>

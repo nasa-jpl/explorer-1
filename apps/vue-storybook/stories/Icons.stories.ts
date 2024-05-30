@@ -1,5 +1,6 @@
-import IconCaret from '@explorer-1/vue/src/components/Icons/IconCaret.vue'
 import IconArrows from '@explorer-1/vue/src/components/Icons/IconArrows.vue'
+import IconCaret from '@explorer-1/vue/src/components/Icons/IconCaret.vue'
+import IconExpand from '@explorer-1/vue/src/components/Icons/IconExpand.vue'
 import IconLocation from '@explorer-1/vue/src/components/Icons/IconLocation.vue'
 import IconUser from '@explorer-1/vue/src/components/Icons/IconUser.vue'
 
@@ -26,6 +27,12 @@ export const Caret = {
   render: () => ({
     components: { IconCaret },
     template: '<IconCaret />'
+  })
+}
+export const Expand = {
+  render: () => ({
+    components: { IconExpand },
+    template: '<IconExpand />'
   })
 }
 export const Location = {
