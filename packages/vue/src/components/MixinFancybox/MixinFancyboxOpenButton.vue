@@ -26,7 +26,7 @@ export default defineComponent({
 <style lang="scss">
 .MixinFancyboxOpenButton {
   // scoped styles for Fancybox Opener button
-  @apply relative lg:absolute pointer-events-none lg:inset-0 cursor-pointer z-10;
+  @apply relative pointer-events-none cursor-pointer z-10;
 
   .BaseButton {
     @apply -top-px -right-px absolute focus:outline-none xl:text-xl inline-block;

@@ -314,7 +314,7 @@ export default defineComponent({
   }
 
   .MixinFancyboxOpenButton {
-    @apply can-hover:opacity-0 opacity-70 transition-opacity duration-300 absolute block top-px right-px z-10;
+    @apply can-hover:opacity-0 opacity-70 transition-opacity duration-300 block top-px right-px z-10;
   }
 
   &:hover {
