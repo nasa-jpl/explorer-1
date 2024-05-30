@@ -34,8 +34,9 @@ export default defineComponent({
       required: true
     },
     srcset: {
-      type: String || false,
-      required: false
+      type: String,
+      required: false,
+      default: ''
     },
     alt: {
       type: String
