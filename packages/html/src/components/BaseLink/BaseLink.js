@@ -49,9 +49,9 @@ export const BaseLinkTemplate = ({
   if (variantType === 'primary' || variantType === 'secondary') {
     computedClass = `${
       variantType === 'primary' ? '-primary' : '-secondary'
-    } text-subtitle text-action-color can-hover:hover:text-action-color-hover`
+    } text-subtitle text-action can-hover:hover:text-action-hover`
   } else if (variantType === 'default') {
-    computedClass = '-default underline text-action-color can-hover:hover:text-action-color-hover'
+    computedClass = '-default underline text-action can-hover:hover:text-action-hover'
   }
 
   let renderWrapperClass = ''

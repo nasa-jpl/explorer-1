@@ -149,10 +149,10 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'transparent-black-50': 'rgba(0 0 0 / 50%)',
     'transparent-black-25': 'rgba(0 0 0 / 25%)',
     'transparent-black-25-w50': 'rgba(0 0 0 / 25%) 50%',
-    'action-color-w50': 'var(--color-action-color)' + ' 50%',
-    'action-color-dark-w50': 'var(--color-action-color-dark)' + ' 50%',
-    'action-color-darker-w50': 'var(--color-action-color-darker)' + ' 50%',
-    'action-color-light-w50': 'var(--color-action-color-light)' + ' 50%'
+    'action-w50': 'var(--color-action)' + ' 50%',
+    'action-dark-w50': 'var(--color-action-dark)' + ' 50%',
+    'action-darker-w50': 'var(--color-action-darker)' + ' 50%',
+    'action-light-w50': 'var(--color-action-light)' + ' 50%'
   },
   checkbox: {
     display: 'inline-block',

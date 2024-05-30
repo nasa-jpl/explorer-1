@@ -18,7 +18,7 @@
   }
 
   &.-primary {
-    @apply px-12 text-white bg-action-color to-action-color-dark-w50;
+    @apply px-12 text-white bg-action to-action-dark-w50;
 
     & > .label {
       @apply border-2 border-transparent;
@@ -26,10 +26,10 @@
   }
 
   &.-secondary {
-    @apply px-12 bg-transparent text-action-color border-2 border-action-color to-action-color-dark-w50;
+    @apply px-12 bg-transparent text-action border-2 border-action to-action-dark-w50;
 
     @include hover {
-      @apply text-white border-action-color-dark;
+      @apply text-white border-action-dark;
     }
   }
 

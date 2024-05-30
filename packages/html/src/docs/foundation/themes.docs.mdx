@@ -82,20 +82,20 @@ For components that have light and dark themes, add theme rules to the end of yo
 Usage of `.text-jpl-red` vs `.text-jpl-red-light` (or the `.text-jpl-sky-blue` variants for internal sites) in the correct context of `.ThemeVariantLight` and `.ThemeVariantDark` ensures that the contrast of the text color is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created text color classes that follow this rule automatically. These color classes also check for usage of `.ThemeInternal`.
 
 ```css
-.text-action-color
-.text-action-color-hover
+.text-action
+.text-action-hover
 ```
 
 ### Definition (excerpt)
 
 ```css
-.text-action-color {
+.text-action {
   @apply text-jpl-red;
   .ThemeVariantDark & {
     @apply text-jpl-red-light;
   }
 }
-.text-action-color-hover {
+.text-action-hover {
   @apply text-jpl-red-dark;
   .ThemeVariantDark & {
     @apply text-jpl-red;

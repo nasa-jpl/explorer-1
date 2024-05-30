@@ -8,7 +8,7 @@ const InternalTemplate = () => `<div>
     <!-- BaseLink -->
     <div>
       <a
-        class="group cursor-pointer -default underline text-action-color can-hover:hover:text-action-color-hover"
+        class="group cursor-pointer -default underline text-action can-hover:hover:text-action-hover"
       >
         Internal Theme: BaseLink 
       </a>
@@ -19,7 +19,7 @@ const InternalTemplate = () => `<div>
   <!-- BaseLink -->
     <div>
       <a
-        class="group cursor-pointer -default underline text-action-color can-hover:hover:text-action-color-hover"
+        class="group cursor-pointer -default underline text-action can-hover:hover:text-action-hover"
       >
         Default Theme: BaseLink
       </a>
@@ -33,23 +33,23 @@ export const Internal = {
 }
 
 const AdaptiveTextTemplate = () => `<p class="ThemeVariantLight p-4">
-  <a class="cursor-pointer font-bold text-action-color can-hover:hover:text-action-color-hover">
+  <a class="cursor-pointer font-bold text-action can-hover:hover:text-action-hover">
     ThemeVariantLight (usually the default)
   </a>
   </p>
   <p class="ThemeVariantDark bg-black p-4">
-  <a class="cursor-pointer font-bold text-action-color can-hover:hover:text-action-color-hover">
+  <a class="cursor-pointer font-bold text-action can-hover:hover:text-action-hover">
     ThemeVariantDark
   </a>
   </p>
   <div class="ThemeInternal">
   <p class="ThemeVariantLight p-4">
-    <a class="cursor-pointer font-bold text-action-color can-hover:hover:text-action-color-hover">
+    <a class="cursor-pointer font-bold text-action can-hover:hover:text-action-hover">
       ThemeInternal ThemeVariantLight
     </a>
   </p>
   <p class="ThemeVariantDark bg-black p-4">
-    <a class="cursor-pointer font-bold text-action-color can-hover:hover:text-action-color-hover">
+    <a class="cursor-pointer font-bold text-action can-hover:hover:text-action-hover">
       ThemeInternal ThemeVariantDark
     </a>
   </p>

@@ -1,9 +1,9 @@
 .BlockText {
   a {
-    @apply text-action-color underline cursor-pointer break-words;
+    @apply text-action underline cursor-pointer break-words;
 
     @include hover {
-      @apply text-action-color-hover;
+      @apply text-action-hover;
     }
   }
 
