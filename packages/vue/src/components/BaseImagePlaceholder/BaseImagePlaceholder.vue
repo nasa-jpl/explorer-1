@@ -20,8 +20,8 @@ export const aspectRatios: AspectRatios = {
   '9:16': 'aspect-ratio-nine-sixteen',
   '12:9': 'aspect-ratio-twelve-nine',
   '16:7': 'aspect-ratio-sixteen-seven',
-  '16:9': 'aspect-ratio-sixteen-nine',  
-  '21:9': 'aspect-ratio-twentyone-nine',
+  '16:9': 'aspect-ratio-sixteen-nine',
+  '21:9': 'aspect-ratio-twentyone-nine'
 }
 
 export default defineComponent({
@@ -30,27 +30,26 @@ export default defineComponent({
     darkMode: {
       type: Boolean,
       required: false,
-      default: true,
+      default: true
     },
     transparentMode: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     noLogo: {
       type: Boolean,
-      default: false,
+      default: false
     },
     aspectRatio: {
       type: String,
       default: 'none',
-      validator: (prop: string): boolean =>
-        Object.keys(aspectRatios).includes(prop),
+      validator: (prop: string): boolean => Object.keys(aspectRatios).includes(prop)
     },
     responsiveAspectRatio: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     computedClass(): string {
@@ -73,8 +72,8 @@ export default defineComponent({
       }
 
       return classes
-    },
-  },
+    }
+  }
 })
 </script>
 <template>

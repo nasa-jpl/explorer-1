@@ -3,8 +3,8 @@
  * docs: https://storybook.js.org/docs/react/writing-docs/docs-page#custom-inline-rendering
  */
 
-import React from 'react';
-import { Canvas, Description } from '@storybook/blocks';
+import React from 'react'
+import { Canvas, Description } from '@storybook/blocks'
 
 export function ComponentItem(props) {
   /*
@@ -21,37 +21,37 @@ export function ComponentItem(props) {
 
   const hrefTo = (path) => {
     return new Promise((resolve) => {
-      const { location } = document;
+      const { location } = document
 
       // Drop the `iframe.html` from the preview path
-      const sbPath = location.pathname.replace(/iframe\.html$/, '');
+      const sbPath = location.pathname.replace(/iframe\.html$/, '')
       const url = `${location.origin + sbPath}?${Object.entries({ path })
         .map((item) => `${item[0]}=${item[1]}`)
-        .join('&')}`;
+        .join('&')}`
 
-      parent.window.location = url;
-    });
-  };
+      parent.window.location = url
+    })
+  }
   const navigate = (path) => {
-    hrefTo(path);
-  };
+    hrefTo(path)
+  }
   if (props.meta) {
-    let wrapperClass = 'text-base';
+    let wrapperClass = 'text-base'
     if (props.fullWidth) {
       if (props.fullCanvas) {
-        wrapperClass += ' sbdocs-preview-full-width';
+        wrapperClass += ' sbdocs-preview-full-width'
       }
     } else {
-      wrapperClass += ' lg:flex items-start pt-3';
+      wrapperClass += ' lg:flex items-start pt-3'
     }
 
-    let canvasWrapperClass = '';
+    let canvasWrapperClass = ''
     if (props.fullWidth) {
       if (props.fullCanvas) {
-        canvasWrapperClass += ' sbdocs-preview-full-width';
+        canvasWrapperClass += ' sbdocs-preview-full-width'
       }
     } else {
-      canvasWrapperClass += ' lg:w-1/2';
+      canvasWrapperClass += ' lg:w-1/2'
     }
 
     return (
@@ -65,7 +65,7 @@ export function ComponentItem(props) {
             <button
               className="sbdocs sbdocs-a font-medium"
               onClick={() => {
-                navigate(props.path);
+                navigate(props.path)
               }}
             >
               {props.heading}
@@ -87,7 +87,7 @@ export function ComponentItem(props) {
             <button
               className="mt-6 p-6 flex justify-center shadow-sm border border-gray-light-mid rounded-md items-center"
               onClick={() => {
-                navigate(props.path);
+                navigate(props.path)
               }}
             >
               <div className="text-gray-mid">View component for details</div>
@@ -101,6 +101,6 @@ export function ComponentItem(props) {
           )}
         </div>
       </div>
-    );
+    )
   }
 }

@@ -15,7 +15,10 @@ export default defineComponent({
     aria-hidden="true"
     focusable="false"
   >
-    <g fill="currentColor" fill-rule="evenodd">
+    <g
+      fill="currentColor"
+      fill-rule="evenodd"
+    >
       <path
         d="M4 11.657l-.707-.707L8.243 6l-4.95-4.95L4 .343 9.657 6 4 11.657z"
         transform="translate(2)"

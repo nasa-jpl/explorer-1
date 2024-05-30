@@ -13,7 +13,7 @@ export const objectFitClasses: ObjectFitClasses = {
   contain: 'object-contain',
   cover: 'object-cover',
   fill: 'object-fill',
-  scaleDown: 'object-scale-down',
+  scaleDown: 'object-scale-down'
 }
 
 export default defineComponent({
@@ -21,41 +21,40 @@ export default defineComponent({
   props: {
     imageClass: {
       type: String,
-      required: false,
+      required: false
     },
     objectFitClass: {
       type: String,
       required: false,
       default: 'contain',
-      validator: (prop: string): boolean =>
-        Object.keys(objectFitClasses).includes(prop),
+      validator: (prop: string): boolean => Object.keys(objectFitClasses).includes(prop)
     },
     src: {
       type: String,
-      required: true,
+      required: true
     },
     srcset: {
       type: String || false,
-      required: false,
+      required: false
     },
     alt: {
-      type: String,
+      type: String
     },
     width: {
-      type: [Number, String],
+      type: [Number, String]
     },
     height: {
-      type: [Number, String],
+      type: [Number, String]
     },
     loading: {
-      type: (String as PropType<ImageLoader>),
+      type: String as PropType<ImageLoader>,
       required: false,
-      default: 'lazy',
-    },
+      default: 'lazy'
+    }
   },
   data() {
     return {
-      lazyNative: true,
+      lazyNative: true
     }
   },
   computed: {
@@ -71,7 +70,7 @@ export default defineComponent({
         classes = classes + ' lazyload'
       }
       return classes
-    },
+    }
   },
   mounted() {
     this.featureDetectImageLazyLoad()
@@ -79,9 +78,7 @@ export default defineComponent({
   methods: {
     featureDetectImageLazyLoad() {
       if ('loading' in HTMLImageElement.prototype) {
-        const image = this.$refs.BaseImage
-          ? (this.$refs.BaseImage as HTMLImageElement)
-          : null
+        const image = this.$refs.BaseImage ? (this.$refs.BaseImage as HTMLImageElement) : null
         this.lazyNative = true
         // reassign dataset attributes
         if (image && image.dataset.src) {
@@ -96,8 +93,8 @@ export default defineComponent({
     },
     imageFailed() {
       console.log('Image failed to load.')
-    },
-  },
+    }
+  }
 })
 </script>
 <template>

@@ -12,13 +12,13 @@ export const fancyboxThemes = {
   // Light   (WCP default lighter lightbox)
   light: 'fancybox-theme-light ThemeLight',
   // Dark    (WWW default black lightbox)
-  dark: 'fancybox-theme-dark ThemeDark',
+  dark: 'fancybox-theme-dark ThemeDark'
 }
 
 export default defineComponent({
   name: 'MixinFancybox',
   components: {
-    MixinFancyboxOpenButton,
+    MixinFancyboxOpenButton
   },
   filters: {
     truncate(value) {
@@ -26,75 +26,75 @@ export default defineComponent({
         value = value.substring(0, 277) + '...'
       }
       return value
-    },
+    }
   },
   props: {
     infinite: {
       type: Boolean,
       required: false,
-      default: true,
+      default: true
     },
     showThumbnails: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     animated: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     galleryName: {
       type: String,
       required: false,
-      default: null,
+      default: null
     },
     src: {
       type: String,
-      required: false,
+      required: false
     },
     srcSet: {
       type: String,
-      required: false,
+      required: false
     },
     sizes: {
       type: String,
-      required: false,
+      required: false
     },
     downloadSrc: {
       type: String,
-      required: false,
+      required: false
     },
     caption: {
       type: String,
-      required: false,
+      required: false
     },
     credit: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     detailUrl: {
       type: String,
-      required: false,
+      required: false
     },
     width: {
       type: String,
-      required: false,
+      required: false
     },
     height: {
       type: String,
-      required: false,
+      required: false
     },
     theme: {
       type: String,
       required: false,
       default: 'dark',
-      validator: (prop) => Object.keys(fancyboxThemes).includes(prop),
-    },
+      validator: (prop) => Object.keys(fancyboxThemes).includes(prop)
+    }
   },
   computed: {
     computedClass() {
@@ -102,14 +102,12 @@ export default defineComponent({
     },
     computedCaption() {
       let caption =
-        this.caption && this.caption.length
-          ? this.$options.filters.truncate(this.caption, 180)
-          : ''
+        this.caption && this.caption.length ? this.$options.filters.truncate(this.caption, 180) : ''
       if (this.credit) {
         caption = `${caption} Credit: ${this.credit}`
       }
       return caption
-    },
+    }
   },
   mounted() {
     return Fancybox.bind('[data-fancybox]', {
@@ -121,15 +119,15 @@ export default defineComponent({
       autoFocus: true,
       maxScale: 6,
       slideshow: {
-        delay: 10000,
+        delay: 10000
       },
       // see https://fancyapps.com/docs/ui/fancybox#animations
       animated: this.animated,
       Image: {
-        zoom: this.animated,
+        zoom: this.animated
       },
       Thumbs: {
-        autoStart: this.showThumbnails,
+        autoStart: this.showThumbnails
       },
       Toolbar: {
         items: {
@@ -138,7 +136,7 @@ export default defineComponent({
             class: 'fancybox__counter',
             html: '<span data-fancybox-index=""></span>&nbsp;/&nbsp;<span data-fancybox-count=""></span>',
             tabindex: -1,
-            position: 'left',
+            position: 'left'
           },
           prev: {
             type: 'button',
@@ -149,7 +147,7 @@ export default defineComponent({
               event.preventDefault()
 
               this.fancybox.prev()
-            },
+            }
           },
           next: {
             type: 'button',
@@ -160,7 +158,7 @@ export default defineComponent({
               event.preventDefault()
 
               this.fancybox.next()
-            },
+            }
           },
           fullscreen: {
             type: 'button',
@@ -175,7 +173,7 @@ export default defineComponent({
               } else {
                 Fullscreen.activate(this.fancybox.$container)
               }
-            },
+            }
           },
           slideshow: {
             type: 'button',
@@ -186,7 +184,7 @@ export default defineComponent({
               event.preventDefault()
 
               this.Slideshow.toggle()
-            },
+            }
           },
           zoom: {
             type: 'button',
@@ -201,7 +199,7 @@ export default defineComponent({
               if (panzoom) {
                 panzoom.toggleZoom()
               }
-            },
+            }
           },
           download: {
             type: 'link',
@@ -210,7 +208,7 @@ export default defineComponent({
             html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.62 2.48A2 2 0 004.56 21h14.88a2 2 0 001.94-1.51L22 17"/></svg>',
             click(event) {
               event.stopPropagation()
-            },
+            }
           },
           thumbs: {
             type: 'button',
@@ -225,7 +223,7 @@ export default defineComponent({
               if (thumbs) {
                 thumbs.toggle()
               }
-            },
+            }
           },
           close: {
             type: 'button',
@@ -238,8 +236,8 @@ export default defineComponent({
               event.preventDefault()
 
               this.fancybox.close()
-            },
-          },
+            }
+          }
         },
         display: [
           { id: 'counter', position: 'left' },
@@ -249,19 +247,15 @@ export default defineComponent({
           // 'download',
           'thumbs',
           'captions',
-          'close',
-        ],
+          'close'
+        ]
       },
       caption(_fancybox, _carousel, slide) {
         let caption = slide.caption
 
         if (slide.type === 'image') {
           caption = `<div class="mx-auto container">
-              ${
-                slide.title
-                  ? `<h6 class="font-semibold text-4xl mb-1">${slide.title}</h6>`
-                  : ''
-              }
+              ${slide.title ? `<h6 class="font-semibold text-4xl mb-1">${slide.title}</h6>` : ''}
               ${
                 caption.length
                   ? `<div class="caption inline sm:flex text-body-md pb-2 mr-2 sm:mr-0"><div class="inline">${caption}</div></div>`
@@ -276,14 +270,14 @@ export default defineComponent({
         }
 
         return caption
-      },
+      }
     })
   },
   methods: {
     clickHandler() {
       this.$emit('click')
-    },
-  },
+    }
+  }
 })
 </script>
 <template>

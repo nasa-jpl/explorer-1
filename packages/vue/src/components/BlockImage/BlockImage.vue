@@ -9,19 +9,19 @@ export default defineComponent({
   components: {
     BlockImageStandard,
     BlockImageFullBleed,
-    LayoutHelper,
+    LayoutHelper
   },
   props: {
     data: {
       type: Object,
-      required: false,
+      required: false
     },
     fullBleed: {
       type: Boolean,
       required: false,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 })
 </script>
 <template>

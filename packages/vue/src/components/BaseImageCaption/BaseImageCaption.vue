@@ -13,22 +13,33 @@ export type ImageCaptionObject = {
 export default defineComponent({
   name: 'BaseImageCaption',
   components: {
-    BaseLink,
+    BaseLink
   },
   props: {
     data: {
-      type: (Object as PropType<ImageCaptionObject>),
+      type: Object as PropType<ImageCaptionObject>,
       required: true,
-      default: undefined,
-    },
-  },
+      default: undefined
+    }
+  }
 })
 </script>
 <template>
-  <div v-if="data" class="BaseImageCaption text-body-sm">
+  <div
+    v-if="data"
+    class="BaseImageCaption text-body-sm"
+  >
     <div class="inline mr-2">
-      <div class="the-caption-text inline" v-html="data.caption"></div>
-      <span v-if="data.credit" class="inline"> Credit: {{ data.credit }} </span>
+      <div
+        class="the-caption-text inline"
+        v-html="data.caption"
+      ></div>
+      <span
+        v-if="data.credit"
+        class="inline"
+      >
+        Credit: {{ data.credit }}
+      </span>
     </div>
     <BaseLink
       v-if="data.detailUrl"

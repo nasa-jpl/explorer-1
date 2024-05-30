@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 
-import type {ImageObject} from './../../interfaces'
+import type { ImageObject } from './../../interfaces'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
@@ -14,28 +14,28 @@ export default defineComponent({
     MixinFancybox,
     BaseImage,
     BaseImagePlaceholder,
-    BaseImageCaption,
+    BaseImageCaption
   },
   props: {
     data: {
-      type: (Object as PropType<ImageObject>),
-      required: false,
+      type: Object as PropType<ImageObject>,
+      required: false
     },
     // if a caption should even be visible
     displayCaption: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // overrides caption provided with image model
     caption: {
       type: String,
-      required: false,
+      required: false
     },
     // if the image should be constrained to a 16:9 aspect ratio
     constrain: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   computed: {
     theCaption(): string | undefined {
@@ -56,7 +56,7 @@ export default defineComponent({
       if (this.data) {
         return {
           ...this.data,
-          caption: this.theCaption,
+          caption: this.theCaption
         }
       }
       return undefined
@@ -66,8 +66,8 @@ export default defineComponent({
         return true
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>
 <template>
@@ -96,7 +96,10 @@ export default defineComponent({
         />
       </BaseImagePlaceholder>
     </MixinFancybox>
-    <div v-if="theData && hasCaptionArea" class="lg:px-0 p-4 pb-0">
+    <div
+      v-if="theData && hasCaptionArea"
+      class="lg:px-0 p-4 pb-0"
+    >
       <BaseImageCaption :data="theData" />
     </div>
   </div>

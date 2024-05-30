@@ -7,9 +7,12 @@ interface Variants {
 }
 
 export const variants: Variants = {
-  primary: 'text-subtitle text-action-color hover:text-action-color-dark dark:text-action-color-light dark:hover:text-action-color',
-  secondary: 'text-subtitle text-action-color hover:text-action-color-dark dark:text-action-color-light dark:hover:text-action-color',
-  default: '-default underline text-action-color hover:text-action-color-dark dark:text-action-color-light dark:hover:text-action-color',
+  primary:
+    'text-subtitle text-action-color hover:text-action-color-dark dark:text-action-color-light dark:hover:text-action-color',
+  secondary:
+    'text-subtitle text-action-color hover:text-action-color-dark dark:text-action-color-light dark:hover:text-action-color',
+  default:
+    '-default underline text-action-color hover:text-action-color-dark dark:text-action-color-light dark:hover:text-action-color',
   none: ''
 }
 

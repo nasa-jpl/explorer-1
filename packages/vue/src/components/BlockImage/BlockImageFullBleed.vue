@@ -5,7 +5,7 @@ import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
-import type {ImageObject} from './../../interfaces'
+import type { ImageObject } from './../../interfaces'
 
 export default defineComponent({
   name: 'BlockImageFullBleed',
@@ -13,56 +13,33 @@ export default defineComponent({
     MixinFancybox,
     BaseImage,
     BaseImagePlaceholder,
-    BaseImageCaption,
+    BaseImageCaption
   },
   props: {
     data: {
-      type: (Object as PropType<ImageObject>),
-      required: false,
+      type: Object as PropType<ImageObject>,
+      required: false
     },
     // if a caption should even be visible
     displayCaption: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // overrides caption provided with image model
     caption: {
       type: String,
-      required: false,
+      required: false
     },
     // if the image should be constrained to a fixed aspect ratio (21:9 on smaller screens, 2:1 on larger screens)
     constrain: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   data() {
     return {
-      openTab: 1,
+      openTab: 1
     }
-  },
-  methods: {
-    getSrcSet: (srcSetObject: ImageObject): string => {
-  let srcSet = ''
-  const valid = Object.keys(srcSetObject).some(function (key) {
-    if (key.startsWith('screen')) {
-      return true
-    }
-    return false
-  })
-  if (valid) {
-    const srcSetArray: string[] = []
-    for (const [key, value] of Object.entries(srcSetObject)) {
-      if (key.startsWith('screen')) {
-        if (value.url && value.width) {
-          srcSetArray.push(`${value.url} ${value.width}w`)
-        }
-      }
-    }
-    srcSet = srcSetArray.join(', ')
-  }
-  return srcSet
-}
   },
   computed: {
     theCaption(): string | undefined {
@@ -86,7 +63,7 @@ export default defineComponent({
       if (this.data) {
         return {
           ...this.data,
-          caption: this.theCaption,
+          caption: this.theCaption
         }
       }
       return undefined
@@ -96,8 +73,31 @@ export default defineComponent({
         return true
       }
       return false
-    },
+    }
   },
+  methods: {
+    getSrcSet: (srcSetObject: ImageObject): string => {
+      let srcSet = ''
+      const valid = Object.keys(srcSetObject).some(function (key) {
+        if (key.startsWith('screen')) {
+          return true
+        }
+        return false
+      })
+      if (valid) {
+        const srcSetArray: string[] = []
+        for (const [key, value] of Object.entries(srcSetObject)) {
+          if (key.startsWith('screen')) {
+            if (value.url && value.width) {
+              srcSetArray.push(`${value.url} ${value.width}w`)
+            }
+          }
+        }
+        srcSet = srcSetArray.join(', ')
+      }
+      return srcSet
+    }
+  }
 })
 </script>
 <template>
@@ -113,23 +113,15 @@ export default defineComponent({
         >
           <BaseImagePlaceholder
             :aspect-ratio="constrain ? '16:9' : 'none'"
-            :responsive-aspect-ratio="
-              constrain ? 'lg:aspect-ratio-two-one' : ''
-            "
+            :responsive-aspect-ratio="constrain ? 'lg:aspect-ratio-two-one' : ''"
             dark-mode
           >
             <BaseImage
               v-if="theData.src && theData.srcCropped"
               :src="constrain ? theData.srcCropped.url : theData.src.url"
-              :srcset="
-                theData.srcSet && !constrain
-                  ? theData.srcSet
-                  : getSrcSet(theData)
-              "
+              :srcset="theData.srcSet && !constrain ? theData.srcSet : getSrcSet(theData)"
               :width="constrain ? theData.srcCropped.width : theData.src.width"
-              :height="
-                constrain ? theData.srcCropped.height : theData.src.height
-              "
+              :height="constrain ? theData.srcCropped.height : theData.src.height"
               :alt="theData.alt"
               :image-class="!constrain ? 'w-full h-auto' : undefined"
               :object-fit-class="constrain ? 'cover' : undefined"

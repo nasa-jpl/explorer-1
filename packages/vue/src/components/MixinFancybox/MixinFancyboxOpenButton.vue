@@ -5,8 +5,8 @@ import IconExpand from '@explorer-1/vue/src/components/Icons/IconExpand.vue'
 export default defineComponent({
   name: 'MixinFancyboxOpenButton',
   components: {
-    IconExpand,
-  },
+    IconExpand
+  }
 })
 </script>
 <template>
@@ -22,7 +22,6 @@ export default defineComponent({
     </div>
   </div>
 </template>
-
 
 <style lang="scss">
 .MixinFancyboxOpenButton {

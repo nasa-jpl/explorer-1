@@ -13,7 +13,7 @@ const headings: Headings = {
   h3: 'text-h3',
   h4: 'text-h4',
   h5: 'text-h5',
-  h6: 'text-h6',
+  h6: 'text-h6'
 }
 
 export default defineComponent({
@@ -23,16 +23,14 @@ export default defineComponent({
       type: (String as PropType<HeadingLevel>) || null,
       required: false,
       default: 'h2',
-      validator: (prop: string): boolean =>
-        Object.keys(headings).includes(prop),
+      validator: (prop: string): boolean => Object.keys(headings).includes(prop)
     },
     size: {
       type: String as PropType<HeadingLevel>,
       required: false,
       default: 'h2',
-      validator: (prop: string): boolean =>
-        Object.keys(headings).includes(prop),
-    },
+      validator: (prop: string): boolean => Object.keys(headings).includes(prop)
+    }
   },
   computed: {
     computedTag(): string {
@@ -48,12 +46,15 @@ export default defineComponent({
       } else {
         return ''
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <template>
-  <component :is="computedTag" :class="computedClass">
+  <component
+    :is="computedTag"
+    :class="computedClass"
+  >
     <slot />
   </component>
 </template>

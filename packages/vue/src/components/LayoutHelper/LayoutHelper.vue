@@ -9,7 +9,7 @@ export const indents: Indents = {
   'col-1': 'lg:col-start-1 lg:col-end-13',
   'col-2': 'lg:col-start-2 lg:col-end-12',
   'col-3': 'lg:col-start-3 lg:col-end-11',
-  'col-4': 'md:col-start-3 md:col-end-11 lg:col-start-4 lg:col-end-10',
+  'col-4': 'md:col-start-3 md:col-end-11 lg:col-start-4 lg:col-end-10'
 }
 
 export default defineComponent({
@@ -19,14 +19,14 @@ export default defineComponent({
       type: String,
       required: false,
       default: 'col-1',
-      validator: (prop: string): boolean => Object.keys(indents).includes(prop),
-    },
+      validator: (prop: string): boolean => Object.keys(indents).includes(prop)
+    }
   },
   computed: {
     theWidth(): string {
       return indents[this.indent]
-    },
-  },
+    }
+  }
 })
 </script>
 <template>
