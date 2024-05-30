@@ -44,7 +44,6 @@ export default defineNuxtModule<ModuleOptions>({
       // extend nuxt's vite config without overriding nuxt.config.js
       _nuxt.options.vite = {
         ..._nuxt.options.vite,
-
         resolve: {
           ..._nuxt.options.vite.resolve,
           alias: {
