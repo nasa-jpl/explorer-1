@@ -17,12 +17,12 @@
     "prepare": "npm run prepare:clean && npm run prepare:public",
     "prepare:clean": "rimraf ./public/dist",
     "prepare:public": "cp -R ./node_modules/@explorer-1/html/dist/assets/ ./public/dist",
-    "storybook": "pnpm run prepare && storybook dev -c .storybook -p 6006 --ci",
+    "storybook": "pnpm run prepare && storybook dev -c .storybook -p 7007 --ci",
     "lint": "eslint .storybook",
     "lint:fix": "eslint .storybook --fix",
     "build": "pnpm run prepare && storybook build -c .storybook -o storybook_compiled",
-    "percy": "percy storybook http://localhost:6006",
-    "percy:dry-run": "percy storybook http://localhost:6006 --dry-run"
+    "percy": "percy storybook http://localhost:7007",
+    "percy:dry-run": "percy storybook http://localhost:7007 --dry-run"
   },
   "dependencies": {
     "@fancyapps/ui": "^4.0.26",
@@ -51,12 +51,13 @@
     "autoprefixer": "^10.4.19",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.38",
+    "postcss-import": "^16.1.0",
     "remark-gfm": "^4.0.0",
     "rimraf": "^5.0.5",
     "storybook": "^8.1.4",
     "tailwindcss": "^3.4.3",
-    "tslib": "^2.6.2",
     "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
     "typescript": "^5.2.2",
     "vite": "^5.2.11"
   },

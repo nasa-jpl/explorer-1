@@ -11,7 +11,7 @@ import BaseLink from './components/BaseLink/BaseLink.vue'
       href="#"
       >Base Link</base-link
     >
-    <p class="text-action-color">Action color</p>
-    <p class="text-emphasis-color">Emphasis color</p>
+    <p class="text-action">Action color</p>
+    <p class="text-emphasis">Emphasis color</p>
   </div>
 </template>

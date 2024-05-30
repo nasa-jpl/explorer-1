@@ -1,0 +1,119 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+
+export type ImageLoader = 'lazy' | 'eager' | undefined
+
+interface ObjectFitClasses {
+  [name: string]: string
+}
+
+export const objectFitClasses: ObjectFitClasses = {
+  none: 'object-none',
+  contain: 'object-contain',
+  cover: 'object-cover',
+  fill: 'object-fill',
+  scaleDown: 'object-scale-down'
+}
+
+export default defineComponent({
+  name: 'BaseImage',
+  props: {
+    imageClass: {
+      type: String,
+      required: false
+    },
+    objectFitClass: {
+      type: String,
+      required: false,
+      default: 'contain',
+      validator: (prop: string): boolean => Object.keys(objectFitClasses).includes(prop)
+    },
+    src: {
+      type: String,
+      required: true
+    },
+    srcset: {
+      type: String || false,
+      required: false
+    },
+    alt: {
+      type: String
+    },
+    width: {
+      type: [Number, String]
+    },
+    height: {
+      type: [Number, String]
+    },
+    loading: {
+      type: String as PropType<ImageLoader>,
+      required: false,
+      default: 'lazy'
+    }
+  },
+  data() {
+    return {
+      lazyNative: true
+    }
+  },
+  computed: {
+    computedClass(): string {
+      let classes = ''
+      if (this.imageClass) {
+        classes = classes + ' ' + this.imageClass
+      }
+      if (this.objectFitClass) {
+        classes = classes + ' ' + objectFitClasses[this.objectFitClass]
+      }
+      if (!this.lazyNative) {
+        classes = classes + ' lazyload'
+      }
+      return classes
+    }
+  },
+  mounted() {
+    this.featureDetectImageLazyLoad()
+  },
+  methods: {
+    featureDetectImageLazyLoad() {
+      if ('loading' in HTMLImageElement.prototype) {
+        const image = this.$refs.BaseImage ? (this.$refs.BaseImage as HTMLImageElement) : null
+        this.lazyNative = true
+        // reassign dataset attributes
+        if (image && image.dataset.src) {
+          image.src = image.dataset.src
+        }
+        if (image && image.dataset.srcset) {
+          image.srcset = image.dataset.srcset
+        }
+      } else {
+        this.lazyNative = false
+      }
+    },
+    imageFailed() {
+      console.log('Image failed to load.')
+    }
+  }
+})
+</script>
+<template>
+  <div>
+    <img
+      v-if="src"
+      ref="BaseImage"
+      class="BaseImage"
+      :class="computedClass"
+      :data-src="src"
+      :data-srcset="srcset"
+      :alt="alt"
+      :width="width"
+      :height="height"
+      :loading="loading"
+      @error="imageFailed"
+    />
+  </div>
+</template>
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/BaseImage';
+</style>
