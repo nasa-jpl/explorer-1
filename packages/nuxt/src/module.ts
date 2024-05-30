@@ -1,5 +1,5 @@
+import type {} from '@nuxt/schema'
 import { defineNuxtModule, addComponentsDir, installModule, createResolver } from '@nuxt/kit'
-import explorer1ViteConfig from '@explorer-1/vue/vite.config'
 
 export interface ModuleOptions {
   includeStyles: boolean
@@ -28,6 +28,7 @@ export default defineNuxtModule<ModuleOptions>({
       _nuxt.options.css.push(
         resolver.resolve('./../node_modules/@explorer-1/vue/src/assets/scss/', 'styles.scss')
       )
+
       // add postcss options
       _nuxt.options.postcss = {
         plugins: {
@@ -38,17 +39,13 @@ export default defineNuxtModule<ModuleOptions>({
       // extend nuxt's vite config without overriding nuxt.config.js
       _nuxt.options.vite = {
         ..._nuxt.options.vite,
-        resolve: {
-          ..._nuxt.options.vite.resolve,
-          alias: {
-            ..._nuxt.options.vite?.resolve?.alias,
-            ...explorer1ViteConfig?.resolve?.alias
-          }
-        },
-
         css: {
           ..._nuxt.options.css,
-          ...explorer1ViteConfig.css
+          preprocessorOptions: {
+            scss: {
+              additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
+            }
+          }
         }
       }
     }
