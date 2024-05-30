@@ -1,5 +1,4 @@
 @use 'sass:math';
-@use 'typography-theme-colors';
 
 // Conversion util for easier definition of font sizes by pixel size
 @function pxToRem($pxValue) {

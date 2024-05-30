@@ -61,6 +61,10 @@ nuke:
 html-storybook:
 	pnpm --filter @explorer-1/html-storybook dev
 
+## HTML: run Storybook with --force-build-preview
+html-storybook-force:
+	pnpm --filter @explorer-1/html-storybook dev --force-build-preview
+
 ## HTML: build Storybook
 html-storybook-build:
 	pnpm --filter @explorer-1/html-storybook build
@@ -82,6 +86,10 @@ vue-storybook:
 ## Vue: build Storybook
 vue-storybook-build:
 	pnpm --filter @explorer-1/vue-storybook build
+
+## HTML: run Storybook with --force-build-preview
+vue-storybook-force:
+	pnpm --filter @explorer-1/vue-storybook dev --force-build-preview
 
 ## Vue: run Vite
 vue-dev:
@@ -111,6 +119,8 @@ lint:
 lint-fix:
 	pnpm run lint:fix
 
+# how to use pnpm to upgrade storybook
+# storybook@latest upgrade --package-manager pnpm
 # TODO: Below helper commands not running as expected change dir first, then pnpm dlx...
 # ## HTML: update Storybook
 # html-storybook-update:

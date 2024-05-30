@@ -7,67 +7,18 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 import '@explorer-1/vue/src/assets/scss/styles.scss'
 
-import { withGlobals } from '@explorer-1/common-storybook/src/config/withGlobals'
+import { withGlobals, globalTypes } from '@explorer-1/common-storybook/src/config/withGlobals'
 setup((app: App, context?: StoryContext<VueRenderer>) => {
   app.component('Swiper', Swiper)
   app.component('SwiperSlide', SwiperSlide)
   useMockComponents(app)
 })
 const preview: Preview = {
-  globalTypes: {
-    themesConfig: {
-      defaultValue: {
-        themes: ['Default', 'EDU', 'Internal'],
-        method: 'data-attr'
-      }
-    },
-    variantsConfig: {
-      defaultValue: {
-        variants: ['ThemeVariantLight', 'ThemeVariantDark'],
-        method: 'css'
-      }
-    },
-    theme: {
-      description: 'Global Theme',
-      defaultValue: 'defaultTheme',
-      toolbar: {
-        title: 'Theme',
-        // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
-        icon: 'eye',
-        items: [
-          {
-            value: 'defaultTheme',
-            icon: 'circlehollow',
-            title: 'Default Theme'
-          },
-          { value: 'edu', icon: 'circle', title: 'EDU Theme' },
-          { value: 'internal', icon: 'collapse', title: 'Internal Theme' }
-        ],
-        dynamicTitle: true
-      }
-    },
-    variant: {
-      description: 'Theme Variant',
-      defaultValue: 'ThemeVariantLight',
-      toolbar: {
-        title: 'Variant',
-        // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
-        icon: 'eye',
-        items: [
-          {
-            value: 'ThemeVariantLight',
-            icon: 'circlehollow',
-            title: 'Light Variant'
-          },
-          { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' }
-        ],
-        dynamicTitle: true
-      }
-    }
-  },
+  globalTypes,
 
   parameters: {
     controls: {
+      expanded: true,
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/

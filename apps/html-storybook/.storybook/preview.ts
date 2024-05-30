@@ -56,28 +56,33 @@ const preview = {
   globalTypes: {
     themesConfig: {
       defaultValue: {
-        options: ['ThemeVariantLight', 'ThemeInternal'],
+        themes: ['Default', 'EDU', 'Internal'],
+        method: 'css'
+      }
+    },
+    variantsConfig: {
+      defaultValue: {
+        variants: ['ThemeVariantLight', 'ThemeVariantDark'],
         method: 'css'
       }
     },
     theme: {
       description: 'Global Theme',
-      defaultValue: 'ThemeVariantLight',
+      defaultValue: 'ThemeDefault',
       toolbar: {
         title: 'Theme',
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
         items: [
-          { value: 'ThemeVariantLight', icon: 'circlehollow', title: 'Default Theme' },
-          { value: 'ThemeInternal', icon: 'collapse', title: 'Internal Theme' }
+          {
+            value: 'ThemeDefault',
+            icon: 'home',
+            title: 'Default Theme'
+          },
+          { value: 'ThemeEdu', icon: 'globe', title: 'EDU Theme' },
+          { value: 'ThemeInternal', icon: 'key', title: 'Internal Theme' }
         ],
         dynamicTitle: true
-      }
-    },
-    variantsConfig: {
-      defaultValue: {
-        options: ['ThemeVariantLight', 'ThemeVariantDark'],
-        method: 'css'
       }
     },
     variant: {
@@ -88,7 +93,11 @@ const preview = {
         // https://storybook.js.org/docs/faq#what-icons-are-available-for-my-toolbar-or-my-addon
         icon: 'eye',
         items: [
-          { value: 'ThemeVariantLight', icon: 'circlehollow', title: 'Light Variant' },
+          {
+            value: 'ThemeVariantLight',
+            icon: 'circlehollow',
+            title: 'Light Variant'
+          },
           { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' }
         ],
         dynamicTitle: true
