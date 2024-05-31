@@ -8,7 +8,8 @@ const module = defineNuxtModule({
   // Default configuration options of the Nuxt module
   defaults: {
     includeStyles: true,
-    includeComponents: true
+    includeComponents: true,
+    includePageTemplates: true
   },
   async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url);
@@ -42,6 +43,14 @@ const module = defineNuxtModule({
         path: resolver.resolve("./../node_modules/@explorer-1/vue/src/components"),
         global: true,
         pathPrefix: false,
+        extensions: [".vue"]
+      });
+    }
+    if (_options.includePageTemplates) {
+      addComponentsDir({
+        path: resolver.resolve("./../node_modules/@explorer-1/vue/src/templates"),
+        global: true,
+        pathPrefix: true,
         extensions: [".vue"]
       });
     }

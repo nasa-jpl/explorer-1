@@ -4,6 +4,7 @@ import { defineNuxtModule, addComponentsDir, installModule, createResolver } fro
 export interface ModuleOptions {
   includeStyles: boolean
   includeComponents: boolean
+  includePageTemplates: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -14,7 +15,8 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options of the Nuxt module
   defaults: {
     includeStyles: true,
-    includeComponents: true
+    includeComponents: true,
+    includePageTemplates: true
   },
   async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -50,11 +52,20 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
     if (_options.includeComponents) {
-      // add all @explorer-1/vue components
+      // add @explorer-1/vue components
       addComponentsDir({
         path: resolver.resolve('./../node_modules/@explorer-1/vue/src/components'),
         global: true,
         pathPrefix: false,
+        extensions: ['.vue']
+      })
+    }
+    if (_options.includePageTemplates) {
+      // add @explorer-1/vue page template components
+      addComponentsDir({
+        path: resolver.resolve('./../node_modules/@explorer-1/vue/src/templates'),
+        global: true,
+        pathPrefix: true,
         extensions: ['.vue']
       })
     }

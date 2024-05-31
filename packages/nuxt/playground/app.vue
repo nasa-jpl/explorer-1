@@ -8,6 +8,7 @@
     </div>
     <block-image class="relative" :data="BlockImageData" />
     <p>This is a paragraph, not a component.</p>
+    <www-home-page :data="{ test: 'test' }" />
   </div>
 </template>
 
