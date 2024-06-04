@@ -1,5 +1,6 @@
-// utils
-import { getSrcSet } from './../src/utils/getSrcSet'
+// mixins
+import { mixinGetSrcSet } from './../src/utils/mixins'
+import { mixinTransparentHeader } from './../src/utils/mixins'
 
 // components here
 import BaseButton from './../src/components/BaseButton/BaseButton.vue'
@@ -17,7 +18,8 @@ import MixinAnimationCaret from './../src/components/MixinAnimationCaret/MixinAn
 import MixinFancybox from './../src/components/MixinFancybox/MixinFancybox.vue'
 
 export {
-  getSrcSet,
+  mixinGetSrcSet,
+  mixinTransparentHeader,
   BaseButton,
   BaseHeading,
   BaseImage,

@@ -37,6 +37,7 @@
     "autoprefixer": "^10.4.19",
     "msw": "^2.3.0",
     "msw-storybook-addon": "^2.0.2",
+    "pinia": "^2.1.7",
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",
     "rimraf": "^5.0.5",
