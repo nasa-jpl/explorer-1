@@ -78,63 +78,58 @@ export const HeroMediaData = {
   displayCaption: true
 }
 
-// template
-const HeroMediaTemplate = (args) => ({
-  components: { HeroMedia },
-  setup() {
-    return { args }
-  },
-  template: `<HeroMedia v-bind="args" />`
-})
-
 // stories
-export const Hero = HeroMediaTemplate.bind({})
-Hero.args = {
-  ...HeroMediaData
+export const Hero = {
+  args: HeroMediaData
 }
-export const CustomImageCaption = HeroMediaTemplate.bind({})
-CustomImageCaption.args = {
-  ...HeroMediaData,
-  caption: '<p>My custom caption.</p>'
-}
-
-export const NoCaptionText = HeroMediaTemplate.bind({})
-NoCaptionText.args = {
-  ...HeroMediaData,
-  caption: '<p>My custom caption.</p>',
-  displayCaption: false
+export const CustomImageCaption = {
+  args: {
+    ...HeroMediaData,
+    caption: '<p>My custom caption.</p>'
+  }
 }
 
-export const NoCaptionArea = HeroMediaTemplate.bind({})
-NoCaptionArea.args = {
-  image: {
-    src: HeroMediaData.image.src,
-    alt: 'The hero image',
-    caption: '\n', // a lot of prod data has this for caption
-    credit: '',
-    detailUrl: ''
-  },
-  caption: '<p>My custom caption.</p>',
-  displayCaption: false
-}
-export const NoLink = HeroMediaTemplate.bind({})
-NoLink.args = {
-  image: {
-    src: HeroMediaData.image.src,
-    alt: HeroMediaData.image.src,
-    caption: HeroMediaData.image.caption,
-    credit: HeroMediaData.image.credit,
-    detailUrl: ''
-  },
-  caption: '',
-  displayCaption: true
+export const NoCaptionText = {
+  args: {
+    ...HeroMediaData,
+    caption: '<p>My custom caption.</p>',
+    displayCaption: false
+  }
 }
 
-export const Video = HeroMediaTemplate.bind({})
-Video.args = {
-  blockType: 'VideoBlock',
-  video: BaseVideoData,
-  caption:
-    '<p>Lorem ipsum dolor sit amet. <a href="#">A link in the caption</a> testing render.</p>',
-  credit: 'NASA/JPL'
+export const NoCaptionArea = {
+  args: {
+    image: {
+      src: HeroMediaData.image.src,
+      alt: 'The hero image',
+      caption: '\n', // a lot of prod data has this for caption
+      credit: '',
+      detailUrl: ''
+    },
+    caption: '<p>My custom caption.</p>',
+    displayCaption: false
+  }
+}
+export const NoLink = {
+  args: {
+    image: {
+      src: HeroMediaData.image.src,
+      alt: HeroMediaData.image.src,
+      caption: HeroMediaData.image.caption,
+      credit: HeroMediaData.image.credit,
+      detailUrl: ''
+    },
+    caption: '',
+    displayCaption: true
+  }
+}
+
+export const Video = {
+  args: {
+    blockType: 'VideoBlock',
+    video: BaseVideoData,
+    caption:
+      '<p>Lorem ipsum dolor sit amet. <a href="#">A link in the caption</a> testing render.</p>',
+    credit: 'NASA/JPL'
+  }
 }

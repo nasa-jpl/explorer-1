@@ -1,7 +1,8 @@
 // import Vue from 'vue'
 // import dayjs from './dayjs'
 import { useHeaderStore } from './../stores/header'
-import type { ImageObject } from '../interfaces'
+import { useRoute } from 'vue-router'
+import type { BreadcrumbPathObject, ImageObject } from '../interfaces'
 // srcSet data structure
 export interface SrcSetDataValue {
   url: string
@@ -16,18 +17,13 @@ export type linkObject = {
   title: string | null
   path: string | null
 }
-// sub type used in breadcrumbs
-export type breadcrumbPathObject = {
-  path: string
-  title: string
-}
 // breadcrumbs used for nav and secondary nav
 export type breadcrumbObject = {
   // eslint-disable-next-line camelcase
   menu_links: {
-    [key: string]: [breadcrumbPathObject]
+    [key: string]: [BreadcrumbPathObject]
   } | null
-  more: [breadcrumbPathObject] | null
+  more: [BreadcrumbPathObject] | null
 }
 // general related link object used in various places
 export type relatedLinkObject = {
@@ -119,47 +115,46 @@ export const mixinTransparentHeader = () => {
 //     /* -- mixinUpdateGlobalChildren --
 //       This mixin is used by the navigation to share secondary nav items between the global nav and components
 //     */
-//     mixinUpdateGlobalChildren(value: [breadcrumbPathObject] | null) {
+//     mixinUpdateGlobalChildren(value: [BreadcrumbPathObject] | null) {
 //       if (this.$store) {
 //         this.$store.commit('header/UPDATE_GLOBALCHILDREN', value)
 //       }
 //     },
-//     /* -- mixinUpdateSecondary --
-//       This mixin is used by the navigation to share secondary nav override items between components
-//     */
-//     mixinUpdateSecondary(value: [breadcrumbPathObject] | null) {
-//       if (this.$store) {
-//         this.$store.commit('header/UPDATE_SECONDARY', value)
-//       }
-//     },
-//     /* -- mixinHighlightPrimary --
-//       This mixin is used to specify if active primary navigation items should be highlighted/underlined
-//       Use case: If a page displays a secondary nav, the active primary navigation item should have a different style treatment
-//     */
-//     mixinHighlightPrimary(value: boolean) {
-//       if (this.$store) {
-//         this.$store.commit('header/HIGHLIGHT_PRIMARY', value)
-//       }
-//     },
-//     /* -- mixinIsActivePath --
-//       Used in various navigation components to determine if a navigation
-//       item matches the active path, or is an ancestor of the active path.
-//       Both cases will return true.
-//       Useful for dropdown toggles.
-//     */
-//     mixinIsActivePath(itemPath: string): Boolean {
-//       const currentPath = this.$route ? this.$route.path : null
-//       const path = itemPath
-//       const ancestorPath = path ? (path.endsWith('/') ? path : path + '/') : null
-//       if (currentPath && path && ancestorPath) {
-//         if (currentPath === path) {
-//           return true
-//         } else {
-//           return currentPath.startsWith(ancestorPath)
-//         }
-//       }
-//       return false
-//     },
+/* -- mixinUpdateSecondary --
+      This mixin is used by the navigation to share secondary nav override items between components
+    */
+export const mixinUpdateSecondary = (value: [BreadcrumbPathObject] | null) => {
+  const headerStore = useHeaderStore()
+  headerStore.updateSecondary(value)
+}
+/* -- mixinHighlightPrimary --
+      This mixin is used to specify if active primary navigation items should be highlighted/underlined
+      Use case: If a page displays a secondary nav, the active primary navigation item should have a different style treatment
+    */
+export const mixinHighlightPrimary = (value: boolean) => {
+  const headerStore = useHeaderStore()
+  headerStore.highlightPrimary(value)
+}
+/* -- mixinIsActivePath --
+      Used in various navigation components to determine if a navigation
+      item matches the active path, or is an ancestor of the active path.
+      Both cases will return true.
+      Useful for dropdown toggles.
+    */
+export const mixinIsActivePath = (itemPath: string): Boolean => {
+  const route = useRoute()
+  const currentPath = route ? route.path : null
+  const path = itemPath
+  const ancestorPath = path ? (path.endsWith('/') ? path : path + '/') : null
+  if (currentPath && path && ancestorPath) {
+    if (currentPath === path) {
+      return true
+    } else {
+      return currentPath.startsWith(ancestorPath)
+    }
+  }
+  return false
+}
 
 /* -- mixinGetSrcSet --
       Use this when you are querying custom cropped renditions

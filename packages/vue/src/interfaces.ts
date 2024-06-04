@@ -1,3 +1,9 @@
+export interface BreadcrumbPathObject {
+  path: string
+  title: string
+  children: any[]
+}
+
 export interface ImageSrcObject {
   url: string
   width: number
@@ -16,4 +22,7 @@ export interface ImageObject {
   caption?: string
   credit?: string
   detailUrl?: string
+  cover?: string
+  image?: ImageObject
+  displayCaption?: boolean
 }

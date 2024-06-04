@@ -1,0 +1,73 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import TimelineDialog from './TimelineDialog'
+
+<Meta
+  title="WWW/Components/TimelineDialog"
+  component={TimelineDialog}
+  parameters={{ viewMode: 'docs' }}
+/>
+
+export const TimelineDialogTemplate = (args) => ({
+  props: Object.keys(args),
+  components: { TimelineDialog },
+  template: `
+  <div>
+    <button type="button" :data-a11y-dialog-show="data.id">Open the dialog</button>
+    <TimelineDialog :data="data" :dialog-box-class="dialogBoxClass"></TimelineDialog>
+  </div>
+`,
+})
+
+# TimelineDialog
+
+This component is an accessible dialog window that utilizes the efficient and lightweight `a11y-dialog` package.
+It adheres to the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) outlined in the Accessible Rich Internet Applications (ARIA) Authoring Practices Guide.
+
+<Canvas className="sbdocs-preview-full-width">
+  <Story
+    name="Default"
+    args={{
+      data: {
+        id: '7535b4d1-e803-49dd-ad06-8925912464af',
+        heading:
+          'First Rocket Tests by Founders of What Would Become the Jet Propulsion Laboratory',
+        date: '1936-10-31',
+        displayDate: 'October 31, 1936',
+        milestoneLabel: 'CATEGORY LABEL',
+        description:
+          'Theodore von Kármán, the head of the Guggenheim Aeronautical Laboratory at Caltech, is overseeing pioneering work on rocket propulsion when a pair of young rocket enthusiasts, John W. Parsons and Edward S. Forman, come to him looking for help. Von Kármán connects them to some grad students, and on Halloween, a group goes out to the Arroyo Seco, a dry canyon wash at the foot of the San Gabriel Mountains on the northwest edge of Pasadena. The seven men -- Frank Malina, A.O. Smith, William Bollay, Carlos Wood, William Rockefeller, Parsons and Forman -- try four times to ignite a small rocket motor to gather thrust data, with only the last attempt succeeding (and setting fire to the outside of the motor, too).    ',
+        milestoneLinkLabel: 'Optional CTA Link',
+        embed: null,
+        milestoneLink: {
+          externalLink: 'https://mars.nasa.gov/insight/',
+          page: null,
+        },
+        image: {
+          alt: 'Fourth image',
+          src: {
+            height: 400,
+            url: 'https://picsum.photos/800/400',
+            width: 800,
+          },
+          srcSet:
+            'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w',
+        },
+      },
+      dialogBoxClass: 'max-w-xl',
+    }}
+  >
+    {TimelineDialogTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Basic Usage
+
+To trigger dialog opening, use the `data-a11y-dialog-show` attribute with the value set to the `id` of the dialog element you want to open.
+
+```
+<button type="button" data-a11y-dialog-show="your-dialog-id">
+  Open the dialog
+</button>
+```
+
+See [all documentation in the repository](https://github.com/KittyGiraudel/a11y-dialog).

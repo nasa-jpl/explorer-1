@@ -1,0 +1,155 @@
+<template>
+  <div
+    v-if="data"
+    class="ThemeLight"
+    :class="{ '-nav-offset': !heroInline && data.heroImage }"
+  >
+    <!-- hero image -->
+    <HeroMedia
+      v-if="data.heroImage && !heroInline"
+      class="md:mb-0 mb-10"
+      :image="data.heroImage"
+      :caption="data.heroImageCaption"
+      :display-caption="!data.heroImageCaption ? false : true"
+      :constrain="data.heroConstrain"
+    />
+
+    <!-- secondary nav -->
+    <NavSecondary
+      :breadcrumb="data.breadcrumb"
+      :has-intro="data.heroImage && !heroInline ? true : false"
+    />
+
+    <!-- page headline -->
+    <LayoutHelper indent="col-2" :class="h1LayoutHelperClasses">
+      <DetailHeadline
+        :title="data.title"
+        :label="data.displayLabel"
+        :class="{ 'sr-only': hideH1 }"
+      />
+    </LayoutHelper>
+
+    <!-- inline hero -->
+    <LayoutHelper
+      v-if="data.heroImageInline && heroInline"
+      indent="col-2"
+      class="mb-22 mt-10"
+    >
+      <BlockImageStandard
+        :data="data.heroImageInline"
+        :caption="data.heroImageCaption"
+        :display-caption="!data.heroImageCaption ? false : true"
+        :constrain="data.heroConstrain"
+      />
+    </LayoutHelper>
+
+    <!-- share buttons -->
+    <LayoutHelper indent="col-2" class="lg:mb-0 relative mb-8">
+      <ShareButtons
+        v-if="data.title && data.url"
+        :title="data.title"
+        :url="data.url"
+      />
+    </LayoutHelper>
+
+    <!-- Body Streamfield -->
+    <BlockStreamfield :data="data.body" />
+
+    <!-- related links -->
+    <LayoutHelper
+      v-if="data.relatedLinks && data.relatedLinks.length"
+      indent="col-3"
+      class="lg:my-18 my-10"
+    >
+      <BlockRelatedLinks :data="data.relatedLinks[0]" />
+    </LayoutHelper>
+
+    <!-- contact form for specific content page only -->
+    <template v-if="data.slug === 'contact-jpl'">
+      <FormContact class="lg:mb-18 mb-10" />
+    </template>
+
+    <!-- Newsletter Signup form for specific content page only -->
+    <template v-if="data.slug === 'newsletter-signup'">
+      <!-- Newsletter Signup Form -->
+      <FormNewsletterSignup class="lg:mb-18 mb-10" />
+    </template>
+
+    <!-- media contacts and release number -->
+    <LayoutHelper
+      v-if="data.clearanceNumber"
+      indent="col-3"
+      class="lg:my-18 my-10"
+    >
+      <p class="text-body-sm text-gray-mid-dark">
+        {{ data.clearanceNumber }}
+      </p>
+    </LayoutHelper>
+
+    <!-- related content -->
+    <BlockLinkCarousel
+      item-type="cards"
+      class="lg:my-24 my-12"
+      :heading="data.relatedContentHeading"
+      :items="data.relatedContent"
+    />
+  </div>
+</template>
+<script>
+import { defineComponent } from 'vue'
+import NavSecondary from '@/components/NavSecondary/NavSecondary.vue'
+import LayoutHelper from '@/components/LayoutHelper/LayoutHelper.vue'
+import DetailHeadline from '@/components/DetailHeadline/DetailHeadline.vue'
+import HeroMedia from '@/components/HeroMedia/HeroMedia.vue'
+import ShareButtons from '@/components/ShareButtons/ShareButtons.vue'
+import BlockImageStandard from '@/components/BlockImage/BlockImageStandard.vue'
+import BlockStreamfield from '@/components/BlockStreamfield/BlockStreamfield.vue'
+import BlockRelatedLinks from '@/components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockLinkCarousel from '@/components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import FormContact from '@/components/FormContact/FormContact.vue'
+import FormNewsletterSignup from '@/components/FormNewsletterSignup/FormNewsletterSignup.vue'
+
+export default defineComponent({
+  name: 'PageContent',
+  components: {
+    NavSecondary,
+    LayoutHelper,
+    DetailHeadline,
+    HeroMedia,
+    ShareButtons,
+    BlockImageStandard,
+    BlockStreamfield,
+    BlockRelatedLinks,
+    BlockLinkCarousel,
+    FormContact,
+    FormNewsletterSignup,
+  },
+  props: {
+    data: {
+      type: Object,
+      required: false,
+    },
+  },
+  computed: {
+    heroInline() {
+      if (this.data.heroPosition === 'inline') {
+        return true
+      }
+      return false
+    },
+    hideH1() {
+      if (this.$route && this.$route.path === '/a-plan-for-jpl') {
+        return true
+      }
+      return false
+    },
+    h1LayoutHelperClasses() {
+      if (this.hideH1) {
+        // We're hiding the H1 from regular browsers, so reduce the standard margin.
+        return 'lg:mt-12 mt-5'
+      }
+      return 'lg:mt-12 lg:mb-18 mt-5 mb-10'
+    },
+  },
+})
+</script>
