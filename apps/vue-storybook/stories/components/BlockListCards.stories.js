@@ -1,0 +1,79 @@
+import BlockListCards from '@explorer-1/vue/src/components/BlockListCards/BlockListCards.vue'
+
+export default {
+  title: 'Components/Blocks/BlockListCards',
+  component: BlockListCards,
+  excludeStories: /.*Data$/
+}
+
+export const BlockListCardsData = {
+  blockType: 'ListBlock',
+  items: [
+    {
+      description:
+        '<p>Morbi ullamcorper ligula sit amet finibus condimentum. Nulla et  ultricies metus. Integer tristique arcu quam, sed blandit sem porttitor  non. Donec aliquet orci at iaculis gravida. Vestibulum bibendum justo  vitae enim tempor pulvinar. Phasellus scelerisque ultrices eros, vitae  pulvinar lectus tempus convallis. In hac habitasse platea dictumst.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>',
+      heading: 'Heading text',
+      image: {
+        src: {
+          url: 'https://source.unsplash.com/Oze6U2m1oYU/320x320',
+          width: '320',
+          height: '320'
+        }
+      },
+      links: [
+        {
+          externalLink: 'http://www.nasa.gov/',
+          page: null,
+          text: 'External link'
+        },
+        {
+          externalLink: null,
+          page: {
+            url: '/missions/airborne-visible-infrared-imaging-spectrometer-aviris/'
+          },
+          text: 'Internal link'
+        }
+      ]
+    },
+    {
+      description:
+        '<p>Morbi ullamcorper ligula sit amet finibus condimentum. Nulla et  ultricies metus. Integer tristique arcu quam, sed blandit sem porttitor  non. Donec aliquet orci at iaculis gravida. Vestibulum bibendum justo  vitae enim tempor pulvinar. Phasellus scelerisque ultrices eros, vitae  pulvinar lectus tempus convallis. In hac habitasse platea dictumst.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>',
+      heading: 'Heading text',
+      image: {
+        src: {
+          url: 'https://source.unsplash.com/Oze6U2m1oYU/320x320',
+          width: '320',
+          height: '320'
+        }
+      },
+      links: [
+        {
+          externalLink: null,
+          page: null,
+          document: {
+            url: '/missions/airborne-visible-infrared-imaging-spectrometer-aviris/'
+          },
+          text: 'Document link'
+        }
+      ]
+    }
+  ]
+}
+
+// template
+const BlockListCardsTemplate = (args) => ({
+  props: Object.keys(args),
+  components: { BlockListCards },
+  template: `
+  <BlockListCards
+    :data="data"
+  />
+  `
+})
+
+// stories
+export const Default = BlockListCardsTemplate.bind({})
+Default.storyName = 'BlockListCards'
+Default.args = {
+  data: BlockListCardsData
+}

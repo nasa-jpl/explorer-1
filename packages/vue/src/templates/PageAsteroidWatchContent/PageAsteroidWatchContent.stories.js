@@ -1,4 +1,4 @@
-import { HeroMediaData } from '../HeroMedia/HeroMedia.stories'
+import { HeroMediaData } from './../components/HeroMedia.stories'
 import { AsteroidWatchWidgetData } from '../AsteroidWatchWidget/AsteroidWatchWidget.stories'
 
 import PageAsteroidWatchContent from './PageAsteroidWatchContent.vue'

@@ -109,7 +109,8 @@ import { defineComponent } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseUnitToggle from './../BaseUnitToggle/BaseUnitToggle.vue'
 import IconExternal from './../Icons/IconExternal.vue'
-import { asteroidWatchWidgetQuery } from '@/apollo/queries/asteroidWatchWidgetQuery'
+// TODO: PORT - figure out how to centralize graphQL queries
+import { AsteroidWatchWidgetQuery } from '@/apollo/queries/AsteroidWatchWidget'
 /**
  * Displays asteroid widget data. API is parsed by the backend. Frontend retrieves via a graphQL query.
  */
@@ -134,7 +135,7 @@ export default defineComponent({
   async fetch() {
     const client = this.$apollo.getClient()
     const { data } = await client.query({
-      query: asteroidWatchWidgetQuery,
+      query: AsteroidWatchWidgetQuery,
     })
     if (data) {
       this.fetchedData = data.AsteroidWatchContentPage.nextCloseApproaches

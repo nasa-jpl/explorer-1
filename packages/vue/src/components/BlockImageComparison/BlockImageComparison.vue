@@ -21,7 +21,7 @@
 <script>
 import { defineComponent } from 'vue'
 
-const VueCompareImage = process.browser ? require('vue-compare-image') : null
+const VueCompareImage = process.browser ? require('vue3-compare-image') : null
 
 export default defineComponent({
   name: 'BlockImageComparison',

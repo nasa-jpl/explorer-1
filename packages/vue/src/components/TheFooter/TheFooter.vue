@@ -166,7 +166,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { footerQuery } from '@/apollo/queries/footerQuery'
+// TODO: PORT -- find a place for the query to live
+import { FooterQuery } from '@/apollo/queries/Footer'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import NavSocial from './../NavSocial/NavSocial.vue'
@@ -200,7 +201,7 @@ export default defineComponent({
     if (this.$config && !this.staticData && !this.$config.MAINTENANCE_MODE) {
       const client = this.$apollo.getClient()
       const { data } = await client.query({
-        query: footerQuery,
+        query: FooterQuery,
       })
       if (data) {
         this.fetchedData = data.footer

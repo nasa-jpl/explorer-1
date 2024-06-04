@@ -433,21 +433,36 @@ importers:
       '@tailwindcss/forms':
         specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.5.7)(@types/node@20.12.12)(typescript@5.4.5)))
+      animejs:
+        specifier: ^3.2.2
+        version: 3.2.2
       click-outside-vue3:
         specifier: ^4.0.1
         version: 4.0.1
+      datebook:
+        specifier: ^8.0.1
+        version: 8.0.1
       dayjs:
         specifier: ^1.11.11
         version: 1.11.11
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       swiper:
         specifier: ^11.1.3
         version: 11.1.3
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3(ts-node@10.9.2(@swc/core@1.5.7)(@types/node@20.12.12)(typescript@5.4.5))
+      twitter-widgets:
+        specifier: ^2.0.0
+        version: 2.0.0
       vue:
         specifier: ^3.4.21
         version: 3.4.27(typescript@5.4.5)
+      vue3-compare-image:
+        specifier: ^1.2.5
+        version: 1.2.5(vue@3.4.27(typescript@5.4.5))
     devDependencies:
       '@explorer-1/common':
         specifier: workspace:*
@@ -3435,6 +3450,9 @@ packages:
   ajv@8.13.0:
     resolution: {integrity: sha512-PRA911Blj99jR5RMeTunVbNXMF6Lp4vZXnk5GQjcnUWUTsrXtekg/pnmFFI2u/I36Y/2bITGS30GZCXei6uNkA==}
 
+  animejs@3.2.2:
+    resolution: {integrity: sha512-Ao95qWLpDPXXM+WrmwcKbl6uNlC5tjnowlaRYtuVDHHoygjtIPfDUoK9NthrlZsQSKjZXlmji2TrBUAVbiH0LQ==}
+
   ansi-colors@4.1.3:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
     engines: {node: '>=6'}
@@ -4133,6 +4151,9 @@ packages:
   data-view-byte-offset@1.0.0:
     resolution: {integrity: sha512-t/Ygsytq+R995EJ5PZlD4Cu56sWa8InXySaViRzw9apusqsOO2bQP+SbYzAhR0pFKoB+43lYy8rWban9JSuXnA==}
     engines: {node: '>= 0.4'}
+
+  datebook@8.0.1:
+    resolution: {integrity: sha512-qdM9rULfZ/IoDzPW5FrMSXwrL5uBbk1WgVcIj5xwaneeZLZqaIggKjWzODWfk5waLQt7PamPP3s+lLv4cEPsrw==}
 
   dayjs@1.11.11:
     resolution: {integrity: sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==}
@@ -7990,6 +8011,9 @@ packages:
   tween-functions@1.2.0:
     resolution: {integrity: sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA==}
 
+  twitter-widgets@2.0.0:
+    resolution: {integrity: sha512-WIWQaLkao67FDlyAcHUC4Hpfb1lr+eAfdEg93XBiET9xlmjhPiVBx4oYRwNLEevuy662x8M+1eySN6AuU0TiZg==}
+
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -8552,6 +8576,11 @@ packages:
 
   vue-virtual-scroller@2.0.0-beta.8:
     resolution: {integrity: sha512-b8/f5NQ5nIEBRTNi6GcPItE4s7kxNHw2AIHLtDp+2QvqdTjVN0FgONwX9cr53jWRgnu+HRLPaWDOR2JPI5MTfQ==}
+    peerDependencies:
+      vue: ^3.2.0
+
+  vue3-compare-image@1.2.5:
+    resolution: {integrity: sha512-E20sBmHDE3eAPOiBeiOgK1BEc+ieXdOdfjw7TaiaDweIOIuisXsM/Lwrw3UdifXImyZ3/+IdwF2ktdbcX35z9A==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -12983,6 +13012,8 @@ snapshots:
       require-from-string: 2.0.2
       uri-js: 4.4.1
 
+  animejs@3.2.2: {}
+
   ansi-colors@4.1.3: {}
 
   ansi-escapes@4.3.2:
@@ -13765,6 +13796,8 @@ snapshots:
       call-bind: 1.0.7
       es-errors: 1.3.0
       is-data-view: 1.0.1
+
+  datebook@8.0.1: {}
 
   dayjs@1.11.11: {}
 
@@ -18306,6 +18339,8 @@ snapshots:
 
   tween-functions@1.2.0: {}
 
+  twitter-widgets@2.0.0: {}
+
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
@@ -18984,6 +19019,10 @@ snapshots:
       vue: 3.4.27(typescript@5.4.5)
       vue-observe-visibility: 2.0.0-alpha.1(vue@3.4.27(typescript@5.4.5))
       vue-resize: 2.0.0-alpha.1(vue@3.4.27(typescript@5.4.5))
+
+  vue3-compare-image@1.2.5(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      vue: 3.4.27(typescript@5.4.5)
 
   vue@3.4.27(typescript@5.4.5):
     dependencies:

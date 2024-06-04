@@ -67,7 +67,7 @@
 import { defineComponent } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import IconArrows from './../Icons/IconArrows.vue'
-import { dsnWidgetQuery } from '@/apollo/queries/dsnWidgetQuery'
+import { DsnWidgetQuery } from '@/apollo/queries/DsnWidget'
 /**
  * Displays dsn widget data. API is parsed by the backend. Frontend retrieves via a graphQL query.
  */
@@ -91,7 +91,7 @@ export default defineComponent({
   async fetch() {
     await this.$apollo
       .watchQuery({
-        query: dsnWidgetQuery,
+        query: DsnWidgetQuery,
         fetchPolicy: 'no-cache',
         pollInterval: 60000,
       })
