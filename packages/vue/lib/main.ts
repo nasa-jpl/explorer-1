@@ -1,3 +1,5 @@
+// stores
+import { useHeaderStore } from './../src/stores/header'
 // mixins
 import { mixinGetSrcSet } from './../src/utils/mixins'
 import { mixinTransparentHeader } from './../src/utils/mixins'
@@ -18,6 +20,7 @@ import MixinAnimationCaret from './../src/components/MixinAnimationCaret/MixinAn
 import MixinFancybox from './../src/components/MixinFancybox/MixinFancybox.vue'
 
 export {
+  useHeaderStore,
   mixinGetSrcSet,
   mixinTransparentHeader,
   BaseButton,

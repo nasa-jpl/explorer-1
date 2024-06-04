@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver, installModule, addComponentsDir } from '@nuxt/kit';
+import { defineNuxtModule, createResolver, installModule, addComponentsDir, addImports } from '@nuxt/kit';
 
 const module = defineNuxtModule({
   meta: {
@@ -9,7 +9,8 @@ const module = defineNuxtModule({
   defaults: {
     includeStyles: true,
     includeComponents: true,
-    includePageTemplates: true
+    includePageTemplates: true,
+    includeStores: true
   },
   async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url);
@@ -53,6 +54,15 @@ const module = defineNuxtModule({
         pathPrefix: true,
         extensions: [".vue"]
       });
+    }
+    if (_options.includeStores) {
+      await installModule("@pinia/nuxt", {});
+      addImports([
+        {
+          name: "useHeaderStore",
+          from: resolver.resolve("./../node_modules/@explorer-1/vue/src/stores/header")
+        }
+      ]);
     }
   }
 });

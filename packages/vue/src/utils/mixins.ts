@@ -1,7 +1,7 @@
 // import Vue from 'vue'
 // import dayjs from './dayjs'
 import { useHeaderStore } from './../stores/header'
-import { ImageObject } from '../interfaces'
+import type { ImageObject } from '../interfaces'
 // srcSet data structure
 export interface SrcSetDataValue {
   url: string

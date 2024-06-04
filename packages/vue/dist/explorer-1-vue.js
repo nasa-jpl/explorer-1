@@ -1551,5 +1551,6 @@ export {
   pt as MixinAnimationCaret,
   we as MixinFancybox,
   Ye as mixinGetSrcSet,
-  Ca as mixinTransparentHeader
+  Ca as mixinTransparentHeader,
+  Xe as useHeaderStore
 };

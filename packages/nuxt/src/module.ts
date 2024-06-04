@@ -1,10 +1,17 @@
 import type {} from '@nuxt/schema'
-import { defineNuxtModule, addComponentsDir, installModule, createResolver } from '@nuxt/kit'
+import {
+  defineNuxtModule,
+  addComponentsDir,
+  addImports,
+  installModule,
+  createResolver
+} from '@nuxt/kit'
 
 export interface ModuleOptions {
   includeStyles: boolean
   includeComponents: boolean
   includePageTemplates: boolean
+  includeStores: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -16,7 +23,8 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     includeStyles: true,
     includeComponents: true,
-    includePageTemplates: true
+    includePageTemplates: true,
+    includeStores: true
   },
   async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -68,6 +76,17 @@ export default defineNuxtModule<ModuleOptions>({
         pathPrefix: true,
         extensions: ['.vue']
       })
+    }
+    if (_options.includeStores) {
+      await installModule('@pinia/nuxt', {})
+
+      // add @explorer-1/vue page template components
+      addImports([
+        {
+          name: 'useHeaderStore',
+          from: resolver.resolve('./../node_modules/@explorer-1/vue/src/stores/header')
+        }
+      ])
     }
   }
 })

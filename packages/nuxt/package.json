@@ -28,9 +28,10 @@
   },
   "prettier": "@explorer-1/prettier-config",
   "dependencies": {
+    "@fancyapps/ui": "^4.0.26",
     "@nuxt/kit": "^3.11.2",
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "@fancyapps/ui": "^4.0.26",
+    "@pinia/nuxt": "^0.5.1",
     "@tailwindcss/forms": "^0.5.7",
     "swiper": "^11.1.3"
   },
