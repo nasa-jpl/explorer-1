@@ -54,24 +54,19 @@ export const HeroMediumData = {
   }
 }
 
-// templates
-const HeroMediumTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { HeroMedium },
-  template: `<HeroMedium :custom-label="label" :feature="feature" :cta="cta" />`
-})
-
-const HeroMediumVideoTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { HeroMedium },
-  template: `<HeroMedium :custom-label="label" :feature="feature" :cta="cta" :custom-video="customVideo" />`
-})
-
-export const Default = HeroMediumTemplate.bind({})
-Default.args = { ...HeroMediumData }
-
-export const Video = HeroMediumVideoTemplate.bind({})
-Video.args = {
-  ...HeroMediumData,
-  customVideo: BaseVideoData.data
+export const Default = {
+  args: {
+    customLabel: HeroMediumData.label,
+    feature: HeroMediumData.feature,
+    cta: HeroMediumData.cta,
+    customVideo: undefined
+  }
+}
+export const Video = {
+  args: {
+    customLabel: HeroMediumData.label,
+    feature: HeroMediumData.feature,
+    cta: HeroMediumData.cta,
+    customVideo: BaseVideoData
+  }
 }

@@ -2,7 +2,7 @@ import { HomepageCarouselItemData } from './HomepageCarouselItem.stories'
 import HomepageCarousel from '@explorer-1/vue/src/components/HomepageCarousel/HomepageCarousel.vue'
 
 export default {
-  title: 'Components/Homepage/HomepageCarousel',
+  title: 'WWW/Homepage/HomepageCarousel',
   component: HomepageCarousel,
   excludeStories: /.*Data$/,
   parameters: {
@@ -82,34 +82,31 @@ const HomepageCarouselShuffledData = () => {
   return items
 }
 
-// template
-const HomepageCarouselTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { HomepageCarousel },
-  template: `<HomepageCarousel :duration="duration" :items="items" />`
-})
-
 // stories
-export const Carousel = HomepageCarouselTemplate.bind({})
-Carousel.args = {
-  items: HomepageCarouselData,
-  duration: 10000
+export const Carousel = {
+  args: {
+    items: HomepageCarouselData,
+    duration: 10000
+  }
 }
-export const Shuffled = HomepageCarouselTemplate.bind({})
-Shuffled.storyName = 'Carousel with shuffled items'
-Shuffled.args = {
-  items: HomepageCarouselShuffledData(),
-  duration: 10000
+export const Shuffled = {
+  name: 'Carousel with shuffled items',
+  args: {
+    items: HomepageCarouselShuffledData(),
+    duration: 10000
+  }
 }
-export const OneSlide = HomepageCarouselTemplate.bind({})
-OneSlide.storyName = 'Carousel with one slide'
-OneSlide.args = {
-  items: [HomepageCarouselData[0]],
-  duration: 10000
+export const OneSlide = {
+  name: 'Carousel with one slide',
+  args: {
+    items: [HomepageCarouselData[0]],
+    duration: 10000
+  }
 }
-export const FewSlides = HomepageCarouselTemplate.bind({})
-FewSlides.storyName = 'Carousel with few slides'
-FewSlides.args = {
-  items: HomepageCarouselData.slice(0, 3),
-  duration: 5000
+export const FewSlides = {
+  name: 'Carousel with few slides',
+  args: {
+    items: HomepageCarouselData.slice(0, 3),
+    duration: 5000
+  }
 }

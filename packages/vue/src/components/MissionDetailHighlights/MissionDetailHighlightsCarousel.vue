@@ -1,5 +1,5 @@
 <template>
-  <div class="MissionHighlightsCarousel ThemeDark w-full overflow-hidden">
+  <div class="MissionHighlightsCarousel ThemeVariantDark w-full overflow-hidden">
     <div ref="MissionHighlightsCarousel" class="swiper">
       <div class="swiper-wrapper">
         <MissionDetailHighlightsCarouselItem

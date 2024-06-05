@@ -1,7 +1,7 @@
 import NewsDetailMediaContact from '@explorer-1/vue/src/components/NewsDetailMediaContact/NewsDetailMediaContact.vue'
 
 export default {
-  title: 'Components/NewsDetail/NewsDetailMediaContact',
+  title: 'WWW/NewsDetail/NewsDetailMediaContact',
   component: NewsDetailMediaContact
 }
 

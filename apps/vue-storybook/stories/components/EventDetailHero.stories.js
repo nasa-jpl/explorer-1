@@ -1,10 +1,8 @@
 import EventDetailHero from '@explorer-1/vue/src/components/EventDetailHero/EventDetailHero.vue'
 
 export default {
-  title: 'Components/EventDetailHero/EventDetailHero',
-  component: {
-    EventDetailHero
-  },
+  title: 'WWW/EventDetail/EventDetailHero',
+  component: EventDetailHero,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="max-w-screen-3xl mx-auto"><story/></div>`
@@ -47,14 +45,10 @@ export const EventDetailHeroData = {
   }
 }
 
-// template
-const EventDetailHeroTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { EventDetailHero },
-  template: `
-    <EventDetailHero :image="heroImage" :start-date-split="startDateSplit"/>`
-})
-
 // stories
-export const Default = EventDetailHeroTemplate.bind({})
-Default.args = { ...EventDetailHeroData }
+export const Default = {
+  args: {
+    image: EventDetailHeroData.heroImage,
+    startDateSplit: EventDetailHeroData.startDateSplit
+  }
+}

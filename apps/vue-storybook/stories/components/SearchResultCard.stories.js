@@ -8,9 +8,9 @@ export default {
       description:
         'Change the heading level for semantic markup. This does not affect the style of the heading.',
       control: {
-        type: 'select',
-        options: [null, 'h1', 'h2', 'h3', 'h4', 'h5']
-      }
+        type: 'select'
+      },
+      options: [null, 'h1', 'h2', 'h3', 'h4', 'h5']
     }
   },
   excludeStories: /.*Data$/
@@ -36,29 +36,8 @@ export const SearchResultCardData = {
   featured: false
 }
 
-// templates
-const SearchResultCardTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { SearchResultCard },
-  template: `
-  <div class="relative container mx-auto">
-    <SearchResultCard
-      :url="url"
-      :type="type"
-      :topic="topic"
-      :date="date"
-      :title="title"
-      :summary="summary"
-      :image="image"
-      :heading-level="headingLevel"
-      :featured="featured"
-    />
-  </div>
-  `
-})
+export const StandardResult = { args: SearchResultCardData }
 
-export const StandardResult = SearchResultCardTemplate.bind({})
-StandardResult.args = { ...SearchResultCardData }
-
-export const FeaturedResult = SearchResultCardTemplate.bind({})
-FeaturedResult.args = { ...SearchResultCardData, featured: true }
+export const FeaturedResult = {
+  args: { ...SearchResultCardData, featured: true }
+}

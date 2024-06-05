@@ -8,7 +8,7 @@
           <img
             v-if="image.src"
             class="object-cover object-center w-full h-full"
-            :srcset="mixinGetSrcSet(image)"
+            :srcset="getSrcSet"
             :src="image.src.url"
             :width="image.src.width"
             :height="image.src.height"
@@ -32,6 +32,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinGetSrcSet } from './../../utils/mixins'
 
 export default defineComponent({
   name: 'EventDetailHero',
@@ -49,6 +50,11 @@ export default defineComponent({
       required: false,
     },
   },
+  computed: {
+    getSrcSet() {
+      return mixinGetSrcSet(this.image)
+    }
+  }
 })
 </script>
 <style lang="scss">

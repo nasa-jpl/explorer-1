@@ -1,16 +1,16 @@
 <template>
   <section
     aria-label="Feature"
-    class="HeroMedium ThemeDark relative flex items-center overflow-hidden"
+    class="HeroMedium ThemeVariantDark relative flex items-center overflow-hidden"
   >
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       <!-- video always overrides the image -->
       <MixinVideoBg v-if="theVideo" :video="theVideo" />
       <!-- change to v-if if image should load as fallback until video loads -->
-      <picture v-else-if="theImage">
+      <picture v-else-if="theImage && theImage.src">
         <source media="(min-width: 768px)" :srcset="theImage.srcSet" />
-        <source media="(min-width: 420px)" :srcset="theImage.screenMd.url" />
-        <source :data-srcset="theImage.screenSm.url" />
+        <source media="(min-width: 420px)" :srcset="theImage.screenMd?.url" />
+        <source :data-srcset="theImage.screenSm?.url" />
         <img
           class="object-cover w-full h-full"
           :src="theImage.src.url"
@@ -26,7 +26,7 @@
       <div
         class="bg-gradient-to-b lg:bg-gradient-to-bl from-transparent lg:from-transparent-w50 to-black lg:to-transparent-black-75 absolute inset-0"
       ></div>
-      <div
+      <div v-if="feature"
         class="lg:px-10 2xl:px-0 lg:pb-0 lg:py-0 text-contrast container relative px-4 pt-40 pb-2 mx-auto mb-10 text-white"
       >
         <nuxt-link :to="feature.url" class="lg:w-1/2 xl:w-5/12 block">
@@ -65,6 +65,8 @@
 // For use when the hero includes a featured content item with link
 // note: This component is very similar to a HomepageCarousel slide
 import { defineComponent } from 'vue'
+import { mixinTransparentHeader } from '../../utils/mixins'
+import type { ImageObject } from '../../interfaces'
 import IconArrow from './../Icons/IconArrow.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import MixinVideoBg from './../MixinVideoBg/MixinVideoBg.vue'
@@ -104,15 +106,15 @@ export default defineComponent({
     theVideo(): object | null {
       if (this.customVideo) {
         return this.customVideo
-      } else if (this.feature.video && this.feature.video.file) {
+      } else if (this.feature?.video?.file) {
         return this.feature.video
       }
       return null
     },
-    theImage(): object | null {
+    theImage(): Partial<ImageObject> | null {
       if (this.customImage) {
         return this.customImage
-      } else if (this.feature.image && this.feature.image.src) {
+      } else if (this.feature?.image?.src) {
         return this.feature.image
       }
       return null
@@ -122,12 +124,12 @@ export default defineComponent({
     // watch queries to reset the header in case user navigation only changes params
     '$route.query': {
       handler() {
-        this.mixinTransparentHeader()
+        mixinTransparentHeader()
       },
     },
   },
   mounted() {
-    this.mixinTransparentHeader()
+    mixinTransparentHeader()
   },
 })
 </script>

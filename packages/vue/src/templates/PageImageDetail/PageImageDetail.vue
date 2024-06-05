@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="PageImageDetail ThemeLight"
+    class="PageImageDetail ThemeVariantLight"
     itemscope
     itemtype="http://schema.org/ImageObject"
   >

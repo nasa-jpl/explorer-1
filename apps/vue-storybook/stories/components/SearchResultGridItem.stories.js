@@ -46,36 +46,25 @@ export const SearchResultGridCardData = {
   headingLevel: 'h2'
 }
 
-// templates
-const SearchResultGridCardTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { SearchResultGridItem },
-  template: `
-    <SearchResultGridItem
-    :page-content-type="page.content_type"
-    :url="page.url"
-    :type="page.type"
-    :topic="page.topic"
-    :image="page.image"
-    :date="page.date"
-    :title="page.title"
-    :summary="page.summary"
-    :heading-level="headingLevel"
-  />
-  `
-})
-
-export const StandardResult = SearchResultGridCardTemplate.bind({})
-StandardResult.args = SearchResultGridCardData
-
-export const NewsResult = SearchResultGridCardTemplate.bind({})
-NewsResult.args = {
-  page: { ...SearchResultGridCardData.page, content_type: 'news_news' },
-  headingLevel: 'h2'
+export const StandardResult = {
+  args: {
+    ...SearchResultGridCardData.page,
+    pageContentType: SearchResultGridCardData.page.content_type
+  }
 }
 
-export const MissionResult = SearchResultGridCardTemplate.bind({})
-MissionResult.args = {
-  page: { ...SearchResultGridCardData.page, content_type: 'missions_mission' },
-  headingLevel: 'h2'
+export const NewsResult = {
+  args: {
+    ...SearchResultGridCardData.page,
+    pageContentType: 'news_news',
+    headingLevel: 'h2'
+  }
+}
+
+export const MissionResult = {
+  args: {
+    ...SearchResultGridCardData.page,
+    pageContentType: 'missions_mission',
+    headingLevel: 'h2'
+  }
 }

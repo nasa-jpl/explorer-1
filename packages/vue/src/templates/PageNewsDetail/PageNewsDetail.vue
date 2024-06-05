@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="ThemeLight"
+    class="ThemeVariantLight"
     :class="computedClass"
     itemscope
     itemtype="http://schema.org/Article"

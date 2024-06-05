@@ -61,6 +61,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinCanonicalUrl } from './../../utils/mixins'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconSocialFacebook from './../Icons/IconSocialFacebook.vue'
 import IconSocialTwitter from './../Icons/IconSocialTwitter.vue'
@@ -96,7 +97,7 @@ export default defineComponent({
       return encodeURIComponent(this.title)
     },
     encodedURL(): string {
-      return encodeURIComponent(this.mixinCanonicalUrl(this.url))
+      return encodeURIComponent(mixinCanonicalUrl(this.url))
     },
     facebookLink(): string {
       // See: https://developers.facebook.com/docs/sharing/reference/feed-dialog/v2.5

@@ -58,7 +58,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import dayjs from '@/plugins/dayjs.client.js'
+import { ElasticSearchPage } from '../../interfaces';
+import dayjs from './../../utils/dayjs';
 import SearchResultCard from './../SearchResultCard/SearchResultCard.vue'
 import SearchResultGridItem from './../SearchResultGridItem/SearchResultGridItem.vue'
 
@@ -96,7 +97,7 @@ export default defineComponent({
     },
   },
   computed: {
-    results(): object {
+    results(): ElasticSearchPage[] {
       function parseType(type: string): string {
         return type.toLowerCase().replace('.', '_')
       }
@@ -106,7 +107,7 @@ export default defineComponent({
       interface Page {
         [key: string]: any
       }
-      return this.pages
+      return this.pages ? this.pages
         .filter((page: Page) => {
           return 'url' in page._source
         })
@@ -187,6 +188,7 @@ export default defineComponent({
           }
           return page
         })
+        : undefined
     },
   },
 })

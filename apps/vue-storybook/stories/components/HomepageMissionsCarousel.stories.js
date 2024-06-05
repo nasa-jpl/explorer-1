@@ -7,7 +7,7 @@ import HomepageMissionsCarousel from '@explorer-1/vue/src/components/HomepageMis
 import HomepageMissionsCarouselItem from '@explorer-1/vue/src/components/HomepageMissionsCarousel/HomepageMissionsCarouselItem.vue'
 
 export default {
-  title: 'Components/Homepage/HomepageMissionsCarousel',
+  title: 'WWW/Homepage/HomepageMissionsCarousel',
   component: HomepageMissionsCarousel,
   excludeStories: /.*Data$/,
   parameters: {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data" id="galleryTop" class="PageCuratedGallery ThemeLight">
+  <div v-if="data" id="galleryTop" class="PageCuratedGallery ThemeVariantLight">
     <!-- page headline -->
 
     <LayoutHelper class="lg:mt-8 lg:mb-4 mt-5 mb-0">
@@ -324,7 +324,7 @@ export default defineComponent({
         @apply text-jpl-red-dark transition-colors duration-200;
       }
 
-      .ThemeDark & {
+      .ThemeVariantDark & {
         @apply text-gray-light-mid;
         @include hover {
           @apply text-jpl-red-dark;
@@ -332,11 +332,11 @@ export default defineComponent({
       }
     }
 
-    .ThemeLight & {
+    .ThemeVariantLight & {
       @apply text-gray-mid;
     }
 
-    .ThemeDark & {
+    .ThemeVariantDark & {
       @apply text-gray-mid;
     }
   }

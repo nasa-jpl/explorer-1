@@ -110,9 +110,9 @@ export default defineComponent({
   computed: {
     theTheme() {
       if ((this.data as dataShape).templateStyle === 'dark') {
-        return 'ThemeDark bg-black'
+        return 'ThemeVariantDark bg-black'
       }
-      return 'ThemeLight'
+      return 'ThemeVariantLight'
     },
     moreAboutTopicHeading() {
       const { topicLabels } = this.data

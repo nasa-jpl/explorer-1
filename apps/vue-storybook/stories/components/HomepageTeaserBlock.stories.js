@@ -1,7 +1,7 @@
 import HomepageTeaserBlock from '@explorer-1/vue/src/components/HomepageTeaserBlock/HomepageTeaserBlock.vue'
 
 export default {
-  title: 'Components/Homepage/HomepageTeaserBlock',
+  title: 'WWW/Homepage/HomepageTeaserBlock',
   component: HomepageTeaserBlock,
   excludeStories: /.*(Data|Decorator)$/,
   parameters: {

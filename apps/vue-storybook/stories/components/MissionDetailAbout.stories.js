@@ -1,7 +1,7 @@
 import MissionDetailAbout from '@explorer-1/vue/src/components/MissionDetailAbout/MissionDetailAbout.vue'
 
 export default {
-  title: 'Components/MissionDetail/MissionDetailAbout',
+  title: 'WWW/MissionDetail/MissionDetailAbout',
   component: MissionDetailAbout,
   decorators: [
     () => ({

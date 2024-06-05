@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="PageEventDetail pt-5 ThemeLight lg:pt-12"
+    class="PageEventDetail pt-5 ThemeVariantLight lg:pt-12"
     itemscope
     itemtype="http://schema.org/Event"
   >

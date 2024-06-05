@@ -1,5 +1,5 @@
 <template>
-  <div class="HomepageCarouselItem relative flex items-center overflow-hidden">
+  <div v-if="item" class="HomepageCarouselItem relative flex items-center overflow-hidden">
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       <!-- video always overrides the image -->
       <video
@@ -25,22 +25,21 @@
       <!-- change to v-if if image should load as fallback until video loads -->
       <picture v-else-if="item.image && item.image.src">
         <source
-          class="swiper-lazy"
           media="(min-width: 768px)"
-          :data-srcset="item.image.srcSet"
+          :srcset="item.image.srcSet"
         />
         <source
-          class="swiper-lazy"
           media="(min-width: 420px)"
-          :data-srcset="item.image.screenMd.url"
+          :srcset="item.image.screenMd?.url"
         />
-        <source class="swiper-lazy" :data-srcset="item.image.screenSm.url" />
+        <source :srcset="item.image.screenSm?.url" />
         <img
-          class="swiper-lazy md:object-right object-cover object-bottom w-full h-full"
-          :data-src="item.image.src.url"
+          class="md:object-right object-cover object-bottom w-full h-full"
+          :src="item.image.src.url"
           :width="item.image.src.width"
           :height="item.image.src.height"
           alt=""
+          loading="lazy"
         />
       </picture>
     </div>
@@ -103,8 +102,25 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import IconArrow from './../Icons/IconArrow.vue'
+
+export interface Slide {
+  slideTitle: string
+  externalLink?: string
+  page?: {
+    url: string
+  }
+  heading: string
+  video: {
+    file: string
+    fileOgg: string
+    fileWebm: string
+  }
+  image: Partial<ImageObject>
+}
 
 export default defineComponent({
   name: 'HomepageCarouselItem',
@@ -114,7 +130,7 @@ export default defineComponent({
   },
   props: {
     item: {
-      type: Object,
+      type: (Object as PropType<Slide>),
       required: false,
     },
   },

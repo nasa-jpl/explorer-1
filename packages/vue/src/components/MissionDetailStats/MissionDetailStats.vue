@@ -155,7 +155,7 @@ export default defineComponent({
     @apply bg-gray-light text-gray-dark;
   }
 
-  .ThemeDark & .theme {
+  .ThemeVariantDark & .theme {
     @apply bg-dark-blue bg-opacity-75 text-white;
   }
 
@@ -163,7 +163,7 @@ export default defineComponent({
     @apply font-semibold mb-3 text-jpl-red-dark;
   }
 
-  .ThemeDark & .label {
+  .ThemeVariantDark & .label {
     @apply text-jpl-aqua;
   }
 
@@ -171,7 +171,7 @@ export default defineComponent({
     @apply text-gray-mid-dark;
   }
 
-  .ThemeDark & .legend {
+  .ThemeVariantDark & .legend {
     @apply text-white;
   }
 }

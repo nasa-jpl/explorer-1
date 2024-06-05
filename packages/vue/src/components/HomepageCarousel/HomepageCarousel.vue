@@ -6,11 +6,11 @@
         <li v-for="(item, index) in items" :key="index">
           <BaseLink
             variant="none"
-            :href="item.externalLink ? item.externalLink : null"
+            :href="item.externalLink ? item.externalLink : undefined"
             :to="
               item.page && item.page.url && !item.externalLink
                 ? item.page.url
-                : null
+                : undefined
             "
           >
             {{ item.slideTitle }}
@@ -35,9 +35,8 @@
         >
           <div class="swiper-pagination container">
             <!-- Render before swiper initializes and replaces content to prevent content shifting -->
-            <template v-for="(item, index) in items">
+            <template v-for="(item, index) in items" :key="index">
               <span
-                :key="index"
                 :class="`swiper-pagination-bullet${
                   index === 0 ? ' swiper-pagination-bullet-active' : ''
                 }`"
@@ -55,7 +54,7 @@
             <transition name="load">
               <div
                 v-if="slideLoaded"
-                class="h-2px w-full bg-white bg-opacity-50 transform translate-x-0"
+                class="h-2px w-full bg-white bg-opacity-50 -translate-x-full"
                 :style="`transition-duration: ${duration}ms`"
               ></div>
             </transition>
@@ -65,7 +64,7 @@
             class="HomepageCarouselTabs relative container overflow-hidden mx-auto pt-5 pb-22"
           >
             <!-- offset by one tab to allow for previous slide transitions -->
-            <div class="w-full transform -translate-x-1/5">
+            <div class="w-full -translate-x-1/5">
               <!-- tab container width adjusts automatically according to slide count when there are less than 6 slides -->
               <div :class="tabContainerWidthClass">
                 <!-- translate amount depends on tab container width, so the class is applied dynamically -->
@@ -74,14 +73,14 @@
                     v-for="(item, index) in tabbedItems"
                     :key="index"
                     variant="none"
-                    :href="item.externalLink ? item.externalLink : null"
+                    :href="item.externalLink ? item.externalLink : undefined"
                     :to="
                       item.page && item.page.url && !item.externalLink
                         ? item.page.url
-                        : null
+                        : undefined
                     "
                     external-target-blank
-                    class="pr-5 flex-shrink-0 h-auto transform translate-x-0"
+                    class="pr-5 flex-shrink-0 h-auto translate-x-0"
                     :class="tabWidthClass"
                     link-class="
                       group
@@ -112,11 +111,16 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Swiper, Pagination, Lazy, A11y, EffectFade, Autoplay } from 'swiper'
-import type { SwiperOptions } from 'swiper'
+import type { PropType } from 'vue'
+import type { Slide } from './../HomepageCarouselItem/HomepageCarouselItem.vue'
+import { mixinTransparentHeader } from '../../utils/mixins'
+import Swiper from 'swiper'
+import { A11y, Pagination, EffectFade, Autoplay } from 'swiper/modules'
+import type { SwiperOptions } from 'swiper/types'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import HomepageCarouselItem from './../HomepageCarouselItem/HomepageCarouselItem.vue'
-Swiper.use([Pagination, Lazy, A11y, EffectFade, Autoplay])
+
+Swiper.use([Pagination, A11y, EffectFade, Autoplay])
 
 export default defineComponent({
   name: 'HomepageCarousel',
@@ -126,7 +130,7 @@ export default defineComponent({
   },
   props: {
     items: {
-      type: Array,
+      type: (Array as PropType<Slide[]>),
       required: false,
     },
     duration: {
@@ -138,7 +142,7 @@ export default defineComponent({
     slideLoaded: boolean
     slider: Swiper | null
     sliderOptions: SwiperOptions
-    tabbedItems: Object | null
+    tabbedItems: Slide[] | undefined
     slideToNext: Boolean
   } {
     return {
@@ -160,12 +164,7 @@ export default defineComponent({
           el: '.swiper-pagination',
           clickable: true,
         },
-        preloadImages: false,
-        lazy: {
-          loadPrevNext: true,
-          loadOnTransitionStart: true,
-          loadPrevNextAmount: 1,
-        },
+        lazyPreloadPrevNext: 1,
         on: {
           transitionStart: () => {
             ;(this as any).slideLoaded = false
@@ -187,7 +186,7 @@ export default defineComponent({
           },
         },
       },
-      tabbedItems: null,
+      tabbedItems: undefined,
       slideToNext: true,
     }
   },
@@ -199,21 +198,21 @@ export default defineComponent({
       return false
     },
     onlyOneSlide(): boolean {
-      return this.items.length === 1
+      return this.items?.length === 1
     },
-    loopedTabs(): Array<object> {
+    loopedTabs(): Array<Slide> {
       // return a looped array starting at the active slide
-      const items: Array<object> = this.items as Array<object>
+      const items = this.items
       // offset by one to avoid slice(0,0) in reorderedItems
       const index: number = this.theIndex ? this.theIndex + 1 : 1
-      if (index) {
+      if (index && items) {
         const reorderedItems = [
           ...items.slice(index - 1),
           ...items.slice(0, index),
         ]
         return reorderedItems
       }
-      return this.items as Array<object>
+      return this.items as Array<Slide>
     },
     tabContainerWidthClass(): string {
       /* corresponds with how many tabs will appear in the container
@@ -221,25 +220,25 @@ export default defineComponent({
        * container width = visible tabs/5 + 'w-1/5'; to account for offset that allows for previous tab transition
        * simplified = number of slides/5
        */
-      if (this.items.length === 2) {
+      if (this.items?.length === 2) {
         return 'overflow-hidden w-2/5'
-      } else if (this.items.length === 3) {
+      } else if (this.items?.length === 3) {
         return 'overflow-hidden w-3/5'
-      } else if (this.items.length === 4) {
+      } else if (this.items?.length === 4) {
         return 'overflow-hidden w-4/5'
-      } else if (this.items.length === 5) {
+      } else if (this.items?.length === 5) {
         return 'overflow-hidden container'
       }
       return 'overflow-visible container'
     },
     tabWidthClass(): string {
-      if (this.items.length === 2) {
+      if (this.items?.length === 2) {
         return 'w-1/2'
-      } else if (this.items.length === 3) {
+      } else if (this.items?.length === 3) {
         return 'w-1/3'
-      } else if (this.items.length === 4) {
+      } else if (this.items?.length === 4) {
         return 'w-1/4'
-      } else if (this.items.length === 5) {
+      } else if (this.items?.length === 5) {
         return 'w-1/5'
       }
       return 'w-1/5'
@@ -247,21 +246,21 @@ export default defineComponent({
     tabTranslateClass(): string {
       let computedClass = ''
       if (this.slideToNext) {
-        if (this.items.length === 2) {
+        if (this.items?.length === 2) {
           computedClass = '-translate-x-1/2'
-        } else if (this.items.length === 3) {
+        } else if (this.items?.length === 3) {
           computedClass = '-translate-x-1/3'
-        } else if (this.items.length === 4) {
+        } else if (this.items?.length === 4) {
           computedClass = '-translate-x-1/4'
         } else {
           computedClass = '-translate-x-1/5'
         }
       } else if (!this.slideToNext) {
-        if (this.items.length === 2) {
+        if (this.items?.length === 2) {
           computedClass = 'translate-x-1/2'
-        } else if (this.items.length === 3) {
+        } else if (this.items?.length === 3) {
           computedClass = 'translate-x-1/3'
-        } else if (this.items.length === 4) {
+        } else if (this.items?.length === 4) {
           computedClass = 'translate-x-1/4'
         } else {
           computedClass = 'translate-x-1/5'
@@ -274,7 +273,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.mixinTransparentHeader()
+    mixinTransparentHeader()
     this.init()
   },
   methods: {
@@ -365,9 +364,8 @@ export default defineComponent({
     transition: none;
   }
 
-  .load-enter,
-  .load-leave-to {
-    @apply -translate-x-full;
+  .load-enter-to {
+    @apply translate-x-0;
   }
 }
 </style>

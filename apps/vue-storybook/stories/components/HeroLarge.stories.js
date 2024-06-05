@@ -35,16 +35,12 @@ export const HeroLargeData = {
   }
 }
 
-// template
-const HeroLargeTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { HeroLarge },
-  template: `<HeroLarge eyebrow="Robotics at JPL" :title="title" :summary="description" :image="heroImage"/>`
-})
-
 // stories
-export const Hero = HeroLargeTemplate.bind({})
-Hero.storyName = 'HeroLarge'
-Hero.args = {
-  ...HeroLargeData
+export const Hero = {
+  name: 'HeroLarge',
+  args: {
+    eyebrow: 'Robotics at JPL',
+    ...HeroLargeData,
+    image: HeroLargeData.heroImage
+  }
 }

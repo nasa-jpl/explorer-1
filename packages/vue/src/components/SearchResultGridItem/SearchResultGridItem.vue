@@ -66,6 +66,7 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
+import { mixinFormatSplitEventDates } from '../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
@@ -125,9 +126,9 @@ export default defineComponent({
     },
   },
   computed: {
-    splitDate(): object | null {
+    splitDate(): { day: string, monthAndYear: string} | null {
       if (this.startDate) {
-        return this.mixinFormatSplitEventDates(this.startDate, this.endDate)
+        return mixinFormatSplitEventDates(this.startDate, this.endDate)
       }
       return null
     },

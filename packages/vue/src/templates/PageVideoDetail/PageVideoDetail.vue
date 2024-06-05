@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="PageVideoDetail ThemeLight"
+    class="PageVideoDetail ThemeVariantLight"
     itemscope
     itemtype="http://schema.org/VideoObject"
   >

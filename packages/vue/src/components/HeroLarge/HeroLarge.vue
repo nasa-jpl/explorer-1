@@ -53,7 +53,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+import { mixinTransparentHeader} from './../../utils/mixins'
 export default defineComponent({
   name: 'HeroLarge',
   props: {
@@ -80,7 +80,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.mixinTransparentHeader()
+    mixinTransparentHeader()
   },
 })
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data" class="PageInfographicDetail ThemeLight">
+  <div v-if="data" class="PageInfographicDetail ThemeVariantLight">
     <div class="lg:container 3xl:px-0 lg:mt-12 px-5 mx-auto mt-5">
       <DetailHeadline
         :title="data.title"

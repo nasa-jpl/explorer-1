@@ -103,12 +103,4 @@ export const ThumbnailCarouselData = {
   ]
 }
 
-// templates
-const ThumbnailCarouselTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { ThumbnailCarousel },
-  template: `<ThumbnailCarousel :slides="slides" />`
-})
-
-export const Default = ThumbnailCarouselTemplate.bind({})
-Default.args = ThumbnailCarouselData
+export const Default = { args: ThumbnailCarouselData }

@@ -13,7 +13,7 @@ import imageInstrumentOco2WebP from '@explorer-1/common-storybook/src/images/mis
 import MissionDetailHero from '@explorer-1/vue/src/components/MissionDetailHero/MissionDetailHero.vue'
 
 export default {
-  title: 'Components/MissionDetail/MissionDetailHero',
+  title: 'WWW/MissionDetail/MissionDetailHero',
   component: MissionDetailHero,
   argTypes: {
     templateStyle: {

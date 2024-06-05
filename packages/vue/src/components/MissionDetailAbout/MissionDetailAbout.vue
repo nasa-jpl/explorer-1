@@ -187,11 +187,11 @@ export default defineComponent({
   }
 
   // dark and light treatments
-  .ThemeLight & {
+  .ThemeVariantLight & {
     @apply text-gray-dark;
   }
 
-  .ThemeDark & {
+  .ThemeVariantDark & {
     @apply text-white;
   }
 }

@@ -13,16 +13,4 @@ export const BlockShareButtonsData = {
   inline: false
 }
 
-// template
-const ShareButtonsTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { ShareButtons },
-  template: `
-    <ShareButtons :title="title" :url="url" :inline="inline" />
-  `
-})
-
-export const Default = ShareButtonsTemplate.bind({})
-Default.args = {
-  ...BlockShareButtonsData
-}
+export const Default = { args: BlockShareButtonsData }

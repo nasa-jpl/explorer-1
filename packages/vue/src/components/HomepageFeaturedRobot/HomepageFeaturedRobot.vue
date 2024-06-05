@@ -27,11 +27,7 @@
             <BaseImage
               v-if="theImage && theImage.src"
               :src="theImage.src.url"
-              :srcset="
-                mixinGetSrcSet(theImage)
-                  ? mixinGetSrcSet(theImage)
-                  : theImage.srcSet
-              "
+              :srcset="theSrcSet"
               :width="theImage.src.width"
               :height="theImage.src.height"
               image-class="w-full h-auto"
@@ -81,9 +77,7 @@
         v-if="theImage && theImage.src"
         image-class="w-full h-auto"
         :src="theImage.src.url"
-        :srcset="
-          mixinGetSrcSet(theImage) ? mixinGetSrcSet(theImage) : theImage.srcSet
-        "
+        :srcset="theSrcSet"
         :width="theImage.src.width"
         :height="theImage.src.height"
         alt=""
@@ -95,6 +89,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { ImageObject } from '../../interfaces'
+import { mixinGetSrcSet } from '../../utils/mixins'
 import RoboticsDetailStatsMini from './../RoboticsDetailStats/RoboticsDetailStatsMini.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
@@ -115,14 +111,17 @@ export default defineComponent({
     },
   },
   computed: {
-    theImage(): object | null {
-      if (this.data.homePageImage) {
-        return this.data.homePageImage
-      } else if (this.data.heroImage) {
-        return this.data.heroImage
+    theImage(): Partial<ImageObject> | null {
+      if (this.data?.homePageImage) {
+        return this.data?.homePageImage
+      } else if (this.data?.heroImage) {
+        return this.data?.heroImage
       }
       return null
     },
+    theSrcSet() {
+      return this.theImage? mixinGetSrcSet(this.theImage) ? mixinGetSrcSet(this.theImage) : this.theImage.srcSet : undefined
+    }
   },
 })
 </script>

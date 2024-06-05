@@ -179,9 +179,9 @@ export default defineComponent({
     heroTheme(): string {
       let classes = ''
       if (this.hasBackground || this.templateStyle === 'dark') {
-        classes = 'ThemeDark bg-black'
+        classes = 'ThemeVariantDark bg-black'
       } else {
-        classes = 'ThemeLight'
+        classes = 'ThemeVariantLight'
       }
       return classes
     },
@@ -268,13 +268,13 @@ export default defineComponent({
     }
   }
 
-  &.ThemeLight {
+  &.ThemeVariantLight {
     .content {
       @apply text-black;
     }
   }
 
-  &.ThemeDark {
+  &.ThemeVariantDark {
     .background {
       &::before {
         content: '';

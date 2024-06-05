@@ -2,7 +2,7 @@ import { BaseVideoData } from './BaseVideo.stories'
 import HomepageCarouselItem from '@explorer-1/vue/src/components/HomepageCarouselItem/HomepageCarouselItem.vue'
 
 export default {
-  title: 'Components/Homepage/HomepageCarousel/HomepageCarouselItem',
+  title: 'WWW/Homepage/HomepageCarousel/HomepageCarouselItem',
   component: HomepageCarouselItem,
   decorators: [
     () => ({
@@ -27,7 +27,7 @@ export const HomepageCarouselItemData = {
     },
     externalLink: 'https://mars.nasa.gov',
     slideTitle: 'Creating Robots to go Where Humans Can’t',
-    video: BaseVideoData.data,
+    video: BaseVideoData,
     image: {
       src: {
         url: 'https://picsum.photos/id/973/1800/1200',
@@ -46,20 +46,15 @@ export const HomepageCarouselItemData = {
   }
 }
 
-// templates
-const HomepageCarouselItemTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { HomepageCarouselItem },
-  template: `<HomepageCarouselItem :item="item" />`
-})
-
-export const SingleItem = HomepageCarouselItemTemplate.bind({})
-SingleItem.args = {
-  item: {
-    ...HomepageCarouselItemData.item,
-    video: null
+export const SingleItem = {
+  args: {
+    item: {
+      ...HomepageCarouselItemData.item,
+      video: null
+    }
   }
 }
 
-export const WithVideo = HomepageCarouselItemTemplate.bind({})
-WithVideo.args = { ...HomepageCarouselItemData }
+export const WithVideo = {
+  args: HomepageCarouselItemData
+}

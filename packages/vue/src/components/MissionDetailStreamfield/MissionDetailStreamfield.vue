@@ -66,7 +66,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.ThemeDark {
+.ThemeVariantDark {
   .MissionDetailStreamfield-heading,
   .BlockText {
     @apply text-white;

@@ -1,7 +1,7 @@
 <template>
   <section
     v-if="data"
-    class="HomepageMissionsCarousel ThemeDark max-w-screen-3xl mx-auto overflow-hidden text-white bg-black"
+    class="HomepageMissionsCarousel ThemeVariantDark max-w-screen-3xl mx-auto overflow-hidden text-white bg-black"
   >
     <div
       class="lg:BaseGrid lg:py-24 pt-14 container flex flex-col pb-5 mx-auto"

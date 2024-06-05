@@ -74,7 +74,7 @@ export default defineComponent({
 
 <style lang="scss">
 .MissionDetailInlineImage {
-  .ThemeDark & {
+  .ThemeVariantDark & {
     > div {
       @apply text-white;
     }

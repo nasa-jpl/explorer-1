@@ -7,7 +7,7 @@ import imagePlanetMarsB from '@explorer-1/common-storybook/src/images/mission-hi
 
 import MissionDetailHighlights from '@explorer-1/vue/src/components/MissionDetailHighlights/MissionDetailHighlights.vue'
 export default {
-  title: 'Components/MissionDetail/MissionHighlights',
+  title: 'WWW/MissionDetail/MissionHighlights',
   component: MissionDetailHighlights,
   parameters: {
     viewMode: 'canvas'

@@ -266,7 +266,10 @@ export const mixinLightboxGalleryItems = (items: object | any): object | false =
 }
 
 // return event dates for the red box that appears in the corner of the hero and thumbnail images
-export const mixinFormatSplitEventDates = (startDatetime, endDatetime): object => {
+export const mixinFormatSplitEventDates = (
+  startDatetime: string,
+  endDatetime?: string
+): { day: string; monthAndYear: string } => {
   const startDateDayjs = dayjs(startDatetime)
 
   let day = startDateDayjs.format('D')
@@ -288,7 +291,7 @@ export const mixinFormatSplitEventDates = (startDatetime, endDatetime): object =
 }
 
 // return event dates formatted for listing cards
-export const mixinFormatEventDates = (startDatetime, endDatetime): string => {
+export const mixinFormatEventDates = (startDatetime: string, endDatetime: string): string => {
   const startDateDayjs = dayjs(startDatetime)
 
   let eventDate = startDateDayjs.format('ll')

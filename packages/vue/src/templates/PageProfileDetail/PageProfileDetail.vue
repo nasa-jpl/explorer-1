@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="ThemeLight text-gray-dark mb-20 md:mb-40"
+    class="ThemeVariantLight text-gray-dark mb-20 md:mb-40"
     itemscope
     itemtype="http://schema.org/Person"
   >

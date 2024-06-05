@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="PageAudioDetail ThemeLight"
+    class="PageAudioDetail ThemeVariantLight"
     itemscope
     itemtype="http://schema.org/VideoObject"
   >
@@ -366,7 +366,7 @@ export default defineComponent({
             width: 30px;
           }
 
-          .ThemeDark & {
+          .ThemeVariantDark & {
             @apply bg-jpl-red-light;
           }
         }
