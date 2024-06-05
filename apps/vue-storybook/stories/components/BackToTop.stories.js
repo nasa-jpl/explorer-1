@@ -7,10 +7,12 @@ export default {
 
 // template
 const BackToTopTemplate = (args) => ({
-  props: Object.keys(args),
   components: { BackToTop },
+  setup() {
+    return { args }
+  },
   template: `
-    <div style="height: 2000px;"><div class="fixed">Will appear here on scroll: <BackToTop v-show="true" :threshhold="threshhold" :scroll-to="scrollTo" /></div></div>
+    <div style="height: 2000px;"><div class="fixed">Will appear here on scroll: <BackToTop v-show="true" v-bind="args" /></div></div>
   `
 })
 

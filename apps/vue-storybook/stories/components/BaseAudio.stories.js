@@ -2,9 +2,7 @@ import BaseAudio from '@explorer-1/vue/src/components/BaseAudio/BaseAudio.vue'
 
 export default {
   title: 'Components/Base/BaseAudio',
-  components: {
-    BaseAudio
-  },
+  component: BaseAudio,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="bg-black p-4 pb-5"><story/></div>`
@@ -25,13 +23,7 @@ export const BaseAudioData = {
   loop: false
 }
 
-// templates
-const BaseAudioTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BaseAudio },
-  template: `<BaseAudio :file="file" :auto-play="autoPlay" :loop="loop" />`
-})
-
-export const Base = BaseAudioTemplate.bind({})
-Base.storyName = 'BaseAudio' // single story hoisting
-Base.args = { ...BaseAudioData }
+export const Base = {
+  name: 'BaseAudio', // single story hoisting
+  args: BaseAudioData
+}

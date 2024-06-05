@@ -46,7 +46,7 @@ export default defineComponent({
       if (this.path) {
         return mixinIsActivePath(this.path)
       }
-  }
+    }
   },
 
 })

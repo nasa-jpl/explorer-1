@@ -7,7 +7,7 @@ import MissionDetailStatsMicro from '@explorer-1/vue/src/components/MissionDetai
 import { distanceTypes } from '@explorer-1/vue/src/components/MissionDetailStats/DistanceStats.vue'
 
 export default {
-  title: 'WWW/Components/MissionDetail/MissionDetailStats',
+  title: 'Components/MissionDetail/MissionDetailStats',
   component: MissionDetailStats,
   decorators: [
     () => ({

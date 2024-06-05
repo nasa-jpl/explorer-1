@@ -1,10 +1,8 @@
 import YearTicker from '@explorer-1/vue/src/components/YearTicker/YearTicker.vue'
 
 export default {
-  title: 'WWW/Components/YearTicker',
-  components: {
-    YearTicker
-  },
+  title: 'Components/YearTicker',
+  component: YearTicker,
   excludeStories: /.*Data$/
 }
 

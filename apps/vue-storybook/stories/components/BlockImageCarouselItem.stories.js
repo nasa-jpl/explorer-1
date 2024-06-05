@@ -2,9 +2,7 @@ import BlockImageCarouselItem from '@explorer-1/vue/src/components/BlockImageCar
 
 export default {
   title: 'Components/Blocks/BlockImageCarousel/BlockImageCarouselItem',
-  components: {
-    BlockImageCarouselItem
-  },
+  component: BlockImageCarouselItem,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="container mx-auto"><story/></div>`
@@ -42,32 +40,24 @@ export const BlockImageCarouselItemData = {
         '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel porttitor urna. Maecenas at est laoreet, sagittis risus a, rutrum ipsum. Quisque tincidunt lacus nunc, dapibus facilisis felis scelerisque sit amet. </p>',
       credit: 'NASA/JPL',
       detailUrl: '/image/placeholder/',
-      original: 'https://placekitten.com/869/700',
+      original: 'https://picsum.photos/869/700',
       src: {
         height: 700,
-        url: 'https://placekitten.com/869/700',
+        url: 'https://picsum.photos/869/700',
         width: 869
       },
-      srcSet: 'https://placekitten.com/320/258 320w, https://placekitten.com/869/700 1024w'
+      srcSet: 'https://picsum.photos/320/258 320w, https://picsum.photos/869/700 1024w'
     }
   }
 }
 
-// templates
-const BlockImageCarouselItemTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockImageCarouselItem },
-  template: `
-    <BlockImageCarouselItem :image="image" :caption="caption" :display-caption="displayCaption" :block-id="blockId"
-                            :show-title="showTitle"/>`
-})
-
-export const SingleItem = BlockImageCarouselItemTemplate.bind({})
-SingleItem.storyName = 'BlockImageCarouselItem'
-SingleItem.args = {
-  image: BlockImageCarouselItemData.item.image,
-  caption: '<p>Custom caption.</p>',
-  displayCaption: true,
-  blockId: 'p9fipftka4',
-  showTitle: true
+export const SingleItem = {
+  name: 'BlockImageCarouselItem',
+  args: {
+    image: BlockImageCarouselItemData.item.image,
+    caption: '<p>Custom caption.</p>',
+    displayCaption: true,
+    blockId: 'p9fipftka4',
+    showTitle: true
+  }
 }

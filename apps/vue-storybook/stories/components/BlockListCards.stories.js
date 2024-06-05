@@ -60,20 +60,10 @@ export const BlockListCardsData = {
   ]
 }
 
-// template
-const BlockListCardsTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockListCards },
-  template: `
-  <BlockListCards
-    :data="data"
-  />
-  `
-})
-
 // stories
-export const Default = BlockListCardsTemplate.bind({})
-Default.storyName = 'BlockListCards'
-Default.args = {
-  data: BlockListCardsData
+export const Default = {
+  name: 'BlockListCards',
+  args: {
+    data: BlockListCardsData
+  }
 }

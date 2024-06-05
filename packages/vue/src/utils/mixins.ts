@@ -1,5 +1,5 @@
 // import Vue from 'vue'
-// import dayjs from './dayjs'
+import dayjs from './dayjs'
 import { useHeaderStore } from './../stores/header'
 import { useRoute } from 'vue-router'
 import type { BreadcrumbPathObject, ImageObject } from '../interfaces'
@@ -69,57 +69,53 @@ export const mixinTransparentHeader = () => {
   }
 }
 
-//     /* -- mixinGetLinkText --
-//       This is used frequently in the navigation components
-//       and provides a graceful fallback to use the page title
-//       if one exists.
-//     */
-//     mixinGetLinkText(item: linkObject): string {
-//       if (item.title) {
-//         return item.title
-//       } else if (item.linkPage) {
-//         return item.linkPage.title
-//       }
-//       return ''
-//     },
+/* -- mixinGetLinkText --
+      This is used frequently in the navigation components
+      and provides a graceful fallback to use the page title
+      if one exists.
+    */
+export const mixinGetLinkText = (item: linkObject): string => {
+  if (item.title) {
+    return item.title
+  } else if (item.linkPage) {
+    return item.linkPage.title
+  }
+  return ''
+}
 
-//     /* -- mixinGetRouterLink --
-//      Checks if nav links are a router link
-//      - Necessary for url query links as those are passed as external links but should be treated as router links
-//      - Only checks for /missions? and /news? to keep it safe
-//      - If a router link, returns a router-compatible string, otherwise null
-//      TODO: unit test would be good for this
-//      TODO: need to modify this to work with breadcrumb-passed objects too
-//            strategy: check if path starts with a slash.
-//     */
-//     mixinGetRouterLink(link: linkObject): null | string {
-//       if (link.linkPage && link.linkPage.url) {
-//         return link.linkPage.url
-//       } else if (link.path) {
-//         const domain = process.env.SITE_HOSTNAME || 'http://localhost:3000'
-//         // keeping it specific and only checking for mission slug with url query
-//         if (
-//           link.path.startsWith(domain + '/missions?') ||
-//           link.path.startsWith(domain + '/news?')
-//         ) {
-//           return link.path.replace(domain, '')
-//         } else if (link.path.startsWith('/')) {
-//           // if it's actually a relative link, make it so
-//           // (applies when breadcrumbs are passed to mobile secondary nav)
-//           return link.path
-//         }
-//       }
-//       return null
-//     },
+/* -- mixinGetRouterLink --
+     Checks if nav links are a router link
+     - Necessary for url query links as those are passed as external links but should be treated as router links
+     - Only checks for /missions? and /news? to keep it safe
+     - If a router link, returns a router-compatible string, otherwise null
+     TODO: unit test would be good for this
+     TODO: need to modify this to work with breadcrumb-passed objects too
+           strategy: check if path starts with a slash.
+    */
+export const mixinGetRouterLink = (link: linkObject): null | string => {
+  if (link.linkPage && link.linkPage.url) {
+    return link.linkPage.url
+  } else if (link.path) {
+    const domain = process.env.SITE_HOSTNAME || 'http://localhost:3000'
+    // keeping it specific and only checking for mission slug with url query
+    if (link.path.startsWith(domain + '/missions?') || link.path.startsWith(domain + '/news?')) {
+      return link.path.replace(domain, '')
+    } else if (link.path.startsWith('/')) {
+      // if it's actually a relative link, make it so
+      // (applies when breadcrumbs are passed to mobile secondary nav)
+      return link.path
+    }
+  }
+  return null
+}
 
-//     /* -- mixinUpdateGlobalChildren --
-//       This mixin is used by the navigation to share secondary nav items between the global nav and components
-//     */
-//     mixinUpdateGlobalChildren(value: [BreadcrumbPathObject] | null) {
-//       if (this.$store) {
-//         this.$store.commit('header/UPDATE_GLOBALCHILDREN', value)
-//       }
-//     },
+/* -- mixinUpdateGlobalChildren --
+      This mixin is used by the navigation to share secondary nav items between the global nav and components
+    */
+export const mixinUpdateGlobalChildren = (value: [BreadcrumbPathObject] | null) => {
+  const headerStore = useHeaderStore()
+  headerStore.updateGlobalChildren(value)
+}
 /* -- mixinUpdateSecondary --
       This mixin is used by the navigation to share secondary nav override items between components
     */
@@ -201,143 +197,150 @@ export const mixinGetSrcSet = (srcSetObject: Partial<ImageObject>): string => {
   }
   return srcSet
 }
-//     // Use with RelatedLinkBlock to retrieve the external link to use with an href prop
-//     mixinGetExternalLink(link: relatedLinkObject): string | null {
-//       if (link.externalLink) {
-//         return link.externalLink
-//       } else if (link.document) {
-//         return link.document.url
-//       }
-//       return null
-//     },
-//     // Gets the fully qualified canonical URL of the current page if passed $route.path string
-//     mixinCanonicalUrl(path: string): string {
-//       const domain = 'https://www.jpl.nasa.gov'
-//       return domain + path
-//     },
-//     // Used to construct an array of image objects to use with BaseLightbox
-//     // TODO: currently only assembles an array of 1 item (single image lightbox).
-//     // This will need to be modified to work for image gallery lightbox (multiple items)
-//     mixinLightboxItems(image: baseImageObject, title: string): lightboxObject[] | false {
-//       // check for image original src url at minimum
-//       if (image && image.original) {
-//         let theTitle = image.title
-//         if (title) {
-//           theTitle = title
-//         }
-//         // kind of a hacky way to ensure the credit only shows up if there isn't a detailUrl link
-//         let theCredit = image.credit
-//         if (image.detailUrl) {
-//           theCredit = ''
-//         }
-//         return [
-//           {
-//             title: theTitle,
-//             url: image.original,
-//             detailUrl: image.detailUrl,
-//             credit: theCredit
-//           }
-//         ]
-//       }
-//       return false
-//     },
-//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//     mixinLightboxGalleryItems(items: object | any): object | false {
-//       const res = []
-//       const itemsArr: Array<object> = Object.keys(items).map(
-//         (key: string): lightboxGalleryObject => items[key]
-//       )
-//       if (items) {
-//         for (const images of itemsArr) {
-//           for (const image of Object.values(images)) {
-//             if (image && image.original !== undefined) {
-//               res.push({
-//                 title: image.title,
-//                 url: image.original,
-//                 detailUrl: image.detailUrl,
-//                 credit: image.credit
-//               })
-//             }
-//           }
-//         }
-//         return res
-//       } else {
-//         return false
-//       }
-//     },
+// Use with RelatedLinkBlock to retrieve the external link to use with an href prop
+export const mixinGetExternalLink = (link: relatedLinkObject): string | null => {
+  if (link.externalLink) {
+    return link.externalLink
+  } else if (link.document) {
+    return link.document.url
+  }
+  return null
+}
+// Gets the fully qualified canonical URL of the current page if passed $route.path string
+export const mixinCanonicalUrl = (path: string): string => {
+  const domain = 'https://www.jpl.nasa.gov'
+  return domain + path
+}
+// Used to construct an array of image objects to use with BaseLightbox
+// TODO: currently only assembles an array of 1 item (single image lightbox).
+// This will need to be modified to work for image gallery lightbox (multiple items)
+export const mixinLightboxItems = (
+  image: baseImageObject,
+  title: string
+): lightboxObject[] | false => {
+  // check for image original src url at minimum
+  if (image && image.original) {
+    let theTitle = image.title
+    if (title) {
+      theTitle = title
+    }
+    // kind of a hacky way to ensure the credit only shows up if there isn't a detailUrl link
+    let theCredit = image.credit
+    if (image.detailUrl) {
+      theCredit = ''
+    }
+    return [
+      {
+        title: theTitle,
+        url: image.original,
+        detailUrl: image.detailUrl,
+        credit: theCredit
+      }
+    ]
+  }
+  return false
+}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mixinLightboxGalleryItems = (items: object | any): object | false => {
+  const res = []
+  const itemsArr: Array<object> = Object.keys(items).map(
+    (key: string): lightboxGalleryObject => items[key]
+  )
+  if (items) {
+    for (const images of itemsArr) {
+      for (const image of Object.values(images)) {
+        if (image && image.original !== undefined) {
+          res.push({
+            title: image.title,
+            url: image.original,
+            detailUrl: image.detailUrl,
+            credit: image.credit
+          })
+        }
+      }
+    }
+    return res
+  } else {
+    return false
+  }
+}
 
-//     // return event dates for the red box that appears in the corner of the hero and thumbnail images
-//     mixinFormatSplitEventDates(startDatetime, endDatetime): object {
-//       const startDateDayjs = dayjs(startDatetime)
+// return event dates for the red box that appears in the corner of the hero and thumbnail images
+export const mixinFormatSplitEventDates = (startDatetime, endDatetime): object => {
+  const startDateDayjs = dayjs(startDatetime)
 
-//       let day = startDateDayjs.format('D')
-//       const monthAndYear = startDateDayjs.format('MMM YYYY')
+  let day = startDateDayjs.format('D')
+  const monthAndYear = startDateDayjs.format('MMM YYYY')
 
-//       if (endDatetime) {
-//         const endDateDayjs = dayjs(endDatetime)
+  if (endDatetime) {
+    const endDateDayjs = dayjs(endDatetime)
 
-//         if (
-//           startDateDayjs.format('MM') === endDateDayjs.format('MM') &&
-//           startDateDayjs.format('ll') !== endDateDayjs.format('ll')
-//         ) {
-//           // If event spans multiple days within the same month, show both days
-//           day = `${day}-${endDateDayjs.format('D')}`
-//         }
-//         // Otherwise, we only show the start date
-//       }
-//       return { day, monthAndYear }
-//     },
+    if (
+      startDateDayjs.format('MM') === endDateDayjs.format('MM') &&
+      startDateDayjs.format('ll') !== endDateDayjs.format('ll')
+    ) {
+      // If event spans multiple days within the same month, show both days
+      day = `${day}-${endDateDayjs.format('D')}`
+    }
+    // Otherwise, we only show the start date
+  }
+  return { day, monthAndYear }
+}
 
-//     // return event dates formatted for listing cards
-//     mixinFormatEventDates(startDatetime, endDatetime): string {
-//       const startDateDayjs = dayjs(startDatetime)
+// return event dates formatted for listing cards
+export const mixinFormatEventDates = (startDatetime, endDatetime): string => {
+  const startDateDayjs = dayjs(startDatetime)
 
-//       let eventDate = startDateDayjs.format('ll')
+  let eventDate = startDateDayjs.format('ll')
 
-//       if (endDatetime) {
-//         const endDateDayjs = dayjs(endDatetime)
+  if (endDatetime) {
+    const endDateDayjs = dayjs(endDatetime)
 
-//         if (startDateDayjs.format('YYYY') !== endDateDayjs.format('YYYY')) {
-//           // Event spans into another year
-//           eventDate = `${startDateDayjs.format('ll')} - ${endDateDayjs.format('ll')}`
-//         } else if (startDateDayjs.format('MM') !== endDateDayjs.format('MM')) {
-//           // Event spans multiple months
-//           eventDate = `${startDateDayjs.format('MMM D')} - ${endDateDayjs.format('ll')}`
-//         } else if (
-//           endDateDayjs.diff(startDateDayjs, 'hour') >= 24 &&
-//           startDateDayjs.format('ll') !== endDateDayjs.format('ll')
-//         ) {
-//           // Event spans multiple days within a calendar month and is greater than 24 hours
-//           eventDate = `${startDateDayjs.format('MMM D')}-${endDateDayjs.format(
-//             'D'
-//           )}, ${startDateDayjs.format('YYYY')}`
-//         }
-//       }
-//       return eventDate
-//     },
+    if (startDateDayjs.format('YYYY') !== endDateDayjs.format('YYYY')) {
+      // Event spans into another year
+      eventDate = `${startDateDayjs.format('ll')} - ${endDateDayjs.format('ll')}`
+    } else if (startDateDayjs.format('MM') !== endDateDayjs.format('MM')) {
+      // Event spans multiple months
+      eventDate = `${startDateDayjs.format('MMM D')} - ${endDateDayjs.format('ll')}`
+    } else if (
+      endDateDayjs.diff(startDateDayjs, 'hour') >= 24 &&
+      startDateDayjs.format('ll') !== endDateDayjs.format('ll')
+    ) {
+      // Event spans multiple days within a calendar month and is greater than 24 hours
+      eventDate = `${startDateDayjs.format('MMM D')}-${endDateDayjs.format(
+        'D'
+      )}, ${startDateDayjs.format('YYYY')}`
+    }
+  }
+  return eventDate
+}
 
-//     mixinFormatEventTimeInHoursAndMinutes(startDatetime, endDatetime, endTime): string {
-//       // Only display time if event spans less than one day
-//       const startDateDayjs = dayjs(startDatetime)
-//       let time = ''
+export const mixinFormatEventTimeInHoursAndMinutes = (
+  startDatetime,
+  endDatetime,
+  endTime
+): string => {
+  // Only display time if event spans less than one day
+  const startDateDayjs = dayjs(startDatetime)
+  let time = ''
 
-//       if (endDatetime) {
-//         const endDateDayjs = dayjs(endDatetime)
-//         if (
-//           endDateDayjs.diff(startDateDayjs, 'hour') <= 24 &&
-//           endDateDayjs.diff(startDateDayjs, 'day') === 0
-//         ) {
-//           // Event is less than 24 hours and spans 1 day
-//           if (endTime) {
-//             if (startDateDayjs.format('a') === endDateDayjs.format('a')) {
-//               time = `${startDateDayjs.format('h:mm')}-${endDateDayjs.format('h:mm a z')}`
-//             } else {
-//               time = `${startDateDayjs.format('h:mm a')} - ${endDateDayjs.format('h:mm a z')}`
-//             }
-//           } else {
-//             time = `${startDateDayjs.format('h:mm a z')}`
-//           }
-//         }
-//       }
-//       return time
-//     }
+  if (endDatetime) {
+    const endDateDayjs = dayjs(endDatetime)
+    if (
+      endDateDayjs.diff(startDateDayjs, 'hour') <= 24 &&
+      endDateDayjs.diff(startDateDayjs, 'day') === 0
+    ) {
+      // Event is less than 24 hours and spans 1 day
+      if (endTime) {
+        if (startDateDayjs.format('a') === endDateDayjs.format('a')) {
+          time = `${startDateDayjs.format('h:mm')}-${endDateDayjs.format('h:mm a z')}`
+        } else {
+          time = `${startDateDayjs.format('h:mm a')} - ${endDateDayjs.format('h:mm a z')}`
+        }
+      } else {
+        time = `${startDateDayjs.format('h:mm a z')}`
+      }
+    }
+  }
+  return time
+}

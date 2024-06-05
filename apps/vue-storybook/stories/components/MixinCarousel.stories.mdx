@@ -19,7 +19,7 @@ export const MixinCarouselTemplate = (args) => ({
   components: { MixinCarousel },
   template: `<MixinCarousel :heading="heading" :variant="variant">
     <div v-for="(item, index) in items" :key="index" class="swiper-slide">
-      <img src="https://placekitten.com/550/483" width="550" height="483" alt="test slide">
+      <img src="https://picsum.photos/550/483" width="550" height="483" alt="test slide">
     </div>
   </MixinCarousel>`
 })
@@ -29,7 +29,7 @@ export const MixinCarouselLinkTemplate = (args) => ({
   components: { MixinCarousel },
   template: `<MixinCarousel :heading="heading" :variant="variant" :link="link" :link-title="linkTitle">
     <div v-for="(item, index) in items" :key="index" class="swiper-slide">
-      <img src="https://placekitten.com/550/483" width="550" height="483" alt="test slide">
+      <img src="https://picsum.photos/550/483" width="550" height="483" alt="test slide">
     </div>
   </MixinCarousel>`
 })

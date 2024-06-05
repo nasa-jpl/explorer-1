@@ -3,7 +3,7 @@
     <template v-for="(block, index) in data">
       <LayoutHelper
         v-if="block.blockType == 'HeadingBlock'"
-        :key="index"
+        :key="`headingBlock${index}`"
         indent="col-3"
         class="mb-5"
       >
@@ -13,7 +13,7 @@
       <!-- custom margin bottom that matches BlockText styles if followed by InlineImageBlock -->
       <LayoutHelper
         v-else-if="block.blockType == 'RichTextBlock'"
-        :key="index"
+        :key="`richText${index}`"
         indent="col-3"
         :class="seamlessText(index) ? 'lg:mb-8 mb-5' : 'lg:mb-18 mb-10'"
       >
@@ -23,7 +23,7 @@
       <!-- custom margin bottom that matches BlockText styles if followed by RichTextBlock -->
       <BlockInlineImage
         v-else-if="block.blockType == 'InlineImageBlock'"
-        :key="index"
+        :key="`inlineImageBlock${index}`"
         class="lg:px-0 px-4"
         :class="seamlessText(index) ? 'lg:mb-8 mb-5' : 'lg:mb-18 mb-10'"
         :data="block"
@@ -31,7 +31,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'ListBlock'"
-        :key="index"
+        :key="`listBlock${index}`"
         indent="col-3"
         class="lg:mb-18 mb-10"
       >
@@ -40,7 +40,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'KeyPointBlock'"
-        :key="index"
+        :key="`keyPointBlock${index}`"
         indent="col-3"
         class="lg:mb-18 mb-10"
       >
@@ -49,7 +49,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'QuoteBlock'"
-        :key="index"
+        :key="`quoteBlock${index}`"
         indent="col-4"
         class="lg:mb-18 mb-10"
       >
@@ -58,7 +58,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'CTABlock'"
-        :key="index"
+        :key="`ctaBlock${index}`"
         indent="col-4"
         class="lg:mb-18 mb-10"
       >
@@ -67,7 +67,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'TeaserBlock'"
-        :key="index"
+        :key="`teaserBlock${index}`"
         indent="col-2"
         class="lg:mb-18 mb-10"
       >
@@ -84,7 +84,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'CarouselBlock'"
-        :key="index"
+        :key="`carouselBlock${index}`"
         indent="col-2"
         class="lg:mb-18 mb-10"
       >
@@ -93,7 +93,7 @@
 
       <div
         v-else-if="block.blockType == 'ImageGalleryBlock'"
-        :key="index"
+        :key="`imageGalleryBlock${index}`"
         class="max-w-screen-3xl lg:mb-18 mx-auto mb-10"
       >
         <BlockImageGallery
@@ -107,7 +107,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'VideoBlock'"
-        :key="index"
+        :key="`videoBlock${index}`"
         indent="col-2"
         class="lg:mb-18 mb-10"
       >
@@ -116,7 +116,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'VideoEmbedBlock'"
-        :key="index"
+        :key="`videoEmbedBlock${index}`"
         indent="col-2"
         class="lg:mb-18 mb-10"
       >
@@ -125,7 +125,7 @@
 
       <BlockImage
         v-else-if="block.blockType == 'FullBleedImageBlock'"
-        :key="index"
+        :key="`fullBleedImageBlock${index}`"
         class="lg:mb-18 mb-10"
         :data="block"
         :full-bleed="block.fullBleed"
@@ -133,7 +133,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'ImageComparisonBlock'"
-        :key="index"
+        :key="`imageComparisonBlock${index}`"
         indent="col-2"
         class="lg:mb-18 mb-10"
       >
@@ -142,14 +142,14 @@
 
       <BlockTwitterEmbed
         v-else-if="block.blockType == 'TwitterEmbedBlock'"
-        :key="index"
+        :key="`twitterEmbedBlock${index}`"
         class="lg:mb-18 mb-10"
         :data="block"
       />
 
       <LayoutHelper
         v-else-if="block.blockType == 'IframeEmbedBlock'"
-        :key="index"
+        :key="`iframeEmbedBlock${index}`"
         indent="col-2"
         class="lg:mb-18 mb-10"
       >
@@ -158,7 +158,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'TableBlock'"
-        :key="index"
+        :key="`tableBlock${index}`"
         indent="col-3"
         class="lg:mb-18 mb-10"
       >
@@ -167,7 +167,7 @@
 
       <LayoutHelper
         v-else-if="block.blockType == 'RelatedLinksBlock'"
-        :key="index"
+        :key="`relatedLinksBlock${index}`"
         indent="col-3"
         class="lg:mb-18 mb-10"
       >
@@ -176,7 +176,7 @@
 
       <BlockAnchor
         v-else-if="block.blockType == 'AnchorBlock'"
-        :key="index"
+        :key="`anchorBlock${index}`"
         :data="block"
       />
 

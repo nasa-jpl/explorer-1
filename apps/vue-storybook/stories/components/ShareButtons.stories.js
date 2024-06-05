@@ -1,7 +1,7 @@
 import ShareButtons from '@explorer-1/vue/src/components/ShareButtons/ShareButtons.vue'
 
 export default {
-  title: 'WWW/Components/ShareButtons',
+  title: 'Components/ShareButtons',
   component: ShareButtons,
   excludeStories: /.*Data$/
 }

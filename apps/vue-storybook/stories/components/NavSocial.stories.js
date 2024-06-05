@@ -2,9 +2,7 @@ import NavSocial from '@explorer-1/vue/src/components/NavSocial/NavSocial.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavSocial',
-  components: {
-    NavSocial
-  },
+  component: NavSocial,
   excludeStories: /.*Data$/
 }
 

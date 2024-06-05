@@ -22,7 +22,7 @@
         <div class="md:mt-10 text-xl md:flex">
           <div class="EventCard__Metadata flex text-theme-red text-body-sm">
             <IconCalendar class="relative mr-3" />
-            <span> {{ mixinFormatEventDates(startDate, endDate) }}</span>
+            <span> {{ formattedEventDates }}</span>
           </div>
           <div
             v-show="displayTime"
@@ -77,6 +77,7 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
+import { mixinFormatEventDates, mixinFormatSplitEventDates, mixinFormatEventTimeInHoursAndMinutes } from './../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -138,17 +139,20 @@ export default defineComponent({
   computed: {
     splitDate(): object | null {
       if (this.startDate) {
-        return this.mixinFormatSplitEventDates(this.startDate, this.endDate)
+        return mixinFormatSplitEventDates(this.startDate, this.endDate)
       }
       return null
     },
     displayTime(): string {
-      return this.mixinFormatEventTimeInHoursAndMinutes(
+      return mixinFormatEventTimeInHoursAndMinutes(
         this.startDate,
         this.endDate,
         this.endTime
       )
     },
+    formattedEventDates() {
+      return mixinFormatEventDates(this.startDate, this.endDate)
+    }
   },
 })
 </script>

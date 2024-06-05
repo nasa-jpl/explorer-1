@@ -3,10 +3,8 @@
 import TopicDetailMissionCarouselItem from '@explorer-1/vue/src/components/TopicDetailMissionCarouselItem/TopicDetailMissionCarouselItem.vue'
 
 export default {
-  title: 'WWW/Components/TopicDetail/MissionCarousel/TopicDetailMissionCarouselItem',
-  components: {
-    TopicDetailMissionCarouselItem
-  },
+  title: 'Components/TopicDetail/MissionCarousel/TopicDetailMissionCarouselItem',
+  component: TopicDetailMissionCarouselItem,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="relative lg:w-1/3"><story/></div>`

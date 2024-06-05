@@ -2,10 +2,8 @@ import { BaseVideoData } from './BaseVideo.stories'
 import HomepageCarouselItem from '@explorer-1/vue/src/components/HomepageCarouselItem/HomepageCarouselItem.vue'
 
 export default {
-  title: 'WWW/Components/Homepage/HomepageCarousel/HomepageCarouselItem',
-  components: {
-    HomepageCarouselItem
-  },
+  title: 'Components/Homepage/HomepageCarousel/HomepageCarouselItem',
+  component: HomepageCarouselItem,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="max-w-screen-3xl mx-auto"><story/></div>`

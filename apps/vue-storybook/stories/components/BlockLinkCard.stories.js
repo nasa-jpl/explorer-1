@@ -4,9 +4,7 @@ import BlockLinkCard from '@explorer-1/vue/src/components/BlockLinkCard/BlockLin
 
 export default {
   title: 'Components/Blocks/BlockLinkCard',
-  components: {
-    BlockLinkCard
-  },
+  component: BlockLinkCard,
   excludeStories: /.*Data$/,
   decorators: [
     () => ({
@@ -32,7 +30,7 @@ export default {
 
 // shared data
 export const BlockLinkCardData = {
-  card: {
+  data: {
     url: '/news/placeholder-slug-1',
     title: 'How engineers at NASA-JPL persevered to develop a ventilator',
     slug: 'placeholder-slug-1',
@@ -45,7 +43,9 @@ export const BlockLinkCardData = {
       },
       alt: 'Alt text'
     }
-  }
+  },
+  headingLevel: 'h2',
+  compact: false
 }
 
 // templates
@@ -60,43 +60,43 @@ const BlockLinkCardCustomPropsTemplate = (args) => ({
   template: `<BlockLinkCard :title="title" url="url" external-link="externalLink" :label="label" :date="date" :thumbnail-image="thumbnailImage" :heading-level="headingLevel" :compact="compact" />`
 })
 
-export const SingleItem = BlockLinkCardTemplate.bind({})
-SingleItem.args = {
-  ...BlockLinkCardData,
-  headingLevel: 'h2',
-  compact: false
-}
-
-export const SingleItemCompactStyles = BlockLinkCardTemplate.bind({})
-SingleItemCompactStyles.args = {
-  ...BlockLinkCardData,
-  headingLevel: 'h2',
-  compact: true
-}
-
-export const Compact = BlockLinkCardCustomPropsTemplate.bind({})
-Compact.storyName = 'Compact w/ Custom Props'
-Compact.parameters = {
-  docs: {
-    description: {
-      story: "View this story's canvas and controls to see its usage of custom props."
-    }
+export const SingleItem = {
+  args: {
+    ...BlockLinkCardData
   }
 }
-Compact.args = {
-  title: 'Lorem ipsum news title in search results',
-  url: '/news/demo',
-  externalLink: '',
-  label: 'News',
-  date: 'Sep. 23, 2010',
-  thumbnailImage: {
-    src: {
-      url: 'https://source.unsplash.com/Q1p7bh3SHj8/512x288',
-      width: 512,
-      height: 288
-    },
-    alt: 'Alt text'
+
+export const SingleItemCompactStyles = {
+  args: {
+    ...BlockLinkCardData,
+    headingLevel: 'h2',
+    compact: true
+  }
+}
+export const Compact = {
+  name: 'Compact w/ Custom Props',
+  parameters: {
+    docs: {
+      description: {
+        story: "View this story's canvas and controls to see its usage of custom props."
+      }
+    }
   },
-  headingLevel: 'h2',
-  compact: true
+  args: {
+    title: 'Lorem ipsum news title in search results',
+    url: '/news/demo',
+    externalLink: '',
+    label: 'News',
+    date: 'Sep. 23, 2010',
+    thumbnailImage: {
+      src: {
+        url: 'https://source.unsplash.com/Q1p7bh3SHj8/512x288',
+        width: 512,
+        height: 288
+      },
+      alt: 'Alt text'
+    },
+    headingLevel: 'h2',
+    compact: true
+  }
 }

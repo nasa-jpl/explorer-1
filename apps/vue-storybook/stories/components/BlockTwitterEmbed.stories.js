@@ -11,14 +11,9 @@ export const BlockTwitterEmbedData = {
   username: 'NASAJPL'
 }
 
-const BlockTwitterEmbedTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockTwitterEmbed },
-  template: `<BlockTwitterEmbed :data="data" />`
-})
-
-export const List = BlockTwitterEmbedTemplate.bind({})
-List.storyName = 'BlockTwitterEmbed'
-List.args = {
-  data: BlockTwitterEmbedData
+export const List = {
+  name: 'BlockTwitterEmbed',
+  args: {
+    data: BlockTwitterEmbedData
+  }
 }

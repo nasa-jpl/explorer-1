@@ -2,7 +2,7 @@ import ParallaxElement from '@explorer-1/vue/src/components/ParallaxElement/Para
 import ParallaxContainer from '@explorer-1/vue/src/components/ParallaxContainer/ParallaxContainer.vue'
 
 export default {
-  title: 'WWW/Components/ParallaxContainer',
+  title: 'Components/ParallaxContainer',
   component: ParallaxContainer,
   decorators: [
     () => ({

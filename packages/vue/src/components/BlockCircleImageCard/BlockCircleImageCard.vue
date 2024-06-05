@@ -10,7 +10,7 @@
       <BaseImage
         v-if="image.src"
         :src="image.src.url"
-        :srcset="mixinGetSrcSet(image) ? mixinGetSrcSet(image) : image.srcSet"
+        :srcset="theSrcSet"
         alt=""
         :width="image.src.width"
         :height="image.src.height"
@@ -39,6 +39,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinGetSrcSet } from './../../utils/mixins'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
@@ -78,6 +79,11 @@ export default defineComponent({
       default: false,
     },
   },
+  computed: {
+    theSrcSet() {
+      return mixinGetSrcSet(this.image) ? mixinGetSrcSet(this.image) : this.image.srcSet
+    }
+  }
 })
 </script>
 <style lang="scss">

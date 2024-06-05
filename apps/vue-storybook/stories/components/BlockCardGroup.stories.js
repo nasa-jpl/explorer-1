@@ -65,14 +65,7 @@ export const BlockCardGroupData = [
   }
 ]
 
-const BlockCardGroupTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockCardGroup },
-  template: `<BlockCardGroup
-    :facts="facts"
-  />`
-})
-
-export const Group = BlockCardGroupTemplate.bind({})
-Group.storyName = 'BlockCardGroup'
-Group.args = { facts: BlockCardGroupData }
+export const Group = {
+  name: 'BlockCardGroup',
+  args: { facts: BlockCardGroupData }
+}

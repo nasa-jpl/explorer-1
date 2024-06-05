@@ -4,9 +4,7 @@ import BlockLinkTile from '@explorer-1/vue/src/components/BlockLinkTile/BlockLin
 
 export default {
   title: 'Components/Blocks/BlockLinkTile',
-  components: {
-    BlockLinkTile
-  },
+  component: BlockLinkTile,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3 lg:grid-cols-3"><story/></div>`
@@ -17,9 +15,9 @@ export default {
       description:
         'Change the heading level for semantic markup. This does not affect the style of the heading.',
       control: {
-        type: 'select',
-        options: [null, 'h1', 'h2', 'h3', 'h4', 'h5']
-      }
+        type: 'select'
+      },
+      options: [null, 'h1', 'h2', 'h3', 'h4', 'h5']
     }
   },
   parameters: {
@@ -38,7 +36,7 @@ export const BlockLinkTileData = {
     label: 'Solar System',
     thumbnailImage: {
       src: {
-        url: 'https://placekitten.com/490/430',
+        url: 'https://picsum.photos/490/430',
         width: 490,
         height: 430
       },
@@ -47,40 +45,28 @@ export const BlockLinkTileData = {
   }
 }
 
-// templates
-const BlockLinkTileTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockLinkTile },
-  template: `<BlockLinkTile :data="card" :heading-level="headingLevel" :compact="compact" />`
-})
-
-const BlockLinkTileCustomPropsTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockLinkTile },
-  template: `<BlockLinkTile :title="title" url="url" external-link="externalLink" :label="label" :thumbnail-image="thumbnailImage" :heading-level="headingLevel" :compact="compact" />`
-})
-
-export const SingleItem = BlockLinkTileTemplate.bind({})
-SingleItem.args = {
-  ...BlockLinkTileData,
-  headingLevel: 'h2',
-  compact: false
+export const SingleItem = {
+  args: {
+    data: BlockLinkTileData.card,
+    headingLevel: 'h2',
+    compact: false
+  }
 }
-
-export const Compact = BlockLinkTileCustomPropsTemplate.bind({})
-Compact.args = {
-  title: 'Lorem ipsum title in search results',
-  url: '/missions/demo',
-  externalLink: '',
-  label: 'Mission',
-  thumbnailImage: {
-    src: {
-      url: 'https://source.unsplash.com/Q1p7bh3SHj8/512x288',
-      width: 512,
-      height: 288
+export const Compact = {
+  args: {
+    title: 'Lorem ipsum title in search results',
+    url: '/missions/demo',
+    externalLink: '',
+    label: 'Mission',
+    thumbnailImage: {
+      src: {
+        url: 'https://source.unsplash.com/Q1p7bh3SHj8/512x288',
+        width: 512,
+        height: 288
+      },
+      alt: 'Alt text'
     },
-    alt: 'Alt text'
-  },
-  headingLevel: 'h2',
-  compact: true
+    headingLevel: 'h2',
+    compact: true
+  }
 }

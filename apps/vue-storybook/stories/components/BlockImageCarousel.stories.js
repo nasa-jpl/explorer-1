@@ -97,18 +97,12 @@ export const BlockImageCarouselData = [
   }
 ]
 
-// template
-const BlockImageCarouselTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockImageCarousel },
-  template: `<BlockImageCarousel :items="blocks" :block-id="blockId" :show-title="showTitle" />`
-})
-
 // stories
-export const Carousel = BlockImageCarouselTemplate.bind({})
-Carousel.storyName = 'BlockImageCarousel'
-Carousel.args = {
-  blockId: 'ev106po56n',
-  showTitle: false,
-  blocks: BlockImageCarouselData
+export const Carousel = {
+  name: 'BlockImageCarousel',
+  args: {
+    blockId: 'ev106po56n',
+    showTitle: false,
+    items: BlockImageCarouselData
+  }
 }

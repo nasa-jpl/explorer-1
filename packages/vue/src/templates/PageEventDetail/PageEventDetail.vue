@@ -45,9 +45,7 @@
     <LayoutHelper indent="col-2">
       <EventDetailHero
         :image="data.heroImage"
-        :start-date-split="
-          mixinFormatSplitEventDates(data.startDatetime, data.endDatetime)
-        "
+        :start-date-split="formattedSplitEventDates"
       />
 
       <!-- Event details -->
@@ -61,7 +59,7 @@
           <div class="PageEventDetail__Metadata text-theme-red">
             <IconCalendar class="relative mr-3" />
             <span>{{
-              mixinFormatEventDates(data.startDatetime, data.endDatetime)
+              formattedEventDates
             }}</span>
           </div>
           <div
@@ -260,6 +258,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinFormatEventDates, mixinFormatSplitEventDates, mixinFormatEventTimeInHoursAndMinutes } from './../../utils/mixins'
 import LayoutHelper from '@/components/LayoutHelper/LayoutHelper.vue'
 import BlockStreamfield from '@/components/BlockStreamfield/BlockStreamfield.vue'
 import BaseButton from '@/components/BaseButton/BaseButton.vue'
@@ -301,12 +300,18 @@ export default defineComponent({
   },
   computed: {
     displayTime(): string {
-      return this.mixinFormatEventTimeInHoursAndMinutes(
+      return mixinFormatEventTimeInHoursAndMinutes(
         this.data.startDatetime,
         this.data.endDatetime,
         this.data.endTime
       )
     },
+    formattedEventDates() {
+      return mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime)
+    },
+    formattedSplitEventDates() {
+      return mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
+    }
   },
 })
 </script>

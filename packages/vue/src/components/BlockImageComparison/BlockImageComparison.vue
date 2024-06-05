@@ -18,16 +18,17 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
+// import VueCompareImage from 'vue3-compare-image'
 
-const VueCompareImage = process.browser ? require('vue3-compare-image') : null
+// const VueCompareImage = process.browser ? require('vue3-compare-image') : null
 
 export default defineComponent({
   name: 'BlockImageComparison',
-  components: {
-    VueCompareImage,
-  },
+  // components: {
+  //   VueCompareImage,
+  // },
   props: {
     data: {
       type: Object,

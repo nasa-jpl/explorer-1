@@ -8,9 +8,7 @@ import NavDesktopDropdownMore from '@explorer-1/vue/src/components/NavDesktop/Na
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavDesktop',
-  components: {
-    NavDesktop
-  },
+  component: NavDesktop,
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'canvas'

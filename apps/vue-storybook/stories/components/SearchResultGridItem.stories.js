@@ -2,9 +2,7 @@ import SearchResultGridItem from '@explorer-1/vue/src/components/SearchResultGri
 
 export default {
   title: 'Components/Search/SearchResultGridItem',
-  components: {
-    SearchResultGridItem
-  },
+  component: SearchResultGridItem,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3 lg:grid-cols-3"><story/></div>`
@@ -38,7 +36,7 @@ export const SearchResultGridCardData = {
     title: 'How engineers at NASA-JPL persevered to develop a ventilator',
     image: {
       src: {
-        url: 'https://placekitten.com/490/490',
+        url: 'https://picsum.photos/490/490',
         width: 490,
         height: 490
       },

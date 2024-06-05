@@ -2,9 +2,7 @@ import BasePlaceholder from '@explorer-1/vue/src/components/BasePlaceholder/Base
 
 export default {
   title: 'Components/Base/BasePlaceholder',
-  components: {
-    BasePlaceholder
-  },
+  component: BasePlaceholder,
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',

@@ -3,7 +3,7 @@ import BaseModal from '@explorer-1/vue/src/components/BaseModal/BaseModal.vue'
 import BaseModalDialog from '@explorer-1/vue/src/components/BaseModal/BaseModalDialog.vue'
 
 export default {
-  title: 'WWW/Components/Base/BaseModal',
+  title: 'Components/Base/BaseModal',
   component: BaseModal,
   argTypes: {
     bgClose: { control: { type: 'boolean' } }

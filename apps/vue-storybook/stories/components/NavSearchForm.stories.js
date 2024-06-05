@@ -2,9 +2,7 @@ import NavSearchForm from '@explorer-1/vue/src/components/NavSearchForm/NavSearc
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavSearchForm',
-  components: {
-    NavSearchForm
-  },
+  component: NavSearchForm,
   excludeStories: /.*Data$/
 }
 

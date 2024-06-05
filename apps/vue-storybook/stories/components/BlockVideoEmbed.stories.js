@@ -2,9 +2,7 @@ import BlockVideoEmbed from '@explorer-1/vue/src/components/BlockVideoEmbed/Bloc
 
 export default {
   title: 'Components/Blocks/BlockVideoEmbed',
-  components: {
-    BlockVideoEmbed
-  },
+  component: BlockVideoEmbed,
   excludeStories: /.*Data$/
 }
 
@@ -19,13 +17,4 @@ export const BlockVideoEmbedData = {
   }
 }
 
-// templates
-const BlockVideoEmbedTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockVideoEmbed },
-  template: `<BlockVideoEmbed :data="data" />`
-})
-
-export const Default = BlockVideoEmbedTemplate.bind({})
-Default.storyName = 'BlockVideoEmbed'
-Default.args = { ...BlockVideoEmbedData }
+export const Default = { name: 'BlockVideoEmbed', args: { data: BlockVideoEmbedData.data } }

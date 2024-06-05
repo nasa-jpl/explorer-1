@@ -49,7 +49,7 @@
             v-if="theItem.startDate"
             :class="{ 'text-gray-mid-dark pl-2': theItem.label }"
           >
-            {{ mixinFormatEventDates(theItem.startDate, theItem.endDate) }}
+            {{ formattedEventDates }}
           </span>
           <span class="sr-only">.</span>
         </p>
@@ -77,6 +77,7 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
+import { mixinFormatEventDates } from './../../utils/mixins'
 import IconArrow from './../Icons/IconArrow.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -174,6 +175,9 @@ export default defineComponent({
       }
       return null
     },
+    formattedEventDates() {
+      return mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate)
+    }
   },
 })
 </script>

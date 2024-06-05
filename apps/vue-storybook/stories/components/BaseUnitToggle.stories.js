@@ -3,7 +3,7 @@ import BaseUnitToggle, {
 } from '@explorer-1/vue/src/components/BaseUnitToggle/BaseUnitToggle.vue'
 
 export default {
-  title: 'WWW/Components/Base/BaseUnitToggle',
+  title: 'Components/Base/BaseUnitToggle',
   component: BaseUnitToggle,
   argTypes: {
     unitPair: {
@@ -18,6 +18,11 @@ export default {
     },
     secondValue: {
       description: 'Manually override the converted value'
+    }
+  },
+  parameters: {
+    slots: {
+      formattedValue: 'Formatted value slot'
     }
   }
 }

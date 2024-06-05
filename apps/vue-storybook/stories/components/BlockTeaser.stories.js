@@ -48,52 +48,27 @@ export const BlockTeaserData = {
       }
     }
   ]
-  // TODO: ideal format
-  // teaserPage: {
-  //   url: 'https://www.jpl.nasa.gov/',
-  //   label: 'Mission',
-  //   title: 'Perseverance',
-  // },
 }
 
-// template
-const BlockTeaserTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockTeaser },
-  template: `<BlockTeaser
-    :heading="heading"
-    :introduction="introduction"
-    :buttonText="buttonText"
-    :image="image"
-    :full-width="fullWidthImage"
-    :teaser-page="teaserPage"
-  />`
-})
-
-const BlockTeaserEmptyTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockTeaser },
-  template: `<BlockTeaser
-    :teaser-page="teaserPage"
-  />`
-})
-
-export const Default = BlockTeaserTemplate.bind({})
-Default.args = {
-  ...BlockTeaserData
+export const Default = {
+  args: {
+    ...BlockTeaserData
+  }
 }
 
-export const FullWidth = BlockTeaserTemplate.bind({})
-FullWidth.args = {
-  ...BlockTeaserData,
-  fullWidthImage: true
+export const FullWidth = {
+  args: {
+    ...BlockTeaserData,
+    fullWidth: true
+  }
 }
 
-export const Empty = BlockTeaserEmptyTemplate.bind({})
-Empty.args = {
-  teaserPage: {
-    pageType: 'Mission',
-    title: 'Perseverance',
-    url: '/missions/perseverance/'
+export const Empty = {
+  args: {
+    teaserPage: {
+      pageType: 'Mission',
+      title: 'Perseverance',
+      url: '/missions/perseverance/'
+    }
   }
 }

@@ -100,6 +100,9 @@ export default defineComponent({
       }
       return null
     },
+    formattedEventDates() {
+      return mixinFormatEventDates(this.theData.startDate, this.theData.endDate)
+    }
   },
 })
 </script>

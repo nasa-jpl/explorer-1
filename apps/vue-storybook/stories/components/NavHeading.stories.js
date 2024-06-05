@@ -3,9 +3,7 @@ import NavHeading from '@explorer-1/vue/src/components/NavHeading/NavHeading.vue
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavHeading',
-  components: {
-    NavHeading
-  },
+  component: NavHeading,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="p-8 bg-dark-blue"><story/></div>`

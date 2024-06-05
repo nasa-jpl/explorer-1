@@ -2,7 +2,7 @@ import { BlockVideoEmbedData } from './BlockVideoEmbed.stories'
 import HomepageEmbedBlock from '@explorer-1/vue/src/components/HomepageEmbedBlock/HomepageEmbedBlock.vue'
 
 export default {
-  title: 'WWW/Components/Homepage/HomepageEmbedBlock',
+  title: 'Components/Homepage/HomepageEmbedBlock',
   component: HomepageEmbedBlock,
   decorators: [
     () => ({

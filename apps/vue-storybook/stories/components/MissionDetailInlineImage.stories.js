@@ -2,7 +2,7 @@ import { BaseImageCaptionData } from './BaseImageCaption.stories'
 import MissionDetailInlineImage from '@explorer-1/vue/src/components/MissionDetailInlineImage/MissionDetailInlineImage.vue'
 
 export default {
-  title: 'WWW/Components/MissionDetail/MissionDetailInlineImage',
+  title: 'Components/MissionDetail/MissionDetailInlineImage',
   component: MissionDetailInlineImage,
   argTypes: {
     alignTo: {

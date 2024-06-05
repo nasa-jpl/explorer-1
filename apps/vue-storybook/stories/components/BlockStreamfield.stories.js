@@ -24,7 +24,8 @@ export default {
   component: BlockStreamfield,
   argTypes: {
     variant: {
-      control: { type: 'select', options: Object.keys(variants) }
+      control: { type: 'select' },
+      options: Object.keys(variants)
     }
   },
   decorators: [
@@ -44,7 +45,7 @@ export default {
 export const BlockStreamfieldData = {
   body: [
     BlockKeyPointsData,
-    BlockHeadingData,
+    { ...BlockHeadingData, level: 'h2', size: 'h2' },
     {
       blockType: 'RichTextBlock',
       value:
@@ -62,12 +63,12 @@ export const BlockStreamfieldData = {
     BlockRelatedLinksData.data,
     { blockType: 'TeaserBlock', ...BlockTeaserData },
     BlockVideoData.block,
-    { blockType: 'CarouselBlock', blocks: BlockImageCarouselData },
+    { blockType: 'CarouselBlock', showTitle: true, items: BlockImageCarouselData },
     { blockType: 'VideoEmbedBlock', ...BlockVideoEmbedData.data },
     BlockImageData,
     { ...BlockImageData, fullBleed: true },
     BlockImageComparisonData,
-    BlockTwitterEmbedData,
+    // BlockTwitterEmbedData,
     BlockIframeEmbedData,
     BlockImageGalleryData.block,
     {
@@ -78,17 +79,13 @@ export const BlockStreamfieldData = {
   ]
 }
 
-const BlockStreamfieldTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockStreamfield },
-  template: `<BlockStreamfield :variant="variant" :data="body" />`
-})
+export const Default = {
+  args: { data: BlockStreamfieldData.body, variant: 'default' }
+}
 
-export const Default = BlockStreamfieldTemplate.bind({})
-Default.args = { ...BlockStreamfieldData, variant: 'default' }
-
-export const MatchingWidths = BlockStreamfieldTemplate.bind({})
-MatchingWidths.args = {
-  ...BlockStreamfieldData,
-  variant: 'fluid'
+export const MatchingWidths = {
+  args: {
+    data: BlockStreamfieldData.body,
+    variant: 'fluid'
+  }
 }

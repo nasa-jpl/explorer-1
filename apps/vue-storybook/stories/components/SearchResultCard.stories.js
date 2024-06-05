@@ -2,9 +2,7 @@ import SearchResultCard from '@explorer-1/vue/src/components/SearchResultCard/Se
 
 export default {
   title: 'Components/Search/SearchResultCard',
-  components: {
-    SearchResultCard
-  },
+  component: SearchResultCard,
   argTypes: {
     headingLevel: {
       description:
@@ -28,7 +26,7 @@ export const SearchResultCardData = {
     "On April 30, the Food and Drug Administration approved VITAL for a ventilator Emergency Use Authorization. Developed in just 37 days by NASA's Jet Propulsion Laboratory in response to the coronavirus pandemic, VITAL (short for Ventilator Intervention Technology Accessible Locally) wouldn't replace current hospital ventilators, which can treat a broader range of medical issues.",
   image: {
     src: {
-      url: 'https://placekitten.com/490/490',
+      url: 'https://picsum.photos/490/490',
       width: 490,
       height: 490
     },

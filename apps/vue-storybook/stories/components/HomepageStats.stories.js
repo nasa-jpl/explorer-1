@@ -1,7 +1,7 @@
 import HomepageStats from '@explorer-1/vue/src/components/HomepageStats/HomepageStats.vue'
 
 export default {
-  title: 'WWW/Components/Homepage/HomepageStats',
+  title: 'Components/Homepage/HomepageStats',
   component: HomepageStats,
   excludeStories: /.*Data$/,
   parameters: {

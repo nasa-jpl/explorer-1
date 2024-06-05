@@ -3,9 +3,8 @@
     v-if="data && data.items && data.items.length > 0"
     class="BlockListCards"
   >
-    <template v-for="(item, index) in data.items">
+    <template v-for="(item, index) in data.items" :key="index">
       <div
-        :key="index"
         class="md:flex"
         :class="{
           'lg:pb-10 lg:mb-10 mb-8 border-gray-light-mid pb-6 border-b':
@@ -37,16 +36,16 @@
           <div v-if="item.links && item.links.length > 1" class="mt-3">
             <!-- When more than one link is present, use default link variant -->
             <ul class="pl-4 list-square">
-              <template v-for="(link, index_link) in item.links">
-                <li :key="index_link" class="my-2">
+              <template v-for="(link, index_link) in item.links" :key="index_link">
+                <li class="my-2">
                   <BaseLink
                     :key="index_link"
                     variant="default"
                     class=""
                     link-class="no-underline"
                     :href="
-                      mixinGetExternalLink(link)
-                        ? mixinGetExternalLink(link)
+                      getExternalLink(link)
+                        ? getExternalLink(link)
                         : null
                     "
                     :to="link.page ? link.page.url : null"
@@ -60,15 +59,14 @@
           </div>
           <div v-else-if="item.links && item.links.length === 1" class="mt-3">
             <!-- When exactly one link, use primary link variant -->
-            <template v-for="(link, index_link) in item.links">
+            <template v-for="(link, index_link) in item.links" :key="index_link">
               <BaseLink
-                :key="index_link"
                 variant="primary"
                 class="-mb-1"
                 link-class="inline-block"
                 caret-wrapper-class="py-2"
                 :href="
-                  mixinGetExternalLink(link) ? mixinGetExternalLink(link) : null
+                  getExternalLink(link) ? getExternalLink(link) : null
                 "
                 :to="link.page ? link.page.url : null"
                 external-target-blank
@@ -85,6 +83,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinGetExternalLink } from './../../utils/mixins'
 import MixinAnimationCaret from './../MixinAnimationCaret/MixinAnimationCaret.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
@@ -107,5 +106,10 @@ export default defineComponent({
       required: false,
     },
   },
+  methods: {
+    getExternalLink(link) {
+      mixinGetExternalLink(link)
+    }
+  }
 })
 </script>

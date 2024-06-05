@@ -1,13 +1,13 @@
-import imagePlanetJupiter from '../../.storybook/images/mission-highlights-800h-at-jupiter.png'
-import imagePlanetEarth from '../../.storybook/images/mission-highlights-800h-earth-orbiting-on-earth.png'
-import imageMoon from '../../.storybook/images/mission-highlights-800h-earths-moon.png'
-import imageInterstellar from '../../.storybook/images/mission-highlights-800h-interstellar.jpg'
-import imagePlanetMarsA from '../../.storybook/images/mission-highlights-800h-mars-orbiting.png'
+import imagePlanetJupiter from '@explorer-1/common-storybook/src/images/mission-highlights-800h-at-jupiter.png'
+import imagePlanetEarth from '@explorer-1/common-storybook/src/images/mission-highlights-800h-earth-orbiting-on-earth.png'
+import imageMoon from '@explorer-1/common-storybook/src/images/mission-highlights-800h-earths-moon.png'
+import imageInterstellar from '@explorer-1/common-storybook/src/images/mission-highlights-800h-interstellar.jpg'
+import imagePlanetMarsA from '@explorer-1/common-storybook/src/images/mission-highlights-800h-mars-orbiting.png'
 import HomepageMissionsCarousel from '@explorer-1/vue/src/components/HomepageMissionsCarousel/HomepageMissionsCarousel.vue'
 import HomepageMissionsCarouselItem from '@explorer-1/vue/src/components/HomepageMissionsCarousel/HomepageMissionsCarouselItem.vue'
 
 export default {
-  title: 'WWW/Components/Homepage/HomepageMissionsCarousel',
+  title: 'Components/Homepage/HomepageMissionsCarousel',
   component: HomepageMissionsCarousel,
   excludeStories: /.*Data$/,
   parameters: {

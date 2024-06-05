@@ -149,7 +149,7 @@ export default defineComponent({
     theTeaserPage(): teaserPageObject | null {
       if (this.teaserPage && !this.teaserPage.length) {
         return this.teaserPage
-      } else if (this.teaserPage.length) {
+      } else if (this.teaserPage && this.teaserPage.length) {
         const parsedTeaserPage = this.getTeaserPageBlock()
         if (parsedTeaserPage) {
           return parsedTeaserPage[0].page

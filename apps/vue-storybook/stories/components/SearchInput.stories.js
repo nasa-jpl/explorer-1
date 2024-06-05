@@ -2,9 +2,7 @@ import SearchInput from '@explorer-1/vue/src/components/SearchInput/SearchInput.
 
 export default {
   title: 'Components/Search/SearchInput',
-  components: {
-    SearchInput
-  },
+  component: SearchInput,
   excludeStories: /.*Data$/
 }
 

@@ -70,7 +70,7 @@ EventDetail.args = {
           alt: '',
           src: {
             height: '450',
-            url: 'https://placekitten.com/560/560.jpg',
+            url: 'https://picsum.photos/560/560.jpg',
             width: '450'
           }
         },
@@ -85,7 +85,7 @@ EventDetail.args = {
           alt: '',
           src: {
             height: '450',
-            url: 'https://placekitten.com/560/560.jpg',
+            url: 'https://picsum.photos/560/560.jpg',
             width: '450'
           }
         },

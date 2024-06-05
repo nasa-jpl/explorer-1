@@ -1,6 +1,6 @@
 import TopicDetailMissionSpotlight from '@explorer-1/vue/src/components/TopicDetailMissionSpotlight/TopicDetailMissionSpotlight.vue'
 export default {
-  title: 'WWW/Components/TopicDetail/TopicDetailMissionSpotlight',
+  title: 'Components/TopicDetail/TopicDetailMissionSpotlight',
   component: TopicDetailMissionSpotlight,
   decorators: [
     () => ({

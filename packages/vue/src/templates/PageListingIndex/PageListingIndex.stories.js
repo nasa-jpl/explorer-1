@@ -4,9 +4,7 @@ import PageListingIndex from './PageListingIndex.vue'
 
 export default {
   title: 'WWW/Layouts/PageListingIndex',
-  components: {
-    PageListingIndex
-  },
+  component: PageListingIndex,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="absolute inset-0 disable-nav-offset"><story/></div>`

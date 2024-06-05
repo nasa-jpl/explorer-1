@@ -1,7 +1,7 @@
 import BaseTimer from '@explorer-1/vue/src/components/BaseTimer/BaseTimer.vue'
 
 export default {
-  title: 'WWW/Components/Base/BaseTimer',
+  title: 'Components/Base/BaseTimer',
   component: BaseTimer
 }
 

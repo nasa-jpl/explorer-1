@@ -10,9 +10,9 @@ export default {
       type: 'string',
       description: 'Type of item used for each slide',
       control: {
-        type: 'select',
-        options: Object.keys(itemTypes)
+        type: 'select'
       },
+      options: Object.keys(itemTypes),
       table: {
         defaultValue: { summary: 'cards' }
       }
@@ -170,38 +170,44 @@ const BlockLinkCarouselTemplate = (args) => ({
 })
 
 const BlockLinkCarouselMultipleTemplate = (args) => ({
-  props: Object.keys(args),
   components: { BlockLinkCarousel },
-  template: `<div><BlockLinkCarousel class="mb-20" :itemType="itemType" :heading="heading" :items="items"/><BlockLinkCarousel item-type="cards" :heading="otherHeading" :items="items"/></div>`
+  setup() {
+    return { args }
+  },
+  template: `<div><BlockLinkCarousel class="mb-20" v-bind="args" /><BlockLinkCarousel item-type="cards" v-bind="args" /></div>`
 })
 
 // stories
-export const CardCarousel = BlockLinkCarouselTemplate.bind({})
-CardCarousel.args = {
-  itemType: 'cards',
-  heading: 'Related Pages',
-  items: BlockLinkCardCarouselData
+export const CardCarousel = {
+  args: {
+    itemType: 'cards',
+    heading: 'Related Pages',
+    items: BlockLinkCardCarouselData
+  }
 }
 
-export const TileCarousel = BlockLinkCarouselTemplate.bind({})
-TileCarousel.args = {
-  itemType: 'tiles',
-  heading: 'Explore more',
-  items: BlockLinkTileCarouselData
+export const TileCarousel = {
+  args: {
+    itemType: 'tiles',
+    heading: 'Explore More',
+    items: BlockLinkCardCarouselData
+  }
 }
 
-export const MoreEventsCarousel = BlockLinkCarouselTemplate.bind({})
-MoreEventsCarousel.args = {
-  itemType: 'cards',
-  heading: 'More Events',
-  items: EventsBlockLinkCarouselData
+export const MoreEventsCarousel = {
+  args: {
+    itemType: 'cards',
+    heading: 'More Events',
+    items: EventsBlockLinkCarouselData
+  }
 }
 
-export const TwoItems = BlockLinkCarouselTemplate.bind({})
-TwoItems.args = {
-  itemType: 'cards',
-  heading: 'Related Pages',
-  items: BlockLinkCardCarouselData.slice(0, 2)
+export const TwoItems = {
+  args: {
+    itemType: 'cards',
+    heading: 'Related Pages',
+    items: BlockLinkCardCarouselData.slice(0, 2)
+  }
 }
 
 export const MultipleCarousels = BlockLinkCarouselMultipleTemplate.bind({})

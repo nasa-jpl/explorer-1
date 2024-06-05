@@ -1,6 +1,6 @@
 import TopicDetailMoreItem from '@explorer-1/vue/src/components/TopicDetailMoreItem/TopicDetailMoreItem.vue'
 export default {
-  title: 'WWW/Components/TopicDetail/TopicDetailMore/TopicDetailMoreItem',
+  title: 'Components/TopicDetail/TopicDetailMore/TopicDetailMoreItem',
   component: TopicDetailMoreItem,
   decorators: [
     () => ({

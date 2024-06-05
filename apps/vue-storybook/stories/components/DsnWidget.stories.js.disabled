@@ -1,7 +1,7 @@
 import DsnWidget from '@explorer-1/vue/src/components/DsnWidget/DsnWidget.vue'
 
 export default {
-  title: 'WWW/Components/DsnWidget',
+  title: 'Components/DsnWidget',
   component: DsnWidget,
   excludeStories: /.*Data$/,
   argTypes: {

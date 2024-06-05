@@ -1,7 +1,7 @@
 import DetailHeadline from '@explorer-1/vue/src/components/DetailHeadline/DetailHeadline.vue'
 
 export default {
-  title: 'WWW/Components/DetailHeadline',
+  title: 'Components/DetailHeadline',
   component: DetailHeadline,
   excludeStories: /.*Data$/
 }

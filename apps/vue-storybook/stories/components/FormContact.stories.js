@@ -1,7 +1,7 @@
 import FormContact from '@explorer-1/vue/src/components/FormContact/FormContact.vue'
 
 export default {
-  title: 'WWW/Components/FormContact',
+  title: 'Components/FormContact',
   component: FormContact
 }
 

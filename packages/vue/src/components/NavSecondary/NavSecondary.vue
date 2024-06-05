@@ -70,10 +70,9 @@ export default defineComponent({
     theBreadcrumb(): [BreadcrumbPathObject] | undefined {
       if (this.breadcrumb) {
         // we also want to update the store to override secondary nav
-        // mixinUpdateSecondary(JSON.parse(this.breadcrumb))
+        mixinUpdateSecondary(JSON.parse(this.breadcrumb))
         return JSON.parse(this.breadcrumb)
-      } 
-      else if (this.headerStore) {
+      } else if (this.headerStore) {
         return this.headerStore.globalChildren
       }
       return undefined
@@ -92,7 +91,7 @@ export default defineComponent({
     console.log(this.headerStore)
     if (this.enabled) {
       // if there is a secondary nav displayed, then don't highlight the primary active item
-      // mixinHighlightPrimary(false)
+      mixinHighlightPrimary(false)
     }
 
     if (

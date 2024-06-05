@@ -1,5 +1,5 @@
-import LogoColor from '../../assets/images/svg/logo-tribrand-color.svg'
-import LogoWhite from '../../assets/images/svg/logo-tribrand-white.svg'
+import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
+import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
 import LogoTribrand from '@explorer-1/vue/src/components/LogoTribrand/LogoTribrand.vue'
 
 export default {

@@ -1,4 +1,4 @@
-<template>
+\<template>
   <MixinCarousel v-if="hasContent" :heading="heading" :variant="itemType">
     <!-- Slides -->
     <component
@@ -11,7 +11,7 @@
   </MixinCarousel>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, resolveComponent } from 'vue'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 import BlockLinkTile from './../BlockLinkTile/BlockLinkTile.vue'
@@ -51,7 +51,7 @@ export default defineComponent({
   },
   computed: {
     theVariantComponent(): string {
-      return itemTypes[this.itemType]
+      return resolveComponent(itemTypes[this.itemType])
     },
     hasContent() {
       if (this.items && this.items.length) {

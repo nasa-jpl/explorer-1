@@ -3,9 +3,7 @@ import HeroMedium from '@explorer-1/vue/src/components/HeroMedium/HeroMedium.vue
 
 export default {
   title: 'Components/Heroes/HeroMedium',
-  components: {
-    HeroMedium
-  },
+  component: HeroMedium,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="max-w-screen-3xl mx-auto"><story/></div>`

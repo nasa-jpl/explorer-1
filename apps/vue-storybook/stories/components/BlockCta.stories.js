@@ -17,26 +17,19 @@ export const BlockCtaData = {
   externalLink: ''
 }
 
-// template
-const BlockCtaTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockCta },
-  template: `
-    <BlockCta :data="data" />
-  `
-})
-
-export const Default = BlockCtaTemplate.bind({})
-Default.args = {
-  data: BlockCtaData
+export const Default = {
+  args: {
+    data: BlockCtaData
+  }
 }
 
-export const ExternalLink = BlockCtaTemplate.bind({})
-ExternalLink.args = {
-  data: {
-    heading: BlockCtaData.heading,
-    text: BlockCtaData.text,
-    page: '',
-    externalLink: 'http://www.jpl.nasa.gov'
+export const ExternalLink = {
+  args: {
+    data: {
+      heading: BlockCtaData.heading,
+      text: BlockCtaData.text,
+      page: '',
+      externalLink: 'http://www.jpl.nasa.gov'
+    }
   }
 }

@@ -207,7 +207,7 @@ export default defineComponent({
             slidesPerView: this.slidesPerView,
             spaceBetween: 56,
           },
-        },
+        }
       },
     }
   },
@@ -222,17 +222,13 @@ export default defineComponent({
   mounted() {
     this.init()
   },
-  activated() {
-    if (this.slider) {
-      this.slider.update()
-    }
-  },
   methods: {
     init() {
       this.slider = new Swiper(
         this.$refs.MixinCarousel as HTMLElement,
         this.sliderOptions
       )
+      this.slider.init()
     },
   },
 })

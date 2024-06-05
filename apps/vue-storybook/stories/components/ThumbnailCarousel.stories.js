@@ -1,10 +1,8 @@
 import ThumbnailCarousel from '@explorer-1/vue/src/components/ThumbnailCarousel/ThumbnailCarousel.vue'
 
 export default {
-  title: 'WWW/Components/ThumbnailCarousel',
-  components: {
-    ThumbnailCarousel
-  },
+  title: 'Components/ThumbnailCarousel',
+  component: ThumbnailCarousel,
   parameters: {
     docs: {
       description: {

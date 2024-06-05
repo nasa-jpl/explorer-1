@@ -2,9 +2,7 @@ import NavHighlight from '@explorer-1/vue/src/components/NavHighlight/NavHighlig
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavHighlight',
-  components: {
-    NavHighlight
-  },
+  component: NavHighlight,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="lg:BaseGrid container"><div class="col-span-5"><story/></div></div>`

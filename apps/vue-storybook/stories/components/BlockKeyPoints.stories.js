@@ -19,20 +19,10 @@ export const BlockKeyPointsData = {
   ]
 }
 
-// template
-const BlockKeyPointsTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockKeyPoints },
-  template: `
-  <BlockKeyPoints
-    :data="data"
-  />
-  `
-})
-
 // stories
-export const KeyPoint = BlockKeyPointsTemplate.bind({})
-KeyPoint.storyName = 'BlockKeyPoints'
-KeyPoint.args = {
-  data: BlockKeyPointsData
+export const KeyPoints = {
+  name: 'BlockKeyPoints',
+  args: {
+    data: BlockKeyPointsData
+  }
 }

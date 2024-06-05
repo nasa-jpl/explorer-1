@@ -39,23 +39,17 @@ export const BlockImageGalleryData = {
   }
 }
 
-// template
-const BlockImageGalleryTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockImageGallery },
-  template: `<BlockImageGallery
-      :label="label"
-      :title="block.galleryTitle"
-      :description="block.galleryDescription"
-      :cover="block.coverImage"
-      :items="block.gallerySlides"
-      :block-id="block.id"
-    />`
-})
+export const ImageGalleryData = {
+  label: 'Mars',
+  'block-id': 'x121p1yuly',
+  title: 'Image Gallery',
+  description:
+    'Gallery description, maximus quis nibh eu, luctus ultrices nulla. Curabitur tempus, massa vitae porttitor porttitor, tortor erat tincidunt magna, vulputate varius nulla leo et mauris.',
+  cover: BlockImageCarouselData[0].image,
+  items: BlockImageCarouselData.slice(1)
+}
 
-// stories
-export const Gallery = BlockImageGalleryTemplate.bind({})
-Gallery.storyName = 'BlockImageGallery'
-Gallery.args = {
-  ...BlockImageGalleryData
+export const Gallery = {
+  name: 'BlockImageGallery',
+  args: ImageGalleryData
 }

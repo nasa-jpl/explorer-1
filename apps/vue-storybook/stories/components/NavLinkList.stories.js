@@ -2,9 +2,7 @@ import NavLinkList from '@explorer-1/vue/src/components/NavLinkList/NavLinkList.
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavLinkList',
-  components: {
-    NavLinkList
-  },
+  component: NavLinkList,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="bg-dark-blue p-8"><story/></div>`

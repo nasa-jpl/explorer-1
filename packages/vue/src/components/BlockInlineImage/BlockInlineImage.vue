@@ -22,11 +22,7 @@
           <BaseImage
             v-if="theImageData && theImageData.src"
             :src="theImageData.src.url"
-            :srcset="
-              mixinGetSrcSet(theImageData)
-                ? mixinGetSrcSet(theImageData)
-                : theImageData.srcset
-            "
+            :srcset="theSrcSet"
             :width="theImageData.src.width"
             :height="theImageData.src.height"
             image-class="w-full h-auto"
@@ -59,6 +55,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinGetSrcSet } from './../../utils/mixins'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -117,6 +114,9 @@ export default defineComponent({
       }
       return false
     },
+    theSrcSet() {
+      return mixinGetSrcSet(this.theImageData) ? mixinGetSrcSet(this.theImageData) : this.theImageData.srcSet
+    }
   },
 })
 </script>

@@ -4,10 +4,24 @@ import BlockCircleImageCard from '@explorer-1/vue/src/components/BlockCircleImag
 export default {
   title: 'Components/Blocks/BlockCircleImageCard',
   component: BlockCircleImageCard,
+  decorators: [
+    () => ({
+      template: `<div class="relative max-w-xl mx-auto container"><story/></div>`
+    })
+  ],
   argTypes: {
     imageOnRight: {
       control: {
         type: 'boolean'
+      }
+    }
+  },
+  parameters: {
+    slots: {
+      icon: {
+        description: 'Icon slot',
+        components: { IconExternal },
+        template: `<IconExternal v-if="args.icon" />`
       }
     }
   },
@@ -27,46 +41,15 @@ export const BlockCircleImageCardData = {
     srcSet: 'https://picsum.photos/90/90 320w, https://picsum.photos/130/130 1024w',
     alt: 'Alt text for image'
   },
-  imageOnRight: true
+  imageOnRight: true,
+  icon: true
 }
 
-const BlockCircleImageCardTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockCircleImageCard },
-  template: `
-<div class="relative max-w-xl mx-auto container">
-  <BlockCircleImageCard
-  :title="title"
-  :label="label"
-  :secondary-label="secondaryLabel"
-  :image="image"
-  :image-on-right="imageOnRight"
-  />
-</div>
-`
-})
+export const Default = {
+  args: {
+    ...BlockCircleImageCardData,
+    icon: false
+  }
+}
 
-const BlockCircleImageCardIconTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockCircleImageCard, IconExternal },
-  template: `
-  <div class="relative max-w-xl mx-auto container">
-  <BlockCircleImageCard
-  :title="title"
-  :label="label"
-  :secondary-label="secondaryLabel"
-  :image="image"
-  >
-    <template #icon>
-      <IconExternal />
-    </template>
-  </BlockCircleImageCard>
-</div>
-`
-})
-
-export const Default = BlockCircleImageCardTemplate.bind({})
-Default.args = { ...BlockCircleImageCardData }
-
-export const WithIcon = BlockCircleImageCardIconTemplate.bind({})
-WithIcon.args = { ...BlockCircleImageCardData }
+export const WithIcon = { args: BlockCircleImageCardData }

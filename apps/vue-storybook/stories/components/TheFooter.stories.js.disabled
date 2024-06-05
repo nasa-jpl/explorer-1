@@ -2,9 +2,7 @@ import TheFooter from '@explorer-1/vue/src/components/TheFooter/TheFooter.vue'
 
 export default {
   title: 'WWW/Header & Footer/TheFooter',
-  components: {
-    TheFooter
-  },
+  component: TheFooter,
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'canvas'

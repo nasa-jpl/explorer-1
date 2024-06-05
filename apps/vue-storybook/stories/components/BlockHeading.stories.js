@@ -8,23 +8,15 @@ export default {
 
 export const BlockHeadingData = {
   blockType: 'HeadingBlock',
-  heading: 'Heading Text'
+  heading: 'Heading Text',
+  level: 'h3',
+  size: 'h3'
 }
 
-// template
-const BlockHeadingTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockHeading },
-  template: `
-  <BlockHeading
-    :data="data"
-  />
-  `
-})
-
 // stories
-export const Heading = BlockHeadingTemplate.bind({})
-Heading.storyName = 'BlockHeading'
-Heading.args = {
-  data: BlockHeadingData
+export const Heading = {
+  name: 'BlockHeading',
+  args: {
+    data: BlockHeadingData
+  }
 }

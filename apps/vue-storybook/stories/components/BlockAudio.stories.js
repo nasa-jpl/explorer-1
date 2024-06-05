@@ -2,9 +2,7 @@ import BlockAudio from '@explorer-1/vue/src/components/BlockAudio/BlockAudio.vue
 
 export default {
   title: 'Components/Blocks/BlockAudio',
-  components: {
-    BlockAudio
-  },
+  component: BlockAudio,
   excludeStories: /.*Data$/
 }
 
@@ -28,14 +26,4 @@ export const BlockAudioData = {
     type: 'audio'
   }
 }
-
-// templates
-const BlockAudioTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockAudio },
-  template: `<BlockAudio :data="uploadedMedia" />`
-})
-
-export const Base = BlockAudioTemplate.bind({})
-Base.storyName = 'BlockAudio'
-Base.args = { ...BlockAudioData }
+export const Base = { name: 'BlockAudio', args: { data: BlockAudioData } }

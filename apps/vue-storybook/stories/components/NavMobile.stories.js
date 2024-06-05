@@ -5,9 +5,7 @@ import NavMobileLink from '@explorer-1/vue/src/components/NavMobile/NavMobileLin
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavMobile',
-  components: {
-    NavMobile
-  },
+  component: NavMobile,
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'canvas',

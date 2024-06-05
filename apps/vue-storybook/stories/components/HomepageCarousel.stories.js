@@ -2,7 +2,7 @@ import { HomepageCarouselItemData } from './HomepageCarouselItem.stories'
 import HomepageCarousel from '@explorer-1/vue/src/components/HomepageCarousel/HomepageCarousel.vue'
 
 export default {
-  title: 'WWW/Components/Homepage/HomepageCarousel',
+  title: 'Components/Homepage/HomepageCarousel',
   component: HomepageCarousel,
   excludeStories: /.*Data$/,
   parameters: {

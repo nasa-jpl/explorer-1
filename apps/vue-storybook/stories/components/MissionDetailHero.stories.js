@@ -1,19 +1,19 @@
-import imageBgEarth from '../../.storybook/images/bg-earth-1440x810.jpg'
-import imageBgPlanet from '../../.storybook/images/bg-planet-1440x810.jpg'
-import imageBgStars from '../../.storybook/images/bg-stars-1440x810.jpg'
-import imageInstrumentCuberrt from '../../.storybook/images/mission-cuberrt.png'
-import imageInstrumentEcostress from '../../.storybook/images/mission-ecostress.png'
-import imageInstrumentJason3 from '../../.storybook/images/mission-jason3.png'
-import imageInstrumentOco2 from '../../.storybook/images/mission-oco2.png'
-import imageInstrumentCuberrtWebP from '../../.storybook/images/mission-cuberrt.webp'
-import imageInstrumentEcostressWebP from '../../.storybook/images/mission-ecostress.webp'
-import imageInstrumentJason3WebP from '../../.storybook/images/mission-jason3.webp'
-import imageInstrumentOco2WebP from '../../.storybook/images/mission-oco2.webp'
+import imageBgEarth from '@explorer-1/common-storybook/src/images/bg-earth-1440x810.jpg'
+import imageBgPlanet from '@explorer-1/common-storybook/src/images/bg-planet-1440x810.jpg'
+import imageBgStars from '@explorer-1/common-storybook/src/images/bg-stars-1440x810.jpg'
+import imageInstrumentCuberrt from '@explorer-1/common-storybook/src/images/mission-cuberrt.png'
+import imageInstrumentEcostress from '@explorer-1/common-storybook/src/images/mission-ecostress.png'
+import imageInstrumentJason3 from '@explorer-1/common-storybook/src/images/mission-jason3.png'
+import imageInstrumentOco2 from '@explorer-1/common-storybook/src/images/mission-oco2.png'
+import imageInstrumentCuberrtWebP from '@explorer-1/common-storybook/src/images/mission-cuberrt.webp'
+import imageInstrumentEcostressWebP from '@explorer-1/common-storybook/src/images/mission-ecostress.webp'
+import imageInstrumentJason3WebP from '@explorer-1/common-storybook/src/images/mission-jason3.webp'
+import imageInstrumentOco2WebP from '@explorer-1/common-storybook/src/images/mission-oco2.webp'
 
 import MissionDetailHero from '@explorer-1/vue/src/components/MissionDetailHero/MissionDetailHero.vue'
 
 export default {
-  title: 'WWW/Components/MissionDetail/MissionDetailHero',
+  title: 'Components/MissionDetail/MissionDetailHero',
   component: MissionDetailHero,
   argTypes: {
     templateStyle: {

@@ -1,7 +1,7 @@
 import AsteroidWatchWidget from '@explorer-1/vue/src/components/AsteroidWatchWidget/AsteroidWatchWidget.vue'
 
 export default {
-  title: 'WWW/Components/AsteroidWatchWidget',
+  title: 'Components/AsteroidWatchWidget',
   component: AsteroidWatchWidget,
   excludeStories: /.*Data$/,
   decorators: [

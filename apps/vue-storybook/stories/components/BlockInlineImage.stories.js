@@ -28,43 +28,40 @@ export const BlockInlineImageData = {
   }
 }
 
-// template
-const BlockInlineImageTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockInlineImage },
-  template: `<BlockInlineImage :data="block" />`
-})
+export const AlignRight = {
+  args: { data: BlockInlineImageData.block }
+}
 
-export const AlignRight = BlockInlineImageTemplate.bind({})
-AlignRight.args = BlockInlineImageData
-
-export const CustomCaption = BlockInlineImageTemplate.bind({})
-CustomCaption.args = {
-  block: {
-    ...BlockInlineImageData.block,
-    caption: '<p>My custom caption.</p>'
+export const CustomCaption = {
+  args: {
+    data: {
+      ...BlockInlineImageData.block,
+      caption: '<p>My custom caption.</p>'
+    }
   }
 }
 
-export const AlignLeft = BlockInlineImageTemplate.bind({})
-AlignLeft.args = {
-  block: {
-    ...BlockInlineImageData.block,
-    alignTo: 'left'
+export const AlignLeft = {
+  args: {
+    data: {
+      ...BlockInlineImageData.block,
+      alignTo: 'left'
+    }
   }
 }
 
-export const PortraitImage = BlockInlineImageTemplate.bind({})
-PortraitImage.args = {
-  block: {
-    ...BlockInlineImageData.block,
-    image: {
-      ...BaseImageCaptionData,
-      alt: 'Inline image',
-      src: {
-        height: 600,
-        url: 'https://source.unsplash.com/NuE8Nu3otjo/500x600',
-        width: 500
+export const PortraitImage = {
+  args: {
+    data: {
+      ...BlockInlineImageData.block,
+      image: {
+        ...BaseImageCaptionData,
+        alt: 'Inline image',
+        src: {
+          height: 600,
+          url: 'https://source.unsplash.com/NuE8Nu3otjo/500x600',
+          width: 500
+        }
       }
     }
   }

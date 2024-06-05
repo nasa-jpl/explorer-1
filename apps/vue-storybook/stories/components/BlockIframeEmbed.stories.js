@@ -25,23 +25,16 @@ export const BlockIframeEmbedData = {
   url: `https://eyes.nasa.gov/apps/orrery/#/sc_perseverance`
 }
 
-// template
-const BlockIframeEmbedTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockIframeEmbed },
-  template: `<BlockIframeEmbed :data="data"/>`
-})
-const BlockIframeEmbedLazyLoadTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockIframeEmbed },
-  template: `<div style="padding-top:3000px"><BlockIframeEmbed :data="data"/></div>`
-})
-
-export const Default = BlockIframeEmbedTemplate.bind({})
-Default.args = {
-  data: BlockIframeEmbedData
+export const Default = {
+  args: {
+    data: BlockIframeEmbedData
+  }
 }
-export const LazyLoad = BlockIframeEmbedLazyLoadTemplate.bind({})
-LazyLoad.args = {
-  data: BlockIframeEmbedData
+export const LazyLoad = {
+  args: {
+    data: BlockIframeEmbedData
+  },
+  decorators: () => ({
+    template: `<div style="padding-top:3000px"><story/></div>`
+  })
 }

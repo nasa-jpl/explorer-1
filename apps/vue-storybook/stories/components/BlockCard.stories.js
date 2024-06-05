@@ -9,7 +9,7 @@ export default {
 export const BlockCardData = {
   type: 'Factoid',
   title: 'Nimble Limbs',
-  description: 'The robot has four limbs, each with seven degrees of freedom.',
+  text: 'The robot has four limbs, each with seven degrees of freedom.',
   image: {
     alt: 'Fourth image',
     src: {
@@ -21,20 +21,4 @@ export const BlockCardData = {
   }
 }
 
-const BlockCardTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockCard },
-  template: `
-  <div class="relative grid grid-cols-4 gap-4">
-    <BlockCard
-      :type="type"
-      :title="title"
-      :text="description"
-      :image="image"
-    />
-  </div>`
-})
-
-export const Item = BlockCardTemplate.bind({})
-Item.storyName = 'BlockCard'
-Item.args = { ...BlockCardData }
+export const Item = { name: 'BlockCard', args: BlockCardData }
