@@ -37,7 +37,7 @@
           >
             <BaseImagePlaceholder class="h-full" aspect-ratio="1:1">
               <BaseImage
-                v-if="image.src"
+                v-if="image?.src"
                 :src="image.src.url"
                 :width="image.src.width"
                 :height="image.src.height"
@@ -123,7 +123,7 @@
               no-logo
             >
               <BaseImage
-                v-if="image.src"
+                v-if="image?.src"
                 :src="image.src.url"
                 :width="image.src.width"
                 :height="image.src.height"

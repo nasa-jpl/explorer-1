@@ -54,13 +54,13 @@ import minMax from 'dayjs/plugin/minMax'
 dayjs.extend(duration)
 dayjs.extend(minMax)
 
-const calculateDuration = (start: Dayjs): Duration => {
+const calculateDuration = (start: Dayjs): Duration | undefined => {
   // Use round seconds so the datetime string stays valid and can be read by screen readers.
   // This also makes the timer run more reliably, as the difference is always 1 full second.
   const now = dayjs().millisecond(0)
   const max = dayjs.max(start, now)
   const min = dayjs.min(start, now)
-  return dayjs.duration(max.diff(min))
+  return max ? dayjs.duration(max.diff(min)) : undefined
 }
 
 // Based on https://day.js.org/docs/en/durations/creating#list-of-all-available-units.
@@ -105,12 +105,12 @@ export default defineComponent({
     },
   },
   data(): {
-    diff: Duration | null
-    interval: Interval | null
+    diff: Duration | undefined
+    interval: Interval | undefined
   } {
     return {
-      diff: null,
-      interval: null,
+      diff: undefined,
+      interval: undefined,
     }
   },
   computed: {
@@ -173,7 +173,7 @@ export default defineComponent({
       this.interval = setInterval(() => {
         this.diff = calculateDuration(start)
 
-        const countdownTimer = this.diff.as('seconds') === 0
+        const countdownTimer = this.diff?.as('seconds') === 0
         if (countdownTimer) {
           clearInterval(this.interval as Interval)
         }
@@ -194,9 +194,9 @@ export default defineComponent({
       if (this.diff === null) {
         return false
       }
-      const value = this.diff.get(unit)
+      const value = this.diff?.get(unit)
 
-      if (value > 0 || this.checkOtherUnits(unit)) {
+      if (value && value > 0 || this.checkOtherUnits(unit)) {
         return true
       }
       return false
@@ -249,10 +249,10 @@ export default defineComponent({
         return ''
       }
 
-      const value = this.diff.get(unit)
+      const value = this.diff?.get(unit)
 
       // Pad a number with a leading zero.
-      return value.toString().padStart(2, '0')
+      return value?.toString().padStart(2, '0')
     },
   },
 })

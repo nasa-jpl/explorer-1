@@ -49,40 +49,36 @@ export const TopicDetailMissionSpotlightData = {
   distanceApiUrls: ''
 }
 
-// template
-const TopicDetailMissionSpotlightTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { TopicDetailMissionSpotlight },
-  template: `<TopicDetailMissionSpotlight :data="mission" />`
-})
-
 // stories
-export const MissionSpotlight = TopicDetailMissionSpotlightTemplate.bind({})
-MissionSpotlight.args = {
-  mission: TopicDetailMissionSpotlightData
+export const MissionSpotlight = {
+  args: {
+    data: TopicDetailMissionSpotlightData
+  }
 }
-
-export const NoClock = TopicDetailMissionSpotlightTemplate.bind({})
-NoClock.args = {
-  mission: {
-    ...TopicDetailMissionSpotlightData,
-    showClock: false
+export const NoClock = {
+  args: {
+    data: {
+      ...TopicDetailMissionSpotlightData,
+      showClock: false
+    }
   }
 }
 
-export const NoDistance = TopicDetailMissionSpotlightTemplate.bind({})
-NoDistance.args = {
-  mission: {
-    ...TopicDetailMissionSpotlightData,
-    showDistance: false
+export const NoDistance = {
+  args: {
+    data: {
+      ...TopicDetailMissionSpotlightData,
+      showDistance: false
+    }
   }
 }
 
-export const NoStats = TopicDetailMissionSpotlightTemplate.bind({})
-NoStats.args = {
-  mission: {
-    ...TopicDetailMissionSpotlightData,
-    showClock: false,
-    showDistance: false
+export const NoStats = {
+  args: {
+    data: {
+      ...TopicDetailMissionSpotlightData,
+      showClock: false,
+      showDistance: false
+    }
   }
 }

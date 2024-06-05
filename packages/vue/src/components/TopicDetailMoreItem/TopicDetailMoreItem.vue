@@ -6,8 +6,8 @@
     :link-class="
       theData.thumbnailImage ? 'block' : 'flex items-center block lg:min-h-100'
     "
-    :to="theData.__typename !== 'ExternalLinkCard' ? theData.url : null"
-    :href="theData.__typename === 'ExternalLinkCard' ? theData.url : null"
+    :to="theData.__typename !== 'ExternalLinkCard' ? theData.url : undefined"
+    :href="theData.__typename === 'ExternalLinkCard' ? theData.url : undefined"
     external-target-blank
   >
     <div v-if="theData.thumbnailImage" class="relative">
@@ -49,10 +49,10 @@
             :class="{ 'pl-2': theData.label }"
           >
             <template v-if="theData.date">
-              {{ theData.date | displayDate }}
+              {{ $filters.displayDate(theData.date) }}
             </template>
             <template v-else-if="theData.startDate">
-              {{ mixinFormatEventDates(theData.startDate, theData.endDate) }}
+              {{ formattedEventDates }}
             </template>
           </span>
           <span class="sr-only">.</span>
@@ -70,11 +70,33 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
+import { mixinFormatEventDates } from '../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import IconPlay from './../Icons/IconPlay.vue'
 import IconExternal from './../Icons/IconExternal.vue'
+
+export interface Slide {
+  __typename?: string
+  type?: string
+  url: string
+  page?: {
+    type: string
+    label: string
+    thumbnailImage:  Partial<ImageObject>
+    title: string
+    url: string
+  }
+  title: string
+  date?: string
+  startDate?: string
+  endDate?: string
+  label: string
+  thumbnailImage: Partial<ImageObject>
+}
 
 export default defineComponent({
   name: 'TopicDetailMoreItem',
@@ -87,13 +109,13 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<Slide>,
       required: false,
     },
   },
   computed: {
-    theData(): object | null {
-      if (this.data && this.data.page) {
+    theData(): Slide | null {
+      if (this.data?.page) {
         return this.data.page
       } else if (this.data) {
         return this.data
@@ -101,7 +123,9 @@ export default defineComponent({
       return null
     },
     formattedEventDates() {
-      return mixinFormatEventDates(this.theData.startDate, this.theData.endDate)
+      if (this.theData?.startDate) {
+        return mixinFormatEventDates(this.theData.startDate, this.theData.endDate)
+      }
     }
   },
 })

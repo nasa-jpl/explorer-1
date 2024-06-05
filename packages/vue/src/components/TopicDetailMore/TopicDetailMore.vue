@@ -8,8 +8,8 @@
           More About {{ topic }}
         </h2>
       </div>
-      <template v-for="(item, index) in theData">
-        <TopicDetailMoreVisibility :key="index">
+      <template v-for="(item, index) in theData" :key="index">
+        <TopicDetailMoreVisibility>
           <div class="md:BaseGrid lg:px-0 container px-4 mx-auto">
             <TopicDetailMoreItem
               class="md:max-w-none md:mx-0 lg:mb-0 max-w-lg row-span-1 mx-auto mb-10"
@@ -50,13 +50,12 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { Slide } from './../TopicDetailMoreItem/TopicDetailMoreItem.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconCaret from './../Icons/IconCaret.vue'
 import TopicDetailMoreVisibility from './../TopicDetailMore/TopicDetailMoreVisibility.vue'
 import TopicDetailMoreItem from './../TopicDetailMoreItem/TopicDetailMoreItem.vue'
-
-// an array of objects
-type MoreArray = {}[]
 
 export default defineComponent({
   name: 'TopicDetailMore',
@@ -73,31 +72,23 @@ export default defineComponent({
       default: 'Topic',
     },
     more: {
-      type: Array,
+      type: Array as PropType<Slide[]>,
       required: false,
     },
     moreCurated: {
-      type: Array,
+      type: Array as PropType<Slide[]>,
       required: false,
     },
   },
   computed: {
-    // TODO: clarify with stakeholders the desired behavior
-    // theData(): MoreArray[] {
-    //   // either curated or not
-    //   if (this.moreCurated) {
-    //     return this.moreCurated as MoreArray[]
-    //   }
-    //   return this.more as MoreArray[]
-    // },
 
-    theData(): MoreArray[] {
+    theData(): Slide[] {
       // combining the two and returning the first 8
-      let arr = [] as MoreArray[]
-      if (this.moreCurated) {
-        arr = (this.moreCurated as MoreArray[]).concat(this.more as MoreArray[])
+      let arr: Slide[] = []
+      if (this.moreCurated && this.more) {
+        arr = this.moreCurated.concat(this.more)
       } else if (this.more) {
-        arr = this.more as MoreArray[]
+        arr = this.more
       }
       return arr.slice(0, 8)
     },

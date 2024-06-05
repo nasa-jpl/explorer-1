@@ -16,12 +16,6 @@ const contacts = [
   }
 ]
 
-const NewsDetailMediaContactTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NewsDetailMediaContact },
-  template: `<news-detail-media-contact :contacts="contacts"  :release-number="releaseNumber"/>`
-})
-
 export const Single = { args: { contacts, releaseNumber: '2020-140' } }
 
 export const Multiple = {

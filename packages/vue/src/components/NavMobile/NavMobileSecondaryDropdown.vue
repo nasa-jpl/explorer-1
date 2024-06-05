@@ -26,6 +26,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinIsActivePath } from '../../utils/mixins'
 import IconCaret from './../Icons/IconCaret.vue'
 import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
 import NavSecondaryDropdownContent from './../NavSecondary/NavSecondaryDropdownContent.vue'
@@ -59,7 +60,7 @@ export default defineComponent({
   computed: {
     startOpen(): Boolean {
       if (this.item) {
-        return this.mixinIsActivePath(this.item.path)
+        return mixinIsActivePath(this.item.path)
       }
       return false
     },

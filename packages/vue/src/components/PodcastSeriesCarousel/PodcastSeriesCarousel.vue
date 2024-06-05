@@ -50,18 +50,38 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+import { useRoute } from 'vue-router'
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import ThumbnailCarousel from './../ThumbnailCarousel/ThumbnailCarousel.vue'
 
+const route = useRoute()
+
+interface ActiveTab {
+  title: string
+  episodes: Episode[]
+}
+
 interface Episode {
-  url: String
+  url: string
+  title: string
   publicationDate: any
+  thumbnailImage: Partial<ImageObject>
 }
 interface Season {
-  id: String
+  id: string
+  url: string
+  title: string
   seasonNumber: number
-  episodes: Array<Episode>
+  episodes: Episode[]
+}
+
+interface Series {
+  id: string
+  title: string
+  url: string
+  seasons: Season[]
 }
 export default defineComponent({
   name: 'PodcastSeriesCarousel',
@@ -73,7 +93,7 @@ export default defineComponent({
     // the series data, including seasons and episode
     // check audioDetailPageQuery.js for available data
     series: {
-      type: Object,
+      type: Object as PropType<Series>,
       required: false,
     },
     // Pass the id of the season that should be active. This is the id of the parent of the current episode page
@@ -88,7 +108,7 @@ export default defineComponent({
     }
   },
   computed: {
-    sortedSeasons(): Array<Object> | null {
+    sortedSeasons(): Season[] | null {
       let seasons = null
       if (this.series && this.series.seasons) {
         seasons = this.series.seasons
@@ -98,32 +118,32 @@ export default defineComponent({
       }
       return seasons
     },
-    activeSeasonId(): string | null {
+    activeSeasonId(): string | undefined {
       if (this.activeTabId) {
         return this.activeTabId
       } else if (this.initialSeasonId) {
         return this.initialSeasonId
-      } else if (this.series.seasons && this.series.seasons.length) {
+      } else if (this.series?.seasons?.length) {
         // default to the first one
         return this.series.seasons[0].id
       }
-      return null
+      return undefined
     },
-    initialEpisodeIndex(): Number | null {
-      let episodes = []
-      if (this.activeSeasonId && this.$nuxt && this.$nuxt.$route.path) {
+    initialEpisodeIndex(): number | null {
+      let episodes: Episode[] | undefined = undefined
+      if (this.series?.seasons && this.activeSeasonId && route?.path) {
         episodes = this.series.seasons.find((o: Season) => {
           return o.id === this.activeSeasonId
-        }).episodes
-        return episodes.findIndex(
-          (e: Episode) => (e.url as String) === this.$nuxt.$route.path
-        )
+        })?.episodes
+        return episodes ? episodes.findIndex(
+          (e: Episode) => (e.url as String) === route.path
+        ) : null
       }
       return null
     },
-    activeTabData(): Object {
-      let season = {} as Season
-      if (this.series && this.series.seasons) {
+    activeTabData(): ActiveTab | undefined {
+      let season: Season | undefined = undefined
+      if (this.series?.seasons) {
         if (this.activeSeasonId) {
           season = this.series.seasons.find((o: Season) => {
             return o.id === this.activeSeasonId
@@ -131,7 +151,7 @@ export default defineComponent({
         } else {
           season = this.series.seasons[0]
         }
-        if (season.episodes) {
+        if (season?.episodes) {
           season.episodes.sort(
             (a: Episode, b: Episode) =>
               new Date(a.publicationDate).getTime() -
@@ -139,7 +159,7 @@ export default defineComponent({
           )
         }
       }
-      return season
+      return season ? season : undefined
     },
   },
   methods: {

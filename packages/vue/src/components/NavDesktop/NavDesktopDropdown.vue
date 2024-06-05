@@ -14,7 +14,7 @@
         class="inline-block py-2 transition-colors duration-100 ease-in border-b-2"
         :class="{ hasSecondary: hasSecondary }"
       >
-        <slot name="dropdownLabel"></slot>
+        <slot name="dropdownLabel">Dropdown</slot>
       </span>
     </MixinDropdownToggle>
 
@@ -31,14 +31,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import vClickOutside from 'click-outside-vue3'
+import { mapStores } from 'pinia'
+import { useHeaderStore } from './../../stores/header'
 import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
 
 export default defineComponent({
   name: 'NavDesktopDropdown',
-  directives: {
-    vClickOutside,
-  },
   components: {
     MixinDropdownToggle,
   },
@@ -55,9 +53,10 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useHeaderStore),
     hasSecondary(): boolean {
-      if (this.$store) {
-        return !this.$store.state.header.highlightPrimary
+      if (this.headerStore) {
+        return !this.headerStore.highlightPrimary
       }
       return false
     },
@@ -75,9 +74,10 @@ export default defineComponent({
     },
   },
   mounted() {
+    // TODO: PORT: find solution for emitting event from slot
     // TODO: find a cleaner way to do this w/o using mounted or root level events
     // scoped slots? https://github.com/vuejs/vue/issues/4332
-    this.$root.$on('linkClicked', this.closeDropdown)
+    // this.$root?.$on('linkClicked', this.closeDropdown)
   },
   methods: {
     toggleDropdown() {

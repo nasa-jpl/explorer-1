@@ -82,19 +82,12 @@ export const TopicDetailMissionCarouselData = [
     url: '/missions/deep-space-atomic-clock-dsac/'
   }
 ]
-
-// template
-const TopicDetailMissionCarouselTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { TopicDetailMissionCarousel },
-  template: `<TopicDetailMissionCarousel :related-missions-link-url="relatedMissionsLinkUrl" :related-missions-link-text="relatedMissionsLinkText" :items="featuredMissions" />`
-})
-
 // stories
-export const Default = TopicDetailMissionCarouselTemplate.bind({})
-Default.args = {
-  title: 'Mars',
-  relatedMissionsLinkUrl: 'http://localhost:3000/missions?mission_target=Mars',
-  relatedMissionsLinkText: 'All Mars missions',
-  featuredMissions: TopicDetailMissionCarouselData
+export const Default = {
+  args: {
+    title: 'Mars',
+    relatedMissionsLinkUrl: 'http://localhost:3000/missions?mission_target=Mars',
+    relatedMissionsLinkText: 'All Mars missions',
+    items: TopicDetailMissionCarouselData
+  }
 }

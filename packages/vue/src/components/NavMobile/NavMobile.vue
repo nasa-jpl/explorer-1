@@ -35,7 +35,7 @@
           <!-- secondary nav dropdown -->
           <nav v-if="hasSecondary" aria-label="Secondary">
             <NavMobileDropdown
-              :data="staticSecondaryData || $store.state.header.secondaryNav"
+              :data="staticSecondaryData || headerStore.secondaryNav"
               start-open
             />
             <hr class="border-gray-light-mid pb-4 mb-4 border-0 border-b" />
@@ -77,6 +77,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useHeaderStore } from './../../stores/header'
 import IconMenu from './../Icons/IconMenu.vue'
 import IconClose from './../Icons/IconClose.vue'
 import NavLogoLinks from './../NavLogoLinks/NavLogoLinks.vue'
@@ -85,10 +87,10 @@ import NavMobileLink from './../NavMobile/NavMobileLink.vue'
 import NavSocial from './../NavSocial/NavSocial.vue'
 import NavSearchForm from './../NavSearchForm/NavSearchForm.vue'
 import type {
-  linkObject,
-  breadcrumbObject,
-  BreadcrumbPathObject,
-} from '@/plugins/mixins'
+  LinkObject,
+  BreadcrumbObject} from '../../utils/mixins'
+import { mixinIsActivePath } from '../../utils/mixins'
+import type { BreadcrumbPathObject } from '../../interfaces'
 
 export default defineComponent({
   name: 'NavMobile',
@@ -135,8 +137,9 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useHeaderStore),
     // get the breadcrumb JSON string and convert to object. used to determine active class.
-    breadcrumb(): breadcrumbObject | null {
+    breadcrumb(): BreadcrumbObject | null {
       if (this.data) {
         return JSON.parse(this.data.mobileBreadcrumb)
       }
@@ -158,7 +161,7 @@ export default defineComponent({
     hasSecondary(): boolean {
       if (
         this.staticSecondaryData ||
-        (this.$store && this.$store.state.header.secondaryNav)
+        this.headerStore?.secondaryNav
       ) {
         return true
       }
@@ -174,7 +177,10 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.$root.$on('linkClicked', this.closeMenu)
+    // // TODO: PORT: find solution for emitting event from slot
+    // // TODO: find a cleaner way to do this w/o using mounted or root level events
+    // // scoped slots? https://github.com/vuejs/vue/issues/4332
+    // this.$root?.$on('linkClicked', this.closeMenu)
   },
   methods: {
     toggleMenu() {
@@ -199,21 +205,21 @@ export default defineComponent({
       }
     },
     // safe way to retrieve url key from nav items. used with breadcrumb to determine active class.
-    getUrlKey(item: linkObject): string | null {
+    getUrlKey(item: LinkObject): string | null {
       if (item.linkPage) {
         return item.linkPage.url
       }
       return null
     },
     // to determine active class on menu links and 'more' menu links
-    checkActive(item: linkObject) {
+    checkActive(item: LinkObject) {
       const urlKey = this.getUrlKey(item)
       if (urlKey && this.breadcrumb && this.breadcrumb.menu_links) {
         // key into the breadcrumbs for each section
         const objArray = this.breadcrumb.menu_links[urlKey]
         // check if any of the paths contained in the array are active
         return objArray.some((el: BreadcrumbPathObject) => {
-          return this.mixinIsActivePath(el.path)
+          return mixinIsActivePath(el.path)
         })
       }
       return false

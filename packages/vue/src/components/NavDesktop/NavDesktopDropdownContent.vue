@@ -8,7 +8,7 @@
         <!-- featured story -->
         <div
           v-if="item.blockType === 'MenuHighlightColumn'"
-          :key="index"
+          :key="`MenuHighlightColumn${index}`"
           class="order-1 col-span-4 col-start-1"
         >
           <div class="grid grid-cols-4">
@@ -23,7 +23,7 @@
         <!-- heading and summary -->
         <div
           v-else-if="item.blockType === 'MenuDescriptionColumn'"
-          :key="index"
+          :key="`MenuDescriptionColumn${index}`"
           class="order-2 col-span-3"
         >
           <p class="text-medium text-6xl">{{ item.title }}</p>
@@ -34,7 +34,7 @@
       </template>
 
       <!-- container for link cols -->
-      <div class="grid order-3 grid-cols-4 col-span-4 col-start-9 gap-6">
+      <div v-if="linkColumns" class="grid order-3 grid-cols-4 col-span-4 col-start-9 gap-6">
         <NavLinkList
           v-for="(col, index) in linkColumns"
           :key="index"
@@ -67,9 +67,10 @@ export default defineComponent({
   },
   computed: {
     linkColumns() {
-      let columns = _map(this.data.menuColumns, function (o) {
+      let columns = undefined
+      columns = this.data ? _map(this.data.menuColumns, function (o) {
         if (o.blockType.includes('MenuLinkColumnWithHeader')) return o
-      })
+      }) : undefined
       columns = _without(columns, undefined) // remove null
       return columns
     },

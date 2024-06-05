@@ -4,6 +4,7 @@ import RoboticsDetailStatsMini from '@explorer-1/vue/src/components/RoboticsDeta
 export default {
   title: 'WWW/RoboticsDetail/RoboticsDetailStats',
   component: RoboticsDetailStats,
+  subcomponents: { RoboticsDetailStatsMini },
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="mt-20"><story/></div>`
@@ -66,34 +67,31 @@ export const RoboticsDetailStatsData = {
   ]
 }
 
-const RoboticsDetailStatsTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { RoboticsDetailStats },
-  template: `<RoboticsDetailStats
-    :mass="mass"
-    :height="height"
-    :speed="speed"
-    :status="status"
-    :animalAnalogName="animalAnalogName"
-    :animalAnalogIcon="animalAnalogIcon"
-    :robotDestinations="robotDestinations"
-    :alternativeStats="alternativeStats"
-  />`
-})
+export const Base = {
+  args: {
+    mass: RoboticsDetailStatsData.mass,
+    height: RoboticsDetailStatsData.height,
+    speed: RoboticsDetailStatsData.speed,
+    status: RoboticsDetailStatsData.status,
+    animalAnalogName: RoboticsDetailStatsData.animalAnalogName,
+    animalAnalogIcon: RoboticsDetailStatsData.animalAnalogIcon,
+    robotDestinations: RoboticsDetailStatsData.robotDestinations,
+    alternativeStats: RoboticsDetailStatsData.alternativeStats
+  }
+}
 
-const RoboticsDetailStatsMiniTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { RoboticsDetailStatsMini },
-  template: `<RoboticsDetailStatsMini
-    :mass="mass"
-    :height="height"
-    :speed="speed"
-    :alternativeStats="alternativeStats"
-  />`
-})
-
-export const Base = RoboticsDetailStatsTemplate.bind({})
-Base.args = { ...RoboticsDetailStatsData }
-
-export const Mini = RoboticsDetailStatsMiniTemplate.bind({})
-Mini.args = { ...RoboticsDetailStatsData }
+export const Mini = {
+  args: {
+    mass: RoboticsDetailStatsData.mass,
+    height: RoboticsDetailStatsData.height,
+    speed: RoboticsDetailStatsData.speed,
+    alternativeStats: RoboticsDetailStatsData.alternativeStats
+  },
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    components: { RoboticsDetailStatsMini },
+    template: '<RoboticsDetailStatsMini v-bind="args" />'
+  })
+}

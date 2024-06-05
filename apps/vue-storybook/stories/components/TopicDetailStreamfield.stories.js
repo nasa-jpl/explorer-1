@@ -31,11 +31,4 @@ export const TopicDetailStreamfieldData = {
   ]
 }
 
-const TopicDetailStreamfieldTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { TopicDetailStreamfield },
-  template: `<TopicDetailStreamfield :data="body" topic="Topic Name" />`
-})
-
-export const Default = TopicDetailStreamfieldTemplate.bind({})
-Default.args = { ...TopicDetailStreamfieldData }
+export const Default = { args: { data: TopicDetailStreamfieldData.body, topic: 'Topic Name' } }

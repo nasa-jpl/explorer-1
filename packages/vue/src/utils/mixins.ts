@@ -2,14 +2,14 @@
 import dayjs from './dayjs'
 import { useHeaderStore } from './../stores/header'
 import { useRoute } from 'vue-router'
-import type { BreadcrumbPathObject, ImageObject } from '../interfaces'
+import type { BreadcrumbPathObject, ImageObject, ImageSrcObject } from '../interfaces'
 // srcSet data structure
 export interface SrcSetDataValue {
   url: string
   width: number
 }
 // nav link object
-export type linkObject = {
+export type LinkObject = {
   linkPage: {
     title: string
     url: string
@@ -18,7 +18,7 @@ export type linkObject = {
   path: string | null
 }
 // breadcrumbs used for nav and secondary nav
-export type breadcrumbObject = {
+export type BreadcrumbObject = {
   // eslint-disable-next-line camelcase
   menu_links: {
     [key: string]: [BreadcrumbPathObject]
@@ -26,7 +26,7 @@ export type breadcrumbObject = {
   more: [BreadcrumbPathObject] | null
 }
 // general related link object used in various places
-export type relatedLinkObject = {
+export type RelatedLinkObject = {
   page: {
     url: string
   } | null
@@ -36,7 +36,7 @@ export type relatedLinkObject = {
 }
 
 // image object used to construct lightbox items
-export type baseImageObject = {
+export type BaseImageObject = {
   title: string | null
   original: string | null
   credit: string | null
@@ -74,7 +74,7 @@ export const mixinTransparentHeader = () => {
       and provides a graceful fallback to use the page title
       if one exists.
     */
-export const mixinGetLinkText = (item: linkObject): string => {
+export const mixinGetLinkText = (item: LinkObject): string => {
   if (item.title) {
     return item.title
   } else if (item.linkPage) {
@@ -92,11 +92,13 @@ export const mixinGetLinkText = (item: linkObject): string => {
      TODO: need to modify this to work with breadcrumb-passed objects too
            strategy: check if path starts with a slash.
     */
-export const mixinGetRouterLink = (link: linkObject): null | string => {
+export const mixinGetRouterLink = (link: LinkObject): string | undefined => {
   if (link.linkPage && link.linkPage.url) {
     return link.linkPage.url
   } else if (link.path) {
-    const domain = process.env.SITE_HOSTNAME || 'http://localhost:3000'
+    // TODO: PORT get env vars properly
+    // const domain = process?.env?.SITE_HOSTNAME || 'http://localhost:3000'
+    const domain = 'http://localhost:3000'
     // keeping it specific and only checking for mission slug with url query
     if (link.path.startsWith(domain + '/missions?') || link.path.startsWith(domain + '/news?')) {
       return link.path.replace(domain, '')
@@ -106,7 +108,7 @@ export const mixinGetRouterLink = (link: linkObject): null | string => {
       return link.path
     }
   }
-  return null
+  return undefined
 }
 
 /* -- mixinUpdateGlobalChildren --
@@ -188,8 +190,8 @@ export const mixinGetSrcSet = (srcSetObject: Partial<ImageObject>): string => {
     const srcSetArray: string[] = []
     for (const [key, value] of Object.entries(srcSetObject)) {
       if (key.startsWith('screen') && typeof value === 'object') {
-        if (value.url && value.width) {
-          srcSetArray.push(`${value.url} ${value.width}w`)
+        if ((value as ImageSrcObject).url && (value as ImageSrcObject).width) {
+          srcSetArray.push(`${(value as ImageSrcObject).url} ${(value as ImageSrcObject).width}w`)
         }
       }
     }
@@ -198,7 +200,7 @@ export const mixinGetSrcSet = (srcSetObject: Partial<ImageObject>): string => {
   return srcSet
 }
 // Use with RelatedLinkBlock to retrieve the external link to use with an href prop
-export const mixinGetExternalLink = (link: relatedLinkObject): string | null => {
+export const mixinGetExternalLink = (link: RelatedLinkObject): string | null => {
   if (link.externalLink) {
     return link.externalLink
   } else if (link.document) {
@@ -215,7 +217,7 @@ export const mixinCanonicalUrl = (path: string): string => {
 // TODO: currently only assembles an array of 1 item (single image lightbox).
 // This will need to be modified to work for image gallery lightbox (multiple items)
 export const mixinLightboxItems = (
-  image: baseImageObject,
+  image: BaseImageObject,
   title: string
 ): lightboxObject[] | false => {
   // check for image original src url at minimum
@@ -291,7 +293,7 @@ export const mixinFormatSplitEventDates = (
 }
 
 // return event dates formatted for listing cards
-export const mixinFormatEventDates = (startDatetime: string, endDatetime: string): string => {
+export const mixinFormatEventDates = (startDatetime: string, endDatetime?: string): string => {
   const startDateDayjs = dayjs(startDatetime)
 
   let eventDate = startDateDayjs.format('ll')
@@ -319,9 +321,9 @@ export const mixinFormatEventDates = (startDatetime: string, endDatetime: string
 }
 
 export const mixinFormatEventTimeInHoursAndMinutes = (
-  startDatetime,
-  endDatetime,
-  endTime
+  startDatetime: string,
+  endDatetime: string,
+  endTime: string
 ): string => {
   // Only display time if event spans less than one day
   const startDateDayjs = dayjs(startDatetime)

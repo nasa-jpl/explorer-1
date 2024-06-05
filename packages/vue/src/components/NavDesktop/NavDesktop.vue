@@ -10,7 +10,7 @@
       '-scrolled transform translate-y-0':
         scrolledUp && headerVisible && scrollTop > 0,
       '-transparent': invert,
-      '-hasSecondary': $store && !$store.state.header.highlightPrimary,
+      '-hasSecondary': headerStore?.highlightPrimary,
     }"
   >
     <!-- navbar -->
@@ -21,21 +21,21 @@
         <NavLogoLinks class="z-20 flex flex-shrink-0 my-2 -ml-1">
           <img
             v-if="scrolledUp && headerVisible && scrollTop > 0"
-            src="@/assets/images/svg/logo-tribrand-color.svg"
+            :src="LogoColor"
             alt="JPL Logo"
             width="324"
             height="72"
           />
           <img
             v-else-if="invert"
-            src="@/assets/images/svg/logo-tribrand-white.svg"
+            :src="LogoWhite"
             alt="JPL Logo"
             width="324"
             height="72"
           />
           <img
             v-else
-            src="@/assets/images/svg/logo-tribrand-color.svg"
+            :src="LogoColor"
             alt="JPL Logo"
             width="324"
             height="72"
@@ -59,13 +59,13 @@
                 :parent-scrolled="scrollTop"
               >
                 <template #dropdownLabel>
-                  {{ mixinGetLinkText(item.titleLink) }}
+                  {{ getLinkText(item.titleLink) }}
                 </template>
                 <NavDesktopDropdownContent :data="item" />
               </NavDesktopDropdown>
               <NavDesktopDropdown
                 v-else-if="item.blockType === 'MenuMorePanel'"
-                :key="index"
+                :key="`MenuMorePanel${index}`"
                 :class="{ '-active': checkActiveMore() }"
                 :parent-scrolled="scrollTop"
               >
@@ -111,6 +111,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useHeaderStore } from './../../stores/header'
 import NavDesktopDropdown from './../NavDesktop/NavDesktopDropdown.vue'
 import NavDesktopDropdownContent from './../NavDesktop/NavDesktopDropdownContent.vue'
 import NavDesktopDropdownMore from './../NavDesktop/NavDesktopDropdownMore.vue'
@@ -119,10 +121,13 @@ import NavSearchForm from './../NavSearchForm/NavSearchForm.vue'
 import IconSearch from './../Icons/IconSearch.vue'
 import IconClose from './../Icons/IconClose.vue'
 import type {
-  linkObject,
-  breadcrumbObject,
-  BreadcrumbPathObject,
-} from '@/plugins/mixins'
+  LinkObject,
+  BreadcrumbObject
+} from './../../utils/mixins'
+import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
+import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
+import type { BreadcrumbPathObject } from '../../interfaces'
+import { mixinIsActivePath, mixinGetLinkText, mixinUpdateGlobalChildren, mixinUpdateSecondary } from './../../utils/mixins'
 
 export default defineComponent({
   name: 'NavDesktop',
@@ -174,11 +179,14 @@ export default defineComponent({
       // This is used in transition logic to avoid distracting animations on route changes
       // without this check, the nav would swoop in/out on a route change if it was visible before the route change occured (e.g. partially scrolled up on a page)
       scrolledCurrentPage: false,
+      LogoColor: LogoColor,
+      LogoWhite: LogoWhite
     }
   },
   computed: {
+    ...mapStores(useHeaderStore),
     // get the breadcrumb JSON string and convert to object. used to determine active class.
-    breadcrumb(): breadcrumbObject | null {
+    breadcrumb(): BreadcrumbObject | null {
       if (this.data) {
         return JSON.parse(this.data.breadcrumb)
       }
@@ -186,12 +194,12 @@ export default defineComponent({
     },
     // dynamic classes for header transparency and onScroll effects
     invert(): boolean {
-      const highContrast = process.client
+      const highContrast = (typeof window !== 'undefined') // client-side only
         ? window.matchMedia('(forced-colors: active)').matches
         : false
       // storybook-safe
-      const headerTransparent = this.$store
-        ? this.$store.state.header.headerTransparent
+      const headerTransparent = this.headerStore
+        ? this.headerStore?.headerTransparent
         : false
       return !highContrast && (headerTransparent || this.invertOverride)
     },
@@ -211,13 +219,13 @@ export default defineComponent({
         this.closeSearch()
       }
       // update header transparency
-      if (this.$store) {
-        this.$store.commit('header/MAKE_TRANSPARENT', false)
+      if (this.headerStore) {
+        this.headerStore.makeTransparent(false)
         // to reset if active primary nav item should be highlighted
         // content pages can override this a la carte
-        this.$store.commit('header/HIGHLIGHT_PRIMARY', true)
+        this.headerStore.highlightPrimary(true)
         // clear secondary nav each time
-        this.mixinUpdateSecondary(null)
+        mixinUpdateSecondary(null)
       }
       // reset scrolledCurrentPage on route change
       this.scrolledCurrentPage = false
@@ -225,24 +233,24 @@ export default defineComponent({
   },
   methods: {
     // safe way to retrieve url key from nav items. used with breadcrumb to determine active class.
-    getUrlKey(item: linkObject): string | null {
+    getUrlKey(item: LinkObject): string | null {
       if (item.linkPage) {
         return item.linkPage.url
       }
       return null
     },
     // to determine active class on menu links and 'more' menu links
-    checkActive(item: linkObject) {
+    checkActive(item: LinkObject) {
       const urlKey = this.getUrlKey(item)
       if (urlKey && this.breadcrumb && this.breadcrumb.menu_links) {
         // key into the breadcrumbs for each section
         const objArray = this.breadcrumb.menu_links[urlKey]
         // check if any of the paths contained in the array are active
         const isActive = objArray.some((el: BreadcrumbPathObject) =>
-          this.mixinIsActivePath(el.path)
+          mixinIsActivePath(el.path)
         )
         if (isActive) {
-          this.mixinUpdateGlobalChildren(this.breadcrumb.menu_links[urlKey])
+          mixinUpdateGlobalChildren(this.breadcrumb.menu_links[urlKey])
         }
         return isActive
       }
@@ -254,12 +262,12 @@ export default defineComponent({
         const arr = this.breadcrumb.more
         // check if array contains current path
         const isActive = arr.some((el: BreadcrumbPathObject) =>
-          this.mixinIsActivePath(el.path)
+          mixinIsActivePath(el.path)
         )
         if (isActive) {
           // clear the secondary nav store when visiting a breadcrumb page
           // ensures blank secondary nav unless explicitly set via content page "Promote" settings
-          this.mixinUpdateGlobalChildren(null)
+          mixinUpdateGlobalChildren(null)
         }
         return isActive
       }
@@ -280,6 +288,9 @@ export default defineComponent({
         this.$emit('openSearch')
       }
     },
+    getLinkText(item: LinkObject) {
+      mixinGetLinkText(item)
+    }
   },
 })
 </script>

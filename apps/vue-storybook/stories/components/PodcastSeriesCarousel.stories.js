@@ -225,12 +225,11 @@ export const PodcastSeriesCarouselData = {
   }
 }
 
-// templates
-const PodcastSeriesCarouselTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { PodcastSeriesCarousel },
-  template: `<PodcastSeriesCarousel :series="series" :initial-season-id="parent ? parent.id : null" />`
-})
-
-export const Default = PodcastSeriesCarouselTemplate.bind({})
-Default.args = PodcastSeriesCarouselData
+export const Default = {
+  args: {
+    series: PodcastSeriesCarouselData.series,
+    initialSeasonId: PodcastSeriesCarouselData.parent?.id
+      ? PodcastSeriesCarouselData.parent.id
+      : null
+  }
+}

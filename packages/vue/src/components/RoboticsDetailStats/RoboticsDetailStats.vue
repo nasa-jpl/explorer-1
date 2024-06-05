@@ -106,7 +106,7 @@ export default defineComponent({
       type: String,
     },
     animalAnalogIcon: {
-      type: Object as PropType<{ src: { url: string } } | null>,
+      type: Object as PropType<{ src: { url: string }, webp: { url: string } } | null>,
     },
     animalAnalogName: String,
     robotDestinations: {

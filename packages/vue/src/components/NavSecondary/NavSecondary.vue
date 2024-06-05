@@ -33,11 +33,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
+import { useHeaderStore } from './../../stores/header'
 import NavSecondaryDropdown from './NavSecondaryDropdown.vue'
 import NavSecondaryLink from './NavSecondaryLink.vue'
 import { mixinHighlightPrimary, mixinUpdateSecondary } from './../../utils/mixins'
 import type { BreadcrumbPathObject } from './../../interfaces'
-import { useHeaderStore } from './../../stores/header'
 
 export default defineComponent({
   /** The complexity of this component is due to the need for it to be populated from multiple data sources
@@ -88,7 +88,6 @@ export default defineComponent({
     },
   },
   mounted() {
-    console.log(this.headerStore)
     if (this.enabled) {
       // if there is a secondary nav displayed, then don't highlight the primary active item
       mixinHighlightPrimary(false)

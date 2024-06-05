@@ -17,6 +17,7 @@ export default {
 
 const TopicDetailMoreItemData = {
   default: {
+    __typename: 'ImageDetailPage',
     type: 'ImageDetailPage',
     url: '/images/placeholder/',
     title: 'An Image Detail Page',
@@ -32,6 +33,7 @@ const TopicDetailMoreItemData = {
     }
   },
   pageChooser: {
+    __typename: 'PageChooserBlock',
     type: 'PageChooserBlock',
     page: {
       label: 'Mission',
@@ -48,6 +50,7 @@ const TopicDetailMoreItemData = {
     }
   },
   externalLink: {
+    __typename: 'ExternalLinkCard',
     type: 'ExternalLinkCard',
     date: '2020-11-03',
     title: 'Title for Link Card',
@@ -63,6 +66,7 @@ const TopicDetailMoreItemData = {
     }
   },
   video: {
+    __typename: 'VideoDetailPage',
     type: 'VideoDetailPage',
     url: '/video/placeholder/',
     title: 'A Video Detail Page',
@@ -79,38 +83,34 @@ const TopicDetailMoreItemData = {
   }
 }
 
-// template
-const TopicDetailMoreItemTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { TopicDetailMoreItem },
-  template: `<TopicDetailMoreItem :data="data" />`
-})
-
 // stories
-export const Default = TopicDetailMoreItemTemplate.bind({})
-Default.args = {
-  data: TopicDetailMoreItemData.default
+export const Default = {
+  args: {
+    data: TopicDetailMoreItemData.default
+  }
+}
+export const PageChooser = {
+  args: {
+    data: TopicDetailMoreItemData.pageChooser
+  }
+}
+export const ExternalLink = {
+  args: {
+    data: TopicDetailMoreItemData.externalLink
+  }
 }
 
-export const PageChooser = TopicDetailMoreItemTemplate.bind({})
-PageChooser.args = {
-  data: TopicDetailMoreItemData.pageChooser
+export const Video = {
+  args: {
+    data: TopicDetailMoreItemData.video
+  }
 }
 
-export const ExternalLink = TopicDetailMoreItemTemplate.bind({})
-ExternalLink.args = {
-  data: TopicDetailMoreItemData.externalLink
-}
-
-export const Video = TopicDetailMoreItemTemplate.bind({})
-Video.args = {
-  data: TopicDetailMoreItemData.video
-}
-
-export const NoImage = TopicDetailMoreItemTemplate.bind({})
-NoImage.args = {
-  data: {
-    ...TopicDetailMoreItemData.externalLink,
-    thumbnailImage: null
+export const NoImage = {
+  args: {
+    data: {
+      ...TopicDetailMoreItemData.externalLink,
+      thumbnailImage: null
+    }
   }
 }

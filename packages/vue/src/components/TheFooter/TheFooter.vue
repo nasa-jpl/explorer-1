@@ -166,6 +166,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
 // TODO: PORT -- find a place for the query to live
 import { FooterQuery } from '@/apollo/queries/Footer'
 import BaseLink from './../BaseLink/BaseLink.vue'

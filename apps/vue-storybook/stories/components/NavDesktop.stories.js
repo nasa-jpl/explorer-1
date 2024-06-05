@@ -168,90 +168,87 @@ export const NavDesktopData = {
   ]
 }
 
-// templates
-const NavDesktopTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavDesktop },
-  template: `
-  <div class="absolute inset-0">
-    <NavDesktop
-      :data="data"
-      :invert-override="invertOverride"
-      :header-visible="headerVisible"
-      :scrolled-up="scrolledUp"
-      :scroll-top="scrollTop"
-    />
-  </div>`
-})
-const NavDesktopInvertedTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavDesktop },
-  template: `
-  <div class="absolute inset-0">
-    <div style="height:2500px" class="nav-offset">
-      <NavDesktop
-        :data="data"
-        :invert-override="invertOverride"
-        :header-visible="headerVisible"
-        :scrolled-up="scrolledUp"
-        :scroll-top="scrollTop"
-      />
-      <div v-if="invertOverride" class="-nav-offset max-w-screen-3xl mx-auto">
-        <img class="w-full h-auto block" src="https://source.unsplash.com/rTZW4f02zY8/1600x900" alt="Example Hero" />
-      </div>
+export const Nav = {
+  args: {
+    data: NavDesktopData,
+    headerVisible: true,
+    scrolledUp: false,
+    scrollTop: 0,
+    invertOverride: false
+  },
+  render: (args) => ({
+    components: { NavDesktop },
+    setup() {
+      return { args }
+    },
+    template: `<NavDesktop v-bind="args" />`
+  })
+}
+
+export const NavInverted = {
+  args: {
+    data: NavDesktopData,
+    headerVisible: true,
+    scrolledUp: false,
+    scrollTop: 0,
+    invertOverride: true
+  },
+  render: (args) => ({
+    components: { NavDesktop },
+    setup() {
+      return { args }
+    },
+    template: `<div class="absolute inset-0">
+  <div style="height:2500px" class="nav-offset bg-dark-blue">
+    <NavDesktop v-bind="args" />
+    <div v-if="invertOverride" class="-nav-offset max-w-screen-3xl mx-auto">
+      <img class="w-full h-auto block" src="https://source.unsplash.com/rTZW4f02zY8/1600x900" alt="Example Hero" />
     </div>
-  </div>`
-})
-
-const NavDesktopTopHatTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavDesktopTopHat },
-  template: `<NavDesktopTopHat :data="data" />`
-})
-
-const NavDesktopDropdownTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavDesktopDropdown, NavDesktopDropdownContent },
-  template: `<div class="relative"><NavDesktopDropdown><template #dropdownLabel>Label Text</template><NavDesktopDropdownContent :data="data" /></NavDesktopDropdown></div>`
-})
-
-const NavDesktopDropdownContentTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavDesktopDropdownContent },
-  template: `<NavDesktopDropdownContent :data="data" />`
-})
-
-const NavDesktopDropdownMoreTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavDesktopDropdownMore },
-  template: `<NavDesktopDropdownMore :data="data" />`
-})
-
-export const Nav = NavDesktopTemplate.bind({})
-Nav.args = {
-  data: NavDesktopData,
-  headerVisible: true,
-  scrolledUp: false,
-  scrollTop: 0,
-  invertOverride: false
-}
-export const NavInverted = NavDesktopInvertedTemplate.bind({})
-NavInverted.args = {
-  data: NavDesktopData,
-  headerVisible: true,
-  scrolledUp: false,
-  scrollTop: 0,
-  invertOverride: true
+  </div>
+</div>`
+  })
 }
 
-export const TopHat = NavDesktopTopHatTemplate.bind({})
-TopHat.args = { data: NavDesktopData.topHat }
+export const TopHat = {
+  args: { data: NavDesktopData.topHat },
+  render: (args) => ({
+    components: { NavDesktopTopHat },
+    setup() {
+      return { args }
+    },
+    template: `<NavDesktopTopHat v-bind="args" />`
+  })
+}
 
-export const Dropdown = NavDesktopDropdownTemplate.bind({})
-Dropdown.args = { data: NavDesktopDropdownContentData }
+export const Dropdown = {
+  args: { data: NavDesktopDropdownContentData },
+  render: (args) => ({
+    components: { NavDesktopDropdown, NavDesktopDropdownContent },
+    setup() {
+      return { args }
+    },
+    template: `<div class="relative"><NavDesktopDropdown><template #dropdownLabel>Label Text</template><NavDesktopDropdownContent v-bind="args" /></NavDesktopDropdown></div>`
+  })
+}
 
-export const DropdownContent = NavDesktopDropdownContentTemplate.bind({})
-DropdownContent.args = { data: NavDesktopDropdownContentData }
+export const DropdownContent = {
+  args: { data: NavDesktopDropdownContentData },
+  render: (args) => ({
+    components: { NavDesktopDropdownContent },
+    setup() {
+      return { args }
+    },
+    template: `<NavDesktopDropdownContent v-bind="args" />`
+  })
+}
 
-export const DropdownMore = NavDesktopDropdownMoreTemplate.bind({})
-DropdownMore.args = { data: NavDesktopDropdownMoreData }
+export const DropdownMore = {
+  args: { data: NavDesktopDropdownMoreData },
+  render: (args) => ({
+    components: { NavDesktopDropdownMore },
+    setup() {
+      return { args }
+    },
+    template: `<NavDesktopDropdownMore v-bind="args" />`
+  })
+}

@@ -8,7 +8,7 @@ export default {
 export const TopicDetailMoreData = {
   moreAboutTopic: [
     {
-      type: 'ImageDetailPage',
+      __typename: 'ImageDetailPage',
       date: '2020-11-12T23:56:46.346940+00:00',
       label: 'Image',
       thumbnailImage: {
@@ -23,7 +23,7 @@ export const TopicDetailMoreData = {
       url: '/images/my-image-detail/'
     },
     {
-      type: 'News',
+      __typename: 'News',
       date: '2004-01-03T08:00:00+00:00',
       label: 'News',
       thumbnailImage: {
@@ -38,7 +38,7 @@ export const TopicDetailMoreData = {
       url: '/news/tiny-measurement-gives-big-boost-to-planet-hunt/'
     },
     {
-      type: 'News',
+      __typename: 'News',
       date: '2003-05-27T07:00:00+00:00',
       label: 'News',
       thumbnailImage: {
@@ -53,7 +53,7 @@ export const TopicDetailMoreData = {
       url: '/news/theatre-in-the-rectangle/'
     },
     {
-      type: 'News',
+      __typename: 'News',
       date: '2003-05-21T07:00:00+00:00',
       label: 'News',
       thumbnailImage: {
@@ -68,7 +68,7 @@ export const TopicDetailMoreData = {
       url: '/news/frozen-light-cool-nasa-research-holds-promise/'
     },
     {
-      type: 'News',
+      __typename: 'News',
       date: '2003-05-20T07:00:00+00:00',
       label: 'News',
       thumbnailImage: {
@@ -83,7 +83,7 @@ export const TopicDetailMoreData = {
       url: '/news/newly-discovered-star-may-be-third-closest/'
     },
     {
-      type: 'News',
+      __typename: 'News',
       date: '2003-05-06T07:00:00+00:00',
       label: 'News',
       thumbnailImage: {
@@ -98,7 +98,7 @@ export const TopicDetailMoreData = {
       url: '/news/galaxy-evolution-explorer-mission-status/'
     },
     {
-      type: 'News',
+      __typename: 'News',
       date: '2003-04-28T07:00:00+00:00',
       label: 'News',
       thumbnailImage: {
@@ -113,7 +113,7 @@ export const TopicDetailMoreData = {
       url: '/news/galaxy-evolution-explorer-on-its-way/'
     },
     {
-      type: 'News',
+      __typename: 'News',
       date: '2003-04-22T07:00:00+00:00',
       label: 'News',
       thumbnailImage: {
@@ -130,7 +130,7 @@ export const TopicDetailMoreData = {
   ],
   moreAboutTopicCurated: [
     {
-      type: 'PageChooserBlock',
+      __typename: 'PageChooserBlock',
       page: {
         label: 'Mission',
         thumbnailImage: {
@@ -146,7 +146,7 @@ export const TopicDetailMoreData = {
       }
     },
     {
-      type: 'PageChooserBlock',
+      __typename: 'PageChooserBlock',
       page: {
         date: '2004-01-04T08:00:00+00:00',
         label: 'News',
@@ -163,7 +163,7 @@ export const TopicDetailMoreData = {
       }
     },
     {
-      type: 'ExternalLinkCard',
+      __typename: 'ExternalLinkCard',
       date: '2020-11-03',
       label: 'Link Label',
       thumbnailImage: {
@@ -180,44 +180,42 @@ export const TopicDetailMoreData = {
   ]
 }
 
-// template
-const TopicDetailMoreTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { TopicDetailMore },
-  template: `<TopicDetailMore :topic="topic" :more="more" :more-curated="moreCurated"><div class="w-full p-10 bg-black text-white">Slot</div></TopicDetailMore>`
-})
-
-const TopicDetailMoreNoSpotlightTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { TopicDetailMore },
-  template: `<TopicDetailMore :topic="topic" :more="more" :more-curated="moreCurated"/>`
-})
-
 // stories
-export const Default = TopicDetailMoreTemplate.bind({})
-Default.args = {
-  topic: 'Mars',
-  more: TopicDetailMoreData.moreAboutTopic,
-  moreCurated: TopicDetailMoreData.moreAboutTopicCurated
+export const Default = {
+  args: {
+    topic: 'Mars',
+    more: TopicDetailMoreData.moreAboutTopic,
+    moreCurated: TopicDetailMoreData.moreAboutTopicCurated
+  },
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    components: { TopicDetailMore },
+    template: `<TopicDetailMore v-bind="args"><div class="w-full p-10 bg-black text-white">Slot for Mission Spotlight</div></TopicDetailMore>`
+  })
 }
 
-export const NoSpotlight = TopicDetailMoreNoSpotlightTemplate.bind({})
-NoSpotlight.args = {
-  topic: 'Mars',
-  more: TopicDetailMoreData.moreAboutTopic,
-  moreCurated: TopicDetailMoreData.moreAboutTopicCurated
+export const NoSpotlight = {
+  args: {
+    topic: 'Mars',
+    more: TopicDetailMoreData.moreAboutTopic,
+    moreCurated: TopicDetailMoreData.moreAboutTopicCurated
+  }
 }
 
-export const ShortList = TopicDetailMoreTemplate.bind({})
-ShortList.args = {
-  topic: 'Mars',
-  more: [],
-  moreCurated: TopicDetailMoreData.moreAboutTopicCurated
+export const ShortList = {
+  args: {
+    topic: 'Mars',
+    more: [],
+    moreCurated: TopicDetailMoreData.moreAboutTopicCurated
+  }
 }
 
-export const NoList = TopicDetailMoreTemplate.bind({})
-NoList.args = {
-  topic: 'Mars',
-  more: [],
-  moreCurated: []
+export const NoList = {
+  args: {
+    topic: 'Mars',
+    more: [],
+    moreCurated: []
+  }
 }

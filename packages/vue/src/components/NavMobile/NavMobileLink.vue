@@ -4,16 +4,19 @@
     variant="none"
     class="NavMobileLink"
     :link-class="`flex items-center py-2 text-lg leading-tight ${linkClass}`"
-    :href="data.path && !mixinGetRouterLink(data) ? data.path : null"
-    :to="mixinGetRouterLink(data) ? mixinGetRouterLink(data) : null"
+    :href="data.path && !getRouterLink(data) ? data.path : undefined"
+    :to="getRouterLink(data) ? getRouterLink(data) : undefined"
     :exact="exact"
   >
-    <span>{{ title || mixinGetLinkText(data) }}</span>
+    <span>{{ title || getLinkText(data) }}</span>
   </BaseLink>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
+import type { PropType } from 'vue'
+import type { LinkObject } from './../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
 export default defineComponent({
@@ -23,7 +26,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<LinkObject>,
       required: false,
     },
     // pass a custom title
@@ -41,6 +44,14 @@ export default defineComponent({
       default: false,
     },
   },
+  methods: {
+    getRouterLink(link: LinkObject): string | undefined { 
+      return mixinGetRouterLink(link)
+    },
+    getLinkText(link: LinkObject): string | undefined { 
+      return mixinGetLinkText(link)
+    }
+  }
 })
 </script>
 <style lang="scss">

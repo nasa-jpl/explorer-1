@@ -1,5 +1,6 @@
 <template>
   <nuxt-link
+    v-if="data"
     :to="data.url"
     class="TopicDetailMissionCarouselItem group block cursor-pointer"
   >
@@ -61,12 +62,26 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import {
-  clockTypes,
-  ClockType,
+  clockTypes
 } from '../MissionDetailStats/MissionDetailStats.vue'
+import type {
+  ClockType
+} from '../MissionDetailStats/MissionDetailStats.vue'
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
 import MissionDetailStatsMicro from './../MissionDetailStats/MissionDetailStatsMicro.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
+
+export interface Slide {
+  clockType: ClockType,
+  showClock: boolean,
+  startDateTime: string,
+  status: string,
+  thumbnailImage: Partial<ImageObject>,
+  title: string,
+  url: string
+}
 
 export default defineComponent({
   name: 'TopicDetailMissionCarouselItem',
@@ -77,13 +92,13 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<Slide>,
       required: false,
     },
   },
   computed: {
     clockTypeLabel(): string {
-      return clockTypes[this.data.clockType as ClockType] || this.data.clockType
+      return clockTypes[this.data?.clockType as ClockType] || this.data?.clockType
     },
   },
 })

@@ -7,7 +7,7 @@
     :block-id="blockId"
   >
     <template #firstSlide>
-      <MixinFancybox
+      <MixinFancybox v-if="cover"
         :src="cover.original"
         :caption="description"
         :credit="cover.credit"
@@ -65,6 +65,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mixinGetSrcSet } from './../../utils/mixins'
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
@@ -94,11 +96,11 @@ export default defineComponent({
       required: false,
     },
     cover: {
-      type: Object,
+      type: Object as PropType<ImageObject>,
       required: false,
     },
     items: {
-      type: Array,
+      type: Array as PropType<ImageObject[]>,
       required: false,
     },
     blockId: {
@@ -108,7 +110,7 @@ export default defineComponent({
   },
   computed: {
     theSrcSet() {
-      return mixinGetSrcSet(this.cover) ? mixinGetSrcSet(this.cover) : this.cover.srcSet
+      return this.cover ? mixinGetSrcSet(this.cover) ? mixinGetSrcSet(this.cover) : this.cover.srcSet : ''
     }
   }
 })

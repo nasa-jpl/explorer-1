@@ -11,7 +11,7 @@
           class="pb-5"
           :center="false"
           :slides-per-view="3"
-          :link="relatedMissionsLinkUrl ? relatedMissionsLinkUrl : null"
+          :link="relatedMissionsLinkUrl ? relatedMissionsLinkUrl : undefined"
           :link-title="relatedMissionsLinkText"
         >
           <!-- Slides -->
@@ -28,6 +28,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { Slide } from './../TopicDetailMissionCarouselItem/TopicDetailMissionCarouselItem.vue'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 import TopicDetailMissionCarouselItem from './../TopicDetailMissionCarouselItem/TopicDetailMissionCarouselItem.vue'
 
@@ -47,7 +49,7 @@ export default defineComponent({
       required: false,
     },
     items: {
-      type: Array,
+      type: Array as PropType<Slide[]>,
       required: false,
     },
   },

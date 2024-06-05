@@ -96,7 +96,10 @@ export default defineComponent({
     }
     this.theDropdown = this.$refs.NavDropdownMobile as HTMLElement
     if (!this.expandMultiple) {
-      this.$root.$on('openMobileDropdown', this.closeIfOtherOpened)
+      // TODO: PORT: find solution for emitting event from slot
+      // TODO: find a cleaner way to do this w/o using mounted or root level events
+      // scoped slots? https://github.com/vuejs/vue/issues/4332
+      // this.$root?.$on('openMobileDropdown', this.closeIfOtherOpened)
     }
   },
   methods: {
@@ -110,13 +113,13 @@ export default defineComponent({
     closeDropdown() {
       if (this.dropdownVisible) {
         this.dropdownVisible = false
-        this.$root.$emit('closeMobileDropdown', this.theDropdown)
+        this.$root?.$emit('closeMobileDropdown', this.theDropdown)
       }
     },
     openDropdown() {
       if (!this.dropdownVisible) {
         this.dropdownVisible = true
-        this.$root.$emit('openMobileDropdown', this.theDropdown)
+        this.$root?.$emit('openMobileDropdown', this.theDropdown)
       }
     },
     // allows all to remain open by default. Can override this with expandMultiple prop

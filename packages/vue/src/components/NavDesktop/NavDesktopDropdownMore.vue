@@ -4,13 +4,13 @@
     class="NavDesktopDropdownMore bg-dark-blue bg-opacity-98 3xl:px-0 w-full px-4 py-10 text-white"
   >
     <div class="BaseGrid container mx-auto">
-      <div class="grid order-1 grid-cols-2 col-span-9 grid-rows-2 gap-10">
+      <div class="grid order-1 grid-cols-2 col-span-9 grid-rows-2 gap-10" v-if="linkColumns">
         <!-- link columns -->
         <template v-for="(col, index) in linkColumns">
-          <div v-if="index === 0" :key="index" class="row-span-1">
+          <div v-if="index === 0" :key="`rowSpan1${index}`" class="row-span-1">
             <NavLinkList :data="col" auto-col />
           </div>
-          <div v-else-if="index === 1" :key="index" class="row-span-2">
+          <div v-else-if="index === 1" :key="`rowSpan2${index}`" class="row-span-2">
             <NavLinkList :data="col" auto-col />
           </div>
         </template>
@@ -68,18 +68,20 @@ export default defineComponent({
   },
   computed: {
     linkColumns() {
-      let columns = _map(this.data.menuColumns, function (o) {
+      let columns = undefined
+      columns = this.data ? _map(this.data.menuColumns, function (o) {
         if (o.blockType.includes('MenuLinkColumnWithHeader')) return o
-      })
+      }) : undefined
       columns = _without(columns, undefined) // remove null
       return columns
     },
     highlightsColumn() {
-      let columns = _map(this.data.menuColumns, function (o) {
+      let columns = undefined
+      columns = this.data ? _map(this.data.menuColumns, function (o) {
         if (o.blockType.includes('MenuMoreHighlightsColumn')) return o
-      })
+      }) : undefined
       columns = _without(columns, undefined) // remove null
-      return columns[0]
+      return columns?.length ? columns[0] : undefined
     },
   },
 })

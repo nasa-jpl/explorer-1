@@ -35,12 +35,4 @@ export const TopicDetailMissionCarouselItemData = {
   url: '/missions/gravity-recovery-and-climate-experiment-follow-on-grace-fo/'
 }
 
-// templates
-const TopicDetailMissionCarouselItemTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { TopicDetailMissionCarouselItem },
-  template: `<TopicDetailMissionCarouselItem :data="data" />`
-})
-
-export const SingleItem = TopicDetailMissionCarouselItemTemplate.bind({})
-SingleItem.args = { data: TopicDetailMissionCarouselItemData }
+export const SingleItem = { args: { data: TopicDetailMissionCarouselItemData } }

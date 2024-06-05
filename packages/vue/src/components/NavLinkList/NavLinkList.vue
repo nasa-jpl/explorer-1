@@ -6,11 +6,11 @@
         <BaseLink
           variant="none"
           class="block text-lg font-medium leading-tight text-white"
-          :href="item.path && !mixinGetRouterLink(item) ? item.path : null"
-          :to="mixinGetRouterLink(item) ? mixinGetRouterLink(item) : null"
+          :href="item.path && !getRouterLink(item) ? item.path : undefined"
+          :to="getRouterLink(item) ? getRouterLink(item) : undefined"
           link-class="can-hover:hover:underline inline-block px-2 py-3 -ml-2"
         >
-          {{ mixinGetLinkText(item) }}
+          {{ getLinkText(item) }}
         </BaseLink>
       </div>
     </div>
@@ -19,9 +19,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import NavHeading from './../NavHeading/NavHeading.vue'
-
+import type { LinkObject } from './../../utils/mixins'
 export default defineComponent({
   name: 'NavLinkList',
   components: {
@@ -39,6 +40,14 @@ export default defineComponent({
       default: false,
     },
   },
+  methods: {
+    getRouterLink(link: LinkObject): string | undefined { 
+      return mixinGetRouterLink(link)
+    },
+    getLinkText(link: LinkObject): string | undefined { 
+      return mixinGetLinkText(link)
+    }
+  }
 })
 </script>
 <style lang="scss" scoped>
