@@ -26,7 +26,7 @@ import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import dayjs from 'dayjs'
 import BaseUnitToggle, {
-  UnitSystem,
+  UnitSystemName,
 } from './../BaseUnitToggle/BaseUnitToggle.vue'
 
 export const distanceTypes = {
@@ -35,7 +35,7 @@ export const distanceTypes = {
 } as const
 export type DistanceType = keyof typeof distanceTypes
 
-type APIDistance = { value: number; system: UnitSystem }
+type APIDistance = { value: number; system: UnitSystemName }
 
 type SPICEPlanetsResponse = {
   items: {
@@ -139,7 +139,7 @@ export default defineComponent({
     },
     value: Number,
     valueSystem: {
-      type: String as PropType<UnitSystem>,
+      type: String as PropType<UnitSystemName>,
       required: false,
       default: 'imperial'
     },
@@ -174,7 +174,7 @@ export default defineComponent({
       }
       return this.value
     },
-    loadedSystem(): UnitSystem {
+    loadedSystem(): UnitSystemName {
       if (this.distanceApiUrls) {
         return this.apiDistance?.system || 'imperial'
       }

@@ -114,7 +114,7 @@ export default defineComponent({
     }
   },
   computed: {
-    selectedUnitsComputed() {
+    selectedUnitsComputed(): UnitID[] {
       if (!this.selectedUnits || this.selectedUnits.length === 0) {
         const unitChoices = [
           'years',
@@ -124,10 +124,10 @@ export default defineComponent({
           'minutes',
           'seconds',
         ]
-        let significantUnits = [] as Array<string>
+        let significantUnits = [] as UnitID[]
         unitChoices.forEach((e) =>
           this.unitSignificant(e as UnitID)
-            ? significantUnits.push(e)
+            ? significantUnits.push(e as UnitID)
             : significantUnits
         )
         // if only three units (i.e. hours, minutes, seconds)

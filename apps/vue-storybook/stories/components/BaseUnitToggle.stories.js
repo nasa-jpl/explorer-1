@@ -22,21 +22,23 @@ export default {
   },
   parameters: {
     slots: {
-      formattedValue: 'Formatted value slot'
+      formattedValue: {
+        description: 'Formatted value slot',
+        template: `<span class="text-stats-xl">args.formattedValue</span>`
+      }
     }
   }
 }
 
 const BaseUnitToggleTemplate = (args) => ({
-  props: Object.keys(args),
   components: { BaseUnitToggle },
+  setup() {
+    return { args }
+  },
   template: `
   <BaseUnitToggle
     v-slot="slotProps"
-    :unitPair="unitPair"
-    :value="value"
-    :second-value="secondValue"
-    :valueSystem="valueSystem"
+    v-bind="args"
   >
     <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
   </BaseUnitToggle>`
@@ -50,18 +52,45 @@ Imperial.args = {
   valueSystem: 'imperial'
 }
 
-export const Metric = BaseUnitToggleTemplate.bind({})
-Metric.args = {
-  unitPair: 'MI_KM',
-  value: 999999,
-  secondValue: null,
-  valueSystem: 'metric'
+export const Metric = {
+  args: {
+    unitPair: 'MI_KM',
+    value: 999999,
+    secondValue: null,
+    valueSystem: 'metric'
+  },
+  render: (args) => ({
+    components: { BaseUnitToggle },
+    setup() {
+      return { args }
+    },
+    template: `<BaseUnitToggle
+  v-slot="slotProps"
+  v-bind="args"
+>
+  <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
+</BaseUnitToggle>`
+  })
 }
 
-export const KeepsPrecision = BaseUnitToggleTemplate.bind({})
-KeepsPrecision.args = {
-  unitPair: 'MI_KM',
-  value: 14.33,
-  secondValue: null,
-  valueSystem: 'imperial'
+export const KeepsPrecision = {
+  args: {
+    unitPair: 'MI_KM',
+    value: 14.33,
+    secondValue: null,
+    valueSystem: 'imperial',
+    formattedValue: 123
+  },
+  render: (args) => ({
+    components: { BaseUnitToggle },
+    setup() {
+      return { args }
+    },
+    template: `<BaseUnitToggle
+    v-slot="slotProps"
+    v-bind="args"
+  >
+    <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
+  </BaseUnitToggle>`
+  })
 }

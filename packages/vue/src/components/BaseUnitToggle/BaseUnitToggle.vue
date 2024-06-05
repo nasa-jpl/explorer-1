@@ -43,12 +43,32 @@
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 
-export type UnitSystem = 'imperial' | 'metric'
+export type UnitSystemName = keyof UnitConfig
+export type UnitName = keyof UnitPairs
 
 /**
  * Centrally defined configuration for unit pairs, to avoid inconsistencies.
  */
-export const unitPairs = {
+export interface UnitPairs {
+  MI_KM: UnitConfig
+  LB_KG: UnitConfig
+  G_OZ: UnitConfig
+  M_FT: UnitConfig
+  MS_FS: UnitConfig
+}
+
+interface UnitDetails {
+  label: string
+  abbr: string
+  toOther: number
+}
+
+interface UnitConfig {
+  imperial: UnitDetails
+  metric: UnitDetails
+}
+
+export const unitPairs: UnitPairs = {
   MI_KM: {
     imperial: {
       label: 'Miles',
@@ -110,8 +130,6 @@ export const unitPairs = {
     },
   },
 } as const
-type UnitPair = keyof typeof unitPairs
-type UnitConfig = typeof unitPairs[UnitPair]
 
 /**
  * Toggle between equivalent units in imperial and SI systems.
@@ -121,9 +139,9 @@ export default defineComponent({
   name: 'BaseUnitToggle',
   props: {
     unitPair: {
-      type: String as PropType<UnitPair>,
+      type: String as PropType<UnitName>,
       required: true,
-      validator: (val: UnitPair): boolean => Boolean(unitPairs[val]),
+      validator: (val: UnitName): boolean => Boolean(unitPairs[val]),
     },
     value: {
       type: Number as PropType<number>,
@@ -134,7 +152,7 @@ export default defineComponent({
       required: false,
     },
     valueSystem: {
-      type: String as PropType<UnitSystem>,
+      type: String as PropType<UnitSystemName>,
       required: true,
     },
     inline: {
@@ -142,9 +160,9 @@ export default defineComponent({
       default: false,
     },
   },
-  data(): { selectedSystem: string } {
+  data(): { selectedSystem: UnitSystemName } {
     return {
-      selectedSystem: 'imperial',
+      selectedSystem: 'imperial' as UnitSystemName,
     }
   },
   computed: {
