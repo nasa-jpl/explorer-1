@@ -211,7 +211,7 @@ export default {
       if (key === 'missions.MissionsIndexPage') {
         return 'Missions Index'
       }
-      if (key === 'information_pages.ContentPage') {
+      if (key === 'information_pages.PageContent') {
         return 'Information pages'
       }
       if (key === 'robotics.RobotPage') {

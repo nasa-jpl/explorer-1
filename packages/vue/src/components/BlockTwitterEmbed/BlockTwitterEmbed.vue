@@ -18,19 +18,22 @@ export default {
   },
   methods: {
     render() {
-      require('twitter-widgets').load((err, twttr) => {
-        if (err) {
-          console.log('[twitter-widgets] Error: ' + err)
-          return
-        }
-        twttr.widgets.createTimeline(
-          {
-            sourceType: 'profile',
-            screenName: this.data.username,
-          },
-          this.$refs.timeline
-        )
-      })
+      // TODO: PORT -- find another way to make this client-only
+      if (typeof require !== 'undefined') {
+        require('twitter-widgets').load((err, twttr) => {
+          if (err) {
+            console.log('[twitter-widgets] Error: ' + err)
+            return
+          }
+          twttr.widgets.createTimeline(
+            {
+              sourceType: 'profile',
+              screenName: this.data.username,
+            },
+            this.$refs.timeline
+          )
+        })
+      }
     },
   },
 }

@@ -112,7 +112,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
-import { useHeaderStore } from './../../stores/header'
+import { useHeaderStore } from './../../store/header'
 import NavDesktopDropdown from './../NavDesktop/NavDesktopDropdown.vue'
 import NavDesktopDropdownContent from './../NavDesktop/NavDesktopDropdownContent.vue'
 import NavDesktopDropdownMore from './../NavDesktop/NavDesktopDropdownMore.vue'

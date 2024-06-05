@@ -1,17 +1,17 @@
-import { BlockHeadingData } from '../BlockHeading/BlockHeading.stories'
-import { BlockKeyPointsData } from '../BlockKeyPoints/BlockKeyPoints.stories'
-import { BlockImageComparisonData } from '../BlockImageComparison/BlockImageComparison.stories'
-import { BlockTwitterEmbedData } from '../BlockTwitterEmbed/BlockTwitterEmbed.stories'
-import { BlockIframeEmbedData } from '../BlockIframeEmbed/BlockIframeEmbed.stories'
-import { HeroMediaData } from '../HeroMedia/HeroMedia.stories'
-import { BlockRelatedLinksData } from '../BlockRelatedLinks/BlockRelatedLinks.stories.js'
-import { BlockLinkCardCarouselData } from '../BlockLinkCarousel/BlockLinkCarousel.stories.js'
-import { NavSecondaryData } from '../NavSecondary/NavSecondary.stories.js'
+import { BlockHeadingData } from './../components/BlockHeading.stories'
+import { BlockKeyPointsData } from './../components/BlockKeyPoints.stories'
+import { BlockImageComparisonData } from './../components/BlockImageComparison.stories'
+import { BlockTwitterEmbedData } from './../components/BlockTwitterEmbed.stories'
+import { BlockIframeEmbedData } from './../components/BlockIframeEmbed.stories'
+import { HeroMediaData } from './../components/HeroMedia.stories'
+import { BlockRelatedLinksData } from './../components/BlockRelatedLinks.stories.js'
+import { BlockLinkCardCarouselData } from './../components/BlockLinkCarousel.stories.js'
+import { NavSecondaryData } from './../components/NavSecondary.stories.js'
 
-import PageContent from './PageContent.vue'
+import PageContent from '@explorer-1/vue/src/templates/PageContent.vue'
 
 export default {
-  title: 'Layouts/PageContent',
+  title: 'Templates/PageContent',
   component: PageContent,
   decorators: [
     () => ({
@@ -28,7 +28,7 @@ export default {
 }
 
 // data
-export const PageContentData = {
+export const ContentPageData = {
   url: '/slug',
   breadcrumb: NavSecondaryData.breadcrumb,
   title: 'Make a Paper Mars Helicopter',
@@ -86,15 +86,16 @@ export const PageContentData = {
 }
 
 // template
-const PageContentTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { PageContent },
-  template: `<PageContent :data="contentPage"/>`
-})
+// const PageContentTemplate = (args) => ({
+//   props: Object.keys(args),
+//   components: { PageContent },
+//   template: `<PageContent :data="contentPage"/>`
+// })
 
 // stories
-export const Template = PageContentTemplate.bind({})
-Template.storyName = 'PageContent' // single story hoisting
-Template.args = {
-  contentPage: PageContentData
+export const Template = {
+  name: 'PageContent',
+  args: {
+    data: ContentPageData
+  }
 }

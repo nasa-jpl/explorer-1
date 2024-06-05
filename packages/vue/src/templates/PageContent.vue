@@ -104,11 +104,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
-import LayoutHelper from '../components/LayoutHelper/LayoutHelper.vue';
 const route = useRoute()
 
 export default defineComponent({
-  name: 'ContentPage',
+  name: 'PageContent',
   props: {
     data: {
       type: Object,

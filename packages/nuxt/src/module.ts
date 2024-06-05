@@ -84,7 +84,7 @@ export default defineNuxtModule<ModuleOptions>({
       addImports([
         {
           name: 'useHeaderStore',
-          from: resolver.resolve('./../node_modules/@explorer-1/vue/src/stores/header')
+          from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/header')
         }
       ])
     }

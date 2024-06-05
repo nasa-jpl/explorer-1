@@ -33,7 +33,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
-import { useHeaderStore } from './../../stores/header'
+import { useHeaderStore } from './../../store/header'
 import NavSecondaryDropdown from './NavSecondaryDropdown.vue'
 import NavSecondaryLink from './NavSecondaryLink.vue'
 import { mixinHighlightPrimary, mixinUpdateSecondary } from './../../utils/mixins'

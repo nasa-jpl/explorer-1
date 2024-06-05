@@ -1,6 +1,6 @@
 // import Vue from 'vue'
 import dayjs from './dayjs'
-import { useHeaderStore } from './../stores/header'
+import { useHeaderStore } from './../store/header'
 import { useRoute } from 'vue-router'
 import type { BreadcrumbPathObject, ImageObject, ImageSrcObject } from '../interfaces'
 // srcSet data structure

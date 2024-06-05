@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
-import { useHeaderStore } from './../../stores/header'
+import { useHeaderStore } from './../../store/header'
 import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
 
 export default defineComponent({

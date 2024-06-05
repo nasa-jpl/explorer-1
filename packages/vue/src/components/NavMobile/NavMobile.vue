@@ -78,7 +78,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
-import { useHeaderStore } from './../../stores/header'
+import { useHeaderStore } from './../../store/header'
 import IconMenu from './../Icons/IconMenu.vue'
 import IconClose from './../Icons/IconClose.vue'
 import NavLogoLinks from './../NavLogoLinks/NavLogoLinks.vue'

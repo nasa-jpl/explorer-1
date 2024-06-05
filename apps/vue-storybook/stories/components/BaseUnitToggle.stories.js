@@ -19,14 +19,6 @@ export default {
     secondValue: {
       description: 'Manually override the converted value'
     }
-  },
-  parameters: {
-    slots: {
-      formattedValue: {
-        description: 'Formatted value slot',
-        template: `<span class="text-stats-xl">args.formattedValue</span>`
-      }
-    }
   }
 }
 
@@ -48,7 +40,7 @@ export const Imperial = BaseUnitToggleTemplate.bind({})
 Imperial.args = {
   unitPair: 'MI_KM',
   value: 999999,
-  secondValue: null,
+  secondValue: undefined,
   valueSystem: 'imperial'
 }
 
@@ -56,7 +48,7 @@ export const Metric = {
   args: {
     unitPair: 'MI_KM',
     value: 999999,
-    secondValue: null,
+    secondValue: undefined,
     valueSystem: 'metric'
   },
   render: (args) => ({
@@ -65,11 +57,11 @@ export const Metric = {
       return { args }
     },
     template: `<BaseUnitToggle
-  v-slot="slotProps"
-  v-bind="args"
->
-  <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
-</BaseUnitToggle>`
+        v-slot="slotProps"
+        v-bind="args"
+      >
+        <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
+      </BaseUnitToggle>`
   })
 }
 
@@ -77,7 +69,7 @@ export const KeepsPrecision = {
   args: {
     unitPair: 'MI_KM',
     value: 14.33,
-    secondValue: null,
+    secondValue: undefined,
     valueSystem: 'imperial',
     formattedValue: 123
   },
