@@ -24,7 +24,7 @@
           <BaseImage
             v-if="image && image.src"
             :src="image.src.url"
-            :srcset="mixinGetSrcSet(image)"
+            :srcset="theSrcSet"
             :width="image.src.width"
             :height="image.src.height"
             alt=""
@@ -40,6 +40,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mixinGetSrcSet } from '../../utils/mixins'
 import BlockText from './../BlockText/BlockText.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -68,7 +69,14 @@ export default defineComponent({
       required: false,
     },
   },
-  computed: {},
+  computed: {
+    theSrcSet() {
+      if (this.image) {
+        return mixinGetSrcSet(this.image) 
+      }
+      return undefined
+    }
+  },
 })
 </script>
 

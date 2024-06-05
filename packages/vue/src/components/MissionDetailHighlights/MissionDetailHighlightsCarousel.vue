@@ -61,14 +61,17 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Swiper, Navigation, Lazy, A11y } from 'swiper'
-import type { SwiperOptions } from 'swiper'
+import type { PropType } from 'vue'
+import type { Slide } from './MissionDetailHighlightsCarouselItem.vue'
+import Swiper from 'swiper'
+import { A11y, Navigation } from 'swiper/modules'
+import type { SwiperOptions } from 'swiper/types'
 import MissionDetailHighlightsCarouselItem from './MissionDetailHighlightsCarouselItem.vue'
 import IconPrev from './../Icons/IconPrev.vue'
 import IconNext from './../Icons/IconNext.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 
-Swiper.use([Navigation, Lazy, A11y])
+Swiper.use([Navigation, A11y])
 
 export default defineComponent({
   name: 'MissionDetailHighlightsCarousel',
@@ -80,7 +83,7 @@ export default defineComponent({
   },
   props: {
     items: {
-      type: Array,
+      type: Array as PropType<Slide[]>,
       required: true,
       default: () => [],
     },
@@ -101,9 +104,7 @@ export default defineComponent({
         threshold: 20, // swipe threshold in px
         loop: true,
         spaceBetween: 20,
-        preloadImages: false,
         watchSlidesProgress: true,
-        lazy: true,
         navigation: {
           nextEl: '.swiper-next',
           prevEl: '.swiper-prev',

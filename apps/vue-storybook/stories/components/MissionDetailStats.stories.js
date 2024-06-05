@@ -9,6 +9,7 @@ import { distanceTypes } from '@explorer-1/vue/src/components/MissionDetailStats
 export default {
   title: 'WWW/MissionDetail/MissionDetailStats',
   component: MissionDetailStats,
+  subcomponents: { MissionDetailStatsMini, MissionDetailStatsMicro },
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="mt-20"><story/></div>`
@@ -22,16 +23,18 @@ export default {
   excludeStories: /.*(Data)$/,
   argTypes: {
     status: {
-      control: { type: 'select', options: Object.keys(statuses) }
+      control: { type: 'select' },
+      options: Object.keys(statuses)
     },
     clockType: {
-      control: { type: 'select', options: Object.keys(clockTypes) }
+      control: { type: 'select' },
+      options: Object.keys(clockTypes)
     },
     distanceType: {
       control: {
-        type: 'select',
-        options: Object.keys(distanceTypes).concat([''])
-      }
+        type: 'select'
+      },
+      options: Object.keys(distanceTypes).concat([''])
     }
   }
 }
@@ -50,56 +53,46 @@ export const MissionDetailStatsData = {
   status: 'future'
 }
 
-const MissionDetailStatsTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { MissionDetailStats },
-  template: `<MissionDetailStats
-    :showClock="showClock"
-    :showDistance="showDistance"
-    :clockType="clockType"
-    :startDateTime="startDateTime"
-    :distanceType="distanceType"
-    :distanceValue="distanceValue"
-    :displayDate="displayDate"
-    :missionTypes="missionTypes"
-    :missionTargets="missionTargets"
-    :status="status"
-  />`
-})
-
-const MissionDetailStatsMiniTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { MissionDetailStatsMini },
-  template: `<MissionDetailStatsMini
-    :showClock="showClock"
-    :showDistance="showDistance"
-    :clockType="clockType"
-    :startDateTime="startDateTime"
-    :distanceType="distanceType"
-    :distanceValue="distanceValue"
-  />`
-})
-
-const MissionDetailStatsMicroTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { MissionDetailStatsMicro },
-  template: `<MissionDetailStatsMicro
-    :showClock="showClock"
-    :clockType="clockType"
-    :startDateTime="startDateTime"
-  />`
-})
-
-export const Full = MissionDetailStatsTemplate.bind({})
-Full.args = { ...MissionDetailStatsData }
-
-export const Mini = MissionDetailStatsMiniTemplate.bind({})
-Mini.args = {
-  ...MissionDetailStatsData,
-  startDateTime: '2021-02-18T20:55:00+00:00'
+export const Full = {
+  args: MissionDetailStatsData,
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    components: { MissionDetailStats },
+    template: '<MissionDetailStats v-bind="args" />'
+  })
 }
-export const Micro = MissionDetailStatsMicroTemplate.bind({})
-Micro.args = {
-  ...MissionDetailStatsData,
-  startDateTime: '2021-02-18T20:55:00+00:00'
+
+export const Mini = {
+  args: {
+    showClock: MissionDetailStatsData.showClock,
+    showDistance: MissionDetailStatsData.showDistance,
+    clockType: MissionDetailStatsData.clockType,
+    startDateTime: '2021-02-18T20:55:00+00:00',
+    distanceType: MissionDetailStatsData.distanceType,
+    distanceValue: MissionDetailStatsData.distanceValue
+  },
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    components: { MissionDetailStatsMini },
+    template: '<MissionDetailStatsMini v-bind="args" />'
+  })
+}
+
+export const Micro = {
+  args: {
+    showClock: MissionDetailStatsData.showClock,
+    clockType: MissionDetailStatsData.clockType,
+    startDateTime: '2021-02-18T20:55:00+00:00'
+  },
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    components: { MissionDetailStatsMicro },
+    template: '<MissionDetailStatsMicro v-bind="args" />'
+  })
 }

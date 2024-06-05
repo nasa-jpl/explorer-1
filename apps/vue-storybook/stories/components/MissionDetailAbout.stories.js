@@ -59,26 +59,12 @@ export const MissionDetailAboutData = {
   ]
 }
 
-// template
-const MissionDetailAboutTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { MissionDetailAbout },
-  template: `
-  <mission-detail-about
-    :descriptionHeading="descriptionHeading"
-    :description="description"
-    :instruments="instruments"
-  />
-  `
-})
-
 // stories
-export const Default = MissionDetailAboutTemplate.bind({})
-Default.args = {
-  ...MissionDetailAboutData
-}
-export const NoInstruments = MissionDetailAboutTemplate.bind({})
-NoInstruments.args = {
-  ...MissionDetailAboutData,
-  instruments: []
+export const Default = { args: MissionDetailAboutData }
+
+export const NoInstruments = {
+  args: {
+    ...MissionDetailAboutData,
+    instruments: []
+  }
 }

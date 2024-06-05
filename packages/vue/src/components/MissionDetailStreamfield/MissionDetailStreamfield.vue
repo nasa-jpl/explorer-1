@@ -15,7 +15,7 @@
       </LayoutHelper>
       <MissionDetailInlineImage
         v-else-if="block.blockType == 'InlineImageBlock'"
-        :key="index"
+        :key="`InlineImageBlock${index}`"
         :alignment="block.alignTo"
         :text="block.text"
         :image="block.image"
@@ -23,7 +23,7 @@
       />
       <LayoutHelper
         v-else-if="block.blockType == 'QuoteBlock'"
-        :key="index"
+        :key="`QuoteBlock${index}`"
         indent="col-3"
         class="lg:mb-18 mb-10"
       >
@@ -31,7 +31,7 @@
       </LayoutHelper>
       <LayoutHelper
         v-else-if="block.blockType == 'IframeEmbedBlock'"
-        :key="index"
+        :key="`IframeEmbedBlock${index}`"
         indent="col-2"
         class="lg:mb-18 mb-10"
       >

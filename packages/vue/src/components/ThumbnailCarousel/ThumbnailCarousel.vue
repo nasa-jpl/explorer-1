@@ -18,7 +18,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
 import type { ImageObject } from '../../interfaces';
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 import SearchResultGridItem from './../SearchResultGridItem/SearchResultGridItem.vue'

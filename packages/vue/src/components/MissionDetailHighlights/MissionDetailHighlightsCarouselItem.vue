@@ -4,7 +4,7 @@
       v-if="item.date"
       class="font-secondary text-jpl-red-light mb-4 font-semibold tracking-wider uppercase"
     >
-      {{ item.date | displayDate }}
+      {{ $filters.displayDate(item.date) }}
     </p>
     <p
       v-if="item.dateFreeform"
@@ -29,12 +29,12 @@
           :href="
             item.highlightLink.externalLink
               ? item.highlightLink.externalLink
-              : null
+              : undefined
           "
-          :to="item.highlightLink.page ? item.highlightLink.page.url : null"
+          :to="item.highlightLink.page ? item.highlightLink.page.url : undefined"
         >
           <span class="flex items-center">
-            <span :class="{ 'mr-1': item.highlightLink.externalLink }"
+            <span class="ml-1" :class="{ 'mr-1': item.highlightLink.externalLink }"
               >Learn more</span
             >
             <IconExternal v-if="item.highlightLink.externalLink" />
@@ -46,9 +46,25 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import IconExternal from './../Icons/IconExternal.vue'
+
+export interface Slide {
+  date: string
+  heading: string
+  dateFreeform: string
+  highlightLink: {
+    externalLink?: string
+    page: {
+      title: string
+      url: string
+      summary: string
+    }
+  }
+  summary: string
+}
 
 export default defineComponent({
   name: 'MissionDetailHighlightsCarouselItem',
@@ -59,7 +75,7 @@ export default defineComponent({
   },
   props: {
     item: {
-      type: Object,
+      type: Object as PropType<Slide>,
       required: true,
       default: () => ({}),
     },

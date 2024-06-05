@@ -34,12 +34,10 @@ const MissionDetailInlineImageData = {
   }
 }
 
-// template
-const MissionDetailInlineImageTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { MissionDetailInlineImage },
-  template: `<MissionDetailInlineImage :alignment="alignTo" :text="text" :image="image" />`
-})
-
-export const Default = MissionDetailInlineImageTemplate.bind({})
-Default.args = MissionDetailInlineImageData
+export const Default = {
+  args: {
+    alignment: MissionDetailInlineImageData.alignTo,
+    text: MissionDetailInlineImageData.text,
+    image: MissionDetailInlineImageData.image
+  }
+}

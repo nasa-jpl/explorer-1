@@ -22,45 +22,45 @@ const NewsDetailMediaContactTemplate = (args) => ({
   template: `<news-detail-media-contact :contacts="contacts"  :release-number="releaseNumber"/>`
 })
 
-export const Single = NewsDetailMediaContactTemplate.bind({})
-Single.args = { contacts, releaseNumber: '2020-140' }
+export const Single = { args: { contacts, releaseNumber: '2020-140' } }
 
-export const Multiple = NewsDetailMediaContactTemplate.bind({})
-Multiple.args = {
-  contacts: [
-    ...contacts,
-    {
-      contact: {
-        name: 'Person A / Person B',
-        address: '',
-        email: 'person_a@jpl.nasa.gov / person_b@jpl.nasa.gov',
-        phone: ''
+export const Multiple = {
+  args: {
+    contacts: [
+      ...contacts,
+      {
+        contact: {
+          name: 'Person A / Person B',
+          address: '',
+          email: 'person_a@jpl.nasa.gov / person_b@jpl.nasa.gov',
+          phone: ''
+        }
+      },
+      {
+        contact: {
+          name: 'Person A and Person B',
+          address: '',
+          email: 'person_a@jpl.nasa.gov, person_b@jpl.nasa.gov',
+          phone: ''
+        }
+      },
+      {
+        contact: {
+          name: 'Other Person',
+          address: '',
+          email: 'other.person@jpl.nasa.gov',
+          phone: ''
+        }
+      },
+      {
+        contact: {
+          name: '',
+          address: '',
+          email: '',
+          phone: '818-354-5678'
+        }
       }
-    },
-    {
-      contact: {
-        name: 'Person A and Person B',
-        address: '',
-        email: 'person_a@jpl.nasa.gov, person_b@jpl.nasa.gov',
-        phone: ''
-      }
-    },
-    {
-      contact: {
-        name: 'Other Person',
-        address: '',
-        email: 'other.person@jpl.nasa.gov',
-        phone: ''
-      }
-    },
-    {
-      contact: {
-        name: '',
-        address: '',
-        email: '',
-        phone: '818-354-5678'
-      }
-    }
-  ],
-  releaseNumber: '2020-140'
+    ],
+    releaseNumber: '2020-140'
+  }
 }

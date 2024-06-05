@@ -40,10 +40,15 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BlockText from './../BlockText/BlockText.vue'
 
+interface Instrument {
+  id: string
+  instrument: string
+}
 export default defineComponent({
   name: 'MissionDetailAbout',
   components: {
@@ -65,7 +70,7 @@ export default defineComponent({
       default: '',
     },
     instruments: {
-      type: Array,
+      type: Array as PropType<Instrument[]>,
       required: false,
     },
     sidebarTitle: {

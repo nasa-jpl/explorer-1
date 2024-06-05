@@ -161,6 +161,7 @@
 import { defineComponent } from 'vue'
 import _throttle from 'lodash/throttle'
 import type { DebouncedFunc } from 'lodash'
+// @ts-ignore
 import anime from 'animejs'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import MissionDetailHighlightsCarousel from './MissionDetailHighlightsCarousel.vue'

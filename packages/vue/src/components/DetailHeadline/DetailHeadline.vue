@@ -63,7 +63,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 

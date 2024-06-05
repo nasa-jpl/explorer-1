@@ -9,7 +9,7 @@
     <p v-if="showError">Unavailable</p>
     <p v-else-if="isLoading">Loading…</p>
     <BaseUnitToggle
-      v-else
+      v-else-if="loadedValue"
       v-slot="slotProps"
       unit-pair="MI_KM"
       :value="loadedValue"
@@ -141,6 +141,7 @@ export default defineComponent({
     valueSystem: {
       type: String as PropType<UnitSystem>,
       required: false,
+      default: 'imperial'
     },
     distanceApiUrls: {
       type: String,
@@ -167,7 +168,7 @@ export default defineComponent({
         distanceTypes[this.distanceType as DistanceType] || this.distanceType
       )
     },
-    loadedValue(): number {
+    loadedValue(): number | undefined {
       if (this.distanceApiUrls) {
         return this.apiDistance?.value || 0
       }
@@ -201,9 +202,9 @@ export default defineComponent({
       // be handled elegantly if possible.
       try {
         const match = supportedPaths.find((key: SupportedAPI) =>
-          this.distanceApiUrls.includes(key)
+          this.distanceApiUrls?.includes(key)
         )
-        if (match) {
+        if (match && this.distanceApiUrls) {
           const apiConfig = supportedAPIPaths[match]
           const path = apiConfig.getPath(this.distanceApiUrls, match)
           const data = await this.$axios.$get(path)
@@ -239,7 +240,7 @@ export default defineComponent({
           this.updateSPICEData.bind(this, apiConfig, data, next),
           1000
         )
-      } else {
+      } else if (this.distanceApiUrls) {
         const nextData = await this.$axios.$get(
           apiConfig.getPath(this.distanceApiUrls, '/spice_data/getRangefromT1/')
         )

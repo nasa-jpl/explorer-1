@@ -73,7 +73,7 @@
           </div>
         </div>
         <ParallaxElement
-          v-if="hasForeground && Object.keys(instrumentImage).length"
+          v-if="hasForeground && instrumentImage && Object.keys(instrumentImage).length"
           class="foreground lg:absolute lg:mt-0 lg:pb-0 lg:inset-0 lg:flex lg:items-center 3xl:mr-16 z-20 w-full h-full pb-10 mt-24 ml-auto mr-10 overflow-visible"
           :factor="0.4"
         >
@@ -97,6 +97,9 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
+import { mixinTransparentHeader } from '../../utils/mixins'
 import ParallaxContainer from './../ParallaxContainer/ParallaxContainer.vue'
 import ParallaxElement from './../ParallaxElement/ParallaxElement.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
@@ -138,7 +141,7 @@ export default defineComponent({
       required: false,
     },
     heroFallback: {
-      type: Object,
+      type: Object as PropType<Partial<ImageObject>>,
       required: false,
     },
     // if both instrumentBackground and instrumentImage are provided, templateStyle will have no effect and will default to 'dark'
@@ -170,7 +173,7 @@ export default defineComponent({
       return false
     },
     // if an instrument background was supplied, use it. otherwise use the hero image (required) as a fallback
-    theBackground(): object {
+    theBackground(): Partial<ImageObject> | undefined {
       if (this.instrumentBackground) {
         return this.instrumentBackground.image
       }
@@ -218,7 +221,7 @@ export default defineComponent({
   methods: {
     init() {
       if (this.hasBackground || this.templateStyle === 'dark') {
-        this.mixinTransparentHeader()
+        mixinTransparentHeader()
       }
       // TODO: separate listener between background and foreground
       let img = this.$refs.foregroundImage as HTMLImageElement

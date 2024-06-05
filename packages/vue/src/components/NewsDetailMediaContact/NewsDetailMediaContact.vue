@@ -4,8 +4,8 @@
       News Media Contact
     </h2>
     <address
-      v-for="contact in contacts"
-      :key="contact.contact.id"
+      v-for="(contact, index) in contacts"
+      :key="index"
       class="text-body-md mb-5 not-italic"
     >
       <p v-if="contact.contact.name">{{ contact.contact.name }}</p>
@@ -21,9 +21,11 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
 
 interface Contact {
   contact: {
+    id: string
     name: string
     address: string
     phone: string
@@ -35,15 +37,15 @@ export default defineComponent({
   name: 'NewsDetailMediaContact',
   props: {
     contacts: {
-      type: Array,
+      type: Array as PropType<Contact[]>,
       required: true,
       default: () => [],
     },
   },
   computed: {
     hasContent() {
-      return (this.contacts as Contact[]).some(
-        (c: Contact) =>
+      return this.contacts.some(
+        (c) =>
           c.contact.name ||
           c.contact.address ||
           c.contact.phone ||

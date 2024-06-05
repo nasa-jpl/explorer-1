@@ -52,11 +52,4 @@ export const MissionDetailStreamfieldData = {
   ]
 }
 
-const MissionDetailStreamfieldTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { MissionDetailStreamfield },
-  template: `<MissionDetailStreamfield :data="feature" />`
-})
-
-export const Streamfield = MissionDetailStreamfieldTemplate.bind({})
-Streamfield.args = { ...MissionDetailStreamfieldData }
+export const Streamfield = { args: { data: MissionDetailStreamfieldData.feature } }

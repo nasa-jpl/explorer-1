@@ -112,6 +112,7 @@ export default defineComponent({
     displayDate: {
       type: String || null,
       required: false,
+      
     },
     missionTypes: {
       type: Array as PropType<{ missionType: string }[]>,
@@ -131,6 +132,8 @@ export default defineComponent({
     showDistance: Boolean,
     distanceType: {
       type: String as PropType<DistanceType | ''>,
+      required: false,
+      default: ''
     },
     distanceValue: Number,
     distanceApiUrls: String,
