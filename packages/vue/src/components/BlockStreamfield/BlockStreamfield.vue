@@ -53,7 +53,7 @@
         indent="col-4"
         class="lg:mb-18 mb-10"
       >
-        <BlockQuote :data="block" />
+        <BlockQuote :data="(block as unknown) as BlockQuoteAttributes" />
       </LayoutHelper>
 
       <LayoutHelper
@@ -120,7 +120,7 @@
         indent="col-2"
         class="lg:mb-18 mb-10"
       >
-        <BlockVideoEmbed :data="block" />
+        <BlockVideoEmbed :data="block as unknown as VideoBlockEmbedData" />
       </LayoutHelper>
 
       <BlockImage
@@ -192,6 +192,10 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
+import type { BlockData as VideoBlockEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
+import type { BlockQuoteAttributes } from './../BlockQuote/BlockQuote.vue'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BlockCta from './../BlockCta/BlockCta.vue'
 import BlockHeading from './../BlockHeading/BlockHeading.vue'
@@ -221,8 +225,23 @@ export const variants: Variants = {
   fluid: '-fluid',
 }
 
-type blockObject = {
+interface BlockData {
   blockType: string
+  id: string
+  fullBleed: boolean
+  heading: string
+  galleryTitle: string
+  galleryDescription: string
+  coverImage: ImageObject
+  gallerySlides: ImageObject[]
+  blocks: object[]
+  value: string
+  customLabel: string
+  introduction: string
+  teaserPage: object | string[]
+  image: ImageObject
+  buttonText: string
+  fullWidthImage: boolean
 }
 
 export default defineComponent({
@@ -258,7 +277,7 @@ export default defineComponent({
         Object.keys(variants).includes(prop),
     },
     data: {
-      type: Array,
+      type: Array as PropType<BlockData[]>,
       required: false,
     },
   },
@@ -272,8 +291,8 @@ export default defineComponent({
     // this is to make text appear continuous between the two.
     seamlessText(index: number): boolean {
       const nextIndex = index + 1
-      if (this.data[nextIndex]) {
-        const nextBlock = this.data[nextIndex] as blockObject
+      if (this.data && this.data[nextIndex]) {
+        const nextBlock = this.data[nextIndex] as BlockData
         const nextBlockType = nextBlock.blockType
         if (
           nextBlockType === 'InlineImageBlock' ||

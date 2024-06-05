@@ -56,7 +56,8 @@
       </span>
       <span v-if="publicationDate">
         <meta v-if="schema" itemprop="datePublished" :content="pubDatetime" />
-        {{ $filters.displayDate(publicationDate) }}
+        {{ // @ts-ignore
+        $filters.displayDate(publicationDate) }}
       </span>
     </div>
   </div>

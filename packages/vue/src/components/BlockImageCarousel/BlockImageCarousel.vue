@@ -40,7 +40,7 @@
       </div>
       <div class="swiper-dots lg:hidden absolute top-0 z-50 w-full text-center">
         <button
-          v-for="(item, index) in itemsMobileNav"
+          v-for="(_item, index) in itemsMobileNav"
           :key="index"
           class="pointer-events-auto inline-block px-1 py-3 cursor-pointer"
           :aria-label="'Go to slide ' + (hasCover ? index : index + 1)"

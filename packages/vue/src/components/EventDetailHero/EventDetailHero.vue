@@ -52,7 +52,7 @@ export default defineComponent({
   },
   computed: {
     getSrcSet() {
-      return mixinGetSrcSet(this.image)
+      return this.image ? mixinGetSrcSet(this.image) : undefined
     }
   }
 })

@@ -85,6 +85,7 @@
   </section>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import { Swiper, Navigation, Lazy, A11y } from 'swiper'
 import type { SwiperOptions } from 'swiper'

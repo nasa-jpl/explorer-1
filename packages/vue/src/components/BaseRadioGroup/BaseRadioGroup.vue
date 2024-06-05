@@ -17,7 +17,7 @@
           <input
             :id="`${group}_${option.id}`"
             :aria-describedby="
-              option.text ? `${group}_${option.id}_description` : null
+              option.text ? `${group}_${option.id}_description` : undefined
             "
             :name="option.name"
             :alt="option.alt"
@@ -49,7 +49,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+import type { PropType } from 'vue';
+import type { FormOption } from '../../interfaces';
 export default defineComponent({
   name: 'BaseRadioGroup',
   props: {
@@ -79,7 +80,7 @@ export default defineComponent({
       required: false,
     },
     options: {
-      type: Array,
+      type: Array as PropType<FormOption[]>,
       default: null,
       required: false,
     },

@@ -1,5 +1,5 @@
 // stores
-import { useHeaderStore } from './../src/stores/header'
+import { useHeaderStore } from './../src/store/header'
 // mixins
 import { mixinGetSrcSet } from './../src/utils/mixins'
 import { mixinTransparentHeader } from './../src/utils/mixins'

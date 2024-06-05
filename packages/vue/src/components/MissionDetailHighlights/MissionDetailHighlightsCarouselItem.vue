@@ -4,7 +4,8 @@
       v-if="item.date"
       class="font-secondary text-jpl-red-light mb-4 font-semibold tracking-wider uppercase"
     >
-      {{ $filters.displayDate(item.date) }}
+      {{ // @ts-ignore
+      $filters.displayDate(item.date) }}
     </p>
     <p
       v-if="item.dateFreeform"

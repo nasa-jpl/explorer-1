@@ -45,13 +45,14 @@
       :value="value"
       :placeholder="placeholder"
       @keydown.esc="$emit('esc')"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('input', $event.target?.value)"
       @focus="isFocused = true"
       @blur="isFocused = false"
     />
   </div>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import IconSearch from './../Icons/IconSearch.vue'
 

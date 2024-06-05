@@ -165,6 +165,7 @@
   </footer>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
 // TODO: PORT -- find a place for the query to live

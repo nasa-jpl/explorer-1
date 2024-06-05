@@ -2,8 +2,8 @@
   <BaseLink
     v-if="theItem"
     variant="none"
-    :to="theItem.url ? theItem.url : null"
-    :href="theItem.externalLink ? theItem.externalLink : null"
+    :to="theItem.url ? theItem.url : undefined"
+    :href="theItem.externalLink ? theItem.externalLink : undefined"
     class="BlockLinkCard group"
     link-class="block pb-5"
     external-target-blank
@@ -77,6 +77,7 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
+import type { Card } from '../../interfaces'
 import { mixinFormatEventDates } from './../../utils/mixins'
 import IconArrow from './../Icons/IconArrow.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
@@ -94,7 +95,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<Card>,
       required: false,
     },
     // override props as needed
@@ -146,7 +147,7 @@ export default defineComponent({
     // to allow for various data shapes and sources
     // use-case: content pages provide this.data.page with non-page siblings (i.e. external link cards)
     // use-case: search and listing pages pass individual props
-    theItem(): object | null {
+    theItem(): Card | null {
       if (this.data && this.data.page) {
         return this.data.page
       } else if (this.data) {
@@ -176,7 +177,7 @@ export default defineComponent({
       return null
     },
     formattedEventDates() {
-      return mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate)
+      return this.theItem?.startDate ? mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate) : undefined
     }
   },
 })

@@ -67,7 +67,7 @@ export default defineComponent({
   },
   computed: {
     theSrcSet() {
-      return mixinGetSrcSet(this.image) ? mixinGetSrcSet(this.image) : this.image.srcSet
+      return this.image ? mixinGetSrcSet(this.image) ? mixinGetSrcSet(this.image) : this.image.srcSet : undefined
     }
   }
 })

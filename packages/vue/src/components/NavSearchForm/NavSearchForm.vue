@@ -30,12 +30,12 @@ export default defineComponent({
   },
   data() {
     return {
-      searchQuery: null,
+      searchQuery: undefined,
     }
   },
   methods: {
     clearSearch() {
-      this.searchQuery = null
+      this.searchQuery = undefined
       this.$emit('clearSearch')
     },
     submitSearch() {

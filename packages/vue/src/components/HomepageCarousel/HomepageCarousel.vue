@@ -35,7 +35,7 @@
         >
           <div class="swiper-pagination container">
             <!-- Render before swiper initializes and replaces content to prevent content shifting -->
-            <template v-for="(item, index) in items" :key="index">
+            <template v-for="(_item, index) in items" :key="index">
               <span
                 :class="`swiper-pagination-bullet${
                   index === 0 ? ' swiper-pagination-bullet-active' : ''

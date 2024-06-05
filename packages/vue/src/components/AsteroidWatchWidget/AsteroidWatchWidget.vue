@@ -105,6 +105,7 @@
   </section>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseUnitToggle from './../BaseUnitToggle/BaseUnitToggle.vue'

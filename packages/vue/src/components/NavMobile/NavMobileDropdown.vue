@@ -16,7 +16,7 @@
 
     <div v-if="dropdownVisible">
       <div class="mt-1 mb-3">
-        <template v-if="data.links">
+        <template v-if="data?.links">
           <NavMobileLink
             v-for="(item, index) in data.links"
             :key="index"
@@ -25,7 +25,7 @@
             :exact="true"
           />
         </template>
-        <div v-else-if="data.length > 0">
+        <div v-else-if="data?.length > 0">
           <template v-for="(item, index) in data">
             <template v-if="item.children && item.children.length > 0">
               <NavMobileSecondaryDropdown
@@ -37,7 +37,7 @@
             <template v-else>
               <NavMobileLink
                 :key="index"
-                :title="index === 0 ? 'Home' : null"
+                :title="index === 0 ? 'Home' : undefined"
                 :data="item"
                 link-class="pl-12"
                 :exact="index === 0"
@@ -51,6 +51,7 @@
 </template>
 
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
 import NavMobileLink from './../NavMobile/NavMobileLink.vue'

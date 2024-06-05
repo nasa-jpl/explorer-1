@@ -49,7 +49,8 @@
             :class="{ 'pl-2': theData.label }"
           >
             <template v-if="theData.date">
-              {{ $filters.displayDate(theData.date) }}
+              {{ // @ts-ignore
+              $filters.displayDate(theData.date) }}
             </template>
             <template v-else-if="theData.startDate">
               {{ formattedEventDates }}
@@ -71,32 +72,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { ImageObject } from '../../interfaces'
+import type { Card } from '../../interfaces'
 import { mixinFormatEventDates } from '../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import IconPlay from './../Icons/IconPlay.vue'
 import IconExternal from './../Icons/IconExternal.vue'
-
-export interface Slide {
-  __typename?: string
-  type?: string
-  url: string
-  page?: {
-    type: string
-    label: string
-    thumbnailImage:  Partial<ImageObject>
-    title: string
-    url: string
-  }
-  title: string
-  date?: string
-  startDate?: string
-  endDate?: string
-  label: string
-  thumbnailImage: Partial<ImageObject>
-}
 
 export default defineComponent({
   name: 'TopicDetailMoreItem',
@@ -109,12 +91,12 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<Slide>,
+      type: Object as PropType<Card>,
       required: false,
     },
   },
   computed: {
-    theData(): Slide | null {
+    theData(): Card | null {
       if (this.data?.page) {
         return this.data.page
       } else if (this.data) {

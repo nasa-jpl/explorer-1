@@ -137,21 +137,24 @@ export default defineComponent({
     },
   },
   computed: {
-    splitDate(): object | null {
+    splitDate(): { day: string, monthAndYear: string} | null {
       if (this.startDate) {
         return mixinFormatSplitEventDates(this.startDate, this.endDate)
       }
       return null
     },
-    displayTime(): string {
-      return mixinFormatEventTimeInHoursAndMinutes(
-        this.startDate,
-        this.endDate,
-        this.endTime
-      )
+    displayTime(): string | undefined {
+      if (this.startDate) {
+        return mixinFormatEventTimeInHoursAndMinutes(
+          this.startDate,
+          this.endDate,
+          this.endTime
+        )
+      }
+      return undefined
     },
     formattedEventDates() {
-      return mixinFormatEventDates(this.startDate, this.endDate)
+      return this.startDate ? mixinFormatEventDates(this.startDate, this.endDate) : undefined
     }
   },
 })

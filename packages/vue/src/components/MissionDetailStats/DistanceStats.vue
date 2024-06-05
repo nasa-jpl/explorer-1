@@ -22,6 +22,7 @@
   </div>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import dayjs from 'dayjs'

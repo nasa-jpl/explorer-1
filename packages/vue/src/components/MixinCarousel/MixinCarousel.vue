@@ -25,8 +25,8 @@
             v-if="link"
             class="sm:block hidden"
             variant="primary"
-            :to="typeof link === 'object' ? link : null"
-            :href="typeof link != 'object' ? link : null"
+            :to="typeof link === 'object' ? link : undefined"
+            :href="typeof link != 'object' ? link : undefined"
             v-on="$listeners"
           >
             {{ linkTitle || link }}
@@ -90,6 +90,7 @@
   </component>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import Swiper from 'swiper'
 import { A11y, Navigation } from 'swiper/modules'

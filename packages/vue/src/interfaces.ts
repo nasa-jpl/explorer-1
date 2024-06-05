@@ -10,6 +10,7 @@ export interface ImageSrcObject {
   height: number
 }
 export interface ImageObject {
+  title?: string
   src: ImageSrcObject
   srcCropped: ImageSrcObject
   screenXs?: Partial<ImageSrcObject>
@@ -44,4 +45,42 @@ export interface ElasticSearchPage {
   location: string
   title: string
   summary: string
+}
+
+export interface FormOption {
+  id: string
+  name: string
+  alt: string
+  value: string
+  text: string
+  title: string
+}
+
+export interface Card {
+  __typename?: string
+  type?: string
+  url?: string
+  externalLink?: string
+  page?: {
+    type: string
+    label: string
+    thumbnailImage: Partial<ImageObject>
+    title: string
+    url: string
+  }
+  title?: string
+  date?: string
+  startDate?: string
+  endDate?: string
+  label?: string
+  thumbnailImage?: Partial<ImageObject>
+}
+
+export interface RelatedLinkObject {
+  page: {
+    url: string
+  } | null
+  document: { url: string } | null
+  externalLink: string | null
+  text: string | null
 }

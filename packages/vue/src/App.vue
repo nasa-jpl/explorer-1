@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <base-button variant="secondary"> Button Text </base-button>
     <base-link
       variant="primary"
@@ -8,11 +7,11 @@
       >Base Link</base-link
     >
     <base-unit-toggle 
-    v-slot="slotProps"
-    unitPair="MI_KM"
-    :value="14.33"
-    :secondValue="undefined"
-    valueSystem="imperial"
+      v-slot="slotProps"
+      unitPair="MI_KM"
+      :value="14.33"
+      :secondValue="undefined"
+      valueSystem="imperial"
     >
     <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
     </base-unit-toggle>

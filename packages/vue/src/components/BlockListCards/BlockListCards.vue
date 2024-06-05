@@ -46,7 +46,7 @@
                     :href="
                       getExternalLink(link)
                         ? getExternalLink(link)
-                        : null
+                        : undefined
                     "
                     :to="link.page ? link.page.url : null"
                     external-target-blank
@@ -59,14 +59,14 @@
           </div>
           <div v-else-if="item.links && item.links.length === 1" class="mt-3">
             <!-- When exactly one link, use primary link variant -->
-            <template v-for="(link, index_link) in item.links" :key="index_link">
+            <template v-for="(link, _index_link) in item.links" :key="index_link">
               <BaseLink
                 variant="primary"
                 class="-mb-1"
                 link-class="inline-block"
                 caret-wrapper-class="py-2"
                 :href="
-                  getExternalLink(link) ? getExternalLink(link) : null
+                  getExternalLink(link) ? getExternalLink(link) : undefined
                 "
                 :to="link.page ? link.page.url : null"
                 external-target-blank
@@ -84,7 +84,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mixinGetExternalLink } from './../../utils/mixins'
-import MixinAnimationCaret from './../MixinAnimationCaret/MixinAnimationCaret.vue'
+import type { RelatedLinkObject } from '../../interfaces'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -107,8 +107,8 @@ export default defineComponent({
     },
   },
   methods: {
-    getExternalLink(link) {
-      mixinGetExternalLink(link)
+    getExternalLink(link: RelatedLinkObject): string | undefined {
+      return mixinGetExternalLink(link)
     }
   }
 })

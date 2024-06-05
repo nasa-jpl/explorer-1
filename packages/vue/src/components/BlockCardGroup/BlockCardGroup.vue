@@ -32,8 +32,17 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
 import BlockCard from './../BlockCard/BlockCard.vue'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
+
+interface Fact {
+  title: string
+  type: string
+  description: string
+  image: Partial<ImageObject>
+}
 
 export default defineComponent({
   name: 'BlockCardGroup',
@@ -43,7 +52,7 @@ export default defineComponent({
   },
   props: {
     facts: {
-      type: Array,
+      type: Array as PropType<Fact[]>,
       required: false,
     },
   },

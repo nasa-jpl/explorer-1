@@ -50,7 +50,7 @@ export default defineComponent({
     },
   },
   computed: {
-    theVariantComponent(): string {
+    theVariantComponent() {
       return resolveComponent(itemTypes[this.itemType])
     },
     hasContent() {

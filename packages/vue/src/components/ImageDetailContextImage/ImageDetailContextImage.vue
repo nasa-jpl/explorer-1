@@ -32,7 +32,7 @@
     >
       <BaseImagePlaceholder aspect-ratio="square">
         <BaseImage
-          v-if="data.contextImage && data.contextImage.src"
+          v-if="data?.contextImage?.src"
           :src="data.contextImage.src.url"
           :srcset="data.contextImage.srcSet"
           :alt="data.contextImage.alt || ''"

@@ -19,7 +19,7 @@
         <DistanceStats
           v-if="showDistance"
           class="theme-inner lg:col-span-4 xl:col-span-4 2xl:col-span-3 sm:col-span-7 col-span-11"
-          :distance-type="distanceType"
+          :distance-type="distanceType as DistanceType"
           :value="distanceValue"
           value-system="imperial"
           :distance-api-urls="distanceApiUrls"
@@ -41,7 +41,8 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import DistanceStats, { DistanceType } from './DistanceStats.vue'
+import DistanceStats from './DistanceStats.vue'
+import type { DistanceType } from './DistanceStats.vue'
 import { clockTypes, ClockType } from './MissionDetailStats.vue'
 import BaseTimer from './../BaseTimer/BaseTimer.vue'
 

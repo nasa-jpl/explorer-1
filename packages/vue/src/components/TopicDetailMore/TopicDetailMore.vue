@@ -51,7 +51,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { Slide } from './../TopicDetailMoreItem/TopicDetailMoreItem.vue'
+import type { Card } from '../../interfaces'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconCaret from './../Icons/IconCaret.vue'
 import TopicDetailMoreVisibility from './../TopicDetailMore/TopicDetailMoreVisibility.vue'
@@ -72,19 +72,19 @@ export default defineComponent({
       default: 'Topic',
     },
     more: {
-      type: Array as PropType<Slide[]>,
+      type: Array as PropType<Card[]>,
       required: false,
     },
     moreCurated: {
-      type: Array as PropType<Slide[]>,
+      type: Array as PropType<Card[]>,
       required: false,
     },
   },
   computed: {
 
-    theData(): Slide[] {
+    theData(): Card[] {
       // combining the two and returning the first 8
-      let arr: Slide[] = []
+      let arr: Card[] = []
       if (this.moreCurated && this.more) {
         arr = this.moreCurated.concat(this.more)
       } else if (this.more) {

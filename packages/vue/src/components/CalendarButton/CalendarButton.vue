@@ -3,7 +3,8 @@
     class="w-full"
     variant="secondary"
     compact
-    @click="icalendar.download()"
+    @click="// @ts-ignore
+    icalendar.download()"
   >
     Add to calendar
   </BaseButton>

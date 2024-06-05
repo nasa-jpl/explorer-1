@@ -159,8 +159,10 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
 import _throttle from 'lodash/throttle'
 import type { DebouncedFunc } from 'lodash'
+import type { Slide } from './MissionDetailHighlightsCarouselItem.vue'
 // @ts-ignore
 import anime from 'animejs'
 import { ObserveVisibility } from 'vue-observe-visibility'
@@ -195,7 +197,7 @@ export default defineComponent({
       required: false,
     },
     highlights: {
-      type: Array,
+      type: Array as PropType<Slide[]>,
       required: false,
     },
   },

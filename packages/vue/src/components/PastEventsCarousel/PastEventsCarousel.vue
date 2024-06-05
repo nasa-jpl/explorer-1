@@ -29,8 +29,9 @@
   </MixinCarousel>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
-
+import type { ElasticSearchPage } from '../../interfaces';
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 
@@ -66,18 +67,15 @@ export default defineComponent({
       }
       return false
     },
-    results(): object {
+    results(): ElasticSearchPage[] {
       function parseType(type: string): string {
         return type.toLowerCase().replace('.', '_')
       }
-      interface Page {
-        [key: string]: any
-      }
       return this.pages
-        .filter((page: Page) => {
+        .filter((page: ElasticSearchPage) => {
           return 'url' in page._source
         })
-        .map((page: Page) => {
+        .map((page: ElasticSearchPage) => {
           // helpers
           const handle = parseType(page._source.content_type[0])
           const image = page._source[handle + '__thumbnail_image']

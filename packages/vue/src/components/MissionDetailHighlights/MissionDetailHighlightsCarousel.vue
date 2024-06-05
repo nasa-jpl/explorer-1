@@ -16,7 +16,7 @@
       >
         <div class="swiper-dots -mb-2 -ml-2">
           <button
-            v-for="(item, index) in items"
+            v-for="(_item, index) in items"
             :key="index"
             class="group inline-block px-2 pt-3 cursor-pointer"
             :aria-label="'Go to slide ' + (index + 1)"

@@ -100,7 +100,7 @@ export default defineComponent({
     },
     // ideally can pass a page object (TopicDetailPage), but sometimes (e.g. streamfield teaserblock) this will be wrapped in an array
     teaserPage: {
-      type: [Object, Array],
+      type: [Array, Object],
       required: false,
     },
   },
@@ -134,9 +134,9 @@ export default defineComponent({
     },
 
     theImage(): { url: string; width: string; height: string } {
-      const { url, width, height } = this.fullWidth
+      const { url, width, height } = this.image && this.fullWidth
         ? this.image.full
-        : this.image.half
+        : this.image ? this.image.half : undefined
 
       return {
         url,
@@ -147,9 +147,9 @@ export default defineComponent({
     // necessary as the streamfield teaser block passes an array of blocks
     // this is necessary to retrieve the label from the teaser pages
     theTeaserPage(): teaserPageObject | null {
-      if (this.teaserPage && !this.teaserPage.length) {
-        return this.teaserPage
-      } else if (this.teaserPage && this.teaserPage.length) {
+      if (this.teaserPage && typeof this.teaserPage === 'object' ) {
+        return this.teaserPage as teaserPageObject
+      } else if (this.teaserPage && Object.keys(this.teaserPage).length) {
         const parsedTeaserPage = this.getTeaserPageBlock()
         if (parsedTeaserPage) {
           return parsedTeaserPage[0].page
@@ -161,7 +161,7 @@ export default defineComponent({
   methods: {
     getTeaserPageBlock(): teaserPageBlock[] | null {
       if (this.teaserPage && this.teaserPage.length) {
-        const theBlocks = this.teaserPage as teaserPageBlock[]
+        const theBlocks = this.teaserPage
         return theBlocks.filter(
           (block: teaserPageBlock) => block.blockType === 'PageChooserBlock'
         )

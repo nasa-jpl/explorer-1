@@ -2,7 +2,12 @@
 import dayjs from './dayjs'
 import { useHeaderStore } from './../store/header'
 import { useRoute } from 'vue-router'
-import type { BreadcrumbPathObject, ImageObject, ImageSrcObject } from '../interfaces'
+import type {
+  BreadcrumbPathObject,
+  ImageObject,
+  ImageSrcObject,
+  RelatedLinkObject
+} from '../interfaces'
 // srcSet data structure
 export interface SrcSetDataValue {
   url: string
@@ -26,14 +31,6 @@ export type BreadcrumbObject = {
   more: [BreadcrumbPathObject] | null
 }
 // general related link object used in various places
-export type RelatedLinkObject = {
-  page: {
-    url: string
-  } | null
-  document: { url: string } | null
-  externalLink: string | null
-  text: string | null
-}
 
 // image object used to construct lightbox items
 export type BaseImageObject = {
@@ -200,13 +197,13 @@ export const mixinGetSrcSet = (srcSetObject: Partial<ImageObject>): string => {
   return srcSet
 }
 // Use with RelatedLinkBlock to retrieve the external link to use with an href prop
-export const mixinGetExternalLink = (link: RelatedLinkObject): string | null => {
+export const mixinGetExternalLink = (link: RelatedLinkObject): string | undefined => {
   if (link.externalLink) {
     return link.externalLink
   } else if (link.document) {
     return link.document.url
   }
-  return null
+  return undefined
 }
 // Gets the fully qualified canonical URL of the current page if passed $route.path string
 export const mixinCanonicalUrl = (path: string): string => {
@@ -322,8 +319,8 @@ export const mixinFormatEventDates = (startDatetime: string, endDatetime?: strin
 
 export const mixinFormatEventTimeInHoursAndMinutes = (
   startDatetime: string,
-  endDatetime: string,
-  endTime: string
+  endDatetime?: string,
+  endTime?: string
 ): string => {
   // Only display time if event spans less than one day
   const startDateDayjs = dayjs(startDatetime)

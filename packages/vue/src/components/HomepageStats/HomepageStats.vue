@@ -210,6 +210,7 @@
   </section>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'

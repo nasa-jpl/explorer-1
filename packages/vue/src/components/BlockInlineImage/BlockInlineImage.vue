@@ -55,6 +55,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { ImageObject } from '../../interfaces'
 import { mixinGetSrcSet } from './../../utils/mixins'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
@@ -78,7 +79,7 @@ export default defineComponent({
     },
   },
   computed: {
-    theCaption(): String | null {
+    theCaption(): string | undefined {
       if (
         this.data &&
         this.data.caption &&
@@ -94,13 +95,13 @@ export default defineComponent({
       ) {
         return this.data.image.caption
       }
-      return null
+      return undefined
     },
     // reform the image data object with the computed caption
-    theImageData(): object | null {
-      if (this.data.image) {
+    theImageData(): Partial<ImageObject> | null {
+      if (this.data?.image) {
         return {
-          ...this.data.image,
+          ...this.data?.image,
           caption: this.theCaption,
         }
       }
@@ -115,7 +116,7 @@ export default defineComponent({
       return false
     },
     theSrcSet() {
-      return mixinGetSrcSet(this.theImageData) ? mixinGetSrcSet(this.theImageData) : this.theImageData.srcSet
+      return this.theImageData ? mixinGetSrcSet(this.theImageData) ? mixinGetSrcSet(this.theImageData) : this.theImageData.srcSet : undefined
     }
   },
 })

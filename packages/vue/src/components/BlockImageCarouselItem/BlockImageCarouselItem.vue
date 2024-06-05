@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div v-if="theImageData">
     <MixinFancybox
       :src="theImageData.original"
       :caption="theImageData.caption"
       :credit="theImageData.credit"
       :detail-url="theImageData.detailUrl"
       :gallery-name="`carousel-${blockId}`"
-      :title="showTitle ? theImageData.title : null"
+      :title="showTitle ? theImageData.title : undefined"
       show-thumbnails
     >
       <BaseImagePlaceholder v-if="theImageData" aspect-ratio="16:9" dark-mode>
@@ -33,6 +33,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { ImageObject } from '../../interfaces'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
@@ -75,7 +76,7 @@ export default defineComponent({
     },
   },
   computed: {
-    theCaption(): String | null {
+    theCaption(): string | undefined {
       if (this.caption && this.caption.length > 2 && this.displayCaption) {
         return this.caption
       } else if (
@@ -86,10 +87,10 @@ export default defineComponent({
       ) {
         return this.image.caption
       }
-      return null
+      return undefined
     },
     // reform the data object with the computed caption
-    theImageData(): object | null {
+    theImageData(): Partial<ImageObject> | null {
       if (this.image) {
         return {
           ...this.image,
