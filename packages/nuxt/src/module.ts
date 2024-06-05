@@ -3,6 +3,7 @@ import {
   defineNuxtModule,
   addComponentsDir,
   addImports,
+  addPlugin,
   installModule,
   createResolver
 } from '@nuxt/kit'
@@ -11,7 +12,7 @@ export interface ModuleOptions {
   includeStyles: boolean
   includeComponents: boolean
   includePageTemplates: boolean
-  includeStores: boolean
+  includeStore: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -24,11 +25,18 @@ export default defineNuxtModule<ModuleOptions>({
     includeStyles: true,
     includeComponents: true,
     includePageTemplates: true,
-    includeStores: true
+    includeStore: true
   },
   async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
     const runtimeDir = resolver.resolve('./runtime')
+
+    // add plugins
+    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
+    addPlugin(resolver.resolve(runtimeDir, 'plugins/dayjs'))
+    addPlugin(resolver.resolve(runtimeDir, 'plugins/filters'))
+    addPlugin(resolver.resolve(runtimeDir, 'plugins/click-outside'))
+
     if (_options.includeStyles) {
       await installModule('@nuxtjs/tailwindcss', {
         configPath: resolver.resolve(runtimeDir, 'tailwind.config')
@@ -77,10 +85,9 @@ export default defineNuxtModule<ModuleOptions>({
         extensions: ['.vue']
       })
     }
-    if (_options.includeStores) {
+    if (_options.includeStore) {
       await installModule('@pinia/nuxt', {})
-
-      // add @explorer-1/vue page template components
+      // add header store
       addImports([
         {
           name: 'useHeaderStore',
