@@ -326,7 +326,7 @@ const dt = ct("header", {
     makeTransparent(e) {
       this.headerTransparent = e;
     },
-    highlightPrimary(e) {
+    updateHighlightPrimary(e) {
       this.highlightPrimary = e;
     },
     updateGlobalChildren(e) {

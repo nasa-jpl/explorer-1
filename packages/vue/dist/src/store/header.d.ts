@@ -12,7 +12,7 @@ export interface State {
 }
 export declare const useHeaderStore: import('pinia').StoreDefinition<"header", State, {}, {
     makeTransparent(value: boolean): void;
-    highlightPrimary(value: boolean): void;
+    updateHighlightPrimary(value: boolean): void;
     updateGlobalChildren(value: any): void;
     updateSecondary(value: any): void;
 }>;
