@@ -100,7 +100,10 @@
               v-else-if="dataGenericStatsBlock.dateDisplay === 'static'"
               class="text-stats-lg"
             >
-              {{ dataGenericStatsBlock.date | displayDate }}
+              {{
+                // @ts-ignore
+                $filters.displayDate(dataGenericStatsBlock.date)
+              }}
             </p>
             <template v-else-if="dataGenericStatsBlock.dateDisplay === 'live'">
               <component
@@ -123,7 +126,10 @@
                 <p class="text-gray-mid-dark flex flex-wrap mt-2 text-sm">
                   <span class="mr-1 -mb-3">Estimated:</span>
                   <span class="sm:whitespace-nowrap">
-                    {{ dataGenericStatsBlock.date | displayDate('DateTime') }}
+                    {{
+                      // @ts-ignore
+                      $filters.displayDate(dataGenericStatsBlock.date, 'DateTime')
+                    }}
                     UTC
                   </span>
                 </p>
@@ -178,7 +184,10 @@
                 v-if="asteroidWatch.asteroidApproach.date"
                 class="text-stats-lg"
               >
-                {{ asteroidWatch.asteroidApproach.date | displayDate }}
+                {{
+                  // @ts-ignore
+                  $filters.displayDate(asteroidWatch.asteroidApproach.date)
+                }}
               </p>
               <BaseUnitToggle
                 v-slot="slotProps"

@@ -27,7 +27,7 @@
             variant="primary"
             :to="typeof link === 'object' ? link : undefined"
             :href="typeof link != 'object' ? link : undefined"
-            v-on="$listeners"
+            v-bind="$attrs"
           >
             {{ linkTitle || link }}
           </BaseLink>

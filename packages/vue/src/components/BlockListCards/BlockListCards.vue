@@ -73,7 +73,7 @@
           >
             <!-- When exactly one link, use primary link variant -->
             <template
-              v-for="(link, _index_link) in item.links"
+              v-for="(link, index_link) in item.links"
               :key="index_link"
             >
               <BaseLink

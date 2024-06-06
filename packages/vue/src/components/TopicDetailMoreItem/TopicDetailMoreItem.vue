@@ -116,6 +116,7 @@ export default defineComponent({
       if (this.theData?.startDate) {
         return mixinFormatEventDates(this.theData.startDate, this.theData.endDate)
       }
+      return undefined
     }
   }
 })

@@ -13,7 +13,7 @@
     }"
     link-title="View all past events"
     indent="col-1"
-    v-on="$listeners"
+    v-bind="$attrs"
   >
     <!-- Slides -->
     <BlockLinkCard
