@@ -88,7 +88,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    // TODO: PORT: find solution for emitting event from slot
+    // TODO: VUE3: find solution for emitting event from slot
     // https://stackoverflow.com/questions/50181858/this-root-emit-not-working-in-vue
     // TODO: find a cleaner way to do this w/o using mounted or root level events
     // scoped slots? https://github.com/vuejs/vue/issues/4332

@@ -7,7 +7,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-// TODO: PORT -- fix logo image in story
+// TODO: VUE3 -- fix logo image in story
 export const Default = {
   args: {
     src: LogoColor

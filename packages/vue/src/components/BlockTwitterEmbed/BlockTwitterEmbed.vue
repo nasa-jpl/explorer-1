@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     render() {
-      // TODO: PORT -- find another way to make this client-only
+      // TODO: VUE3 -- find another way to make this client-only
       if (typeof require !== 'undefined') {
         require('twitter-widgets').load((err, twttr) => {
           if (err) {

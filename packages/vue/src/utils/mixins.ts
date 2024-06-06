@@ -92,7 +92,7 @@ export const mixinGetRouterLink = (link: LinkObject): string | undefined => {
   if (link.linkPage && link.linkPage.url) {
     return link.linkPage.url
   } else if (link.path) {
-    // TODO: PORT get env vars properly
+    // TODO: VUE3 get env vars properly
     // const domain = process?.env?.SITE_HOSTNAME || 'http://localhost:3000'
     const domain = 'http://localhost:3000'
     // keeping it specific and only checking for mission slug with url query

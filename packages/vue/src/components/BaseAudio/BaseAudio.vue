@@ -294,7 +294,7 @@ export default defineComponent({
       this.audio.addEventListener('pause', this._handlePlayPause)
       this.audio.addEventListener('play', this._handlePlayPause)
       this.audio.addEventListener('ended', this._handleEnded)
-      // TODO: PORT: find solution for emitting event from slot
+      // TODO: VUE3: find solution for emitting event from slot
       // TODO: find a cleaner way to do this w/o using mounted or root level events
       // scoped slots? https://github.com/vuejs/vue/issues/4332
       this.$root?.$on('play', this.pauseOthers)
