@@ -4,7 +4,6 @@
     class="z-60 lg:left-auto lg:mr-20 absolute top-0 left-0 right-0 mt-4 text-center"
   >
     <BaseButton
-      v-scroll-to="{ el: 'main' }"
       variant="primary"
       class="focus:not-sr-only sr-only"
       compact
@@ -48,6 +47,7 @@ export default defineComponent({
         this.main.setAttribute('tabindex', '-1')
         this.main.addEventListener('blur', this.handleBlur)
         this.main.focus()
+        window.scrollTo(0, this.main.offsetTop)
       }
     },
   },
