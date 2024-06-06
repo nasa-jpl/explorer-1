@@ -594,15 +594,9 @@ export const TheFooterData = {
   ]
 }
 
-// templates
-const TheFooterTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { TheFooter },
-  template: `<TheFooter :static-data="staticData" />`
-})
-
-export const Default = TheFooterTemplate.bind({})
-Default.storyName = 'TheFooter'
-Default.args = {
-  staticData: TheFooterData
+export const Footer = {
+  args: {
+    data: TheFooterData,
+    commitSha: 'commit no.'
+  }
 }

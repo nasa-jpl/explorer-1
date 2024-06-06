@@ -1,11 +1,11 @@
 <template>
   <section
-    v-if="theData && theData.length"
+    v-if="nextCloseApproaches?.length"
     aria-label="Next 5 Earth Approaches within 7.5 million kilometers"
     class="AsteroidWatchWidget overflow-hidden"
   >
     <div
-      v-for="(item, index) in theData"
+      v-for="(item, index) in nextCloseApproaches"
       :key="index"
       class="MixedBleedGrid lg:pl-0 pl-4"
     >
@@ -93,7 +93,8 @@
           </div>
           <div v-if="item.date" class="lg:col-span-4 col-span-full">
             <p class="label text-subtitle text-jpl-red">Date</p>
-            {{ item.date | displayDate }}
+            {{ // @ts-ignore
+            $filters.displayDate(item.date) }}
           </div>
         </div>
       </div>
@@ -105,13 +106,31 @@
   </section>
 </template>
 <script lang="ts">
-// @ts-nocheck
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseUnitToggle from './../BaseUnitToggle/BaseUnitToggle.vue'
 import IconExternal from './../Icons/IconExternal.vue'
-// TODO: PORT - figure out how to centralize graphQL queries
-import { AsteroidWatchWidgetQuery } from '@/apollo/queries/AsteroidWatchWidget'
+
+interface NextCloseApproach {
+  date: string
+  distanceMiles: string
+  distanceKilometers: string
+  comparisonImage: { 
+    image: { 
+      src: { 
+        url: string
+      }, 
+      webp: {
+        url: string
+      }
+    },
+    text: string
+  }
+  sizeFeet: string
+  name: string
+  externalLink: string
+}
 /**
  * Displays asteroid widget data. API is parsed by the backend. Frontend retrieves via a graphQL query.
  */
@@ -123,33 +142,9 @@ export default defineComponent({
     BaseUnitToggle,
   },
   props: {
-    staticData: {
-      type: Array,
+    nextCloseApproaches: {
+      type: Array as PropType<NextCloseApproach[]>,
       required: false,
-    },
-  },
-  data() {
-    return {
-      fetchedData: null,
-    }
-  },
-  async fetch() {
-    const client = this.$apollo.getClient()
-    const { data } = await client.query({
-      query: AsteroidWatchWidgetQuery,
-    })
-    if (data) {
-      this.fetchedData = data.AsteroidWatchContentPage.nextCloseApproaches
-    }
-  },
-  computed: {
-    theData(): object[] | null {
-      if (this.fetchedData) {
-        return this.fetchedData
-      } else if (this.staticData) {
-        return this.staticData as object[]
-      }
-      return null
     },
   },
 })

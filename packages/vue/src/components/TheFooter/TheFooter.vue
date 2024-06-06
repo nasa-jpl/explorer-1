@@ -6,26 +6,26 @@
       <div class="footer-navigation lg:block lg:col-span-9 hidden col-span-12">
         <!-- footerNavigation -->
         <div
-          v-if="theData && theData.footerNavigation"
+          v-if="data && data.footerNavigation"
           class="sm:grid grid-cols-9 gap-6"
         >
           <div
-            v-for="(item, index) in theData.footerNavigation"
+            v-for="(item, index) in data.footerNavigation"
             :key="index"
             class="sm:mb-3 xl:col-span-2 md:col-span-3 col-span-4 mb-8"
           >
             <div class="text-subtitle text-blue mb-3">
-              {{ mixinGetLinkText(item.titleLink) }}
+              {{ getLinkText(item.titleLink) }}
             </div>
             <BaseLink
               v-for="(link, index_links) in item.links"
               :key="index_links"
               variant="none"
               link-class="can-hover:hover:underline inline-block px-4 py-1 -ml-4"
-              :href="link.path && !mixinGetRouterLink(link) ? link.path : null"
-              :to="mixinGetRouterLink(link) ? mixinGetRouterLink(link) : null"
+              :href="link.path && !getRouterLink(link) ? link.path : null"
+              :to="getRouterLink(link) ? getRouterLink(link) : null"
             >
-              {{ mixinGetLinkText(link) }}
+              {{ getLinkText(link) }}
             </BaseLink>
           </div>
         </div>
@@ -58,13 +58,13 @@
     </div>
     <!-- more from JPL buttons / links -->
     <div
-      v-if="theData && theData.footerMoreFromJpl"
+      v-if="data && data.footerMoreFromJpl"
       class="3xl:px-0 container px-4 mx-auto mt-5"
     >
       <div class="text-subtitle text-blue mb-5">More from JPL</div>
       <div class="lg:block hidden">
         <BaseButton
-          v-for="(item, index) in theData.footerMoreFromJpl"
+          v-for="(item, index) in data.footerMoreFromJpl"
           :key="index"
           :href="item.path"
           :to="item.linkPage ? item.linkPage.url : ''"
@@ -72,39 +72,39 @@
           variant="dark"
           class="mb-5 mr-8"
         >
-          {{ mixinGetLinkText(item) }}
+          {{ getLinkText(item) }}
         </BaseButton>
       </div>
       <!-- Repeated as BaseLink because the style is so drastically different between desktop and mobile -->
       <!-- TODO: achieve this completely with CSS and not two different components (much refactor) -->
       <div class="lg:hidden auto-col-2">
         <BaseLink
-          v-for="(item, index) in theData.footerMoreFromJpl"
+          v-for="(item, index) in data.footerMoreFromJpl"
           :key="index"
           variant="none"
           link-class="can-hover:hover:underline inline-block px-4 py-1 -ml-4"
           :href="item.path ? item.path : null"
           :to="item.linkPage ? item.linkPage.url : null"
         >
-          {{ mixinGetLinkText(item) }}
+          {{ getLinkText(item) }}
         </BaseLink>
       </div>
     </div>
     <!-- Dark section of footer -->
     <div class="bg-opacity-15 lg:py-16 lg:mt-10 pt-10 pb-3 mt-8 bg-black">
       <div class="3xl:px-0 container px-4 mx-auto">
-        <div v-if="theData && theData.relatedNasaSites">
+        <div v-if="data && data.relatedNasaSites">
           <div class="text-subtitle text-blue mb-5">Related NASA Sites</div>
           <div class="auto-col-4">
             <BaseLink
-              v-for="(item, index) in theData.relatedNasaSites"
+              v-for="(item, index) in data.relatedNasaSites"
               :key="index"
               variant="none"
               link-class="can-hover:hover:underline inline-block px-4 py-1 -ml-4"
               :href="item.path ? item.path : null"
               :to="item.linkPage ? item.linkPage.url : null"
             >
-              {{ mixinGetLinkText(item) }}
+              {{ getLinkText(item) }}
             </BaseLink>
           </div>
         </div>
@@ -118,11 +118,11 @@
         class="3xl:px-0 lg:flex lg:flex-wrap lg:px-4 lg:container justify-between mx-auto"
       >
         <div
-          v-if="theData && theData.footerLinks"
+          v-if="data && data.footerLinks"
           class="divide-opacity-40 lg:justify-start lg:-ml-4 flex flex-wrap justify-center mb-2 divide-x divide-white"
         >
           <BaseLink
-            v-for="(item, index) in theData.footerLinks"
+            v-for="(item, index) in data.footerLinks"
             :key="index"
             variant="none"
             class="lg:mb-2 mb-5"
@@ -130,11 +130,11 @@
             :href="item.path ? item.path : null"
             :to="item.linkPage ? item.linkPage.url : null"
           >
-            {{ mixinGetLinkText(item) }}
+            {{ getLinkText(item) }}
           </BaseLink>
         </div>
         <div
-          v-if="theData && theData.footerMeta"
+          v-if="data && data.footerMeta"
           class="lg:text-left lg:border-0 border-opacity-40 lg:pt-0 lg:px-0 px-4 pt-5 mb-4 text-center border-t border-black"
         >
           <div v-if="commitSha" class="lg:inline-block lg:mb-0 block px-3 mb-2">
@@ -142,7 +142,7 @@
             <span>{{ commitSha }}</span>
           </div>
           <div
-            v-for="(item, index) in theData.footerMeta"
+            v-for="(item, index) in data.footerMeta"
             :key="index"
             class="lg:inline-block lg:mb-0 block mb-2"
             :class="{ 'ml-5': index !== 0 }"
@@ -168,8 +168,6 @@
 // @ts-nocheck
 import { defineComponent } from 'vue'
 import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
-// TODO: PORT -- find a place for the query to live
-import { FooterQuery } from '@/apollo/queries/Footer'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import NavSocial from './../NavSocial/NavSocial.vue'
@@ -186,38 +184,24 @@ export default defineComponent({
     LogoCaltech,
   },
   props: {
-    // for storybook
-    staticData: {
+    data: {
       type: Object || null,
       required: false,
       default: null,
     },
-  },
-  data() {
-    return {
-      fetchedData: null,
-      commitSha: process.env.NUXT_ENV_CURRENT_GIT_SHA || null,
+    commitSha: {
+      type: String,
+      required: false
     }
   },
-  async fetch() {
-    if (this.$config && !this.staticData && !this.$config.MAINTENANCE_MODE) {
-      const client = this.$apollo.getClient()
-      const { data } = await client.query({
-        query: FooterQuery,
-      })
-      if (data) {
-        this.fetchedData = data.footer
-      }
-    }
-  },
-  computed: {
-    theData(): object | null {
-      if (this.fetchedData) {
-        return this.fetchedData
-      }
-      return this.staticData
+  methods: {
+    getLinkText(link) {
+      return mixinGetLinkText(link)
     },
-  },
+    getRouterLink(link) {
+      return mixinGetRouterLink(link)
+    }
+  }
 })
 </script>
 <style lang="scss">

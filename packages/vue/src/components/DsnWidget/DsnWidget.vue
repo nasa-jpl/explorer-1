@@ -1,58 +1,58 @@
 <template>
-  <div v-if="theData" class="lg:col-span-3 sm:col-span-5 col-span-full">
-    <template v-if="theData.link">
+  <div v-if="data" class="lg:col-span-3 sm:col-span-5 col-span-full">
+    <template v-if="data.link">
       <BaseLink
         variant="none"
-        :target="theData.linkTarget ? '_blank' : '_self'"
-        :href="theData.link"
+        :target="data.linkTarget ? '_blank' : '_self'"
+        :href="data.link"
         link-class="block"
       >
-        <p v-if="theData.heading" class="text-subtitle text-jpl-red mb-4">
-          {{ theData.heading }}
+        <p v-if="data.heading" class="text-subtitle text-jpl-red mb-4">
+          {{ data.heading }}
         </p>
       </BaseLink>
     </template>
     <template v-else>
-      <p v-if="theData.heading" class="text-subtitle text-jpl-red mb-4">
-        {{ theData.heading }}
+      <p v-if="data.heading" class="text-subtitle text-jpl-red mb-4">
+        {{ data.heading }}
       </p>
     </template>
     <!-- if no data, spacecraftName will be null -->
-    <template v-if="theData.spacecraftName">
-      <p v-if="theData.transmitTitle" class="text-body-sm mb-4">
-        {{ theData.transmitTitle }}
+    <template v-if="data.spacecraftName">
+      <p v-if="data.transmitTitle" class="text-body-sm mb-4">
+        {{ data.transmitTitle }}
       </p>
-      <p v-if="theData.spacecraftName" class="text-stats-lg">
-        {{ theData.spacecraftName }}
+      <p v-if="data.spacecraftName" class="text-stats-lg">
+        {{ data.spacecraftName }}
       </p>
       <div
         class="text-gray-mid-dark flex flex-nowrap items-center justify-start mt-2 text-sm"
       >
         <span
           v-if="
-            theData.transmitStatus === 'both' ||
-            theData.transmitStatus === 'sending'
+            data.transmitStatus === 'both' ||
+            data.transmitStatus === 'sending'
           "
           class="animate-pulse mr-1"
         >
           <span class="sr-only">
-            {{ theData.spacecraftName }} is sending to {{ theData.location }}.
+            {{ data.spacecraftName }} is sending to {{ data.location }}.
           </span>
           <IconArrows class="-ml-1" />
         </span>
-        <span v-if="theData.location" class="mr-1" aria-hidden="true">
-          {{ theData.location }}
+        <span v-if="data.location" class="mr-1" aria-hidden="true">
+          {{ data.location }}
         </span>
         <span
           v-if="
-            theData.transmitStatus === 'both' ||
-            theData.transmitStatus === 'receiving'
+            data.transmitStatus === 'both' ||
+            data.transmitStatus === 'receiving'
           "
           class="animate-pulse"
         >
           <span class="sr-only">
-            {{ theData.spacecraftName }} is receiving from
-            {{ theData.location }}.
+            {{ data.spacecraftName }} is receiving from
+            {{ data.location }}.
           </span>
           <IconArrows />
         </span>
@@ -67,7 +67,6 @@
 import { defineComponent } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import IconArrows from './../Icons/IconArrows.vue'
-import { DsnWidgetQuery } from '@/apollo/queries/DsnWidget'
 /**
  * Displays dsn widget data. API is parsed by the backend. Frontend retrieves via a graphQL query.
  */
@@ -78,45 +77,10 @@ export default defineComponent({
     IconArrows,
   },
   props: {
-    staticData: {
+    data: {
       type: Object,
       required: false,
     },
-  },
-  data() {
-    return {
-      fetchedData: null,
-    }
-  },
-  async fetch() {
-    await this.$apollo
-      .watchQuery({
-        query: DsnWidgetQuery,
-        fetchPolicy: 'no-cache',
-        pollInterval: 60000,
-      })
-      .subscribe({
-        next: ({ data }) => {
-          if (data) {
-            this.fetchedData = data.homePage.dsnWidget
-          }
-        },
-      })
-  },
-  computed: {
-    theData() {
-      if (this.fetchedData) {
-        return this.fetchedData
-      } else if (this.staticData) {
-        return this.staticData
-      }
-      return null
-    },
-  },
-  mounted() {
-    if (this.$fetchState && !this.$fetchState.pending) {
-      this.$fetch()
-    }
   },
 })
 </script>
