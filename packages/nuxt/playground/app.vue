@@ -1,6 +1,5 @@
 <template>
   <div class="relative">
-    <nav-secondary breadcrumb="[{'path': '/go/test-site', 'title': 'Test Go Site', 'children': []}, {'path': '/go/test-site/has-children', 'title': 'Has Children', 'children': [{'path': '/go/test-site/has-children/level-3-has-children', 'title': 'Lvl 3 Has Children', 'children': [{'path': '/go/test-site/has-children/level-3-has-children/level-4-no-children-1', 'title': 'Lvl 4 No Children 1'}, {'path': '/go/test-site/has-children/level-3-has-children/level-4-no-children-2', 'title': 'Lvl 4 No Children 2'}]}, {'path': '/go/test-site/has-children/level-3-no-children', 'title': 'Lvl 3 No Children', 'children': []}]}, {'path': '/go/test-site/no-children-1', 'title': 'No Children 1', 'children': []}, {'path': '/go/test-site/no-children-2', 'title': 'No Children 2', 'children': []}, {'path': '/go/test-site/has-children', 'title': 'Has Children', 'children': [{'path': '/go/test-site/has-children/level-3-has-children', 'title': 'Lvl 3 Has Children', 'children': [{'path': '/go/test-site/has-children/level-3-has-children/level-4-no-children-1', 'title': 'Lvl 4 No Children 1'}, {'path': '/go/test-site/has-children/level-3-has-children/level-4-no-children-2', 'title': 'Lvl 4 No Children 2'}]}, {'path': '/go/test-site/has-children/level-3-no-children', 'title': 'Lvl 3 No Children', 'children': []}]}]" />
     <base-heading size="h1">Nuxt Module Playground</base-heading>
     <div class="text-center mb-3">
       <base-button variant="primary">
@@ -24,6 +23,47 @@
         url: '/topics/rover'
       }
     ]" />
+    <mission-detail-highlights
+      :animation="true"
+      heading="Heading"
+      mission-title="UAD"
+      :highlights="[
+    {
+      date: '1983-01-21',
+      heading: 'Launch',
+      highlightLink: {
+        externalLink: null,
+        page: {
+          title: 'Color Picture from Spirit is Most Detailed View of Mars Ever Seen',
+          url: '/news/from-russia-with-grace/'
+        }
+      },
+      summary: 'A successful launch happened.'
+    },
+    {
+      date: '1983-06-08',
+      heading: null,
+      highlightLink: {
+        externalLink: null,
+        page: {
+          title: 'Color Picture from Spirit is Most Detailed View of Mars Ever Seen',
+          url: '/news/from-russia-with-grace/'
+        }
+      },
+      summary: null
+    },
+    {
+      date: '1983-11-21',
+      heading: 'End of mission',
+      highlightLink: {
+        externalLink: 'https://www.nasa.gov',
+        page: null
+      },
+      summary:
+        'Following a 10-month-long mission, the space telescope exhausts its cryogen and ceases operations.'
+    }
+  ]"
+    />
   </div>
 </template>
 
