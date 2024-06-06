@@ -96,13 +96,13 @@ export default defineComponent({
     },
   },
   computed: {
-    theData(): Card | null {
-      if (this.data?.page) {
-        return this.data.page
+    theData(): Card | undefined {
+      if ((this.data as Card)?.page) {
+        return (this.data as Card).page
       } else if (this.data) {
         return this.data
       }
-      return null
+      return undefined
     },
     formattedEventDates() {
       if (this.theData?.startDate) {

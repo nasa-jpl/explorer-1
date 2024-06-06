@@ -147,9 +147,9 @@ export default defineComponent({
     // to allow for various data shapes and sources
     // use-case: content pages provide this.data.page with non-page siblings (i.e. external link cards)
     // use-case: search and listing pages pass individual props
-    theItem(): Card | null {
-      if (this.data && this.data.page) {
-        return this.data.page
+    theItem(): Card | undefined {
+      if ((this.data as Card)?.page) {
+        return (this.data as Card).page
       } else if (this.data) {
         return this.data
       } else if (
@@ -174,7 +174,7 @@ export default defineComponent({
           endDate: this.endDate,
         }
       }
-      return null
+      return undefined
     },
     formattedEventDates() {
       return this.theItem?.startDate ? mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate) : undefined

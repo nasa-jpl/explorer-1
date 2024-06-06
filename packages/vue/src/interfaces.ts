@@ -61,13 +61,7 @@ export interface Card {
   type?: string
   url?: string
   externalLink?: string
-  page?: {
-    type: string
-    label: string
-    thumbnailImage: Partial<ImageObject>
-    title: string
-    url: string
-  }
+  page?: Card
   title?: string
   date?: string
   startDate?: string
@@ -83,4 +77,14 @@ export interface RelatedLinkObject {
   document: { url: string } | null
   externalLink: string | null
   text: string | null
+}
+
+export interface BlockData {
+  blockType: string
+}
+export interface PageResponse {
+  __typename: string
+  contentType: string
+  body?: Partial<BlockData>[]
+  breadcrumb?: string
 }

@@ -4,7 +4,7 @@ interface ModuleOptions {
     includeStyles: boolean;
     includeComponents: boolean;
     includePageTemplates: boolean;
-    includeStores: boolean;
+    includeStore: boolean;
 }
 declare const _default: _nuxt_schema.NuxtModule<ModuleOptions>;
 

@@ -11,7 +11,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ICalendar, CalendarOptions } from 'datebook'
+import { ICalendar } from 'datebook'
+import type { CalendarOptions } from 'datebook'
 import dayjs from './../../utils/dayjs'
 import BaseButton from './../BaseButton/BaseButton.vue'
 

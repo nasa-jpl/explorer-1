@@ -30,12 +30,13 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
     const runtimeDir = resolver.resolve('./runtime')
+    const pluginDir = resolver.resolve('./runtime/plugins')
 
     // add plugins
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    addPlugin(resolver.resolve(runtimeDir, 'plugins/dayjs'))
-    addPlugin(resolver.resolve(runtimeDir, 'plugins/filters'))
-    addPlugin(resolver.resolve(runtimeDir, 'plugins/click-outside'))
+    addPlugin(resolver.resolve(pluginDir, 'dayjs'))
+    addPlugin(resolver.resolve(pluginDir, 'click-outside'))
+    addPlugin(resolver.resolve(pluginDir, 'filters'))
 
     if (_options.includeStyles) {
       await installModule('@nuxtjs/tailwindcss', {
@@ -63,6 +64,19 @@ export default defineNuxtModule<ModuleOptions>({
             scss: {
               additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
             }
+          }
+        },
+        build: {
+          rollupOptions: {
+            // make sure to externalize deps that shouldn't be bundled
+            // into your library
+            external: [
+              './../node_modules/vue',
+              './../node_modules/swiper',
+              './../node_modules/@fancyapps/ui',
+              './../node_modules/dayjs',
+              './../node_modules/click-outside-vue3'
+            ]
           }
         }
       }

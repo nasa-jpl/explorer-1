@@ -4,7 +4,7 @@
  ** globalChildren: the breadcrumb items derived from the active primary item in the global navigation
  ** secondayNav: breadcrumb items that are overridden from content pages or similar
  */
-interface State {
+export interface State {
     headerTransparent: boolean;
     highlightPrimary: boolean;
     globalChildren?: any | null;
@@ -16,4 +16,3 @@ export declare const useHeaderStore: import('pinia').StoreDefinition<"header", S
     updateGlobalChildren(value: any): void;
     updateSecondary(value: any): void;
 }>;
-export {};

@@ -58,7 +58,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ElasticSearchPage } from '../../interfaces';
+import type { ElasticSearchPage } from '../../interfaces';
 import dayjs from './../../utils/dayjs';
 import SearchResultCard from './../SearchResultCard/SearchResultCard.vue'
 import SearchResultGridItem from './../SearchResultGridItem/SearchResultGridItem.vue'

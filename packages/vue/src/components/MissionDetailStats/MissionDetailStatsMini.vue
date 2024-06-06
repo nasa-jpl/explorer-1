@@ -42,8 +42,9 @@
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import DistanceStats from './DistanceStats.vue'
+import { clockTypes } from './MissionDetailStats.vue'
 import type { DistanceType } from './DistanceStats.vue'
-import { clockTypes, ClockType } from './MissionDetailStats.vue'
+import type { ClockType } from './MissionDetailStats.vue'
 import BaseTimer from './../BaseTimer/BaseTimer.vue'
 
 /**

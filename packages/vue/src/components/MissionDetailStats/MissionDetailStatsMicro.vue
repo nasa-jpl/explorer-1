@@ -12,7 +12,8 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import { clockTypes, ClockType } from './MissionDetailStats.vue'
+import { clockTypes } from './MissionDetailStats.vue'
+import type { ClockType } from './MissionDetailStats.vue'
 import BaseTimer from './../BaseTimer/BaseTimer.vue'
 
 export default defineComponent({

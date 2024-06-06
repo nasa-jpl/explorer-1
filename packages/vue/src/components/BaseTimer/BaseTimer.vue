@@ -48,7 +48,7 @@
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import dayjs, { Dayjs } from 'dayjs'
-import duration, { Duration } from 'dayjs/plugin/duration'
+import duration, { type Duration } from 'dayjs/plugin/duration'
 import minMax from 'dayjs/plugin/minMax'
 
 dayjs.extend(duration)

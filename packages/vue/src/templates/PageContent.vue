@@ -57,7 +57,7 @@
         :url="data.url"
       />
     </LayoutHelper>
-
+    
     <!-- Body Streamfield -->
     <BlockStreamfield :data="data.body" />
 

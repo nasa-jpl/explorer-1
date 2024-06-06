@@ -69,7 +69,8 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import DistanceStats, { DistanceType } from './DistanceStats.vue'
+import DistanceStats from './DistanceStats.vue'
+import type { DistanceType } from './DistanceStats.vue'
 import BaseTimer from './../BaseTimer/BaseTimer.vue'
 
 // https://github.com/nasa-jpl/www-backend/blame/develop/cms/missions/choices.py

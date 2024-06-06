@@ -7,7 +7,7 @@ import { defineStore } from 'pinia'
  ** secondayNav: breadcrumb items that are overridden from content pages or similar
  */
 
-interface State {
+export interface State {
   headerTransparent: boolean
   highlightPrimary: boolean
   globalChildren?: any | null

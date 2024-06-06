@@ -63,7 +63,7 @@ interface UnitDetails {
   toOther: number
 }
 
-interface UnitConfig {
+export interface UnitConfig {
   imperial: UnitDetails
   metric: UnitDetails
 }
