@@ -27,7 +27,7 @@ export const useHeaderStore = defineStore('header', {
     makeTransparent(value: boolean) {
       this.headerTransparent = value
     },
-    highlightPrimary(value: boolean) {
+    updateHighlightPrimary(value: boolean) {
       // @ts-ignore
       this.highlightPrimary = value
     },

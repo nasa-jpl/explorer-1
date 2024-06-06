@@ -223,7 +223,7 @@ export default defineComponent({
         this.headerStore.makeTransparent(false)
         // to reset if active primary nav item should be highlighted
         // content pages can override this a la carte
-        this.headerStore.highlightPrimary(true)
+        this.headerStore.updateHighlightPrimary(true)
         // clear secondary nav each time
         mixinUpdateSecondary(null)
       }

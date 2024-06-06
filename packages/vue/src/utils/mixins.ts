@@ -128,7 +128,7 @@ export const mixinUpdateSecondary = (value: [BreadcrumbPathObject] | null) => {
     */
 export const mixinHighlightPrimary = (value: boolean) => {
   const headerStore = useHeaderStore()
-  headerStore.highlightPrimary(value)
+  headerStore.updateHighlightPrimary(value)
 }
 /* -- mixinIsActivePath --
       Used in various navigation components to determine if a navigation
