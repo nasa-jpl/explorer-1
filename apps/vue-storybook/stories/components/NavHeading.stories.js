@@ -18,13 +18,6 @@ export default {
   excludeStories: /.*Data$/
 }
 
-// templates
-const NavHeadingTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavHeading },
-  template: `<NavHeading :data="data" />`
-})
-
-export const Default = NavHeadingTemplate.bind({})
-Default.storyName = 'NavHeading'
-Default.args = { data: MenuLinkColumnWithHeaderData }
+export const Default = {
+  args: { data: MenuLinkColumnWithHeaderData }
+}

@@ -289,7 +289,7 @@ export default defineComponent({
       }
     },
     getLinkText(item: LinkObject) {
-      mixinGetLinkText(item)
+      return mixinGetLinkText(item)
     }
   },
 })

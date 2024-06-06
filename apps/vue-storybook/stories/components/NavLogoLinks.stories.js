@@ -7,13 +7,16 @@ export default {
   excludeStories: /.*Data$/
 }
 
-// templates
-const NavLogoLinksTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavLogoLinks },
-  template: `<div class="flex"><NavLogoLinks><img :src="src" alt="Logo Image" /></NavLogoLinks></div>`
-})
-
-export const Base = NavLogoLinksTemplate.bind({})
-Base.storyName = 'NavLogoLinks'
-Base.args = { src: LogoColor }
+// TODO: PORT -- fix logo image in story
+export const Default = {
+  args: {
+    src: LogoColor
+  },
+  render: (args) => ({
+    components: { NavLogoLinks },
+    setup() {
+      return { args }
+    },
+    template: `<div class="flex"><NavLogoLinks><img :src="src" alt="Logo Image" /></NavLogoLinks></div>`
+  })
+}

@@ -6,15 +6,8 @@ export default {
   excludeStories: /.*Data$/
 }
 
-// templates
-const NavSearchFormTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavSearchForm },
-  template: `<NavSearchForm :mobile="mobile" />`
-})
-
-export const Form = NavSearchFormTemplate.bind({})
-Form.storyName = 'NavSearchForm'
-Form.args = {
-  mobile: false
+export const Form = {
+  args: {
+    mobile: false
+  }
 }

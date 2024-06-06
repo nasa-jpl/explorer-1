@@ -112,97 +112,120 @@ const NavMobileTertiaryNavData = [
     ]
   }
 ]
-// templates
-const NavMobileTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavMobile },
-  template: `<NavMobile
-    :data="data"
-    :header-visible="headerVisible"
-    :scrolled-up="scrolledUp"
-    :scroll-top="scrollTop"
-  />`
-})
 
-const NavMobileWithSecondaryNavTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavMobile },
-  template: `<NavMobile
-    :data="data"
-    :header-visible="headerVisible"
-    :scrolled-up="scrolledUp"
-    :scroll-top="scrollTop"
-    :static-secondary-data="staticSecondaryData"
-  />`
-})
-
-const NavMobileDropdownTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavMobileDropdown },
-  template: `<NavMobileDropdown
-    :data="data"
-  />`
-})
-
-const NavMobileDropdownActiveTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavMobileDropdown },
-  template: `<NavMobileDropdown
-    :data="data"
-    class="-active"
-  />`
-})
-
-const NavMobileLinkTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavMobileLink },
-  template: `<NavMobileLink
-  :data="data"
-/>`
-})
-
-export const Nav = NavMobileTemplate.bind({})
-Nav.args = {
-  data: NavMobileData,
-  headerVisible: true,
-  scrolledUp: false,
-  scrollTop: 0
+export const Nav = {
+  args: {
+    data: NavMobileData,
+    headerVisible: true,
+    scrolledUp: false,
+    scrollTop: 0
+  },
+  render: (args) => ({
+    components: { NavMobile },
+    setup() {
+      return { args }
+    },
+    template: `<NavMobile
+      v-bind="args"
+    />`
+  })
 }
 
-export const WithSecondaryNav = NavMobileWithSecondaryNavTemplate.bind({})
-WithSecondaryNav.args = {
-  data: NavMobileData,
-  headerVisible: true,
-  scrolledUp: false,
-  scrollTop: 0,
-  staticSecondaryData: NavMobileSecondaryNavData
+export const WithSecondaryNav = {
+  args: {
+    data: NavMobileData,
+    headerVisible: true,
+    scrolledUp: false,
+    scrollTop: 0,
+    staticSecondaryData: NavMobileSecondaryNavData
+  },
+  render: (args) => ({
+    components: { NavMobile },
+    setup() {
+      return { args }
+    },
+    template: `<NavMobile
+      v-bind="args"
+    />`
+  })
 }
 
-export const WithTertiaryNav = NavMobileWithSecondaryNavTemplate.bind({})
-WithTertiaryNav.args = {
-  data: NavMobileData,
-  headerVisible: true,
-  scrolledUp: false,
-  scrollTop: 0,
-  staticSecondaryData: NavMobileTertiaryNavData
+export const WithTertiaryNav = {
+  args: {
+    data: NavMobileData,
+    headerVisible: true,
+    scrolledUp: false,
+    scrollTop: 0,
+    staticSecondaryData: NavMobileTertiaryNavData
+  },
+  render: (args) => ({
+    components: { NavMobile },
+    setup() {
+      return { args }
+    },
+    template: `<NavMobile
+      v-bind="args"
+    />`
+  })
 }
 
-export const Dropdown = NavMobileDropdownTemplate.bind({})
-Dropdown.args = {
-  data: MenuFooterPanelData
+export const Dropdown = {
+  args: {
+    data: MenuFooterPanelData
+  },
+  render: (args) => ({
+    components: { NavMobileDropdown },
+    setup() {
+      return { args }
+    },
+    template: `<NavMobileDropdown
+      v-bind="args"
+    />`
+  })
 }
 
-export const DropdownActive = NavMobileDropdownActiveTemplate.bind({})
-DropdownActive.args = {
-  data: MenuFooterPanelData
+export const DropdownActive = {
+  args: {
+    data: MenuFooterPanelData
+  },
+  render: (args) => ({
+    components: { NavMobileDropdown },
+    setup() {
+      return { args }
+    },
+    template: `<NavMobileDropdown
+      v-bind="args"
+      class="-active"
+    />`
+  })
 }
 
-export const DropdownSecondary = NavMobileDropdownTemplate.bind({})
-DropdownSecondary.args = {
-  data: NavMobileSecondaryNavData
+export const DropdownSecondary = {
+  args: {
+    data: NavMobileSecondaryNavData
+  },
+  render: (args) => ({
+    components: { NavMobileDropdown },
+    setup() {
+      return { args }
+    },
+    template: `<NavMobileDropdown
+      v-bind="args"
+    />`
+  })
 }
 
-export const Link = NavMobileLinkTemplate.bind({})
-Link.args = {
-  data: MenuFooterPanelData.links[0]
+export const Link = {
+  args: {
+    data: MenuFooterPanelData.links[0]
+  },
+  render: (args) => ({
+    components: { NavMobileLink },
+    setup() {
+      return { args }
+    },
+    template: `<NavMobileLink
+      v-bind="args"
+    />`
+  })
 }

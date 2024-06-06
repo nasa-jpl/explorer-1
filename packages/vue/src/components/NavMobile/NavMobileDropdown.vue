@@ -10,7 +10,7 @@
       @closeDropdown="closeDropdown()"
     >
       <span v-if="data" class="block py-0 pl-6 -ml-4 border-l-4">
-        {{ (data.length && data[0].title) || mixinGetLinkText(data.titleLink) }}
+        {{ (data.length && data[0].title) || getLinkText(data.titleLink) }}
       </span>
     </MixinDropdownToggle>
 
@@ -53,10 +53,11 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
+import type { LinkObject } from '../../utils/mixins'
 import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
 import NavMobileLink from './../NavMobile/NavMobileLink.vue'
 import NavMobileSecondaryDropdown from './../NavMobile/NavMobileSecondaryDropdown.vue'
-
+import { mixinGetLinkText } from '../../utils/mixins'
 export default defineComponent({
   name: 'NavMobileDropdown',
   components: {
@@ -129,6 +130,9 @@ export default defineComponent({
         this.closeDropdown()
       }
     },
+    getLinkText(link: LinkObject) {
+      return mixinGetLinkText(link)
+    }
   },
 })
 </script>

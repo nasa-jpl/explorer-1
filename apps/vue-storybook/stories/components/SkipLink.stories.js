@@ -6,12 +6,4 @@ export default {
   excludeStories: /.*Data$/
 }
 
-// templates
-const SkipLinkTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { SkipLink },
-  template: `<SkipLink />`
-})
-
-export const Default = SkipLinkTemplate.bind({})
-Default.storyName = 'SkipLink'
+export const Default = {}

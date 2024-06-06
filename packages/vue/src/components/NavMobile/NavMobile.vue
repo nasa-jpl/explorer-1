@@ -11,7 +11,7 @@
           <!-- branding -->
           <NavLogoLinks class="lg:p-0 w-72 z-20 p-2 pl-0 -ml-3">
             <img
-              src="@/assets/images/svg/logo-tribrand-color.svg"
+              :src="LogoColor"
               alt="JPL Logo"
               width="324"
               height="72"
@@ -78,6 +78,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
+import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
 import { useHeaderStore } from './../../store/header'
 import IconMenu from './../Icons/IconMenu.vue'
 import IconClose from './../Icons/IconClose.vue'
@@ -134,6 +135,7 @@ export default defineComponent({
     return {
       menuVisible: false,
       searchQuery: null,
+      LogoColor: LogoColor,
     }
   },
   computed: {

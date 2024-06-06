@@ -6,15 +6,15 @@ export default {
   excludeStories: /.*Data$/
 }
 
-// templates
-const NavSocialTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavSocial },
-  template: `<div class="p-8" :class="{'bg-dark-blue' : dark}"><NavSocial :dark="dark" /></div>`
-})
+export const Social = { args: { dark: false } }
 
-export const Social = NavSocialTemplate.bind({})
-Social.args = { dark: false }
-
-export const SocialDark = NavSocialTemplate.bind({})
-SocialDark.args = { dark: true }
+export const SocialDark = {
+  args: { dark: true },
+  render: (args) => ({
+    components: { NavSocial },
+    setup() {
+      return { args }
+    },
+    template: `<div class="p-8" class="bg-dark-blue"><NavSocial v-bind="args" /></div>`
+  })
+}

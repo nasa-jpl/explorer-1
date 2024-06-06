@@ -38,13 +38,9 @@ export const MenuLinkColumnWithHeaderData = {
     }
   ]
 }
-// templates
-const NavLinkListTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { NavLinkList },
-  template: `<NavLinkList :data="data" />`
-})
 
-export const Default = NavLinkListTemplate.bind({})
-Default.storyName = 'NavLinkList'
-Default.args = { data: MenuLinkColumnWithHeaderData }
+export const Default = {
+  args: {
+    data: MenuLinkColumnWithHeaderData
+  }
+}
