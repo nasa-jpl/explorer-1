@@ -1,5 +1,8 @@
 <template>
-  <div v-if="loading" class="loading-page animate-fadeIn">
+  <div
+    v-if="loading"
+    class="loading-page animate-fadeIn"
+  >
     <div class="loading-wrapper">
       <slot name="loading">
         <div class="loading"></div>
@@ -12,7 +15,7 @@
 export default {
   name: 'LoadingTransition',
   data: () => ({
-    loading: false,
+    loading: false
   }),
   methods: {
     start() {
@@ -20,8 +23,8 @@ export default {
     },
     finish() {
       this.loading = false
-    },
-  },
+    }
+  }
 }
 </script>
 

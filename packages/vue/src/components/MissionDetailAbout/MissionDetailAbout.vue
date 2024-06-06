@@ -12,10 +12,11 @@
         <BlockText :text="description" />
       </div>
     </div>
-    <div v-if="hasContent" class="col-span-3 col-start-9">
-      <p
-        class="font-secondary mb-5 text-base leading-tight tracking-wider uppercase"
-      >
+    <div
+      v-if="hasContent"
+      class="col-span-3 col-start-9"
+    >
+      <p class="font-secondary mb-5 text-base leading-tight tracking-wider uppercase">
         {{ sidebarTitle }}
       </p>
       <ul class="lg:mb-5 flex flex-wrap items-start mb-3">
@@ -25,7 +26,7 @@
           v-observe-visibility="{
             callback: isViewableNow,
             throttle: 0,
-            once: true,
+            once: true
           }"
           :class="animationClass"
           class="instrument justify-content-center flex-column flex items-start w-full align-middle"
@@ -53,36 +54,36 @@ export default defineComponent({
   name: 'MissionDetailAbout',
   components: {
     BaseHeading,
-    BlockText,
+    BlockText
   },
   directives: {
-    ObserveVisibility,
+    ObserveVisibility
   },
   props: {
     descriptionHeading: {
       type: String,
       required: false,
-      default: 'About the Mission',
+      default: 'About the Mission'
     },
     description: {
       type: String,
       required: true,
-      default: '',
+      default: ''
     },
     instruments: {
       type: Array as PropType<Instrument[]>,
-      required: false,
+      required: false
     },
     sidebarTitle: {
       type: String,
       required: false,
-      default: 'Instruments',
-    },
+      default: 'Instruments'
+    }
   },
   data() {
     return {
       showAnimation: false,
-      hasIntersectionObserver: true,
+      hasIntersectionObserver: true
     }
   },
   computed: {
@@ -102,7 +103,7 @@ export default defineComponent({
         return 'lifeless'
       }
       return ''
-    },
+    }
   },
   mounted() {
     this.featureDetection()
@@ -121,8 +122,8 @@ export default defineComponent({
         // intersection observer not supported
         this.hasIntersectionObserver = false
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

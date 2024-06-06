@@ -31,9 +31,7 @@
     <div
       class="transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform"
       :class="
-        compact
-          ? 'can-hover:group-hover:-translate-y-2'
-          : 'can-hover:group-hover:-translate-y-3'
+        compact ? 'can-hover:group-hover:-translate-y-2' : 'can-hover:group-hover:-translate-y-3'
       "
     >
       <div class="flex flex-wrap">
@@ -42,7 +40,10 @@
           class="text-subtitle divide-gray-mid flex divide-x"
           :class="compact ? 'mb-2' : 'mb-4'"
         >
-          <span v-if="theItem.label" :class="{ 'pr-2': theItem.startDate }">
+          <span
+            v-if="theItem.label"
+            :class="{ 'pr-2': theItem.startDate }"
+          >
             {{ theItem.label }}
           </span>
           <span
@@ -62,7 +63,10 @@
       >
         {{ theItem.title }}
       </component>
-      <p v-if="theItem.date" class="text-gray-mid-dark mt-2">
+      <p
+        v-if="theItem.date"
+        class="text-gray-mid-dark mt-2"
+      >
         {{ theItem.date }}
       </p>
     </div>
@@ -91,57 +95,57 @@ export default defineComponent({
     IconArrow,
     BaseLink,
     BaseImage,
-    BaseImagePlaceholder,
+    BaseImagePlaceholder
   },
   props: {
     data: {
       type: Object as PropType<Card>,
-      required: false,
+      required: false
     },
     // override props as needed
     // so we can use this component in search results
     url: {
       type: String,
-      required: false,
+      required: false
     },
     externalLink: {
       type: String,
-      required: false,
+      required: false
     },
     thumbnailImage: {
       type: Object,
-      required: false,
+      required: false
     },
     label: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     date: {
       type: String,
-      required: false,
+      required: false
     },
     startDate: {
       type: String,
-      required: false,
+      required: false
     },
     endDate: {
       type: String,
-      required: false,
+      required: false
     },
     // if styling should be compact
     compact: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // if a heading should be used and at what level
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     // to allow for various data shapes and sources
@@ -171,15 +175,17 @@ export default defineComponent({
           title: this.title,
           date: this.date,
           startDate: this.startDate,
-          endDate: this.endDate,
+          endDate: this.endDate
         }
       }
       return undefined
     },
     formattedEventDates() {
-      return this.theItem?.startDate ? mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate) : undefined
+      return this.theItem?.startDate
+        ? mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate)
+        : undefined
     }
-  },
+  }
 })
 </script>
 <style lang="scss">

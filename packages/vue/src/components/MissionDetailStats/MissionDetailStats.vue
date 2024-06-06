@@ -18,14 +18,7 @@
           <p class="label text-subtitle">{{ clockTypeLabel }}</p>
           <BaseTimer
             :target-date-time="startDateTime"
-            :selected-units="[
-              'years',
-              'months',
-              'days',
-              'hours',
-              'minutes',
-              'seconds',
-            ]"
+            :selected-units="['years', 'months', 'days', 'hours', 'minutes', 'seconds']"
             :countdown="clockType === 'countdown'"
           />
         </div>
@@ -45,19 +38,31 @@
             <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
           </template>
         </DistanceStats>
-        <div v-if="displayDate" class="lg:col-span-2 col-span-5">
+        <div
+          v-if="displayDate"
+          class="lg:col-span-2 col-span-5"
+        >
           <p class="label text-subtitle">Launch Date</p>
           <p>{{ displayDate }}</p>
         </div>
-        <div v-if="missionTypes.length > 0" class="lg:col-span-2 col-span-5">
+        <div
+          v-if="missionTypes.length > 0"
+          class="lg:col-span-2 col-span-5"
+        >
           <p class="label text-subtitle">Type</p>
           {{ missionTypes.map((t) => t.missionType).join(', ') }}
         </div>
-        <div v-if="missionTargets.length > 0" class="lg:col-span-2 col-span-5">
+        <div
+          v-if="missionTargets.length > 0"
+          class="lg:col-span-2 col-span-5"
+        >
           <p class="label text-subtitle">Target</p>
           {{ missionTargets.map((t) => t.target).join(', ') }}
         </div>
-        <div v-if="status !== 'draft'" class="lg:col-span-2 col-span-5">
+        <div
+          v-if="status !== 'draft'"
+          class="lg:col-span-2 col-span-5"
+        >
           <p class="label text-subtitle">Status</p>
           {{ statusLabel }}
         </div>
@@ -79,17 +84,17 @@ export const statuses = {
   current: 'Current',
   future: 'Future',
   proposed: 'Proposed',
-  past: 'Past',
+  past: 'Past'
 } as const
 type Status = keyof typeof statuses
-type StatusLabel = typeof statuses[Status]
+type StatusLabel = (typeof statuses)[Status]
 
 export const clockTypes = {
   countdown: 'Countdown',
   time_in_orbit: 'Time in Orbit',
   time_on_mars: 'Time on Mars',
   time_to_mars: 'Time to Mars',
-  time_to_dest: 'Time to Destination',
+  time_to_dest: 'Time to Destination'
 } as const
 export type ClockType = keyof typeof clockTypes
 
@@ -100,35 +105,34 @@ export default defineComponent({
   name: 'MissionDetailStats',
   components: {
     BaseTimer,
-    DistanceStats,
+    DistanceStats
   },
   props: {
     showClock: Boolean,
     clockType: {
       type: String as PropType<ClockType>,
       required: true,
-      validator: (val: ClockType): boolean => Boolean(clockTypes[val]),
+      validator: (val: ClockType): boolean => Boolean(clockTypes[val])
     },
     startDateTime: String,
     displayDate: {
       type: String || null,
-      required: false,
-      
+      required: false
     },
     missionTypes: {
       type: Array as PropType<{ missionType: string }[]>,
       required: true,
-      default: () => [],
+      default: () => []
     },
     missionTargets: {
       type: Array as PropType<{ target: string }[]>,
       required: true,
-      default: () => [],
+      default: () => []
     },
     status: {
       type: String as PropType<Status>,
       required: true,
-      validator: (val: Status): boolean => Boolean(statuses[val]),
+      validator: (val: Status): boolean => Boolean(statuses[val])
     },
     showDistance: Boolean,
     distanceType: {
@@ -137,7 +141,7 @@ export default defineComponent({
       default: ''
     },
     distanceValue: Number,
-    distanceApiUrls: String,
+    distanceApiUrls: String
   },
   computed: {
     clockTypeLabel(): string {
@@ -145,8 +149,8 @@ export default defineComponent({
     },
     statusLabel(): StatusLabel | Status {
       return statuses[this.status as Status] || this.status
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

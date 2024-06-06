@@ -8,13 +8,17 @@
     aria-hidden="true"
     focusable="false"
   >
-    <path stroke="currentColor" fill="none" d="M0.5 0.5H21.5V21.5H0.5z" />
+    <path
+      stroke="currentColor"
+      fill="none"
+      d="M0.5 0.5H21.5V21.5H0.5z"
+    />
   </svg>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconCheckbox',
+  name: 'IconCheckbox'
 })
 </script>
 <style lang="scss">

@@ -1,5 +1,10 @@
-\<template>
-  <MixinCarousel v-if="hasContent" :heading="heading" :variant="itemType">
+\
+<template>
+  <MixinCarousel
+    v-if="hasContent"
+    :heading="heading"
+    :variant="itemType"
+  >
     <!-- Slides -->
     <component
       :is="theVariantComponent"
@@ -22,7 +27,7 @@ interface Variants {
 
 export const itemTypes: Variants = {
   cards: 'BlockLinkCard',
-  tiles: 'BlockLinkTile',
+  tiles: 'BlockLinkTile'
 }
 
 export default defineComponent({
@@ -30,24 +35,23 @@ export default defineComponent({
   components: {
     MixinCarousel,
     BlockLinkCard,
-    BlockLinkTile,
+    BlockLinkTile
   },
   props: {
     itemType: {
       type: String,
       required: false,
       default: 'cards',
-      validator: (prop: string): boolean =>
-        Object.keys(itemTypes).includes(prop),
+      validator: (prop: string): boolean => Object.keys(itemTypes).includes(prop)
     },
     items: {
       type: Array,
-      required: false,
+      required: false
     },
     heading: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theVariantComponent() {
@@ -58,7 +62,7 @@ export default defineComponent({
         return true
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>

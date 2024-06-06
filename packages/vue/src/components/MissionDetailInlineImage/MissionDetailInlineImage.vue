@@ -5,22 +5,25 @@
   >
     <div
       class="flex flex-row items-start col-span-4"
-      :class="
-        alignment === 'right' ? 'col-start-2 order-1' : 'col-start-9 order-2'
-      "
+      :class="alignment === 'right' ? 'col-start-2 order-1' : 'col-start-9 order-2'"
     >
       <div class="lg:mb-10 xl:mb-3 mb-2">
-        <BlockText v-if="text" class="lg:mb-0 mb-5" :text="text" />
+        <BlockText
+          v-if="text"
+          class="lg:mb-0 mb-5"
+          :text="text"
+        />
       </div>
     </div>
     <div
       class="col-span-6"
-      :class="
-        alignment === 'right' ? 'col-start-7 order-2' : 'col-start-2 order-1'
-      "
+      :class="alignment === 'right' ? 'col-start-7 order-2' : 'col-start-2 order-1'"
     >
       <div class="justify-items-center relative block">
-        <BaseImagePlaceholder aspect-ratio="1:1" dark-mode>
+        <BaseImagePlaceholder
+          aspect-ratio="1:1"
+          dark-mode
+        >
           <BaseImage
             v-if="image && image.src"
             :src="image.src.url"
@@ -32,7 +35,10 @@
             loading="lazy"
           />
         </BaseImagePlaceholder>
-        <BaseImageCaption class="lg:mt-3 mt-2" :data="image" />
+        <BaseImageCaption
+          class="lg:mt-3 mt-2"
+          :data="image"
+        />
       </div>
     </div>
   </div>
@@ -52,31 +58,31 @@ export default defineComponent({
     BlockText,
     BaseImagePlaceholder,
     BaseImage,
-    BaseImageCaption,
+    BaseImageCaption
   },
   props: {
     alignment: {
       type: String,
       required: false,
-      default: 'right',
+      default: 'right'
     },
     text: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theSrcSet() {
       if (this.image) {
-        return mixinGetSrcSet(this.image) 
+        return mixinGetSrcSet(this.image)
       }
       return undefined
     }
-  },
+  }
 })
 </script>
 

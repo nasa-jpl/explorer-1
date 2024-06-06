@@ -1,5 +1,8 @@
 <template>
-  <svg viewBox="0 0 50 50" class="IconNext">
+  <svg
+    viewBox="0 0 50 50"
+    class="IconNext"
+  >
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -14,7 +17,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconNext',
+  name: 'IconNext'
 })
 </script>
 <style lang="scss">

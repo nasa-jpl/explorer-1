@@ -4,26 +4,42 @@
       v-if="label || (topics && topics.length)"
       class="flex flex-wrap items-start mb-3"
     >
-      <div v-if="topics && topics.length" class="inline">
-        <BaseLink variant="secondary" :to="topics[0].url" class="py-3">
+      <div
+        v-if="topics && topics.length"
+        class="inline"
+      >
+        <BaseLink
+          variant="secondary"
+          :to="topics[0].url"
+          class="py-3"
+        >
           <span :itemprop="schema ? 'articleSection' : undefined">
             {{ topics[0].title }}
           </span>
         </BaseLink>
       </div>
-      <span v-else-if="label" class="text-subtitle py-3">
+      <span
+        v-else-if="label"
+        class="text-subtitle py-3"
+      >
         <template v-if="!labelLink">
           {{ label }}
         </template>
         <template v-else>
-          <BaseLink variant="secondary" :to="labelLink" class="py-3">
+          <BaseLink
+            variant="secondary"
+            :to="labelLink"
+            class="py-3"
+          >
             {{ label }}
           </BaseLink>
         </template>
       </span>
       <span class="sr-only">.</span>
     </div>
-    <BaseHeading level="h1" :itemprop="schema ? 'headline' : undefined"
+    <BaseHeading
+      level="h1"
+      :itemprop="schema ? 'headline' : undefined"
       >{{ title }}
     </BaseHeading>
     <div
@@ -47,17 +63,19 @@
         itemtype="https://schema.org/Organization"
         class="hidden"
       >
-        <span :itemprop="schema ? 'name' : undefined">
-          Jet Propulsion Laboratory
-        </span>
-        <span :itemprop="schema ? 'url' : undefined">
-          https://www.jpl.nasa.gov/
-        </span>
+        <span :itemprop="schema ? 'name' : undefined"> Jet Propulsion Laboratory </span>
+        <span :itemprop="schema ? 'url' : undefined"> https://www.jpl.nasa.gov/ </span>
       </span>
       <span v-if="publicationDate">
-        <meta v-if="schema" itemprop="datePublished" :content="pubDatetime" />
-        {{ // @ts-ignore
-        $filters.displayDate(publicationDate) }}
+        <meta
+          v-if="schema"
+          itemprop="datePublished"
+          :content="pubDatetime"
+        />
+        {{
+          // @ts-ignore
+          $filters.displayDate(publicationDate)
+        }}
       </span>
     </div>
   </div>
@@ -77,49 +95,49 @@ export default defineComponent({
   name: 'DetailHeadline',
   components: {
     BaseLink,
-    BaseHeading,
+    BaseHeading
   },
   props: {
     title: {
       type: String,
-      required: false,
+      required: false
     },
     author: {
       type: Object,
-      required: false,
+      required: false
     },
     publicationDate: {
       type: String,
-      required: false,
+      required: false
     },
     publicationTime: {
       type: String,
-      required: false,
+      required: false
     },
     topics: {
-      type: (Array as PropType<Topic[]>),
-      required: false,
+      type: Array as PropType<Topic[]>,
+      required: false
     },
     // if topics array isn't available
     label: {
       type: String,
-      required: false,
+      required: false
     },
     labelLink: {
       type: String,
-      required: false,
+      required: false
     },
     schema: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     pubDatetime(): string | undefined {
       const currentTime = this.publicationTime || '00:00:00'
       const returnDate = new Date(this.publicationDate + ' ' + currentTime)
       return returnDate.toISOString()
-    },
-  },
+    }
+  }
 })
 </script>

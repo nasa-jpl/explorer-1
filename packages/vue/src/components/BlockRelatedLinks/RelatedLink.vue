@@ -7,9 +7,7 @@
     :target="target"
     rel="noopener"
   >
-    <span
-      class="can-hover:group-hover:underline min-w-12 block w-auto break-words"
-    >
+    <span class="can-hover:group-hover:underline min-w-12 block w-auto break-words">
       <slot />
     </span>
     <component
@@ -32,7 +30,7 @@ interface Variants {
 export const variants: Variants = {
   page: 'page',
   external: 'external',
-  document: 'document',
+  document: 'document'
 }
 
 export default defineComponent({
@@ -40,24 +38,23 @@ export default defineComponent({
   components: {
     IconArrow,
     IconDownload,
-    IconExternal,
+    IconExternal
   },
   props: {
     variant: {
       type: String,
       required: true,
       default: 'page',
-      validator: (prop: string): boolean =>
-        Object.keys(variants).includes(prop),
+      validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
     to: {
       type: [String, Object],
-      required: false,
+      required: false
     },
     href: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     tag() {
@@ -82,7 +79,7 @@ export default defineComponent({
       } else {
         return 'IconExternal'
       }
-    },
-  },
+    }
+  }
 })
 </script>

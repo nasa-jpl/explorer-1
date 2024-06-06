@@ -24,13 +24,13 @@ import IconExpand from './../Icons/IconExpand.vue'
 export default defineComponent({
   name: 'BaseLightboxOpenButton',
   components: {
-    IconExpand,
+    IconExpand
   },
   methods: {
     clickHandler() {
       this.$emit('click')
-    },
-  },
+    }
+  }
 })
 </script>
 

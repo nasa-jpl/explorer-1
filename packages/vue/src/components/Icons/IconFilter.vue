@@ -17,7 +17,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconFilter',
+  name: 'IconFilter'
 })
 </script>
 <style lang="scss">

@@ -21,7 +21,11 @@
               />
             </template>
             <template v-else>
-              <NavSecondaryLink :key="index" :item="item" :index="index" />
+              <NavSecondaryLink
+                :key="index"
+                :item="item"
+                :index="index"
+              />
             </template>
           </template>
           <slot></slot>
@@ -47,22 +51,22 @@ export default defineComponent({
    */
   components: {
     NavSecondaryDropdown,
-    NavSecondaryLink,
+    NavSecondaryLink
   },
   props: {
     breadcrumb: {
       type: String,
-      required: false,
+      required: false
     },
     hasIntro: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
-      isSticky: false,
+      isSticky: false
     }
   },
   computed: {
@@ -78,14 +82,11 @@ export default defineComponent({
       return undefined
     },
     enabled(): Boolean {
-      if (
-        (this.theBreadcrumb && this.theBreadcrumb.length > 1) ||
-        this.$slots.default
-      ) {
+      if ((this.theBreadcrumb && this.theBreadcrumb.length > 1) || this.$slots.default) {
         return true
       }
       return false
-    },
+    }
   },
   mounted() {
     if (this.enabled) {
@@ -121,21 +122,18 @@ export default defineComponent({
       )
       const observerOffset = new IntersectionObserver(
         ([e]) => {
-          e.target.classList.toggle(
-            '-is-sticky-offset',
-            e.intersectionRatio < 1
-          )
+          e.target.classList.toggle('-is-sticky-offset', e.intersectionRatio < 1)
         },
         {
           threshold: [1],
           // would prefer to use rems but intersection observer only works with % or px
-          rootMargin: '-113px 0px 0px 0px',
+          rootMargin: '-113px 0px 0px 0px'
         }
       )
       observer.observe(stickyElement)
       observerOffset.observe(stickyElement)
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

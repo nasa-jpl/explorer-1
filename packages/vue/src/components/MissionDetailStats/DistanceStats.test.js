@@ -14,12 +14,9 @@ describe('DistanceStats - /api/v1/missions/', () => {
   })
 
   test('gets the correct path', () => {
-    expect(
-      config.getPath(
-        'https://mars.nasa.gov/api/v1/missions/2/',
-        '/api/v1/missions/'
-      )
-    ).toBe('/api/mars/api/v1/missions/2/')
+    expect(config.getPath('https://mars.nasa.gov/api/v1/missions/2/', '/api/v1/missions/')).toBe(
+      '/api/mars/api/v1/missions/2/'
+    )
   })
 
   test('throws', () => {
@@ -32,7 +29,7 @@ describe('DistanceStats - /api/v1/missions/', () => {
   test('gets the correct distance', () => {
     expect(config.getDistance({ mi_traveled: 10.22 })).toEqual({
       value: 10.22,
-      system: 'imperial',
+      system: 'imperial'
     })
   })
 
@@ -60,9 +57,7 @@ describe('DistanceStats - /spice_data/getRangefromT1/', () => {
         'https://mars.nasa.gov/spice_data/getRangefromT1/EARTH/MARS/2020-10-19T11:29:0/2020-10-19T11:34:0/1/',
         '/spice_data/getRangefromT1/'
       )
-    ).toMatch(
-      /\/api\/mars\/spice_data\/getRangefromT1\/EARTH\/MARS\/.+\/.+\/1\//
-    )
+    ).toMatch(/\/api\/mars\/spice_data\/getRangefromT1\/EARTH\/MARS\/.+\/.+\/1\//)
   })
 
   test('also gets the correct path', () => {
@@ -71,9 +66,7 @@ describe('DistanceStats - /spice_data/getRangefromT1/', () => {
         'https://mars.nasa.gov/spice_data/getRangefromT1/VENUS/MARS/',
         '/spice_data/getRangefromT1/'
       )
-    ).toMatch(
-      /\/api\/mars\/spice_data\/getRangefromT1\/VENUS\/MARS\/.+\/.+\/1\//
-    )
+    ).toMatch(/\/api\/mars\/spice_data\/getRangefromT1\/VENUS\/MARS\/.+\/.+\/1\//)
   })
 
   test('throws', () => {
@@ -89,13 +82,13 @@ describe('DistanceStats - /spice_data/getRangefromT1/', () => {
         {
           items: [{ value: (4500.23).toString() }],
           error: false,
-          units: 'KM',
+          units: 'KM'
         },
         0
       )
     ).toEqual({
       value: 4500,
-      system: 'metric',
+      system: 'metric'
     })
   })
 
@@ -105,7 +98,7 @@ describe('DistanceStats - /spice_data/getRangefromT1/', () => {
         {
           items: [{ value: (4500.23).toString() }],
           error: true,
-          units: 'KM',
+          units: 'KM'
         },
         0
       )
@@ -118,7 +111,7 @@ describe('DistanceStats - /spice_data/getRangefromT1/', () => {
         {
           items: [{ value: (4500.23).toString() }],
           error: false,
-          units: 'AU',
+          units: 'AU'
         },
         0
       )
@@ -131,7 +124,7 @@ describe('DistanceStats - /spice_data/getRangefromT1/', () => {
         {
           items: [],
           error: false,
-          units: 'KM',
+          units: 'KM'
         },
         0
       )

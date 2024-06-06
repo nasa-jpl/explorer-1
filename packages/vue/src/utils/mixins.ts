@@ -24,7 +24,6 @@ export type LinkObject = {
 }
 // breadcrumbs used for nav and secondary nav
 export type BreadcrumbObject = {
-  // eslint-disable-next-line camelcase
   menu_links: {
     [key: string]: [BreadcrumbPathObject]
   } | null
@@ -239,7 +238,7 @@ export const mixinLightboxItems = (
   }
   return false
 }
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const mixinLightboxGalleryItems = (items: object | any): object | false => {
   const res = []
   const itemsArr: Array<object> = Object.keys(items).map(

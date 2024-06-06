@@ -17,7 +17,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconSocialTwitter',
+  name: 'IconSocialTwitter'
 })
 </script>
 <style lang="scss">

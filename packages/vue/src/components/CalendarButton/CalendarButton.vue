@@ -3,8 +3,10 @@
     class="w-full"
     variant="secondary"
     compact
-    @click="// @ts-ignore
-    icalendar.download()"
+    @click="
+      // @ts-ignore
+      icalendar.download()
+    "
   >
     Add to calendar
   </BaseButton>
@@ -19,33 +21,33 @@ import BaseButton from './../BaseButton/BaseButton.vue'
 export default defineComponent({
   name: 'CalendarButton',
   components: {
-    BaseButton,
+    BaseButton
   },
   props: {
     isAllDay: {
       type: Boolean,
-      required: true,
+      required: true
     },
     startDatetime: {
       type: String,
-      required: true,
+      required: true
     },
     endDatetime: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     location: {
       type: String,
-      required: false,
+      required: false
     },
     description: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     icalendar(): ICalendar {
@@ -63,15 +65,12 @@ export default defineComponent({
         location: this.location ? this.addSlashes(this.location) : undefined,
         description: this.description ? this.description : undefined,
         start: new Date(this.startDatetime),
-        end:
-          !this.isAllDay && this.endDatetime
-            ? new Date(this.endDatetime)
-            : undefined,
-        recurrence,
+        end: !this.isAllDay && this.endDatetime ? new Date(this.endDatetime) : undefined,
+        recurrence
       }
 
       return new ICalendar(options)
-    },
+    }
   },
   methods: {
     addSlashes(string: string): string {
@@ -80,7 +79,7 @@ export default defineComponent({
       // regex based of https://stackoverflow.com/a/770533
       // eslint-disable-next-line
       return string.replace(/[,;\\]/g, '\\$&').replace(/\u0000/g, '\\0')
-    },
-  },
+    }
+  }
 })
 </script>

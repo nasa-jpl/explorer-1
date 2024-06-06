@@ -1,10 +1,16 @@
 <template>
-  <div v-if="data && data.image" class="relative h-auto">
+  <div
+    v-if="data && data.image"
+    class="relative h-auto"
+  >
     <div class="bg-jpl-red absolute bottom-0 right-0 z-10 text-white">
       <Icon360 />
     </div>
 
-    <BaseImagePlaceholder aspect-ratio="16:9" dark-mode>
+    <BaseImagePlaceholder
+      aspect-ratio="16:9"
+      dark-mode
+    >
       <BaseImage
         v-if="data.image.src"
         :src="data.image.src.url"
@@ -31,19 +37,21 @@ export default defineComponent({
   components: {
     BaseImagePlaceholder,
     BaseImage,
-    Icon360,
+    Icon360
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theSrcSet() {
-      return this.data?.image ? mixinGetSrcSet(this.data.image)
-            ? mixinGetSrcSet(this.data.image)
-            : this.data.image.srcSet : undefined
+      return this.data?.image
+        ? mixinGetSrcSet(this.data.image)
+          ? mixinGetSrcSet(this.data.image)
+          : this.data.image.srcSet
+        : undefined
     }
   }
 })

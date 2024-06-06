@@ -19,7 +19,7 @@ import BaseTimer from './../BaseTimer/BaseTimer.vue'
 export default defineComponent({
   name: 'MissionDetailStatsMicro',
   components: {
-    BaseTimer,
+    BaseTimer
   },
   props: {
     showClock: Boolean,
@@ -27,9 +27,9 @@ export default defineComponent({
     clockType: {
       type: String as PropType<ClockType>,
       required: true,
-      validator: (val: ClockType): boolean => Boolean(clockTypes[val]),
-    },
-  },
+      validator: (val: ClockType): boolean => Boolean(clockTypes[val])
+    }
+  }
 })
 </script>
 <style lang="scss">

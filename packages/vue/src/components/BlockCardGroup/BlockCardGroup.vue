@@ -1,8 +1,9 @@
 <template>
-  <div v-if="facts" class="BlockCardGroup">
-    <div
-      class="md:grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 hidden gap-8"
-    >
+  <div
+    v-if="facts"
+    class="BlockCardGroup"
+  >
+    <div class="md:grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 hidden gap-8">
       <BlockCard
         v-for="(fact, index) of facts"
         :key="`fact-${index}`"
@@ -48,13 +49,13 @@ export default defineComponent({
   name: 'BlockCardGroup',
   components: {
     MixinCarousel,
-    BlockCard,
+    BlockCard
   },
   props: {
     facts: {
       type: Array as PropType<Fact[]>,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

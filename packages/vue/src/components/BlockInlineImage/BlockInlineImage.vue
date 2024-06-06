@@ -1,14 +1,13 @@
 <template>
-  <div v-if="data" class="BlockInlineImage lg:BaseGrid container mx-auto">
+  <div
+    v-if="data"
+    class="BlockInlineImage lg:BaseGrid container mx-auto"
+  >
     <!-- the image -->
     <div
       v-if="theImageData"
       class="lg:mb-0 lg:w-full sm:w-xl lg:mt-0 lg:pr-4 2xl:pr-0 col-span-5 mx-auto mt-8 mb-8"
-      :class="
-        data.alignTo === 'right'
-          ? 'col-start-8 lg:order-2'
-          : 'col-start-1 lg:order-1'
-      "
+      :class="data.alignTo === 'right' ? 'col-start-8 lg:order-2' : 'col-start-1 lg:order-1'"
     >
       <!-- should accommodate any size/shape image without cropping -->
       <MixinFancybox
@@ -42,11 +41,7 @@
     <div
       v-if="data.text"
       class="flex col-span-5"
-      :class="
-        data.alignTo === 'right'
-          ? 'col-start-3 lg:order-1'
-          : 'col-start-6 lg:order-2'
-      "
+      :class="data.alignTo === 'right' ? 'col-start-3 lg:order-1' : 'col-start-6 lg:order-2'"
     >
       <BlockText :text="data.text" />
     </div>
@@ -70,13 +65,13 @@ export default defineComponent({
     BlockText,
     BaseImagePlaceholder,
     BaseImage,
-    BaseImageCaption,
+    BaseImageCaption
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theCaption(): string | undefined {
@@ -102,23 +97,25 @@ export default defineComponent({
       if (this.data?.image) {
         return {
           ...this.data?.image,
-          caption: this.theCaption,
+          caption: this.theCaption
         }
       }
       return null
     },
     hasCaptionArea(): string | false {
       if (this.data && this.data.image) {
-        return (
-          this.theCaption || this.data.image.credit || this.data.image.detailUrl
-        )
+        return this.theCaption || this.data.image.credit || this.data.image.detailUrl
       }
       return false
     },
     theSrcSet() {
-      return this.theImageData ? mixinGetSrcSet(this.theImageData) ? mixinGetSrcSet(this.theImageData) : this.theImageData.srcSet : undefined
+      return this.theImageData
+        ? mixinGetSrcSet(this.theImageData)
+          ? mixinGetSrcSet(this.theImageData)
+          : this.theImageData.srcSet
+        : undefined
     }
-  },
+  }
 })
 </script>
 

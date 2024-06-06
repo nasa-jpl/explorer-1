@@ -1,5 +1,8 @@
 <template>
-  <div v-if="data" class="-mt-2 -ml-2">
+  <div
+    v-if="data"
+    class="-mt-2 -ml-2"
+  >
     <template v-if="data.headingPage && data.heading">
       <BaseLink
         variant="none"
@@ -25,13 +28,13 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 export default defineComponent({
   name: 'NavHeading',
   components: {
-    BaseLink,
+    BaseLink
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

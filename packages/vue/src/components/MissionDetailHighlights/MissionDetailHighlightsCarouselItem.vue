@@ -4,8 +4,10 @@
       v-if="item.date"
       class="font-secondary text-jpl-red-light mb-4 font-semibold tracking-wider uppercase"
     >
-      {{ // @ts-ignore
-      $filters.displayDate(item.date) }}
+      {{
+        // @ts-ignore
+        $filters.displayDate(item.date)
+      }}
     </p>
     <p
       v-if="item.dateFreeform"
@@ -13,7 +15,12 @@
     >
       {{ item.dateFreeform }}
     </p>
-    <BaseHeading v-if="theHeading" level="h3" size="h6" class="mb-6">
+    <BaseHeading
+      v-if="theHeading"
+      level="h3"
+      size="h6"
+      class="mb-6"
+    >
       {{ theHeading }}
     </BaseHeading>
     <div
@@ -21,21 +28,22 @@
       class="text-body-normal xl:pr-4"
     >
       <span v-if="theSummary">{{ theSummary }}</span>
-      <span v-if="item.highlightLink" class="inline-block">
+      <span
+        v-if="item.highlightLink"
+        class="inline-block"
+      >
         <BaseLink
           variant="default"
           external-target-blank
           class="slide-link inline-block font-medium"
           :aria-label="theAriaLabel"
-          :href="
-            item.highlightLink.externalLink
-              ? item.highlightLink.externalLink
-              : undefined
-          "
+          :href="item.highlightLink.externalLink ? item.highlightLink.externalLink : undefined"
           :to="item.highlightLink.page ? item.highlightLink.page.url : undefined"
         >
           <span class="flex items-center">
-            <span class="ml-1" :class="{ 'mr-1': item.highlightLink.externalLink }"
+            <span
+              class="ml-1"
+              :class="{ 'mr-1': item.highlightLink.externalLink }"
               >Learn more</span
             >
             <IconExternal v-if="item.highlightLink.externalLink" />
@@ -72,14 +80,14 @@ export default defineComponent({
   components: {
     BaseHeading,
     BaseLink,
-    IconExternal,
+    IconExternal
   },
   props: {
     item: {
       type: Object as PropType<Slide>,
       required: true,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   computed: {
     theHeading(): string | boolean {
@@ -90,11 +98,7 @@ export default defineComponent({
       const o = this.item
       if (o.summary) {
         return o.summary
-      } else if (
-        o.highlightLink &&
-        o.highlightLink.page &&
-        o.highlightLink.page.summary
-      ) {
+      } else if (o.highlightLink && o.highlightLink.page && o.highlightLink.page.summary) {
         return o.highlightLink.page.summary
       }
       return false
@@ -104,8 +108,8 @@ export default defineComponent({
         return 'Learn more about ' + this.theHeading
       }
       return 'Learn more'
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss" scoped>

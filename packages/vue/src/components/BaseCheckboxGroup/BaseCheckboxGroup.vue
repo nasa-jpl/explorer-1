@@ -1,14 +1,27 @@
 <template>
   <div class="BaseCheckboxGroup">
-    <label v-if="heading" class="text-lg font-semibold text-gray-900">{{
-      heading
-    }}</label>
-    <p v-if="subHeading" class="text-lg pt-4 pb-2 pr-4">
+    <label
+      v-if="heading"
+      class="text-lg font-semibold text-gray-900"
+      >{{ heading }}</label
+    >
+    <p
+      v-if="subHeading"
+      class="text-lg pt-4 pb-2 pr-4"
+    >
       {{ subHeading }}
     </p>
     <fieldset class="mt-4">
-      <legend v-if="title" class="sr-only">{{ title }}</legend>
-      <div v-if="options" class="space-y-4 mb-2 pb-5">
+      <legend
+        v-if="title"
+        class="sr-only"
+      >
+        {{ title }}
+      </legend>
+      <div
+        v-if="options"
+        class="space-y-4 mb-2 pb-5"
+      >
         <div
           v-for="option in options"
           :key="option.id"
@@ -17,9 +30,7 @@
           <div class="flex items-center h-5">
             <input
               :id="`${group}_${option.id}`"
-              :aria-describedby="
-                option.text ? `${group}_${option.id}_description` : undefined
-              "
+              :aria-describedby="option.text ? `${group}_${option.id}_description` : undefined"
               :name="option.name"
               :alt="option.alt"
               :value="option.value"
@@ -32,9 +43,11 @@
               :for="`${group}_${option.id}`"
               class="ml-3 block text-md text-gray-700"
             >
-              <span v-if="option.title" class="font-semibold">{{
-                option.title
-              }}</span>
+              <span
+                v-if="option.title"
+                class="font-semibold"
+                >{{ option.title }}</span
+              >
               <span v-if="option.text"> - </span>
               <span
                 v-if="option.text"
@@ -52,8 +65,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import type { PropType } from 'vue';
-import type { FormOption } from '../../interfaces';
+import type { PropType } from 'vue'
+import type { FormOption } from '../../interfaces'
 
 export default defineComponent({
   name: 'BaseCheckboxGroup',
@@ -61,28 +74,28 @@ export default defineComponent({
     group: {
       type: String,
       default: null,
-      required: false,
+      required: false
     },
     heading: {
       type: String,
       default: null,
-      required: false,
+      required: false
     },
     subHeading: {
       type: String,
       default: null,
-      required: false,
+      required: false
     },
     title: {
       type: String,
       default: null,
-      required: false,
+      required: false
     },
     options: {
       type: Array as PropType<FormOption[]>,
       default: null,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

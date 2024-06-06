@@ -21,7 +21,7 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Icon360',
+  name: 'Icon360'
 })
 </script>
 <style lang="scss">

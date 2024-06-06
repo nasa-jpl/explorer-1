@@ -27,7 +27,10 @@
       class="relative mb-6"
       link-class="group block"
     >
-      <div v-if="image" class="w-full">
+      <div
+        v-if="image"
+        class="w-full"
+      >
         <BaseImagePlaceholder aspect-ratio="1:1">
           <BaseImage
             v-if="image.src"
@@ -81,57 +84,57 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     BlockLinkCard,
-    BlockLinkTile,
+    BlockLinkTile
   },
   props: {
     url: {
       type: String,
-      required: false,
+      required: false
     },
     type: {
       type: String,
-      required: false,
+      required: false
     },
     topic: {
       type: String,
-      required: false,
+      required: false
     },
     date: {
       type: String,
-      required: false,
+      required: false
     },
     startDate: {
       type: String,
-      required: false,
+      required: false
     },
     endDate: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
-      required: false,
+      required: false
     },
     pageContentType: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
-    splitDate(): { day: string, monthAndYear: string} | null {
+    splitDate(): { day: string; monthAndYear: string } | null {
       if (this.startDate) {
         return mixinFormatSplitEventDates(this.startDate, this.endDate)
       }
       return null
-    },
-  },
+    }
+  }
 })
 </script>

@@ -41,41 +41,41 @@ export default defineComponent({
           'Scientists',
           'Software Engineers',
           'Thinkers',
-          'Visualizers',
+          'Visualizers'
         ]
-      },
+      }
     },
     rows: {
       type: Number,
-      default: 1,
+      default: 1
     },
     scale: {
       type: Number,
-      default: 1,
+      default: 1
     },
     transitionDuration: {
       type: Number,
-      default: 1000,
+      default: 1000
     },
     transitionDelay: {
       type: Number,
-      default: 500,
+      default: 500
     },
     transition: {
       type: String,
-      default: 'ease-out',
+      default: 'ease-out'
     },
     pauseOnHover: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   data() {
     return {
       list: [],
       listTop: 0,
       isPaused: false,
-      isMovingBackwards: false,
+      isMovingBackwards: false
     }
   },
   computed: {
@@ -109,13 +109,13 @@ export default defineComponent({
     },
     listParentStyle() {
       return `height: ${this.listParentHeight}px;`
-    },
+    }
   },
   // update word list
   watch: {
     words(val) {
       this.list = val
-    },
+    }
   },
   // copy word list
   created() {
@@ -155,8 +155,8 @@ export default defineComponent({
           this.updateState()
         }
       }
-    },
-  },
+    }
+  }
 })
 </script>
 

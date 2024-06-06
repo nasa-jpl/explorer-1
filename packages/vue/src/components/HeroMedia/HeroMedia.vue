@@ -1,9 +1,10 @@
 <template>
-  <div v-if="image || video" class="HeroMedia">
+  <div
+    v-if="image || video"
+    class="HeroMedia"
+  >
     <div class="bg-gray-light">
-      <div
-        class="vh-crop max-w-screen-3xl relative flex items-center mx-auto overflow-hidden"
-      >
+      <div class="vh-crop max-w-screen-3xl relative flex items-center mx-auto overflow-hidden">
         <div class="hero">
           <template v-if="theImageData">
             <img
@@ -30,7 +31,10 @@
             aria-label="Toggle caption"
             @click="toggleCaption"
           >
-            <IconInfo v-show="!captionVisible" class="text-xl" />
+            <IconInfo
+              v-show="!captionVisible"
+              class="text-xl"
+            />
             <IconClose v-show="captionVisible" />
           </button>
         </div>
@@ -47,7 +51,6 @@
   </div>
 </template>
 <script lang="ts">
-
 import { defineComponent } from 'vue'
 import MixinVideoBg from './../MixinVideoBg/MixinVideoBg.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
@@ -68,46 +71,41 @@ export default defineComponent({
     MixinVideoBg,
     BaseImageCaption,
     IconInfo,
-    IconClose,
+    IconClose
   },
   props: {
     // image object includes the image caption and credit
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     video: {
       type: Object,
-      required: false,
+      required: false
     },
     // if a caption should even be visible
     displayCaption: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // for video heroes that pass separate caption and credit data
     caption: {
       type: String,
-      required: false,
+      required: false
     },
     credit: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
-      captionVisible: false,
+      captionVisible: false
     }
   },
   computed: {
     theImageCaption(): string | undefined {
-      if (
-        this.image &&
-        this.caption &&
-        this.caption.length > 2 &&
-        this.displayCaption
-      ) {
+      if (this.image && this.caption && this.caption.length > 2 && this.displayCaption) {
         return this.caption
       } else if (
         this.image &&
@@ -123,7 +121,7 @@ export default defineComponent({
       if (this.image) {
         return {
           ...this.image,
-          caption: this.theImageCaption,
+          caption: this.theImageCaption
         }
       }
       return undefined
@@ -136,7 +134,7 @@ export default defineComponent({
       if ((this.caption && this.caption.length > 2) || this.credit) {
         return {
           caption: this.caption,
-          credit: this.credit,
+          credit: this.credit
         }
       }
       return undefined
@@ -155,7 +153,7 @@ export default defineComponent({
         return true
       }
       return false
-    },
+    }
   },
   mounted() {
     mixinTransparentHeader()
@@ -167,8 +165,8 @@ export default defineComponent({
       } else {
         this.captionVisible = true
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

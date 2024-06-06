@@ -18,7 +18,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconMinus',
+  name: 'IconMinus'
 })
 </script>
 <style lang="scss">

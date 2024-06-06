@@ -2,7 +2,7 @@
   <div
     :class="{ 'overflow-hidden': !overflow }"
     :style="{
-      '--scroll-factor': `${data.scrollFactor * data.height}px`,
+      '--scroll-factor': `${data.scrollFactor * data.height}px`
     }"
   >
     <slot />
@@ -16,28 +16,28 @@ export default {
     invert: {
       type: Boolean,
       default: false,
-      required: false,
+      required: false
     },
     overflow: {
       type: Boolean,
       default: false,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
       data: {
         scrollFactor: 0,
         width: 0,
-        height: 0,
+        height: 0
       },
-      eventHandler: undefined,
+      eventHandler: undefined
     }
   },
   mounted() {
     this.init()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     if (this.eventHandler) {
       window.removeEventListener(`resize`, this.eventHandler)
       window.removeEventListener(`scroll`, this.eventHandler)
@@ -51,7 +51,7 @@ export default {
         window.addEventListener(`resize`, this.eventHandler, false)
         window.addEventListener(`scroll`, this.eventHandler, {
           capture: false,
-          passive: true,
+          passive: true
         })
       })
     },
@@ -65,13 +65,11 @@ export default {
       const viewportOffsetBottom = window.innerHeight - viewportOffsetTop
 
       if (this.invert) {
-        this.data.scrollFactor =
-          viewportOffsetTop / (window.innerHeight + this.data.height)
+        this.data.scrollFactor = viewportOffsetTop / (window.innerHeight + this.data.height)
       } else {
-        this.data.scrollFactor =
-          viewportOffsetBottom / (window.innerHeight + this.data.height)
+        this.data.scrollFactor = viewportOffsetBottom / (window.innerHeight + this.data.height)
       }
-    },
-  },
+    }
+  }
 }
 </script>

@@ -1,6 +1,12 @@
 <template>
-  <div v-if="data" class="BlockTwitterEmbed lg:px-0 px-8">
-    <div ref="timeline" class="border-gray-light-mid mx-auto border"></div>
+  <div
+    v-if="data"
+    class="BlockTwitterEmbed lg:px-0 px-8"
+  >
+    <div
+      ref="timeline"
+      class="border-gray-light-mid mx-auto border"
+    ></div>
   </div>
 </template>
 
@@ -10,8 +16,8 @@ export default {
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   mounted() {
     this.render()
@@ -28,14 +34,14 @@ export default {
           twttr.widgets.createTimeline(
             {
               sourceType: 'profile',
-              screenName: this.data.username,
+              screenName: this.data.username
             },
             this.$refs.timeline
           )
         })
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

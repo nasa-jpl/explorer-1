@@ -4,15 +4,11 @@
     class="RoboticsDetailStats MixedBleedGrid lg:pl-0 relative z-20 pl-4 -mt-12 overflow-hidden"
   >
     <h2 class="sr-only">Robot Statistics</h2>
-    <div
-      class="lg:block bg-gray-light col-start-indent-col-2 col-end-indent-col-3 hidden"
-    ></div>
+    <div class="lg:block bg-gray-light col-start-indent-col-2 col-end-indent-col-3 hidden"></div>
     <div
       class="bg-gray-light text-gray-dark col-start-indent-col-3 col-end-container lg:py-12 lg:px-0 text-body-lg lg:gap-x-6 gap-y-8 lg:gap-y-0 grid grid-cols-10 px-8 py-10 pr-0"
     >
-      <div
-        class="gap-y-10 lg:col-end-9 grid grid-cols-8 col-start-1 col-end-11 gap-6"
-      >
+      <div class="gap-y-10 lg:col-end-9 grid grid-cols-8 col-start-1 col-end-11 gap-6">
         <!-- We want to fit 3 items per row if possible, so third items only span two columns. -->
         <div
           v-for="(stat, i) in allStats"
@@ -30,7 +26,10 @@
             }}</span>
           </p>
         </div>
-        <div v-if="status !== ''" class="lg:col-span-3 col-span-4">
+        <div
+          v-if="status !== ''"
+          class="lg:col-span-3 col-span-4"
+        >
           <p class="label text-subtitle">Status</p>
           {{ status }}
         </div>
@@ -47,7 +46,10 @@
         class="lg:col-span-2 lg:row-span-2 lg:text-left gap-y-8 col-span-10 -ml-8 text-center"
       >
         <picture class="block">
-          <source :srcset="animalAnalogIcon.webp.url" type="image/webp" />
+          <source
+            :srcset="animalAnalogIcon.webp.url"
+            type="image/webp"
+          />
           <img
             class="lg:mx-0 mx-auto bg-white rounded-full"
             :src="animalAnalogIcon.src.url"
@@ -56,14 +58,15 @@
             alt=""
           />
         </picture>
-        <p v-if="animalAnalogName" class="text-subtitle mt-4">
+        <p
+          v-if="animalAnalogName"
+          class="text-subtitle mt-4"
+        >
           {{ `Animal Analog: ${animalAnalogName}` }}
         </p>
       </div>
     </div>
-    <div
-      class="bg-gray-light col-start-container-end col-end-bleed sm:block hidden"
-    ></div>
+    <div class="bg-gray-light col-start-container-end col-end-bleed sm:block hidden"></div>
   </div>
 </template>
 <script lang="ts">
@@ -80,10 +83,10 @@ export const metricUnits = {
   meters: 'Meters',
   kilometer: 'Kilometer',
   kilometers: 'Kilometers',
-  'm/s': 'm/s',
+  'm/s': 'm/s'
 } as const
 export type MetricUnit = keyof typeof metricUnits
-export type MetricUnitLabel = typeof metricUnits[MetricUnit]
+export type MetricUnitLabel = (typeof metricUnits)[MetricUnit]
 
 export type AlternativeStat = {
   metricLabel: string
@@ -103,20 +106,20 @@ export default defineComponent({
     speed: Number,
     // status strings provided by https://github.com/nasa-jpl/www-backend/blob/0b2f934d0c1e3c09a52dbe42fe462f162c9f929b/cms/robotics/models.py#L262
     status: {
-      type: String,
+      type: String
     },
     animalAnalogIcon: {
-      type: Object as PropType<{ src: { url: string }, webp: { url: string } } | null>,
+      type: Object as PropType<{ src: { url: string }; webp: { url: string } } | null>
     },
     animalAnalogName: String,
     robotDestinations: {
       type: Array as PropType<{ destination: string }[]>,
-      required: true,
+      required: true
     },
     alternativeStats: {
       type: Array as PropType<AlternativeStat[]>,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     hasContent(): boolean {
@@ -135,25 +138,25 @@ export default defineComponent({
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.mass,
-            metricUnit: 'gram',
+            metricUnit: 'gram'
           })
         } else if (this.mass === 1000) {
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.mass / 1000,
-            metricUnit: 'kilogram',
+            metricUnit: 'kilogram'
           })
         } else if (this.mass > 1000) {
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.mass / 1000,
-            metricUnit: 'kilograms',
+            metricUnit: 'kilograms'
           })
         } else {
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.mass,
-            metricUnit: 'grams',
+            metricUnit: 'grams'
           })
         }
       }
@@ -163,25 +166,25 @@ export default defineComponent({
           baseStats.push({
             metricLabel: 'Height',
             metricValue: this.height,
-            metricUnit: 'meter',
+            metricUnit: 'meter'
           })
         } else if (this.height === 1000) {
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.height / 1000,
-            metricUnit: 'kilometer',
+            metricUnit: 'kilometer'
           })
         } else if (this.height > 1000) {
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.height / 1000,
-            metricUnit: 'kilometers',
+            metricUnit: 'kilometers'
           })
         } else {
           baseStats.push({
             metricLabel: 'Height',
             metricValue: this.height,
-            metricUnit: 'meters',
+            metricUnit: 'meters'
           })
         }
       }
@@ -190,18 +193,18 @@ export default defineComponent({
         baseStats.push({
           metricLabel: 'Speed',
           metricValue: this.speed,
-          metricUnit: 'm/s',
+          metricUnit: 'm/s'
         })
       }
 
       return baseStats.concat(this.alternativeStats)
-    },
+    }
   },
   methods: {
     unitLabel(unit: MetricUnit): MetricUnitLabel | MetricUnit {
       return metricUnits[unit] ?? unit
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

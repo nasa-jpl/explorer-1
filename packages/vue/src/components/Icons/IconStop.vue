@@ -8,14 +8,18 @@
     aria-hidden="true"
     focusable="false"
   >
-    <path fill="currentColor" fill-rule="evenodd" d="M0,0h185v185H0V0z" />
+    <path
+      fill="currentColor"
+      fill-rule="evenodd"
+      d="M0,0h185v185H0V0z"
+    />
   </svg>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconStop',
+  name: 'IconStop'
 })
 </script>
 <style lang="scss">

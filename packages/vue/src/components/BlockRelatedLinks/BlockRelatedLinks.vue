@@ -1,6 +1,10 @@
 <template>
   <div v-if="hasContent">
-    <BaseHeading v-if="data.heading" level="h2" class="md:mb-8 mb-5">
+    <BaseHeading
+      v-if="data.heading"
+      level="h2"
+      class="md:mb-8 mb-5"
+    >
       {{ data.heading }}
     </BaseHeading>
     <div
@@ -9,17 +13,26 @@
       class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2"
     >
       <template v-if="link.externalLink">
-        <RelatedLink variant="external" :href="link.externalLink">
+        <RelatedLink
+          variant="external"
+          :href="link.externalLink"
+        >
           {{ link.text }}
         </RelatedLink>
       </template>
       <template v-else-if="link.document">
-        <RelatedLink variant="document" :href="link.document.url">
+        <RelatedLink
+          variant="document"
+          :href="link.document.url"
+        >
           {{ link.text }}
         </RelatedLink>
       </template>
       <template v-else-if="link.page">
-        <RelatedLink variant="page" :to="link.page.url">
+        <RelatedLink
+          variant="page"
+          :to="link.page.url"
+        >
           {{ link.text }}
         </RelatedLink>
       </template>
@@ -35,14 +48,14 @@ export default defineComponent({
   name: 'BlockRelatedLinks',
   components: {
     RelatedLink,
-    BaseHeading,
+    BaseHeading
   },
   props: {
     data: {
       type: Object,
       required: true,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   computed: {
     hasContent() {
@@ -50,7 +63,7 @@ export default defineComponent({
         return true
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>

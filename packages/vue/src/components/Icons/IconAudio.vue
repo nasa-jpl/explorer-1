@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconAudio',
+  name: 'IconAudio'
 })
 </script>
 <style lang="scss">

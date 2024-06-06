@@ -3,12 +3,15 @@
     v-if="data && data.items && data.items.length > 0"
     class="BlockListCards"
   >
-    <template v-for="(item, index) in data.items" :key="index">
+    <template
+      v-for="(item, index) in data.items"
+      :key="index"
+    >
       <div
         class="md:flex"
         :class="{
           'lg:pb-10 lg:mb-10 mb-8 border-gray-light-mid pb-6 border-b':
-            index + 1 !== data.items.length,
+            index + 1 !== data.items.length
         }"
       >
         <div class="md:mr-6 lg:mr-8 md:mb-0 flex-shrink-0 w-40 mb-6">
@@ -25,7 +28,12 @@
           </BaseImagePlaceholder>
         </div>
         <div>
-          <BaseHeading v-if="item.heading" size="h5" level="h2" class="mb-3">
+          <BaseHeading
+            v-if="item.heading"
+            size="h5"
+            level="h2"
+            class="mb-3"
+          >
             {{ item.heading }}
           </BaseHeading>
           <BlockText
@@ -33,21 +41,23 @@
             :text="item.description"
             variant="medium"
           />
-          <div v-if="item.links && item.links.length > 1" class="mt-3">
+          <div
+            v-if="item.links && item.links.length > 1"
+            class="mt-3"
+          >
             <!-- When more than one link is present, use default link variant -->
             <ul class="pl-4 list-square">
-              <template v-for="(link, index_link) in item.links" :key="index_link">
+              <template
+                v-for="(link, index_link) in item.links"
+                :key="index_link"
+              >
                 <li class="my-2">
                   <BaseLink
                     :key="index_link"
                     variant="default"
                     class=""
                     link-class="no-underline"
-                    :href="
-                      getExternalLink(link)
-                        ? getExternalLink(link)
-                        : undefined
-                    "
+                    :href="getExternalLink(link) ? getExternalLink(link) : undefined"
                     :to="link.page ? link.page.url : null"
                     external-target-blank
                   >
@@ -57,17 +67,21 @@
               </template>
             </ul>
           </div>
-          <div v-else-if="item.links && item.links.length === 1" class="mt-3">
+          <div
+            v-else-if="item.links && item.links.length === 1"
+            class="mt-3"
+          >
             <!-- When exactly one link, use primary link variant -->
-            <template v-for="(link, _index_link) in item.links" :key="index_link">
+            <template
+              v-for="(link, _index_link) in item.links"
+              :key="index_link"
+            >
               <BaseLink
                 variant="primary"
                 class="-mb-1"
                 link-class="inline-block"
                 caret-wrapper-class="py-2"
-                :href="
-                  getExternalLink(link) ? getExternalLink(link) : undefined
-                "
+                :href="getExternalLink(link) ? getExternalLink(link) : undefined"
                 :to="link.page ? link.page.url : null"
                 external-target-blank
               >
@@ -98,13 +112,13 @@ export default defineComponent({
     BaseLink,
     BaseImage,
     BaseImagePlaceholder,
-    BlockText,
+    BlockText
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   methods: {
     getExternalLink(link: RelatedLinkObject): string | undefined {

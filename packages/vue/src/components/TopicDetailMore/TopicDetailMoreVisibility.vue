@@ -3,12 +3,10 @@
     v-observe-visibility="{
       callback: visibilityChanged,
       throttle: 0,
-      once: true,
+      once: true
     }"
     class="transition-all duration-1000 ease-out transform"
-    :class="
-      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-32'
-    "
+    :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-32'"
   >
     <slot />
   </div>
@@ -20,12 +18,12 @@ import { ObserveVisibility } from 'vue-observe-visibility'
 export default defineComponent({
   name: 'TopicDetailMoreVisibility',
   directives: {
-    ObserveVisibility,
+    ObserveVisibility
   },
   data() {
     return {
       isVisible: false,
-      hasIntersectionObserver: true,
+      hasIntersectionObserver: true
     }
   },
   mounted() {
@@ -47,7 +45,7 @@ export default defineComponent({
         this.hasIntersectionObserver = false
         this.isVisible = true
       }
-    },
-  },
+    }
+  }
 })
 </script>

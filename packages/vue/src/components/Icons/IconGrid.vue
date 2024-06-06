@@ -17,7 +17,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconGrid',
+  name: 'IconGrid'
 })
 </script>
 <style lang="scss">

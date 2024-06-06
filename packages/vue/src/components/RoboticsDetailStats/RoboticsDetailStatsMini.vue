@@ -57,7 +57,7 @@ import {
   metricUnits,
   MetricUnit,
   MetricUnitLabel,
-  AlternativeStat,
+  AlternativeStat
 } from './RoboticsDetailStats.vue'
 import BaseUnitToggle from './../BaseUnitToggle/BaseUnitToggle.vue'
 
@@ -67,7 +67,7 @@ import BaseUnitToggle from './../BaseUnitToggle/BaseUnitToggle.vue'
 export default defineComponent({
   name: 'RoboticsDetailStatsMini',
   components: {
-    BaseUnitToggle,
+    BaseUnitToggle
   },
   props: {
     mass: Number,
@@ -75,8 +75,8 @@ export default defineComponent({
     speed: Number,
     alternativeStats: {
       type: Array as PropType<AlternativeStat[]>,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     hasContent(): boolean {
@@ -90,25 +90,25 @@ export default defineComponent({
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.mass,
-            metricUnit: 'gram',
+            metricUnit: 'gram'
           })
         } else if (this.mass === 1000) {
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.mass / 1000,
-            metricUnit: 'kilogram',
+            metricUnit: 'kilogram'
           })
         } else if (this.mass >= 1000) {
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.mass / 1000,
-            metricUnit: 'kilograms',
+            metricUnit: 'kilograms'
           })
         } else {
           baseStats.push({
             metricLabel: 'Mass',
             metricValue: this.mass,
-            metricUnit: 'grams',
+            metricUnit: 'grams'
           })
         }
       }
@@ -118,25 +118,25 @@ export default defineComponent({
           baseStats.push({
             metricLabel: 'Height',
             metricValue: this.height,
-            metricUnit: 'meter',
+            metricUnit: 'meter'
           })
         } else if (this.height === 1000) {
           baseStats.push({
             metricLabel: 'Height',
             metricValue: this.height / 1000,
-            metricUnit: 'kilometer',
+            metricUnit: 'kilometer'
           })
         } else if (this.height > 1000) {
           baseStats.push({
             metricLabel: 'Height',
             metricValue: this.height / 1000,
-            metricUnit: 'kilometers',
+            metricUnit: 'kilometers'
           })
         } else {
           baseStats.push({
             metricLabel: 'Height',
             metricValue: this.height,
-            metricUnit: 'meters',
+            metricUnit: 'meters'
           })
         }
       }
@@ -145,12 +145,12 @@ export default defineComponent({
         baseStats.push({
           metricLabel: 'Speed',
           metricValue: this.speed,
-          metricUnit: 'm/s',
+          metricUnit: 'm/s'
         })
       }
       // only return the first three stats
       return baseStats.concat(this.alternativeStats).splice(0, 3)
-    },
+    }
   },
   methods: {
     unitLabel(unit: MetricUnit): MetricUnitLabel | MetricUnit {
@@ -169,8 +169,8 @@ export default defineComponent({
         return 'MS_FS'
       }
       return null
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

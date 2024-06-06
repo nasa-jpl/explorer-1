@@ -3,7 +3,7 @@
     v-click-outside="closeDropdown"
     class="NavSecondaryDropdown relative"
     :class="{
-      'mr-auto': index === 0,
+      'mr-auto': index === 0
     }"
   >
     <MixinDropdownToggle
@@ -13,10 +13,10 @@
       :class="{
         'mr-auto text-jpl-red font-semibold secondary-root': index === 0,
         'text-gray-dark': index !== 0,
-        '-open': dropdownVisible,
+        '-open': dropdownVisible
       }"
-      @toggleClicked="toggleDropdown()"
-      @closeDropdown="closeDropdown()"
+      @toggle-clicked="toggleDropdown()"
+      @close-dropdown="closeDropdown()"
     >
       <span
         class="flex content-center pt-2 pb-1 mb-1 transition-colors duration-100 ease-in border-b-2 border-transparent"
@@ -56,28 +56,28 @@ export default defineComponent({
   components: {
     IconCaret,
     MixinDropdownToggle,
-    NavSecondaryDropdownContent,
+    NavSecondaryDropdownContent
   },
   props: {
     // the index from the parent v-for loop
     index: {
       type: Number,
-      required: false,
+      required: false
     },
     isLast: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     // the nav item object that includes path, title, and children
     item: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
-      dropdownVisible: false,
+      dropdownVisible: false
     }
   },
   watch: {
@@ -85,7 +85,7 @@ export default defineComponent({
       if (this.dropdownVisible) {
         this.closeDropdown()
       }
-    },
+    }
   },
   mounted() {
     // TODO: PORT: find solution for emitting event from slot
@@ -120,8 +120,8 @@ export default defineComponent({
         return true
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

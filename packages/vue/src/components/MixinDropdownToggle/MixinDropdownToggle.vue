@@ -26,20 +26,12 @@ export default defineComponent({
   props: {
     path: {
       type: String,
-      required: false,
+      required: false
     },
     ariaExpanded: {
       type: Boolean,
-      required: false,
-    },
-  },
-  methods: {
-    clickEvent() {
-      this.$emit('toggleClicked')
-    },
-    escEvent() {
-      this.$emit('closeDropdown')
-    },
+      required: false
+    }
   },
   computed: {
     isActivePath() {
@@ -48,6 +40,13 @@ export default defineComponent({
       }
     }
   },
-
+  methods: {
+    clickEvent() {
+      this.$emit('toggleClicked')
+    },
+    escEvent() {
+      this.$emit('closeDropdown')
+    }
+  }
 })
 </script>

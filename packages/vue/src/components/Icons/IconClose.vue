@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconClose',
+  name: 'IconClose'
 })
 </script>
 <style lang="scss">

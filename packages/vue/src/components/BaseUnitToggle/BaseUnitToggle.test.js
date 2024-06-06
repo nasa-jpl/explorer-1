@@ -17,7 +17,7 @@ describe('BaseUnitToggle', () => {
     '$value $valueSystem, displays $output $selectedSystem',
     ({ output, value, valueSystem, selectedSystem }) => {
       const wrapper = mount(BaseUnitToggle, {
-        propsData: { unitPair: 'MI_KM', value, valueSystem },
+        propsData: { unitPair: 'MI_KM', value, valueSystem }
       })
       wrapper.setData({ selectedSystem })
       expect(wrapper.vm.formattedValue).toBe(output)

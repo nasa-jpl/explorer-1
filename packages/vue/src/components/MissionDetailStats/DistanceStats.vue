@@ -3,7 +3,10 @@
     v-if="typeof value !== 'undefined' || distanceApiUrls"
     class="DistanceStats"
   >
-    <slot name="label" :label="distanceTypeLabel">
+    <slot
+      name="label"
+      :label="distanceTypeLabel"
+    >
       <p>{{ distanceTypeLabel }}</p>
     </slot>
     <p v-if="showError">Unavailable</p>
@@ -15,7 +18,10 @@
       :value="loadedValue"
       :value-system="loadedSystem"
     >
-      <slot name="value" :formatted-value="slotProps.formattedValue">
+      <slot
+        name="value"
+        :formatted-value="slotProps.formattedValue"
+      >
         {{ slotProps.formattedValue }}
       </slot>
     </BaseUnitToggle>
@@ -26,13 +32,11 @@
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import dayjs from 'dayjs'
-import BaseUnitToggle, {
-  UnitSystemName,
-} from './../BaseUnitToggle/BaseUnitToggle.vue'
+import BaseUnitToggle, { UnitSystemName } from './../BaseUnitToggle/BaseUnitToggle.vue'
 
 export const distanceTypes = {
   earth: 'Distance from Earth',
-  mars: 'Distance traveled on Mars',
+  mars: 'Distance traveled on Mars'
 } as const
 export type DistanceType = keyof typeof distanceTypes
 
@@ -68,7 +72,7 @@ export const supportedAPIPaths = {
     /**
      * Extract the distance from the single field.
      */
-    // eslint-disable-next-line camelcase
+
     getDistance: (data: { mi_traveled: number }): APIDistance => {
       const value = data?.mi_traveled
 
@@ -78,9 +82,9 @@ export const supportedAPIPaths = {
       }
       return {
         value: data.mi_traveled,
-        system: 'imperial',
+        system: 'imperial'
       }
-    },
+    }
   },
   '/spice_data/getRangefromT1/': {
     /**
@@ -109,13 +113,13 @@ export const supportedAPIPaths = {
       return {
         // Matches the rounding from the reference implementation, https://mars.nasa.gov/msl/home/.
         value: Math.round(Number(value)),
-        system: 'metric',
+        system: 'metric'
       }
-    },
-  },
+    }
+  }
 } as const
 type SupportedAPI = keyof typeof supportedAPIPaths
-type SPICEAPIConfig = typeof supportedAPIPaths['/spice_data/getRangefromT1/']
+type SPICEAPIConfig = (typeof supportedAPIPaths)['/spice_data/getRangefromT1/']
 const supportedPaths = Object.keys(supportedAPIPaths) as SupportedAPI[]
 
 // Normally this should just be `number`, but due to our usage of `@types/node`
@@ -129,14 +133,13 @@ type Timeout = ReturnType<typeof setTimeout>
 export default defineComponent({
   name: 'DistanceStats',
   components: {
-    BaseUnitToggle,
+    BaseUnitToggle
   },
   props: {
     distanceType: {
       type: String as PropType<DistanceType | ''>,
       required: true,
-      validator: (val: string): boolean =>
-        val === '' || Object.keys(distanceTypes).includes(val),
+      validator: (val: string): boolean => val === '' || Object.keys(distanceTypes).includes(val)
     },
     value: Number,
     valueSystem: {
@@ -147,10 +150,9 @@ export default defineComponent({
     distanceApiUrls: {
       type: String,
       required: false,
-      validator: (val: string): boolean =>
-        supportedPaths.some((p) => val.includes(p) || val === ''),
+      validator: (val: string): boolean => supportedPaths.some((p) => val.includes(p) || val === '')
     },
-    labelClass: String,
+    labelClass: String
   },
   data(): {
     apiDistance: APIDistance | null
@@ -160,14 +162,12 @@ export default defineComponent({
     return {
       apiDistance: null,
       showError: false,
-      timeout: null,
+      timeout: null
     }
   },
   computed: {
     distanceTypeLabel(): string {
-      return (
-        distanceTypes[this.distanceType as DistanceType] || this.distanceType
-      )
+      return distanceTypes[this.distanceType as DistanceType] || this.distanceType
     },
     loadedValue(): number | undefined {
       if (this.distanceApiUrls) {
@@ -183,14 +183,14 @@ export default defineComponent({
     },
     isLoading(): boolean {
       return !!this.distanceApiUrls && this.apiDistance === null
-    },
+    }
   },
   mounted() {
     if (this.distanceApiUrls) {
       this.getAPIDistance()
     }
   },
-  beforeDestroy(): void {
+  beforeUnmount(): void {
     clearTimeout(this.timeout as Timeout)
   },
   methods: {
@@ -237,17 +237,14 @@ export default defineComponent({
       const next = index + 1
 
       if (next < data?.items?.length) {
-        this.timeout = setTimeout(
-          this.updateSPICEData.bind(this, apiConfig, data, next),
-          1000
-        )
+        this.timeout = setTimeout(this.updateSPICEData.bind(this, apiConfig, data, next), 1000)
       } else if (this.distanceApiUrls) {
         const nextData = await this.$axios.$get(
           apiConfig.getPath(this.distanceApiUrls, '/spice_data/getRangefromT1/')
         )
         this.updateSPICEData(apiConfig, nextData, 0)
       }
-    },
-  },
+    }
+  }
 })
 </script>

@@ -1,5 +1,8 @@
 <template>
-  <form class="NavSearchForm" @submit.prevent="submitSearch()">
+  <form
+    class="NavSearchForm"
+    @submit.prevent="submitSearch()"
+  >
     <SearchInput
       v-model="searchQuery"
       placeholder="Search JPL"
@@ -10,7 +13,13 @@
       :default-colors="mobile"
       @esc="clearSearch()"
     />
-    <button type="submit" class="sr-only" aria-label="Submit">Search</button>
+    <button
+      type="submit"
+      class="sr-only"
+      aria-label="Submit"
+    >
+      Search
+    </button>
   </form>
 </template>
 <script lang="ts">
@@ -20,17 +29,17 @@ import SearchInput from './../SearchInput/SearchInput.vue'
 export default defineComponent({
   name: 'NavSearchForm',
   components: {
-    SearchInput,
+    SearchInput
   },
   props: {
     mobile: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
-      searchQuery: undefined,
+      searchQuery: undefined
     }
   },
   methods: {
@@ -43,11 +52,11 @@ export default defineComponent({
       if (this.$router) {
         this.$router.push({
           name: 'search',
-          query: { query: this.searchQuery },
+          query: { query: this.searchQuery }
         })
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

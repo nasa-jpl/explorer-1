@@ -3,14 +3,15 @@
     v-if="theData"
     class="TopicDetailMoreItem group can-hover:hover:shadow-lg shadow-jpl transition-all duration-200 ease-in"
     variant="none"
-    :link-class="
-      theData.thumbnailImage ? 'block' : 'flex items-center block lg:min-h-100'
-    "
+    :link-class="theData.thumbnailImage ? 'block' : 'flex items-center block lg:min-h-100'"
     :to="theData.__typename !== 'ExternalLinkCard' ? theData.url : undefined"
     :href="theData.__typename === 'ExternalLinkCard' ? theData.url : undefined"
     external-target-blank
   >
-    <div v-if="theData.thumbnailImage" class="relative">
+    <div
+      v-if="theData.thumbnailImage"
+      class="relative"
+    >
       <!-- icon for media -->
       <div
         v-if="theData.__typename === 'VideoDetailPage'"
@@ -19,7 +20,10 @@
         <IconPlay />
       </div>
       <!-- image -->
-      <BaseImagePlaceholder aspect-ratio="3:2" dark-mode>
+      <BaseImagePlaceholder
+        aspect-ratio="3:2"
+        dark-mode
+      >
         <BaseImage
           v-if="theData.thumbnailImage.src"
           :src="theData.thumbnailImage.src.url"
@@ -33,24 +37,28 @@
         />
       </BaseImagePlaceholder>
     </div>
-    <div
-      class="text-gray-dark md:px-5 md:py-5 lg:px-10 lg:py-8 w-full px-10 py-8"
-    >
+    <div class="text-gray-dark md:px-5 md:py-5 lg:px-10 lg:py-8 w-full px-10 py-8">
       <!-- label area -->
       <div
         v-if="theData.label || theData.date || theData.startDate"
         class="flex flex-wrap items-center justify-between mb-5"
       >
         <p class="divide-gray-mid text-subtitle flex divide-x">
-          <span v-if="theData.label" class="pr-2">{{ theData.label }}</span>
+          <span
+            v-if="theData.label"
+            class="pr-2"
+            >{{ theData.label }}</span
+          >
           <span
             v-if="theData.date || theData.startDate"
             class="text-gray-mid-dark"
             :class="{ 'pl-2': theData.label }"
           >
             <template v-if="theData.date">
-              {{ // @ts-ignore
-              $filters.displayDate(theData.date) }}
+              {{
+                // @ts-ignore
+                $filters.displayDate(theData.date)
+              }}
             </template>
             <template v-else-if="theData.startDate">
               {{ formattedEventDates }}
@@ -87,13 +95,13 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     IconPlay,
-    IconExternal,
+    IconExternal
   },
   props: {
     data: {
       type: Object as PropType<Card>,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theData(): Card | undefined {
@@ -109,7 +117,7 @@ export default defineComponent({
         return mixinFormatEventDates(this.theData.startDate, this.theData.endDate)
       }
     }
-  },
+  }
 })
 </script>
 <style lang="scss">

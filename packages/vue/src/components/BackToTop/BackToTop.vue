@@ -21,19 +21,19 @@ export default defineComponent({
   name: 'BackToTop',
   components: {
     BaseButton,
-    IconDropdown,
+    IconDropdown
   },
   props: {
     threshold: {
       type: Number,
       required: false,
-      default: 300,
+      default: 300
     },
     scrollTo: {
       type: Number,
       required: false,
-      default: 0,
-    },
+      default: 0
+    }
   },
   data(): {
     showBackToTop: Boolean
@@ -41,16 +41,16 @@ export default defineComponent({
   } {
     return {
       showBackToTop: false,
-      scrollHandler: null,
+      scrollHandler: null
     }
   },
   mounted() {
     this.scrollHandler = _throttle(this.onScroll, 100)
     window.addEventListener('scroll', this.scrollHandler, {
-      passive: true,
+      passive: true
     })
   },
-  beforeDestroy() {
+  beforeUnmount() {
     if (this.scrollHandler) {
       window.removeEventListener('scroll', this.scrollHandler)
     }
@@ -67,8 +67,8 @@ export default defineComponent({
     scrollToTop() {
       window.scrollTo({ top: this.scrollTo, behavior: 'smooth' })
       this.$emit('click')
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

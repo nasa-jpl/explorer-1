@@ -8,7 +8,9 @@
       :bg-close="bgClose"
       @close="closeModal()"
     >
-      <slot slot="modalHeader" name="modalHeader"></slot>
+      <template #modalHeader>
+        <slot name="modalHeader"></slot>
+      </template>
       <slot></slot>
     </BaseModalDialog>
   </div>
@@ -21,17 +23,17 @@ import BaseModalDialog from './../BaseModal/BaseModalDialog.vue'
 export default defineComponent({
   name: 'BaseModal',
   components: {
-    BaseModalDialog,
+    BaseModalDialog
   },
   props: {
     bgClose: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
-      showModal: false,
+      showModal: false
     }
   },
   methods: {
@@ -43,8 +45,8 @@ export default defineComponent({
     closeModal() {
       this.showModal = false
       document.body.classList.remove('overflow-hidden')
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss" scoped>

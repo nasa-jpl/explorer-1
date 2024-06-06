@@ -10,25 +10,17 @@
       class="MixedBleedGrid lg:pl-0 pl-4"
     >
       <div
-        :class="
-          index === 0 ? 'bg-gray-light' : 'border-b border-gray-light-mid'
-        "
+        :class="index === 0 ? 'bg-gray-light' : 'border-b border-gray-light-mid'"
         class="lg:block col-start-indent-col-2 col-end-indent-col-3 hidden"
       ></div>
       <div
-        :class="
-          index === 0 ? 'bg-gray-light' : 'border-b border-gray-light-mid'
-        "
+        :class="index === 0 ? 'bg-gray-light' : 'border-b border-gray-light-mid'"
         class="text-gray-dark col-start-indent-col-3 col-end-container lg:py-12 lg:px-0 text-body-lg px-8 py-10 pr-0"
       >
-        <div
-          class="gap-y-10 lg:col-end-9 grid grid-cols-11 col-start-1 col-end-11 gap-6"
-        >
+        <div class="gap-y-10 lg:col-end-9 grid grid-cols-11 col-start-1 col-end-11 gap-6">
           <div
             v-if="
-              item.comparisonImage &&
-              item.comparisonImage.image &&
-              item.comparisonImage.image.src
+              item.comparisonImage && item.comparisonImage.image && item.comparisonImage.image.src
             "
             class="lg:col-span-3 lg:row-span-2 lg:text-left gap-y-8 col-span-11 -ml-8 text-center"
           >
@@ -65,9 +57,7 @@
           </div>
           <!-- size -->
           <div class="lg:col-span-5 col-span-full">
-            <p class="label text-subtitle text-jpl-red">
-              Closest Earth Approach
-            </p>
+            <p class="label text-subtitle text-jpl-red">Closest Earth Approach</p>
             <BaseUnitToggle
               v-slot="slotProps"
               :unit-pair="'MI_KM'"
@@ -78,7 +68,10 @@
               <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
             </BaseUnitToggle>
           </div>
-          <div v-if="item.name" class="lg:col-span-3 col-span-full">
+          <div
+            v-if="item.name"
+            class="lg:col-span-3 col-span-full"
+          >
             <p class="label text-subtitle text-jpl-red">Name</p>
             <BaseLink
               variant="none"
@@ -91,10 +84,15 @@
               </span>
             </BaseLink>
           </div>
-          <div v-if="item.date" class="lg:col-span-4 col-span-full">
+          <div
+            v-if="item.date"
+            class="lg:col-span-4 col-span-full"
+          >
             <p class="label text-subtitle text-jpl-red">Date</p>
-            {{ // @ts-ignore
-            $filters.displayDate(item.date) }}
+            {{
+              // @ts-ignore
+              $filters.displayDate(item.date)
+            }}
           </div>
         </div>
       </div>
@@ -116,15 +114,15 @@ interface NextCloseApproach {
   date: string
   distanceMiles: string
   distanceKilometers: string
-  comparisonImage: { 
-    image: { 
-      src: { 
+  comparisonImage: {
+    image: {
+      src: {
         url: string
-      }, 
+      }
       webp: {
         url: string
       }
-    },
+    }
     text: string
   }
   sizeFeet: string
@@ -139,14 +137,14 @@ export default defineComponent({
   components: {
     BaseLink,
     IconExternal,
-    BaseUnitToggle,
+    BaseUnitToggle
   },
   props: {
     nextCloseApproaches: {
       type: Array as PropType<NextCloseApproach[]>,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>
 <style lang="scss">

@@ -1,25 +1,36 @@
 <template>
-  <div v-if="items" class="HomepageCarousel max-w-screen-3xl mx-auto">
+  <div
+    v-if="items"
+    class="HomepageCarousel max-w-screen-3xl mx-auto"
+  >
     <!-- standalone "nav" just for screen readers -->
-    <nav aria-label="Features" class="sr-only">
+    <nav
+      aria-label="Features"
+      class="sr-only"
+    >
       <ul>
-        <li v-for="(item, index) in items" :key="index">
+        <li
+          v-for="(item, index) in items"
+          :key="index"
+        >
           <BaseLink
             variant="none"
             :href="item.externalLink ? item.externalLink : undefined"
-            :to="
-              item.page && item.page.url && !item.externalLink
-                ? item.page.url
-                : undefined
-            "
+            :to="item.page && item.page.url && !item.externalLink ? item.page.url : undefined"
           >
             {{ item.slideTitle }}
           </BaseLink>
         </li>
       </ul>
     </nav>
-    <div class="relative w-full overflow-hidden" role="presentation">
-      <div ref="HomepageCarouselSlider" class="HomepageCarouselSlider swiper">
+    <div
+      class="relative w-full overflow-hidden"
+      role="presentation"
+    >
+      <div
+        ref="HomepageCarouselSlider"
+        class="HomepageCarouselSlider swiper"
+      >
         <div class="swiper-wrapper">
           <HomepageCarouselItem
             v-for="(item, index) in items"
@@ -35,7 +46,10 @@
         >
           <div class="swiper-pagination container">
             <!-- Render before swiper initializes and replaces content to prevent content shifting -->
-            <template v-for="(_item, index) in items" :key="index">
+            <template
+              v-for="(_item, index) in items"
+              :key="index"
+            >
               <span
                 :class="`swiper-pagination-bullet${
                   index === 0 ? ' swiper-pagination-bullet-active' : ''
@@ -60,24 +74,23 @@
             </transition>
           </div>
           <!-- tabbed navigation -->
-          <div
-            class="HomepageCarouselTabs relative container overflow-hidden mx-auto pt-5 pb-22"
-          >
+          <div class="HomepageCarouselTabs relative container overflow-hidden mx-auto pt-5 pb-22">
             <!-- offset by one tab to allow for previous slide transitions -->
             <div class="w-full -translate-x-1/5">
               <!-- tab container width adjusts automatically according to slide count when there are less than 6 slides -->
               <div :class="tabContainerWidthClass">
                 <!-- translate amount depends on tab container width, so the class is applied dynamically -->
-                <div class="flex flex-nowrap" :class="tabTranslateClass">
+                <div
+                  class="flex flex-nowrap"
+                  :class="tabTranslateClass"
+                >
                   <BaseLink
                     v-for="(item, index) in tabbedItems"
                     :key="index"
                     variant="none"
                     :href="item.externalLink ? item.externalLink : undefined"
                     :to="
-                      item.page && item.page.url && !item.externalLink
-                        ? item.page.url
-                        : undefined
+                      item.page && item.page.url && !item.externalLink ? item.page.url : undefined
                     "
                     external-target-blank
                     class="pr-5 flex-shrink-0 h-auto translate-x-0"
@@ -126,17 +139,17 @@ export default defineComponent({
   name: 'HomepageCarousel',
   components: {
     BaseLink,
-    HomepageCarouselItem,
+    HomepageCarouselItem
   },
   props: {
     items: {
-      type: (Array as PropType<Slide[]>),
-      required: false,
+      type: Array as PropType<Slide[]>,
+      required: false
     },
     duration: {
       type: Number,
-      default: 5000,
-    },
+      default: 5000
+    }
   },
   data(): {
     slideLoaded: boolean
@@ -157,12 +170,12 @@ export default defineComponent({
         longSwipesRatio: 0.01, // adjusts sensitivity for click and drag
         autoplay: {
           delay: this.duration,
-          disableOnInteraction: false,
+          disableOnInteraction: false
         },
         loop: true,
         pagination: {
           el: '.swiper-pagination',
-          clickable: true,
+          clickable: true
         },
         lazyPreloadPrevNext: 1,
         on: {
@@ -183,11 +196,11 @@ export default defineComponent({
           },
           slideChange: (swiper: Swiper) => {
             ;(this as any).videoHandler(swiper)
-          },
-        },
+          }
+        }
       },
       tabbedItems: undefined,
-      slideToNext: true,
+      slideToNext: true
     }
   },
   computed: {
@@ -206,10 +219,7 @@ export default defineComponent({
       // offset by one to avoid slice(0,0) in reorderedItems
       const index: number = this.theIndex ? this.theIndex + 1 : 1
       if (index && items) {
-        const reorderedItems = [
-          ...items.slice(index - 1),
-          ...items.slice(0, index),
-        ]
+        const reorderedItems = [...items.slice(index - 1), ...items.slice(0, index)]
         return reorderedItems
       }
       return this.items as Array<Slide>
@@ -270,7 +280,7 @@ export default defineComponent({
         computedClass += ' transform transition-transform duration-500'
       }
       return computedClass
-    },
+    }
   },
   mounted() {
     mixinTransparentHeader()
@@ -281,10 +291,11 @@ export default defineComponent({
       // initializes the sliders with different settings depending on slideshow length
       if (this.onlyOneSlide) {
         // only one slide, no need to loop or autoplay
-        this.slider = new Swiper(
-          this.$refs.HomepageCarouselSlider as HTMLElement,
-          { ...this.sliderOptions, loop: false, autoplay: false }
-        )
+        this.slider = new Swiper(this.$refs.HomepageCarouselSlider as HTMLElement, {
+          ...this.sliderOptions,
+          loop: false,
+          autoplay: false
+        })
       } else {
         this.slider = new Swiper(
           this.$refs.HomepageCarouselSlider as HTMLElement,
@@ -325,8 +336,8 @@ export default defineComponent({
         }
       }
       return null
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

@@ -36,27 +36,47 @@
         v-if="!featured"
         class="border-gray-light-mid lg:pb-10 lg:mb-10 relative grid grid-cols-9 gap-5 pb-6 mb-6 border-b"
       >
-        <div v-if="type || topic" class="lg:hidden col-span-full text-subtitle">
+        <div
+          v-if="type || topic"
+          class="lg:hidden col-span-full text-subtitle"
+        >
           <span v-if="type">
             <span aria-hidden="true">{{ type }}</span>
             <span class="sr-only">Category: {{ type }}.</span>
           </span>
-          <span v-if="type && topic" aria-hidden="true" class="mx-1">|</span>
-          <span v-if="topic" class="text-gray-mid-dark">
+          <span
+            v-if="type && topic"
+            aria-hidden="true"
+            class="mx-1"
+            >|</span
+          >
+          <span
+            v-if="topic"
+            class="text-gray-mid-dark"
+          >
             <span aria-hidden="true">{{ topic }}</span>
             <span class="sr-only">Category: {{ topic }}.</span>
           </span>
         </div>
-        <div
-          class="sm:col-span-6 md:col-span-6 lg:col-span-7 xl:col-span-7 col-span-6"
-        >
-          <div v-if="type || topic" class="text-subtitle lg:block hidden mb-3">
+        <div class="sm:col-span-6 md:col-span-6 lg:col-span-7 xl:col-span-7 col-span-6">
+          <div
+            v-if="type || topic"
+            class="text-subtitle lg:block hidden mb-3"
+          >
             <span v-if="type">
               <span aria-hidden="true">{{ type }}</span>
               <span class="sr-only">Category: {{ type }}.</span>
             </span>
-            <span v-if="type && topic" aria-hidden="true" class="mx-1">|</span>
-            <span v-if="topic" class="text-gray-mid-dark">
+            <span
+              v-if="type && topic"
+              aria-hidden="true"
+              class="mx-1"
+              >|</span
+            >
+            <span
+              v-if="topic"
+              class="text-gray-mid-dark"
+            >
               <span aria-hidden="true">{{ topic }}</span>
               <span class="sr-only">Category: {{ topic }}.</span>
             </span>
@@ -76,7 +96,12 @@
             {{ summary }}
             <span class="sr-only">.</span>
           </p>
-          <p v-if="date" class="text-gray-mid-dark">{{ date }}</p>
+          <p
+            v-if="date"
+            class="text-gray-mid-dark"
+          >
+            {{ date }}
+          </p>
         </div>
         <div
           v-if="image"
@@ -101,12 +126,18 @@
       >
         <div class="xl:col-span-7 flex items-center col-span-3 p-10">
           <div class="">
-            <div v-if="type || topic" class="text-subtitle mb-3">
+            <div
+              v-if="type || topic"
+              class="text-subtitle mb-3"
+            >
               <span v-if="type">
                 <span aria-hidden="true">{{ type }}</span>
                 <span class="sr-only">Category: {{ type }}.</span>
               </span>
-              <span v-if="type && topic" aria-hidden="true" class="mx-1"
+              <span
+                v-if="type && topic"
+                aria-hidden="true"
+                class="mx-1"
                 >|</span
               >
               <span v-if="topic">
@@ -122,7 +153,10 @@
             >
               {{ title }}
             </BaseHeading>
-            <p v-if="summary" class="hidden lg:block text-body-sm mb-3">
+            <p
+              v-if="summary"
+              class="hidden lg:block text-body-sm mb-3"
+            >
               {{ summary }}
             </p>
             <p v-if="date">{{ date }}</p>
@@ -165,84 +199,84 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     EventCard,
-    PodcastEpisodeCard,
+    PodcastEpisodeCard
   },
   props: {
     url: {
       type: String,
       required: false,
-      default: '#',
+      default: '#'
     },
     type: {
       type: String,
-      required: false,
+      required: false
     },
     topic: {
       type: String,
-      required: false,
+      required: false
     },
     date: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     summary: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     featured: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
       required: false,
-      default: 'h5',
+      default: 'h5'
     },
     isEvents: {
       type: Boolean,
-      required: false,
+      required: false
     },
     isPodcastSeason: {
       type: Boolean,
-      required: false,
+      required: false
     },
     isProfiles: {
       type: Boolean,
-      default: false,
+      default: false
     },
     media: {
       type: String,
-      required: false,
+      required: false
     },
     startTime: {
       type: String,
-      required: false,
+      required: false
     },
     startDate: {
       type: String,
-      required: false,
+      required: false
     },
     endTime: {
       type: String,
-      required: false,
+      required: false
     },
     endDate: {
       type: String,
-      required: false,
+      required: false
     },
     location: {
       type: String,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

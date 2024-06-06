@@ -18,7 +18,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconArrow',
+  name: 'IconArrow'
 })
 </script>
 <style lang="scss">

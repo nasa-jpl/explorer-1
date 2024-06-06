@@ -36,19 +36,19 @@ import type { PropType } from 'vue'
 export default defineComponent({
   name: 'NavDesktopTopHat',
   components: {
-    BaseLink,
+    BaseLink
   },
   props: {
     data: {
       type: Array as PropType<LinkObject[]>,
-      required: false,
-    },
+      required: false
+    }
   },
   methods: {
-    getRouterLink(link: LinkObject): string | undefined { 
+    getRouterLink(link: LinkObject): string | undefined {
       return mixinGetRouterLink(link)
     },
-    getLinkText(link: LinkObject): string | undefined { 
+    getLinkText(link: LinkObject): string | undefined {
       return mixinGetLinkText(link)
     }
   }

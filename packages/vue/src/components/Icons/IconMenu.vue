@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconMenu',
+  name: 'IconMenu'
 })
 </script>
 <style lang="scss">

@@ -22,7 +22,10 @@
       } grid lg:col-start-2 lg:col-end-5 px-10 lg:px-0 lg:py-16 py-8`"
     >
       <div class="my-auto">
-        <h2 v-if="theLabel" class="text-subtitle">
+        <h2
+          v-if="theLabel"
+          class="text-subtitle"
+        >
           {{ theLabel }}
         </h2>
         <component
@@ -32,7 +35,10 @@
         >
           {{ theHeading }}
         </component>
-        <p v-if="introduction" class="text-body-md lg:mt-2 mt-4">
+        <p
+          v-if="introduction"
+          class="text-body-md lg:mt-2 mt-4"
+        >
           {{ introduction }}
         </p>
         <BaseButton
@@ -66,43 +72,43 @@ export default defineComponent({
   name: 'BlockTeaser',
   components: {
     BaseButton,
-    BaseImage,
+    BaseImage
   },
   props: {
     // piecemeal props for reuse
     customLabel: {
       type: String,
-      required: false,
+      required: false
     },
     label: {
       type: String,
-      required: false,
+      required: false
     },
     heading: {
       type: String,
-      required: false,
+      required: false
     },
     introduction: {
       type: String,
-      required: false,
+      required: false
     },
     buttonText: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     fullWidth: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // ideally can pass a page object (TopicDetailPage), but sometimes (e.g. streamfield teaserblock) this will be wrapped in an array
     teaserPage: {
       type: [Array, Object],
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     /**
@@ -110,10 +116,7 @@ export default defineComponent({
      */
     theLabel(): string {
       return (
-        this.customLabel ||
-        this.label ||
-        (this.theTeaserPage && this.theTeaserPage.label) ||
-        ''
+        this.customLabel || this.label || (this.theTeaserPage && this.theTeaserPage.label) || ''
       )
     },
 
@@ -121,9 +124,7 @@ export default defineComponent({
      * Fall back to the linked page’s title, if there is one.
      */
     theHeading(): string {
-      return (
-        this.heading || (this.theTeaserPage && this.theTeaserPage.title) || ''
-      )
+      return this.heading || (this.theTeaserPage && this.theTeaserPage.title) || ''
     },
 
     /**
@@ -134,20 +135,19 @@ export default defineComponent({
     },
 
     theImage(): { url: string; width: string; height: string } {
-      const { url, width, height } = this.image && this.fullWidth
-        ? this.image.full
-        : this.image ? this.image.half : undefined
+      const { url, width, height } =
+        this.image && this.fullWidth ? this.image.full : this.image ? this.image.half : undefined
 
       return {
         url,
         width,
-        height,
+        height
       }
     },
     // necessary as the streamfield teaser block passes an array of blocks
     // this is necessary to retrieve the label from the teaser pages
     theTeaserPage(): teaserPageObject | null {
-      if (this.teaserPage && typeof this.teaserPage === 'object' ) {
+      if (this.teaserPage && typeof this.teaserPage === 'object') {
         return this.teaserPage as teaserPageObject
       } else if (this.teaserPage && Object.keys(this.teaserPage).length) {
         const parsedTeaserPage = this.getTeaserPageBlock()
@@ -156,19 +156,17 @@ export default defineComponent({
         }
       }
       return null
-    },
+    }
   },
   methods: {
     getTeaserPageBlock(): teaserPageBlock[] | null {
       if (this.teaserPage && this.teaserPage.length) {
         const theBlocks = this.teaserPage
-        return theBlocks.filter(
-          (block: teaserPageBlock) => block.blockType === 'PageChooserBlock'
-        )
+        return theBlocks.filter((block: teaserPageBlock) => block.blockType === 'PageChooserBlock')
       }
       return null
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

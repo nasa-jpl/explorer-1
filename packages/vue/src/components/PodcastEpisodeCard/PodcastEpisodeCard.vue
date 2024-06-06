@@ -8,13 +8,23 @@
           v-if="showInlinePlayer"
           class="col-span-full animate-fadeIn transition-all"
         >
-          <div v-if="type || topic" class="text-subtitle lg:block hidden mb-3">
+          <div
+            v-if="type || topic"
+            class="text-subtitle lg:block hidden mb-3"
+          >
             <span v-if="type">
               {{ type }}
               <span class="sr-only">.</span>
             </span>
-            <span v-if="type && topic" class="mx-1">|</span>
-            <span v-if="topic" class="text-gray-mid-dark">
+            <span
+              v-if="type && topic"
+              class="mx-1"
+              >|</span
+            >
+            <span
+              v-if="topic"
+              class="text-gray-mid-dark"
+            >
               {{ topic }}
               <span class="sr-only">.</span>
             </span>
@@ -25,17 +35,23 @@
             :level="headingLevel"
             class="mb-3"
           >
-            <BaseLink variant="none" :to="url"> {{ title }}</BaseLink>
+            <BaseLink
+              variant="none"
+              :to="url"
+            >
+              {{ title }}</BaseLink
+            >
           </BaseHeading>
         </div>
         <div
           v-if="showInlinePlayer"
           class="col-span-full flex flex-row animate-fadeIn transition-all bg-gray-dark"
         >
-          <div
-            class="PodcastEpisodeCard-thumbnail w-1/6 lg:w-25 min-h-full relative inline-block"
-          >
-            <BaseImagePlaceholder class="h-full" aspect-ratio="1:1">
+          <div class="PodcastEpisodeCard-thumbnail w-1/6 lg:w-25 min-h-full relative inline-block">
+            <BaseImagePlaceholder
+              class="h-full"
+              aspect-ratio="1:1"
+            >
               <BaseImage
                 v-if="image?.src"
                 :src="image.src.url"
@@ -52,7 +68,10 @@
             class="w-full pt-3 lg:pt-3.5 px-3.5 flex flex-col justify-center"
           >
             <div class="w-full">
-              <BaseAudio :file="media" auto-play />
+              <BaseAudio
+                :file="media"
+                auto-play
+              />
             </div>
           </div>
         </div>
@@ -78,13 +97,23 @@
           class="PodcastEpisodeCard sm:col-span-6 md:col-span-6 lg:col-span-7 xl:col-span-7 col-span-6"
           link-class="block"
         >
-          <div v-if="type || topic" class="text-subtitle lg:block hidden mb-3">
+          <div
+            v-if="type || topic"
+            class="text-subtitle lg:block hidden mb-3"
+          >
             <span v-if="type">
               {{ type }}
               <span class="sr-only">.</span>
             </span>
-            <span v-if="type && topic" class="mx-1">|</span>
-            <span v-if="topic" class="text-gray-mid-dark">
+            <span
+              v-if="type && topic"
+              class="mx-1"
+              >|</span
+            >
+            <span
+              v-if="topic"
+              class="text-gray-mid-dark"
+            >
               {{ topic }}
               <span class="sr-only">.</span>
             </span>
@@ -159,55 +188,55 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     BaseAudio,
-    IconPlay,
+    IconPlay
   },
   props: {
     url: {
       type: String,
       required: false,
-      default: '#',
+      default: '#'
     },
     type: {
       type: String,
-      required: false,
+      required: false
     },
     topic: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     summary: {
       type: String,
-      required: false,
+      required: false
     },
     media: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
       required: false,
-      default: 'h5',
-    },
+      default: 'h5'
+    }
   },
   data() {
     return {
-      showInlinePlayer: false,
+      showInlinePlayer: false
     }
   },
   methods: {
     inlinePlayerToggle(): boolean {
       this.showInlinePlayer = !this.showInlinePlayer
       return this.showInlinePlayer
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

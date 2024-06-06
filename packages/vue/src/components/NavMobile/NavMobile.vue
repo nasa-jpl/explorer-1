@@ -24,16 +24,32 @@
             :aria-label="menuVisible ? 'Close menu' : 'Open menu'"
             @click="toggleMenu"
           >
-            <IconMenu v-if="!menuVisible" class="text-6xl" />
-            <IconClose v-else class="text-3xl" />
+            <IconMenu
+              v-if="!menuVisible"
+              class="text-6xl"
+            />
+            <IconClose
+              v-else
+              class="text-3xl"
+            />
           </button>
         </div>
-        <div v-if="menuVisible" class="pb-8">
+        <div
+          v-if="menuVisible"
+          class="pb-8"
+        >
           <!-- search input goes here -->
-          <NavSearchForm mobile class="px-4 my-5" @submitForm="closeMenu()" />
+          <NavSearchForm
+            mobile
+            class="px-4 my-5"
+            @submit-form="closeMenu()"
+          />
 
           <!-- secondary nav dropdown -->
-          <nav v-if="hasSecondary" aria-label="Secondary">
+          <nav
+            v-if="hasSecondary"
+            aria-label="Secondary"
+          >
             <NavMobileDropdown
               :data="staticSecondaryData || headerStore.secondaryNav"
               start-open
@@ -48,7 +64,7 @@
                 v-if="item.titleLink"
                 :key="index"
                 :class="{
-                  '-active': checkActive(item.titleLink) && !hasSecondary,
+                  '-active': checkActive(item.titleLink) && !hasSecondary
                 }"
                 :data="item"
                 :start-open="checkActive(item.titleLink) && !hasSecondary"
@@ -87,9 +103,7 @@ import NavMobileDropdown from './../NavMobile/NavMobileDropdown.vue'
 import NavMobileLink from './../NavMobile/NavMobileLink.vue'
 import NavSocial from './../NavSocial/NavSocial.vue'
 import NavSearchForm from './../NavSearchForm/NavSearchForm.vue'
-import type {
-  LinkObject,
-  BreadcrumbObject} from '../../utils/mixins'
+import type { LinkObject, BreadcrumbObject } from '../../utils/mixins'
 import { mixinIsActivePath } from '../../utils/mixins'
 import type { BreadcrumbPathObject } from '../../interfaces'
 
@@ -102,40 +116,40 @@ export default defineComponent({
     NavMobileDropdown,
     NavMobileLink,
     NavSocial,
-    NavSearchForm,
+    NavSearchForm
   },
   props: {
     data: {
       type: Object || null,
       required: false,
-      default: null,
+      default: null
     },
     headerVisible: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     scrolledUp: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     scrollTop: {
       type: Number,
       required: false,
-      default: 0,
+      default: 0
     },
     staticSecondaryData: {
       type: Array,
       required: false,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
       menuVisible: false,
       searchQuery: null,
-      LogoColor: LogoColor,
+      LogoColor: LogoColor
     }
   },
   computed: {
@@ -161,14 +175,11 @@ export default defineComponent({
     },
     // if current page has a secondary nav that should override behavior of the main nav
     hasSecondary(): boolean {
-      if (
-        this.staticSecondaryData ||
-        this.headerStore?.secondaryNav
-      ) {
+      if (this.staticSecondaryData || this.headerStore?.secondaryNav) {
         return true
       }
       return false
-    },
+    }
   },
   watch: {
     $route() {
@@ -176,7 +187,7 @@ export default defineComponent({
       if (this.menuVisible) {
         this.closeMenu()
       }
-    },
+    }
   },
   mounted() {
     // // TODO: PORT: find solution for emitting event from slot
@@ -225,8 +236,8 @@ export default defineComponent({
         })
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

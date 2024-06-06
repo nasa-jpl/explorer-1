@@ -32,8 +32,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     theBeforeImageSrc() {
@@ -53,7 +53,7 @@ export default defineComponent({
         return this.data.afterImage.src
       }
       return null
-    },
-  },
+    }
+  }
 })
 </script>

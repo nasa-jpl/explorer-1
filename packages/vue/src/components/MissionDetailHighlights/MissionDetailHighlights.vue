@@ -1,21 +1,18 @@
 <template>
   <div
     class="MissionDetailHighlights lg:pt-0 lg:overflow-visible relative w-full pt-12 mb-10 overflow-hidden text-white bg-black"
-    :class="
-      graphic && animation
-        ? 'lg:mb-36 min-h-mission-highlights'
-        : 'pb-12 lg:mb-18'
-    "
+    :class="graphic && animation ? 'lg:mb-36 min-h-mission-highlights' : 'pb-12 lg:mb-18'"
   >
     <div class="max-w-screen-3xl relative mx-auto overflow-hidden">
       <div
         class="mission-highlights-content lg:BaseGrid lg:px-0 container relative z-20 px-4 mx-auto"
       >
-        <div
-          class="xl:col-start-6 lg:py-36 lg:col-start-7 xl:col-end-11 lg:col-end-12 relative"
-        >
+        <div class="xl:col-start-6 lg:py-36 lg:col-start-7 xl:col-end-11 lg:col-end-12 relative">
           <div class="relative z-10 w-full">
-            <BaseHeading level="h2" class="mb-8">
+            <BaseHeading
+              level="h2"
+              class="mb-8"
+            >
               {{ heading || 'Mission Highlights' }}
             </BaseHeading>
             <div class="slides relative overflow-hidden">
@@ -62,7 +59,10 @@
               class="bg-gradient-to-r from-transparent to-black lg:w-64 absolute inset-y-0 right-0 w-20"
             ></div>
             <picture class="block">
-              <source :srcset="graphic.webp.url" type="image/webp" />
+              <source
+                :srcset="graphic.webp.url"
+                type="image/webp"
+              />
               <img
                 class="object-contain"
                 :src="graphic.src.url"
@@ -83,13 +83,11 @@
       v-observe-visibility="{
         callback: visibilityChanged,
         throttle: 300,
-        once: false,
+        once: false
       }"
       class="lg:absolute relative inset-0"
     >
-      <div
-        class="mission-highlights-animation-container pt-14 relative max-w-screen-xl mx-auto"
-      >
+      <div class="mission-highlights-animation-container pt-14 relative max-w-screen-xl mx-auto">
         <div
           class="mission-highlights-spherical-body -translate-x-3/7 xl:-translate-x-1/2 lg:w-3xl lg:max-w-3xl relative inset-0 w-full max-w-xl transform"
         >
@@ -98,7 +96,10 @@
             class="lg:absolute relative inset-x-0 top-0 z-10"
           >
             <picture>
-              <source :srcset="graphic.webp.url" type="image/webp" />
+              <source
+                :srcset="graphic.webp.url"
+                type="image/webp"
+              />
               <img
                 ref="MissionDetailHighlightsImage"
                 class="lg:absolute relative w-full -mt-3"
@@ -123,7 +124,10 @@
                 viewBox="0 0 771 500"
                 aria-hidden="true"
               >
-                <g fill="none" fill-rule="evenodd">
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
                   <path
                     ref="missionHighlightsPath"
                     stroke="currentColor"
@@ -173,33 +177,33 @@ export default defineComponent({
   name: 'MissionDetailHighlights',
   components: {
     BaseHeading,
-    MissionDetailHighlightsCarousel,
+    MissionDetailHighlightsCarousel
   },
   directives: {
-    ObserveVisibility,
+    ObserveVisibility
   },
   props: {
     missionTitle: {
       type: String,
-      required: true,
+      required: true
     },
     animation: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     graphic: {
       type: Object,
-      required: false,
+      required: false
     },
     heading: {
       type: String,
-      required: false,
+      required: false
     },
     highlights: {
       type: Array as PropType<Slide[]>,
-      required: false,
-    },
+      required: false
+    }
   },
   data(): {
     isLoaded: boolean
@@ -209,7 +213,7 @@ export default defineComponent({
     return {
       isLoaded: false,
       animationInView: false,
-      resizeHandler: null,
+      resizeHandler: null
     }
   },
   computed: {
@@ -226,14 +230,14 @@ export default defineComponent({
         classes = classes + ' absolute inset-0'
       }
       return classes
-    },
+    }
   },
   watch: {
     isLoaded() {
       if (this.animation && this.animationInView) {
         this.animate()
       }
-    },
+    }
   },
   mounted() {
     this.init()
@@ -263,7 +267,7 @@ export default defineComponent({
           return i * 250
         },
         direction: 'alternate',
-        loop: false,
+        loop: false
       })
     },
     lineFollower() {
@@ -275,14 +279,14 @@ export default defineComponent({
         translateY: path('y'),
         easing: 'easeInOutSine',
         duration: 2000,
-        loop: false,
+        loop: false
       })
       tl.add({
         targets: this.$refs.missionHighlightsTitle,
         easing: 'easeInOutSine',
         duration: 250,
         opacity: ['0', '1'],
-        loop: false,
+        loop: false
       })
     },
     onResize() {
@@ -308,8 +312,8 @@ export default defineComponent({
       } else {
         this.isLoaded = true
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

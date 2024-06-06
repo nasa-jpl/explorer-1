@@ -1,8 +1,6 @@
 <template>
   <!-- z-60 is to maintain visibility over NavDesktop -->
-  <div
-    class="z-60 lg:left-auto lg:mr-20 absolute top-0 left-0 right-0 mt-4 text-center"
-  >
+  <div class="z-60 lg:left-auto lg:mr-20 absolute top-0 left-0 right-0 mt-4 text-center">
     <BaseButton
       variant="primary"
       class="focus:not-sr-only sr-only"
@@ -20,13 +18,13 @@ import BaseButton from './../BaseButton/BaseButton.vue'
 export default defineComponent({
   name: 'SkipLink',
   components: {
-    BaseButton,
+    BaseButton
   },
   data(): {
     main: HTMLElement | null
   } {
     return {
-      main: null,
+      main: null
     }
   },
   methods: {
@@ -49,7 +47,7 @@ export default defineComponent({
         this.main.focus()
         window.scrollTo(0, this.main.offsetTop)
       }
-    },
-  },
+    }
+  }
 })
 </script>

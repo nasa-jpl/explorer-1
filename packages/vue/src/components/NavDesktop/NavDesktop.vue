@@ -7,10 +7,9 @@
       'transition-colors': scrollTop === 0, // smooth bg transition if going from opaque to transparent at top of page
       'transition-transform': scrollTop > 0 && scrolledCurrentPage, // If not at the top of the page, just transition the transform to prevents content from peeking through on header reveal.
       'transform -translate-y-full': !scrolledUp && !headerVisible,
-      '-scrolled transform translate-y-0':
-        scrolledUp && headerVisible && scrollTop > 0,
+      '-scrolled transform translate-y-0': scrolledUp && headerVisible && scrollTop > 0,
       '-transparent': invert,
-      '-hasSecondary': headerStore?.highlightPrimary,
+      '-hasSecondary': headerStore?.highlightPrimary
     }"
   >
     <!-- navbar -->
@@ -89,11 +88,14 @@
             >
               <IconSearch />
             </button>
-            <div v-else class="flex items-center w-full">
+            <div
+              v-else
+              class="flex items-center w-full"
+            >
               <NavSearchForm
                 class="w-full"
-                @clearSearch="closeSearch()"
-                @submitForm="closeSearch()"
+                @clear-search="closeSearch()"
+                @submit-form="closeSearch()"
               />
               <button
                 aria-label="Close Search"
@@ -120,14 +122,16 @@ import NavLogoLinks from './../NavLogoLinks/NavLogoLinks.vue'
 import NavSearchForm from './../NavSearchForm/NavSearchForm.vue'
 import IconSearch from './../Icons/IconSearch.vue'
 import IconClose from './../Icons/IconClose.vue'
-import type {
-  LinkObject,
-  BreadcrumbObject
-} from './../../utils/mixins'
+import type { LinkObject, BreadcrumbObject } from './../../utils/mixins'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
 import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
 import type { BreadcrumbPathObject } from '../../interfaces'
-import { mixinIsActivePath, mixinGetLinkText, mixinUpdateGlobalChildren, mixinUpdateSecondary } from './../../utils/mixins'
+import {
+  mixinIsActivePath,
+  mixinGetLinkText,
+  mixinUpdateGlobalChildren,
+  mixinUpdateSecondary
+} from './../../utils/mixins'
 
 export default defineComponent({
   name: 'NavDesktop',
@@ -138,39 +142,39 @@ export default defineComponent({
     NavLogoLinks,
     NavSearchForm,
     IconSearch,
-    IconClose,
+    IconClose
   },
   props: {
     data: {
       type: Object || null,
       required: false,
-      default: null,
+      default: null
     },
     // this will override the initial display state (used in storybook)
     invertOverride: {
       type: Boolean,
-      required: false,
+      required: false
     },
     headerVisible: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     scrolled: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     scrolledUp: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     scrollTop: {
       type: Number,
       required: false,
-      default: 0,
-    },
+      default: 0
+    }
   },
   data() {
     return {
@@ -194,15 +198,14 @@ export default defineComponent({
     },
     // dynamic classes for header transparency and onScroll effects
     invert(): boolean {
-      const highContrast = (typeof window !== 'undefined') // client-side only
-        ? window.matchMedia('(forced-colors: active)').matches
-        : false
+      const highContrast =
+        typeof window !== 'undefined' // client-side only
+          ? window.matchMedia('(forced-colors: active)').matches
+          : false
       // storybook-safe
-      const headerTransparent = this.headerStore
-        ? this.headerStore?.headerTransparent
-        : false
+      const headerTransparent = this.headerStore ? this.headerStore?.headerTransparent : false
       return !highContrast && (headerTransparent || this.invertOverride)
-    },
+    }
   },
 
   watch: {
@@ -229,7 +232,7 @@ export default defineComponent({
       }
       // reset scrolledCurrentPage on route change
       this.scrolledCurrentPage = false
-    },
+    }
   },
   methods: {
     // safe way to retrieve url key from nav items. used with breadcrumb to determine active class.
@@ -246,9 +249,7 @@ export default defineComponent({
         // key into the breadcrumbs for each section
         const objArray = this.breadcrumb.menu_links[urlKey]
         // check if any of the paths contained in the array are active
-        const isActive = objArray.some((el: BreadcrumbPathObject) =>
-          mixinIsActivePath(el.path)
-        )
+        const isActive = objArray.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
         if (isActive) {
           mixinUpdateGlobalChildren(this.breadcrumb.menu_links[urlKey])
         }
@@ -261,9 +262,7 @@ export default defineComponent({
         // get the more menu array
         const arr = this.breadcrumb.more
         // check if array contains current path
-        const isActive = arr.some((el: BreadcrumbPathObject) =>
-          mixinIsActivePath(el.path)
-        )
+        const isActive = arr.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
         if (isActive) {
           // clear the secondary nav store when visiting a breadcrumb page
           // ensures blank secondary nav unless explicitly set via content page "Promote" settings
@@ -291,7 +290,7 @@ export default defineComponent({
     getLinkText(item: LinkObject) {
       return mixinGetLinkText(item)
     }
-  },
+  }
 })
 </script>
 <style lang="scss">

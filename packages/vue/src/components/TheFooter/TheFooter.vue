@@ -1,8 +1,6 @@
 <template>
   <footer class="TheFooter">
-    <div
-      class="footer-main lg:BaseGrid 3xl:px-0 lg:pt-20 container px-4 pt-10 mx-auto"
-    >
+    <div class="footer-main lg:BaseGrid 3xl:px-0 lg:pt-20 container px-4 pt-10 mx-auto">
       <div class="footer-navigation lg:block lg:col-span-9 hidden col-span-12">
         <!-- footerNavigation -->
         <div
@@ -33,13 +31,14 @@
       <!-- footer extras -->
       <div class="footer-extras lg:col-span-3 col-span-12">
         <!-- email sign up -->
-        <div class="text-subtitle text-blue lg:mb-5 mb-3">
-          Get the Latest from JPL
-        </div>
+        <div class="text-subtitle text-blue lg:mb-5 mb-3">Get the Latest from JPL</div>
         <TheFooterSignUp class="lg:mb-10 mb-8" />
         <!-- social media -->
         <div class="text-subtitle text-blue lg:mb-5 mb-3">Follow Us</div>
-        <NavSocial class="lg:mb-14 mb-12" dark />
+        <NavSocial
+          class="lg:mb-14 mb-12"
+          dark
+        />
         <!-- caltech aside -->
         <BaseLink
           variant="none"
@@ -51,8 +50,7 @@
           <LogoCaltech class="lg:text-base text-sm text-white" />
         </BaseLink>
         <p class="mb-12">
-          JPL is a federally funded research and development center managed for
-          NASA by Caltech.
+          JPL is a federally funded research and development center managed for NASA by Caltech.
         </p>
       </div>
     </div>
@@ -114,9 +112,7 @@
     <div
       class="bg-opacity-15 border-opacity-40 lg:border-t pt-5 pb-3 text-sm bg-black border-black"
     >
-      <div
-        class="3xl:px-0 lg:flex lg:flex-wrap lg:px-4 lg:container justify-between mx-auto"
-      >
+      <div class="3xl:px-0 lg:flex lg:flex-wrap lg:px-4 lg:container justify-between mx-auto">
         <div
           v-if="data && data.footerLinks"
           class="divide-opacity-40 lg:justify-start lg:-ml-4 flex flex-wrap justify-center mb-2 divide-x divide-white"
@@ -137,7 +133,10 @@
           v-if="data && data.footerMeta"
           class="lg:text-left lg:border-0 border-opacity-40 lg:pt-0 lg:px-0 px-4 pt-5 mb-4 text-center border-t border-black"
         >
-          <div v-if="commitSha" class="lg:inline-block lg:mb-0 block px-3 mb-2">
+          <div
+            v-if="commitSha"
+            class="lg:inline-block lg:mb-0 block px-3 mb-2"
+          >
             <span class="text-gray-light font-bold">Version:</span>
             <span>{{ commitSha }}</span>
           </div>
@@ -181,13 +180,13 @@ export default defineComponent({
     BaseButton,
     NavSocial,
     TheFooterSignUp,
-    LogoCaltech,
+    LogoCaltech
   },
   props: {
     data: {
       type: Object || null,
       required: false,
-      default: null,
+      default: null
     },
     commitSha: {
       type: String,

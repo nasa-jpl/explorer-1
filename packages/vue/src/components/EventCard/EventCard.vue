@@ -9,7 +9,11 @@
       class="border-gray-light-mid lg:pb-10 lg:mb-10 relative grid grid-cols-9 gap-7 pb-6 mb-6 border-b"
     >
       <div class="col-span-6 md:order-last">
-        <BaseHeading v-if="title" :level="headingLevel" size="h3" class="mb-4"
+        <BaseHeading
+          v-if="title"
+          :level="headingLevel"
+          size="h3"
+          class="mb-4"
           >{{ title }}
         </BaseHeading>
         <p
@@ -77,7 +81,11 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import { mixinFormatEventDates, mixinFormatSplitEventDates, mixinFormatEventTimeInHoursAndMinutes } from './../../utils/mixins'
+import {
+  mixinFormatEventDates,
+  mixinFormatSplitEventDates,
+  mixinFormatEventTimeInHoursAndMinutes
+} from './../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -90,54 +98,54 @@ export default defineComponent({
     BaseLink,
     BaseHeading,
     BaseImage,
-    BaseImagePlaceholder,
+    BaseImagePlaceholder
   },
   props: {
     url: {
       type: String,
       required: false,
-      default: '#',
+      default: '#'
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     summary: {
       type: String,
-      required: false,
+      required: false
     },
     startTime: {
       type: String,
-      required: false,
+      required: false
     },
     startDate: {
       type: String,
-      required: false,
+      required: false
     },
     endTime: {
       type: String,
-      required: false,
+      required: false
     },
     endDate: {
       type: String,
-      required: false,
+      required: false
     },
     location: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
       required: false,
-      default: 'h5',
-    },
+      default: 'h5'
+    }
   },
   computed: {
-    splitDate(): { day: string, monthAndYear: string} | null {
+    splitDate(): { day: string; monthAndYear: string } | null {
       if (this.startDate) {
         return mixinFormatSplitEventDates(this.startDate, this.endDate)
       }
@@ -145,18 +153,14 @@ export default defineComponent({
     },
     displayTime(): string | undefined {
       if (this.startDate) {
-        return mixinFormatEventTimeInHoursAndMinutes(
-          this.startDate,
-          this.endDate,
-          this.endTime
-        )
+        return mixinFormatEventTimeInHoursAndMinutes(this.startDate, this.endDate, this.endTime)
       }
       return undefined
     },
     formattedEventDates() {
       return this.startDate ? mixinFormatEventDates(this.startDate, this.endDate) : undefined
     }
-  },
+  }
 })
 </script>
 <style lang="scss">

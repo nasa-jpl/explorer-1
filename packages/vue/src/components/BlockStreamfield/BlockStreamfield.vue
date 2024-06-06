@@ -1,5 +1,9 @@
 <template>
-  <div v-if="data" class="BlockStreamfield" :class="layoutClass">
+  <div
+    v-if="data"
+    class="BlockStreamfield"
+    :class="layoutClass"
+  >
     <template v-for="(block, index) in data">
       <LayoutHelper
         v-if="block.blockType == 'HeadingBlock'"
@@ -53,7 +57,7 @@
         indent="col-4"
         class="lg:mb-18 mb-10"
       >
-        <BlockQuote :data="(block as unknown) as BlockQuoteAttributes" />
+        <BlockQuote :data="block as unknown as BlockQuoteAttributes" />
       </LayoutHelper>
 
       <LayoutHelper
@@ -88,7 +92,10 @@
         indent="col-2"
         class="lg:mb-18 mb-10"
       >
-        <BlockImageCarousel :items="block.blocks" :block-id="block.id" />
+        <BlockImageCarousel
+          :items="block.blocks"
+          :block-id="block.id"
+        />
       </LayoutHelper>
 
       <div
@@ -222,7 +229,7 @@ interface Variants {
 
 export const variants: Variants = {
   default: '',
-  fluid: '-fluid',
+  fluid: '-fluid'
 }
 
 interface BlockData {
@@ -266,25 +273,24 @@ export default defineComponent({
     BlockIframeEmbed,
     BlockVideo,
     BlockVideoEmbed,
-    BlockAnchor,
+    BlockAnchor
   },
   props: {
     variant: {
       type: String,
       required: false,
       default: 'default',
-      validator: (prop: string): boolean =>
-        Object.keys(variants).includes(prop),
+      validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
     data: {
       type: Array as PropType<BlockData[]>,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     layoutClass(): string {
       return variants[this.variant]
-    },
+    }
   },
   methods: {
     // use with BlockText or BlockInlineImage to determine their bottom margin
@@ -294,16 +300,13 @@ export default defineComponent({
       if (this.data && this.data[nextIndex]) {
         const nextBlock = this.data[nextIndex] as BlockData
         const nextBlockType = nextBlock.blockType
-        if (
-          nextBlockType === 'InlineImageBlock' ||
-          nextBlockType === 'RichTextBlock'
-        ) {
+        if (nextBlockType === 'InlineImageBlock' || nextBlockType === 'RichTextBlock') {
           return true
         }
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

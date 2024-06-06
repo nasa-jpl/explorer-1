@@ -34,9 +34,7 @@
         <div
           class="content lg:mb-0 lg:py-48 lg:flex lg:items-center duration-2000 relative z-30 w-full h-full transition-all ease-out delay-200"
         >
-          <div
-            class="lg:py-0 lg:BaseGrid sm:pt-24 container h-full py-10 mx-auto"
-          >
+          <div class="lg:py-0 lg:BaseGrid sm:pt-24 container h-full py-10 mx-auto">
             <div
               class="content-body lg:px-10 3xl:px-0 col-start-1 col-end-7 px-4"
               :class="{ 'text-contrast': hasBackground }"
@@ -51,9 +49,7 @@
                 {{ title }}
               </h1>
 
-              <p
-                class="xl:text-2xl lg:text-md xl:pr-26 xl:leading-normal text-xl leading-relaxed"
-              >
+              <p class="xl:text-2xl lg:text-md xl:pr-26 xl:leading-normal text-xl leading-relaxed">
                 {{ summary }}
               </p>
               <BaseButton
@@ -78,7 +74,10 @@
           :factor="0.4"
         >
           <picture class="block w-full h-full">
-            <source :srcset="instrumentImage.webp.url" type="image/webp" />
+            <source
+              :srcset="instrumentImage.webp.url"
+              type="image/webp"
+            />
             <img
               v-if="instrumentImage.src"
               ref="foregroundImage"
@@ -111,48 +110,48 @@ export default defineComponent({
     ParallaxContainer,
     ParallaxElement,
     BaseButton,
-    IconExternal,
+    IconExternal
   },
   props: {
     title: {
       type: String,
       required: true,
-      default: '',
+      default: ''
     },
     subtitle: {
       type: String,
-      required: false,
+      required: false
     },
     summary: {
       type: String,
       required: true,
-      default: '',
+      default: ''
     },
     missionWebsiteUrl: {
       type: String,
-      required: false,
+      required: false
     },
     instrumentImage: {
       type: Object,
-      required: false,
+      required: false
     },
     instrumentBackground: {
       type: Object,
-      required: false,
+      required: false
     },
     heroFallback: {
       type: Object as PropType<Partial<ImageObject>>,
-      required: false,
+      required: false
     },
     // if both instrumentBackground and instrumentImage are provided, templateStyle will have no effect and will default to 'dark'
     templateStyle: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
-      isLoaded: false,
+      isLoaded: false
     }
   },
   computed: {
@@ -213,7 +212,7 @@ export default defineComponent({
         return 'bg-gradient-to-l from-transparent-w25 to-transparent-black-90'
       }
       return ''
-    },
+    }
   },
   mounted() {
     this.init()
@@ -240,8 +239,8 @@ export default defineComponent({
         }
         img.addEventListener('load', onLoad, false)
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss" scoped>

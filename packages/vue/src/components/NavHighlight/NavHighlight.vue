@@ -6,8 +6,15 @@
       link-class="block"
       :to="highlight.url"
     >
-      <div v-if="highlight.thumbnailImage" class="mb-4">
-        <BaseImagePlaceholder aspect-ratio="16:9" dark-mode no-logo>
+      <div
+        v-if="highlight.thumbnailImage"
+        class="mb-4"
+      >
+        <BaseImagePlaceholder
+          aspect-ratio="16:9"
+          dark-mode
+          no-logo
+        >
           <BaseImage
             v-if="highlight.thumbnailImage.src"
             :src="highlight.thumbnailImage.src.url"
@@ -21,7 +28,10 @@
         </BaseImagePlaceholder>
       </div>
 
-      <p v-if="customLabel || highlight.label" class="text-subtitle-sm mb-2">
+      <p
+        v-if="customLabel || highlight.label"
+        class="text-subtitle-sm mb-2"
+      >
         {{ customLabel || highlight.label }}
       </p>
       <span class="sr-only">.</span>
@@ -41,17 +51,17 @@ export default defineComponent({
   components: {
     BaseLink,
     BaseImage,
-    BaseImagePlaceholder,
+    BaseImagePlaceholder
   },
   props: {
     highlight: {
       type: Object,
-      required: false,
+      required: false
     },
     customLabel: {
       type: String,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

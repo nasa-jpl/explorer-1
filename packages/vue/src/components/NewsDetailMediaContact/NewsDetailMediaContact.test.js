@@ -5,7 +5,7 @@ import NewsDetailMediaContact from './NewsDetailMediaContact.vue'
 describe('NewsDetailMediaContact', () => {
   test('does not display anything if there are no contacts', () => {
     const wrapper = mount(NewsDetailMediaContact, {
-      propsData: { contacts: [] },
+      propsData: { contacts: [] }
     })
     expect(wrapper.find('*').exists()).toBe(false)
   })
@@ -19,11 +19,11 @@ describe('NewsDetailMediaContact', () => {
               name: '',
               address: '',
               email: '',
-              phone: '',
-            },
-          },
-        ],
-      },
+              phone: ''
+            }
+          }
+        ]
+      }
     })
     expect(wrapper.find('*').exists()).toBe(false)
   })

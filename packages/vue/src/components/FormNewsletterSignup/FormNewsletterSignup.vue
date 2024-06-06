@@ -1,10 +1,19 @@
 <template>
   <div>
-    <img :src="iContactTrackingGif" alt="" />
+    <img
+      :src="iContactTrackingGif"
+      alt=""
+    />
     <LayoutHelper indent="col-3">
-      <hr ref="FormNewsletterSignup" class="text-gray-light-mid mb-10" />
+      <hr
+        ref="FormNewsletterSignup"
+        class="text-gray-light-mid mb-10"
+      />
       <!-- iContact form -->
-      <div v-show="!submitted" class="mb-10">
+      <div
+        v-show="!submitted"
+        class="mb-10"
+      >
         <form
           id="ic_signupform"
           :captcha-key="captchaKey"
@@ -13,7 +22,11 @@
           method="POST"
           :action="iContactForm"
         >
-          <BaseHeading level="h2" size="h6">Contact Information</BaseHeading>
+          <BaseHeading
+            level="h2"
+            size="h6"
+            >Contact Information</BaseHeading
+          >
           <div class="mt-8">
             <label
               id="email_label"
@@ -101,7 +114,11 @@
               />
             </div>
           </div>
-          <BaseHeading level="h2" size="h6" class="mt-12">
+          <BaseHeading
+            level="h2"
+            size="h6"
+            class="mt-12"
+          >
             Subscribe to Email Groups
           </BaseHeading>
           <div
@@ -129,13 +146,20 @@
             </div>
           </div>
           <div class="mt-4 lg:mt-8 submit-container">
-            <BaseButton type="submit" variant="primary">Submit</BaseButton>
+            <BaseButton
+              type="submit"
+              variant="primary"
+              >Submit</BaseButton
+            >
           </div>
         </form>
       </div>
 
       <!-- success -->
-      <div v-show="submitted" class="pt-10 text-center">
+      <div
+        v-show="submitted"
+        class="pt-10 text-center"
+      >
         <BaseHeading level="h2">Thank you!</BaseHeading>
         <div
           class="text-jpl-aqua h-22 w-22 p-5 mx-auto my-8 text-6xl font-bold border-4 rounded-full"
@@ -172,7 +196,7 @@ const emailGroups = [
     text: 'All JPL News delivered immediately',
     value: '41031',
     alt: 'Lists',
-    name: 'data[listGroups][]',
+    name: 'data[listGroups][]'
   },
   {
     id: 'daily',
@@ -180,7 +204,7 @@ const emailGroups = [
     text: 'Daily JPL news summary',
     value: '41032',
     alt: 'Lists',
-    name: 'data[listGroups][]',
+    name: 'data[listGroups][]'
   },
   {
     id: 'weekly',
@@ -188,7 +212,7 @@ const emailGroups = [
     text: 'Weekly JPL news summary',
     value: '41033',
     alt: 'Lists',
-    name: 'data[listGroups][]',
+    name: 'data[listGroups][]'
   },
   {
     id: 'monthly',
@@ -196,8 +220,8 @@ const emailGroups = [
     text: 'Monthly JPL news summary',
     value: '41034',
     alt: 'Lists',
-    name: 'data[listGroups][]',
-  },
+    name: 'data[listGroups][]'
+  }
 ]
 
 const eduEmailGroups = [
@@ -207,7 +231,7 @@ const eduEmailGroups = [
     text: null,
     value: '21583',
     alt: 'Lists',
-    name: 'data[listGroups][]',
+    name: 'data[listGroups][]'
   },
   {
     id: 'educator-workshop',
@@ -215,7 +239,7 @@ const eduEmailGroups = [
     text: 'Southern California',
     value: '51343',
     alt: 'Lists',
-    name: 'data[listGroups][]',
+    name: 'data[listGroups][]'
   },
   {
     id: 'students',
@@ -223,7 +247,7 @@ const eduEmailGroups = [
     text: null,
     value: '29483',
     alt: 'Lists',
-    name: 'data[listGroups][]',
+    name: 'data[listGroups][]'
   },
   {
     id: 'internships',
@@ -231,8 +255,8 @@ const eduEmailGroups = [
     text: null,
     value: '29484',
     alt: 'Lists',
-    name: 'data[listGroups][]',
-  },
+    name: 'data[listGroups][]'
+  }
 ]
 
 export default defineComponent({
@@ -242,7 +266,7 @@ export default defineComponent({
     BaseHeading,
     BaseButton,
     BaseCheckboxGroup,
-    BaseRadioGroup,
+    BaseRadioGroup
   },
   data() {
     return {
@@ -252,7 +276,7 @@ export default defineComponent({
       iContactTrackingGif,
       captchaKey,
       emailGroups,
-      eduEmailGroups,
+      eduEmailGroups
     }
   },
   mounted() {
@@ -300,15 +324,15 @@ export default defineComponent({
         const request = {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
           body: qs.stringify({
             'data[email]': data.email,
             'data[fname]': data.first_name,
             'data[lname]': data.last_name,
             'data[zip]': data.zip_code,
-            'data[listGroups][]': data.listGroups,
-          }),
+            'data[listGroups][]': data.listGroups
+          })
         }
         fetch(iContactForm, request)
       }
@@ -318,8 +342,8 @@ export default defineComponent({
       if (this.$refs && this.$refs.FormNewsletterSignup) {
         this.$scrollTo(this.$refs.FormNewsletterSignup, 0, { offset: 100 })
       }
-    },
-  },
+    }
+  }
 })
 </script>
 

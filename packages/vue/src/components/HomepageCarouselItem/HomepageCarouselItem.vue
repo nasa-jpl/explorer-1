@@ -1,5 +1,8 @@
 <template>
-  <div v-if="item" class="HomepageCarouselItem relative flex items-center overflow-hidden">
+  <div
+    v-if="item"
+    class="HomepageCarouselItem relative flex items-center overflow-hidden"
+  >
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       <!-- video always overrides the image -->
       <video
@@ -15,7 +18,10 @@
           :src="item.video.fileWebm"
           type="video/webm"
         />
-        <source :src="item.video.file" type="video/mp4" />
+        <source
+          :src="item.video.file"
+          type="video/mp4"
+        />
         <source
           v-if="item.video.fileOgg"
           :src="item.video.fileOgg"
@@ -43,9 +49,7 @@
         />
       </picture>
     </div>
-    <div
-      class="lg:flex lg:items-center lg:relative lg:h-full absolute bottom-0 z-20 w-full"
-    >
+    <div class="lg:flex lg:items-center lg:relative lg:h-full absolute bottom-0 z-20 w-full">
       <div
         class="bg-gradient-to-b lg:bg-gradient-to-l from-transparent lg:from-transparent xl:from-transparent-w25 to-black lg:to-transparent-black-75 absolute inset-0"
       ></div>
@@ -61,19 +65,11 @@
             <span class="sr-only">.</span>
           </p>
           <component
-            :is="
-              item.externalLink || (item.page && item.page.url)
-                ? 'BaseLink'
-                : 'div'
-            "
+            :is="item.externalLink || (item.page && item.page.url) ? 'BaseLink' : 'div'"
             variant="none"
             link-class="block"
             :href="item.externalLink ? item.externalLink : null"
-            :to="
-              item.page && item.page.url && !item.externalLink
-                ? item.page.url
-                : null
-            "
+            :to="item.page && item.page.url && !item.externalLink ? item.page.url : null"
             external-target-blank
           >
             <p
@@ -126,14 +122,14 @@ export default defineComponent({
   name: 'HomepageCarouselItem',
   components: {
     BaseLink,
-    IconArrow,
+    IconArrow
   },
   props: {
     item: {
-      type: (Object as PropType<Slide>),
-      required: false,
-    },
-  },
+      type: Object as PropType<Slide>,
+      required: false
+    }
+  }
 })
 </script>
 <style lang="scss">

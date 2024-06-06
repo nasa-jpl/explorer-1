@@ -1,6 +1,12 @@
 <template>
-  <div v-if="items" class="BlockImageCarousel w-full overflow-hidden">
-    <div ref="BlockImageCarousel" class="swiper">
+  <div
+    v-if="items"
+    class="BlockImageCarousel w-full overflow-hidden"
+  >
+    <div
+      ref="BlockImageCarousel"
+      class="swiper"
+    >
       <div class="swiper-wrapper">
         <slot name="firstSlide"></slot>
         <BlockImageCarouselItem
@@ -14,9 +20,7 @@
           class="swiper-slide"
         />
       </div>
-      <div
-        class="swiper-nav lg:block absolute inset-x-0 top-0 hidden h-0 overflow-hidden z-70"
-      >
+      <div class="swiper-nav lg:block absolute inset-x-0 top-0 hidden h-0 overflow-hidden z-70">
         <div class="absolute inset-0">
           <div class="absolute bottom-0 right-0 z-10 flex">
             <BaseButton
@@ -71,38 +75,37 @@ const BlockImageCarouselOptions = swiperOptions.BlockImageCarousel
 
 Swiper.use([Navigation, A11y])
 
-
 export default defineComponent({
   name: 'BlockImageCarousel',
   components: {
     BaseButton,
     IconPrev,
     IconNext,
-    BlockImageCarouselItem,
+    BlockImageCarouselItem
   },
   props: {
     items: {
       type: Array as PropType<Partial<ImageObject>[]>,
-      required: false,
+      required: false
     },
     loop: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // watches this prop if parent component needs to control current slide
     slide: {
       type: Number,
-      required: false,
+      required: false
     },
     blockId: {
       type: String,
-      required: false,
+      required: false
     },
     showTitle: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   data(): {
     currentIndex: number
@@ -130,8 +133,7 @@ export default defineComponent({
                 const fancyboxEl = slide.querySelector('.MixinFancybox')
                 if (fancyboxEl) {
                   const fancyboxId =
-                    fancyboxEl.dataset.fancybox ||
-                    fancyboxEl.dataset.triggerFancybox
+                    fancyboxEl.dataset.fancybox || fancyboxEl.dataset.triggerFancybox
                   if (slide.classList.contains('swiper-slide-visible')) {
                     fancyboxEl.dataset.fancybox = fancyboxId
                     fancyboxEl.removeAttribute('data-trigger-fancybox')
@@ -148,9 +150,9 @@ export default defineComponent({
                 }
               })
             }
-          },
-        },
-      },
+          }
+        }
+      }
     }
   },
   computed: {
@@ -167,22 +169,19 @@ export default defineComponent({
         return navArray
       }
       return navArray
-    },
+    }
   },
   watch: {
     slide(value) {
       this.slideTo(value)
-    },
+    }
   },
   mounted() {
     this.init()
   },
   methods: {
     init() {
-      this.slider = new Swiper(
-        this.$refs.BlockImageCarousel as HTMLElement,
-        this.sliderOptions
-      )
+      this.slider = new Swiper(this.$refs.BlockImageCarousel as HTMLElement, this.sliderOptions)
       this.currentIndex = this.slider.realIndex
     },
     updateIndex(val: number) {
@@ -192,8 +191,8 @@ export default defineComponent({
       if (this.slider) {
         this.slider.slideTo(val)
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

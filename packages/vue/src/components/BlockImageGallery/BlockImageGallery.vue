@@ -7,7 +7,8 @@
     :block-id="blockId"
   >
     <template #firstSlide>
-      <MixinFancybox v-if="cover"
+      <MixinFancybox
+        v-if="cover"
         :src="cover.original"
         :caption="description"
         :credit="cover.credit"
@@ -18,17 +19,19 @@
         class="swiper-slide h-auto"
       >
         <div>
-          <div
-            class="bg-gradient-to-b from-transparent-w50 to-black absolute inset-0 z-10"
-          >
-            <div
-              class="text-contrast lg:p-20 flex items-end w-full h-full p-10 text-white"
-            >
+          <div class="bg-gradient-to-b from-transparent-w50 to-black absolute inset-0 z-10">
+            <div class="text-contrast lg:p-20 flex items-end w-full h-full p-10 text-white">
               <div class="w-full">
-                <p v-if="label" class="text-subtitle mb-3">
+                <p
+                  v-if="label"
+                  class="text-subtitle mb-3"
+                >
                   {{ label }}
                 </p>
-                <BaseHeading v-if="title" level="h2">
+                <BaseHeading
+                  v-if="title"
+                  level="h2"
+                >
                   {{ title }}
                 </BaseHeading>
                 <p
@@ -80,37 +83,41 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     BaseHeading,
-    BlockImageCarousel,
+    BlockImageCarousel
   },
   props: {
     label: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     description: {
       type: String,
-      required: false,
+      required: false
     },
     cover: {
       type: Object as PropType<ImageObject>,
-      required: false,
+      required: false
     },
     items: {
       type: Array as PropType<ImageObject[]>,
-      required: false,
+      required: false
     },
     blockId: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theSrcSet() {
-      return this.cover ? mixinGetSrcSet(this.cover) ? mixinGetSrcSet(this.cover) : this.cover.srcSet : ''
+      return this.cover
+        ? mixinGetSrcSet(this.cover)
+          ? mixinGetSrcSet(this.cover)
+          : this.cover.srcSet
+        : ''
     }
   }
 })

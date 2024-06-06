@@ -5,11 +5,7 @@
     link-class="block px-3 py-2"
     variant="none"
     class="NavSecondaryLink border-t-2 border-transparent"
-    :class="
-      index === 0
-        ? 'mr-auto text-jpl-red font-semibold secondary-root'
-        : 'text-gray-dark'
-    "
+    :class="index === 0 ? 'mr-auto text-jpl-red font-semibold secondary-root' : 'text-gray-dark'"
   >
     <span
       class="inline-block pt-2 pb-1 mb-1 transition-colors duration-100 ease-in border-b-2 border-transparent"
@@ -30,19 +26,19 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 export default defineComponent({
   name: 'NavSecondaryLink',
   components: {
-    BaseLink,
+    BaseLink
   },
   props: {
     // the index from the v-for loop
     index: {
       type: Number,
-      required: false,
+      required: false
     },
     // the nav item object that includes path and title
     item: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   methods: {
     isExternal(path: string): boolean {
@@ -50,8 +46,8 @@ export default defineComponent({
         return true
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

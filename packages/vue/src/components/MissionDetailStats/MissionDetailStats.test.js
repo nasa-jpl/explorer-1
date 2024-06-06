@@ -16,8 +16,8 @@ describe('MissionDetailStats', () => {
         displayDate: null,
         missionTypes: [],
         missionTargets: [],
-        status: 'draft',
-      },
+        status: 'draft'
+      }
     })
   })
 })

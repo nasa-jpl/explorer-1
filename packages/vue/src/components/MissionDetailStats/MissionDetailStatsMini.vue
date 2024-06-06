@@ -54,28 +54,28 @@ export default defineComponent({
   name: 'MissionDetailStatsMini',
   components: {
     BaseTimer,
-    DistanceStats,
+    DistanceStats
   },
   props: {
     showClock: Boolean,
     clockType: {
       type: String as PropType<ClockType>,
       required: true,
-      validator: (val: ClockType): boolean => Boolean(clockTypes[val]),
+      validator: (val: ClockType): boolean => Boolean(clockTypes[val])
     },
     startDateTime: String,
     showDistance: Boolean,
     distanceType: {
-      type: String as PropType<DistanceType | ''>,
+      type: String as PropType<DistanceType | ''>
     },
     distanceValue: Number,
-    distanceApiUrls: String,
+    distanceApiUrls: String
   },
   computed: {
     clockTypeLabel(): string {
       return clockTypes[this.clockType as ClockType] || this.clockType
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

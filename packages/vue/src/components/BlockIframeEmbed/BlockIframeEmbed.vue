@@ -16,7 +16,11 @@
       ></iframe>
     </template>
     <template v-else>
-      <BaseImagePlaceholder v-if="data.url" aspect-ratio="16:9" dark-mode>
+      <BaseImagePlaceholder
+        v-if="data.url"
+        aspect-ratio="16:9"
+        dark-mode
+      >
         <div>
           <iframe
             ref="BlockIframeEmbed"
@@ -51,12 +55,12 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
-      lazyNative: true,
+      lazyNative: true
     }
   },
   mounted() {
@@ -74,7 +78,7 @@ export default defineComponent({
       } else {
         this.lazyNative = false
       }
-    },
-  },
+    }
+  }
 })
 </script>

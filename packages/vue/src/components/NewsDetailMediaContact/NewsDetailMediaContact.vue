@@ -1,8 +1,6 @@
 <template>
   <div v-if="hasContent">
-    <h2 class="text-h6 pt-5 md:pt-8 border-t border-gray-mid md:mb-8 mb-5">
-      News Media Contact
-    </h2>
+    <h2 class="text-h6 pt-5 md:pt-8 border-t border-gray-mid md:mb-8 mb-5">News Media Contact</h2>
     <address
       v-for="(contact, index) in contacts"
       :key="index"
@@ -39,51 +37,37 @@ export default defineComponent({
     contacts: {
       type: Array as PropType<Contact[]>,
       required: true,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   computed: {
     hasContent() {
       return this.contacts.some(
-        (c) =>
-          c.contact.name ||
-          c.contact.address ||
-          c.contact.phone ||
-          c.contact.email
+        (c) => c.contact.name || c.contact.address || c.contact.phone || c.contact.email
       )
-    },
+    }
   },
   methods: {
     formatEmail(email: string) {
       const emailAddresses = email.split(/[,/]+/)
       let iterations = emailAddresses.length
       if (iterations === 1) {
-        return (
-          '<a href="mailto:' + email + '" target="_blank">' + email + '</a>'
-        )
+        return '<a href="mailto:' + email + '" target="_blank">' + email + '</a>'
       } else {
         let formattedEmailAddresses = ''
         emailAddresses.forEach(function (item) {
           const emailAddress = item.trim()
           if (!--iterations) {
             formattedEmailAddresses +=
-              '<a href="mailto:' +
-              emailAddress +
-              '" target="_blank">' +
-              emailAddress +
-              '</a>'
+              '<a href="mailto:' + emailAddress + '" target="_blank">' + emailAddress + '</a>'
           } else {
             formattedEmailAddresses +=
-              '<a href="mailto:' +
-              emailAddress +
-              '" target="_blank">' +
-              emailAddress +
-              '</a> / '
+              '<a href="mailto:' + emailAddress + '" target="_blank">' + emailAddress + '</a> / '
           }
         })
         return formattedEmailAddresses
       }
-    },
-  },
+    }
+  }
 })
 </script>

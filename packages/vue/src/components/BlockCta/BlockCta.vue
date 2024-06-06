@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="bg-gray-light md:mx-0 sm:py-8 md:py-10 md:px-0 sm:mx-20 px-6 py-6 text-center"
-  >
+  <div class="bg-gray-light md:mx-0 sm:py-8 md:py-10 md:px-0 sm:mx-20 px-6 py-6 text-center">
     <div class="md:mx-16 xl:mx-24">
       <p class="text-h6">{{ data.heading }}</p>
     </div>
@@ -34,14 +32,14 @@ export default defineComponent({
   name: 'BlockCta',
   components: {
     BaseButton,
-    IconExternal,
+    IconExternal
   },
   props: {
     data: {
       type: Object,
       required: true,
-      default: () => ({}),
-    },
-  },
+      default: () => ({})
+    }
+  }
 })
 </script>

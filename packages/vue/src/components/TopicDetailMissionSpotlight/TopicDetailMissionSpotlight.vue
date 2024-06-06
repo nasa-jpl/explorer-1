@@ -5,7 +5,10 @@
   >
     <div class="absolute inset-0 z-10 bg-black">
       <picture v-if="data.heroImage && data.heroImage.src">
-        <source media="(min-width: 768px)" :srcset="data.heroImage.srcSet" />
+        <source
+          media="(min-width: 768px)"
+          :srcset="data.heroImage.srcSet"
+        />
         <source
           media="(min-width: 420px)"
           :srcset="data.heroImage.screenMd.url"
@@ -20,9 +23,7 @@
         />
       </picture>
     </div>
-    <div
-      class="content-wrapper lg:flex lg:items-center relative z-20 w-full h-full"
-    >
+    <div class="content-wrapper lg:flex lg:items-center relative z-20 w-full h-full">
       <div
         class="bg-gradient-to-t lg:bg-gradient-to-l from-transparent-w25 lg:from-transparent xl:from-transparent-w25 to-transparent-black-75 lg:to-transparent-black-75 absolute inset-0"
       ></div>
@@ -32,9 +33,7 @@
             class="lg:px-10 2xl:px-0 lg:pt-10 lg:pb-14 xl:col-end-6 col-start-1 col-end-10 px-4 pb-10"
           >
             <h2>
-              <span
-                class="text-gray-light-mid text-contrast text-subtitle block mb-3"
-              >
+              <span class="text-gray-light-mid text-contrast text-subtitle block mb-3">
                 {{ eyebrow }}
               </span>
               <div
@@ -48,7 +47,11 @@
             >
               {{ data.summary }}
             </p>
-            <BaseButton variant="primary" :to="data.url">Explore</BaseButton>
+            <BaseButton
+              variant="primary"
+              :to="data.url"
+              >Explore</BaseButton
+            >
           </div>
         </div>
         <MissionDetailStatsMini
@@ -74,19 +77,19 @@ export default defineComponent({
   name: 'TopicDetailMissionSpotlight',
   components: {
     MissionDetailStatsMini,
-    BaseButton,
+    BaseButton
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
-      eyebrow: 'Mission Spotlight',
+      eyebrow: 'Mission Spotlight'
     }
-  },
+  }
 })
 </script>
 <style lang="scss" scoped>

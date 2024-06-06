@@ -1,8 +1,6 @@
 <template>
   <div class="BaseUnitToggle">
-    <p class="sr-only">
-      {{ formattedValue }} {{ unitConfig[selectedSystem].label }}
-    </p>
+    <p class="sr-only">{{ formattedValue }} {{ unitConfig[selectedSystem].label }}</p>
     <slot :formatted-value="formattedValue">
       {{ formattedValue }}
     </slot>
@@ -11,7 +9,10 @@
       :class="{ 'lg:block': !inline }"
       aria-label="Change Unit"
     >
-      <label class="cursor-pointer" :aria-label="unitConfig.imperial.label">
+      <label
+        class="cursor-pointer"
+        :aria-label="unitConfig.imperial.label"
+      >
         <input
           v-model="selectedSystem"
           class="sr-only"
@@ -19,12 +20,22 @@
           value="imperial"
           @change="setSystem"
         />
-        <span class="unit" aria-hidden="true">
+        <span
+          class="unit"
+          aria-hidden="true"
+        >
           {{ unitConfig.imperial.abbr }}
         </span>
       </label>
-      <span class="select-none" aria-hidden="true">|</span>
-      <label class="cursor-pointer" :aria-label="unitConfig.metric.label">
+      <span
+        class="select-none"
+        aria-hidden="true"
+        >|</span
+      >
+      <label
+        class="cursor-pointer"
+        :aria-label="unitConfig.metric.label"
+      >
         <input
           v-model="selectedSystem"
           class="sr-only"
@@ -32,7 +43,10 @@
           value="metric"
           @change="setSystem"
         />
-        <span class="unit" aria-hidden="true">
+        <span
+          class="unit"
+          aria-hidden="true"
+        >
           {{ unitConfig.metric.abbr }}
         </span>
       </label>
@@ -73,62 +87,62 @@ export const unitPairs: UnitPairs = {
     imperial: {
       label: 'Miles',
       abbr: 'MI',
-      toOther: 1 * 1.609344,
+      toOther: 1 * 1.609344
     },
     metric: {
       label: 'Kilometers',
       abbr: 'KM',
-      toOther: 1 / 1.609344,
-    },
+      toOther: 1 / 1.609344
+    }
   },
   LB_KG: {
     imperial: {
       label: 'Pounds',
       abbr: 'LB',
-      toOther: 1 / 2.205,
+      toOther: 1 / 2.205
     },
     metric: {
       label: 'Kilograms',
       abbr: 'KG',
-      toOther: 1 * 2.205,
-    },
+      toOther: 1 * 2.205
+    }
   },
   G_OZ: {
     imperial: {
       label: 'Ounces',
       abbr: 'OZ',
-      toOther: 1 / 0.0352739331766097,
+      toOther: 1 / 0.0352739331766097
     },
     metric: {
       label: 'Grams',
       abbr: 'G',
-      toOther: 1 * 0.0352739331766097,
-    },
+      toOther: 1 * 0.0352739331766097
+    }
   },
   M_FT: {
     imperial: {
       label: 'Feet',
       abbr: 'FT',
-      toOther: 1 * 0.3048,
+      toOther: 1 * 0.3048
     },
     metric: {
       label: 'Meters',
       abbr: 'M',
-      toOther: 1 / 0.3048,
-    },
+      toOther: 1 / 0.3048
+    }
   },
   MS_FS: {
     imperial: {
       label: 'Feet per second',
       abbr: 'FT/S',
-      toOther: 1 * 0.3048,
+      toOther: 1 * 0.3048
     },
     metric: {
       label: 'Meters per second',
       abbr: 'M/S',
-      toOther: 1 / 0.3048,
-    },
-  },
+      toOther: 1 / 0.3048
+    }
+  }
 } as const
 
 /**
@@ -141,28 +155,28 @@ export default defineComponent({
     unitPair: {
       type: String as PropType<UnitName>,
       required: true,
-      validator: (val: UnitName): boolean => Boolean(unitPairs[val]),
+      validator: (val: UnitName): boolean => Boolean(unitPairs[val])
     },
     value: {
       type: Number as PropType<number>,
-      required: true,
+      required: true
     },
     secondValue: {
       type: Number as PropType<number>,
-      required: false,
+      required: false
     },
     valueSystem: {
       type: String as PropType<UnitSystemName>,
-      required: true,
+      required: true
     },
     inline: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data(): { selectedSystem: UnitSystemName } {
     return {
-      selectedSystem: 'imperial' as UnitSystemName,
+      selectedSystem: 'imperial' as UnitSystemName
     }
   },
   computed: {
@@ -174,10 +188,7 @@ export default defineComponent({
       let selectedValue
 
       if (this.secondValue) {
-        selectedValue =
-          this.valueSystem === this.selectedSystem
-            ? this.value
-            : this.secondValue
+        selectedValue = this.valueSystem === this.selectedSystem ? this.value : this.secondValue
       } else {
         selectedValue =
           this.valueSystem === this.selectedSystem
@@ -189,15 +200,12 @@ export default defineComponent({
       const decimals = this.value.toString().split('.')[1]?.length || 0
       return selectedValue.toLocaleString('en-US', {
         minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
+        maximumFractionDigits: decimals
       })
-    },
+    }
   },
   mounted(): void {
-    if (
-      window.localStorage &&
-      window.localStorage.getItem('selectedSystem') === 'metric'
-    ) {
+    if (window.localStorage && window.localStorage.getItem('selectedSystem') === 'metric') {
       this.selectedSystem = 'metric'
     }
   },
@@ -211,8 +219,8 @@ export default defineComponent({
       } catch (e) {
         console.error(e)
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

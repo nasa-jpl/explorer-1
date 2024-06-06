@@ -1,7 +1,7 @@
 <template>
   <div
     :style="{
-      transform: `translate3d(0, calc(var(--scroll-factor) * ${factor} - ${offset}px), 0)`,
+      transform: `translate3d(0, calc(var(--scroll-factor) * ${factor} - ${offset}px), 0)`
     }"
   >
     <slot />
@@ -14,12 +14,12 @@ export default {
   props: {
     factor: {
       default: 0.25,
-      type: Number,
+      type: Number
     },
     offset: {
       default: 0,
-      type: Number,
-    },
-  },
+      type: Number
+    }
+  }
 }
 </script>

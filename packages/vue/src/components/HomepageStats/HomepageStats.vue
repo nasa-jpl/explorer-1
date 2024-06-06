@@ -38,10 +38,16 @@
                 {{ dataMissionStatsBlock.heading }}
               </p>
             </template>
-            <p v-if="dataMissionStatsBlock.title" class="text-body-sm mb-4">
+            <p
+              v-if="dataMissionStatsBlock.title"
+              class="text-body-sm mb-4"
+            >
               {{ dataMissionStatsBlock.title }}
             </p>
-            <p v-if="missionCount" class="text-stats-xl">
+            <p
+              v-if="missionCount"
+              class="text-stats-xl"
+            >
               {{ missionCount }}
             </p>
           </div>
@@ -73,7 +79,10 @@
                 {{ dataGenericStatsBlock.heading }}
               </p>
             </template>
-            <p v-if="dataGenericStatsBlock.title" class="text-body-sm mb-4">
+            <p
+              v-if="dataGenericStatsBlock.title"
+              class="text-body-sm mb-4"
+            >
               {{ dataGenericStatsBlock.title }}
             </p>
             <div
@@ -107,9 +116,7 @@
                     <span
                       class="motion-safe:animate-ping bg-green absolute inline-flex w-full h-full rounded-full opacity-75"
                     ></span>
-                    <span
-                      class="bg-green relative inline-flex w-3 h-3 rounded-full"
-                    ></span>
+                    <span class="bg-green relative inline-flex w-3 h-3 rounded-full"></span>
                   </span>
                   <span>Watch Live</span>
                 </p>
@@ -160,7 +167,10 @@
                 {{ asteroidWatch.heading }}
               </p>
             </template>
-            <p v-if="asteroidWatch.title" class="text-body-sm mb-4">
+            <p
+              v-if="asteroidWatch.title"
+              class="text-body-sm mb-4"
+            >
               {{ asteroidWatch.title }}
             </p>
             <template v-if="asteroidWatch.asteroidApproach">
@@ -173,19 +183,13 @@
               <BaseUnitToggle
                 v-slot="slotProps"
                 :unit-pair="'MI_KM'"
-                :value="
-                  parseFloat(asteroidWatch.asteroidApproach.distanceMiles)
-                "
-                :second-value="
-                  parseFloat(asteroidWatch.asteroidApproach.distanceKilometers)
-                "
+                :value="parseFloat(asteroidWatch.asteroidApproach.distanceMiles)"
+                :second-value="parseFloat(asteroidWatch.asteroidApproach.distanceKilometers)"
                 :value-system="'imperial'"
                 inline
                 class="text-gray-mid-dark mt-2"
               >
-                <span class="text-sm">
-                  Proximity {{ slotProps.formattedValue }}
-                </span>
+                <span class="text-sm"> Proximity {{ slotProps.formattedValue }} </span>
               </BaseUnitToggle>
               <BaseLink
                 link-class="block"
@@ -203,9 +207,7 @@
           </div>
         </div>
       </div>
-      <div
-        class="bg-gray-light col-start-container-end col-end-bleed sm:block hidden"
-      ></div>
+      <div class="bg-gray-light col-start-container-end col-end-bleed sm:block hidden"></div>
     </div>
   </section>
 </template>
@@ -239,36 +241,36 @@ export default defineComponent({
     IconArrows,
     BaseUnitToggle,
     BaseTimer,
-    DsnWidget,
+    DsnWidget
   },
   props: {
     statistics: {
       type: Array,
-      required: false,
+      required: false
     },
     missionCount: {
       type: Number,
-      required: false,
+      required: false
     },
     dsn: {
       type: Object,
-      required: false,
+      required: false
     },
     asteroidWatch: {
       type: Object,
-      required: false,
+      required: false
     },
     // pass the featured video data to determine watch-live render behavior
     featuredEmbed: {
       type: Array as PropType<HomePageEmbedBlock>,
-      required: false,
-    },
+      required: false
+    }
   },
   data(): {
     autoplayAdded: boolean
   } {
     return {
-      autoplayAdded: false,
+      autoplayAdded: false
     }
   },
   computed: {
@@ -287,24 +289,18 @@ export default defineComponent({
       return null
     },
     hasFeaturedEmbed(): boolean {
-      if (
-        this.featuredEmbed &&
-        this.featuredEmbed.length &&
-        this.featuredEmbed[0].display
-      ) {
+      if (this.featuredEmbed && this.featuredEmbed.length && this.featuredEmbed[0].display) {
         return true
       }
       return false
-    },
+    }
   },
   methods: {
     playVideo() {
       if (this.hasFeaturedEmbed) {
         const featuredEmbedDiv = document.getElementById('featuredEmbed')
         if (featuredEmbedDiv) {
-          const featuredEmbedIframe = featuredEmbedDiv.querySelector(
-            'iframe'
-          ) as HTMLIFrameElement
+          const featuredEmbedIframe = featuredEmbedDiv.querySelector('iframe') as HTMLIFrameElement
           if (featuredEmbedIframe && this.autoplayAdded === false) {
             featuredEmbedIframe.src += '&autoplay=1'
             this.autoplayAdded = true
@@ -316,13 +312,11 @@ export default defineComponent({
     filterBlocksByType(blockType: string): blockObject[] | null {
       if (this.statistics) {
         const theBlocks = this.statistics as blockObject[]
-        return theBlocks.filter(
-          (block: blockObject) => block.blockType === blockType
-        )
+        return theBlocks.filter((block: blockObject) => block.blockType === blockType)
       }
       return null
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

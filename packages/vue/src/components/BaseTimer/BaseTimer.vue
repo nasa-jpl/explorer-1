@@ -10,14 +10,17 @@
       class="transition-opacity duration-500 ease-in-out opacity-0"
       :class="{ 'opacity-100': diff, 'flex justify-between': inline }"
     >
-      <span v-for="(unit, index) in selectedUnitsComputed" :key="unit">
+      <span
+        v-for="(unit, index) in selectedUnitsComputed"
+        :key="unit"
+      >
         <!-- Add a break between the date and time components, for mobile version -->
         <span
           v-if="index !== 0"
           class="text-stats-xl text-stats-separator"
           :class="{
             'block invisible -mt-6 md:inline md:visible md:mt-0':
-              selectedUnitsComputed.length >= 4 && unit === 'hours',
+              selectedUnitsComputed.length >= 4 && unit === 'hours'
           }"
           >&nbsp;:&nbsp;</span
         >
@@ -70,7 +73,7 @@ export const timerUnits = {
   days: { shortLabel: 'Days', longLabel: 'Days' },
   hours: { shortLabel: 'Hrs', longLabel: 'Hours' },
   minutes: { shortLabel: 'Mins', longLabel: 'Minutes' },
-  seconds: { shortLabel: 'Secs', longLabel: 'Seconds' },
+  seconds: { shortLabel: 'Secs', longLabel: 'Seconds' }
 } as const
 type UnitID = keyof typeof timerUnits
 
@@ -83,26 +86,25 @@ export default defineComponent({
   props: {
     targetDateTime: {
       type: String,
-      required: true,
+      required: true
     },
     // if blank, the first three significant units will show
     selectedUnits: {
       type: Array as PropType<UnitID[]>,
       required: false,
-      validator: (val: UnitID[]): boolean =>
-        val.every((v) => Boolean(timerUnits[v])),
+      validator: (val: UnitID[]): boolean => val.every((v) => Boolean(timerUnits[v]))
     },
     inline: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     // if a countdown clock, then this will force it to stop at 0
     countdown: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   data(): {
     diff: Duration | undefined
@@ -110,25 +112,16 @@ export default defineComponent({
   } {
     return {
       diff: undefined,
-      interval: undefined,
+      interval: undefined
     }
   },
   computed: {
     selectedUnitsComputed(): UnitID[] {
       if (!this.selectedUnits || this.selectedUnits.length === 0) {
-        const unitChoices = [
-          'years',
-          'months',
-          'days',
-          'hours',
-          'minutes',
-          'seconds',
-        ]
+        const unitChoices = ['years', 'months', 'days', 'hours', 'minutes', 'seconds']
         let significantUnits = [] as UnitID[]
         unitChoices.forEach((e) =>
-          this.unitSignificant(e as UnitID)
-            ? significantUnits.push(e as UnitID)
-            : significantUnits
+          this.unitSignificant(e as UnitID) ? significantUnits.push(e as UnitID) : significantUnits
         )
         // if only three units (i.e. hours, minutes, seconds)
         // then do not make significant units dynamic
@@ -146,21 +139,17 @@ export default defineComponent({
     isPast(): boolean {
       if (this.targetDateTime) {
         const now = dayjs(new Date())
-        const start = dayjs(
-          new Date(this.targetDateTime.replace(/\s+/g, 'T'))
-        ).millisecond(0)
+        const start = dayjs(new Date(this.targetDateTime.replace(/\s+/g, 'T'))).millisecond(0)
         if (start.isBefore(now)) {
           return true
         }
       }
       return false
-    },
+    }
   },
   mounted(): void {
     // Convert ISO8601 RFC 3339 datetime formats into a stricter format supported by Safari.
-    const start = dayjs(
-      new Date(this.targetDateTime.replace(/\s+/g, 'T'))
-    ).millisecond(0)
+    const start = dayjs(new Date(this.targetDateTime.replace(/\s+/g, 'T'))).millisecond(0)
 
     this.diff = calculateDuration(start)
 
@@ -180,7 +169,7 @@ export default defineComponent({
       }, 1000)
     }
   },
-  beforeDestroy(): void {
+  beforeUnmount(): void {
     clearInterval(this.interval as Interval)
   },
   methods: {
@@ -196,7 +185,7 @@ export default defineComponent({
       }
       const value = this.diff?.get(unit)
 
-      if (value && value > 0 || this.checkOtherUnits(unit)) {
+      if ((value && value > 0) || this.checkOtherUnits(unit)) {
         return true
       }
       return false
@@ -253,8 +242,8 @@ export default defineComponent({
 
       // Pad a number with a leading zero.
       return value?.toString().padStart(2, '0')
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

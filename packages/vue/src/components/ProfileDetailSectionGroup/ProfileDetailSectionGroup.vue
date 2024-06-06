@@ -12,14 +12,27 @@
       >{{ section.title }}</BaseHeading
     >
 
-    <div v-for="sub in section.subsections" :key="sub.prop">
+    <div
+      v-for="sub in section.subsections"
+      :key="sub.prop"
+    >
       <template v-if="data[sub.prop]">
-        <BaseHeading level="h3" size="h4" class="mb-2.5">
-          <component :is="sub.icon" class="inline relative -top-0.5" />
+        <BaseHeading
+          level="h3"
+          size="h4"
+          class="mb-2.5"
+        >
+          <component
+            :is="sub.icon"
+            class="inline relative -top-0.5"
+          />
           {{ sub.title }}
         </BaseHeading>
         <div class="mb-5 lg:mb-10">
-          <BlockText variant="large" :text="data[sub.prop]" />
+          <BlockText
+            variant="large"
+            :text="data[sub.prop]"
+          />
         </div>
       </template>
     </div>
@@ -49,22 +62,22 @@ export default defineComponent({
     IconBriefcase,
     IconHand,
     IconMedal,
-    IconBook,
+    IconBook
   },
   props: {
     section: {
       type: Object,
-      required: false,
+      required: false
     },
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     isEmpty() {
       return this.section.subsections.every((sub) => !this.data[sub.prop])
-    },
-  },
+    }
+  }
 })
 </script>

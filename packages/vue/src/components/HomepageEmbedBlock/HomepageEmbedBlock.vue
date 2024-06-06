@@ -11,26 +11,29 @@
       {{ data[0].heading }}
     </h2>
     <div class="xl:BaseGrid">
-      <BlockVideoEmbed class="col-span-11" :data="data[0]" />
+      <BlockVideoEmbed
+        class="col-span-11"
+        :data="data[0]"
+      />
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { BlockData } from './../BlockVideoEmbed/BlockVideoEmbed.vue';
+import type { BlockData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockVideoEmbed from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 
 export default defineComponent({
   name: 'HomepageEmbedBlock',
   components: {
-    BlockVideoEmbed,
+    BlockVideoEmbed
   },
   props: {
     data: {
       type: Array as PropType<BlockData[]>,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

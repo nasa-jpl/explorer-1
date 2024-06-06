@@ -51,9 +51,7 @@
           class="lg:mr-3 mb-3"
           block-classes="lg:inline-block block"
           variant="primary"
-          :aria-label="
-            data.nickname ? `Meet ${data.nickname}` : `Meet ${data.title}`
-          "
+          :aria-label="data.nickname ? `Meet ${data.nickname}` : `Meet ${data.title}`"
           :to="data.url"
         >
           Meet {{ data.nickname || data.title }}
@@ -102,13 +100,13 @@ export default defineComponent({
     RoboticsDetailStatsMini,
     BaseButton,
     BaseHeading,
-    BaseImage,
+    BaseImage
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theImage(): Partial<ImageObject> | null {
@@ -120,8 +118,12 @@ export default defineComponent({
       return null
     },
     theSrcSet() {
-      return this.theImage? mixinGetSrcSet(this.theImage) ? mixinGetSrcSet(this.theImage) : this.theImage.srcSet : undefined
+      return this.theImage
+        ? mixinGetSrcSet(this.theImage)
+          ? mixinGetSrcSet(this.theImage)
+          : this.theImage.srcSet
+        : undefined
     }
-  },
+  }
 })
 </script>

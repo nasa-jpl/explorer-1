@@ -22,33 +22,33 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 export default defineComponent({
   name: 'NavMobileLink',
   components: {
-    BaseLink,
+    BaseLink
   },
   props: {
     data: {
       type: Object as PropType<LinkObject>,
-      required: false,
+      required: false
     },
     // pass a custom title
     title: {
       type: String,
-      required: false,
+      required: false
     },
     linkClass: {
       type: String,
-      required: false,
+      required: false
     },
     exact: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
-    getRouterLink(link: LinkObject): string | undefined { 
+    getRouterLink(link: LinkObject): string | undefined {
       return mixinGetRouterLink(link)
     },
-    getLinkText(link: LinkObject): string | undefined { 
+    getLinkText(link: LinkObject): string | undefined {
       return mixinGetLinkText(link)
     }
   }

@@ -4,21 +4,19 @@
     class="ContextImageButton bg-gray-dark sm:absolute bottom-0 right-0 left-auto z-40 block px-5"
     @click="toggleContextImagePreview()"
   >
-    <div
-      class="flex flex-row items-center justify-between py-3 text-white uppercase"
-    >
+    <div class="flex flex-row items-center justify-between py-3 text-white uppercase">
       <span class="font-secondary pr-3 tracking-wider">Context Image</span>
       <span
         :class="{
           hidden: contextImagePreviewShow,
-          block: !contextImagePreviewShow,
+          block: !contextImagePreviewShow
         }"
         ><IconDropdown
       /></span>
       <span
         :class="{
           hidden: !contextImagePreviewShow,
-          block: contextImagePreviewShow,
+          block: contextImagePreviewShow
         }"
         ><IconClose
       /></span>
@@ -27,7 +25,7 @@
       class="ContextImage pb-5"
       :class="{
         hidden: !contextImagePreviewShow,
-        block: contextImagePreviewShow,
+        block: contextImagePreviewShow
       }"
     >
       <BaseImagePlaceholder aspect-ratio="square">
@@ -59,18 +57,18 @@ export default defineComponent({
     BaseImagePlaceholder,
     BaseImage,
     IconDropdown,
-    IconClose,
+    IconClose
   },
   inheritAttrs: true,
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
-      contextImagePreviewShow: false,
+      contextImagePreviewShow: false
     }
   },
   methods: {
@@ -80,8 +78,8 @@ export default defineComponent({
       } else {
         this.contextImagePreviewShow = true
       }
-    },
-  },
+    }
+  }
 })
 </script>
 

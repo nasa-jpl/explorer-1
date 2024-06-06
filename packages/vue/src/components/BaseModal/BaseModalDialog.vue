@@ -3,7 +3,10 @@
     class="bg-gray-dark fixed top-0 left-0 z-50 flex w-full h-full overflow-auto bg-opacity-75"
     @click="bgCloseModal"
   >
-    <div class="relative w-full max-w-xl p-8 m-auto bg-white" @click.stop>
+    <div
+      class="relative w-full max-w-xl p-8 m-auto bg-white"
+      @click.stop
+    >
       <BaseHeading
         v-if="$slots.modalHeader"
         level="h2"
@@ -14,7 +17,12 @@
       </BaseHeading>
       <slot><div>Default content</div></slot>
       <div class="text-right">
-        <BaseButton class="mt-4" @click="closeModal"> close </BaseButton>
+        <BaseButton
+          class="mt-4"
+          @click="closeModal"
+        >
+          close
+        </BaseButton>
       </div>
     </div>
   </div>
@@ -29,13 +37,13 @@ export default defineComponent({
   name: 'BaseModalDialog',
   components: {
     BaseButton,
-    BaseHeading,
+    BaseHeading
   },
   props: {
     bgClose: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
     closeModal() {
@@ -45,7 +53,7 @@ export default defineComponent({
       if (this.bgClose) {
         this.closeModal()
       }
-    },
-  },
+    }
+  }
 })
 </script>

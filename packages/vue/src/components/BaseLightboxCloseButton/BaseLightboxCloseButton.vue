@@ -18,7 +18,7 @@ import IconCloseLightbox from './../Icons/IconCloseLightbox.vue'
 export default defineComponent({
   name: 'BaseLightboxCloseButton',
   components: {
-    IconCloseLightbox,
+    IconCloseLightbox
   },
   mounted() {
     this.focusButton()
@@ -29,8 +29,8 @@ export default defineComponent({
     },
     focusButton() {
       this.$refs.lightboxCloseButton.focus()
-    },
-  },
+    }
+  }
 })
 </script>
 

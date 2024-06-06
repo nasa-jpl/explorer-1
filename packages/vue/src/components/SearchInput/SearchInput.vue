@@ -8,7 +8,7 @@
     class="relative flex items-center"
     :class="{
       'border border-gray-mid': defaultColors && !underlinedInput,
-      'custom-focus': underlinedInput,
+      'custom-focus': underlinedInput
     }"
   >
     <div class="absolute inset-0 flex items-center">
@@ -21,9 +21,7 @@
       v-if="underlinedInput"
       class="underlinedInput ml-14 h-2px absolute inset-x-0 bottom-0 overflow-hidden text-lg text-transparent"
     >
-      <span
-        class="border-jpl-red-light absolute z-10 h-0 border-b-2 select-none"
-      >
+      <span class="border-jpl-red-light absolute z-10 h-0 border-b-2 select-none">
         {{ underlinedInputValue }}
       </span>
       <span
@@ -38,7 +36,7 @@
       :class="{
         'text-gray-dark': defaultColors,
         'py-1': underlinedInput,
-        'py-4': !underlinedInput,
+        'py-4': !underlinedInput
       }"
       type="search"
       aria-label="Query"
@@ -59,38 +57,38 @@ import IconSearch from './../Icons/IconSearch.vue'
 export default defineComponent({
   name: 'SearchInput',
   components: {
-    IconSearch,
+    IconSearch
   },
   props: {
     value: String,
     // used in navigation search form
     underlinedInput: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // assign the same value as value (i.e. searchQuery)
     underlinedInputValue: {
       type: String || null,
       required: false,
-      default: null,
+      default: null
     },
     placeholder: {
       type: String,
-      required: false,
+      required: false
     },
     autoFocus: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // note: if(underlinedInput), then the border will be overridden
     defaultColors: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   data() {
     return {
-      isFocused: false,
+      isFocused: false
     }
   },
   mounted() {
@@ -99,7 +97,7 @@ export default defineComponent({
       inputField.focus()
       this.isFocused = true
     }
-  },
+  }
 })
 </script>
 <style lang="scss" scoped>

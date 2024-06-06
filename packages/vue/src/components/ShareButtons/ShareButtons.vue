@@ -75,22 +75,22 @@ export default defineComponent({
     IconSocialFacebook,
     IconSocialTwitter,
     IconSocialReddit,
-    IconSocialEmail,
+    IconSocialEmail
   },
   props: {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     url: {
       type: String,
-      required: true,
+      required: true
     },
     inline: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     encodedTitle(): string {
@@ -116,8 +116,8 @@ export default defineComponent({
     },
     mailLink(): string {
       return `mailto:?body=${this.encodedTitle}:%20${this.encodedURL}&subject=${this.encodedTitle}`
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss" scoped>

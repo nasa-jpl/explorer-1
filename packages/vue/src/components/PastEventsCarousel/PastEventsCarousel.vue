@@ -8,8 +8,8 @@
       query: {
         event_status: 'Past events',
         sortBy: 'eventStartDateLatest',
-        page: '1',
-      },
+        page: '1'
+      }
     }"
     link-title="View all past events"
     indent="col-1"
@@ -31,7 +31,7 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
-import type { ElasticSearchPage } from '../../interfaces';
+import type { ElasticSearchPage } from '../../interfaces'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 
@@ -39,11 +39,11 @@ export default defineComponent({
   name: 'PastEventsCarousel',
   components: {
     MixinCarousel,
-    BlockLinkCard,
+    BlockLinkCard
   },
   data() {
     return {
-      pages: [],
+      pages: []
     }
   },
   async fetch() {
@@ -54,7 +54,7 @@ export default defineComponent({
       event_status: ['Past events'],
       sort: 'eventStartDateLatest',
       page: 0,
-      size: 10,
+      size: 10
     }
     const searchData = await this.$axios.$get(`_search/`, { params })
     this.pages = searchData.hits.hits
@@ -86,13 +86,13 @@ export default defineComponent({
           if (image) {
             page.image = {
               src: {
-                url: image.thumbnail_image,
-              },
+                url: image.thumbnail_image
+              }
             }
           }
           return page
         })
-    },
-  },
+    }
+  }
 })
 </script>

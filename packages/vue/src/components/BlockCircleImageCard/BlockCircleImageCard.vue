@@ -5,7 +5,10 @@
     :class="{ imageOnRight: imageOnRight }"
     @click="$emit('click')"
   >
-    <BaseImagePlaceholder v-if="image" transparent-mode>
+    <BaseImagePlaceholder
+      v-if="image"
+      transparent-mode
+    >
       <!-- It’s important the image has no alt text so we can invert the card’s visual order without it changing the reading order. -->
       <BaseImage
         v-if="image.src"
@@ -31,7 +34,11 @@
       <div class="text-gray-mid-dark text-subtitle">
         {{ secondaryLabel }}
       </div>
-      <BaseHeading size="h5" level="h3" class="mt-3">
+      <BaseHeading
+        size="h5"
+        level="h3"
+        class="mt-3"
+      >
         {{ title }}
       </BaseHeading>
     </div>
@@ -49,39 +56,43 @@ export default defineComponent({
   components: {
     BaseImagePlaceholder,
     BaseImage,
-    BaseHeading,
+    BaseHeading
   },
   props: {
     tag: {
       type: String,
       required: false,
-      default: 'div',
+      default: 'div'
     },
     title: {
       type: String,
-      required: true,
+      required: true
     },
     label: {
       type: String,
-      required: false,
+      required: false
     },
     secondaryLabel: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     imageOnRight: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     theSrcSet() {
-      return this.image ? mixinGetSrcSet(this.image) ? mixinGetSrcSet(this.image) : this.image.srcSet : undefined
+      return this.image
+        ? mixinGetSrcSet(this.image)
+          ? mixinGetSrcSet(this.image)
+          : this.image.srcSet
+        : undefined
     }
   }
 })

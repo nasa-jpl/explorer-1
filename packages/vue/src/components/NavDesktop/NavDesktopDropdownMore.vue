@@ -4,14 +4,31 @@
     class="NavDesktopDropdownMore bg-dark-blue bg-opacity-98 3xl:px-0 w-full px-4 py-10 text-white"
   >
     <div class="BaseGrid container mx-auto">
-      <div class="grid order-1 grid-cols-2 col-span-9 grid-rows-2 gap-10" v-if="linkColumns">
+      <div
+        v-if="linkColumns"
+        class="grid order-1 grid-cols-2 col-span-9 grid-rows-2 gap-10"
+      >
         <!-- link columns -->
         <template v-for="(col, index) in linkColumns">
-          <div v-if="index === 0" :key="`rowSpan1${index}`" class="row-span-1">
-            <NavLinkList :data="col" auto-col />
+          <div
+            v-if="index === 0"
+            :key="`rowSpan1${index}`"
+            class="row-span-1"
+          >
+            <NavLinkList
+              :data="col"
+              auto-col
+            />
           </div>
-          <div v-else-if="index === 1" :key="`rowSpan2${index}`" class="row-span-2">
-            <NavLinkList :data="col" auto-col />
+          <div
+            v-else-if="index === 1"
+            :key="`rowSpan2${index}`"
+            class="row-span-2"
+          >
+            <NavLinkList
+              :data="col"
+              auto-col
+            />
           </div>
         </template>
 
@@ -28,7 +45,10 @@
       </div>
 
       <!-- highlights -->
-      <div v-if="highlightsColumn" class="order-2 col-span-3 col-start-10">
+      <div
+        v-if="highlightsColumn"
+        class="order-2 col-span-3 col-start-10"
+      >
         <NavHeading :data="highlightsColumn" />
         <div
           v-for="(highlight, index) in highlightsColumn.highlights"
@@ -58,31 +78,35 @@ export default defineComponent({
     NavLinkList,
     NavSocial,
     NavHighlight,
-    NavHeading,
+    NavHeading
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     linkColumns() {
       let columns = undefined
-      columns = this.data ? _map(this.data.menuColumns, function (o) {
-        if (o.blockType.includes('MenuLinkColumnWithHeader')) return o
-      }) : undefined
+      columns = this.data
+        ? _map(this.data.menuColumns, function (o) {
+            if (o.blockType.includes('MenuLinkColumnWithHeader')) return o
+          })
+        : undefined
       columns = _without(columns, undefined) // remove null
       return columns
     },
     highlightsColumn() {
       let columns = undefined
-      columns = this.data ? _map(this.data.menuColumns, function (o) {
-        if (o.blockType.includes('MenuMoreHighlightsColumn')) return o
-      }) : undefined
+      columns = this.data
+        ? _map(this.data.menuColumns, function (o) {
+            if (o.blockType.includes('MenuMoreHighlightsColumn')) return o
+          })
+        : undefined
       columns = _without(columns, undefined) // remove null
       return columns?.length ? columns[0] : undefined
-    },
-  },
+    }
+  }
 })
 </script>

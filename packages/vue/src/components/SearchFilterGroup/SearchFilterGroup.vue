@@ -10,9 +10,7 @@
     class="border-gray-light-mid col-span-3 pb-4 mb-4 border-b"
   >
     <!-- bucket key param -->
-    <legend
-      class="md:mb-3 text-body-md mb-2 font-bold leading-normal tracking-wide"
-    >
+    <legend class="md:mb-3 text-body-md mb-2 font-bold leading-normal tracking-wide">
       {{ groupTitle }}
     </legend>
     <div
@@ -27,11 +25,7 @@
         class="flex my-2"
       >
         <input
-          :id="
-            bucket.key_as_string
-              ? generateId(bucket.key_as_string)
-              : generateId(bucket.key)
-          "
+          :id="bucket.key_as_string ? generateId(bucket.key_as_string) : generateId(bucket.key)"
           v-model="filterByHandler"
           type="checkbox"
           :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
@@ -39,21 +33,11 @@
         />
         <!-- 'key_as_string' exists for dates to have a human readable version -->
         <label
-          :for="
-            bucket.key_as_string
-              ? generateId(bucket.key_as_string)
-              : generateId(bucket.key)
-          "
+          :for="bucket.key_as_string ? generateId(bucket.key_as_string) : generateId(bucket.key)"
           class="form-check-label pl-2 tracking-normal align-middle"
         >
-          {{
-            prettyFilterNames(
-              bucket.key_as_string ? bucket.key_as_string : bucket.key
-            )
-          }}
-          <span class="text-gray-mid">
-            ({{ bucket.doc_count.toLocaleString() }})
-          </span>
+          {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
+          <span class="text-gray-mid"> ({{ bucket.doc_count.toLocaleString() }}) </span>
         </label>
       </div>
     </div>
@@ -85,29 +69,29 @@ export default {
     buckets: null,
     hideFilterGroups: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     groupKey: {
       type: String,
-      required: true,
+      required: true
     },
     groupTitle: {
       type: String,
-      required: false,
+      required: false
     },
     truncateFilters: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
       checkbox: {
         checkboxLimit: 4,
         showMore: true,
-        initialLimit: 4,
-      },
+        initialLimit: 4
+      }
     }
   },
   computed: {
@@ -121,11 +105,11 @@ export default {
         this.$emit('update:filterBy', newValue)
         // emit the `resetPage` event whenever these values are changed manually
         this.$emit('resetPage')
-      },
+      }
     },
     bucketsLength() {
       return this.buckets.length
-    },
+    }
   },
   watch: {
     filterBy: {
@@ -137,7 +121,7 @@ export default {
           if (newVal.length > 0) {
             query = {
               ...this.$route.query,
-              [this.groupKey]: newVal.toString(),
+              [this.groupKey]: newVal.toString()
             }
           } else {
             // clear the param from the URL if no value is passed
@@ -146,8 +130,8 @@ export default {
           // using $router.push() ensures history is saved with each change to filters
           this.$router.push({ query })
         }
-      },
-    },
+      }
+    }
   },
   methods: {
     generateId(value) {
@@ -162,9 +146,7 @@ export default {
 
         this.$nextTick(() => {
           // Focus on first new rendered checkbox in list
-          this.$refs.buckets[this.checkbox.initialLimit]
-            .getElementsByTagName('input')[0]
-            .focus()
+          this.$refs.buckets[this.checkbox.initialLimit].getElementsByTagName('input')[0].focus()
         })
       } else {
         this.checkbox.checkboxLimit = this.checkbox.initialLimit
@@ -233,7 +215,7 @@ export default {
         return 'People'
       }
       return key
-    },
-  },
+    }
+  }
 }
 </script>

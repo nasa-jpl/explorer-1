@@ -1,9 +1,19 @@
 <template>
   <LayoutHelper indent="col-3">
-    <hr ref="FormContact" class="text-gray-light-mid mb-10" />
-    <div v-show="!submitted" class="mb-10">
+    <hr
+      ref="FormContact"
+      class="text-gray-light-mid mb-10"
+    />
+    <div
+      v-show="!submitted"
+      class="mb-10"
+    >
       <form @submit.prevent="submit">
-        <BaseHeading level="h2" size="h6">Contact Information</BaseHeading>
+        <BaseHeading
+          level="h2"
+          size="h6"
+          >Contact Information</BaseHeading
+        >
         <div class="mt-8">
           <label
             id="full_name_label"
@@ -46,7 +56,12 @@
             />
           </div>
         </div>
-        <BaseHeading level="h2" size="h6" class="mt-12">Write Us</BaseHeading>
+        <BaseHeading
+          level="h2"
+          size="h6"
+          class="mt-12"
+          >Write Us</BaseHeading
+        >
         <div class="mt-8">
           <label
             id="subject_label"
@@ -90,13 +105,20 @@
           </div>
         </div>
         <div class="mt-4">
-          <BaseButton type="submit" variant="primary">Submit</BaseButton>
+          <BaseButton
+            type="submit"
+            variant="primary"
+            >Submit</BaseButton
+          >
         </div>
       </form>
     </div>
 
     <!-- success -->
-    <div v-show="submitted" class="pt-10 text-center">
+    <div
+      v-show="submitted"
+      class="pt-10 text-center"
+    >
       <BaseHeading level="h2">Thank you!</BaseHeading>
       <div
         class="text-jpl-aqua h-22 w-22 p-5 mx-auto my-8 text-6xl font-bold border-4 rounded-full"
@@ -119,11 +141,11 @@ export default defineComponent({
   components: {
     LayoutHelper,
     BaseHeading,
-    BaseButton,
+    BaseButton
   },
   data() {
     return {
-      submitted: false,
+      submitted: false
     }
   },
   methods: {
@@ -156,14 +178,14 @@ export default defineComponent({
         const request = {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
           body: qs.stringify({
             full_name: data.full_name,
             email: data.email,
             subject: data.subject,
-            message: data.message,
-          }),
+            message: data.message
+          })
         }
         fetch(url, request)
       }
@@ -173,7 +195,7 @@ export default defineComponent({
       if (this.$refs && this.$refs.FormContact) {
         this.$scrollTo(this.$refs.FormContact, 0, { offset: -100 })
       }
-    },
-  },
+    }
+  }
 })
 </script>

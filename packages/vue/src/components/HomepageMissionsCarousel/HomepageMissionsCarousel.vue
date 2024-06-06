@@ -3,24 +3,33 @@
     v-if="data"
     class="HomepageMissionsCarousel ThemeVariantDark max-w-screen-3xl mx-auto overflow-hidden text-white bg-black"
   >
-    <div
-      class="lg:BaseGrid lg:py-24 pt-14 container flex flex-col pb-5 mx-auto"
-    >
+    <div class="lg:BaseGrid lg:py-24 pt-14 container flex flex-col pb-5 mx-auto">
       <div class="xl:px-0 lg:col-end-8 xl:col-end-7 order-1 col-start-2 px-4">
-        <p v-if="data.label" class="text-subtitle text-jpl-red-light mb-3">
+        <p
+          v-if="data.label"
+          class="text-subtitle text-jpl-red-light mb-3"
+        >
           {{ data.label }}
         </p>
-        <BaseHeading v-if="data.heading" level="h2" class="mb-3">
+        <BaseHeading
+          v-if="data.heading"
+          level="h2"
+          class="mb-3"
+        >
           {{ data.heading }}
         </BaseHeading>
-        <p v-if="data.summary" class="text-body-md">
+        <p
+          v-if="data.summary"
+          class="text-body-md"
+        >
           {{ data.summary }}
         </p>
       </div>
-      <div
-        class="lg:order-2 xl:px-0 flex justify-end order-3 col-start-10 col-end-13 px-4"
-      >
-        <BaseLink :to="{ name: 'missions' }" variant="primary">
+      <div class="lg:order-2 xl:px-0 flex justify-end order-3 col-start-10 col-end-13 px-4">
+        <BaseLink
+          :to="{ name: 'missions' }"
+          variant="primary"
+        >
           All Missions
         </BaseLink>
       </div>
@@ -31,7 +40,10 @@
           class="swiper lg:mt-0 lg:mb-0 mb-14 mt-3"
         >
           <!-- Additional required wrapper -->
-          <nav :aria-label="data.heading || 'Missions'" class="swiper-wrapper">
+          <nav
+            :aria-label="data.heading || 'Missions'"
+            class="swiper-wrapper"
+          >
             <!-- slide -->
             <HomepageMissionsCarouselItem
               v-for="(item, index) in data.targets"
@@ -41,16 +53,17 @@
             />
           </nav>
           <!-- swiper navigation -->
-          <div
-            class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full"
-          >
+          <div class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full">
             <div class="top-1/2 absolute left-0 z-30">
               <BaseButton
                 class="swiper-prev xl:text-base -ml-16"
                 :aria-label="data.heading + ' - Previous slide'"
               >
                 <template #icon>
-                  <span class="arrow-wrapper" aria-hidden="true">
+                  <span
+                    class="arrow-wrapper"
+                    aria-hidden="true"
+                  >
                     <span class="arrow">
                       <IconPrev />
                     </span>
@@ -67,7 +80,10 @@
                 :aria-label="data.heading + ' - Next slide'"
               >
                 <template #icon>
-                  <span class="arrow-wrapper" aria-hidden="true">
+                  <span
+                    class="arrow-wrapper"
+                    aria-hidden="true"
+                  >
                     <span class="arrow">
                       <IconNext />
                     </span>
@@ -105,13 +121,13 @@ export default defineComponent({
     BaseButton,
     IconPrev,
     IconNext,
-    HomepageMissionsCarouselItem,
+    HomepageMissionsCarouselItem
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   data(): {
     slider: Swiper | null
@@ -132,39 +148,37 @@ export default defineComponent({
         lazy: {
           loadPrevNext: true,
           loadOnTransitionStart: true,
-          loadPrevNextAmount: 2,
+          loadPrevNextAmount: 2
         },
         navigation: {
           nextEl: '.swiper-next',
-          prevEl: '.swiper-prev',
+          prevEl: '.swiper-prev'
         },
         a11y: {
           prevSlideMessage: this.data.heading
             ? this.data.heading + ' - Previous slide'
             : 'Previous slide',
-          nextSlideMessage: this.data.heading
-            ? this.data.heading + ' - Next slide'
-            : 'Next slide',
+          nextSlideMessage: this.data.heading ? this.data.heading + ' - Next slide' : 'Next slide'
         },
         breakpoints: {
           640: {
-            slidesPerView: 1.5,
+            slidesPerView: 1.5
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 2
           },
           1280: {
             slidesPerView: 3,
-            spaceBetween: 56,
-          },
+            spaceBetween: 56
+          }
         },
         on: {
           init(swiper: Swiper) {
             swiper.$el.removeClass('opacity-0')
             swiper.$el.addClass('opacity-100')
-          },
-        },
-      },
+          }
+        }
+      }
     }
   },
   mounted() {
@@ -176,8 +190,8 @@ export default defineComponent({
         this.$refs.HomepageMissionsCarousel as HTMLElement,
         this.sliderOptions
       )
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

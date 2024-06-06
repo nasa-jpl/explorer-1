@@ -46,16 +46,17 @@
           <div class="swiper-wrapper">
             <slot />
           </div>
-          <div
-            class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full"
-          >
+          <div class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full">
             <div class="xl:-ml-22 top-1/2 absolute left-0 z-30 -ml-20">
               <BaseButton
                 class="swiper-prev xl:text-xl"
                 :aria-label="heading + ' - Previous slide'"
               >
                 <template #icon>
-                  <span class="arrow-wrapper" aria-hidden="true">
+                  <span
+                    class="arrow-wrapper"
+                    aria-hidden="true"
+                  >
                     <span class="arrow">
                       <IconPrev />
                     </span>
@@ -72,7 +73,10 @@
                 :aria-label="heading + ' - Next slide'"
               >
                 <template #icon>
-                  <span class="arrow-wrapper" aria-hidden="true">
+                  <span
+                    class="arrow-wrapper"
+                    aria-hidden="true"
+                  >
                     <span class="arrow">
                       <IconNext />
                     </span>
@@ -112,7 +116,7 @@ interface Variants {
 
 export const variants: Variants = {
   cards: '-cards',
-  tiles: '-tiles',
+  tiles: '-tiles'
 }
 
 interface Indents {
@@ -122,7 +126,7 @@ interface Indents {
 export const indents: Indents = {
   'col-1': '',
   'col-2': 'lg:col-start-2',
-  'col-3': 'lg:col-start-3',
+  'col-3': 'lg:col-start-3'
 }
 
 export default defineComponent({
@@ -131,55 +135,54 @@ export default defineComponent({
     BaseLink,
     BaseButton,
     IconPrev,
-    IconNext,
+    IconNext
   },
   props: {
     // set to true if the carousel items don't link to anything
     noLinks: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     heading: {
       type: String,
-      required: false,
+      required: false
     },
     link: {
       type: [String, Object],
-      required: false,
+      required: false
     },
     linkTitle: {
       type: String,
-      required: false,
+      required: false
     },
     variant: {
       type: String,
       required: false,
       default: 'cards',
-      validator: (prop: string): boolean =>
-        Object.keys(variants).includes(prop),
+      validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
     slidesPerView: {
       type: Number,
       required: false,
-      default: 2,
+      default: 2
     },
     indent: {
       type: String,
       required: false,
       default: 'col-2',
-      validator: (prop: string): boolean => Object.keys(indents).includes(prop),
+      validator: (prop: string): boolean => Object.keys(indents).includes(prop)
     },
     center: {
       type: Boolean,
       required: false,
-      default: true,
+      default: true
     },
     initialSlide: {
       type: Number,
       required: false,
-      default: 0,
-    },
+      default: 0
+    }
   },
   data(): {
     slider: Swiper | null
@@ -192,24 +195,20 @@ export default defineComponent({
         ...MixinCarouselOptions,
         initialSlide: this.initialSlide,
         a11y: {
-          prevSlideMessage: this.heading
-            ? this.heading + ' - Previous slide'
-            : 'Previous slide',
-          nextSlideMessage: this.heading
-            ? this.heading + ' - Next slide'
-            : 'Next slide',
+          prevSlideMessage: this.heading ? this.heading + ' - Previous slide' : 'Previous slide',
+          nextSlideMessage: this.heading ? this.heading + ' - Next slide' : 'Next slide'
         },
         breakpoints: {
           ...MixinCarouselOptions.breakpoints,
           1024: {
-            slidesPerView: this.slidesPerView,
+            slidesPerView: this.slidesPerView
           },
           1280: {
             slidesPerView: this.slidesPerView,
-            spaceBetween: 56,
-          },
+            spaceBetween: 56
+          }
         }
-      },
+      }
     }
   },
   computed: {
@@ -218,20 +217,17 @@ export default defineComponent({
     },
     colStart(): string {
       return indents[this.indent]
-    },
+    }
   },
   mounted() {
     this.init()
   },
   methods: {
     init() {
-      this.slider = new Swiper(
-        this.$refs.MixinCarousel as HTMLElement,
-        this.sliderOptions
-      )
+      this.slider = new Swiper(this.$refs.MixinCarousel as HTMLElement, this.sliderOptions)
       this.slider.init()
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

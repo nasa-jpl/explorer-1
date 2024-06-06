@@ -1,5 +1,8 @@
 <template>
-  <div class="YearTicker" :style="`--duration:${duration}ms`">
+  <div
+    class="YearTicker"
+    :style="`--duration:${duration}ms`"
+  >
     <!-- One transition group per digit. -->
     <transition-group
       v-for="(digit, index) in Array.from(targetYear)"
@@ -8,7 +11,11 @@
       :duration="duration"
     >
       <!-- Key by digit so there can be two digits rendered at the same time. -->
-      <span :key="digit" class="Digit">{{ digit }}</span>
+      <span
+        :key="digit"
+        class="Digit"
+        >{{ digit }}</span
+      >
     </transition-group>
   </div>
 </template>
@@ -20,23 +27,22 @@ export default defineComponent({
   props: {
     targetYear: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
       year: this.targetYear,
       animation: 'digits-increment',
-      duration: 100,
+      duration: 100
     }
   },
   watch: {
     targetYear(newYear) {
-      this.animation =
-        this.year > newYear ? 'digits-increment' : 'digits-decrement'
+      this.animation = this.year > newYear ? 'digits-increment' : 'digits-decrement'
       this.year = newYear
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

@@ -1,5 +1,8 @@
 <template>
-  <div v-if="hasContent" class="TopicDetailMissionCarousel overflow-hidden">
+  <div
+    v-if="hasContent"
+    class="TopicDetailMissionCarousel overflow-hidden"
+  >
     <div class="MixedBleedGrid 2xl:pl-0 pl-5 mb-10">
       <div
         class="col-start-indent-col-2 2xl:col-start-indent-col-3 col-end-bleed bg-gray-light lg:pl-0 lg:py-10 py-8 pl-5"
@@ -37,21 +40,21 @@ export default defineComponent({
   name: 'TopicDetailMissionCarousel',
   components: {
     MixinCarousel,
-    TopicDetailMissionCarouselItem,
+    TopicDetailMissionCarouselItem
   },
   props: {
     relatedMissionsLinkUrl: {
       type: String,
-      required: false,
+      required: false
     },
     relatedMissionsLinkText: {
       type: String,
-      required: false,
+      required: false
     },
     items: {
       type: Array as PropType<Slide[]>,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     hasContent() {
@@ -59,7 +62,7 @@ export default defineComponent({
         return true
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>

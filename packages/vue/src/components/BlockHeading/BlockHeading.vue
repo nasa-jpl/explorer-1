@@ -1,5 +1,9 @@
 <template>
-  <BaseHeading v-if="data" :level="data.level" :size="data.size">
+  <BaseHeading
+    v-if="data"
+    :level="data.level"
+    :size="data.size"
+  >
     {{ data.heading }}
   </BaseHeading>
 </template>
@@ -11,13 +15,13 @@ import BaseHeading from './../BaseHeading/BaseHeading.vue'
 export default defineComponent({
   name: 'BlockHeading',
   components: {
-    BaseHeading,
+    BaseHeading
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

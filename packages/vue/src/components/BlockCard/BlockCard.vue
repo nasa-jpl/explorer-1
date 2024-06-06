@@ -3,8 +3,14 @@
     class="shadow-jpl relative h-full"
     :class="{ 'flex items-center min-h-32': !image }"
   >
-    <div v-if="image" class="h-auto">
-      <BaseImagePlaceholder aspect-ratio="16:9" dark-mode>
+    <div
+      v-if="image"
+      class="h-auto"
+    >
+      <BaseImagePlaceholder
+        aspect-ratio="16:9"
+        dark-mode
+      >
         <BaseImage
           v-if="image.src"
           :src="image.src.url"
@@ -25,7 +31,11 @@
         aria-hidden="true"
         class="bg-jpl-red text-jpl-red w-8 h-2px border-0 my-2"
       />
-      <BaseHeading size="h5" level="h3" class="mt-4 mb-2">
+      <BaseHeading
+        size="h5"
+        level="h3"
+        class="mt-4 mb-2"
+      >
         {{ title }}
       </BaseHeading>
       <p class="text-body-sm">{{ text }}</p>
@@ -44,30 +54,34 @@ export default defineComponent({
   components: {
     BaseImagePlaceholder,
     BaseImage,
-    BaseHeading,
+    BaseHeading
   },
   props: {
     type: {
       type: String,
       required: false,
-      default: 'Factoid',
+      default: 'Factoid'
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     text: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theSrcSet() {
-      return this.image ? mixinGetSrcSet(this.image) ? mixinGetSrcSet(this.image) : this.image.srcSet : undefined
+      return this.image
+        ? mixinGetSrcSet(this.image)
+          ? mixinGetSrcSet(this.image)
+          : this.image.srcSet
+        : undefined
     }
   }
 })

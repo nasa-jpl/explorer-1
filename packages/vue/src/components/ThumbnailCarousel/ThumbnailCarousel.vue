@@ -18,8 +18,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import type { PropType } from 'vue';
-import type { ImageObject } from '../../interfaces';
+import type { PropType } from 'vue'
+import type { ImageObject } from '../../interfaces'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 import SearchResultGridItem from './../SearchResultGridItem/SearchResultGridItem.vue'
 
@@ -32,19 +32,19 @@ export default defineComponent({
   name: 'ThumbnailCarousel',
   components: {
     MixinCarousel,
-    SearchResultGridItem,
+    SearchResultGridItem
   },
   props: {
     slides: {
       type: Array as PropType<Partial<Slide>[]>,
-      required: false,
+      required: false
     },
     initialSlide: {
       type: Number,
       required: false,
-      default: 0,
-    },
-  },
+      default: 0
+    }
+  }
 })
 </script>
 <style lang="scss">

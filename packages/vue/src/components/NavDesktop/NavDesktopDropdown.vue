@@ -5,10 +5,10 @@
       :aria-expanded="dropdownVisible ? true : false"
       class="group relative z-20 px-4 font-medium border-t-2 border-transparent"
       :class="{
-        '-open': dropdownVisible,
+        '-open': dropdownVisible
       }"
-      @toggleClicked="toggleDropdown()"
-      @closeDropdown="closeDropdown()"
+      @toggle-clicked="toggleDropdown()"
+      @close-dropdown="closeDropdown()"
     >
       <span
         class="inline-block py-2 transition-colors duration-100 ease-in border-b-2"
@@ -19,9 +19,15 @@
     </MixinDropdownToggle>
 
     <transition name="navfade">
-      <div v-if="dropdownVisible" class="absolute inset-0 w-full">
+      <div
+        v-if="dropdownVisible"
+        class="absolute inset-0 w-full"
+      >
         <!-- @click.stop so the v-click-outside directive will ignore clicks inside the dropdown -->
-        <div class="max-w-screen-3xl mx-auto" @click.stop>
+        <div
+          class="max-w-screen-3xl mx-auto"
+          @click.stop
+        >
           <slot></slot>
         </div>
       </div>
@@ -38,18 +44,18 @@ import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vu
 export default defineComponent({
   name: 'NavDesktopDropdown',
   components: {
-    MixinDropdownToggle,
+    MixinDropdownToggle
   },
   props: {
     parentScrolled: {
       type: Number,
       required: false,
-      default: 0,
-    },
+      default: 0
+    }
   },
   data() {
     return {
-      dropdownVisible: false,
+      dropdownVisible: false
     }
   },
   computed: {
@@ -59,7 +65,7 @@ export default defineComponent({
         return !this.headerStore.highlightPrimary
       }
       return false
-    },
+    }
   },
   watch: {
     $route() {
@@ -71,7 +77,7 @@ export default defineComponent({
       if (this.dropdownVisible) {
         this.closeDropdown()
       }
-    },
+    }
   },
   mounted() {
     // TODO: PORT: find solution for emitting event from slot
@@ -98,8 +104,8 @@ export default defineComponent({
         this.dropdownVisible = true
         this.$emit('openDropdown')
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

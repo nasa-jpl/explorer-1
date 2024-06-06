@@ -1,15 +1,21 @@
 <template>
-  <div ref="NavDropdownMobile" class="NavDropdownMobile">
+  <div
+    ref="NavDropdownMobile"
+    class="NavDropdownMobile"
+  >
     <MixinDropdownToggle
       :aria-expanded="dropdownVisible ? true : false"
       class="group relative block w-full px-4 py-2 text-xl font-medium text-left"
       :class="{
-        '-open': dropdownVisible,
+        '-open': dropdownVisible
       }"
-      @toggleClicked="toggleDropdown()"
-      @closeDropdown="closeDropdown()"
+      @toggle-clicked="toggleDropdown()"
+      @close-dropdown="closeDropdown()"
     >
-      <span v-if="data" class="block py-0 pl-6 -ml-4 border-l-4">
+      <span
+        v-if="data"
+        class="block py-0 pl-6 -ml-4 border-l-4"
+      >
         {{ (data.length && data[0].title) || getLinkText(data.titleLink) }}
       </span>
     </MixinDropdownToggle>
@@ -63,25 +69,25 @@ export default defineComponent({
   components: {
     MixinDropdownToggle,
     NavMobileLink,
-    NavMobileSecondaryDropdown,
+    NavMobileSecondaryDropdown
   },
   props: {
     // expects an object if populated from footer navigation data (default)
     // expects an array when populated by secondary nav overrides
     data: {
       type: [Object, Array],
-      required: false,
+      required: false
     },
     startOpen: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     expandMultiple: {
       type: Boolean,
       required: false,
-      default: true,
-    },
+      default: true
+    }
   },
   data(): {
     dropdownVisible: boolean
@@ -89,7 +95,7 @@ export default defineComponent({
   } {
     return {
       dropdownVisible: false,
-      theDropdown: null,
+      theDropdown: null
     }
   },
   mounted() {
@@ -133,7 +139,7 @@ export default defineComponent({
     getLinkText(link: LinkObject) {
       return mixinGetLinkText(link)
     }
-  },
+  }
 })
 </script>
 <style lang="scss">

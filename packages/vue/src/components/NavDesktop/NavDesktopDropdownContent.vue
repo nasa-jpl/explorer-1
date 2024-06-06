@@ -3,7 +3,10 @@
     v-if="data"
     class="NavDesktopDropdownContent bg-dark-blue bg-opacity-98 3xl:px-0 px-4 py-10 text-white"
   >
-    <div v-if="data.menuColumns" class="BaseGrid container mx-auto">
+    <div
+      v-if="data.menuColumns"
+      class="BaseGrid container mx-auto"
+    >
       <template v-for="(item, index) in data.menuColumns">
         <!-- featured story -->
         <div
@@ -34,7 +37,10 @@
       </template>
 
       <!-- container for link cols -->
-      <div v-if="linkColumns" class="grid order-3 grid-cols-4 col-span-4 col-start-9 gap-6">
+      <div
+        v-if="linkColumns"
+        class="grid order-3 grid-cols-4 col-span-4 col-start-9 gap-6"
+      >
         <NavLinkList
           v-for="(col, index) in linkColumns"
           :key="index"
@@ -57,23 +63,25 @@ export default defineComponent({
   name: 'NavDesktopDropdownContent',
   components: {
     NavLinkList,
-    NavHighlight,
+    NavHighlight
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     linkColumns() {
       let columns = undefined
-      columns = this.data ? _map(this.data.menuColumns, function (o) {
-        if (o.blockType.includes('MenuLinkColumnWithHeader')) return o
-      }) : undefined
+      columns = this.data
+        ? _map(this.data.menuColumns, function (o) {
+            if (o.blockType.includes('MenuLinkColumnWithHeader')) return o
+          })
+        : undefined
       columns = _without(columns, undefined) // remove null
       return columns
-    },
-  },
+    }
+  }
 })
 </script>

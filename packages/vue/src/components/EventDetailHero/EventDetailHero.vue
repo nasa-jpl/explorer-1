@@ -1,9 +1,10 @@
 <template>
-  <div v-if="image" class="HeroMedia mb-10 md:mb-10 lg:mb-14 -mx-4 lg:mx-0">
+  <div
+    v-if="image"
+    class="HeroMedia mb-10 md:mb-10 lg:mb-14 -mx-4 lg:mx-0"
+  >
     <div class="bg-gray-light">
-      <div
-        class="relative flex items-center mx-auto overflow-hidden vh-crop max-w-screen-3xl"
-      >
+      <div class="relative flex items-center mx-auto overflow-hidden vh-crop max-w-screen-3xl">
         <div class="hero">
           <img
             v-if="image.src"
@@ -39,16 +40,16 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false,
+      required: false
     },
     startDateSplit: {
       type: Object,
-      required: true,
+      required: true
     },
     image: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     getSrcSet() {

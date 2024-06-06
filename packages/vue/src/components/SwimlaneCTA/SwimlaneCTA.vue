@@ -18,9 +18,7 @@
         <div
           class="lg:pr-12 lg:py-5 lg:flex-row relative z-20 flex flex-col justify-center w-full px-5 py-6"
         >
-          <div
-            class="lg:flex-row lg:pr-3 lg:pb-0 flex flex-col items-center justify-center pb-2"
-          >
+          <div class="lg:flex-row lg:pr-3 lg:pb-0 flex flex-col items-center justify-center pb-2">
             <div class="text-contrast relative z-20 p-2 pl-0">
               <template v-if="darkMode === true">
                 <img
@@ -44,9 +42,7 @@
               </template>
             </div>
             <div class="lg:p-1 text-contrast relative z-20 pt-2 pl-0">
-              <p class="text-secondary lg:text-7xl mb-0 text-4xl font-medium">
-                is a place for
-              </p>
+              <p class="text-secondary lg:text-7xl mb-0 text-4xl font-medium">is a place for</p>
             </div>
           </div>
 
@@ -72,9 +68,7 @@
         <div
           class="lg:flex-row lg:pr-12 lg:py-5 flex flex-col justify-center w-full px-5 py-6 bg-black bg-opacity-25"
         >
-          <div
-            class="lg:flex-row lg:pr-3 lg:pb-0 flex flex-col items-center justify-center pb-2"
-          >
+          <div class="lg:flex-row lg:pr-3 lg:pb-0 flex flex-col items-center justify-center pb-2">
             <div class="relative z-20 p-2 pl-0">
               <template v-if="darkMode === true">
                 <img
@@ -98,9 +92,7 @@
               </template>
             </div>
             <div class="lg:p-1 relative z-20 pt-2 pl-0">
-              <p
-                class="text-secondary text-contrast lg:text-7xl mb-0 text-4xl font-medium"
-              >
+              <p class="text-secondary text-contrast lg:text-7xl mb-0 text-4xl font-medium">
                 is a place for
               </p>
             </div>
@@ -133,7 +125,7 @@ export default defineComponent({
   name: 'SwimlaneCTA',
   components: {
     BaseLink,
-    BaseSwimlane,
+    BaseSwimlane
   },
   props: {
     backgroundImages: {
@@ -154,8 +146,8 @@ export default defineComponent({
         '/img/SwimlaneCTA/backgroundImages/JPL_is__Scientists.jpg',
         '/img/SwimlaneCTA/backgroundImages/JPL_is__Software_Engineers.jpg',
         '/img/SwimlaneCTA/backgroundImages/JPL_is__Thinkers.jpg',
-        '/img/SwimlaneCTA/backgroundImages/JPL_is__Visualizers.jpg',
-      ],
+        '/img/SwimlaneCTA/backgroundImages/JPL_is__Visualizers.jpg'
+      ]
     },
     backgroundImagesSmall: {
       type: Array,
@@ -175,19 +167,19 @@ export default defineComponent({
         '/img/SwimlaneCTA/backgroundImagesSmall/JPL_is__Scientists.jpg',
         '/img/SwimlaneCTA/backgroundImagesSmall/JPL_is__Software_Engineers.jpg',
         '/img/SwimlaneCTA/backgroundImagesSmall/JPL_is__Thinkers.jpg',
-        '/img/SwimlaneCTA/backgroundImagesSmall/JPL_is__Visualizers.jpg',
-      ],
+        '/img/SwimlaneCTA/backgroundImagesSmall/JPL_is__Visualizers.jpg'
+      ]
     },
     darkMode: {
       type: Boolean,
       required: false,
-      default: true,
+      default: true
     },
     targetLink: {
       type: String,
       required: false,
-      default: '/topics/jpl-life',
-    },
+      default: '/topics/jpl-life'
+    }
   },
   data() {
     return {
@@ -215,10 +207,10 @@ export default defineComponent({
         'Astrophysicists',
         'Disruptors',
         'Data Scientists',
-        'Storytellers',
+        'Storytellers'
       ],
       transitionDuration: 1800,
-      transitionDelay: 800,
+      transitionDelay: 800
     }
   },
   computed: {
@@ -246,8 +238,8 @@ export default defineComponent({
     cloneWords(): string[] {
       const multiWordArray = Array.from({ length: 10 }, () => this.words).flat()
       return multiWordArray
-    },
-  },
+    }
+  }
 })
 </script>
 

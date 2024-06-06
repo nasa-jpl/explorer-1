@@ -6,16 +6,16 @@
       href="#"
       >Base Link</base-link
     >
-    <base-unit-toggle 
+    <base-unit-toggle
       v-slot="slotProps"
-      unitPair="MI_KM"
+      unit-pair="MI_KM"
       :value="14.33"
-      :secondValue="undefined"
-      valueSystem="imperial"
+      :second-value="undefined"
+      value-system="imperial"
     >
-    <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
+      <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
     </base-unit-toggle>
-    <block-twitter-embed :data="{username: 'NASAJPL'}" />
+    <block-twitter-embed :data="{ username: 'NASAJPL' }" />
     <p class="text-action">Action color</p>
     <p class="text-emphasis">Emphasis color</p>
   </div>

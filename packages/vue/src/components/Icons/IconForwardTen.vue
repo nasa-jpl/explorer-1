@@ -30,7 +30,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconForwardTen',
+  name: 'IconForwardTen'
 })
 </script>
 <style lang="scss">

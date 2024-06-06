@@ -1,9 +1,18 @@
 <template>
-  <div v-if="data && data.embed" class="BlockVideoEmbed">
-    <BaseImagePlaceholder aspect-ratio="16:9" dark-mode>
+  <div
+    v-if="data && data.embed"
+    class="BlockVideoEmbed"
+  >
+    <BaseImagePlaceholder
+      aspect-ratio="16:9"
+      dark-mode
+    >
       <div v-html="data.embed.embed"></div>
     </BaseImagePlaceholder>
-    <div v-if="data.caption" class="lg:px-0 p-4">
+    <div
+      v-if="data.caption"
+      class="lg:px-0 p-4"
+    >
       <BaseImageCaption :data="data" />
     </div>
   </div>
@@ -29,13 +38,13 @@ export default defineComponent({
   name: 'BlockVideoEmbed',
   components: {
     BaseImagePlaceholder,
-    BaseImageCaption,
+    BaseImageCaption
   },
   props: {
     data: {
       type: Object as PropType<BlockData>,
-      required: false,
-    },
+      required: false
+    }
   },
   mounted() {
     this.addIframeLazyLoad()
@@ -52,8 +61,8 @@ export default defineComponent({
       if (iframe) {
         iframe.setAttribute('loading', 'lazy')
       }
-    },
-  },
+    }
+  }
 })
 </script>
 

@@ -20,7 +20,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconPlay',
+  name: 'IconPlay'
 })
 </script>
 <style lang="scss">

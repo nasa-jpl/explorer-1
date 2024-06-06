@@ -16,6 +16,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconMagnifyingGlass',
+  name: 'IconMagnifyingGlass'
 })
 </script>

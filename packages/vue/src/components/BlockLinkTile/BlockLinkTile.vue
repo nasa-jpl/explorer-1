@@ -43,10 +43,16 @@
             v-if="theItem.label || theItem.startDate"
             class="text-subtitle divide-white flex divide-x mb-2"
           >
-            <span v-if="theItem.label" :class="{ 'pr-2': theItem.startDate }">
+            <span
+              v-if="theItem.label"
+              :class="{ 'pr-2': theItem.startDate }"
+            >
               {{ theItem.label }}
             </span>
-            <span v-if="theItem.startDate" :class="{ 'pl-2': theItem.label }">
+            <span
+              v-if="theItem.startDate"
+              :class="{ 'pl-2': theItem.label }"
+            >
               {{ formattedEventDates }}
             </span>
             <span class="sr-only">.</span>
@@ -90,54 +96,54 @@ export default defineComponent({
     IconArrow,
     BaseLink,
     BaseImage,
-    BaseImagePlaceholder,
+    BaseImagePlaceholder
   },
   props: {
     // if some cards contain external links, be sure to alias the external url as 'externalLink'
     data: {
       type: Object as PropType<Card>,
-      required: false,
+      required: false
     },
     // override props as needed
     // so we can use this component in search results
     url: {
       type: String,
-      required: false,
+      required: false
     },
     externalLink: {
       type: String,
-      required: false,
+      required: false
     },
     thumbnailImage: {
       type: Object,
-      required: false,
+      required: false
     },
     label: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     startDate: {
       type: String,
-      required: false,
+      required: false
     },
     endDate: {
       type: String,
-      required: false,
+      required: false
     },
     // if styling should be compact
     compact: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // if a heading should be used and at what level
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     // to allow for various data shapes and sources
@@ -165,15 +171,17 @@ export default defineComponent({
           label: this.label,
           title: this.title,
           startDate: this.startDate,
-          endDate: this.endDate,
+          endDate: this.endDate
         }
       }
       return undefined
     },
     formattedEventDates() {
-      return this.theItem?.startDate ? mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate) : undefined
+      return this.theItem?.startDate
+        ? mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate)
+        : undefined
     }
-  },
+  }
 })
 </script>
 <style lang="scss">

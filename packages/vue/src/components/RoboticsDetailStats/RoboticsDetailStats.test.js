@@ -13,8 +13,8 @@ describe('RoboticsDetailStats', () => {
         animalAnalogName: '',
         animalAnalogIcon: null,
         robotDestinations: [],
-        alternativeStats: [],
-      },
+        alternativeStats: []
+      }
     })
     expect(wrapper.find('*').exists()).toBe(false)
   })

@@ -3,7 +3,10 @@
     v-if="data"
     class="BlockKeyPoints border-gray-light-mid lg:py-10 py-6 border-t border-b"
   >
-    <BlockHeading class="mb-5" :data="{ heading: data.heading }" />
+    <BlockHeading
+      class="mb-5"
+      :data="{ heading: data.heading }"
+    />
     <ul>
       <li
         v-for="(item, index) in data.listItem"
@@ -11,7 +14,10 @@
         class="flex"
         :class="index + 1 === data.listItem.length ? 'mb-0' : 'mb-4'"
       >
-        <BlockText :text="item.text" variant="medium"></BlockText>
+        <BlockText
+          :text="item.text"
+          variant="medium"
+        ></BlockText>
       </li>
     </ul>
   </div>
@@ -26,14 +32,14 @@ export default defineComponent({
   name: 'BlockKeyPoints',
   components: {
     BlockHeading,
-    BlockText,
+    BlockText
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>
 

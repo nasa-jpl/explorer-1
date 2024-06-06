@@ -9,7 +9,10 @@
     aria-hidden="true"
     focusable="false"
   >
-    <g fill="currentColor" fill-rule="evenodd">
+    <g
+      fill="currentColor"
+      fill-rule="evenodd"
+    >
       <path
         d="m8.41854 27.1118h2.36796v-10.992h-1.88796l-3.296 2.208.944 1.664 1.872-1.168z"
         fill="currentColor"
@@ -31,7 +34,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconRewindTen',
+  name: 'IconRewindTen'
 })
 </script>
 <style lang="scss">

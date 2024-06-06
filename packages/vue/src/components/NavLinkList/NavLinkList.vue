@@ -1,8 +1,15 @@
 <template>
   <div v-if="data">
     <NavHeading :data="data" />
-    <div v-if="data.links" :class="{ 'auto-col': autoCol }">
-      <div v-for="(item, index) in data.links" :key="index" class="mb-0">
+    <div
+      v-if="data.links"
+      :class="{ 'auto-col': autoCol }"
+    >
+      <div
+        v-for="(item, index) in data.links"
+        :key="index"
+        class="mb-0"
+      >
         <BaseLink
           variant="none"
           class="block text-lg font-medium leading-tight text-white"
@@ -27,24 +34,24 @@ export default defineComponent({
   name: 'NavLinkList',
   components: {
     BaseLink,
-    NavHeading,
+    NavHeading
   },
   props: {
     data: {
       type: Object,
-      required: false,
+      required: false
     },
     autoCol: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
-    getRouterLink(link: LinkObject): string | undefined { 
+    getRouterLink(link: LinkObject): string | undefined {
       return mixinGetRouterLink(link)
     },
-    getLinkText(link: LinkObject): string | undefined { 
+    getLinkText(link: LinkObject): string | undefined {
       return mixinGetLinkText(link)
     }
   }

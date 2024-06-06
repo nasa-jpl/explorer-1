@@ -1,6 +1,12 @@
 <template>
-  <div v-if="data" class="BaseVideo">
-    <BaseImagePlaceholder aspect-ratio="16:9" dark-mode>
+  <div
+    v-if="data"
+    class="BaseVideo"
+  >
+    <BaseImagePlaceholder
+      aspect-ratio="16:9"
+      dark-mode
+    >
       <video
         :width="data.width"
         :height="data.height"
@@ -11,13 +17,22 @@
         :controls="!autoplay"
       >
         <template v-if="data.fileWebm">
-          <source :src="data.fileWebm" type="video/webm" />
+          <source
+            :src="data.fileWebm"
+            type="video/webm"
+          />
         </template>
         <template v-if="data.file">
-          <source :src="data.file" type="video/mp4" />
+          <source
+            :src="data.file"
+            type="video/mp4"
+          />
         </template>
         <template v-if="data.fileOgg">
-          <source :src="data.fileOgg" type="video/ogg" />
+          <source
+            :src="data.fileOgg"
+            type="video/ogg"
+          />
         </template>
         <p>Your browser cannot play the provided video file(s).</p>
       </video>
@@ -31,18 +46,18 @@ import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder
 export default defineComponent({
   name: 'BaseVideo',
   components: {
-    BaseImagePlaceholder,
+    BaseImagePlaceholder
   },
   props: {
     data: {
       type: Object,
-      required: false,
+      required: false
     },
     autoplay: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 })
 </script>
 

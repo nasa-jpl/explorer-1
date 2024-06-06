@@ -11,7 +11,10 @@
         <span> Overview </span>
       </BaseLink>
     </li>
-    <li v-for="(child, child_index) in item.children" :key="child_index">
+    <li
+      v-for="(child, child_index) in item.children"
+      :key="child_index"
+    >
       <BaseLink
         :to="child.path"
         variant="none"
@@ -22,7 +25,10 @@
           {{ child.title }}
         </span>
       </BaseLink>
-      <ul v-if="child.children && child.children.length > 0" class="pl-6">
+      <ul
+        v-if="child.children && child.children.length > 0"
+        class="pl-6"
+      >
         <li
           v-for="(grandchild, grandchild_index) in child.children"
           :key="grandchild_index"
@@ -67,14 +73,14 @@ interface NavItemObject {
 export default defineComponent({
   name: 'NavSecondaryDropdownContent',
   components: {
-    BaseLink,
+    BaseLink
   },
   props: {
     // the tertiary nav item object that includes path, title, and children
     item: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   methods: {
     linkClass(item?: NavItemObject, isLast?: Boolean) {
@@ -105,8 +111,8 @@ export default defineComponent({
         }
       }
       return computedClass
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

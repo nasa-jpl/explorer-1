@@ -6,7 +6,7 @@ import { Empty } from './BlockTeaser.stories'
 describe('BlockTeaser', () => {
   test('renders with partial data', () => {
     mount(BlockTeaser, {
-      propsData: { ...Empty.args },
+      propsData: { ...Empty.args }
     })
   })
 })

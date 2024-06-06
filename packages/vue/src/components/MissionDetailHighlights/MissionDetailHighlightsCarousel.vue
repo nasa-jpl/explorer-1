@@ -1,6 +1,9 @@
 <template>
   <div class="MissionHighlightsCarousel ThemeVariantDark w-full overflow-hidden">
-    <div ref="MissionHighlightsCarousel" class="swiper">
+    <div
+      ref="MissionHighlightsCarousel"
+      class="swiper"
+    >
       <div class="swiper-wrapper">
         <MissionDetailHighlightsCarouselItem
           v-for="(item, index) in items"
@@ -24,11 +27,7 @@
           >
             <span
               class="can-hover:group-hover:bg-jpl-red-light can-hover:group-hover:opacity-100 inline-block w-3 h-3 rounded-full"
-              :class="
-                currentIndex === index
-                  ? 'bg-jpl-red-light'
-                  : 'bg-white opacity-25'
-              "
+              :class="currentIndex === index ? 'bg-jpl-red-light' : 'bg-white opacity-25'"
             ></span>
           </button>
         </div>
@@ -79,14 +78,14 @@ export default defineComponent({
     BaseButton,
     IconPrev,
     IconNext,
-    MissionDetailHighlightsCarouselItem,
+    MissionDetailHighlightsCarouselItem
   },
   props: {
     items: {
       type: Array as PropType<Slide[]>,
       required: true,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   data(): {
     currentIndex: number
@@ -107,14 +106,14 @@ export default defineComponent({
         watchSlidesProgress: true,
         navigation: {
           nextEl: '.swiper-next',
-          prevEl: '.swiper-prev',
+          prevEl: '.swiper-prev'
         },
         on: {
           slideChange: (swiper: Swiper) => {
             ;(this as any).updateIndex(swiper.realIndex)
-          },
-        },
-      },
+          }
+        }
+      }
     }
   },
   mounted() {
@@ -137,8 +136,8 @@ export default defineComponent({
       if (this.slider) {
         this.slider.slideTo(val)
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

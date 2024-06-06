@@ -8,8 +8,15 @@
     aria-hidden="true"
     focusable="false"
   >
-    <g fill="none" fill-rule="evenodd">
-      <path fill="currentColor" fill-rule="nonzero" d="M0 0H22V22H0z" />
+    <g
+      fill="none"
+      fill-rule="evenodd"
+    >
+      <path
+        fill="currentColor"
+        fill-rule="nonzero"
+        d="M0 0H22V22H0z"
+      />
       <path
         d="M9.732 15.718l-4.95-4.95 1.415-1.414 3.535 3.535 7.071-7.071 1.415 1.414-8.486 8.486z"
         fill="#FFF"
@@ -20,7 +27,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'IconCheckboxSelected',
+  name: 'IconCheckboxSelected'
 })
 </script>
 <style lang="scss">

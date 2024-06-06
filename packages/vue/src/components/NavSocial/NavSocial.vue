@@ -68,15 +68,15 @@ export default defineComponent({
     IconSocialFacebook,
     IconSocialTwitter,
     IconSocialInstagram,
-    IconSocialYoutube,
+    IconSocialYoutube
   },
   props: {
     dark: {
       type: Boolean,
       required: false,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 })
 </script>
 <style lang="scss" scoped>

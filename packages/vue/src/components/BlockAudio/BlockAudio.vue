@@ -1,6 +1,9 @@
 <template>
   <div class="BlockAudio">
-    <LayoutHelper v-if="data" indent="col-2">
+    <LayoutHelper
+      v-if="data"
+      indent="col-2"
+    >
       <div
         class="bg-gray-dark flex flex-row justify-start w-full max-h-48 bg-gradient-to-b lg:bg-gradient-to-l from-transparent lg:from-transparent-w50 to-black lg:to-transparent-black-75"
       >
@@ -50,14 +53,14 @@ export default defineComponent({
     BaseAudio,
     LayoutHelper,
     BaseImage,
-    BaseImagePlaceholder,
+    BaseImagePlaceholder
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>
 

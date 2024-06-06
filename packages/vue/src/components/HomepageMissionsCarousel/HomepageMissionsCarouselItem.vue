@@ -2,21 +2,16 @@
   <BaseLink
     v-if="data"
     variant="none"
-    :aria-label="
-      hasTopic
-        ? 'More about ' + data.topic.title
-        : 'View ' + data.name + ' missions'
-    "
-    :to="
-      hasTopic
-        ? data.topic.url
-        : { name: 'missions', query: { mission_target: data.name } }
-    "
+    :aria-label="hasTopic ? 'More about ' + data.topic.title : 'View ' + data.name + ' missions'"
+    :to="hasTopic ? data.topic.url : { name: 'missions', query: { mission_target: data.name } }"
     class="HomepageMissionsCarouselItem group flex h-full pb-1 text-white"
     link-class="flex flex-col w-full"
   >
     <div class="slide-image h-80 mb-3">
-      <picture v-if="data.image && data.image.src" class="flex w-full h-full">
+      <picture
+        v-if="data.image && data.image.src"
+        class="flex w-full h-full"
+      >
         <source
           class="swiper-lazy"
           :data-srcset="data.image.webp.url"
@@ -68,13 +63,13 @@ export default defineComponent({
   name: 'HomepageMissionsCarouselItem',
   components: {
     BaseLink,
-    IconCaret,
+    IconCaret
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     hasTopic(): boolean {
@@ -82,8 +77,8 @@ export default defineComponent({
         return true
       }
       return false
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

@@ -1,8 +1,6 @@
 <template>
   <form class="TheFooterSignup">
-    <div
-      class="border-opacity-40 relative flex items-center border border-white"
-    >
+    <div class="border-opacity-40 relative flex items-center border border-white">
       <input
         v-model="email"
         class="EmailInput border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm text-white bg-transparent"
@@ -32,11 +30,11 @@ import IconSocialEmail from './../Icons/IconSocialEmail.vue'
 export default defineComponent({
   name: 'TheFooterSignUp',
   components: {
-    IconSocialEmail,
+    IconSocialEmail
   },
   data() {
     return {
-      email: null,
+      email: null
     }
   },
   methods: {
@@ -50,8 +48,8 @@ export default defineComponent({
       //   },
       // })
       window.location.href = '/newsletter-signup?email=' + this.email
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

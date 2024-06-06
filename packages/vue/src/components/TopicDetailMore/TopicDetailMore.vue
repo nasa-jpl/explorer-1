@@ -8,7 +8,10 @@
           More About {{ topic }}
         </h2>
       </div>
-      <template v-for="(item, index) in theData" :key="index">
+      <template
+        v-for="(item, index) in theData"
+        :key="index"
+      >
         <TopicDetailMoreVisibility>
           <div class="md:BaseGrid lg:px-0 container px-4 mx-auto">
             <TopicDetailMoreItem
@@ -63,25 +66,24 @@ export default defineComponent({
     BaseButton,
     IconCaret,
     TopicDetailMoreVisibility,
-    TopicDetailMoreItem,
+    TopicDetailMoreItem
   },
   props: {
     topic: {
       type: String,
       required: false,
-      default: 'Topic',
+      default: 'Topic'
     },
     more: {
       type: Array as PropType<Card[]>,
-      required: false,
+      required: false
     },
     moreCurated: {
       type: Array as PropType<Card[]>,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
-
     theData(): Card[] {
       // combining the two and returning the first 8
       let arr: Card[] = []
@@ -91,7 +93,7 @@ export default defineComponent({
         arr = this.more
       }
       return arr.slice(0, 8)
-    },
+    }
   },
   methods: {
     gridPlacement(index: number) {
@@ -116,7 +118,7 @@ export default defineComponent({
         return 'lg:col-start-6 lg:col-span-4 md:col-start-6 md:col-span-6 lg:-mt-28'
       }
       return ''
-    },
-  },
+    }
+  }
 })
 </script>

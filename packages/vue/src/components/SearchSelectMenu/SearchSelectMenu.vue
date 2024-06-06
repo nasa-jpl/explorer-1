@@ -1,12 +1,21 @@
 <template>
   <div>
-    <label class="sr-only" :for="generateId()">{{ title }}</label>
+    <label
+      class="sr-only"
+      :for="generateId()"
+      >{{ title }}</label
+    >
     <select
       :id="generateId()"
       v-model="selectValueHandler"
       class="border-0 text-theme-red can-hover:hover:text-theme-red-hover font-secondary font-semibold tracking-wider uppercase align-middle"
     >
-      <option disabled value="">{{ title }}</option>
+      <option
+        disabled
+        value=""
+      >
+        {{ title }}
+      </option>
       <option
         v-for="option in options"
         :key="option.value"
@@ -24,16 +33,16 @@ export default {
     selectValue: String,
     title: {
       type: String,
-      required: false,
+      required: false
     },
     groupKey: {
       type: String,
-      required: true,
+      required: true
     },
     options: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     // to sync both ways parent <--> child
@@ -45,8 +54,8 @@ export default {
       set(newValue) {
         this.$emit('update:selectValue', newValue)
         this.$emit('resetPage')
-      },
-    },
+      }
+    }
   },
   watch: {
     selectValue: {
@@ -56,7 +65,7 @@ export default {
         if (e.length > 0) {
           query = {
             ...this.$route.query,
-            [this.groupKey]: e.toString(),
+            [this.groupKey]: e.toString()
           }
         } else {
           // clear the param from the URL if no value is passed
@@ -64,13 +73,13 @@ export default {
         }
         // ensures history is saved with each change to filters
         this.$router.push({ query })
-      },
-    },
+      }
+    }
   },
   methods: {
     generateId() {
       return `select_${this.groupKey}`
-    },
-  },
+    }
+  }
 }
 </script>

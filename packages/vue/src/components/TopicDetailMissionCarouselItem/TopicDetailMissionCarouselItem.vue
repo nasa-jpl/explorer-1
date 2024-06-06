@@ -30,7 +30,10 @@
       </div>
       <div class="absolute inset-x-0 bottom-0">
         <div class="text-contrast p-4 text-white">
-          <p v-if="data.title" class="mb-1 text-xl font-semibold leading-tight">
+          <p
+            v-if="data.title"
+            class="mb-1 text-xl font-semibold leading-tight"
+          >
             {{ data.title }}
           </p>
           <p
@@ -61,12 +64,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {
-  clockTypes
-} from '../MissionDetailStats/MissionDetailStats.vue'
-import type {
-  ClockType
-} from '../MissionDetailStats/MissionDetailStats.vue'
+import { clockTypes } from '../MissionDetailStats/MissionDetailStats.vue'
+import type { ClockType } from '../MissionDetailStats/MissionDetailStats.vue'
 import type { PropType } from 'vue'
 import type { ImageObject } from '../../interfaces'
 import MissionDetailStatsMicro from './../MissionDetailStats/MissionDetailStatsMicro.vue'
@@ -74,12 +73,12 @@ import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 
 export interface Slide {
-  clockType: ClockType,
-  showClock: boolean,
-  startDateTime: string,
-  status: string,
-  thumbnailImage: Partial<ImageObject>,
-  title: string,
+  clockType: ClockType
+  showClock: boolean
+  startDateTime: string
+  status: string
+  thumbnailImage: Partial<ImageObject>
+  title: string
   url: string
 }
 
@@ -88,18 +87,18 @@ export default defineComponent({
   components: {
     MissionDetailStatsMicro,
     BaseImage,
-    BaseImagePlaceholder,
+    BaseImagePlaceholder
   },
   props: {
     data: {
       type: Object as PropType<Slide>,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     clockTypeLabel(): string {
       return clockTypes[this.data?.clockType as ClockType] || this.data?.clockType
-    },
-  },
+    }
+  }
 })
 </script>

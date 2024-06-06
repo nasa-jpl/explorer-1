@@ -5,10 +5,10 @@
       :path="item.path"
       class="w-full group cursor-pointer pl-12 flex items-center py-2 text-lg leading-tight"
       :class="{
-        '-open': dropdownVisible,
+        '-open': dropdownVisible
       }"
-      @toggleClicked="toggleDropdown()"
-      @closeDropdown="closeDropdown()"
+      @toggle-clicked="toggleDropdown()"
+      @close-dropdown="closeDropdown()"
     >
       <span>{{ index === 0 ? 'Home' : item.title }}</span>
       <IconCaret class="transform rotate-90 text-sm ml-2" />
@@ -37,24 +37,24 @@ export default defineComponent({
   components: {
     IconCaret,
     MixinDropdownToggle,
-    NavSecondaryDropdownContent,
+    NavSecondaryDropdownContent
   },
   props: {
     // the index from the parent v-for loop
     index: {
       type: Number,
-      required: false,
+      required: false
     },
 
     // the nav item object that includes path, title, and children
     item: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
-      dropdownVisible: false,
+      dropdownVisible: false
     }
   },
   computed: {
@@ -63,14 +63,14 @@ export default defineComponent({
         return mixinIsActivePath(this.item.path)
       }
       return false
-    },
+    }
   },
   watch: {
     $route() {
       if (this.dropdownVisible) {
         this.closeDropdown()
       }
-    },
+    }
   },
   mounted() {
     if (this.startOpen) {
@@ -97,8 +97,8 @@ export default defineComponent({
         this.dropdownVisible = true
         this.$emit('openDropdown')
       }
-    },
-  },
+    }
+  }
 })
 </script>
 <style lang="scss">

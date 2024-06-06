@@ -6,7 +6,10 @@
         :key="`HeadingBlock${index}`"
         indent="col-2"
       >
-        <BaseHeading level="h2" class="lg:mt-18 mt-10 mb-5">
+        <BaseHeading
+          level="h2"
+          class="lg:mt-18 mt-10 mb-5"
+        >
           {{ block.heading }}
         </BaseHeading>
       </LayoutHelper>
@@ -30,7 +33,7 @@
         indent="col-2"
         class="lg:my-18 my-10"
       >
-        <BlockQuote :data="(block as unknown) as BlockQuoteAttributes" />
+        <BlockQuote :data="block as unknown as BlockQuoteAttributes" />
       </LayoutHelper>
       <LayoutHelper
         v-else-if="block.blockType == 'RelatedLinksBlock'"
@@ -41,7 +44,11 @@
         <BlockRelatedLinks :data="block" />
       </LayoutHelper>
 
-      <div v-else :key="index" class="p-3 overflow-hidden border">
+      <div
+        v-else
+        :key="index"
+        class="p-3 overflow-hidden border"
+      >
         <pre>{{ block }}</pre>
       </div>
     </template>
@@ -73,17 +80,17 @@ export default defineComponent({
     BaseHeading,
     BlockQuote,
     BlockRelatedLinks,
-    BlockImageGallery,
+    BlockImageGallery
   },
   props: {
     data: {
       type: Array as PropType<BlockData[]>,
-      required: false,
+      required: false
     },
     topic: {
       type: String,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

@@ -37,8 +37,8 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 export default defineComponent({
   name: 'NavLogoLinks',
   components: {
-    BaseLink,
-  },
+    BaseLink
+  }
 })
 </script>
 <style lang="scss">

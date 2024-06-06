@@ -9,7 +9,10 @@
     aria-hidden="true"
     focusable="false"
   >
-    <g fill="none" fill-rule="evenodd">
+    <g
+      fill="none"
+      fill-rule="evenodd"
+    >
       <path
         d="M61.094 28.823c0 15.811-13.013 28.824-28.823 28.824-15.811 0-28.824-13.013-28.824-28.824C3.447 13.013 16.46 0 32.271 0c15.81 0 28.823 13.013 28.823 28.823"
         fill="#263976"
@@ -58,9 +61,9 @@ export default defineComponent({
     // Prop should be used when the logo needs to be manually inverted for use somewhere else
     invert: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 })
 </script>
 <style lang="scss">

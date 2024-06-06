@@ -1,6 +1,12 @@
 <template>
-  <div v-if="data" class="BlockVideo">
-    <BaseVideo :data="data.video" :autoplay="autoplay" />
+  <div
+    v-if="data"
+    class="BlockVideo"
+  >
+    <BaseVideo
+      :data="data.video"
+      :autoplay="autoplay"
+    />
 
     <div
       v-if="(data.caption && data.caption.length > 2) || data.credit"
@@ -19,17 +25,17 @@ export default defineComponent({
   name: 'BlockVideo',
   components: {
     BaseVideo,
-    BaseImageCaption,
+    BaseImageCaption
   },
   props: {
     data: {
       type: Object,
-      required: false,
+      required: false
     },
     autoplay: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 })
 </script>

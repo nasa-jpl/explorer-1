@@ -2,8 +2,14 @@
   <div class="HeroLarge max-w-screen-3xl relative mx-auto">
     <div class="absolute inset-0 z-10 bg-black">
       <picture v-if="image && image.src">
-        <source media="(min-width: 768px)" :srcset="image.srcSet" />
-        <source media="(min-width: 420px)" :srcset="image.screenMd.url" />
+        <source
+          media="(min-width: 768px)"
+          :srcset="image.srcSet"
+        />
+        <source
+          media="(min-width: 420px)"
+          :srcset="image.screenMd.url"
+        />
         <source :srcset="image.screenSm.url" />
         <img
           class="md:object-right object-cover object-bottom w-full h-full"
@@ -14,9 +20,7 @@
         />
       </picture>
     </div>
-    <div
-      class="content-wrapper lg:flex lg:items-center relative z-20 w-full h-full"
-    >
+    <div class="content-wrapper lg:flex lg:items-center relative z-20 w-full h-full">
       <div
         class="bg-gradient-to-t lg:bg-gradient-to-l from-transparent-w25 lg:from-transparent-w50 to-transparent-black-50 lg:to-transparent-black-50 absolute inset-0"
       ></div>
@@ -53,35 +57,35 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mixinTransparentHeader} from './../../utils/mixins'
+import { mixinTransparentHeader } from './../../utils/mixins'
 export default defineComponent({
   name: 'HeroLarge',
   props: {
     eyebrow: {
       type: String,
-      required: false,
+      required: false
     },
     title: {
       type: String,
-      required: false,
+      required: false
     },
     summary: {
       type: String,
-      required: false,
+      required: false
     },
     image: {
       type: Object,
-      required: false,
+      required: false
     },
     // If secondary nav is also on this page, will add more space above hero text
     hasOverlay: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   mounted() {
     mixinTransparentHeader()
-  },
+  }
 })
 </script>
 <style lang="scss" scoped>

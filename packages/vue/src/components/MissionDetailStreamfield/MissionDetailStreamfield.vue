@@ -1,5 +1,8 @@
 <template>
-  <div v-if="data" class="MissionDetailStreamfield">
+  <div
+    v-if="data"
+    class="MissionDetailStreamfield"
+  >
     <template v-for="(block, index) in data">
       <LayoutHelper
         v-if="block.blockType == 'HeadingBlock'"
@@ -55,14 +58,14 @@ export default {
     BaseHeading,
     BlockQuote,
     LayoutHelper,
-    BlockIframeEmbed,
+    BlockIframeEmbed
   },
   props: {
     data: {
       type: Array,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

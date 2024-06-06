@@ -148,17 +148,17 @@ export default defineComponent({
     IconVolume,
     IconMute,
     IconRewindTen,
-    IconForwardTen,
+    IconForwardTen
   },
   props: {
     file: {
       type: String,
-      default: null,
+      default: null
     },
     autoPlay: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
@@ -173,7 +173,7 @@ export default defineComponent({
       audio: undefined,
       totalDuration: 0,
       hideVolumeSlider: false,
-      volumeValue: baseVolumeValue,
+      volumeValue: baseVolumeValue
     }
   },
   computed: {
@@ -182,14 +182,14 @@ export default defineComponent({
     },
     playerId() {
       return 'player-' + this.uuid
-    },
+    }
   },
   mounted() {
     this.uuid = generateUUID()
     this.audio = this.getAudio()
     this.init()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.audio.removeEventListener('timeupdate', this._handlePlayingUI)
     this.audio.removeEventListener('loadeddata', this._handleLoaded)
     this.audio.removeEventListener('pause', this._handlePlayPause)
@@ -301,8 +301,8 @@ export default defineComponent({
     },
     getAudio() {
       return this.$el.querySelectorAll('audio')[0]
-    },
-  },
+    }
+  }
 })
 </script>
 

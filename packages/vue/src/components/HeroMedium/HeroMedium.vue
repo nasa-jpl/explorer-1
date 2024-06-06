@@ -5,11 +5,20 @@
   >
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       <!-- video always overrides the image -->
-      <MixinVideoBg v-if="theVideo" :video="theVideo" />
+      <MixinVideoBg
+        v-if="theVideo"
+        :video="theVideo"
+      />
       <!-- change to v-if if image should load as fallback until video loads -->
       <picture v-else-if="theImage && theImage.src">
-        <source media="(min-width: 768px)" :srcset="theImage.srcSet" />
-        <source media="(min-width: 420px)" :srcset="theImage.screenMd?.url" />
+        <source
+          media="(min-width: 768px)"
+          :srcset="theImage.srcSet"
+        />
+        <source
+          media="(min-width: 420px)"
+          :srcset="theImage.screenMd?.url"
+        />
         <source :data-srcset="theImage.screenSm?.url" />
         <img
           class="object-cover w-full h-full"
@@ -20,16 +29,18 @@
         />
       </picture>
     </div>
-    <div
-      class="lg:flex lg:items-end lg:relative lg:h-full absolute bottom-0 z-20 w-full"
-    >
+    <div class="lg:flex lg:items-end lg:relative lg:h-full absolute bottom-0 z-20 w-full">
       <div
         class="bg-gradient-to-b lg:bg-gradient-to-bl from-transparent lg:from-transparent-w50 to-black lg:to-transparent-black-75 absolute inset-0"
       ></div>
-      <div v-if="feature"
+      <div
+        v-if="feature"
         class="lg:px-10 2xl:px-0 lg:pb-0 lg:py-0 text-contrast container relative px-4 pt-40 pb-2 mx-auto mb-10 text-white"
       >
-        <nuxt-link :to="feature.url" class="lg:w-1/2 xl:w-5/12 block">
+        <nuxt-link
+          :to="feature.url"
+          class="lg:w-1/2 xl:w-5/12 block"
+        >
           <p
             v-if="customLabel || feature.label"
             class="text-subtitle lg:mb-3 mb-2"
@@ -76,31 +87,31 @@ export default defineComponent({
   components: {
     IconArrow,
     BaseLink,
-    MixinVideoBg,
+    MixinVideoBg
   },
   props: {
     feature: {
       type: Object,
-      required: false,
+      required: false
     },
     customLabel: {
       type: String,
-      required: false,
+      required: false
     },
     cta: {
       type: String,
-      default: 'View',
+      default: 'View'
     },
     // to override media
     // use-case: news detail pages use this b/c their feature hero is structured differently
     customVideo: {
       type: Object,
-      required: false,
+      required: false
     },
     customImage: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
     theVideo(): object | null {
@@ -118,19 +129,19 @@ export default defineComponent({
         return this.feature.image
       }
       return null
-    },
+    }
   },
   watch: {
     // watch queries to reset the header in case user navigation only changes params
     '$route.query': {
       handler() {
         mixinTransparentHeader()
-      },
-    },
+      }
+    }
   },
   mounted() {
     mixinTransparentHeader()
-  },
+  }
 })
 </script>
 <style lang="scss">

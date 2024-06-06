@@ -1,5 +1,8 @@
 <template>
-  <div v-if="series && activeTabData" class="PodcastSeriesCarousel">
+  <div
+    v-if="series && activeTabData"
+    class="PodcastSeriesCarousel"
+  >
     <!-- tabs -->
     <LayoutHelper indent="col-2">
       <h2
@@ -16,11 +19,7 @@
         >
           <button
             class="text-subtitle block text-left lg:text-center lg:w-full py-2 border-b-2 text-gray-mid-dark can-hover:hover:text-gray-dark"
-            :class="
-              activeSeasonId === season.id
-                ? 'border-jpl-red text-gray-dark'
-                : 'border-white'
-            "
+            :class="activeSeasonId === season.id ? 'border-jpl-red text-gray-dark' : 'border-white'"
             :aria-expanded="activeSeasonId === season.id ? 'true' : 'false'"
             @click="updateActiveTab(season.id)"
           >
@@ -30,8 +29,14 @@
       </ul>
     </LayoutHelper>
     <!-- tab content -->
-    <LayoutHelper indent="col-2" class="mb-4">
-      <h3 v-if="activeTabData.title" class="text-h6">
+    <LayoutHelper
+      indent="col-2"
+      class="mb-4"
+    >
+      <h3
+        v-if="activeTabData.title"
+        class="text-h6"
+      >
         {{ activeTabData.title }}
       </h3>
     </LayoutHelper>
@@ -39,9 +44,7 @@
       <ThumbnailCarousel
         :key="activeSeasonId"
         :initial-slide="
-          activeSeasonId === initialSeasonId && initialEpisodeIndex
-            ? initialEpisodeIndex
-            : 0
+          activeSeasonId === initialSeasonId && initialEpisodeIndex ? initialEpisodeIndex : 0
         "
         :slides="activeTabData.episodes"
       />
@@ -87,24 +90,24 @@ export default defineComponent({
   name: 'PodcastSeriesCarousel',
   components: {
     LayoutHelper,
-    ThumbnailCarousel,
+    ThumbnailCarousel
   },
   props: {
     // the series data, including seasons and episode
     // check audioDetailPageQuery.js for available data
     series: {
       type: Object as PropType<Series>,
-      required: false,
+      required: false
     },
     // Pass the id of the season that should be active. This is the id of the parent of the current episode page
     initialSeasonId: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
-      activeTabId: '',
+      activeTabId: ''
     }
   },
   computed: {
@@ -112,9 +115,7 @@ export default defineComponent({
       let seasons = null
       if (this.series && this.series.seasons) {
         seasons = this.series.seasons
-        return seasons.sort(
-          (a: Season, b: Season) => a.seasonNumber - b.seasonNumber
-        )
+        return seasons.sort((a: Season, b: Season) => a.seasonNumber - b.seasonNumber)
       }
       return seasons
     },
@@ -135,9 +136,9 @@ export default defineComponent({
         episodes = this.series.seasons.find((o: Season) => {
           return o.id === this.activeSeasonId
         })?.episodes
-        return episodes ? episodes.findIndex(
-          (e: Episode) => (e.url as String) === route.path
-        ) : null
+        return episodes
+          ? episodes.findIndex((e: Episode) => (e.url as String) === route.path)
+          : null
       }
       return null
     },
@@ -154,18 +155,17 @@ export default defineComponent({
         if (season?.episodes) {
           season.episodes.sort(
             (a: Episode, b: Episode) =>
-              new Date(a.publicationDate).getTime() -
-              new Date(b.publicationDate).getTime()
+              new Date(a.publicationDate).getTime() - new Date(b.publicationDate).getTime()
           )
         }
       }
       return season ? season : undefined
-    },
+    }
   },
   methods: {
     updateActiveTab(id: string) {
       this.activeTabId = id
-    },
-  },
+    }
+  }
 })
 </script>

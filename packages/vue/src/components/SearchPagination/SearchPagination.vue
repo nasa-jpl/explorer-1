@@ -12,11 +12,12 @@
       <template #icon> <IconPrev /> </template
     ></BaseButton>
 
-    <div class="sm:hidden px-4 pt-1">
-      Page {{ currentPage }} of {{ totalPages }}
-    </div>
+    <div class="sm:hidden px-4 pt-1">Page {{ currentPage }} of {{ totalPages }}</div>
     <div class="sm:flex items-center justify-center hidden px-5 pt-1">
-      <div v-for="(pageNumber, index) in generatePageList" :key="index">
+      <div
+        v-for="(pageNumber, index) in generatePageList"
+        :key="index"
+      >
         <button
           v-if="pageNumber !== ellipsis"
           class="group min-w-12 can-hover:hover:font-medium block py-3 text-lg leading-normal text-center"
@@ -27,7 +28,7 @@
             class="inline-block px-1 pb-1"
             :class="{
               'can-hover:group-hover:border-b-2 can-hover:group-hover:border-jpl-red':
-                pageNumber !== ellipsis,
+                pageNumber !== ellipsis
             }"
           >
             {{ pageNumber }}
@@ -64,15 +65,15 @@ export default {
   components: {
     BaseButton,
     IconPrev,
-    IconNext,
+    IconNext
   },
   props: {
     totalPages: Number,
-    currentPage: Number,
+    currentPage: Number
   },
   data() {
     return {
-      ellipsis: '…',
+      ellipsis: '…'
     }
   },
   computed: {
@@ -82,20 +83,12 @@ export default {
       if (this.totalPages > 4) {
         // we're at the begining
         if (this.currentPage <= maxLeft) {
-          return [
-            ...this.generatePageRange(1, maxLeft),
-            this.ellipsis,
-            this.totalPages,
-          ]
+          return [...this.generatePageRange(1, maxLeft), this.ellipsis, this.totalPages]
         }
         // we're at the begining but past the threshold to truncate
         else if (this.currentPage === maxLeft) {
           const end = this.currentPage + maxLeft - 1
-          return [
-            ...this.generatePageRange(1, end),
-            this.ellipsis,
-            this.totalPages,
-          ]
+          return [...this.generatePageRange(1, end), this.ellipsis, this.totalPages]
         }
         // we're in the 'middle' of the number range
         else if (this.currentPage > maxLeft && this.currentPage < maxRight) {
@@ -106,17 +99,13 @@ export default {
             this.ellipsis,
             ...this.generatePageRange(start, end),
             this.ellipsis,
-            this.totalPages,
+            this.totalPages
           ]
         }
         // we're at the end
         else if (this.currentPage >= maxRight) {
           const start = this.currentPage - 2
-          return [
-            1,
-            this.ellipsis,
-            ...this.generatePageRange(start, this.totalPages),
-          ]
+          return [1, this.ellipsis, ...this.generatePageRange(start, this.totalPages)]
         }
         // a fallback (this would generate a list of all pages)
         else {
@@ -126,19 +115,19 @@ export default {
         // should be hitting this intentionally if < 4 total pages
         return [...this.generatePageRange(1, this.totalPages)]
       }
-    },
+    }
   },
   watch: {
     currentPage: {
       handler() {
         const query = {
           ...this.$route.query,
-          page: this.currentPage,
+          page: this.currentPage
         }
         // ensures history is saved with each change to filters
         this.$router.push({ query })
-      },
-    },
+      }
+    }
   },
   methods: {
     toPage(newPageNumber) {
@@ -166,8 +155,8 @@ export default {
       }
 
       return pageRange
-    },
-  },
+    }
+  }
 }
 </script>
 <style lang="scss">
