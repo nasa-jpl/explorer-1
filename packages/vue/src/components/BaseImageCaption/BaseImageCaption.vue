@@ -1,14 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-
+import type { ImageObject } from '../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
-
-export type ImageCaptionObject = {
-  caption?: string
-  credit?: string
-  detailUrl?: string
-}
 
 export default defineComponent({
   name: 'BaseImageCaption',
@@ -17,7 +11,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<ImageCaptionObject>,
+      type: Object as PropType<Partial<ImageObject>>,
       required: true,
       default: undefined
     }

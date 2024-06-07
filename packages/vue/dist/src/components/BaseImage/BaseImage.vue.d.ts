@@ -81,8 +81,8 @@ declare const _default: import('vue').DefineComponent<{
         default: string;
     };
 }>>, {
-    objectFitClass: string;
     srcset: string;
     loading: ImageLoader;
+    objectFitClass: string;
 }, {}>;
 export default _default;

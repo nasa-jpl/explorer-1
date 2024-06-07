@@ -6,6 +6,7 @@ import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import type { ImageObject } from './../../interfaces'
+import { mixinGetSrcSet } from './../../utils/mixins'
 
 export default defineComponent({
   name: 'BlockImageFullBleed',
@@ -56,7 +57,7 @@ export default defineComponent({
       return undefined
     },
     theSrcSet(): string | undefined {
-      return this.theData ? this.getSrcSet(this.theData) : undefined
+      return this.theData ? mixinGetSrcSet(this.theData) : undefined
     },
     // reform the data object with the computed caption
     theData(): ImageObject | undefined {
@@ -73,29 +74,6 @@ export default defineComponent({
         return true
       }
       return false
-    }
-  },
-  methods: {
-    getSrcSet: (srcSetObject: ImageObject): string => {
-      let srcSet = ''
-      const valid = Object.keys(srcSetObject).some(function (key) {
-        if (key.startsWith('screen')) {
-          return true
-        }
-        return false
-      })
-      if (valid) {
-        const srcSetArray: string[] = []
-        for (const [key, value] of Object.entries(srcSetObject)) {
-          if (key.startsWith('screen')) {
-            if (value.url && value.width) {
-              srcSetArray.push(`${value.url} ${value.width}w`)
-            }
-          }
-        }
-        srcSet = srcSetArray.join(', ')
-      }
-      return srcSet
     }
   }
 })
@@ -119,7 +97,7 @@ export default defineComponent({
             <BaseImage
               v-if="theData.src && theData.srcCropped"
               :src="constrain ? theData.srcCropped.url : theData.src.url"
-              :srcset="theData.srcSet && !constrain ? theData.srcSet : getSrcSet(theData)"
+              :srcset="theData.srcSet && !constrain ? theData.srcSet : theSrcSet"
               :width="constrain ? theData.srcCropped.width : theData.src.width"
               :height="constrain ? theData.srcCropped.height : theData.src.height"
               :alt="theData.alt"

@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import BaseSwimlane from '@explorer-1/vue/src/components/BaseSwimlane/BaseSwimlane.vue'
+
+<Meta
+  title="Components/Base/BaseSwimlane"
+  component={BaseSwimlane}
+  parameters={{ viewMode: 'docs' }}
+/>
+
+export const BaseSwimlaneData = {
+  words: [
+    'Artists',
+    'Communicators',
+    'Designers',
+    'Disruptors',
+    'Dreamers',
+    'Educators',
+    'Engineers',
+    'Innovators',
+    'Inventors',
+    'Makers',
+    'Problem Solvers',
+    'Roboticists',
+    'Scientists',
+    'Software Engineers',
+    'Thinkers',
+    'Visualizers'
+  ],
+  rows: 9,
+  scale: 2,
+  transition: 'ease-out',
+  transitionDuration: 1800,
+  transitionDelay: 800
+}
+
+export const BaseSwimlaneTemplate = (args) => ({
+  props: Object.keys(args),
+  components: { BaseSwimlane },
+  template: `<BaseSwimlane :words="words" :rows="rows" :scale="scale" :transition="transition" :transition-duration="transitionDuration" :transition-delay="transitionDelay"
+></BaseSwimlane>`
+})
+
+# Base Swimlane
+
+## Usage
+
+The BaseSwimlane component is expected to contain an array of words to create a 'swimlane' effect as the text swims through.
+
+<Canvas>
+  <Story
+    name="Default"
+    args={BaseSwimlaneData}
+  >
+    {BaseSwimlaneTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable for={BaseSwimlane} />
+
+## Example data
+
+<code language="json">{JSON.stringify(BaseSwimlaneData, null, 2)}</code>

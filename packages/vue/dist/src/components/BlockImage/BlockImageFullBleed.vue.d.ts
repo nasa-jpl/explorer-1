@@ -25,9 +25,7 @@ declare const _default: import('vue').DefineComponent<{
     theSrcSet(): string | undefined;
     theData(): ImageObject | undefined;
     hasCaptionArea(): boolean;
-}, {
-    getSrcSet: (srcSetObject: ImageObject) => string;
-}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     data: {
         type: PropType<ImageObject>;
         required: false;
