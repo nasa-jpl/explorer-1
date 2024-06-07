@@ -9,7 +9,7 @@
       'transform -translate-y-full': !scrolledUp && !headerVisible,
       '-scrolled transform translate-y-0': scrolledUp && headerVisible && scrollTop > 0,
       '-transparent': invert,
-      '-hasSecondary': headerStore?.highlightPrimary
+      '-hasSecondary': !headerStore?.highlightPrimary
     }"
   >
     <!-- navbar -->
