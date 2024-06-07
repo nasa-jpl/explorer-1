@@ -200,6 +200,9 @@ const defaultTheme: Partial<CustomThemeConfig> = {
         '100%': { transform: 'rotate(360deg)' }
       }
     },
+    listStyleType: {
+      square: 'square'
+    },
     maxHeight: {
       none: 'none'
     },

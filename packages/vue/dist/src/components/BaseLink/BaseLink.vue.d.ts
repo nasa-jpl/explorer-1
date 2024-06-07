@@ -150,13 +150,13 @@ declare const _default: import('vue').DefineComponent<{
     onLinkClicked?: ((...args: any[]) => any) | undefined;
     onSpecificLinkClicked?: ((...args: any[]) => any) | undefined;
 }, {
-    variant: string;
-    ariaLabel: string;
-    to: string | Record<string, any>;
-    href: string;
     title: string;
+    variant: string;
+    href: string;
     target: string;
+    to: string | Record<string, any>;
     exact: boolean;
+    ariaLabel: string;
     linkClass: string;
     externalTargetBlank: boolean;
     caret: boolean;

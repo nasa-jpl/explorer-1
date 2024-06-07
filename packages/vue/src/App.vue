@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import BaseButton from './components/BaseButton/BaseButton.vue'
-import BaseLink from './components/BaseLink/BaseLink.vue'
-</script>
-
 <template>
   <div>
     <base-button variant="secondary"> Button Text </base-button>
@@ -11,6 +6,16 @@ import BaseLink from './components/BaseLink/BaseLink.vue'
       href="#"
       >Base Link</base-link
     >
+    <base-unit-toggle
+      v-slot="slotProps"
+      unit-pair="MI_KM"
+      :value="14.33"
+      :second-value="undefined"
+      value-system="imperial"
+    >
+      <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
+    </base-unit-toggle>
+    <block-twitter-embed :data="{ username: 'NASAJPL' }" />
     <p class="text-action">Action color</p>
     <p class="text-emphasis">Emphasis color</p>
   </div>
