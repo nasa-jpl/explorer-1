@@ -120,7 +120,7 @@ lint-fix:
 	pnpm run lint:fix
 
 # how to use pnpm to upgrade storybook
-# storybook@latest upgrade --package-manager pnpm
+# npx storybook@latest upgrade --package-manager pnpm
 # TODO: Below helper commands not running as expected change dir first, then pnpm dlx...
 # ## HTML: update Storybook
 # html-storybook-update:
