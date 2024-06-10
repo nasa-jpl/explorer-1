@@ -38,8 +38,7 @@
     "dayjs": "^1.11.11",
     "lodash": "^4.17.21",
     "qs": "^6.12.1",
-    "swiper": "^11.1.3",
-    "vue3-compare-image": "^1.2.5"
+    "swiper": "^11.1.3"
   },
   "devDependencies": {
     "@explorer-1/common": "workspace:*",

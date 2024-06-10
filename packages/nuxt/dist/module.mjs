@@ -17,8 +17,8 @@ const module = defineNuxtModule({
     const runtimeDir = resolver.resolve("./runtime");
     const pluginDir = resolver.resolve("./runtime/plugins");
     addPlugin(resolver.resolve(pluginDir, "dayjs"));
-    addPlugin(resolver.resolve(pluginDir, "click-outside"));
     addPlugin(resolver.resolve(pluginDir, "filters"));
+    addPlugin(resolver.resolve(pluginDir, "vue-click-outside"));
     if (_options.includeStyles) {
       await installModule("@nuxtjs/tailwindcss", {
         configPath: resolver.resolve(runtimeDir, "tailwind.config")
@@ -46,6 +46,7 @@ const module = defineNuxtModule({
             // make sure to externalize deps that shouldn't be bundled
             // into your library
             external: [
+              // './../node_modules/vue3-compare-image',
               "./../node_modules/vue",
               "./../node_modules/swiper",
               "./../node_modules/@fancyapps/ui",
