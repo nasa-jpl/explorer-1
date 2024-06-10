@@ -35,8 +35,9 @@ export default defineNuxtModule<ModuleOptions>({
     // add plugins
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
     addPlugin(resolver.resolve(pluginDir, 'dayjs'))
-    addPlugin(resolver.resolve(pluginDir, 'click-outside'))
     addPlugin(resolver.resolve(pluginDir, 'filters'))
+    addPlugin(resolver.resolve(pluginDir, 'vue-click-outside'))
+    addPlugin(resolver.resolve(pluginDir, 'vue-compare-image.client'))
 
     if (_options.includeStyles) {
       await installModule('@nuxtjs/tailwindcss', {
@@ -71,6 +72,7 @@ export default defineNuxtModule<ModuleOptions>({
             // make sure to externalize deps that shouldn't be bundled
             // into your library
             external: [
+              // './../node_modules/vue3-compare-image',
               './../node_modules/vue',
               './../node_modules/swiper',
               './../node_modules/@fancyapps/ui',
