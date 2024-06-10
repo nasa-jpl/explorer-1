@@ -7,12 +7,13 @@ const module = defineNuxtModule({
   },
   // Default configuration options of the Nuxt module
   defaults: {
+    theme: "defaultTheme",
     includeStyles: true,
     includeComponents: true,
     includePageTemplates: true,
     includeStore: true
   },
-  async setup(_options, _nuxt) {
+  async setup(options, nuxt) {
     const resolver = createResolver(import.meta.url);
     const runtimeDir = resolver.resolve("./runtime");
     const pluginDir = resolver.resolve("./runtime/plugins");
@@ -20,22 +21,31 @@ const module = defineNuxtModule({
     addPlugin(resolver.resolve(pluginDir, "filters"));
     addPlugin(resolver.resolve(pluginDir, "vue-click-outside"));
     addPlugin(resolver.resolve(pluginDir, "vue-compare-image.client"));
-    if (_options.includeStyles) {
+    if (!nuxt.options.app.head.htmlAttrs) {
+      nuxt.options.app.head["htmlAttrs"] = {
+        class: [options.theme]
+      };
+    } else if (!nuxt.options.app.head.htmlAttrs.class) {
+      nuxt.options.app.head.htmlAttrs["class"] = options.theme;
+    } else {
+      nuxt.options.app.head.htmlAttrs.class = options.theme;
+    }
+    if (options.includeStyles) {
       await installModule("@nuxtjs/tailwindcss", {
         configPath: resolver.resolve(runtimeDir, "tailwind.config")
       });
-      _nuxt.options.css.push(
+      nuxt.options.css.push(
         resolver.resolve("./../node_modules/@explorer-1/vue/src/assets/scss/", "styles.scss")
       );
-      _nuxt.options.postcss = {
+      nuxt.options.postcss = {
         plugins: {
           autoprefixer: {}
         }
       };
-      _nuxt.options.vite = {
-        ..._nuxt.options.vite,
+      nuxt.options.vite = {
+        ...nuxt.options.vite,
         css: {
-          ..._nuxt.options.css,
+          ...nuxt.options.css,
           preprocessorOptions: {
             scss: {
               additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
@@ -58,7 +68,7 @@ const module = defineNuxtModule({
         }
       };
     }
-    if (_options.includeComponents) {
+    if (options.includeComponents) {
       addComponentsDir({
         path: resolver.resolve("./../node_modules/@explorer-1/vue/src/components"),
         global: true,
@@ -66,7 +76,7 @@ const module = defineNuxtModule({
         extensions: [".vue"]
       });
     }
-    if (_options.includePageTemplates) {
+    if (options.includePageTemplates) {
       addComponentsDir({
         path: resolver.resolve("./../node_modules/@explorer-1/vue/src/templates"),
         global: true,
@@ -74,12 +84,16 @@ const module = defineNuxtModule({
         extensions: [".vue"]
       });
     }
-    if (_options.includeStore) {
+    if (options.includeStore) {
       await installModule("@pinia/nuxt", {});
       addImports([
         {
           name: "useHeaderStore",
           from: resolver.resolve("./../node_modules/@explorer-1/vue/src/store/header")
+        },
+        {
+          name: "useThemeStore",
+          from: resolver.resolve("./../node_modules/@explorer-1/vue/src/store/theme")
         }
       ]);
     }

@@ -83,13 +83,6 @@ export const ContentPageData = {
   clearanceNumber: 'CL#12345'
 }
 
-// template
-// const PageContentTemplate = (args) => ({
-//   props: Object.keys(args),
-//   components: { PageContent },
-//   template: `<PageContent :data="contentPage"/>`
-// })
-
 // stories
 export const Template = {
   name: 'PageContent',

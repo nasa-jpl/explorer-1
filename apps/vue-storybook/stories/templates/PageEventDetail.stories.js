@@ -59,14 +59,14 @@ export const EventDetail = {
         {
           host: 'host',
           id: '1',
-          image: {
-            alt: '',
-            src: {
-              height: '450',
-              url: 'https://placekitten.com/560/560.jpg',
-              width: '450'
-            }
-          },
+          // image: {
+          //   alt: '',
+          //   src: {
+          //     height: '450',
+          //     url: 'https://picsum.photos/560/560',
+          //     width: '450'
+          //   }
+          // },
           internalLink: null,
           name: 'Varoujan Gorjian',
           title: 'Splitzer Research Scientest, JPL'
@@ -78,7 +78,7 @@ export const EventDetail = {
             alt: '',
             src: {
               height: '450',
-              url: 'https://placekitten.com/560/560.jpg',
+              url: 'https://picsum.photos/560/560',
               width: '450'
             }
           },

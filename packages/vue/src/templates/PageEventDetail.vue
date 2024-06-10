@@ -148,7 +148,7 @@
           v-if="data.body || data.summary"
           class="grid-cols-10 lg:grid -mx-4 lg:mx-0"
         >
-          <div class="lg:col-span-7">
+          <div class="col-span-7">
             <p
               v-if="data.summary"
               class="BlockText text-body-lg mb-8 px-4 lg:px-0"
@@ -270,6 +270,11 @@ export default defineComponent({
       type: Object,
       required: false,
     },
+  },
+  data() {
+    return {
+      PlaceholderPortrait: PlaceholderPortrait
+    }
   },
   computed: {
     displayTime(): string {

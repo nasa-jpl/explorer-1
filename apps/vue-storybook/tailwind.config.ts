@@ -10,5 +10,9 @@ import explorer1Config from '@explorer-1/common/tailwind.config'
 
 export default {
   ...explorer1Config,
-  content: ['stories/**/*', './node_modules/@explorer-1/vue/src/components/**/*.vue']
+  content: [
+    'stories/**/*',
+    './node_modules/@explorer-1/vue/src/components/**/*.vue',
+    './node_modules/@explorer-1/vue/src/templates/**/*.vue'
+  ]
 }

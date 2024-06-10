@@ -64,6 +64,13 @@
     }
   ]"
     />
+    <block-cta :data="{
+      heading: 'Call to action',
+      text: 'CTA',
+      page: '',
+      externalLink: 'http://www.jpl.nasa.gov'
+    }" />
+
   </div>
 </template>
 
