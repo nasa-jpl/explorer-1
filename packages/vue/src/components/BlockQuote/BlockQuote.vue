@@ -53,7 +53,7 @@ import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
-interface BlockQuoteAttributes {
+export interface BlockQuoteAttributes {
   quote: string
   attribution: string
   quoteLink: {

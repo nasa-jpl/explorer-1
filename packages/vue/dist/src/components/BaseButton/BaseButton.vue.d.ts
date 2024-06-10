@@ -84,11 +84,11 @@ declare const _default: import('vue').DefineComponent<{
     onClick?: ((...args: any[]) => any) | undefined;
 }, {
     variant: string;
+    href: string;
+    to: string | Record<string, any>;
+    ariaLabel: string;
     compact: boolean;
     blockClasses: string;
     disabled: boolean;
-    ariaLabel: string;
-    to: string | Record<string, any>;
-    href: string;
 }, {}>;
 export default _default;

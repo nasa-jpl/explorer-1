@@ -8,11 +8,11 @@ import MixinFancyboxOpenButton from './MixinFancyboxOpenButton.vue'
 
 export const fancyboxThemes = {
   // Normal  (Vanilla fancybox theme)
-  normal: 'fancybox-theme-normal ThemeLight',
+  normal: 'fancybox-theme-normal ThemeVariantLight',
   // Light   (WCP default lighter lightbox)
-  light: 'fancybox-theme-light ThemeLight',
+  light: 'fancybox-theme-light ThemeVariantLight',
   // Dark    (WWW default black lightbox)
-  dark: 'fancybox-theme-dark ThemeDark'
+  dark: 'fancybox-theme-dark ThemeVariantDark'
 }
 
 export default defineComponent({
