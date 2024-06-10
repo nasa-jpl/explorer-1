@@ -6,8 +6,37 @@
 
 This package aims to include all of the frontend assets (JS and SCSS) necessary to create components using the HTML markup examples in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
 
+## Version 3.x.x docs (draft)
+
+Version 3.x.x adds Vue components and a Nuxt module to Explorer-1.
+
+```bash
+# Start the Vue Storybook
+make vue-storybook
+
+# Start a Vue app to test components directly (optional)
+make vue
+
+# Start a Nuxt app to test the nuxt module
+make nuxt
+
+# Start the HTML Storybook (from v2.x.x)
+make html-storybook
+```
+
+### Developing Vue components
+
+1. Create new component files in `packages/vue`
+2. Start the Vue Storybook to preview and test your component (your component must have a `*.stories.js` file): `make vue-storybook`
+
+--
+
+**The below docs only apply to Explorer 1 versions 2.x.x and earlier. Docs are incomplete for version 3.x.x**
+
 ## Table of contents
 
+- [Version 3.x.x docs (draft)](#version-3xx-docs-draft)
+  - [Developing Vue components](#developing-vue-components)
 - [What's included](#whats-included)
 - [Installation](#installation)
 - [Using bundled assets](#using-bundled-assets)
@@ -28,21 +57,23 @@ This package includes the base styles of Explorer 1 (typography, colors, spacing
 <details><summary>Package contents</summary>
 
 ```
+
 @nasa-jpl/explorer-1/
 ├── dist/
-│   ├── css/
-│   │   ├── explorer-1.min.css
-│   │   └── font-face.css
-│   ├── fonts/
-│   │   ├── archivo-narrow/
-│   │   └── metropolis/
-│   └── js/
-│       └── explorer-1.min.js
+│ ├── css/
+│ │ ├── explorer-1.min.css
+│ │ └── font-face.css
+│ ├── fonts/
+│ │ ├── archivo-narrow/
+│ │ └── metropolis/
+│ └── js/
+│ └── explorer-1.min.js
 ├── src/
-│   ├── fonts/
-│   ├── js/
-│   └── scss/
+│ ├── fonts/
+│ ├── js/
+│ └── scss/
 └── tailwind.config.js
+
 ```
 
 </details>
@@ -111,12 +142,12 @@ Below is an example of how to use the Explorer 1 Tailwind CSS config in your own
 // your-project/tailwind.config.js
 
 // import Explorer 1's Tailwind config
-const explorer1Config = require('@nasa-jpl/explorer-1/tailwind.config.js')
+const explorer1Config = require('@nasa-jpl/explorer-1/tailwind.config.js');
 
 module.exports = {
   ...explorer1Config,
   purge: ['../**/*.html'], // this will override Explorer 1's purge settings
-}
+};
 ```
 
 [Learn more about Tailwind CSS configuration](https://tailwindcss.com/docs/configuration)
@@ -193,14 +224,14 @@ npm install --save lazysizes
 
 ```js
 // your-project.js
-require('@nasa-jpl/explorer-1/src/js/vendors/_lazysizes.js')
+require('@nasa-jpl/explorer-1/src/js/vendors/_lazysizes.js');
 ```
 
 Some components also require additional JavaScript from explorer-1:
 
 ```js
 // your-project.js
-require('@nasa-jpl/explorer-1/src/js/components/_HeroMedia.js')
+require('@nasa-jpl/explorer-1/src/js/components/_HeroMedia.js');
 ```
 
 Reference the JavaScript files in [`/src/js/components/`](https://github.com/nasa-jpl/explorer-1/tree/main/src/js/components) for components that require additional JavaScript. The files will share the same name as the component.
@@ -221,7 +252,7 @@ npm install --save swiper
 
 ```js
 // your-project.js
-require('@nasa-jpl/explorer-1/src/js/vendors/_swiper.js')
+require('@nasa-jpl/explorer-1/src/js/vendors/_swiper.js');
 ```
 
 ### Additional requirements for modals and lightboxes
@@ -241,7 +272,7 @@ npm install --save @fancyapps/ui
 
 ```js
 // your-project.js
-require('@fancyapps/ui')
+require('@fancyapps/ui');
 ```
 
 ## Component templates (HTML)
