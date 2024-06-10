@@ -31,9 +31,9 @@ export default {
 export const EventDetailHeroData = {
   heroImage: {
     srcSet:
-      'https://source.unsplash.com/OLlj17tUZnU//320x200 320w, https://source.unsplash.com/OLlj17tUZnU/1920x1200 1440w',
+      'https://source.unsplash.com/OLlj17tUZnU//320x200 320w, https://picsum.photos/1920/1200 1440w',
     src: {
-      url: 'https://source.unsplash.com/OLlj17tUZnU/1920x1200',
+      url: 'https://picsum.photos/1920/1200',
       width: 1920,
       height: 1200
     },

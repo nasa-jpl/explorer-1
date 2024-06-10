@@ -1,4 +1,6 @@
 import { useEffect, useGlobals } from '@storybook/preview-api'
+import { useThemeStore } from '@explorer-1/vue/src/store/theme'
+import type { Explorer1Theme } from '@explorer-1/vue/src/store/theme'
 
 const getConfig = (config) => {
   // default values
@@ -37,6 +39,7 @@ const getConfig = (config) => {
 }
 
 export const withGlobals = (StoryFn, context) => {
+  const useTheme = useThemeStore()
   const { themesConfig, variantsConfig } = context.globals
   const { options, method } = getConfig(themesConfig)
   const { options: variantOptions, method: variantMethod } = getConfig(variantsConfig)
@@ -47,17 +50,21 @@ export const withGlobals = (StoryFn, context) => {
   if (!isInDocs) {
     // check for value in local storage
     useEffect(() => {
-      const savedTheme = window.localStorage.getItem('data-theme')
-      const savedVariant = window.localStorage.getItem('data-variant')
+      const savedTheme: Explorer1Theme = window.localStorage.getItem('data-theme') as Explorer1Theme
+      const savedVariant: Explorer1Theme = window.localStorage.getItem(
+        'data-variant'
+      ) as Explorer1Theme
 
       // handle theme
       if (savedTheme) {
         // update theme attribute and save it to local storage
         updateGlobals({ theme: savedTheme })
+        useTheme.setTheme(savedTheme)
       } else {
         // set it to the first theme
         if (options && options.length > 0) {
           updateGlobals({ theme: options[0] })
+          useTheme.setTheme(options[0] as Explorer1Theme)
         }
       }
 
@@ -81,12 +88,14 @@ export const withGlobals = (StoryFn, context) => {
       if (theme) {
         document.documentElement.classList.remove(savedTheme)
         document.documentElement.classList.add(theme)
+        useTheme.setTheme(theme)
         window.localStorage.setItem('data-theme', theme)
       }
     }, [theme])
   } else if (method === 'data-attr') {
     useEffect(() => {
       if (theme) {
+        useTheme.setTheme(theme)
         document.documentElement.setAttribute('data-theme', theme)
         window.localStorage.setItem('data-theme', theme)
       }

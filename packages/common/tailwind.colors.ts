@@ -1,10 +1,34 @@
 // Dedicated file for managing tailwind theme colors
 
+export const jplRed = {
+  lighter: '#E73B54',
+  light: '#E73B54',
+  base: '#E31937',
+  dark: '#C1152E',
+  darker: '#5C0411'
+}
+
+export const jplTeal = {
+  lighter: '#99D1DF',
+  light: '#4BA7BE',
+  base: '#10829E',
+  dark: '#006077',
+  darker: '#004050'
+}
+
+export const jplViolet = {
+  lighter: '#C4AAF6',
+  light: '#905FEC',
+  base: '#6019E3',
+  dark: '#3C00AB',
+  darker: '#280073'
+}
+
 export const foundationColors = {
-  'jpl-red': '#E31937',
-  'jpl-red-light': '#E73B54',
-  'jpl-red-dark': '#C1152E',
-  'jpl-red-darker': '#5C0411',
+  'jpl-red-light': jplRed.light,
+  'jpl-red': jplRed.base,
+  'jpl-red-dark': jplRed.dark,
+  'jpl-red-darker': jplRed.darker,
   'jpl-aqua': '#489FDF',
   blue: '#8BCBFA',
   'dark-blue': '#004562',
@@ -12,21 +36,21 @@ export const foundationColors = {
 }
 
 export const internalColors = {
-  'jpl-sky-blue': '#0080A4', // TODO: update with different color
-  'jpl-sky-blue-light': '#00a0cc', // TODO: update with different color
-  'jpl-sky-blue-dark': '#006480', // TODO: update with different color
-  'jpl-sky-blue-darker': '#003c4d' // TODO: update with different color
+  'jpl-sky-blue-light': jplTeal.light,
+  'jpl-sky-blue': jplTeal.base,
+  'jpl-sky-blue-dark': jplTeal.dark,
+  'jpl-sky-blue-darker': jplTeal.darker
 }
 
 export const eduColors = {
-  'edu-purple': '#9438E0',
-  'edu-purple-light': '#A85EE6',
-  'edu-purple-dark': '#741EBB',
-  'edu-purple-darker': '#33283D',
-  'edu-teal': '#007E99',
-  'edu-teal-light': '#00a7cc', // TODO: update with different color
-  'edu-teal-dark': '#005366', // TODO: update with different color
-  'edu-teal-darker': '#002a33', // TODO: update with different color
+  'edu-purple-light': jplViolet.light,
+  'edu-purple': jplViolet.base,
+  'edu-purple-dark': jplViolet.dark,
+  'edu-purple-darker': jplViolet.darker,
+  'edu-teal-light': jplTeal.light,
+  'edu-teal': jplTeal.base,
+  'edu-teal-dark': jplTeal.dark,
+  'edu-teal-darker': jplTeal.darker,
   'edu-peach': '#FF5555'
 }
 
@@ -63,77 +87,98 @@ export const socialColors = {
 
 // custom css vars
 export const themeVariantColors = {
+  primary: 'var(--color-primary)',
+  'primary-light': 'var(--color-primary-light)',
+  'primary-dark': 'var(--color-primary-dark)',
+  'primary-darker': 'var(--color-primary-darker)',
+  'primary-hover': 'var(--color-primary-dark)',
+  secondary: 'var(--color-secondary)',
+  'secondary-light': 'var(--color-secondary-light)',
+  'secondary-dark': 'var(--color-secondary-dark)',
+  'secondary-darker': 'var(--color-secondary-darker)',
+  'secondary-hover': 'var(--color-secondary-dark)',
   action: 'var(--color-action)',
   'action-light': 'var(--color-action-light)',
   'action-dark': 'var(--color-action-dark)',
   'action-darker': 'var(--color-action-darker)',
-  'action-hover': 'var(--color-action-dark)',
-  emphasis: 'var(--color-emphasis)',
-  'emphasis-light': 'var(--color-emphasis-light)',
-  'emphasis-dark': 'var(--color-emphasis-dark)',
-  'emphasis-darker': 'var(--color-emphasis-darker)',
-  'emphasis-hover': 'var(--color-emphasis-dark)'
+  'action-hover': 'var(--color-action-dark)'
 }
 
 // www default
 export const ThemeWww = {
   default: {
-    '--color-action': foundationColors['jpl-red'],
-    '--color-action-light': foundationColors['jpl-red-light'],
-    '--color-action-dark': foundationColors['jpl-red-dark'],
-    '--color-action-darker': foundationColors['jpl-red-darker'],
-    '--color-emphasis': 'var(--color-action)',
-    '--color-emphasis-light': 'var(--color-action-light)',
-    '--color-emphasis-dark': 'var(--color-action-dark)',
-    '--color-emphasis-darker': 'var(--color-action-darker)'
+    '--color-primary': foundationColors['jpl-red'],
+    '--color-primary-light': foundationColors['jpl-red-light'],
+    '--color-primary-dark': foundationColors['jpl-red-dark'],
+    '--color-primary-darker': foundationColors['jpl-red-darker'],
+    '--color-secondary': 'var(--color-primary)',
+    '--color-secondary-light': 'var(--color-primary-light)',
+    '--color-secondary-dark': 'var(--color-primary-dark)',
+    '--color-secondary-darker': 'var(--color-primary-darker)',
+    '--color-action': 'var(--color-primary)',
+    '--color-action-light': 'var(--color-primary-light)',
+    '--color-action-dark': 'var(--color-primary-dark)',
+    '--color-action-darker': 'var(--color-primary-darker)'
   },
   dark: {
-    '--color-action': foundationColors['jpl-red-light'],
-    '--color-action-light': foundationColors['jpl-red-light'],
-    '--color-action-dark': foundationColors['jpl-red'],
-    '--color-action-darker': foundationColors['jpl-red-dark']
+    '--color-primary': foundationColors['jpl-red-light'],
+    '--color-primary-light': foundationColors['jpl-red-light'],
+    '--color-primary-dark': foundationColors['jpl-red'],
+    '--color-primary-darker': foundationColors['jpl-red-dark']
   }
 }
 
 export const ThemeEdu = {
   default: {
+    '--color-primary': eduColors['edu-purple'],
+    '--color-primary-light': eduColors['edu-purple-light'],
+    '--color-primary-dark': eduColors['edu-purple-dark'],
+    '--color-primary-darker': eduColors['edu-purple-darker'],
+    '--color-secondary': foundationColors['jpl-red'],
+    '--color-secondary-light': foundationColors['jpl-red-light'],
+    '--color-secondary-dark': foundationColors['jpl-red-dark'],
+    '--color-secondary-darker': foundationColors['jpl-red-darker'],
     '--color-action': eduColors['edu-teal'],
     '--color-action-light': eduColors['edu-teal-light'],
     '--color-action-dark': eduColors['edu-teal-dark'],
-    '--color-action-darker': eduColors['edu-teal-darker'],
-    '--color-emphasis': eduColors['edu-purple'],
-    '--color-emphasis-light': eduColors['edu-purple-light'],
-    '--color-emphasis-dark': eduColors['edu-purple-dark'],
-    '--color-emphasis-darker': eduColors['edu-purple-darker']
+    '--color-action-darker': eduColors['edu-teal-darker']
   },
   dark: {
+    '--color-primary': eduColors['edu-purple-light'],
+    '--color-primary-light': eduColors['edu-purple-light'],
+    '--color-primary-dark': eduColors['edu-purple'],
+    '--color-primary-darker': eduColors['edu-purple-dark'],
+    '--color-secondary': foundationColors['jpl-red-light'],
+    '--color-secondary-light': foundationColors['jpl-red-light'],
+    '--color-secondary-dark': foundationColors['jpl-red'],
+    '--color-secondary-darker': foundationColors['jpl-red-dark'],
     '--color-action': eduColors['edu-teal-light'],
     '--color-action-light': eduColors['edu-teal-light'],
     '--color-action-dark': eduColors['edu-teal'],
-    '--color-action-darker': eduColors['edu-teal-dark'],
-    '--color-emphasis': eduColors['edu-purple-light'],
-    '--color-emphasis-light': eduColors['edu-purple-light'],
-    '--color-emphasis-dark': eduColors['edu-purple'],
-    '--color-emphasis-darker': eduColors['edu-purple-dark']
+    '--color-action-darker': eduColors['edu-teal-dark']
   }
 }
 
 export const ThemeInternal = {
   default: {
-    '--color-action': internalColors['jpl-sky-blue'],
-    '--color-action-light': internalColors['jpl-sky-blue-light'],
-    '--color-action-dark': internalColors['jpl-sky-blue-dark'],
-    '--color-action-darker': internalColors['jpl-sky-blue-darker'],
-    '--color-emphasis': 'var(--color-action)',
-    '--color-emphasis-light': 'var(--color-action-light)',
-    '--color-emphasis-dark': 'var(--color-action-dark)',
-    '--color-emphasis-darker': 'var(--color-action-darker)'
+    '--color-primary': internalColors['jpl-sky-blue'],
+    '--color-primary-light': internalColors['jpl-sky-blue-light'],
+    '--color-primary-dark': internalColors['jpl-sky-blue-dark'],
+    '--color-primary-darker': internalColors['jpl-sky-blue-darker'],
+    '--color-secondary': 'var(--color-primary)',
+    '--color-secondary-light': 'var(--color-primary-light)',
+    '--color-secondary-dark': 'var(--color-primary-dark)',
+    '--color-secondary-darker': 'var(--color-primary-darker)',
+    '--color-action': 'var(--color-primary)',
+    '--color-action-light': 'var(--color-primary-light)',
+    '--color-action-dark': 'var(--color-primary-dark)',
+    '--color-action-darker': 'var(--color-primary-darker)'
   },
   dark: {
-    '--color-action': internalColors['jpl-sky-blue-light'],
-    '--color-action-light': internalColors['jpl-sky-blue-light'],
-    '--color-action-dark': internalColors['jpl-sky-blue'],
-    '--color-action-darker': internalColors['jpl-sky-blue-dark']
+    '--color-primary': internalColors['jpl-sky-blue-light'],
+    '--color-primary-light': internalColors['jpl-sky-blue-light'],
+    '--color-primary-dark': internalColors['jpl-sky-blue'],
+    '--color-primary-darker': internalColors['jpl-sky-blue-dark']
   }
 }
 

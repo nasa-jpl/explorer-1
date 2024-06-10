@@ -1,4 +1,5 @@
 import type {} from '@nuxt/schema'
+import { useHead } from 'unhead'
 import {
   defineNuxtModule,
   addComponentsDir,
@@ -7,8 +8,10 @@ import {
   installModule,
   createResolver
 } from '@nuxt/kit'
+import { useThemeStore, type Explorer1Theme } from '@explorer-1/vue/src/store/theme'
 
 export interface ModuleOptions {
+  theme: Explorer1Theme
   includeStyles: boolean
   includeComponents: boolean
   includePageTemplates: boolean
@@ -22,6 +25,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {
+    theme: 'defaultTheme',
     includeStyles: true,
     includeComponents: true,
     includePageTemplates: true,
@@ -35,8 +39,15 @@ export default defineNuxtModule<ModuleOptions>({
     // add plugins
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
     addPlugin(resolver.resolve(pluginDir, 'dayjs'))
-    addPlugin(resolver.resolve(pluginDir, 'click-outside'))
     addPlugin(resolver.resolve(pluginDir, 'filters'))
+    addPlugin(resolver.resolve(pluginDir, 'vue-click-outside'))
+    addPlugin(resolver.resolve(pluginDir, 'vue-compare-image.client'))
+
+    useHead({
+      bodyAttrs: {
+        class: [_options.theme]
+      }
+    })
 
     if (_options.includeStyles) {
       await installModule('@nuxtjs/tailwindcss', {
@@ -106,8 +117,14 @@ export default defineNuxtModule<ModuleOptions>({
         {
           name: 'useHeaderStore',
           from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/header')
+        },
+        {
+          name: 'useThemeStore',
+          from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/theme')
         }
       ])
+      const useTheme = useThemeStore()
+      useTheme.setTheme(_options.theme)
     }
   }
 })

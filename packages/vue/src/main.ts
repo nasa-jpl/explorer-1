@@ -26,6 +26,7 @@ app.use(VueCompareImage)
 
 // filters
 app.config.globalProperties.$filters = filters
+app.config.globalProperties.$theme = 'EDU'
 
 // components
 app.component('NuxtLink', RouterLink)

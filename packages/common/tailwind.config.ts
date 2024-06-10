@@ -149,6 +149,14 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'transparent-black-50': 'rgba(0 0 0 / 50%)',
     'transparent-black-25': 'rgba(0 0 0 / 25%)',
     'transparent-black-25-w50': 'rgba(0 0 0 / 25%) 50%',
+    'primary-w50': 'var(--color-primary)' + ' 50%',
+    'primary-dark-w50': 'var(--color-primary-dark)' + ' 50%',
+    'primary-darker-w50': 'var(--color-primary-darker)' + ' 50%',
+    'primary-light-w50': 'var(--color-primary-light)' + ' 50%',
+    'secondary-w50': 'var(--color-secondary)' + ' 50%',
+    'secondary-dark-w50': 'var(--color-secondary-dark)' + ' 50%',
+    'secondary-darker-w50': 'var(--color-secondary-darker)' + ' 50%',
+    'secondary-light-w50': 'var(--color-secondary-light)' + ' 50%',
     'action-w50': 'var(--color-action)' + ' 50%',
     'action-dark-w50': 'var(--color-action-dark)' + ' 50%',
     'action-darker-w50': 'var(--color-action-darker)' + ' 50%',
@@ -285,6 +293,23 @@ export default {
           ThemeInternal.default,
         '.ThemeInternal .ThemeVariantDark, .ThemeInternal.ThemeVariantDark': ThemeInternal.dark
       })
+    }),
+    require('tailwindcss-themer')({
+      defaultTheme: {
+        extend: {}
+      },
+      themes: [
+        {
+          name: 'edu',
+          selectors: ['.ThemeEdu'],
+          extend: {}
+        },
+        {
+          name: 'internal',
+          selectors: ['.ThemeInternal'],
+          extend: {}
+        }
+      ]
     })
   ],
   future: {

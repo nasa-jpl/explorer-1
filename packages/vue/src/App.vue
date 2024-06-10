@@ -15,8 +15,8 @@
     >
       <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
     </base-unit-toggle>
-    <block-twitter-embed :data="{ username: 'NASAJPL' }" />
     <p class="text-action">Action color</p>
-    <p class="text-emphasis">Emphasis color</p>
+    <p class="text-primary">Primary color</p>
+    <p class="text-secondary">Secondary color</p>
   </div>
 </template>

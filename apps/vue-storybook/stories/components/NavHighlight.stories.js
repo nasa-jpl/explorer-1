@@ -26,7 +26,7 @@ export const MenuHighlightColumnData = {
     url: '/missions/gravity-recovery-and-climate-experiment-follow-on-grace-fo/',
     thumbnailImage: {
       src: {
-        url: 'https://source.unsplash.com/Q1p7bh3SHj8/400x225',
+        url: 'https://picsum.photos/400/225',
         width: 400,
         height: 225
       }

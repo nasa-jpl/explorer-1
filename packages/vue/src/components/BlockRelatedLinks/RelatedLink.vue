@@ -12,7 +12,7 @@
     </span>
     <component
       :is="icon"
-      class="text-jpl-red xl:mx-4 flex-none ml-4 text-2xl leading-normal"
+      class="text-action xl:mx-4 flex-none ml-4 text-2xl leading-normal"
       :class="variant === 'external' ? 'text-lg' : 'text-3xl'"
     />
   </component>

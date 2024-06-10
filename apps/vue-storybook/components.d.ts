@@ -176,7 +176,7 @@ declare module 'vue' {
     PageContent: typeof import('./node_modules/@explorer-1/vue/src/templates/PageContent.vue')['default']
     PageCuratedGallery: typeof import('./node_modules/@explorer-1/vue/src/templates/PageCuratedGallery/PageCuratedGallery.vue')['default']
     PageError: typeof import('./node_modules/@explorer-1/vue/src/templates/PageError/PageError.vue')['default']
-    PageEventDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageEventDetail/PageEventDetail.vue')['default']
+    PageEventDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageEventDetail.vue')['default']
     PageGoDirectory: typeof import('./node_modules/@explorer-1/vue/src/templates/PageGoDirectory/PageGoDirectory.vue')['default']
     PageImageDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageImageDetail/PageImageDetail.vue')['default']
     PageInfographicDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageInfographicDetail/PageInfographicDetail.vue')['default']
