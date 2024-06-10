@@ -82,6 +82,7 @@ export default defineNuxtModule<ModuleOptions>({
             // make sure to externalize deps that shouldn't be bundled
             // into your library
             external: [
+              // './../node_modules/vue3-compare-image',
               './../node_modules/vue',
               './../node_modules/swiper',
               './../node_modules/@fancyapps/ui',
