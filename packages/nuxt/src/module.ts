@@ -37,6 +37,7 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin(resolver.resolve(pluginDir, 'dayjs'))
     addPlugin(resolver.resolve(pluginDir, 'filters'))
     addPlugin(resolver.resolve(pluginDir, 'vue-click-outside'))
+    addPlugin(resolver.resolve(pluginDir, 'vue-compare-image.client'))
 
     if (_options.includeStyles) {
       await installModule('@nuxtjs/tailwindcss', {
