@@ -17,7 +17,6 @@ const module = defineNuxtModule({
     const resolver = createResolver(import.meta.url);
     const runtimeDir = resolver.resolve("./runtime");
     const pluginDir = resolver.resolve("./runtime/plugins");
-    const storeDir = resolver.resolve("./runtime/store");
     if (options.includeStore) {
       switch (options.theme) {
         case "defaultTheme":
@@ -101,7 +100,9 @@ const module = defineNuxtModule({
       });
     }
     if (options.includeStore) {
-      await installModule("@pinia/nuxt", { storesDirs: ["./store/**", resolver.resolve(storeDir)] });
+      await installModule("@pinia/nuxt", {
+        storesDirs: ["./store/**", resolver.resolve(runtimeDir, "store")]
+      });
     }
   }
 });
