@@ -12,6 +12,7 @@ export default {
   ...explorer1Config,
   content: [
     'stories/**/*',
+    'docs/**/*',
     './node_modules/@explorer-1/vue/src/components/**/*.vue',
     './node_modules/@explorer-1/vue/src/templates/**/*.vue'
   ]

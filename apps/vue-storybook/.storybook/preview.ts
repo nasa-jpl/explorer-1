@@ -10,7 +10,7 @@ import { createPinia } from 'pinia'
 import filters from '@explorer-1/vue/src/utils/filters'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 import '@explorer-1/vue/src/assets/scss/styles.scss'
-import { withGlobals, globalTypes } from '@explorer-1/common-storybook/src/config/withGlobals'
+import { withGlobals, globalTypes } from './withGlobals'
 
 const pinia = createPinia()
 
