@@ -34,7 +34,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mixinGetSrcSet, type EventDateObject } from './../../utils/mixins'
-import type { PropType } from 'vue';
+import type { PropType } from 'vue'
 
 export default defineComponent({
   name: 'EventDetailHero',

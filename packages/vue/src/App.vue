@@ -15,7 +15,8 @@
     >
       <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
     </base-unit-toggle>
-    <block-cta :data="{
+    <block-cta
+      :data="{
         heading: 'Heading for CTA',
         text: 'Button',
         page: '',
