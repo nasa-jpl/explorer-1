@@ -129,7 +129,8 @@
     </div>
   </LayoutHelper>
 </template>
-<script>
+<script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import qs from 'qs'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'

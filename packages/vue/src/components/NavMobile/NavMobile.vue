@@ -92,6 +92,7 @@
   </transition>
 </template>
 <script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'

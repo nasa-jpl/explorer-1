@@ -10,7 +10,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+// @ts-nocheck
 export default {
   name: 'BlockTwitterEmbed',
   props: {

@@ -287,6 +287,7 @@ import {
   mixinFormatEventTimeInHoursAndMinutes,
   mixinFormatSplitEventDates
 } from '../utils/mixins'
+// @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 
 export default defineComponent({

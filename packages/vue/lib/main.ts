@@ -1,14 +1,34 @@
+// utils
+import dayjs from './../src/utils/dayjs'
+import filters from './../src/utils/filters'
+
 // stores
 import { useHeaderStore } from './../src/store/header'
+import { useThemeStore } from './../src/store/theme'
 // mixins
-import { mixinGetSrcSet } from './../src/utils/mixins'
-import { mixinTransparentHeader } from './../src/utils/mixins'
-
+import {
+  mixinTransparentHeader,
+  mixinGetLinkText,
+  mixinGetRouterLink,
+  mixinUpdateGlobalChildren,
+  mixinUpdateSecondary,
+  mixinHighlightPrimary,
+  mixinIsActivePath,
+  mixinGetSrcSet,
+  mixinGetExternalLink,
+  mixinCanonicalUrl,
+  mixinLightboxItems,
+  mixinLightboxGalleryItems,
+  mixinFormatSplitEventDates,
+  mixinFormatEventDates,
+  mixinFormatEventTimeInHoursAndMinutes
+} from './../src/utils/mixins'
 // components here
 import BaseButton from './../src/components/BaseButton/BaseButton.vue'
 import BaseHeading from './../src/components/BaseButton/BaseButton.vue'
 import BaseImage from './../src/components/BaseImage/BaseImage.vue'
 import BaseLink from './../src/components/BaseLink/BaseLink.vue'
+import BlockHeading from './../src/components/BlockHeading/BlockHeading.vue'
 import BlockImage from './../src/components/BlockImage/BlockImage.vue'
 import BlockImageFullBleed from './../src/components/BlockImage/BlockImageFullBleed.vue'
 import BlockImageStandard from './../src/components/BlockImage/BlockImageStandard.vue'
@@ -20,13 +40,30 @@ import MixinAnimationCaret from './../src/components/MixinAnimationCaret/MixinAn
 import MixinFancybox from './../src/components/MixinFancybox/MixinFancybox.vue'
 
 export {
+  dayjs,
+  filters,
   useHeaderStore,
-  mixinGetSrcSet,
+  useThemeStore,
   mixinTransparentHeader,
+  mixinGetLinkText,
+  mixinGetRouterLink,
+  mixinUpdateGlobalChildren,
+  mixinUpdateSecondary,
+  mixinHighlightPrimary,
+  mixinIsActivePath,
+  mixinGetSrcSet,
+  mixinGetExternalLink,
+  mixinCanonicalUrl,
+  mixinLightboxItems,
+  mixinLightboxGalleryItems,
+  mixinFormatSplitEventDates,
+  mixinFormatEventDates,
+  mixinFormatEventTimeInHoursAndMinutes,
   BaseButton,
   BaseHeading,
   BaseImage,
   BaseLink,
+  BlockHeading,
   BlockImage,
   BlockImageFullBleed,
   BlockImageStandard,

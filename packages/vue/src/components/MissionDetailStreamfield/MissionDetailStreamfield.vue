@@ -44,7 +44,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+// @ts-nocheck
 import MissionDetailInlineImage from './../MissionDetailInlineImage/MissionDetailInlineImage.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BlockQuote from './../BlockQuote/BlockQuote.vue'

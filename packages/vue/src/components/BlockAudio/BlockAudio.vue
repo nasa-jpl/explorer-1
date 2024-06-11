@@ -40,7 +40,7 @@
     </LayoutHelper>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
