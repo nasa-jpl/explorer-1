@@ -1,5 +1,4 @@
 import type {} from '@nuxt/schema'
-import { useHead } from 'unhead'
 import {
   defineNuxtModule,
   addComponentsDir,
@@ -38,21 +37,21 @@ export default defineNuxtModule<ModuleOptions>({
 
     // add plugins
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    // if (options.includeStore) {
-    //   switch (options.theme) {
-    //     case 'defaultTheme':
-    //       addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
-    //       break
-    //     case 'ThemeEdu':
-    //       addPlugin(resolver.resolve(pluginDir, 'set-theme-edu'))
-    //       break
-    //     case 'ThemeInternal':
-    //       addPlugin(resolver.resolve(pluginDir, 'set-theme-internal'))
-    //       break
-    //     default:
-    //       addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
-    //   }
-    // }
+    if (options.includeStore) {
+      switch (options.theme) {
+        case 'defaultTheme':
+          addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
+          break
+        case 'ThemeEdu':
+          addPlugin(resolver.resolve(pluginDir, 'set-theme-edu'))
+          break
+        case 'ThemeInternal':
+          addPlugin(resolver.resolve(pluginDir, 'set-theme-internal'))
+          break
+        default:
+          addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
+      }
+    }
 
     addPlugin(resolver.resolve(pluginDir, 'dayjs'))
     addPlugin(resolver.resolve(pluginDir, 'filters'))
@@ -103,12 +102,12 @@ export default defineNuxtModule<ModuleOptions>({
             // make sure to externalize deps that shouldn't be bundled
             // into your library
             external: [
-              // './../node_modules/vue3-compare-image',
               './../node_modules/vue',
               './../node_modules/swiper',
               './../node_modules/@fancyapps/ui',
               './../node_modules/dayjs',
-              './../node_modules/click-outside-vue3'
+              './../node_modules/click-outside-vue3',
+              './../node_modules/vue3-compare-image'
             ]
           }
         }
@@ -133,18 +132,20 @@ export default defineNuxtModule<ModuleOptions>({
       })
     }
     if (options.includeStore) {
-      await installModule('@pinia/nuxt', {})
+      await installModule('@pinia/nuxt', {
+        storesDirs: ['./store/**', resolver.resolve(runtimeDir, 'store')]
+      })
       // add header store
-      addImports([
-        {
-          name: 'useHeaderStore',
-          from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/header')
-        },
-        {
-          name: 'useThemeStore',
-          from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/theme')
-        }
-      ])
+      // addImports([
+      //   {
+      //     name: 'useHeaderStore',
+      //     from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/header')
+      //   },
+      //   {
+      //     name: 'useThemeStore',
+      //     from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/theme')
+      //   }
+      // ])
     }
   }
 })

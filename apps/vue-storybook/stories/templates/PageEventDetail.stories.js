@@ -6,11 +6,11 @@ import PageEventDetail from '@explorer-1/vue/src/templates/PageEventDetail.vue'
 export default {
   title: 'Templates/PageEventDetail',
   component: PageEventDetail,
-  // decorators: [
-  //   () => ({
-  //     template: `<div id="storyDecorator" class="absolute inset-0 disable-nav-offset"><story/></div>`
-  //   })
-  // ],
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="absolute inset-0 disable-nav-offset"><story/></div>`
+    })
+  ],
   parameters: {
     html: {
       root: '#storyDecorator'
@@ -59,14 +59,6 @@ export const EventDetail = {
         {
           host: 'host',
           id: '1',
-          // image: {
-          //   alt: '',
-          //   src: {
-          //     height: '450',
-          //     url: 'https://picsum.photos/560/560',
-          //     width: '450'
-          //   }
-          // },
           internalLink: null,
           name: 'Varoujan Gorjian',
           title: 'Splitzer Research Scientest, JPL'

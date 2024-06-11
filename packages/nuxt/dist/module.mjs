@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver, addPlugin, installModule, addComponentsDir, addImports } from '@nuxt/kit';
+import { defineNuxtModule, createResolver, addPlugin, installModule, addComponentsDir } from '@nuxt/kit';
 
 const module = defineNuxtModule({
   meta: {
@@ -17,6 +17,22 @@ const module = defineNuxtModule({
     const resolver = createResolver(import.meta.url);
     const runtimeDir = resolver.resolve("./runtime");
     const pluginDir = resolver.resolve("./runtime/plugins");
+    const storeDir = resolver.resolve("./runtime/store");
+    if (options.includeStore) {
+      switch (options.theme) {
+        case "defaultTheme":
+          addPlugin(resolver.resolve(pluginDir, "set-theme-default"));
+          break;
+        case "ThemeEdu":
+          addPlugin(resolver.resolve(pluginDir, "set-theme-edu"));
+          break;
+        case "ThemeInternal":
+          addPlugin(resolver.resolve(pluginDir, "set-theme-internal"));
+          break;
+        default:
+          addPlugin(resolver.resolve(pluginDir, "set-theme-default"));
+      }
+    }
     addPlugin(resolver.resolve(pluginDir, "dayjs"));
     addPlugin(resolver.resolve(pluginDir, "filters"));
     addPlugin(resolver.resolve(pluginDir, "vue-click-outside"));
@@ -57,12 +73,12 @@ const module = defineNuxtModule({
             // make sure to externalize deps that shouldn't be bundled
             // into your library
             external: [
-              // './../node_modules/vue3-compare-image',
               "./../node_modules/vue",
               "./../node_modules/swiper",
               "./../node_modules/@fancyapps/ui",
               "./../node_modules/dayjs",
-              "./../node_modules/click-outside-vue3"
+              "./../node_modules/click-outside-vue3",
+              "./../node_modules/vue3-compare-image"
             ]
           }
         }
@@ -85,17 +101,7 @@ const module = defineNuxtModule({
       });
     }
     if (options.includeStore) {
-      await installModule("@pinia/nuxt", {});
-      addImports([
-        {
-          name: "useHeaderStore",
-          from: resolver.resolve("./../node_modules/@explorer-1/vue/src/store/header")
-        },
-        {
-          name: "useThemeStore",
-          from: resolver.resolve("./../node_modules/@explorer-1/vue/src/store/theme")
-        }
-      ]);
+      await installModule("@pinia/nuxt", { storesDirs: ["./store/**", resolver.resolve(storeDir)] });
     }
   }
 });
