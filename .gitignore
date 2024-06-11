@@ -73,6 +73,8 @@ packages/**/src/assets/fonts
 dist
 !packages/**/dist
 
+packages/vue/src/public/explorer-1/
 packages/nuxt/src/runtime/public/explorer-1/
+apps/vue-storybook/public/explorer-1/
 !public/explorer-1/**/.gitkeep
 !packages/common/src/public/explorer-1
