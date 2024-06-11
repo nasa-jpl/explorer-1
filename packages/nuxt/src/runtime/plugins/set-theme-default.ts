@@ -1,4 +1,5 @@
-import { useThemeStore, type Explorer1Theme } from '@explorer-1/vue/src/store/theme'
+import { useThemeStore } from '@explorer-1/vue/src/store/theme'
+import { type Explorer1Theme } from '@explorer-1/vue/src/interfaces'
 import { defineNuxtPlugin } from 'nuxt/app'
 
 export default defineNuxtPlugin((nuxtApp) => {

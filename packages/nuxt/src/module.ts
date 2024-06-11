@@ -7,7 +7,9 @@ import {
   installModule,
   createResolver
 } from '@nuxt/kit'
-import { type Explorer1Theme } from '@explorer-1/vue/src/store/theme'
+
+// TODO: Note: importing this type from elsewhere (such as @explorer-1/vue/src/interfaces) breaks the module build
+type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
 
 export interface ModuleOptions {
   theme: Explorer1Theme

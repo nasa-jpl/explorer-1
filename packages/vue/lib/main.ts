@@ -1,6 +1,7 @@
 // utils
 import dayjs from './../src/utils/dayjs'
 import filters from './../src/utils/filters'
+import type { Explorer1Theme } from '../src/interfaces'
 
 // stores
 import { useHeaderStore } from './../src/store/header'
@@ -40,6 +41,7 @@ import MixinAnimationCaret from './../src/components/MixinAnimationCaret/MixinAn
 import MixinFancybox from './../src/components/MixinFancybox/MixinFancybox.vue'
 
 export {
+  type Explorer1Theme,
   dayjs,
   filters,
   useHeaderStore,

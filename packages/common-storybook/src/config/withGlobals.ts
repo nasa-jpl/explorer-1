@@ -1,5 +1,6 @@
 import { useEffect, useGlobals } from '@storybook/preview-api'
-import { useThemeStore, type Explorer1Theme } from '@explorer-1/vue/src/store/theme'
+import { useThemeStore } from '@explorer-1/vue/src/store/theme'
+import { type Explorer1Theme } from '@explorer-1/vue/src/interfaces'
 
 const getConfig = (config) => {
   // default values

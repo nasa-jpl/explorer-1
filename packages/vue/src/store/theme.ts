@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia'
+import { type Explorer1Theme } from './../interfaces'
 
 /** Sets the Explorer-1 theme
  */
-
-export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
 
 export interface State {
   theme: Explorer1Theme | null

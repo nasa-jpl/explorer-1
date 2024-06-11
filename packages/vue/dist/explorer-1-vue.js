@@ -572,7 +572,7 @@ const ne = Pe("header", {
   }
 });
 /*!
-  * vue-router v4.3.3
+  * vue-router v4.3.2
   * (c) 2024 Eduardo San Martin Morote
   * @license MIT
   */
