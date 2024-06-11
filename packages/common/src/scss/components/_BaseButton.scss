@@ -25,6 +25,17 @@
     }
   }
 
+  &.-reverse-primary {
+    @apply px-12 text-primary bg-white to-primary-dark-w50;
+    
+    @include hover {
+      @apply text-white;
+    }
+    & > .label {
+      @apply border-2 border-transparent;
+    }
+  }
+
   &.-secondary {
     @apply px-12 bg-transparent text-action border-2 border-action to-action-dark-w50;
 

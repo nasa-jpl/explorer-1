@@ -10,6 +10,7 @@ import themeColors, {
   ThemeEdu,
   ThemeInternal
 } from './tailwind.colors'
+
 /*
  ** TailwindCSS Configuration File
  **
@@ -297,18 +298,31 @@ export default {
     }),
     require('tailwindcss-themer')({
       defaultTheme: {
-        extend: {}
+        extend: {
+          backgroundImage: {
+            'star-pattern': 'url(/explorer-1/bg-stars.jpg)'
+          }
+        }
       },
       themes: [
         {
           name: 'edu',
           selectors: ['.ThemeEdu'],
-          extend: {}
+          extend: {
+            backgroundImage: {
+              // TODO: would prefer to not hardcode the /edu/ path here
+              'star-pattern': 'url(/edu/explorer-1/bg-stars-edu.png)'
+            }
+          }
         },
         {
           name: 'internal',
           selectors: ['.ThemeInternal'],
-          extend: {}
+          extend: {
+            backgroundImage: {
+              'star-pattern': 'url(/explorer-1/bg-stars.jpg)'
+            }
+          }
         }
       ]
     })

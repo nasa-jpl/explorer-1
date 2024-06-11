@@ -16,15 +16,18 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "pnpm test:types && pnpm dev:prepare && nuxt-module-build build",
-    "dev": "nuxi dev playground",
+    "prepack": "pnpm prepare && pnpm test:types && pnpm dev:prepare && nuxt-module-build build",
+    "dev": "pnpm prepare && nuxi dev playground",
     "build": "pnpm prepack",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
-    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
+    "prepare": "pnpm prepare:public",
+    "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./src/runtime/public/explorer-1",
+    "prepare:public:edu": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./src/runtime/public/edu/explorer-1"
   },
   "prettier": "@explorer-1/prettier-config",
   "dependencies": {

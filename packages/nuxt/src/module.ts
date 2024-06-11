@@ -37,8 +37,20 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeDir = resolver.resolve('./runtime')
     const pluginDir = resolver.resolve('./runtime/plugins')
 
-    // add plugins
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
+    // inject public assets
+    nuxt.hook('nitro:config', async (nitroConfig) => {
+      nitroConfig.publicAssets ||= []
+      nitroConfig.publicAssets.push({
+        dir: resolver.resolve(runtimeDir, 'public'),
+        maxAge: 60 * 60 * 24 * 365 // 1 year
+      })
+    })
+
+    // inject plugins
+    addPlugin(resolver.resolve(pluginDir, 'dayjs'))
+    addPlugin(resolver.resolve(pluginDir, 'filters'))
+    addPlugin(resolver.resolve(pluginDir, 'vue-click-outside'))
+    addPlugin(resolver.resolve(pluginDir, 'vue-compare-image.client'))
     if (options.includeStore) {
       switch (options.theme) {
         case 'defaultTheme':
@@ -54,11 +66,6 @@ export default defineNuxtModule<ModuleOptions>({
           addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
       }
     }
-
-    addPlugin(resolver.resolve(pluginDir, 'dayjs'))
-    addPlugin(resolver.resolve(pluginDir, 'filters'))
-    addPlugin(resolver.resolve(pluginDir, 'vue-click-outside'))
-    addPlugin(resolver.resolve(pluginDir, 'vue-compare-image.client'))
 
     // TODO: Find a more elegant way to set htmlAttrs.class
     if (!nuxt.options.app.head.htmlAttrs) {
@@ -137,17 +144,6 @@ export default defineNuxtModule<ModuleOptions>({
       await installModule('@pinia/nuxt', {
         storesDirs: ['./store/**', resolver.resolve(runtimeDir, 'store')]
       })
-      // add header store
-      // addImports([
-      //   {
-      //     name: 'useHeaderStore',
-      //     from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/header')
-      //   },
-      //   {
-      //     name: 'useThemeStore',
-      //     from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/theme')
-      //   }
-      // ])
     }
   }
 })

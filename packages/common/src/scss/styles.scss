@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .bg-stars {
+    @apply bg-star-pattern bg-cover bg-top;
+  }
+}
+
 // vendors / node_modules
 @import 'vendors';
 
@@ -20,3 +26,4 @@
 
 // components
 @import 'components';
+

@@ -4,13 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run prepare && vite",
-    "build": "npm run prepare && vue-tsc && vite build",
+    "dev": "pnpm prepare && vite",
+    "build": "pnpm prepare && vue-tsc && vite build",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "preview": "vite preview",
-    "prepare": "npm run prepare:fonts",
-    "prepare:fonts": "cp -R ./node_modules/@explorer-1/common/src/fonts/ ./src/assets/fonts/"
+    "prepare": "pnpm prepare:fonts && pnpm prepare:public && pnpm prepare:public:edu",
+    "prepare:fonts": "cp -R ./node_modules/@explorer-1/common/src/fonts/ ./src/assets/fonts/",
+    "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1",
+    "prepare:public:edu": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/edu/explorer-1"
   },
   "prettier": "@explorer-1/prettier-config",
   "dependencies": {

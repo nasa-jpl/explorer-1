@@ -17,6 +17,18 @@ const module = defineNuxtModule({
     const resolver = createResolver(import.meta.url);
     const runtimeDir = resolver.resolve("./runtime");
     const pluginDir = resolver.resolve("./runtime/plugins");
+    nuxt.hook("nitro:config", async (nitroConfig) => {
+      nitroConfig.publicAssets ||= [];
+      nitroConfig.publicAssets.push({
+        dir: resolver.resolve(runtimeDir, "public"),
+        maxAge: 60 * 60 * 24 * 365
+        // 1 year
+      });
+    });
+    addPlugin(resolver.resolve(pluginDir, "dayjs"));
+    addPlugin(resolver.resolve(pluginDir, "filters"));
+    addPlugin(resolver.resolve(pluginDir, "vue-click-outside"));
+    addPlugin(resolver.resolve(pluginDir, "vue-compare-image.client"));
     if (options.includeStore) {
       switch (options.theme) {
         case "defaultTheme":
@@ -32,10 +44,6 @@ const module = defineNuxtModule({
           addPlugin(resolver.resolve(pluginDir, "set-theme-default"));
       }
     }
-    addPlugin(resolver.resolve(pluginDir, "dayjs"));
-    addPlugin(resolver.resolve(pluginDir, "filters"));
-    addPlugin(resolver.resolve(pluginDir, "vue-click-outside"));
-    addPlugin(resolver.resolve(pluginDir, "vue-compare-image.client"));
     if (!nuxt.options.app.head.htmlAttrs) {
       nuxt.options.app.head["htmlAttrs"] = {
         class: [options.theme]

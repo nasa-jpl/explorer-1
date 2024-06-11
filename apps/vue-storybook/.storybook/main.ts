@@ -14,7 +14,7 @@ const config = {
     '@whitespace/storybook-addon-html',
     'storybook-addon-vue-slots'
   ],
-
+  staticDirs: ['./../public'],
   framework: {
     name: '@storybook/vue3-vite',
     options: {}

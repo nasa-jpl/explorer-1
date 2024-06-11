@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <base-button variant="secondary"> Button Text </base-button>
     <base-link
       variant="primary"
@@ -15,6 +15,13 @@
     >
       <span class="text-stats-xl">{{ slotProps.formattedValue }}</span>
     </base-unit-toggle>
+    <block-cta :data="{
+        heading: 'Heading for CTA',
+        text: 'Button',
+        page: '',
+        externalLink: 'http://www.jpl.nasa.gov'
+      }"
+    />
     <p class="text-action">Action color</p>
     <p class="text-primary">Primary color</p>
     <p class="text-secondary">Secondary color</p>

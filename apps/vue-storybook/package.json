@@ -5,7 +5,10 @@
   "prettier": "@explorer-1/prettier-config",
   "type": "module",
   "scripts": {
-    "dev": "pnpm run storybook",
+    "dev": "pnpm storybook",
+    "prepare": "pnpm prepare:public && pnpm prepare:public:edu",
+    "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1",
+    "prepare:public:edu": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/edu/explorer-1",
     "storybook": "storybook dev -c .storybook -p 6006 --ci",
     "build": "storybook build -c .storybook -o storybook_compiled",
     "percy": "percy storybook http://localhost:6006",
