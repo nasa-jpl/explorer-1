@@ -55,6 +55,11 @@ export type lightboxGalleryObject = {
   credit: string | null
 }
 
+export interface EventDateObject {
+  day: string
+  monthAndYear: string
+}
+
 /* -- mixinTransparentHeader --
       This mixin is used on the component level to make the header transparent.
       Mostly used by hero image components.
@@ -268,7 +273,7 @@ export const mixinLightboxGalleryItems = (items: object | any): object | false =
 export const mixinFormatSplitEventDates = (
   startDatetime: string,
   endDatetime?: string
-): { day: string; monthAndYear: string } => {
+): EventDateObject => {
   const startDateDayjs = dayjs(startDatetime)
 
   let day = startDateDayjs.format('D')

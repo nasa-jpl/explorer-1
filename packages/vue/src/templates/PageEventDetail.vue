@@ -319,7 +319,7 @@ export default defineComponent({
     formattedSplitEventDates() {
       return this.data
         ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
-        : ''
+        : undefined
     }
   }
 })

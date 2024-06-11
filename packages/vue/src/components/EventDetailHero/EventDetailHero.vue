@@ -33,7 +33,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mixinGetSrcSet } from './../../utils/mixins'
+import { mixinGetSrcSet, type EventDateObject } from './../../utils/mixins'
+import type { PropType } from 'vue';
 
 export default defineComponent({
   name: 'EventDetailHero',
@@ -43,7 +44,7 @@ export default defineComponent({
       required: false
     },
     startDateSplit: {
-      type: Object,
+      type: Object as PropType<EventDateObject>,
       required: true
     },
     image: {
