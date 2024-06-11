@@ -77,7 +77,7 @@
               aria-label="Other JPL Sites"
               class="mt-6"
             >
-              <div class="text-subtitle text-jpl-red mb-3">Other JPL Sites</div>
+              <div class="text-subtitle text-primary mb-3">Other JPL Sites</div>
               <NavMobileLink
                 v-for="(item, index) in data.footerMoreFromJpl"
                 :key="index"

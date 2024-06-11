@@ -5,13 +5,13 @@
     link-class="block px-3 py-2"
     variant="none"
     class="NavSecondaryLink border-t-2 border-transparent"
-    :class="index === 0 ? 'mr-auto text-jpl-red font-semibold secondary-root' : 'text-gray-dark'"
+    :class="index === 0 ? 'mr-auto text-primary font-semibold secondary-root' : 'text-gray-dark'"
   >
     <span
       class="inline-block pt-2 pb-1 mb-1 transition-colors duration-100 ease-in border-b-2 border-transparent"
       :class="
         index === 0
-          ? 'can-hover:group-hover:border-jpl-red'
+          ? 'can-hover:group-hover:border-primary'
           : 'can-hover:group-hover:border-gray-mid-dark can-hover:group-hover:text-gray-mid-dark '
       "
     >
@@ -55,7 +55,7 @@ export default defineComponent({
   .nuxt-link-exact-active {
     span {
       @apply font-bold text-gray-dark;
-      @apply border-jpl-red #{!important};
+      @apply border-primary #{!important};
     }
   }
 }

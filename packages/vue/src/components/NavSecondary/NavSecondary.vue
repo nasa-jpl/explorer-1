@@ -158,7 +158,7 @@ export default defineComponent({
   .secondary-root {
     .nuxt-link-exact-active {
       span {
-        @apply text-jpl-red font-semibold #{!important};
+        @apply text-primary font-semibold #{!important};
       }
     }
   }

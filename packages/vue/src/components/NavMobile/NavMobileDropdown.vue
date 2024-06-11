@@ -159,7 +159,7 @@ export default defineComponent({
 
     &.-open {
       > span {
-        @apply border-jpl-red font-bold;
+        @apply border-primary font-bold;
       }
     }
   }
@@ -167,7 +167,7 @@ export default defineComponent({
   &.-active {
     > button {
       > span {
-        @apply border-jpl-red font-bold;
+        @apply border-primary font-bold;
       }
     }
   }
