@@ -73,6 +73,6 @@ packages/**/src/assets/fonts
 dist
 !packages/**/dist
 
-public/explorer-1
+packages/nuxt/src/runtime/public/explorer-1/
 !public/explorer-1/**/.gitkeep
 !packages/common/src/public/explorer-1
