@@ -74,5 +74,5 @@ dist
 !packages/**/dist
 
 public/explorer-1
-public/explorer-1/.gitkeep
+!public/explorer-1/**/.gitkeep
 !packages/common/src/public/explorer-1
