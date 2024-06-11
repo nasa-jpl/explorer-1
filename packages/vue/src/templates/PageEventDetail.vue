@@ -11,7 +11,10 @@
       itemprop="thumbnailUrl"
       :content="data.thumbnailImage.original"
     />
-    <meta itemprop="startDate" :content="data.startDatetime" />
+    <meta
+      itemprop="startDate"
+      :content="data.startDatetime"
+    />
     <meta
       v-if="data.endDatetime"
       itemprop="endDate"
@@ -23,8 +26,14 @@
       :content="data.summary || data.body"
     />
 
-    <LayoutHelper indent="col-2" class="mb-6 lg:mb-12">
-      <div v-if="data.label" class="flex flex-wrap items-start mb-3">
+    <LayoutHelper
+      indent="col-2"
+      class="mb-6 lg:mb-12"
+    >
+      <div
+        v-if="data.label"
+        class="flex flex-wrap items-start mb-3"
+      >
         <nuxt-link
           class="py-3 cursor-pointer group nuxt-link-active text-subtitle text-theme-red can-hover:hover:text-theme-red-hover"
           to="/events"
@@ -32,37 +41,40 @@
           {{ data.label }}
         </nuxt-link>
       </div>
-      <BaseHeading level="h1" itemprop="name">
+      <BaseHeading
+        level="h1"
+        itemprop="name"
+      >
         {{ data.title }}
       </BaseHeading>
     </LayoutHelper>
 
     <!-- share buttons -->
-    <LayoutHelper indent="col-1" class="relative mb-16 lg:mb-0">
-      <ShareButtons :title="data.title" :url="data.url" />
+    <LayoutHelper
+      indent="col-1"
+      class="relative mb-16 lg:mb-0"
+    >
+      <ShareButtons
+        :title="data.title"
+        :url="data.url"
+      />
     </LayoutHelper>
 
     <LayoutHelper indent="col-2">
       <EventDetailHero
         :image="data.heroImage"
-        :start-date-split="
-          formattedSplitEventDates
-        "
+        :start-date-split="formattedSplitEventDates"
       />
 
       <!-- Event details -->
       <div>
         <div
           class="py-1 mb-10 text-xl lg:mb-0 lg:flex"
-          :class="
-            data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'
-          "
+          :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
           <div class="PageEventDetail__Metadata text-theme-red">
             <IconCalendar class="relative mr-3" />
-            <span>{{
-              formattedEventDates
-            }}</span>
+            <span>{{ formattedEventDates }}</span>
           </div>
           <div
             v-show="displayTime"
@@ -79,8 +91,14 @@
             itemtype="https://schema.org/VirtualLocation"
             class="PageEventDetail__Metadata text-theme-red"
           >
-            <link itemprop="url" :href="data.locationLink" />
-            <meta itemprop="name" :content="data.location" />
+            <link
+              itemprop="url"
+              :href="data.locationLink"
+            />
+            <meta
+              itemprop="name"
+              :content="data.location"
+            />
             <IconLocation class="relative mr-3" />
             <BaseLink
               variant="none"
@@ -95,7 +113,10 @@
             v-else-if="data.location"
             class="PageEventDetail__Metadata text-theme-red"
           >
-            <meta itemprop="location" :content="data.location" />
+            <meta
+              itemprop="location"
+              :content="data.location"
+            />
             <IconLocation class="relative mr-3" />
             <BaseLink
               v-if="data.locationLink"
@@ -116,11 +137,7 @@
                   data.registerLink[0].externalLink)
               "
               class="w-full px-0 mb-5"
-              :href="
-                data.registerLink[0].externalLink
-                  ? data.registerLink[0].externalLink
-                  : null
-              "
+              :href="data.registerLink[0].externalLink ? data.registerLink[0].externalLink : null"
               :to="
                 data.registerLink[0].page && data.registerLink[0].page.url
                   ? data.registerLink[0].page.url
@@ -173,10 +190,12 @@
     >
       <div class="grid-cols-10 lg:grid">
         <div class="col-span-7">
-          <BaseHeading level="h2" class="mb-5 md:mb-8">Speakers</BaseHeading>
-          <div
-            class="flex flex-col flex-wrap justify-start md:flex-row md:-mx-4"
+          <BaseHeading
+            level="h2"
+            class="mb-5 md:mb-8"
+            >Speakers</BaseHeading
           >
+          <div class="flex flex-col flex-wrap justify-start md:flex-row md:-mx-4">
             <div
               v-for="(speaker, index) in data.speakers"
               :key="index"
@@ -222,7 +241,10 @@
                     {{ speaker.name }}
                   </template>
                 </h3>
-                <p v-if="speaker.title" class="mb-3 text-gray-dark">
+                <p
+                  v-if="speaker.title"
+                  class="mb-3 text-gray-dark"
+                >
                   {{ speaker.title }}
                 </p>
                 <p>
@@ -260,7 +282,11 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mixinFormatEventDates, mixinFormatEventTimeInHoursAndMinutes, mixinFormatSplitEventDates } from '../utils/mixins';
+import {
+  mixinFormatEventDates,
+  mixinFormatEventTimeInHoursAndMinutes,
+  mixinFormatSplitEventDates
+} from '../utils/mixins'
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 
 export default defineComponent({
@@ -268,8 +294,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
@@ -278,20 +304,23 @@ export default defineComponent({
   },
   computed: {
     displayTime(): string {
-      return this.data ? mixinFormatEventTimeInHoursAndMinutes(
-        this.data.startDatetime,
-        this.data.endDatetime,
-        this.data.endTime
-      ) : ''
+      return this.data
+        ? mixinFormatEventTimeInHoursAndMinutes(
+            this.data.startDatetime,
+            this.data.endDatetime,
+            this.data.endTime
+          )
+        : ''
     },
     formattedEventDates(): string {
       return this.data ? mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime) : ''
     },
     formattedSplitEventDates() {
-      return this.data ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime) : ''
-
+      return this.data
+        ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
+        : ''
     }
-  },
+  }
 })
 </script>
 <style lang="scss">

@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-gray-light edu:bg-primary md:mx-0 sm:py-8 md:py-10 md:px-0 sm:mx-20 px-6 py-6 text-center">
+  <div
+    class="bg-gray-light edu:bg-primary md:mx-0 sm:py-8 md:py-10 md:px-0 sm:mx-20 px-6 py-6 text-center"
+  >
     <div class="md:mx-16 xl:mx-24">
       <p class="text-h6 edu:text-white edu:font-extrabold">{{ data.heading }}</p>
     </div>
@@ -26,7 +28,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
-import { useThemeStore } from '../../store/theme';
+import { useThemeStore } from '../../store/theme'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconExternal from './../Icons/IconExternal.vue'
 
