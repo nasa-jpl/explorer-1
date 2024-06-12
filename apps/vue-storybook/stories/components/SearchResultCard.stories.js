@@ -41,3 +41,17 @@ export const StandardResult = { args: SearchResultCardData }
 export const FeaturedResult = {
   args: { ...SearchResultCardData, featured: true }
 }
+
+export const EventResult = {
+  args: {
+    ...SearchResultCardData,
+    isEvents: true,
+    type: 'Event',
+    startTime: '00:00:00-08:00',
+    endTime: '23:59:59.999999-08:00',
+    startDate: '2021-11-11',
+    endDate: '2021-11-11',
+    location: 'On lab',
+    compact: false
+  }
+}

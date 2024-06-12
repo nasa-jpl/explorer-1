@@ -19,10 +19,10 @@ export const BlockInlineImageData = {
       alt: 'Inline image',
       src: {
         height: 500,
-        url: 'https://source.unsplash.com/NuE8Nu3otjo/700x500',
+        url: 'https://picsum.photos/700/500',
         width: 700
       },
-      original: 'https://source.unsplash.com/NuE8Nu3otjo/1400x1000'
+      original: 'https://picsum.photos/1400/1000'
     },
     displayCaption: true
   }
@@ -59,7 +59,7 @@ export const PortraitImage = {
         alt: 'Inline image',
         src: {
           height: 600,
-          url: 'https://source.unsplash.com/NuE8Nu3otjo/500x600',
+          url: 'https://picsum.photos//500/600',
           width: 500
         }
       }

@@ -39,7 +39,8 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BlockText from './../BlockText/BlockText.vue'

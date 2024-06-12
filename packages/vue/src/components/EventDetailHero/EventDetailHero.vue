@@ -17,7 +17,7 @@
           />
           <div
             v-if="startDateSplit"
-            class="absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-jpl-red"
+            class="absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
           >
             <div class="font-extrabold text-6xl leading-tight tracking-wider">
               {{ startDateSplit.day }}
@@ -33,7 +33,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mixinGetSrcSet } from './../../utils/mixins'
+import { mixinGetSrcSet, type EventDateObject } from './../../utils/mixins'
+import type { PropType } from 'vue'
 
 export default defineComponent({
   name: 'EventDetailHero',
@@ -43,7 +44,7 @@ export default defineComponent({
       required: false
     },
     startDateSplit: {
-      type: Object,
+      type: Object as PropType<EventDateObject>,
       required: true
     },
     image: {

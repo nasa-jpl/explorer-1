@@ -73,7 +73,7 @@
     </template>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import IconArrows from './../Icons/IconArrows.vue'

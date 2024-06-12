@@ -37,7 +37,7 @@ export const BlockLinkCardData = {
     label: 'Solar System',
     thumbnailImage: {
       src: {
-        url: 'https://source.unsplash.com/Q1p7bh3SHj8/512x288',
+        url: 'https://picsum.photos/512/288',
         width: 512,
         height: 288
       },
@@ -45,20 +45,10 @@ export const BlockLinkCardData = {
     }
   },
   headingLevel: 'h2',
+  startDate: undefined,
+  endDate: undefined,
   compact: false
 }
-
-// templates
-const BlockLinkCardTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockLinkCard },
-  template: `<BlockLinkCard :data="card" :heading-level="headingLevel" :compact="compact" />`
-})
-const BlockLinkCardCustomPropsTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockLinkCard },
-  template: `<BlockLinkCard :title="title" url="url" external-link="externalLink" :label="label" :date="date" :thumbnail-image="thumbnailImage" :heading-level="headingLevel" :compact="compact" />`
-})
 
 export const SingleItem = {
   args: {
@@ -90,7 +80,7 @@ export const Compact = {
     date: 'Sep. 23, 2010',
     thumbnailImage: {
       src: {
-        url: 'https://source.unsplash.com/Q1p7bh3SHj8/512x288',
+        url: 'https://picsum.photos/512/288',
         width: 512,
         height: 288
       },
@@ -98,5 +88,15 @@ export const Compact = {
     },
     headingLevel: 'h2',
     compact: true
+  }
+}
+export const EventItem = {
+  args: {
+    ...BlockLinkCardData,
+    data: {
+      ...BlockLinkCardData.data,
+      startDate: '2021-11-11T00:00:00-08:00',
+      endDate: '2021-11-11T23:59:59.999999-08:00'
+    }
   }
 }

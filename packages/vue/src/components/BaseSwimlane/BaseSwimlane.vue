@@ -16,7 +16,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 
 export default defineComponent({

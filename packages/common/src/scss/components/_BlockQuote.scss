@@ -17,7 +17,7 @@
 
   > hr {
     max-width: 100px;
-    @apply border-t mx-auto border-emphasis-light;
+    @apply border-t mx-auto border-primary-light;
 
     @screen lg {
       max-width: 120px;
@@ -26,7 +26,7 @@
 
   > .quote {
     line-height: 1.4; // custom
-    @apply font-primary italic text-xl font-medium py-4 text-emphasis;
+    @apply font-primary italic text-xl font-medium py-4 text-primary edu:font-extrabold;
 
     @screen lg {
       font-size: 1.875rem; // custom  // 30px
@@ -51,11 +51,11 @@
 .ThemeVariantLight {
   .BlockQuote {
     > hr {
-      @apply border-emphasis;
+      @apply border-primary;
     }
 
     > .quote {
-      @apply text-emphasis;
+      @apply text-primary;
     }
 
     > div > div > .attribution-text {

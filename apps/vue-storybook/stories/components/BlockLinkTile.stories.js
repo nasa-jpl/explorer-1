@@ -60,7 +60,7 @@ export const Compact = {
     label: 'Mission',
     thumbnailImage: {
       src: {
-        url: 'https://source.unsplash.com/Q1p7bh3SHj8/512x288',
+        url: 'https://picsum.photos/512/288',
         width: 512,
         height: 288
       },

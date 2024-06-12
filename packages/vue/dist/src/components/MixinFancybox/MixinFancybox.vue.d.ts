@@ -144,10 +144,10 @@ declare const _default: import('vue').DefineComponent<{
         validator: (prop: unknown) => boolean;
     };
 }>>, {
+    theme: string;
     infinite: boolean;
     showThumbnails: boolean;
     animated: boolean;
     galleryName: string;
-    theme: string;
 }, {}>;
 export default _default;

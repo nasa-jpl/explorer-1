@@ -26,7 +26,7 @@
             :href="data.quoteLink[0].externalLink ? data.quoteLink[0].externalLink : undefined"
             :to="data.quoteLink[0].page ? data.quoteLink[0].page.url : undefined"
             caret-margin-left="ml-1"
-            caret-color="text-emphasis"
+            caret-color="text-primary"
             caret
             external-target-blank
           >

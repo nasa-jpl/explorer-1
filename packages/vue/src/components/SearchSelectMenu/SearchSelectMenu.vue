@@ -26,7 +26,8 @@
     </select>
   </div>
 </template>
-<script>
+<script lang="ts">
+// @ts-nocheck
 export default {
   name: 'SearchSelectMenu',
   props: {

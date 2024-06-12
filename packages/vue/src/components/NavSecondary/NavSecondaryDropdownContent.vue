@@ -132,7 +132,7 @@ export default defineComponent({
 
     &.nuxt-link-active {
       > span {
-        @apply border-jpl-red font-medium;
+        @apply border-primary font-medium;
       }
     }
   }

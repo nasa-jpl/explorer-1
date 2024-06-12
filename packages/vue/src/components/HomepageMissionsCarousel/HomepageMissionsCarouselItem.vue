@@ -14,15 +14,16 @@
       >
         <source
           class="swiper-lazy"
-          :data-srcset="data.image.webp.url"
+          :srcset="data.image.webp.url"
           type="image/webp"
         />
         <img
           class="swiper-lazy object-contain w-auto mx-auto"
-          :data-src="data.image.src.url"
-          :data-srcset="data.image.srcSet"
+          :src="data.image.src.url"
+          :srcset="data.image.srcSet"
           :width="data.image.src.width"
           :height="data.image.src.height"
+          loading="lazy"
           alt=""
         />
       </picture>
@@ -41,7 +42,7 @@
         <div
           class="explore-text can-hover:group-hover:opacity-100 can-hover:group-hover:ml-0 lg:-ml-3 lg:opacity-0 ml-0 transition-all duration-300 ease-in"
         >
-          <span class="text-subtitle text-jpl-red-light flex items-center">
+          <span class="text-subtitle text-primary-light flex items-center">
             Explore
             <IconCaret class="ml-1 text-base" />
           </span>

@@ -55,7 +55,8 @@
     ></BaseButton>
   </div>
 </template>
-<script>
+<script lang="ts">
+// @ts-nocheck
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconPrev from './../Icons/IconPrev.vue'
 import IconNext from './../Icons/IconNext.vue'

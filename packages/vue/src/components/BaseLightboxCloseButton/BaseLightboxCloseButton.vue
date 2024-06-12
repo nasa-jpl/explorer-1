@@ -11,7 +11,8 @@
   </button>
 </template>
 
-<script>
+<script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import IconCloseLightbox from './../Icons/IconCloseLightbox.vue'
 

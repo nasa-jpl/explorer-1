@@ -60,7 +60,8 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
+// @ts-nocheck
 import isEqual from 'lodash/isEqual'
 export default {
   name: 'SearchFilterGroup',

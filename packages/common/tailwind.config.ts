@@ -3,12 +3,14 @@ import type { CustomThemeConfig } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
 import themeColors, {
   foundationColors,
+  internalColors,
   grayScaleColors,
   socialColors,
   ThemeWww,
   ThemeEdu,
   ThemeInternal
 } from './tailwind.colors'
+
 /*
  ** TailwindCSS Configuration File
  **
@@ -135,8 +137,8 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'jpl-red-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
     'jpl-red-darker-w50': foundationColors['jpl-red-darker'] + ' 50%',
     'jpl-red-light-w50': foundationColors['jpl-red-light'] + ' 50%',
-    'jpl-sky-blue-w50': foundationColors['jpl-sky-blue'] + ' 50%',
-    'jpl-sky-blue-dark-w50': foundationColors['jpl-sky-blue-dark'] + ' 50%',
+    'jpl-sky-blue-w50': internalColors['jpl-sky-blue'] + ' 50%',
+    'jpl-sky-blue-dark-w50': internalColors['jpl-sky-blue-dark'] + ' 50%',
     'white-w50': grayScaleColors.white + ' 50%',
     'gray-dark-w50': grayScaleColors['gray-dark'] + ' 50%',
     'facebook-w50': socialColors.facebook + ' 50%',
@@ -149,6 +151,14 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'transparent-black-50': 'rgba(0 0 0 / 50%)',
     'transparent-black-25': 'rgba(0 0 0 / 25%)',
     'transparent-black-25-w50': 'rgba(0 0 0 / 25%) 50%',
+    'primary-w50': 'var(--color-primary)' + ' 50%',
+    'primary-dark-w50': 'var(--color-primary-dark)' + ' 50%',
+    'primary-darker-w50': 'var(--color-primary-darker)' + ' 50%',
+    'primary-light-w50': 'var(--color-primary-light)' + ' 50%',
+    'secondary-w50': 'var(--color-secondary)' + ' 50%',
+    'secondary-dark-w50': 'var(--color-secondary-dark)' + ' 50%',
+    'secondary-darker-w50': 'var(--color-secondary-darker)' + ' 50%',
+    'secondary-light-w50': 'var(--color-secondary-light)' + ' 50%',
     'action-w50': 'var(--color-action)' + ' 50%',
     'action-dark-w50': 'var(--color-action-dark)' + ' 50%',
     'action-darker-w50': 'var(--color-action-darker)' + ' 50%',
@@ -285,6 +295,36 @@ export default {
           ThemeInternal.default,
         '.ThemeInternal .ThemeVariantDark, .ThemeInternal.ThemeVariantDark': ThemeInternal.dark
       })
+    }),
+    require('tailwindcss-themer')({
+      defaultTheme: {
+        extend: {
+          backgroundImage: {
+            'star-pattern': 'url(/explorer-1/bg-stars.jpg)'
+          }
+        }
+      },
+      themes: [
+        {
+          name: 'edu',
+          selectors: ['.ThemeEdu'],
+          extend: {
+            backgroundImage: {
+              // TODO: would prefer to not hardcode the /edu/ path here
+              'star-pattern': 'url(/edu/explorer-1/bg-stars-edu.png)'
+            }
+          }
+        },
+        {
+          name: 'internal',
+          selectors: ['.ThemeInternal'],
+          extend: {
+            backgroundImage: {
+              'star-pattern': 'url(/explorer-1/bg-stars.jpg)'
+            }
+          }
+        }
+      ]
     })
   ],
   future: {

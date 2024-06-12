@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-
 /** Controls various display states for the header and navigation
  ** headerTransparent: whether the header is a transparent overlay
  ** highlightPrimary: logic in various components will enable/disable this

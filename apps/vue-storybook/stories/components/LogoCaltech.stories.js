@@ -1,7 +1,7 @@
 import LogoCaltech from '@explorer-1/vue/src/components/LogoCaltech/LogoCaltech.vue'
 
 export default {
-  title: 'Brand Identity/Logos/LogoCaltech',
+  title: 'Foundation/Logos/LogoCaltech',
   component: LogoCaltech,
   argTypes: {
     size: {

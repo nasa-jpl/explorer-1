@@ -36,6 +36,10 @@ export type lightboxGalleryObject = {
     detailUrl: string | null;
     credit: string | null;
 };
+export interface EventDateObject {
+    day: string;
+    monthAndYear: string;
+}
 export declare const mixinTransparentHeader: () => void;
 export declare const mixinGetLinkText: (item: LinkObject) => string;
 export declare const mixinGetRouterLink: (link: LinkObject) => string | undefined;
@@ -48,9 +52,6 @@ export declare const mixinGetExternalLink: (link: RelatedLinkObject) => string |
 export declare const mixinCanonicalUrl: (path: string) => string;
 export declare const mixinLightboxItems: (image: BaseImageObject, title: string) => lightboxObject[] | false;
 export declare const mixinLightboxGalleryItems: (items: object | any) => object | false;
-export declare const mixinFormatSplitEventDates: (startDatetime: string, endDatetime?: string) => {
-    day: string;
-    monthAndYear: string;
-};
+export declare const mixinFormatSplitEventDates: (startDatetime: string, endDatetime?: string) => EventDateObject;
 export declare const mixinFormatEventDates: (startDatetime: string, endDatetime?: string) => string;
 export declare const mixinFormatEventTimeInHoursAndMinutes: (startDatetime: string, endDatetime?: string, endTime?: string) => string;

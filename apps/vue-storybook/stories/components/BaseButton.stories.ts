@@ -51,6 +51,12 @@ export const PrimaryButton = {
     variant: 'primary'
   }
 }
+export const ReversePrimaryButton = {
+  args: {
+    ...BaseButtonData,
+    variant: 'reverse-primary'
+  }
+}
 export const SecondaryButton = {
   args: {
     ...BaseButtonData,

@@ -1,5 +1,5 @@
 <template>
-  <footer class="TheFooter">
+  <footer class="TheFooter bg-dark-blue edu:bg-stars edu:bg-primary text-white relative z-20">
     <div class="footer-main lg:BaseGrid 3xl:px-0 lg:pt-20 container px-4 pt-10 mx-auto">
       <div class="footer-navigation lg:block lg:col-span-9 hidden col-span-12">
         <!-- footerNavigation -->
@@ -12,7 +12,7 @@
             :key="index"
             class="sm:mb-3 xl:col-span-2 md:col-span-3 col-span-4 mb-8"
           >
-            <div class="text-subtitle text-blue mb-3">
+            <div class="text-subtitle text-blue edu:text-white mb-3">
               {{ getLinkText(item.titleLink) }}
             </div>
             <BaseLink
@@ -31,10 +31,12 @@
       <!-- footer extras -->
       <div class="footer-extras lg:col-span-3 col-span-12">
         <!-- email sign up -->
-        <div class="text-subtitle text-blue lg:mb-5 mb-3">Get the Latest from JPL</div>
+        <div class="text-subtitle text-blue edu:text-white lg:mb-5 mb-3">
+          Get the Latest from JPL
+        </div>
         <TheFooterSignUp class="lg:mb-10 mb-8" />
         <!-- social media -->
-        <div class="text-subtitle text-blue lg:mb-5 mb-3">Follow Us</div>
+        <div class="text-subtitle text-blue edu:text-white lg:mb-5 mb-3">Follow Us</div>
         <NavSocial
           class="lg:mb-14 mb-12"
           dark
@@ -59,7 +61,7 @@
       v-if="data && data.footerMoreFromJpl"
       class="3xl:px-0 container px-4 mx-auto mt-5"
     >
-      <div class="text-subtitle text-blue mb-5">More from JPL</div>
+      <div class="text-subtitle text-blue edu:text-white mb-5">More from JPL</div>
       <div class="lg:block hidden">
         <BaseButton
           v-for="(item, index) in data.footerMoreFromJpl"
@@ -92,7 +94,7 @@
     <div class="bg-opacity-15 lg:py-16 lg:mt-10 pt-10 pb-3 mt-8 bg-black">
       <div class="3xl:px-0 container px-4 mx-auto">
         <div v-if="data && data.relatedNasaSites">
-          <div class="text-subtitle text-blue mb-5">Related NASA Sites</div>
+          <div class="text-subtitle text-blue edu:text-white mb-5">Related NASA Sites</div>
           <div class="auto-col-4">
             <BaseLink
               v-for="(item, index) in data.relatedNasaSites"
@@ -205,8 +207,6 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .TheFooter {
-  @apply bg-dark-blue text-white relative z-20;
-
   .auto-col-2 {
     @screen sm {
       column-count: 2;
