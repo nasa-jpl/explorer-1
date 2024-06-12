@@ -1,9 +1,14 @@
+import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
 export default {
   title: 'Foundation/Grid and Layout',
+  component: LayoutHelper,
   tags: ['!autodocs']
 }
 
-const BaseGridTemplate = () => `<div class="max-w-screen-3xl mx-auto">
+export const BaseGrid = {
+  args: {},
+  render: () => ({
+    template: `<div class="max-w-screen-3xl mx-auto">
   <div class="BaseGrid container mx-auto mb-10 bg-gray-light-mid">
     <div class="text-center text-white bg-gray-mid-dark p-4">1</div>
     <div class="text-center text-white bg-gray-mid-dark p-4">2</div>
@@ -24,24 +29,24 @@ const BaseGridTemplate = () => `<div class="max-w-screen-3xl mx-auto">
     </div>
   </div>
 </div>`
-
-export const BaseGrid = {
-  render: BaseGridTemplate.bind({})
+  })
 }
 
-const ComponentATemplate =
-  () => `<div class="BaseGrid container mx-auto border border-jpl-red-light">
+export const ComponentA = {
+  args: {},
+  render: () => ({
+    template: `<div class="BaseGrid container mx-auto border border-jpl-red-light">
   <div class="col-start-4 col-end-10 bg-black text-white px-4 py-10">
     Starts at col 4 and ends at the col 10 line.
   </div>
 </div>`
-
-export const ComponentA = {
-  render: ComponentATemplate.bind({})
+  })
 }
 
-const ComponentBTemplate =
-  () => `<div class="BaseGrid container mx-auto border border-jpl-red-light">
+export const ComponentB = {
+  args: {},
+  render: () => ({
+    template: `<div class="BaseGrid container mx-auto border border-jpl-red-light">
   <div class="col-start-2 col-end-8 bg-black text-white px-4 py-10">
     Primary content
   </div>
@@ -49,12 +54,13 @@ const ComponentBTemplate =
     Secondary content
   </div>
 </div>`
-
-export const ComponentB = {
-  render: ComponentBTemplate.bind({})
+  })
 }
 
-const MixedBleedGridLinesTemplate = () => `<div class="max-w-screen-3xl mx-auto bg-white">
+export const MixedBleedGridLines = {
+  args: {},
+  render: () => ({
+    template: `<div class="max-w-screen-3xl mx-auto bg-white">
   <div class="BaseGrid container px-0 mx-auto bg-gray-light-mid mb-5">
     <div class="text-center text-white bg-gray-mid-dark py-4">1</div>
     <div class="text-center text-white bg-gray-mid-dark py-4">2</div>
@@ -97,21 +103,24 @@ const MixedBleedGridLinesTemplate = () => `<div class="max-w-screen-3xl mx-auto 
     </div>
   </div>
 </div>`
-
-export const MixedBleedGridLines = {
-  render: MixedBleedGridLinesTemplate.bind({})
+  })
 }
-const MixedBleedTemplate = () => `<div class="MixedBleedGrid">
+
+export const MixedBleed = {
+  args: {},
+  render: () => ({
+    template: `<div class="MixedBleedGrid">
   <div class="col-start-indent-col-2 col-end-bleed text-white bg-black px-4 py-10">
     Gallery Container (inner layout not dependent on grid)
   </div>
 </div>`
-
-export const MixedBleed = {
-  render: MixedBleedTemplate.bind({})
+  })
 }
 
-const MixedBleedComplexTemplate = () => `<div>
+export const MixedBleedComplex = {
+  args: {},
+  render: () => ({
+    template: `<div>
   <div class="MixedBleedGrid mb-10">
     <div class="col-start-indent-col-3 col-end-container text-white bg-black">
       <div class="grid grid-cols-10 border border-jpl-red-light">
@@ -126,12 +135,13 @@ const MixedBleedComplexTemplate = () => `<div>
     <div class="col-start-container-end col-end-bleed bg-black"></div>
   </div>
 </div>`
-
-export const MixedBleedComplex = {
-  render: MixedBleedComplexTemplate.bind({})
+  })
 }
 
-const PageLayoutTemplate = () => `<!-- first section -->
+export const PageLayout = {
+  args: {},
+  render: () => ({
+    template: `<!-- first section -->
 <div class="bg-gray-light mb-5">
   <div class="max-w-screen-3xl mx-auto bg-black text-white p-6">
     Component with content bound <code>.max-w-screen-3xl</code> but with a background color that extends beyond <code>3xl</code>
@@ -163,12 +173,13 @@ const PageLayoutTemplate = () => `<!-- first section -->
     Another component filling columns 3-10 on large screens and above.
   </div>
 </div>`
-
-export const PageLayout = {
-  render: PageLayoutTemplate.bind({})
+  })
 }
 
-const FullPageExampleTemplate = () => `<div class="bg-black text-white py-5 mb-10">
+export const FullPageExample = {
+  args: {},
+  render: () => ({
+    template: `<div class="bg-black text-white py-5 mb-10">
   <div class="max-w-screen-2xl mx-auto border border-white p-3">
     Top Hat
   </div>
@@ -248,7 +259,5 @@ const FullPageExampleTemplate = () => `<div class="bg-black text-white py-5 mb-1
       Footer
   </div>
 </div>`
-
-export const FullPageExample = {
-  render: FullPageExampleTemplate.bind({})
+  })
 }

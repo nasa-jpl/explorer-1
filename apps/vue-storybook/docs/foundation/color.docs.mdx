@@ -1,9 +1,6 @@
-import { Meta } from '@storybook/blocks'
+import { Meta, Story, Canvas } from '@storybook/blocks'
 
-<Meta
-  title="Foundation/Colors"
-  parameters={{ viewMode: 'docs' }}
-/>
+<Meta title="Foundation/Colors" />
 
 # Colors
 
@@ -18,25 +15,42 @@ import { Meta } from '@storybook/blocks'
 
 Each of these foundation colors has specific usage scenarios.
 
-| Color                                     | Name           | Token            | Value     |
-| :---------------------------------------- | :------------- | :--------------- | :-------- |
-| <div class="bg-jpl-red p-4"></div>        | JPL Red        | `jpl-red`        | `#E31937` |
-| <div class="bg-jpl-red-light p-4"></div>  | JPL Red Light  | `jpl-red-light`  | `#E73B54` |
-| <div class="bg-jpl-red-dark p-4"></div>   | JPL Red Dark   | `jpl-red-dark`   | `#C1152E` |
-| <div class="bg-jpl-red-darker p-4"></div> | JPL Red Darker | `jpl-red-darker` | `#5C0411` |
-| <div class="bg-jpl-aqua p-4"></div>       | JPL Aqua       | `aqua`           | `#489FDF` |
-| <div class="bg-blue p-4"></div>           | Blue           | `blue`           | `#8BCBFA` |
-| <div class="bg-dark-blue p-4"></div>      | Dark Blue      | `dark-blue`      | `#004562` |
-| <div class="bg-green p-4"></div>          | Green          | `green`          | `#14C97A` |
+| Color                                     | Name           | Token            |
+| :---------------------------------------- | :------------- | :--------------- |
+| <div class="bg-jpl-red-light p-4"></div>  | JPL Red Light  | `jpl-red-light`  |
+| <div class="bg-jpl-red p-4"></div>        | JPL Red        | `jpl-red`        |
+| <div class="bg-jpl-red-dark p-4"></div>   | JPL Red Dark   | `jpl-red-dark`   |
+| <div class="bg-jpl-red-darker p-4"></div> | JPL Red Darker | `jpl-red-darker` |
+| <div class="bg-jpl-aqua p-4"></div>       | JPL Aqua       | `aqua`           |
+| <div class="bg-blue p-4"></div>           | Blue           | `blue`           |
+| <div class="bg-dark-blue p-4"></div>      | Dark Blue      | `dark-blue`      |
+| <div class="bg-green p-4"></div>          | Green          | `green`          |
 
 ### Reserved for Internal Use
 
 These colors should not be used on public-facing JPL websites.
 
-| Color                                        | Name              | Token               | Value     |
-| :------------------------------------------- | :---------------- | :------------------ | :-------- |
-| <div class="bg-jpl-sky-blue p-4"></div>      | JPL Sky Blue      | `jpl-sky-blue`      | `#53C8ED` |
-| <div class="bg-jpl-sky-blue-dark p-4"></div> | JPL Sky Blue Dark | `jpl-sky-blue-dark` | `#0080A4` |
+| Color                                          | Name                | Token                 |
+| :--------------------------------------------- | :------------------ | :-------------------- |
+| <div class="bg-jpl-sky-blue-light p-4"></div>  | JPL Sky Blue Light  | `jpl-sky-blue-light`  |
+| <div class="bg-jpl-sky-blue p-4"></div>        | JPL Sky Blue        | `jpl-sky-blue`        |
+| <div class="bg-jpl-sky-blue-dark p-4"></div>   | JPL Sky Blue Dark   | `jpl-sky-blue-dark`   |
+| <div class="bg-jpl-sky-blue-darker p-4"></div> | JPL Sky Blue Darker | `jpl-sky-blue-darker` |
+
+### Reserved for EDU Use
+
+These colors should not be used on public-facing JPL websites.
+
+| Color                                        | Name              | Token               |
+| :------------------------------------------- | :---------------- | :------------------ |
+| <div class="bg-jpl-purple-light p-4"></div>  | JPL Purple Light  | `jpl-purple-light`  |
+| <div class="bg-jpl-purple p-4"></div>        | JPL Purple        | `jpl-purple`        |
+| <div class="bg-jpl-purple-dark p-4"></div>   | JPL Purple Dark   | `jpl-purple-dark`   |
+| <div class="bg-jpl-purple-darker p-4"></div> | JPL Purple Darker | `jpl-purple-darker` |
+| <div class="bg-jpl-teal-light p-4"></div>    | JPL Teal Light    | `jpl-teal-light`    |
+| <div class="bg-jpl-teal p-4"></div>          | JPL Teal          | `jpl-teal`          |
+| <div class="bg-jpl-teal-dark p-4"></div>     | JPL Teal Dark     | `jpl-teal-dark`     |
+| <div class="bg-jpl-teal-darker p-4"></div>   | JPL Teal Darker   | `jpl-teal-darker`   |
 
 <span id="functional-gray-tones"></span>
 

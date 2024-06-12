@@ -2,9 +2,10 @@
 import remarkGfm from 'remark-gfm'
 const config = {
   stories: [
-    './../stories/**/*.stories.@(js|jsx|ts|tsx)'
-    // './../docs/**/typography.stories.(js|jsx|ts|tsx)'
-    // './../docs/**/*.docs.mdx'
+    './../stories/**/*.stories.@(js|jsx|ts|tsx)',
+    './../stories/**/*.docs.mdx',
+    './../docs/**/*.stories.@(js|jsx|ts|tsx)',
+    './../docs/**/*.docs.mdx'
   ],
   addons: [
     {
@@ -29,7 +30,7 @@ const config = {
     '@whitespace/storybook-addon-html',
     'storybook-addon-vue-slots'
   ],
-  staticDirs: ['./../public'],
+  staticDirs: ['./../public', './../node_modules/@explorer-1/common-storybook/src/public'],
   framework: {
     name: '@storybook/vue3-vite',
     options: {}

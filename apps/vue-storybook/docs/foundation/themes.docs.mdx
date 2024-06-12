@@ -5,62 +5,26 @@ import * as Stories from './themes.stories'
 
 # Themes
 
-## Internal Theme
+Throughout this storybook, you can use the Theme and Variant selectors in the Storybook toolbar to preview components in different theme configurations.
 
-Apply a body class of `.ThemeInternal` to your build to reflect JPL's internal color scheme. The difference between the internal theme and the default theme is subtle: for the most part, only link colors are changed to `jpl-sky-blue` and `jpl-sky-blue-dark`.
+**Note:** some documentation pages use iframes to display components, which ignores the theme switcher. Thus, for the most accurate representation of the internal theme, we recommend viewing the story in isolation.
 
-```html
-<body class="ThemeInternal">
-  <!-- page layout and components go here -->
-</body>
-```
+## Dynamic color tokens
 
-The following story shows a direct comparison of how BaseLink changes when using `.ThemeInternal` vs the default theme (no body class).
+There are dynamic color tokens in place that use a semantic name instead of a specific color name. These tokens are use strategically in components to support multiple themes.
 
-<Canvas of={Stories.Internal} />
+Changing the Theme and Variant to see how the dynamic tokens change.
 
-By default, all stories displayed within this Storybook do not use the internal theme. You can enable the theme by clicking on the "picture" icon in the toolbar menu and selecting "ThemeInternal." You can test this with the above story--switching to ThemeInternal should make both links appear blue.
+<Canvas of={Stories.DynamicTokenStory} />
 
-**Note:** some documentation pages use iframes to display components, which ignores the theme switcher. Thus, for the most accurate representation of the internal theme, we recommend checking the component in the Canvas tab.
+## Light & Dark Variants
 
-## Light & Dark Themes
-
-`.ThemeVariantLight` and `.ThemeVariantDark` in Explorer 1 are structured differently from `.ThemeInternal`, and are **not intended for use as a body class**. These themes should only ever be used on the wrapper for an individual component or group of components.
-
-These are often set on a page template wrapper. If that scope is too wide, usage can be scoped to layout elements within as needed. Again, these should not be used as a body class, as that is reserved for `.ThemeInternal`.
-
-```html
-<body>
-  <div class="ThemeVariantDark">
-    <!-- the rest of the page -->
-  </div>
-</body>
-```
-
-A more complex example showing nested usage:
-
-```html
-<body class="ThemeInternal">
-  <div class="ThemeVariantDark">
-    <!-- components  -->
-    <div class="ThemeVariantLight">
-      <!-- a component that should use light colors regardless of its ancestors -->
-    </div>
-    <!-- more components -->
-  </div>
-</body>
-```
+`.ThemeVariantLight` and `.ThemeVariantDark` in Explorer 1 are theme variants. Note that not all components support these variants.
 
 ### Key Points
 
-- `ThemeVariantLight` is the default
-- It is recommended that page templates always include the default theme.
-- If a page theme is controllable by a site editor, then include appropriate class bindings to switch between `.ThemeVariantLight` or `.ThemeVariantDark`
-- These theme classes do not apply styles directly. Instead, components use them as an ancestor selector to modify their own styles.
-
-### Usage in Storybook
-
-Storybook can mimic these theme choices. All stories are wrapped in `ThemeVariantLight` by default. You can switch to `ThemeVariantDark` on any story by using the toolbar menu (the icon looks like a picture). **Note that most components do not have a dark theme, and thus will appear "broken" when viewed with `ThemeVariantDark`.**
+- `defaultTheme` and `ThemeVariantLight` are the defaults
+- It is recommended that page templates always include the default variant.
 
 ### Contributing developers: Writing light/dark theme styles for components
 
@@ -79,33 +43,28 @@ For components that have light and dark themes, add theme rules to the end of yo
 
 ## Adaptive Text Colors
 
-Usage of `.text-jpl-red` vs `.text-jpl-red-light` (or the `.text-jpl-sky-blue` variants for internal sites) in the correct context of `.ThemeVariantLight` and `.ThemeVariantDark` ensures that the contrast of the text color is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created text color classes that follow this rule automatically. These color classes also check for usage of `.ThemeInternal`.
-
-```css
-.text-action
-.text-action-hover
-```
+Usage of `.text-action` vs `.text-action` in the context of `.ThemeVariantLight` and `.ThemeVariantDark` ensures that the contrast of the text color is sufficient against the background color. These adaptive text colors are supported by all themes.
 
 ### Definition (excerpt)
 
 ```css
 .text-action {
-  @apply text-jpl-red;
+  @apply text-action;
   .ThemeVariantDark & {
-    @apply text-jpl-red-light;
+    @apply text-action-light;
   }
 }
 .text-action-hover {
-  @apply text-jpl-red-dark;
+  @apply text-action-dark;
   .ThemeVariantDark & {
-    @apply text-jpl-red;
+    @apply text-action;
   }
 }
 ```
 
 ### Usage
 
-Below are examples of all combinations (note: using the theme switcher in the toolbar will override the below examples):
+Try changing the Theme and Variant while viewing the examples below. Notice how there are slight changes in color between the Dark and Light variants.
 
 <Canvas of={Stories.AdaptiveText} />
 

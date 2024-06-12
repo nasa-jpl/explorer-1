@@ -1,9 +1,17 @@
+import DynamicTokens from './DynamicTokens.vue'
+
 export default {
   title: 'Foundation/Themes',
+  component: DynamicTokens,
   tags: ['!autodocs']
 }
 
-const InternalTemplate = () => `<div>
+export const DynamicTokenStory = {
+  name: 'Dynamic Tokens',
+  args: {}
+}
+
+const InternalTemplate = `<div>
   <div class="ThemeInternal">
     <!-- BaseLink -->
     <div>
@@ -29,32 +37,27 @@ const InternalTemplate = () => `<div>
 </div>`
 
 export const Internal = {
-  render: InternalTemplate.bind({})
+  args: {},
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    template: InternalTemplate
+  })
 }
 
-const AdaptiveTextTemplate = () => `<p class="ThemeVariantLight p-4">
+const AdaptiveTextTemplate = `<p class="p-4">
   <a class="cursor-pointer font-bold text-action can-hover:hover:text-action-hover">
-    ThemeVariantLight (usually the default)
+    Lorem ipsum dolor sit amet
   </a>
-  </p>
-  <p class="ThemeVariantDark bg-black p-4">
-  <a class="cursor-pointer font-bold text-action can-hover:hover:text-action-hover">
-    ThemeVariantDark
-  </a>
-  </p>
-  <div class="ThemeInternal">
-  <p class="ThemeVariantLight p-4">
-    <a class="cursor-pointer font-bold text-action can-hover:hover:text-action-hover">
-      ThemeInternal ThemeVariantLight
-    </a>
-  </p>
-  <p class="ThemeVariantDark bg-black p-4">
-    <a class="cursor-pointer font-bold text-action can-hover:hover:text-action-hover">
-      ThemeInternal ThemeVariantDark
-    </a>
-  </p>
-</div>`
+  </p>`
 
 export const AdaptiveText = {
-  render: AdaptiveTextTemplate.bind({})
+  args: {},
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    template: AdaptiveTextTemplate
+  })
 }

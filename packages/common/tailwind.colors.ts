@@ -43,15 +43,14 @@ export const internalColors = {
 }
 
 export const eduColors = {
-  'edu-purple-light': jplViolet.light,
-  'edu-purple': jplViolet.base,
-  'edu-purple-dark': jplViolet.dark,
-  'edu-purple-darker': jplViolet.darker,
-  'edu-teal-light': jplTeal.light,
-  'edu-teal': jplTeal.base,
-  'edu-teal-dark': jplTeal.dark,
-  'edu-teal-darker': jplTeal.darker,
-  'edu-peach': '#FF5555'
+  'jpl-purple-light': jplViolet.light,
+  'jpl-purple': jplViolet.base,
+  'jpl-purple-dark': jplViolet.dark,
+  'jpl-purple-darker': jplViolet.darker,
+  'jpl-teal-light': jplTeal.light,
+  'jpl-teal': jplTeal.base,
+  'jpl-teal-dark': jplTeal.dark,
+  'jpl-teal-darker': jplTeal.darker
 }
 
 export const semanticColors = {
@@ -130,32 +129,32 @@ export const ThemeWww = {
 
 export const ThemeEdu = {
   default: {
-    '--color-primary': eduColors['edu-purple'],
-    '--color-primary-light': eduColors['edu-purple-light'],
-    '--color-primary-dark': eduColors['edu-purple-dark'],
-    '--color-primary-darker': eduColors['edu-purple-darker'],
+    '--color-primary': eduColors['jpl-purple'],
+    '--color-primary-light': eduColors['jpl-purple-light'],
+    '--color-primary-dark': eduColors['jpl-purple-dark'],
+    '--color-primary-darker': eduColors['jpl-purple-darker'],
     '--color-secondary': foundationColors['jpl-red'],
     '--color-secondary-light': foundationColors['jpl-red-light'],
     '--color-secondary-dark': foundationColors['jpl-red-dark'],
     '--color-secondary-darker': foundationColors['jpl-red-darker'],
-    '--color-action': eduColors['edu-teal'],
-    '--color-action-light': eduColors['edu-teal-light'],
-    '--color-action-dark': eduColors['edu-teal-dark'],
-    '--color-action-darker': eduColors['edu-teal-darker']
+    '--color-action': eduColors['jpl-teal'],
+    '--color-action-light': eduColors['jpl-teal-light'],
+    '--color-action-dark': eduColors['jpl-teal-dark'],
+    '--color-action-darker': eduColors['jpl-teal-darker']
   },
   dark: {
-    '--color-primary': eduColors['edu-purple-light'],
-    '--color-primary-light': eduColors['edu-purple-light'],
-    '--color-primary-dark': eduColors['edu-purple'],
-    '--color-primary-darker': eduColors['edu-purple-dark'],
+    '--color-primary': eduColors['jpl-purple-light'],
+    '--color-primary-light': eduColors['jpl-purple-light'],
+    '--color-primary-dark': eduColors['jpl-purple'],
+    '--color-primary-darker': eduColors['jpl-purple-dark'],
     '--color-secondary': foundationColors['jpl-red-light'],
     '--color-secondary-light': foundationColors['jpl-red-light'],
     '--color-secondary-dark': foundationColors['jpl-red'],
     '--color-secondary-darker': foundationColors['jpl-red-dark'],
-    '--color-action': eduColors['edu-teal-light'],
-    '--color-action-light': eduColors['edu-teal-light'],
-    '--color-action-dark': eduColors['edu-teal'],
-    '--color-action-darker': eduColors['edu-teal-dark']
+    '--color-action': eduColors['jpl-teal-light'],
+    '--color-action-light': eduColors['jpl-teal-light'],
+    '--color-action-dark': eduColors['jpl-teal'],
+    '--color-action-darker': eduColors['jpl-teal-dark']
   }
 }
 

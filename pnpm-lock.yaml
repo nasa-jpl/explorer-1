@@ -163,6 +163,9 @@ importers:
       '@explorer-1/common-storybook':
         specifier: workspace:*
         version: link:../../packages/common-storybook
+      '@explorer-1/html':
+        specifier: workspace:*
+        version: link:../../packages/html
       '@explorer-1/prettier-config':
         specifier: workspace:*
         version: link:../../packages/configs/prettier

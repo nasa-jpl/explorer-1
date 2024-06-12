@@ -1,10 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/blocks'
 import * as Stories from './typography.stories'
-import { IconLocationTemplate } from './../../components/Icons/IconLocation'
-
-export const testHeadingIcon = IconLocationTemplate({
-  customClass: 'inline'
-})
 
 <Meta of={Stories} />
 
@@ -28,7 +23,7 @@ Archivo Narrow is used for subtitles and buttons and is always used in UPPERCASE
 
 Here are colors intended for text, depending on the background. **Note:** Some of these colors will not pass contrast requirements if used on a different background.
 
-<Canvas of={Stories.TextColor} />
+<Canvas of={Stories.TextColors} />
 
 ## Text Styles
 

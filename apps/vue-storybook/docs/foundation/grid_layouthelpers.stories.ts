@@ -1,58 +1,53 @@
-import type { Meta, StoryObj } from '@storybook/html'
+import LayoutHelper, { indents } from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
 
-const meta: Meta = {
+// TODO: DOCS: update this to match the full grid/layout documentation
+
+export default {
   title: 'Foundation/Grid and Layout/Column Layout Helpers',
-  tags: ['!autodocs']
-}
-
-export default meta
-
-const BaseWidthTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
-  <div class="indent-col-base border border-success-green p-4">
-    <code>.indent-col-base</code>
-  </div>
-</div>`
-
-export const BaseWidth: StoryObj = BaseWidthTemplate.bind({})
-
-const ColTwoStartTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
-  <div class="indent-col-base indent-col-2 border border-success-green p-4">
-    <code>.indent-col-base.indent-col-2</code>
-  </div>
-</div>`
-
-export const ColTwoStart: StoryObj = {
-  name: 'Start at col-2',
-  render: ColTwoStartTemplate.bind({})
-}
-ColTwoStart.parameters = {
-  docs: {
-    source: {
-      state: 'open'
+  component: LayoutHelper,
+  tags: ['!autodocs'],
+  argTypes: {
+    indent: {
+      control: { type: 'select' },
+      options: Object.keys(indents)
     }
-  }
+  },
+  parameters: {
+    html: {
+      root: '#storyDecorator'
+    }
+  },
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="container mx-auto border border-black"><story/></div>`
+    })
+  ]
 }
 
-const ColThreeStartTemplate =
-  () => `<div class="BaseGrid container mx-auto border border-black py-4">
-  <div class="indent-col-base indent-col-3 border border-success-green p-4">
-    <code>.indent-col-base.indent-col-3</code>
-  </div>
-</div>`
+const LayoutHelperTemplate = (args) => ({
+  components: { LayoutHelper },
+  setup() {
+    return { args }
+  },
+  template: `<LayoutHelper v-bind="args"><div class="w-full text-white bg-black py-10 px-2">Indent starts at <code>{{args}}</code></div></LayoutHelper>`
+})
 
-export const ColThreeStart: StoryObj = {
-  name: 'Start at col-3',
-  render: ColThreeStartTemplate.bind({})
+export const BaseWidth = LayoutHelperTemplate.bind({})
+BaseWidth.args = {
+  indent: 'col-1'
 }
 
-const ColFourStartTemplate =
-  () => `<div class="BaseGrid container mx-auto border border-black py-4">
-  <div class="indent-col-base indent-col-4 border border-success-green p-4">
-    <code>.indent-col-base.indent-col-4</code>
-  </div>
-</div>`
+export const ColTwoStart = LayoutHelperTemplate.bind({})
+ColTwoStart.args = {
+  indent: 'col-2'
+}
 
-export const ColFourStart: StoryObj = {
-  name: 'Start at col-4',
-  render: ColFourStartTemplate.bind({})
+export const ColThreeStart = LayoutHelperTemplate.bind({})
+ColThreeStart.args = {
+  indent: 'col-3'
+}
+
+export const ColFourStart = LayoutHelperTemplate.bind({})
+ColFourStart.args = {
+  indent: 'col-4'
 }

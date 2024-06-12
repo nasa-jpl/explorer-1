@@ -1,0 +1,146 @@
+<style type="text/css">
+  /* styles for docs tab */
+  /* @import 'dist/css/font-face.css'; */
+
+  #storybook-docs
+    .sbdocs
+    .sbdocs-content
+    *:not(.sbdocs-preview, .sbdocs-preview *, pre, pre *, code, code *) {
+    font-family: Metropolis, sans-serif !important;
+  }
+  /* make docs have full width iframes
+  ** rescopes width to all nested divs, not the container wrapper */
+  .sbdocs.sbdocs-content {
+    max-width: 1950px;
+  }
+  .sbdocs.sbdocs-content > * {
+    width: 100%;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sbdocs.sbdocs-content > div[id*='anchor--'],
+  .sbdocs.sbdocs-content .reactdocs-content {
+    max-width: none;
+  }
+  .sbdocs.sbdocs-content > div[id*='anchor--'] > *,
+  .sbdocs.sbdocs-content .reactdocs-content > div,
+  .reactdocs-container {
+    width: 100%;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* .sbdocs.sbdocs-content .sbdocs-pre {
+    margin-left: auto;
+    margin-right: auto;
+  } */
+  .sbdocs.sbdocs-content > pre {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sbdocs .sbdocs-content ol:not(.list-none) {
+    list-style-type: decimal;
+  }
+
+  /* custom border color for h2 to match gray-light-mid */
+  .sbdocs.sbdocs-h2 {
+    border-bottom: 1px solid rgba(216, 216, 216, 1);
+  }
+
+  /* .sbdocs-preview-full-width overrides max width in doc view
+  ** use this class via the `className` prop on Canvas
+  */
+  .sbdocs.sbdocs-content .sbdocs-preview-full-width,
+  .sbdocs-preview-full-width .sbdocs.sbdocs-content .sbdocs-preview,
+  .sbdocs.sbdocs-content .sb-anchor .sbdocs-preview {
+    max-width: none !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* unset the mysterious height that storybook adds to Canvas doc blocks rendered via a React component */
+  .sbdocs.sbdocs-content .reactdocs-content .sbdocs-preview .docs-story div[height='20'] {
+    height: unset;
+  }
+
+  /* sometimes inline stories still need an explicit height set */
+  .sbdocs-inline-height .docs-story {
+    height: 500px !important;
+  }
+  .sbdocs-inline-height-2xs .docs-story {
+    height: 200px !important;
+  }
+  .sbdocs-inline-height-xs .docs-story {
+    height: 300px !important;
+  }
+  .sbdocs-inline-height-sm .docs-story {
+    height: 400px !important;
+  }
+  .sbdocs-inline-height-lg .docs-story {
+    height: 600px !important;
+  }
+  .sbdocs-inline-height-xl .docs-story {
+    height: 700px !important;
+  }
+  .sbdocs-inline-height-2xl .docs-story {
+    height: 800px !important;
+  }
+  .sbdocs-inline-height .docs-story > div:first-child {
+    height: inherit !important;
+  }
+
+  /* sbdocs link style */
+  .sbdocs.sbdocs-a {
+    font-weight: 600;
+    border-bottom: 1px solid #489fdf;
+    color: black;
+  }
+  .sbdocs.sbdocs-a:hover {
+    border-bottom-color: black;
+  }
+
+  /* sbdocs table styles */
+  .sbdocs.sbdocs-table {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .sbdocs.sbdocs-table tr:nth-of-type(2n) {
+    background: white;
+  }
+  .sbdocs.sbdocs-table tr th,
+  .sbdocs.sbdocs-table tr td {
+    border-left: none;
+    border-right: none;
+  }
+
+  /* tag or image alignment */
+  .sbdocs.sbdocs-content img[src*='#left'] {
+    float: left;
+  }
+  .sbdocs.sbdocs-content img[src*='#right'] {
+    float: right;
+  }
+  .sbdocs.sbdocs-content img[src*='#center'] {
+    display: block;
+    margin: auto;
+  }
+  .sbdocs.sbdocs-content img[src*='#inline'] {
+    display: inline;
+  }
+
+  /* background color for code blocks */
+  .sbdocs .docblock-source {
+    background-color: #f5f5f5;
+  }
+
+  /* make details > summary text appear clickable in docs */
+  .sbdocs details > summary {
+    cursor: pointer;
+  }
+  .sbdocs details > summary > .sbdocs-span {
+    font-size: unset !important;
+  }
+</style>
