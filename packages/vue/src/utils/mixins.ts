@@ -1,4 +1,5 @@
 // import Vue from 'vue'
+// @ts-ignore
 import dayjs from './dayjs'
 import { useHeaderStore } from './../store/header'
 import { useRoute } from 'vue-router'
@@ -52,6 +53,11 @@ export type lightboxGalleryObject = {
   original: string | null
   detailUrl: string | null
   credit: string | null
+}
+
+export interface EventDateObject {
+  day: string
+  monthAndYear: string
 }
 
 /* -- mixinTransparentHeader --
@@ -267,7 +273,7 @@ export const mixinLightboxGalleryItems = (items: object | any): object | false =
 export const mixinFormatSplitEventDates = (
   startDatetime: string,
   endDatetime?: string
-): { day: string; monthAndYear: string } => {
+): EventDateObject => {
   const startDateDayjs = dayjs(startDatetime)
 
   let day = startDateDayjs.format('D')

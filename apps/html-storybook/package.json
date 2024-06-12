@@ -14,9 +14,9 @@
   "prettier": "@explorer-1/prettier-config",
   "scripts": {
     "dev": "pnpm run storybook",
-    "prepare": "npm run prepare:clean && npm run prepare:public",
+    "prepare": "npm run prepare:clean && npm run prepare:assets",
     "prepare:clean": "rimraf ./public/dist",
-    "prepare:public": "cp -R ./node_modules/@explorer-1/html/dist/assets/ ./public/dist",
+    "prepare:assets": "cp -R ./node_modules/@explorer-1/html/dist/assets/ ./public/dist",
     "storybook": "pnpm run prepare && storybook dev -c .storybook -p 7007 --ci",
     "lint": "eslint .storybook",
     "lint:fix": "eslint .storybook --fix",

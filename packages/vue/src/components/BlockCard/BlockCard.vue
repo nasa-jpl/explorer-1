@@ -24,12 +24,12 @@
       </BaseImagePlaceholder>
     </div>
     <div class="px-6 py-6">
-      <div class="text-jpl-red text-subtitle">
+      <div class="text-primary text-subtitle">
         {{ type }}
       </div>
       <hr
         aria-hidden="true"
-        class="bg-jpl-red text-jpl-red w-8 h-2px border-0 my-2"
+        class="bg-primary text-primary w-8 h-2px border-0 my-2"
       />
       <BaseHeading
         size="h5"

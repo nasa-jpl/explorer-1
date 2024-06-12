@@ -1,13 +1,13 @@
 <template>
   <section
     v-if="data"
-    class="HomepageMissionsCarousel ThemeVariantDark max-w-screen-3xl mx-auto overflow-hidden text-white bg-black"
+    class="HomepageMissionsCarousel ThemeVariantDark bg-stars max-w-screen-3xl mx-auto overflow-hidden text-white bg-black"
   >
     <div class="lg:BaseGrid lg:py-24 pt-14 container flex flex-col pb-5 mx-auto">
       <div class="xl:px-0 lg:col-end-8 xl:col-end-7 order-1 col-start-2 px-4">
         <p
           v-if="data.label"
-          class="text-subtitle text-jpl-red-light mb-3"
+          class="text-subtitle text-primary edu:text-white mb-3"
         >
           {{ data.label }}
         </p>
@@ -103,15 +103,17 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
-import { Swiper, Navigation, Lazy, A11y } from 'swiper'
-import type { SwiperOptions } from 'swiper'
+import Swiper from 'swiper'
+import { A11y, Navigation } from 'swiper/modules'
+import type { SwiperOptions } from 'swiper/types'
 import IconPrev from './../Icons/IconPrev.vue'
 import IconNext from './../Icons/IconNext.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import HomepageMissionsCarouselItem from './../HomepageMissionsCarousel/HomepageMissionsCarouselItem.vue'
-Swiper.use([Navigation, Lazy, A11y])
+
+Swiper.use([Navigation, A11y])
 
 export default defineComponent({
   name: 'HomepageMissionsCarousel',
@@ -173,9 +175,9 @@ export default defineComponent({
           }
         },
         on: {
-          init(swiper: Swiper) {
-            swiper.$el.removeClass('opacity-0')
-            swiper.$el.addClass('opacity-100')
+          init(swiper) {
+            const classList = swiper.el.classList
+            classList.replace('opacity-0', 'opacity-100')
           }
         }
       }
@@ -198,8 +200,6 @@ export default defineComponent({
 @import 'swiper/swiper-bundle.css';
 
 .HomepageMissionsCarousel {
-  background-image: url('~@/assets/images/jpg/bg-stars-muted.jpg');
-  background-size: cover;
   // container styles
   .swiper {
     @apply overflow-visible #{!important};

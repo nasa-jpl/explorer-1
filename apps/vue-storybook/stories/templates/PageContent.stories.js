@@ -1,7 +1,6 @@
 import { BlockHeadingData } from './../components/BlockHeading.stories'
 import { BlockKeyPointsData } from './../components/BlockKeyPoints.stories'
 import { BlockImageComparisonData } from './../components/BlockImageComparison.stories'
-import { BlockTwitterEmbedData } from './../components/BlockTwitterEmbed.stories'
 import { BlockIframeEmbedData } from './../components/BlockIframeEmbed.stories'
 import { HeroMediaData } from './../components/HeroMedia.stories'
 import { BlockRelatedLinksData } from './../components/BlockRelatedLinks.stories.js'
@@ -51,7 +50,6 @@ export const ContentPageData = {
       value:
         '<p>Lorem ipsum <a href="/missions/test-mission/">dolor</a> sit amet, consectetur adipiscing elit. Quisque vitae justo quis justo malesuada molestie. Cras sed tincidunt dui.</p><p>Integer imperdiet blandit neque vitae euismod. Nulla aliquet lacus nibh,  vel tincidunt urna efficitur non. In et eros vitae ex posuere maximus  quis eget urna. Suspendisse fringilla posuere velit sit amet posuere.  Morbi malesuada bibendum vehicula. Donec faucibus ut erat ut mattis.  Suspendisse ornare, quam at placerat cursus, dolor mi lacinia nunc, eget  maximus augue nulla in dolor.</p>\n'
     },
-    BlockTwitterEmbedData,
     BlockIframeEmbedData
   ],
   relatedLinks: [BlockRelatedLinksData.data],
@@ -71,7 +69,7 @@ export const ContentPageData = {
         label: 'Mission',
         thumbnailImage: {
           src: {
-            url: 'https://source.unsplash.com/NuE8Nu3otjo/512x288',
+            url: 'https://picsum.photos/512/288',
             width: 512,
             height: 288
           }
@@ -84,13 +82,6 @@ export const ContentPageData = {
   ],
   clearanceNumber: 'CL#12345'
 }
-
-// template
-// const PageContentTemplate = (args) => ({
-//   props: Object.keys(args),
-//   components: { PageContent },
-//   template: `<PageContent :data="contentPage"/>`
-// })
 
 // stories
 export const Template = {

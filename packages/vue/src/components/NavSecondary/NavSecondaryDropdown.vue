@@ -11,7 +11,7 @@
       :path="item.path"
       class="font-medium border-t-2 border-transparent block px-3 py-2"
       :class="{
-        'mr-auto text-jpl-red font-semibold secondary-root': index === 0,
+        'mr-auto text-primary font-semibold secondary-root': index === 0,
         'text-gray-dark': index !== 0,
         '-open': dropdownVisible
       }"
@@ -22,7 +22,7 @@
         class="flex content-center pt-2 pb-1 mb-1 transition-colors duration-100 ease-in border-b-2 border-transparent"
         :class="
           index === 0
-            ? 'can-hover:group-hover:border-jpl-red'
+            ? 'can-hover:group-hover:border-primary'
             : 'can-hover:group-hover:border-gray-mid-dark can-hover:group-hover:text-gray-mid-dark '
         "
       >
@@ -136,7 +136,7 @@ export default defineComponent({
     &.-active {
       > span {
         @apply font-bold text-gray-dark;
-        @apply border-jpl-red #{!important};
+        @apply border-primary #{!important};
       }
     }
     @include hover {

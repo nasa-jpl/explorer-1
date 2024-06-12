@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs'
+import * as Stories from './MixinCarousel.stories'
+
+<Meta of={Stories} />
+
+# MixinCarousel
+
+This is a `swiper.js` wrapper for the carousels that consist of multiple cards in view that also bleed to full width.
+
+<Canvas of={Stories.Default} />
+
+### Variants
+
+There are currently two variants that can be applied via the `variant` prop. These are used to to apply a class to the main wrapper that dictates subtle changes to the layout. For the most part, these have to do with the vertical placement of the navigation arrows.
+
+| Variant | Description                                                                                                                                                                       |
+| :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cards` | This is the default variant and accommodates cards that have text below the image. This places the navigation arrows in the vertical center of an image with a 16:9 aspect ratio. |
+| `tiles` | This places the navigation arrows in the vertical center of the entire slide                                                                                                      |
+
+## Basic Usage
+
+The default slot should be your slides, and each slide must have the `.swiper-slide` class.
+
+### Option with a link in the top right
+
+And with a link using the `link` and `linkTitle` props:
+
+<Canvas of={Stories.BaseCarouselWLink} />
+
+## Used in the following components
+
+See [all usage in the repository](https://github.com/nasa-jpl/www-frontend/search?q=MixinCarousel&type=code).

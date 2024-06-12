@@ -1,0 +1,71 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import * as Stories from './themes.stories'
+
+<Meta of={Stories} />
+
+# Themes
+
+Throughout this storybook, you can use the Theme and Variant selectors in the Storybook toolbar to preview components in different theme configurations.
+
+**Note:** some documentation pages use iframes to display components, which ignores the theme switcher. Thus, for the most accurate representation of the internal theme, we recommend viewing the story in isolation.
+
+## Dynamic color tokens
+
+There are dynamic color tokens in place that use a semantic name instead of a specific color name. These tokens are use strategically in components to support multiple themes.
+
+Changing the Theme and Variant to see how the dynamic tokens change.
+
+<Canvas of={Stories.DynamicTokenStory} />
+
+## Light & Dark Variants
+
+`.ThemeVariantLight` and `.ThemeVariantDark` in Explorer 1 are theme variants. Note that not all components support these variants.
+
+### Key Points
+
+- `defaultTheme` and `ThemeVariantLight` are the defaults
+- It is recommended that page templates always include the default variant.
+
+### Contributing developers: Writing light/dark theme styles for components
+
+For components that have light and dark themes, add theme rules to the end of your scss. The following is an example of a component whose background should be `bg-white` by default and in `ThemeVariantLight` but `bg-black` in `ThemeVariantDark`
+
+```scss
+.MyComponent {
+  // set the default background color
+  @apply bg-white;
+  // set the ThemeVariantDark background color
+  .ThemeVariantDark & {
+    @apply bg-black;
+  }
+}
+```
+
+## Adaptive Text Colors
+
+Usage of `.text-action` vs `.text-action` in the context of `.ThemeVariantLight` and `.ThemeVariantDark` ensures that the contrast of the text color is sufficient against the background color. These adaptive text colors are supported by all themes.
+
+### Definition (excerpt)
+
+```css
+.text-action {
+  @apply text-action;
+  .ThemeVariantDark & {
+    @apply text-action-light;
+  }
+}
+.text-action-hover {
+  @apply text-action-dark;
+  .ThemeVariantDark & {
+    @apply text-action;
+  }
+}
+```
+
+### Usage
+
+Try changing the Theme and Variant while viewing the examples below. Notice how there are slight changes in color between the Dark and Light variants.
+
+<Canvas of={Stories.AdaptiveText} />
+
+See [BaseLink](?path=/docs/components-base-baselink--docs) for a real usage example.

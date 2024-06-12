@@ -7,6 +7,7 @@ interface Variants {
 
 export const variants: Variants = {
   primary: '-primary',
+  'reverse-primary': '-reverse-primary',
   secondary: '-secondary',
   dark: '-dark',
   social: '-social'

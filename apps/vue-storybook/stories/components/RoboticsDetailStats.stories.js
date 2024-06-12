@@ -34,7 +34,7 @@ export const RoboticsDetailStatsData = {
       url: 'https://images.unsplash.com/photo-1535468899888-92047ec84051?fm=webp&crop=entropy&w=320&h=320&fit=crop'
     },
     src: {
-      url: 'https://source.unsplash.com/mm4yj7L6Hk0/320x320'
+      url: 'https://picsum.photos/320/320'
     }
   },
   robotDestinations: [

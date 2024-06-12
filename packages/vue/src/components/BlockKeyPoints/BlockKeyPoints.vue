@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import BlockHeading from './../BlockHeading/BlockHeading.vue'
 import BlockText from './../BlockText/BlockText.vue'

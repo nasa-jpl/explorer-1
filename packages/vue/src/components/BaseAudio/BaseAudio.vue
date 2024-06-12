@@ -117,7 +117,8 @@
     />
   </div>
 </template>
-<script>
+<script lang="ts">
+// @ts-nocheck
 import { defineComponent } from 'vue'
 import IconPlay from './../Icons/IconPlay.vue'
 import IconPause from './../Icons/IconPause.vue'

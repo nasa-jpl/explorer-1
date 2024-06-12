@@ -25,7 +25,7 @@
 
   /* stylelint-disable at-rule-empty-line-before, declaration-empty-line-before */
   .text-h1-alt {
-    @apply font-bold tracking-tighter;
+    @apply font-bold tracking-tighter edu:font-extrabold;
     font-size: pxToRem(45);
     line-height: 1;
 
@@ -46,7 +46,7 @@
 
   h1,
   .text-h1 {
-    @apply font-medium tracking-tighter;
+    @apply font-medium edu:font-extrabold tracking-tighter;
     font-size: pxToRem(42);
     line-height: 1.15;
 
@@ -67,7 +67,7 @@
 
   h2,
   .text-h2 {
-    @apply font-medium tracking-tight;
+    @apply font-medium edu:font-extrabold tracking-tight;
     font-size: pxToRem(36);
     line-height: 1.25;
 
@@ -88,7 +88,7 @@
 
   h3,
   .text-h3 {
-    @apply font-medium tracking-tight;
+    @apply font-medium edu:font-extrabold tracking-tight;
     font-size: pxToRem(27);
     line-height: 1.25;
 
@@ -110,7 +110,7 @@
   h4,
   .text-h4 {
     // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h4
-    @apply font-medium tracking-normal;
+    @apply font-medium edu:font-extrabold tracking-normal;
     font-size: pxToRem(22);
     line-height: 1.25;
 
@@ -132,7 +132,7 @@
   h5,
   .text-h5 {
     // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h5
-    @apply font-medium tracking-normal;
+    @apply font-medium edu:font-extrabold tracking-normal;
     font-size: pxToRem(20);
     line-height: 1.25;
 
@@ -153,7 +153,7 @@
   h6,
   .text-h6 {
     // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h6
-    @apply font-bold tracking-normal;
+    @apply font-bold edu:font-bold tracking-normal;
     font-size: pxToRem(18);
     line-height: 1.6667;
 

@@ -8,7 +8,7 @@
   </BaseHeading>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 

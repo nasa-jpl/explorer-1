@@ -100,6 +100,21 @@ export const HomepageMissionsCarouselData = {
               url: imageMoon
             }
           }
+        },
+        {
+          name: 'Moon',
+          pastMissions: 26,
+          currentMissions: 0,
+          image: {
+            src: {
+              url: imageMoon,
+              width: 787,
+              height: 800
+            },
+            webp: {
+              url: imageMoon
+            }
+          }
         }
       ]
     }
@@ -115,16 +130,24 @@ const HomepageMissionsCarouselTemplate = (args) => ({
 const HomepageMissionsCarouselItemTemplate = (args) => ({
   props: Object.keys(args),
   components: { HomepageMissionsCarouselItem },
-  template: `<div class="absolute inset-0 bg-black"><div class="w-80 mx-auto"><HomepageMissionsCarouselItem :data="item" /></div></div>`
+  template: `<div class="absolute inset-0 bg-stars edu:bg-primary"><div class="w-80 mx-auto"><HomepageMissionsCarouselItem :data="item" /></div></div>`
 })
 
 // stories
-export const Default = HomepageMissionsCarouselTemplate.bind({})
-Default.args = {
-  missionsCarousel: HomepageMissionsCarouselData.missionsCarousel
+export const Default = {
+  args: {
+    data: HomepageMissionsCarouselData.missionsCarousel
+  }
 }
-
-export const Item = HomepageMissionsCarouselItemTemplate.bind({})
-Item.args = {
-  item: HomepageMissionsCarouselData.missionsCarousel[0].targets[0]
+export const Item = {
+  args: {
+    data: HomepageMissionsCarouselData.missionsCarousel[0].targets[0]
+  },
+  render: (args) => ({
+    components: { HomepageMissionsCarouselItem },
+    setup() {
+      return { args }
+    },
+    template: `<div class="absolute inset-0 bg-stars bg-black"><div class="w-80 mx-auto"><HomepageMissionsCarouselItem v-bind="args" /></div></div>`
+  })
 }

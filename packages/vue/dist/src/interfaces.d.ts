@@ -84,3 +84,4 @@ export interface PageResponse {
     body?: Partial<BlockData>[];
     breadcrumb?: string;
 }
+export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu';

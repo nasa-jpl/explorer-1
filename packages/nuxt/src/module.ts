@@ -8,7 +8,11 @@ import {
   createResolver
 } from '@nuxt/kit'
 
+// TODO: Note: importing this type from elsewhere (such as @explorer-1/vue/src/interfaces) breaks the module build
+type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
+
 export interface ModuleOptions {
+  theme: Explorer1Theme
   includeStyles: boolean
   includeComponents: boolean
   includePageTemplates: boolean
@@ -22,45 +26,80 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {
+    theme: 'defaultTheme',
     includeStyles: true,
     includeComponents: true,
     includePageTemplates: true,
     includeStore: true
   },
-  async setup(_options, _nuxt) {
+  async setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
     const runtimeDir = resolver.resolve('./runtime')
     const pluginDir = resolver.resolve('./runtime/plugins')
 
-    // add plugins
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
+    // inject public assets
+    nuxt.hook('nitro:config', async (nitroConfig) => {
+      nitroConfig.publicAssets ||= []
+      nitroConfig.publicAssets.push({
+        dir: resolver.resolve(runtimeDir, 'public'),
+        maxAge: 60 * 60 * 24 * 365 // 1 year
+      })
+    })
+
+    // inject plugins
     addPlugin(resolver.resolve(pluginDir, 'dayjs'))
     addPlugin(resolver.resolve(pluginDir, 'filters'))
     addPlugin(resolver.resolve(pluginDir, 'vue-click-outside'))
     addPlugin(resolver.resolve(pluginDir, 'vue-compare-image.client'))
+    if (options.includeStore) {
+      switch (options.theme) {
+        case 'defaultTheme':
+          addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
+          break
+        case 'ThemeEdu':
+          addPlugin(resolver.resolve(pluginDir, 'set-theme-edu'))
+          break
+        case 'ThemeInternal':
+          addPlugin(resolver.resolve(pluginDir, 'set-theme-internal'))
+          break
+        default:
+          addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
+      }
+    }
 
-    if (_options.includeStyles) {
+    // TODO: Find a more elegant way to set htmlAttrs.class
+    if (!nuxt.options.app.head.htmlAttrs) {
+      nuxt.options.app.head['htmlAttrs'] = {
+        class: [options.theme]
+      }
+    } else if (!nuxt.options.app.head.htmlAttrs.class) {
+      nuxt.options.app.head.htmlAttrs['class'] = options.theme
+    } else {
+      nuxt.options.app.head.htmlAttrs.class = options.theme
+    }
+
+    if (options.includeStyles) {
       await installModule('@nuxtjs/tailwindcss', {
         configPath: resolver.resolve(runtimeDir, 'tailwind.config')
       })
 
       // add explorer-1 css
-      _nuxt.options.css.push(
+      nuxt.options.css.push(
         resolver.resolve('./../node_modules/@explorer-1/vue/src/assets/scss/', 'styles.scss')
       )
 
       // add postcss options
-      _nuxt.options.postcss = {
+      nuxt.options.postcss = {
         plugins: {
           autoprefixer: {}
         }
       }
 
       // extend nuxt's vite config without overriding nuxt.config.js
-      _nuxt.options.vite = {
-        ..._nuxt.options.vite,
+      nuxt.options.vite = {
+        ...nuxt.options.vite,
         css: {
-          ..._nuxt.options.css,
+          ...nuxt.options.css,
           preprocessorOptions: {
             scss: {
               additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
@@ -72,18 +111,18 @@ export default defineNuxtModule<ModuleOptions>({
             // make sure to externalize deps that shouldn't be bundled
             // into your library
             external: [
-              // './../node_modules/vue3-compare-image',
               './../node_modules/vue',
               './../node_modules/swiper',
               './../node_modules/@fancyapps/ui',
               './../node_modules/dayjs',
-              './../node_modules/click-outside-vue3'
+              './../node_modules/click-outside-vue3',
+              './../node_modules/vue3-compare-image'
             ]
           }
         }
       }
     }
-    if (_options.includeComponents) {
+    if (options.includeComponents) {
       // add @explorer-1/vue components
       addComponentsDir({
         path: resolver.resolve('./../node_modules/@explorer-1/vue/src/components'),
@@ -92,7 +131,7 @@ export default defineNuxtModule<ModuleOptions>({
         extensions: ['.vue']
       })
     }
-    if (_options.includePageTemplates) {
+    if (options.includePageTemplates) {
       // add @explorer-1/vue page template components
       addComponentsDir({
         path: resolver.resolve('./../node_modules/@explorer-1/vue/src/templates'),
@@ -101,15 +140,10 @@ export default defineNuxtModule<ModuleOptions>({
         extensions: ['.vue']
       })
     }
-    if (_options.includeStore) {
-      await installModule('@pinia/nuxt', {})
-      // add header store
-      addImports([
-        {
-          name: 'useHeaderStore',
-          from: resolver.resolve('./../node_modules/@explorer-1/vue/src/store/header')
-        }
-      ])
+    if (options.includeStore) {
+      await installModule('@pinia/nuxt', {
+        storesDirs: ['./store/**', resolver.resolve(runtimeDir, 'store')]
+      })
     }
   }
 })

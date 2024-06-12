@@ -116,7 +116,7 @@ export default defineComponent({
 
     &.-active {
       span {
-        @apply font-medium border-jpl-red #{!important};
+        @apply font-medium border-primary #{!important};
       }
     }
   }
