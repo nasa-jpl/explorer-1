@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "pnpm prepare && pnpm test:types && pnpm dev:prepare && nuxt-module-build build",
+    "prepack": "pnpm prepare && pnpm dev:prepare && pnpm test:types && nuxt-module-build build",
     "dev": "pnpm prepare && nuxi dev playground",
     "build": "pnpm prepack",
     "dev:build": "nuxi build playground",
