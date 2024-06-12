@@ -180,7 +180,7 @@ declare module 'vue' {
     PageGoDirectory: typeof import('./node_modules/@explorer-1/vue/src/templates/PageGoDirectory/PageGoDirectory.vue')['default']
     PageImageDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageImageDetail/PageImageDetail.vue')['default']
     PageInfographicDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageInfographicDetail/PageInfographicDetail.vue')['default']
-    PageListingIndex: typeof import('./node_modules/@explorer-1/vue/src/templates/PageListingIndex/PageListingIndex.vue')['default']
+    PageListingIndex: typeof import('./node_modules/@explorer-1/vue/src/templates/PageListingIndex.vue')['default']
     PageMaintenanceMode: typeof import('./node_modules/@explorer-1/vue/src/templates/PageMaintenanceMode/PageMaintenanceMode.vue')['default']
     PageMissionDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageMissionDetail/PageMissionDetail.vue')['default']
     PageNewsDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageNewsDetail/PageNewsDetail.vue')['default']
