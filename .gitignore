@@ -74,9 +74,12 @@ packages/**/public/explorer-1/
 packages/**/public/edu/explorer-1/
 !public/explorer-1/**/.gitkeep
 !packages/common/src/public/explorer-1
+apps/vue-storybook/public/fonts
+apps/vue-storybook/public/css
 
 # dist
 dist
 !packages/**/dist
 
 
+!.gitkeep
