@@ -1,18 +1,19 @@
 <template>
   <div
-    v-if="pageData"
+    v-if="data"
     class="max-w-screen-3xl mx-auto"
-    :class="{ '-nav-offset': pageData.featured }"
+    :class="{ '-nav-offset': data.featured }"
   >
     <HeroMedium
-      v-if="pageData.featured"
+      v-if="data.featured"
       class="md:mb-12 lg:mb-18 mb-10"
       :custom-label="customLabel"
-      :feature="pageData.featured"
+      :feature="data.featured"
       :custom-video="customVideo"
       :custom-image="customImage"
       :cta="cta"
-    />
+    />  <h1 class="text-h1">{{ data?.title }}</h1>
+
   </div>
 </template>
 <script lang="ts">
@@ -30,7 +31,7 @@ export default defineComponent({
   },
   props: {
     // pass these directly to HeroMedium
-    pageData: {
+    data: {
       type: Object,
       required: false
     },
@@ -46,17 +47,17 @@ export default defineComponent({
   computed: {
     // parses a hero streamfield block for a video (newsDetailPage model)
     customVideo(): object | undefined {
-      if (this.pageData && this.pageData.featured?.heroBlocks?.length > 0) {
-        if (this.pageData.featured.heroBlocks[0].blockType === 'VideoBlock') {
-          return this.pageData.featured.heroBlocks[0].video
+      if (this.data && this.data.featured?.heroBlocks?.length > 0) {
+        if (this.data.featured.heroBlocks[0].blockType === 'VideoBlock') {
+          return this.data.featured.heroBlocks[0].video
         }
       }
       return undefined
     },
     customImage(): object | undefined {
       // parse hero streamfield block for the first usable image (newsDetailPage model)
-      if (this.pageData && this.pageData.featured?.heroBlocks?.length > 0) {
-        const block = this.pageData.featured.heroBlocks[0]
+      if (this.data && this.data.featured?.heroBlocks?.length > 0) {
+        const block = this.data.featured.heroBlocks[0]
         if (block.blockType === 'ImageChooserBlock' || block.blockType === 'HeroImageBlock') {
           return block.image
         } else if (block.blockType === 'CarouselBlock') {
@@ -67,8 +68,8 @@ export default defineComponent({
         }
       }
       // else use heroImage
-      else if (this.pageData?.featured?.heroImage) {
-        return this.pageData.featured.heroImage
+      else if (this.data?.featured?.heroImage) {
+        return this.data.featured.heroImage
       }
       return undefined
     }

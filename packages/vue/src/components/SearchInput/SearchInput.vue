@@ -29,9 +29,9 @@
         :class="isFocused ? 'border-opacity-100' : 'border-opacity-50'"
       ></span>
     </div>
-
+{{  model  }}
     <input
-      ref="searchQuery"
+      ref="searchQueryRef"
       class="pl-14 focus:ring-2 relative z-10 w-full pr-5 text-lg bg-transparent border-0"
       :class="{
         'text-gray-dark': defaultColors,
@@ -40,7 +40,7 @@
       }"
       type="search"
       aria-label="Query"
-      :value="value"
+      v-model="model"
       :placeholder="placeholder"
       @keydown.esc="$emit('esc')"
       @input="$emit('input', $event.target?.value)"
@@ -49,56 +49,85 @@
     />
   </div>
 </template>
-<script lang="ts">
-// @ts-nocheck
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+// import { defineComponent } from 'vue'
 import IconSearch from './../Icons/IconSearch.vue'
 
-export default defineComponent({
-  name: 'SearchInput',
-  components: {
-    IconSearch
-  },
-  props: {
-    value: String,
-    // used in navigation search form
-    underlinedInput: {
-      type: Boolean,
-      default: false
-    },
-    // assign the same value as value (i.e. searchQuery)
-    underlinedInputValue: {
-      type: String || null,
-      required: false,
-      default: null
-    },
-    placeholder: {
-      type: String,
-      required: false
-    },
-    autoFocus: {
-      type: Boolean,
-      default: false
-    },
-    // note: if(underlinedInput), then the border will be overridden
-    defaultColors: {
-      type: Boolean,
-      default: true
-    }
-  },
-  data() {
-    return {
-      isFocused: false
-    }
-  },
-  mounted() {
-    if (this.autoFocus) {
-      const inputField = this.$refs.searchQuery as HTMLElement
-      inputField.focus()
-      this.isFocused = true
-    }
+interface SearchInputProps {
+  underlinedInput?: boolean
+  underlinedInputValue?: string
+  placeholder?: string
+  autoFocus?: boolean
+  defaultColors?: boolean
+}
+
+// define props
+const props = withDefaults(defineProps<SearchInputProps>(), {
+  underlinedInput: false,
+  underlinedInputValue: undefined,
+  placeholder: '',
+  autoFocus: false,
+  defaultColors: true,
+})
+
+const model = defineModel()
+const isFocused = ref(false)
+const searchQueryRef = ref(undefined)
+
+onMounted(() => {
+  if (props.autoFocus && searchQueryRef.value) {
+    const inputField = searchQueryRef.value as HTMLElement
+    inputField.focus()
+    isFocused.value = true
   }
 })
+
+// export default defineComponent({
+//   name: 'SearchInput',
+//   components: {
+//     IconSearch
+//   },
+//   props: {
+//     modelValue: String,
+//     // used in navigation search form
+//     underlinedInput: {
+//       type: Boolean,
+//       default: false
+//     },
+//     // assign the same value as value (i.e. searchQuery)
+//     underlinedInputValue: {
+//       type: String || null,
+//       required: false,
+//       default: null
+//     },
+//     placeholder: {
+//       type: String,
+//       required: false
+//     },
+//     autoFocus: {
+//       type: Boolean,
+//       default: false
+//     },
+//     // note: if(underlinedInput), then the border will be overridden
+//     defaultColors: {
+//       type: Boolean,
+//       default: true
+//     }
+//   },
+//   data() {
+//     return {
+//       isFocused: false
+//     }
+//   },
+//   mounted() {
+//     if (this.autoFocus) {
+//       const inputField = this.$refs.searchQuery as HTMLElement
+//       inputField.focus()
+//       this.isFocused = true
+//     }
+//   }
+// })
 </script>
 <style lang="scss" scoped>
 .custom-focus {
