@@ -50,7 +50,6 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-// import { defineComponent } from 'vue'
 import IconSearch from './../Icons/IconSearch.vue'
 
 interface SearchInputProps {
@@ -83,52 +82,6 @@ onMounted(() => {
     isFocused.value = true
   }
 })
-
-// export default defineComponent({
-//   name: 'SearchInput',
-//   components: {
-//     IconSearch
-//   },
-//   props: {
-//     modelValue: String,
-//     // used in navigation search form
-//     underlinedInput: {
-//       type: Boolean,
-//       default: false
-//     },
-//     // assign the same value as value (i.e. searchQuery)
-//     underlinedInputValue: {
-//       type: String || null,
-//       required: false,
-//       default: null
-//     },
-//     placeholder: {
-//       type: String,
-//       required: false
-//     },
-//     autoFocus: {
-//       type: Boolean,
-//       default: false
-//     },
-//     // note: if(underlinedInput), then the border will be overridden
-//     defaultColors: {
-//       type: Boolean,
-//       default: true
-//     }
-//   },
-//   data() {
-//     return {
-//       isFocused: false
-//     }
-//   },
-//   mounted() {
-//     if (this.autoFocus) {
-//       const inputField = this.$refs.searchQuery as HTMLElement
-//       inputField.focus()
-//       this.isFocused = true
-//     }
-//   }
-// })
 </script>
 <style lang="scss" scoped>
 .custom-focus {
