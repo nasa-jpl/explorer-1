@@ -12,8 +12,8 @@
       :custom-video="customVideo"
       :custom-image="customImage"
       :cta="cta"
-    />  <h1 class="text-h1">{{ data?.title }}</h1>
-
+    />
+    <h1 class="text-h1">{{ data?.title }}</h1>
   </div>
 </template>
 <script lang="ts">

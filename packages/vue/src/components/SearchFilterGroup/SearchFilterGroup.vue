@@ -86,6 +86,7 @@ export default {
       default: false
     }
   },
+  emits: ['update:filterBy'],
   data() {
     return {
       checkbox: {
@@ -95,9 +96,6 @@ export default {
       }
     }
   },
-  emits: [
-    'update:filterBy'
-  ],
   computed: {
     // to sync both ways parent <--> child
     // ensures accurate filter visual state when using URL query strings

@@ -31,6 +31,7 @@
     </div>
     <input
       ref="searchQueryRef"
+      v-model="model"
       class="pl-14 focus:ring-2 relative z-10 w-full pr-5 text-lg bg-transparent border-0"
       :class="{
         'text-gray-dark': defaultColors,
@@ -39,7 +40,6 @@
       }"
       type="search"
       aria-label="Query"
-      v-model="model"
       :placeholder="placeholder"
       @keydown.esc="emit('esc')"
       @input="emit('input', $event.target)"
@@ -66,7 +66,7 @@ const props = withDefaults(defineProps<SearchInputProps>(), {
   underlinedInputValue: undefined,
   placeholder: '',
   autoFocus: false,
-  defaultColors: true,
+  defaultColors: true
 })
 
 const emit = defineEmits(['input', 'esc'])
