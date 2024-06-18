@@ -69,6 +69,7 @@ declare module 'vue' {
     FormContact: typeof import('./node_modules/@explorer-1/vue/src/components/FormContact/FormContact.vue')['default']
     FormNewsletterSignup: typeof import('./node_modules/@explorer-1/vue/src/components/FormNewsletterSignup/FormNewsletterSignup.vue')['default']
     HeroLarge: typeof import('./node_modules/@explorer-1/vue/src/components/HeroLarge/HeroLarge.vue')['default']
+    HeroListingIndex: typeof import('./node_modules/@explorer-1/vue/src/components/HeroListingIndex/HeroListingIndex.vue')['default']
     HeroMedia: typeof import('./node_modules/@explorer-1/vue/src/components/HeroMedia/HeroMedia.vue')['default']
     HeroMedium: typeof import('./node_modules/@explorer-1/vue/src/components/HeroMedium/HeroMedium.vue')['default']
     HomePage: typeof import('./node_modules/@explorer-1/vue/src/templates/www/HomePage.vue')['default']

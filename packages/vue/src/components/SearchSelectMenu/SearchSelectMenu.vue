@@ -45,6 +45,7 @@ export default {
       required: true
     }
   },
+  emits: ['update:selectValue'],
   computed: {
     // to sync both ways parent <--> child
     // ensures accurate filter visual state when using URL query strings
@@ -54,7 +55,6 @@ export default {
       },
       set(newValue) {
         this.$emit('update:selectValue', newValue)
-        this.$emit('resetPage')
       }
     }
   },

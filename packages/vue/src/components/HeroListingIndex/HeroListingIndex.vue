@@ -17,15 +17,15 @@
   </div>
 </template>
 <script lang="ts">
-// PageListingIndex
-// Creating a wrapper for HeroMedium as PageListingIndex
+// HeroListingIndex
+// Creating a wrapper for HeroMedium as HeroListingIndex
 // needs to parse several different data shapes
 // Parsing occurs in the computed data and returns the appropriate data object for the media if it exists
 import { defineComponent } from 'vue'
-import HeroMedium from '../components/HeroMedium/HeroMedium.vue'
+import HeroMedium from '../HeroMedium/HeroMedium.vue'
 
 export default defineComponent({
-  name: 'PageListingIndex',
+  name: 'HeroListingIndex',
   components: {
     HeroMedium
   },

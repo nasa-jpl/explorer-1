@@ -96,8 +96,7 @@ export default {
     }
   },
   emits: [
-    'update:filterBy',
-    'resetPage'
+    'update:filterBy'
   ],
   computed: {
     // to sync both ways parent <--> child
@@ -108,8 +107,6 @@ export default {
       },
       set(newValue) {
         this.$emit('update:filterBy', newValue)
-        // emit the `resetPage` event whenever these values are changed manually
-        this.$emit('resetPage')
       }
     },
     bucketsLength() {
