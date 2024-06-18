@@ -11,6 +11,7 @@ declare module 'vue' {
     BackToTop: typeof import('./node_modules/@explorer-1/vue/src/components/BackToTop/BackToTop.vue')['default']
     BaseAudio: typeof import('./node_modules/@explorer-1/vue/src/components/BaseAudio/BaseAudio.vue')['default']
     BaseButton: typeof import('./node_modules/@explorer-1/vue/src/components/BaseButton/BaseButton.vue')['default']
+    BaseCheckbox: typeof import('./node_modules/@explorer-1/vue/src/components/BaseCheckbox/BaseCheckbox.vue')['default']
     BaseCheckboxGroup: typeof import('./node_modules/@explorer-1/vue/src/components/BaseCheckboxGroup/BaseCheckboxGroup.vue')['default']
     BaseHeading: typeof import('./node_modules/@explorer-1/vue/src/components/BaseHeading/BaseHeading.vue')['default']
     BaseImage: typeof import('./node_modules/@explorer-1/vue/src/components/BaseImage/BaseImage.vue')['default']

@@ -29,7 +29,6 @@
         :class="isFocused ? 'border-opacity-100' : 'border-opacity-50'"
       ></span>
     </div>
-{{  model  }}
     <input
       ref="searchQueryRef"
       class="pl-14 focus:ring-2 relative z-10 w-full pr-5 text-lg bg-transparent border-0"
@@ -42,8 +41,8 @@
       aria-label="Query"
       v-model="model"
       :placeholder="placeholder"
-      @keydown.esc="$emit('esc')"
-      @input="$emit('input', $event.target?.value)"
+      @keydown.esc="emit('esc')"
+      @input="emit('input', $event.target)"
       @focus="isFocused = true"
       @blur="isFocused = false"
     />
@@ -70,6 +69,8 @@ const props = withDefaults(defineProps<SearchInputProps>(), {
   autoFocus: false,
   defaultColors: true,
 })
+
+const emit = defineEmits(['input', 'esc'])
 
 const model = defineModel()
 const isFocused = ref(false)

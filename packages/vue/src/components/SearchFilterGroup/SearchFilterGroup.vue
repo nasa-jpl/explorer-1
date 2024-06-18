@@ -95,6 +95,10 @@ export default {
       }
     }
   },
+  emits: [
+    'update:filterBy',
+    'resetPage'
+  ],
   computed: {
     // to sync both ways parent <--> child
     // ensures accurate filter visual state when using URL query strings
