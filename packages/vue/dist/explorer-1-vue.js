@@ -906,7 +906,7 @@ const Te = /* @__PURE__ */ C(zt, [["render", Ft]]), Vt = k({
     color: {
       type: String,
       required: !1,
-      default: "text-theme-red"
+      default: "text-primary"
     },
     // default margin left class
     marginLeft: {
@@ -1550,7 +1550,7 @@ const Je = /* @__PURE__ */ C(da, [["render", ha]]), X = {
         return a.type === "image" && (t = `<div class="mx-auto container">
               ${a.title ? `<h6 class="font-semibold text-4xl mb-1">${a.title}</h6>` : ""}
               ${t.length ? `<div class="caption inline sm:flex text-body-md pb-2 mr-2 sm:mr-0"><div class="inline">${t}</div></div>` : ""}
-              ${a.url ? `<a href="${a.url}" class="inline-block text-body-md whitespace-nowrap relative text-theme-red can-hover:hover:text-theme-red-hover cursor-pointer focus:outline-none" title="Full Image Details">Full Image Details</a>` : ""}
+              ${a.url ? `<a href="${a.url}" class="inline-block text-body-md whitespace-nowrap relative text-primary can-hover:hover:text-primary-dark cursor-pointer focus:outline-none" title="Full Image Details">Full Image Details</a>` : ""}
             </div>`), t;
       }
     });

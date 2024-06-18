@@ -263,7 +263,7 @@ export default defineComponent({
               }
               ${
                 slide.url
-                  ? `<a href="${slide.url}" class="inline-block text-body-md whitespace-nowrap relative text-theme-red can-hover:hover:text-theme-red-hover cursor-pointer focus:outline-none" title="Full Image Details">Full Image Details</a>`
+                  ? `<a href="${slide.url}" class="inline-block text-body-md whitespace-nowrap relative text-primary can-hover:hover:text-primary-dark cursor-pointer focus:outline-none" title="Full Image Details">Full Image Details</a>`
                   : ''
               }
             </div>`

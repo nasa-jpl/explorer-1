@@ -142,6 +142,7 @@ const preview: Preview = {
             'Blocks',
             ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
             'Heroes',
+            ['*', 'HeroMedia', 'HeroListingIndex'],
             'Forms',
             ['Overview', 'TextInput', 'TextArea'],
             'Search',
