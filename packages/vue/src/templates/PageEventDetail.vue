@@ -35,7 +35,7 @@
         class="flex flex-wrap items-start mb-3"
       >
         <nuxt-link
-          class="py-3 cursor-pointer group nuxt-link-active text-subtitle text-theme-red can-hover:hover:text-theme-red-hover"
+          class="py-3 cursor-pointer group nuxt-link-active text-subtitle text-primary can-hover:hover:text-primary-dark"
           to="/events"
         >
           {{ data.label }}
@@ -72,13 +72,13 @@
           class="py-1 mb-10 text-xl lg:mb-0 lg:flex"
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
-          <div class="PageEventDetail__Metadata text-theme-red">
+          <div class="PageEventDetail__Metadata text-primary">
             <IconCalendar class="relative mr-3" />
             <span>{{ formattedEventDates }}</span>
           </div>
           <div
             v-show="displayTime"
-            class="PageEventDetail__Metadata text-theme-red"
+            class="PageEventDetail__Metadata text-primary"
           >
             <IconTime class="relative mr-3" />
             <span>{{ displayTime }}</span>
@@ -89,7 +89,7 @@
             itemprop="location"
             itemscope
             itemtype="https://schema.org/VirtualLocation"
-            class="PageEventDetail__Metadata text-theme-red"
+            class="PageEventDetail__Metadata text-primary"
           >
             <link
               itemprop="url"
@@ -111,7 +111,7 @@
           <!-- Normal location -->
           <div
             v-else-if="data.location"
-            class="PageEventDetail__Metadata text-theme-red"
+            class="PageEventDetail__Metadata text-primary"
           >
             <meta
               itemprop="location"

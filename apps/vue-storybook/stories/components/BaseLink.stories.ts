@@ -22,7 +22,7 @@ export const BaseLinkData = {
   to: '/',
   href: '/',
   caret: false,
-  caretColor: 'text-theme-red',
+  caretColor: 'text-primary',
   default: 'Link Text'
 }
 

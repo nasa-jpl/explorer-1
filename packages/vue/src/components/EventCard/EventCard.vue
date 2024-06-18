@@ -24,20 +24,20 @@
         </p>
 
         <div class="md:mt-10 text-xl md:flex">
-          <div class="EventCard__Metadata flex text-theme-red text-body-sm">
+          <div class="EventCard__Metadata flex text-primary text-body-sm">
             <IconCalendar class="relative mr-3" />
             <span> {{ formattedEventDates }}</span>
           </div>
           <div
             v-show="displayTime"
-            class="EventCard__Metadata hidden md:flex text-theme-red text-body-sm"
+            class="EventCard__Metadata hidden md:flex text-primary text-body-sm"
           >
             <IconTime class="relative mr-3" />
             <span>{{ displayTime }}</span>
           </div>
           <div
             v-if="location"
-            class="EventCard__Metadata flex text-theme-red text-body-sm"
+            class="EventCard__Metadata flex text-primary text-body-sm"
           >
             <IconLocation class="relative mr-3" />
             <span>{{ location }}</span>
