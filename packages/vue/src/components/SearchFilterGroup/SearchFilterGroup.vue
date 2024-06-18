@@ -29,7 +29,7 @@
           v-model="filterByHandler"
           type="checkbox"
           :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
-          class="text-theme-red focus:ring-2 focus:ring-jpl-red flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
+          class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
         />
         <!-- 'key_as_string' exists for dates to have a human readable version -->
         <label
@@ -49,7 +49,7 @@
 
     <div v-show="truncateFilters && bucketsLength > checkbox.initialLimit">
       <button
-        class="can-hover:hover:underline text-theme-red mt-2"
+        class="can-hover:hover:underline text-primary mt-2"
         :aria-expanded="!checkbox.showMore ? 'true' : 'false'"
         aria-haspopup="true"
         :aria-controls="`filterGroup_${groupKey}`"
@@ -86,6 +86,7 @@ export default {
       default: false
     }
   },
+  emits: ['update:filterBy'],
   data() {
     return {
       checkbox: {
@@ -104,8 +105,6 @@ export default {
       },
       set(newValue) {
         this.$emit('update:filterBy', newValue)
-        // emit the `resetPage` event whenever these values are changed manually
-        this.$emit('resetPage')
       }
     },
     bucketsLength() {

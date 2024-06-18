@@ -8,7 +8,7 @@
     <select
       :id="generateId()"
       v-model="selectValueHandler"
-      class="border-0 text-theme-red can-hover:hover:text-theme-red-hover font-secondary font-semibold tracking-wider uppercase align-middle"
+      class="border-0 text-primary can-hover:hover:text-primary-dark font-secondary font-semibold tracking-wider uppercase align-middle"
     >
       <option
         disabled
@@ -45,6 +45,7 @@ export default {
       required: true
     }
   },
+  emits: ['update:selectValue'],
   computed: {
     // to sync both ways parent <--> child
     // ensures accurate filter visual state when using URL query strings
@@ -54,7 +55,6 @@ export default {
       },
       set(newValue) {
         this.$emit('update:selectValue', newValue)
-        this.$emit('resetPage')
       }
     }
   },

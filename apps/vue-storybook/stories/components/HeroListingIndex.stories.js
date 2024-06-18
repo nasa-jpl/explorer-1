@@ -1,26 +1,18 @@
 import videoMp4 from '@explorer-1/common-storybook/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4'
 import videoWebm from '@explorer-1/common-storybook/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm'
-import PageListingIndex from '@explorer-1/vue/src/templates/PageListingIndex.vue'
+import HeroListingIndex from '@explorer-1/vue/src/components/HeroListingIndex/HeroListingIndex.vue'
 
 export default {
-  title: 'Templates/PageListingIndex',
-  component: PageListingIndex,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0 disable-nav-offset"><story/><div class="container mx-auto">The rest of the page goes here (searchHelpers mixin)</div></div>`
-    })
-  ],
+  title: 'Components/Heroes/HeroListingIndex',
+  component: HeroListingIndex,
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    },
     viewMode: 'canvas'
   },
   excludeStories: /.*Data$/
 }
 
 // data
-export const PageListingIndexData = {
+export const HeroListingIndexData = {
   listingPage: {
     featured: {
       url: '/news/new-maps-open-roads-to-research/',
@@ -49,14 +41,14 @@ export const PageListingIndexData = {
 export const Default = {
   args: {
     customLabel: 'Featured',
-    pageData: PageListingIndexData.listingPage
+    data: HeroListingIndexData.listingPage
   }
 }
 
 export const NewsImageHero = {
   args: {
     customLabel: 'Featured',
-    pageData: {
+    data: {
       featured: {
         url: '/news/new-maps-open-roads-to-research/',
         title: 'Creating Robots to go Where Humans Can’t',
@@ -88,7 +80,7 @@ export const NewsImageHero = {
 export const NewsVideoHero = {
   args: {
     customLabel: 'Featured',
-    pageData: {
+    data: {
       featured: {
         url: '/news/new-maps-open-roads-to-research/',
         title: 'Creating Robots to go Where Humans Can’t',
@@ -109,7 +101,7 @@ export const NewsVideoHero = {
 export const NewsCarouselHero = {
   args: {
     customLabel: 'Featured',
-    pageData: {
+    data: {
       featured: {
         url: '/news/new-maps-open-roads-to-research/',
         title: 'Creating Robots to go Where Humans Can’t',

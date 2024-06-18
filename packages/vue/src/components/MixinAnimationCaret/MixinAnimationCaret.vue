@@ -25,7 +25,7 @@ export default defineComponent({
     color: {
       type: String,
       required: false,
-      default: 'text-theme-red'
+      default: 'text-primary'
     },
     // default margin left class
     marginLeft: {
