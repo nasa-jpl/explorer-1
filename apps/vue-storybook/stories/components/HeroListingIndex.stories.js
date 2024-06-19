@@ -41,14 +41,14 @@ export const HeroListingIndexData = {
 export const Default = {
   args: {
     customLabel: 'Featured',
-    data: HeroListingIndexData.listingPage
+    pageData: HeroListingIndexData.listingPage
   }
 }
 
 export const NewsImageHero = {
   args: {
     customLabel: 'Featured',
-    data: {
+    pageData: {
       featured: {
         url: '/news/new-maps-open-roads-to-research/',
         title: 'Creating Robots to go Where Humans Can’t',
@@ -80,7 +80,7 @@ export const NewsImageHero = {
 export const NewsVideoHero = {
   args: {
     customLabel: 'Featured',
-    data: {
+    pageData: {
       featured: {
         url: '/news/new-maps-open-roads-to-research/',
         title: 'Creating Robots to go Where Humans Can’t',
