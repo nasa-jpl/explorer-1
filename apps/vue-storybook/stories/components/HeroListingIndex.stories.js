@@ -15,6 +15,7 @@ export default {
 export const HeroListingIndexData = {
   listingPage: {
     featured: {
+      topicLabel: 'Mars',
       url: '/news/new-maps-open-roads-to-research/',
       title: 'Creating Robots to go Where Humans Can’t',
       image: {
@@ -50,12 +51,13 @@ export const NewsImageHero = {
     customLabel: 'Featured',
     pageData: {
       featured: {
+        topicLabel: 'Mars',
         url: '/news/new-maps-open-roads-to-research/',
         title: 'Creating Robots to go Where Humans Can’t',
         heroBlocks: [
           {
             blockType: 'ImageChooserBlock',
-            image: {
+            listingPageHeroImage: {
               src: {
                 url: 'https://picsum.photos/id/973/1800/1200',
                 width: 1800,
@@ -82,6 +84,7 @@ export const NewsVideoHero = {
     customLabel: 'Featured',
     pageData: {
       featured: {
+        topicLabel: 'Mars',
         url: '/news/new-maps-open-roads-to-research/',
         title: 'Creating Robots to go Where Humans Can’t',
         heroBlocks: [
@@ -101,8 +104,9 @@ export const NewsVideoHero = {
 export const NewsCarouselHero = {
   args: {
     customLabel: 'Featured',
-    data: {
+    pageData: {
       featured: {
+        topicLabel: 'Mars',
         url: '/news/new-maps-open-roads-to-research/',
         title: 'Creating Robots to go Where Humans Can’t',
         heroBlocks: [
@@ -110,7 +114,7 @@ export const NewsCarouselHero = {
             blockType: 'CarouselBlock',
             blocks: [
               {
-                image: {
+                listingPageHeroImage: {
                   src: {
                     url: 'https://picsum.photos/id/973/1800/1200',
                     width: 1800,
@@ -127,7 +131,7 @@ export const NewsCarouselHero = {
                 }
               },
               {
-                image: {
+                listingPageHeroImage: {
                   src: {
                     url: 'https://picsum.photos/id/973/1800/1200',
                     width: 1800,

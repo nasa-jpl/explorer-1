@@ -41,13 +41,16 @@
           :to="feature.url"
           class="lg:w-1/2 xl:w-5/12 block"
         >
-          <p
-            v-if="customLabel || feature.label"
-            class="text-subtitle lg:mb-3 mb-2"
-          >
-            {{ customLabel || feature.label }}
-            <span class="sr-only">.</span>
-          </p>
+          <div v-if="customTag || customLabel || feature.label" class="flex items-center lg:mb-3 mb-2">
+            <BaseTag v-if="customTag" variant="primary" size="sm" class="mr-3">{{ customTag }}</BaseTag>
+            <p
+              v-if="customLabel || feature.label"
+              class="text-subtitle"
+            >
+              {{ customLabel || feature.label }}
+              <span class="sr-only">.</span>
+            </p>
+          </div>
           <p class="text-h3 font-semibold mb-0">
             <span class="mr-2">{{ feature.title }}</span>
             <span
@@ -80,6 +83,7 @@ import { mixinTransparentHeader } from '../../utils/mixins'
 import type { ImageObject } from '../../interfaces'
 import IconArrow from './../Icons/IconArrow.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
+import BaseTag from './../BaseTag/BaseTag.vue'
 import MixinVideoBg from './../MixinVideoBg/MixinVideoBg.vue'
 
 export default defineComponent({
@@ -92,6 +96,10 @@ export default defineComponent({
   props: {
     feature: {
       type: Object,
+      required: false
+    },
+    customTag: {
+      type: String,
       required: false
     },
     customLabel: {

@@ -7,7 +7,8 @@
     <HeroMedium
       v-if="pageData.featured"
       class="md:mb-12 lg:mb-18 mb-10"
-      :custom-label="customLabel"
+      :custom-tag="themeStore.theme === 'ThemeEdu' && customLabel ? customLabel : undefined"
+      :custom-label="themeStore.theme === 'ThemeEdu' ? pageData.featured.topicLabel : customLabel"
       :feature="pageData.featured"
       :custom-video="customVideo"
       :custom-image="customImage"
@@ -17,10 +18,11 @@
 </template>
 <script lang="ts">
 // HeroListingIndex
-// Creating a wrapper for HeroMedium as HeroListingIndex
-// needs to parse several different data shapes
-// Parsing occurs in the computed data and returns the appropriate data object for the media if it exists
+// Creating a wrapper for HeroMedium as HeroListingIndex needs to parse several different data shapes.
+// Parsing occurs in the computed data and returns the appropriate data object for the media if it exists.
 import { defineComponent } from 'vue'
+import { useThemeStore } from '../../store/theme';
+import { mapStores } from 'pinia'
 import HeroMedium from '../HeroMedium/HeroMedium.vue'
 
 export default defineComponent({
@@ -44,6 +46,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
     // parses a hero streamfield block for a video (newsDetailPage model)
     customVideo(): object | undefined {
       if (this.pageData && this.pageData.featured?.heroBlocks?.length > 0) {
