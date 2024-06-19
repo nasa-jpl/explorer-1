@@ -1,19 +1,18 @@
 <template>
   <div
-    v-if="data"
+    v-if="pageData"
     class="max-w-screen-3xl mx-auto"
-    :class="{ '-nav-offset': data.featured }"
+    :class="{ '-nav-offset': pageData.featured }"
   >
     <HeroMedium
-      v-if="data.featured"
+      v-if="pageData.featured"
       class="md:mb-12 lg:mb-18 mb-10"
       :custom-label="customLabel"
-      :feature="data.featured"
+      :feature="pageData.featured"
       :custom-video="customVideo"
       :custom-image="customImage"
       :cta="cta"
     />
-    <h1 class="text-h1">{{ data?.title }}</h1>
   </div>
 </template>
 <script lang="ts">
@@ -31,7 +30,7 @@ export default defineComponent({
   },
   props: {
     // pass these directly to HeroMedium
-    data: {
+    pageData: {
       type: Object,
       required: false
     },
@@ -47,29 +46,29 @@ export default defineComponent({
   computed: {
     // parses a hero streamfield block for a video (newsDetailPage model)
     customVideo(): object | undefined {
-      if (this.data && this.data.featured?.heroBlocks?.length > 0) {
-        if (this.data.featured.heroBlocks[0].blockType === 'VideoBlock') {
-          return this.data.featured.heroBlocks[0].video
+      if (this.pageData && this.pageData.featured?.heroBlocks?.length > 0) {
+        if (this.pageData.featured.heroBlocks[0].blockType === 'VideoBlock') {
+          return this.pageData.featured.heroBlocks[0].video
         }
       }
       return undefined
     },
     customImage(): object | undefined {
       // parse hero streamfield block for the first usable image (newsDetailPage model)
-      if (this.data && this.data.featured?.heroBlocks?.length > 0) {
-        const block = this.data.featured.heroBlocks[0]
+      if (this.pageData && this.pageData.featured?.heroBlocks?.length > 0) {
+        const block = this.pageData.featured.heroBlocks[0]
         if (block.blockType === 'ImageChooserBlock' || block.blockType === 'HeroImageBlock') {
-          return block.image
+          return block.listingPageHeroImage
         } else if (block.blockType === 'CarouselBlock') {
           // use the first image in the carousel
           if (block.blocks && block.blocks.length > 0) {
-            return block.blocks[0].image
+            return block.blocks[0].listingPageHeroImage
           }
         }
       }
       // else use heroImage
-      else if (this.data?.featured?.heroImage) {
-        return this.data.featured.heroImage
+      else if (this.pageData?.featured?.listingPageHeroImage) {
+        return this.pageData.featured.listingPageHeroImage
       }
       return undefined
     }
