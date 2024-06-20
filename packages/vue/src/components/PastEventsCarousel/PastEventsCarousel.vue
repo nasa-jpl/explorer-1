@@ -46,11 +46,6 @@ export default defineComponent({
       required: true
     }
   },
-  methods: {
-    parseType(type: string): string {
-        return type.toLowerCase().replace('.', '_')
-      }
-  },
   computed: {
     hasContent() {
       if (this.data?.length) {
@@ -80,6 +75,11 @@ export default defineComponent({
           }
           return page
         })
+    }
+  },
+  methods: {
+    parseType(type: string): string {
+      return type.toLowerCase().replace('.', '_')
     }
   }
 })

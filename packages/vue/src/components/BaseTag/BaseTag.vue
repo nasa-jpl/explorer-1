@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import type { Attributes } from './../../interfaces'
 
-
 // using borders to vertically center wonky font face
 const variantMap: Attributes = {
   primary: 'bg-primary border-primary',
   secondary: 'bg-secondary border-secondary',
-  action: 'bg-action border-action',
+  action: 'bg-action border-action'
 }
 
 const sizeMap: Attributes = {
   sm: 'text-xs uppercase border-t-2 py-1 px-2.5',
   md: 'text-base capitalize border-t py-2 px-3',
-  lg: 'text-lg capitalize border-t py-2 px-3',
+  lg: 'text-lg capitalize border-t py-2 px-3'
 }
 
 interface BaseTagProps {
@@ -23,11 +22,8 @@ interface BaseTagProps {
 // define props
 const props = withDefaults(defineProps<BaseTagProps>(), {
   variant: 'primary',
-  size: 'md',
+  size: 'md'
 })
-
-
-
 </script>
 <template>
   <p

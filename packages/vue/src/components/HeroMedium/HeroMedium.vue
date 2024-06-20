@@ -41,8 +41,17 @@
           :to="feature.url"
           class="lg:w-1/2 xl:w-5/12 block"
         >
-          <div v-if="customTag || customLabel || feature.label" class="flex items-center lg:mb-3 mb-2">
-            <BaseTag v-if="customTag" variant="primary" size="sm" class="mr-3">{{ customTag }}</BaseTag>
+          <div
+            v-if="customTag || customLabel || feature.label"
+            class="flex items-center lg:mb-3 mb-2"
+          >
+            <BaseTag
+              v-if="customTag"
+              variant="primary"
+              size="sm"
+              class="mr-3"
+              >{{ customTag }}</BaseTag
+            >
             <p
               v-if="customLabel || feature.label"
               class="text-subtitle"
