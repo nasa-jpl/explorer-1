@@ -18,5 +18,10 @@ export const useThemeStore = defineStore('theme', {
     setTheme(value: Explorer1Theme) {
       this.theme = value
     }
+  },
+  getters: {
+    isEdu(state) {
+      return state.theme === 'ThemeEdu'
+    }
   }
 })

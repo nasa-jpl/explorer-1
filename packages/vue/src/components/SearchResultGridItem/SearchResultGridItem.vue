@@ -43,7 +43,7 @@
           />
           <div
             v-if="splitDate"
-            class="absolute top-0 left-0 z-10 px-4 py-4 text-center text-white lg:py-6 bg-jpl-red"
+            class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white lg:py-6 bg-primary"
           >
             <div class="font-extrabold text-8xl leading-tight tracking-wider">
               {{ splitDate.day }}

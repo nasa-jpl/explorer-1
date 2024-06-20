@@ -32,7 +32,7 @@ const props = withDefaults(defineProps<BaseTagProps>(), {
 <template>
   <p
     :class="`${variantMap[props.variant]} ${sizeMap[props.size]}`"
-    class="ThemeVariantLight inline-block text-white font-extrabold rounded-full leading-tight m-0"
+    class="ThemeVariantLight text-contrast-none inline-block text-white font-extrabold rounded-full leading-tight m-0"
   >
     <slot />
     <span class="sr-only">.</span>

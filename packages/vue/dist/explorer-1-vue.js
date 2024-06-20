@@ -569,6 +569,11 @@ const ne = Pe("header", {
     setTheme(e) {
       this.theme = e;
     }
+  },
+  getters: {
+    isEdu(e) {
+      return e.theme === "ThemeEdu";
+    }
   }
 });
 /*!
