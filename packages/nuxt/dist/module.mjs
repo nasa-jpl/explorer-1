@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver, addPlugin, installModule, addComponentsDir } from '@nuxt/kit';
+import { defineNuxtModule, createResolver, addPlugin, installModule, addComponentsDir, addImportsSources } from '@nuxt/kit';
 
 const module = defineNuxtModule({
   meta: {
@@ -7,7 +7,6 @@ const module = defineNuxtModule({
   },
   // Default configuration options of the Nuxt module
   defaults: {
-    theme: "defaultTheme",
     includeStyles: true,
     includeComponents: true,
     includePageTemplates: true,
@@ -29,30 +28,6 @@ const module = defineNuxtModule({
     addPlugin(resolver.resolve(pluginDir, "filters"));
     addPlugin(resolver.resolve(pluginDir, "vue-click-outside"));
     addPlugin(resolver.resolve(pluginDir, "vue-compare-image.client"));
-    if (options.includeStore) {
-      switch (options.theme) {
-        case "defaultTheme":
-          addPlugin(resolver.resolve(pluginDir, "set-theme-default"));
-          break;
-        case "ThemeEdu":
-          addPlugin(resolver.resolve(pluginDir, "set-theme-edu"));
-          break;
-        case "ThemeInternal":
-          addPlugin(resolver.resolve(pluginDir, "set-theme-internal"));
-          break;
-        default:
-          addPlugin(resolver.resolve(pluginDir, "set-theme-default"));
-      }
-    }
-    if (!nuxt.options.app.head.htmlAttrs) {
-      nuxt.options.app.head["htmlAttrs"] = {
-        class: [options.theme]
-      };
-    } else if (!nuxt.options.app.head.htmlAttrs.class) {
-      nuxt.options.app.head.htmlAttrs["class"] = options.theme;
-    } else {
-      nuxt.options.app.head.htmlAttrs.class = options.theme;
-    }
     if (options.includeStyles) {
       await installModule("@nuxtjs/tailwindcss", {
         configPath: resolver.resolve(runtimeDir, "tailwind.config")
@@ -99,6 +74,10 @@ const module = defineNuxtModule({
         extensions: [".vue"]
       });
     }
+    addImportsSources({
+      from: "@explorer-1/vue/src/interfaces",
+      imports: ["ImageObject", "Explorer1Theme"]
+    });
     if (options.includePageTemplates) {
       addComponentsDir({
         path: resolver.resolve("./../node_modules/@explorer-1/vue/src/templates"),
@@ -109,7 +88,16 @@ const module = defineNuxtModule({
     }
     if (options.includeStore) {
       await installModule("@pinia/nuxt", {
+        autoImports: ["useThemeStore"],
         storesDirs: ["./store/**", resolver.resolve(runtimeDir, "store")]
+      });
+      addImportsSources({
+        from: "@explorer-1/vue/src/store/theme",
+        imports: ["useThemeStore"]
+      });
+      addImportsSources({
+        from: "@explorer-1/vue/src/store/header",
+        imports: ["useHeaderStore"]
       });
     }
   }

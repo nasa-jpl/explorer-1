@@ -4,7 +4,7 @@
     heading="Past Events"
     variant="cards"
     :link="{
-      name: 'events',
+      path: '/events',
       query: {
         event_status: 'Past events',
         sortBy: 'eventStartDateLatest',
@@ -15,9 +15,8 @@
     indent="col-1"
     v-bind="$attrs"
   >
-    <!-- Slides -->
     <BlockLinkCard
-      v-for="(page, index) in results"
+      v-for="(page, index) in pastEvents"
       :key="index"
       :url="page.url"
       :title="page.title"
@@ -41,43 +40,27 @@ export default defineComponent({
     MixinCarousel,
     BlockLinkCard
   },
-  data() {
-    return {
-      pages: []
+  props: {
+    data: {
+      type: Object,
+      required: true
     }
   },
-  async fetch() {
-    this.pages = []
-    const params = {
-      query: '',
-      content_type: 'events.EventPage',
-      event_status: ['Past events'],
-      sort: 'eventStartDateLatest',
-      page: 0,
-      size: 10
-    }
-    const searchData = await this.$axios.$get(`_search/`, { params })
-    this.pages = searchData.hits.hits
-  },
-
   computed: {
     hasContent() {
-      if (this.pages && this.pages.length) {
+      if (this.data?.length) {
         return true
       }
       return false
     },
-    results(): ElasticSearchPage[] {
-      function parseType(type: string): string {
-        return type.toLowerCase().replace('.', '_')
-      }
-      return this.pages
+    pastEvents(): ElasticSearchPage[] {
+      return this.data
         .filter((page: ElasticSearchPage) => {
           return 'url' in page._source
         })
         .map((page: ElasticSearchPage) => {
           // helpers
-          const handle = parseType(page._source.content_type[0])
+          const handle = this.parseType(page._source.content_type[0])
           const image = page._source[handle + '__thumbnail_image']
           page.url = page._source.url
           page.title = page._source.title
@@ -92,6 +75,11 @@ export default defineComponent({
           }
           return page
         })
+    }
+  },
+  methods: {
+    parseType(type: string): string {
+      return type.toLowerCase().replace('.', '_')
     }
   }
 })

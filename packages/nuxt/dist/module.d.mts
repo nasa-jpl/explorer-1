@@ -1,8 +1,6 @@
 import * as _nuxt_schema from '@nuxt/schema';
 
-type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu';
 interface ModuleOptions {
-    theme: Explorer1Theme;
     includeStyles: boolean;
     includeComponents: boolean;
     includePageTemplates: boolean;

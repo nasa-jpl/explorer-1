@@ -5,14 +5,10 @@ import {
   addImports,
   addPlugin,
   installModule,
-  createResolver
+  createResolver,
+  addImportsSources
 } from '@nuxt/kit'
-
-// TODO: Note: importing this type from elsewhere (such as @explorer-1/vue/src/interfaces) breaks the module build
-type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
-
 export interface ModuleOptions {
-  theme: Explorer1Theme
   includeStyles: boolean
   includeComponents: boolean
   includePageTemplates: boolean
@@ -26,7 +22,6 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {
-    theme: 'defaultTheme',
     includeStyles: true,
     includeComponents: true,
     includePageTemplates: true,
@@ -51,32 +46,6 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin(resolver.resolve(pluginDir, 'filters'))
     addPlugin(resolver.resolve(pluginDir, 'vue-click-outside'))
     addPlugin(resolver.resolve(pluginDir, 'vue-compare-image.client'))
-    if (options.includeStore) {
-      switch (options.theme) {
-        case 'defaultTheme':
-          addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
-          break
-        case 'ThemeEdu':
-          addPlugin(resolver.resolve(pluginDir, 'set-theme-edu'))
-          break
-        case 'ThemeInternal':
-          addPlugin(resolver.resolve(pluginDir, 'set-theme-internal'))
-          break
-        default:
-          addPlugin(resolver.resolve(pluginDir, 'set-theme-default'))
-      }
-    }
-
-    // TODO: Find a more elegant way to set htmlAttrs.class
-    if (!nuxt.options.app.head.htmlAttrs) {
-      nuxt.options.app.head['htmlAttrs'] = {
-        class: [options.theme]
-      }
-    } else if (!nuxt.options.app.head.htmlAttrs.class) {
-      nuxt.options.app.head.htmlAttrs['class'] = options.theme
-    } else {
-      nuxt.options.app.head.htmlAttrs.class = options.theme
-    }
 
     if (options.includeStyles) {
       await installModule('@nuxtjs/tailwindcss', {
@@ -130,7 +99,11 @@ export default defineNuxtModule<ModuleOptions>({
         pathPrefix: false,
         extensions: ['.vue']
       })
-    }
+    } // types
+    addImportsSources({
+      from: '@explorer-1/vue/src/interfaces',
+      imports: ['ImageObject', 'Explorer1Theme']
+    })
     if (options.includePageTemplates) {
       // add @explorer-1/vue page template components
       addComponentsDir({
@@ -142,7 +115,16 @@ export default defineNuxtModule<ModuleOptions>({
     }
     if (options.includeStore) {
       await installModule('@pinia/nuxt', {
+        autoImports: ['useThemeStore'],
         storesDirs: ['./store/**', resolver.resolve(runtimeDir, 'store')]
+      })
+      addImportsSources({
+        from: '@explorer-1/vue/src/store/theme',
+        imports: ['useThemeStore']
+      })
+      addImportsSources({
+        from: '@explorer-1/vue/src/store/header',
+        imports: ['useHeaderStore']
       })
     }
   }

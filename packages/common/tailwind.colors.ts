@@ -123,7 +123,15 @@ export const ThemeWww = {
     '--color-primary': foundationColors['jpl-red-light'],
     '--color-primary-light': foundationColors['jpl-red-light'],
     '--color-primary-dark': foundationColors['jpl-red'],
-    '--color-primary-darker': foundationColors['jpl-red-dark']
+    '--color-primary-darker': foundationColors['jpl-red-dark'],
+    '--color-secondary': 'var(--color-primary)',
+    '--color-secondary-light': 'var(--color-primary-light)',
+    '--color-secondary-dark': 'var(--color-primary-dark)',
+    '--color-secondary-darker': 'var(--color-primary-darker)',
+    '--color-action': 'var(--color-primary)',
+    '--color-action-light': 'var(--color-primary-light)',
+    '--color-action-dark': 'var(--color-primary-dark)',
+    '--color-action-darker': 'var(--color-primary-darker)'
   }
 }
 

@@ -27,7 +27,7 @@
           <span
             class="inline-block px-1 pb-1"
             :class="{
-              'can-hover:group-hover:border-b-2 can-hover:group-hover:border-jpl-red':
+              'can-hover:group-hover:border-b-2 can-hover:group-hover:border-primary':
                 pageNumber !== ellipsis
             }"
           >
@@ -166,7 +166,7 @@ export default {
     @apply font-medium;
 
     span {
-      @apply border-jpl-red border-b-2;
+      @apply border-primary border-b-2;
     }
   }
 }
