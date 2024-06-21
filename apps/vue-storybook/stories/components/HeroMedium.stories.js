@@ -56,6 +56,7 @@ export const HeroMediumData = {
 
 export const Default = {
   args: {
+    customTag: 'News',
     customLabel: HeroMediumData.label,
     feature: HeroMediumData.feature,
     cta: HeroMediumData.cta,

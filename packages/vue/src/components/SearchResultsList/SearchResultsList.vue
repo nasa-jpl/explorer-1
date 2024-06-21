@@ -124,7 +124,7 @@ export default defineComponent({
               let topic =
                 handle === 'missions_mission'
                   ? page._source[handle + '__status_filter']
-                  : page._source.__status_filter
+                  : page._source.topic_labels_filter?.length
                     ? page._source.topic_labels_filter[0]
                     : null
               const pageType = page._source[handle + '__label']

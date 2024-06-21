@@ -24,6 +24,7 @@ declare module 'vue' {
     BasePlaceholder: typeof import('./src/components/BasePlaceholder/BasePlaceholder.vue')['default']
     BaseRadioGroup: typeof import('./src/components/BaseRadioGroup/BaseRadioGroup.vue')['default']
     BaseSwimlane: typeof import('./src/components/BaseSwimlane/BaseSwimlane.vue')['default']
+    BaseTag: typeof import('./src/components/BaseTag/BaseTag.vue')['default']
     BaseTimer: typeof import('./src/components/BaseTimer/BaseTimer.vue')['default']
     BaseUnitToggle: typeof import('./src/components/BaseUnitToggle/BaseUnitToggle.vue')['default']
     BaseVideo: typeof import('./src/components/BaseVideo/BaseVideo.vue')['default']

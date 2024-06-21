@@ -1,13 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { Attributes } from './../../interfaces'
 import type { PropType } from 'vue'
 
 export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
-interface Headings {
-  [name: string]: string
-}
-const headings: Headings = {
+const headings: Attributes = {
   h1: 'text-h1',
   h2: 'text-h2',
   h3: 'text-h3',

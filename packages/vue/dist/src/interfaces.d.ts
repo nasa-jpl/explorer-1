@@ -85,3 +85,6 @@ export interface PageResponse {
     breadcrumb?: string;
 }
 export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu';
+export interface Attributes {
+    [name: string]: string;
+}
