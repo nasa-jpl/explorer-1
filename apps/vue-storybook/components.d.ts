@@ -186,7 +186,7 @@ declare module 'vue' {
     PageListingIndex: typeof import('./node_modules/@explorer-1/vue/src/templates/PageListingIndex.vue')['default']
     PageMaintenanceMode: typeof import('./node_modules/@explorer-1/vue/src/templates/PageMaintenanceMode/PageMaintenanceMode.vue')['default']
     PageMissionDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageMissionDetail/PageMissionDetail.vue')['default']
-    PageNewsDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageNewsDetail/PageNewsDetail.vue')['default']
+    PageNewsDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageNewsDetail.vue')['default']
     PagePodcast: typeof import('./node_modules/@explorer-1/vue/src/templates/PagePodcast/PagePodcast.vue')['default']
     PagePodcastSeason: typeof import('./node_modules/@explorer-1/vue/src/templates/PagePodcastSeason/PagePodcastSeason.vue')['default']
     PagePressKitIndex: typeof import('./node_modules/@explorer-1/vue/src/templates/PagePressKitIndex/PagePressKitIndex.vue')['default']
