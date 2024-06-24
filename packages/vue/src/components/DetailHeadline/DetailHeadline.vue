@@ -39,6 +39,7 @@
     </div>
     <BaseHeading
       level="h1"
+      :size="themeStore.theme === 'ThemeEdu' ? 'h1' : 'h2'"
       :itemprop="schema ? 'headline' : undefined"
       >{{ title }}
     </BaseHeading>
@@ -81,8 +82,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
@@ -133,6 +135,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
     pubDatetime(): string | undefined {
       const currentTime = this.publicationTime || '00:00:00'
       const returnDate = new Date(this.publicationDate + ' ' + currentTime)

@@ -1,0 +1,168 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import filters from './../../utils/filters'
+import type {
+  AuthorObject,
+  ImageObject,
+  PageResponse,
+  RelatedLinkObject,
+  TopicsForDisplay,
+  ThumbnailObject
+} from './../../interfaces'
+import isEmpty from 'lodash/isEmpty'
+
+interface PageEduNewsDetail extends PageResponse {
+  heroImage: ImageObject
+  thumbnailImage: ThumbnailObject
+  heroPosition: string
+  heroConstrain: boolean
+  heroImageCaption: string
+  firstPublishedAt: string
+  lastPublishedAt: string
+  title: string
+  getTopicsForDisplay: TopicsForDisplay
+  summary: string
+  topper: string
+  author: AuthorObject
+  relatedLinks: RelatedLinkObject[]
+}
+
+interface PageEduNewsDetailProps {
+  data: PageEduNewsDetail
+}
+
+// define props
+const props = defineProps<PageEduNewsDetailProps>()
+
+const heroEmpty = computed(() => {
+  return isEmpty(props.data?.heroImage)
+})
+
+const heroInline = computed(() => {
+  if (props.data?.heroPosition === 'inline') {
+    return true
+  }
+  return false
+})
+
+const computedClass = computed(() => {
+  if (heroInline.value || heroEmpty.value) {
+    return 'pt-5 lg:pt-12'
+  } else if (!heroInline.value) {
+    return '-nav-offset'
+  }
+  return ''
+})
+
+const publicationDate = computed(() => {
+  const datetime = props.data?.firstPublishedAt
+  return datetime ? filters.displayDate(datetime, 'Date') : undefined
+})
+
+const publicationTime = computed(() => {
+  const datetime = props.data?.firstPublishedAt
+  return datetime ? filters.displayDate(datetime, 'Time') : undefined
+})
+</script>
+<template>
+  <div
+    v-if="data"
+    class="ThemeVariantLight"
+    :class="computedClass"
+    itemscope
+    itemtype="http://schema.org/Article"
+  >
+    <!-- schema.org -->
+    <meta
+      v-if="data.thumbnailImage && data.thumbnailImage.original"
+      itemprop="image"
+      :content="data.thumbnailImage.original"
+    />
+
+    <HeroMedia
+      v-if="!heroEmpty && !heroInline"
+      class="md:mb-12 lg:mb-18 mb-10"
+      :image="data.heroImage"
+      :display-caption="data.heroImage.displayCaption"
+      :caption="data.heroImage.caption"
+      :credit="data.heroImage.credit"
+      :constrain="data.heroConstrain"
+    />
+
+    <!-- news headline and author -->
+    <LayoutHelper
+      indent="col-2"
+      class="mb-10"
+    >
+      <DetailHeadline
+        :title="data.title"
+        :publication-date="publicationDate"
+        :publication-time="publicationTime"
+        :author="data.author"
+        :topics="data.getTopicsForDisplay"
+        schema
+      />
+    </LayoutHelper>
+
+    <!-- inline hero content -->
+    <LayoutHelper
+      v-if="!heroEmpty && heroInline"
+      indent="col-2"
+      class="lg:mb-22 mt-10 mb-10"
+    >
+      <BlockImageStandard
+        :data="data.heroImage"
+        :display-caption="data.heroImage.displayCaption"
+        :caption="data.heroImage.caption"
+        :constrain="data.heroConstrain"
+      />
+    </LayoutHelper>
+
+    <!-- share buttons -->
+    <LayoutHelper
+      indent="col-2"
+      class="lg:mb-0 relative mb-8"
+    >
+      <ShareButtons
+        :title="data.title"
+        :url="data.url"
+      />
+    </LayoutHelper>
+
+    <!-- summary and topper -->
+    <LayoutHelper
+      indent="col-3"
+      class="lg:mb-8 mb-5"
+    >
+      <BlockText
+        v-if="data.topper && data.topper.length > 2"
+        class="lg:mb-8 mb-5"
+        :text="data.topper"
+      />
+      <p
+        class="text-body-lg font-semibold"
+        itemprop="abstract"
+      >
+        {{ data.summary }}
+      </p>
+    </LayoutHelper>
+
+    <!-- streamfield blocks -->
+    <BlockStreamfield
+      itemprop="articleBody"
+      :data="data.body"
+    />
+    <div class="bg-stars bg-primary-darker">
+      <div class="py-10 text-center text-white">
+        <strong>Related News goes here</strong>
+      </div>
+      <!-- extras -->
+      <!-- <BlockLinkCarousel
+        item-type="cards"
+        class="mt-24"
+        heading="Explore more"
+        :items="data.getRelatedOrLatestNews"
+      /> -->
+    </div>
+  </div>
+</template>

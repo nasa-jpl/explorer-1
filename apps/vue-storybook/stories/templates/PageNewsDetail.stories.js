@@ -17,7 +17,7 @@ export default {
   component: PageNewsDetail,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0 disable-nav-offset"><story/></div>`
+      template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
     })
   ],
   parameters: {
@@ -34,6 +34,12 @@ export const NewsDetail = {
       slug: 'nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
       url: '/news/nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
       ...DetailHeadlineData,
+      getTopicsForDisplay: [
+        {
+          title: 'Mars',
+          url: 'http://localhost:3000/topics/mars'
+        }
+      ],
       topper: '',
       summary:
         'Headed to the Red Planet with the Perseverance rover, the pioneering helicopter is powered up for the first time in interplanetary space as part of a systems check.',

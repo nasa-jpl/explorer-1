@@ -172,6 +172,7 @@ declare module 'vue' {
     NewsDetailMediaContact: typeof import('./src/components/NewsDetailMediaContact/NewsDetailMediaContact.vue')['default']
     PageContent: typeof import('./src/templates/PageContent.vue')['default']
     PageEventDetail: typeof import('./src/templates/PageEventDetail.vue')['default']
+    PageNewsDetail: typeof import('./src/templates/PageNewsDetail.vue')['default']
     ParallaxContainer: typeof import('./src/components/ParallaxContainer/ParallaxContainer.vue')['default']
     ParallaxElement: typeof import('./src/components/ParallaxElement/ParallaxElement.vue')['default']
     PastEventsCarousel: typeof import('./src/components/PastEventsCarousel/PastEventsCarousel.vue')['default']

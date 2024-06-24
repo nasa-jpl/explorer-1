@@ -178,6 +178,7 @@ declare module 'vue' {
     PageAudioDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageAudioDetail/PageAudioDetail.vue')['default']
     PageContent: typeof import('./node_modules/@explorer-1/vue/src/templates/PageContent.vue')['default']
     PageCuratedGallery: typeof import('./node_modules/@explorer-1/vue/src/templates/PageCuratedGallery/PageCuratedGallery.vue')['default']
+    PageEduNewsDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/edu/PageEduNewsDetail.vue')['default']
     PageError: typeof import('./node_modules/@explorer-1/vue/src/templates/PageError/PageError.vue')['default']
     PageEventDetail: typeof import('./node_modules/@explorer-1/vue/src/templates/PageEventDetail.vue')['default']
     PageGoDirectory: typeof import('./node_modules/@explorer-1/vue/src/templates/PageGoDirectory/PageGoDirectory.vue')['default']
