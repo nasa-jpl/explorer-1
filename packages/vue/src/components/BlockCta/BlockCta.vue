@@ -48,7 +48,7 @@ export default defineComponent({
   computed: {
     ...mapStores(useThemeStore),
     buttonVariant() {
-      return this.themeStore.theme === 'ThemeEdu' ? 'reverse-primary' : 'primary'
+      return this.themeStore.theme === 'ThemeEdu' ? 'dark' : 'primary'
     }
   }
 })

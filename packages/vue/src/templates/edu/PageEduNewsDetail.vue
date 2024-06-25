@@ -102,6 +102,12 @@ const publicationTime = computed(() => {
         :topics="data.getTopicsForDisplay"
         schema
       />
+      <share-buttons-edu
+        class="mt-4"
+        :url="data.url"
+        :title="data.title"
+        :image="data.thumbnailImage?.original"
+      />
     </LayoutHelper>
 
     <!-- inline hero content -->
@@ -115,17 +121,6 @@ const publicationTime = computed(() => {
         :display-caption="data.heroImage.displayCaption"
         :caption="data.heroImage.caption"
         :constrain="data.heroConstrain"
-      />
-    </LayoutHelper>
-
-    <!-- share buttons -->
-    <LayoutHelper
-      indent="col-2"
-      class="lg:mb-0 relative mb-8"
-    >
-      <ShareButtons
-        :title="data.title"
-        :url="data.url"
       />
     </LayoutHelper>
 

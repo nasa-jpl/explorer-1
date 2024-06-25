@@ -1,6 +1,5 @@
 import { HeroMediaData } from './../../../../../apps/vue-storybook/stories/components/HeroMedia.stories'
 import { BlockStreamfieldData } from './../../../../../apps/vue-storybook/stories/components/BlockStreamfield.stories.js'
-import { BlockRelatedLinksData } from './../../../../../apps/vue-storybook/stories/components/BlockRelatedLinks.stories.js'
 import PageEduNewsDetail from './PageEduNewsDetail.vue'
 
 export default {

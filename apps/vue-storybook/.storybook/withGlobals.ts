@@ -96,7 +96,9 @@ export const withGlobals = (StoryFn, context) => {
     const savedTheme = window.localStorage.getItem('data-theme')
     useEffect(() => {
       if (theme) {
-        document.documentElement.classList.remove(savedTheme)
+        if (savedTheme) {
+          document.documentElement.classList.remove(savedTheme)
+        }
         document.documentElement.classList.add(theme)
         useTheme.setTheme(theme)
         window.localStorage.setItem('data-theme', theme)
