@@ -41,8 +41,16 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { BlockData, RelatedLinkObject } from './../../interfaces'
+
 import RelatedLink from './../BlockRelatedLinks/RelatedLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
+
+export interface BlockRelatedLinksObject extends BlockData {
+  heading: string
+  links: RelatedLinkObject[]
+}
 
 export default defineComponent({
   name: 'BlockRelatedLinks',
@@ -52,14 +60,14 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<BlockRelatedLinksObject>,
       required: true,
       default: () => ({})
     }
   },
   computed: {
     hasContent() {
-      if (Object.keys(this.data).length) {
+      if (this.data?.links?.length) {
         return true
       }
       return false

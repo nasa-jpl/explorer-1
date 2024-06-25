@@ -32,16 +32,16 @@ declare const _default: import('vue').DefineComponent<{
     to: {
         type: (StringConstructor | ObjectConstructor)[];
         required: false;
-        default: null;
+        default: undefined;
     };
     href: {
         type: StringConstructor;
         required: false;
-        default: null;
+        default: undefined;
     };
 }, unknown, unknown, {
     tag(): string;
-    theHref(): string | false;
+    theHref(): string | undefined;
     variantClass(): string;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "click"[], "click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     variant: {
@@ -73,12 +73,12 @@ declare const _default: import('vue').DefineComponent<{
     to: {
         type: (StringConstructor | ObjectConstructor)[];
         required: false;
-        default: null;
+        default: undefined;
     };
     href: {
         type: StringConstructor;
         required: false;
-        default: null;
+        default: undefined;
     };
 }>> & {
     onClick?: ((...args: any[]) => any) | undefined;

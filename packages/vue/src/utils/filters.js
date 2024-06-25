@@ -6,10 +6,15 @@ const filters = {
     if (value) {
       const dateDayjs = dayjs(value).locale(locale)
       let date
-
       switch (format) {
         case 'DateTime':
           date = dateDayjs.format('MMM D YYYY, HH:mm') // Feb 18 2021, 20:55
+          break
+        case 'Date':
+          date = dateDayjs.format('MMM D YYYY') // Feb 18 2021
+          break
+        case 'Time':
+          date = dateDayjs.format('HH:mm') // 20:55
           break
         case 'MonthAndYear':
           date = dateDayjs.format('MMM YYYY') // Feb. 2021

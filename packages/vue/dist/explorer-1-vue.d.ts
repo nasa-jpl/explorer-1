@@ -1,1 +1,1 @@
-export * from './lib/main'
+export * from './packages/vue/lib/main'

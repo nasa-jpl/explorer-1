@@ -2,6 +2,7 @@ interface Variants {
     [name: string]: string;
 }
 export declare const variants: Variants;
+export declare const primaryColorVariants: Variants;
 declare const _default: import('vue').DefineComponent<{
     variant: {
         type: StringConstructor;
@@ -71,7 +72,13 @@ declare const _default: import('vue').DefineComponent<{
         required: false;
         default: string;
     };
+    usePrimaryColor: {
+        type: BooleanConstructor;
+        required: false;
+        default: boolean;
+    };
 }, unknown, unknown, {
+    computedVariants(): Variants;
     computedClass(): string;
     theTarget(): string | undefined;
     theRel(): string | undefined;
@@ -146,6 +153,11 @@ declare const _default: import('vue').DefineComponent<{
         required: false;
         default: string;
     };
+    usePrimaryColor: {
+        type: BooleanConstructor;
+        required: false;
+        default: boolean;
+    };
 }>> & {
     onLinkClicked?: ((...args: any[]) => any) | undefined;
     onSpecificLinkClicked?: ((...args: any[]) => any) | undefined;
@@ -165,5 +177,6 @@ declare const _default: import('vue').DefineComponent<{
     caretInline: boolean;
     caretColor: string;
     caretMarginLeft: string;
+    usePrimaryColor: boolean;
 }, {}>;
 export default _default;
