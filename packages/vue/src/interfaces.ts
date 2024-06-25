@@ -7,7 +7,6 @@ export interface BreadcrumbPathObject {
 export interface BlockData {
   blockType: string
 }
-
 export interface ImageSrcObject {
   url: string
   width: number
@@ -40,12 +39,6 @@ export interface ImageObject {
 }
 
 export interface ImageBlock extends BlockData, ImageObject {}
-
-export interface TopicsForDisplay {
-  title: string
-  url: string
-}
-;[]
 
 export interface ElasticSearchPage {
   id: string | number
@@ -99,13 +92,9 @@ export interface RelatedLinkObject {
 export interface PageResponse {
   __typename: string
   contentType: string
-  body?: Streamfield
   breadcrumb?: string
   url?: string
 }
-
-export interface Streamfield extends Partial<BlockData> {}
-;[]
 
 export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
 
@@ -116,4 +105,9 @@ export interface Attributes {
 export interface AuthorObject {
   name: string
   organization: string
+}
+
+export interface Topic {
+  title: string
+  url: string
 }

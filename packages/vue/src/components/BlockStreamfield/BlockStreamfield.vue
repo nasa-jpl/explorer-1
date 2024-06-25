@@ -234,7 +234,7 @@ export const variants: Variants = {
   fluid: '-fluid'
 }
 
-interface BlockData {
+export interface StreamfieldBlockData {
   blockType: string
   id: string
   fullBleed: boolean
@@ -285,7 +285,7 @@ export default defineComponent({
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
     data: {
-      type: Array as PropType<BlockData[]>,
+      type: Array as PropType<StreamfieldBlockData[]>,
       required: false
     }
   },
@@ -300,7 +300,7 @@ export default defineComponent({
     seamlessText(index: number): boolean {
       const nextIndex = index + 1
       if (this.data && this.data[nextIndex]) {
-        const nextBlock = this.data[nextIndex] as BlockData
+        const nextBlock = this.data[nextIndex] as StreamfieldBlockData
         const nextBlockType = nextBlock.blockType
         if (nextBlockType === 'InlineImageBlock' || nextBlockType === 'RichTextBlock') {
           return true

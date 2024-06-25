@@ -86,13 +86,9 @@
 import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
+import type { Topic } from './../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
-
-interface Topic {
-  title: string
-  url: string
-}
 
 export default defineComponent({
   name: 'DetailHeadline',

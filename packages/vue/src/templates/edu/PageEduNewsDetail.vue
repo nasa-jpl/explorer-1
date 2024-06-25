@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { StreamfieldBlockData } from '../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
   AuthorObject,
   ImageObject,
   PageResponse,
   RelatedLinkObject,
-  TopicsForDisplay,
+  Topic,
   ThumbnailObject
 } from './../../interfaces'
 import isEmpty from 'lodash/isEmpty'
 
-interface PageEduNewsDetail extends PageResponse {
+interface PageEduNewsDetailObject extends PageResponse {
   heroImage: ImageObject
   thumbnailImage: ThumbnailObject
   heroPosition: string
@@ -19,15 +20,16 @@ interface PageEduNewsDetail extends PageResponse {
   firstPublishedAt: string
   lastPublishedAt: string
   title: string
-  getTopicsForDisplay: TopicsForDisplay
+  getTopicsForDisplay: Topic[]
   summary: string
   topper: string
   author: AuthorObject
   relatedLinks: RelatedLinkObject[]
+  body: StreamfieldBlockData[]
 }
 
 interface PageEduNewsDetailProps {
-  data: PageEduNewsDetail
+  data: PageEduNewsDetailObject
 }
 
 // define props
