@@ -7,7 +7,7 @@
   &:focus {
     @apply outline-none ring-2 z-10;
   }
-  @apply font-secondary font-semibold uppercase tracking-wider leading-normal cursor-pointer transition-all duration-200 ease-linear bg-gradient-to-b from-transparent-w50 relative;
+  @apply font-secondary font-semibold uppercase tracking-wider leading-normal cursor-pointer transition-all duration-200 ease-linear bg-gradient-to-b from-transparent-w50;
 
   > .label {
     @apply flex h-full items-center justify-center;

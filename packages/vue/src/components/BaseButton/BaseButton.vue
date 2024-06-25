@@ -100,7 +100,6 @@ export default defineComponent({
     :disabled="disabled"
     :href="theHref"
     :to="to ? to : undefined"
-    v-bind="$attrs"
     @click="$emit('click')"
   >
     <span class="label block">
