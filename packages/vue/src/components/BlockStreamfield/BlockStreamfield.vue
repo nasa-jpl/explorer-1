@@ -178,7 +178,7 @@
         indent="col-3"
         class="lg:mb-18 mb-10"
       >
-        <BlockRelatedLinks :data="block" />
+        <BlockRelatedLinks :data="block as any as BlockRelatedLinksObject" />
       </LayoutHelper>
 
       <BlockAnchor
@@ -214,7 +214,9 @@ import BlockInlineImage from './../BlockInlineImage/BlockInlineImage.vue'
 import BlockKeyPoints from './../BlockKeyPoints/BlockKeyPoints.vue'
 import BlockListCards from './../BlockListCards/BlockListCards.vue'
 import BlockQuote from './../BlockQuote/BlockQuote.vue'
-import BlockRelatedLinks from './../BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockRelatedLinks, {
+  type BlockRelatedLinksObject
+} from './../BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockTable from './../BlockTable/BlockTable.vue'
 import BlockTeaser from './../BlockTeaser/BlockTeaser.vue'
 import BlockText from './../BlockText/BlockText.vue'

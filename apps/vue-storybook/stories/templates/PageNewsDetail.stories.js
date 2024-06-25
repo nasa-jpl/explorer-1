@@ -44,7 +44,7 @@ export const NewsDetail = {
       summary:
         'Headed to the Red Planet with the Perseverance rover, the pioneering helicopter is powered up for the first time in interplanetary space as part of a systems check.',
       thumbnailImage: {
-        original: 'https://placekitten.com/400/200'
+        original: 'https://picsum.photos/400/200'
       },
       heroPosition: 'full_bleed',
       hero: [

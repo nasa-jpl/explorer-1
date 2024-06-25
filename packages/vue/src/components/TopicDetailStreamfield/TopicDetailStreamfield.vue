@@ -41,7 +41,7 @@
         indent="col-2"
         class="lg:my-18 my-10"
       >
-        <BlockRelatedLinks :data="block" />
+        <BlockRelatedLinks :data="block as any as BlockRelatedLinksObject" />
       </LayoutHelper>
 
       <div
@@ -62,7 +62,9 @@ import type { BlockQuoteAttributes } from './../BlockQuote/BlockQuote.vue'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BlockQuote from './../BlockQuote/BlockQuote.vue'
-import BlockRelatedLinks from './../BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockRelatedLinks, {
+  type BlockRelatedLinksObject
+} from './../BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockImageGallery from './../BlockImageGallery/BlockImageGallery.vue'
 
 interface BlockData {

@@ -47,7 +47,7 @@ import type { BlockData, RelatedLinkObject } from './../../interfaces'
 import RelatedLink from './../BlockRelatedLinks/RelatedLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
-export interface BlockRelatedLinks extends BlockData {
+export interface BlockRelatedLinksObject extends BlockData {
   heading: string
   links: RelatedLinkObject[]
 }
@@ -60,7 +60,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<BlockRelatedLinks>,
+      type: Object as PropType<BlockRelatedLinksObject>,
       required: true,
       default: () => ({})
     }

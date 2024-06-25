@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import filters from './../../utils/filters'
 import type {
   AuthorObject,
   ImageObject,
@@ -54,14 +53,8 @@ const computedClass = computed(() => {
   return ''
 })
 
-const publicationDate = computed(() => {
-  const datetime = props.data?.firstPublishedAt
-  return datetime ? filters.displayDate(datetime, 'Date') : undefined
-})
-
-const publicationTime = computed(() => {
-  const datetime = props.data?.firstPublishedAt
-  return datetime ? filters.displayDate(datetime, 'Time') : undefined
+const dateTimeArray = computed(() => {
+  return props.data.firstPublishedAt.split('T')
 })
 </script>
 <template>
@@ -96,8 +89,8 @@ const publicationTime = computed(() => {
     >
       <DetailHeadline
         :title="data.title"
-        :publication-date="publicationDate"
-        :publication-time="publicationTime"
+        :publication-date="dateTimeArray?.length ? dateTimeArray[0] : undefined"
+        :publication-time="dateTimeArray?.length ? dateTimeArray[1] : undefined"
         :author="data.author"
         :topics="data.getTopicsForDisplay"
         schema

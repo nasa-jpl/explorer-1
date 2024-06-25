@@ -12,6 +12,12 @@ export const variants: Variants = {
   default: '-default underline text-action can-hover:hover:text-action-dark',
   none: ''
 }
+export const primaryColorVariants: Variants = {
+  primary: 'text-subtitle text-primary can-hover:hover:text-primary-dark',
+  secondary: 'text-subtitle text-primary can-hover:hover:text-primary-dark',
+  default: '-default underline text-primary can-hover:hover:text-primary-dark',
+  none: ''
+}
 
 export default defineComponent({
   // this component is useful when you need a link that can either be an 'a' or router link
@@ -95,12 +101,23 @@ export default defineComponent({
       type: String,
       required: false,
       default: ''
+    },
+    usePrimaryColor: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   emits: ['linkClicked', 'specificLinkClicked'],
   computed: {
+    computedVariants(): Variants {
+      if (this.usePrimaryColor) {
+        return primaryColorVariants
+      }
+      return variants
+    },
     computedClass(): string {
-      let classes = variants[this.variant]
+      let classes = this.computedVariants[this.variant]
       if (this.to || this.href) {
         classes = classes + ' cursor-pointer'
       }

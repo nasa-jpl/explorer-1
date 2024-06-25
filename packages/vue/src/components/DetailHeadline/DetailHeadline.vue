@@ -12,6 +12,7 @@
           variant="secondary"
           :to="topics[0].url"
           class="py-3"
+          use-primary-color
         >
           <span :itemprop="schema ? 'articleSection' : undefined">
             {{ topics[0].title }}

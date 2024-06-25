@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import type { ImageObject } from './../../interfaces'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconDownload from './../Icons/IconDownload.vue'
 import IconLink from './../Icons/IconLink.vue'
@@ -15,7 +14,7 @@ import { mixinCanonicalUrl } from '../../utils/mixins'
 interface ShareButtonsEduProps {
   title: string
   url: string
-  image?: ImageObject
+  image?: string
 }
 
 // define props

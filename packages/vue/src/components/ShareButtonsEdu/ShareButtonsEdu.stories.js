@@ -1,7 +1,7 @@
 import ShareButtonsEdu from './ShareButtonsEdu.vue'
 
 export default {
-  title: 'EDU/ShareButtonsEdu',
+  title: 'Components/EDU/ShareButtonsEdu',
   component: ShareButtonsEdu
 }
 
