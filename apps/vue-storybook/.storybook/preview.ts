@@ -150,7 +150,8 @@ const preview: Preview = {
             'Mixins',
             ['Overview', 'MixinAnimationCaret', 'MixinVideoBg', 'MixinCarousel'],
             'Utilities',
-            ['Overview', '*']
+            ['Overview', '*'],
+            'EDU'
           ]
         ]
       }

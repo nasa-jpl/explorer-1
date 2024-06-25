@@ -3,8 +3,16 @@ export interface BreadcrumbPathObject {
     title: string;
     children: any[];
 }
+export interface BlockData {
+    blockType: string;
+}
 export interface ImageSrcObject {
     url: string;
+    width: number;
+    height: number;
+}
+export interface ThumbnailObject {
+    original: string;
     width: number;
     height: number;
 }
@@ -27,6 +35,8 @@ export interface ImageObject {
     cover?: string;
     image?: ImageObject;
     displayCaption?: boolean;
+}
+export interface ImageBlock extends BlockData, ImageObject {
 }
 export interface ElasticSearchPage {
     id: string | number;
@@ -75,16 +85,34 @@ export interface RelatedLinkObject {
     externalLink: string | null;
     text: string | null;
 }
-export interface BlockData {
-    blockType: string;
+export interface PageResponseObject {
+    __typename: string;
+    contentType: string;
+    breadcrumb?: string;
+    url?: string;
 }
 export interface PageResponse {
     __typename: string;
-    contentType: string;
-    body?: Partial<BlockData>[];
-    breadcrumb?: string;
+    page: PageResponseObject;
+}
+export interface HeaderResponse {
+    __typename: string;
+    desktop: any;
+    mobile: any;
+}
+export interface FooterResponse {
+    __typename: string;
+    footer: any;
 }
 export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu';
 export interface Attributes {
     [name: string]: string;
+}
+export interface AuthorObject {
+    name: string;
+    organization: string;
+}
+export interface Topic {
+    title: string;
+    url: string;
 }

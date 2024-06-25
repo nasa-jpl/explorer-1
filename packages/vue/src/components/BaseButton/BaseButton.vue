@@ -7,7 +7,6 @@ interface Variants {
 
 export const variants: Variants = {
   primary: '-primary',
-  'reverse-primary': '-reverse-primary',
   secondary: '-secondary',
   dark: '-dark',
   social: '-social'
@@ -45,12 +44,12 @@ export default defineComponent({
     to: {
       type: [String, Object],
       required: false,
-      default: null
+      default: undefined
     },
     href: {
       type: String,
       required: false,
-      default: null
+      default: undefined
     }
   },
   emits: ['click'],
@@ -68,13 +67,13 @@ export default defineComponent({
     },
     // necessary for valid html
     // must account for <a>, <nuxt-link>, and <button> use-cases
-    theHref(): string | false {
+    theHref(): string | undefined {
       if (this.tag === 'nuxt-link') {
         return this.to as string
       } else if (this.tag === 'a') {
         return this.href
       }
-      return false
+      return undefined
     },
     variantClass(): string {
       let classes = variants[this.variant]
@@ -100,12 +99,13 @@ export default defineComponent({
     :aria-label="ariaLabel"
     :disabled="disabled"
     :href="theHref"
-    :to="to ? to : false"
+    :to="to ? to : undefined"
     @click="$emit('click')"
   >
     <span class="label block">
-      <slot></slot>
+      <slot name="default"></slot>
       <slot name="icon"></slot>
+      <slot name="afterIcon"></slot>
     </span>
   </component>
 </template>

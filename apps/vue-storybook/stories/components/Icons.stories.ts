@@ -21,6 +21,7 @@ import IconForwardTen from '@explorer-1/vue/src/components/Icons/IconForwardTen.
 import IconGrid from '@explorer-1/vue/src/components/Icons/IconGrid.vue'
 import IconHand from '@explorer-1/vue/src/components/Icons/IconHand.vue'
 import IconInfo from '@explorer-1/vue/src/components/Icons/IconInfo.vue'
+import IconLink from '@explorer-1/vue/src/components/Icons/IconLink.vue'
 import IconList from '@explorer-1/vue/src/components/Icons/IconList.vue'
 import IconLocation from '@explorer-1/vue/src/components/Icons/IconLocation.vue'
 import IconMagnifyingGlass from '@explorer-1/vue/src/components/Icons/IconMagnifyingGlass.vue'
@@ -35,10 +36,13 @@ import IconPlus from '@explorer-1/vue/src/components/Icons/IconPlus.vue'
 import IconPrev from '@explorer-1/vue/src/components/Icons/IconPrev.vue'
 import IconRewindTen from '@explorer-1/vue/src/components/Icons/IconRewindTen.vue'
 import IconSearch from '@explorer-1/vue/src/components/Icons/IconSearch.vue'
+import IconShare from '@explorer-1/vue/src/components/Icons/IconShare.vue'
 import IconSlideshow from '@explorer-1/vue/src/components/Icons/IconSlideshow.vue'
 import IconSocialEmail from '@explorer-1/vue/src/components/Icons/IconSocialEmail.vue'
 import IconSocialFacebook from '@explorer-1/vue/src/components/Icons/IconSocialFacebook.vue'
+import IconSocialGoogleClassroom from '@explorer-1/vue/src/components/Icons/IconSocialGoogleClassroom.vue'
 import IconSocialInstagram from '@explorer-1/vue/src/components/Icons/IconSocialInstagram.vue'
+import IconSocialPinterest from '@explorer-1/vue/src/components/Icons/IconSocialPinterest.vue'
 import IconSocialReddit from '@explorer-1/vue/src/components/Icons/IconSocialReddit.vue'
 import IconSocialTwitter from '@explorer-1/vue/src/components/Icons/IconSocialTwitter.vue'
 import IconSocialYoutube from '@explorer-1/vue/src/components/Icons/IconSocialYoutube.vue'
@@ -75,6 +79,7 @@ export default {
     IconGrid,
     IconHand,
     IconInfo,
+    IconLink,
     IconList,
     IconLocation,
     IconMagnifyingGlass,
@@ -89,10 +94,13 @@ export default {
     IconPrev,
     IconRewindTen,
     IconSearch,
+    IconShare,
     IconSlideshow,
     IconSocialEmail,
     IconSocialFacebook,
+    IconSocialGoogleClassroom,
     IconSocialInstagram,
+    IconSocialPinterest,
     IconSocialReddit,
     IconSocialTwitter,
     IconSocialYoutube,
@@ -250,6 +258,12 @@ export const Info = {
     template: '<IconInfo />'
   })
 }
+export const Link = {
+  render: () => ({
+    components: { IconLink },
+    template: '<IconLink />'
+  })
+}
 export const List = {
   render: () => ({
     components: { IconList },
@@ -334,6 +348,12 @@ export const Search = {
     template: '<IconSearch />'
   })
 }
+export const Share = {
+  render: () => ({
+    components: { IconShare },
+    template: '<IconShare />'
+  })
+}
 export const Slideshow = {
   render: () => ({
     components: { IconSlideshow },
@@ -352,10 +372,22 @@ export const SocialFacebook = {
     template: '<IconSocialFacebook />'
   })
 }
+export const SocialGoogleClassroom = {
+  render: () => ({
+    components: { IconSocialGoogleClassroom },
+    template: '<IconSocialGoogleClassroom />'
+  })
+}
 export const SocialInstagram = {
   render: () => ({
     components: { IconSocialInstagram },
     template: '<IconSocialInstagram />'
+  })
+}
+export const SocialPinterest = {
+  render: () => ({
+    components: { IconSocialPinterest },
+    template: '<IconSocialPinterest />'
   })
 }
 export const SocialReddit = {

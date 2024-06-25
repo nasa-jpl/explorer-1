@@ -44,7 +44,7 @@ export const EventDetail = {
       },
       thumbnailImage: {
         alt: '',
-        original: 'https://source.unsplash.com/OLlj17tUZnU/512x288'
+        original: 'https://picsum.photos/512/288'
       },
       body: [
         BlockKeyPointsData,

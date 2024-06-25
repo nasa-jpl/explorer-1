@@ -178,7 +178,7 @@
         indent="col-3"
         class="lg:mb-18 mb-10"
       >
-        <BlockRelatedLinks :data="block" />
+        <BlockRelatedLinks :data="block as any as BlockRelatedLinksObject" />
       </LayoutHelper>
 
       <BlockAnchor
@@ -214,7 +214,9 @@ import BlockInlineImage from './../BlockInlineImage/BlockInlineImage.vue'
 import BlockKeyPoints from './../BlockKeyPoints/BlockKeyPoints.vue'
 import BlockListCards from './../BlockListCards/BlockListCards.vue'
 import BlockQuote from './../BlockQuote/BlockQuote.vue'
-import BlockRelatedLinks from './../BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockRelatedLinks, {
+  type BlockRelatedLinksObject
+} from './../BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockTable from './../BlockTable/BlockTable.vue'
 import BlockTeaser from './../BlockTeaser/BlockTeaser.vue'
 import BlockText from './../BlockText/BlockText.vue'
@@ -232,7 +234,7 @@ export const variants: Variants = {
   fluid: '-fluid'
 }
 
-interface BlockData {
+export interface StreamfieldBlockData {
   blockType: string
   id: string
   fullBleed: boolean
@@ -283,7 +285,7 @@ export default defineComponent({
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
     data: {
-      type: Array as PropType<BlockData[]>,
+      type: Array as PropType<StreamfieldBlockData[]>,
       required: false
     }
   },
@@ -298,7 +300,7 @@ export default defineComponent({
     seamlessText(index: number): boolean {
       const nextIndex = index + 1
       if (this.data && this.data[nextIndex]) {
-        const nextBlock = this.data[nextIndex] as BlockData
+        const nextBlock = this.data[nextIndex] as StreamfieldBlockData
         const nextBlockType = nextBlock.blockType
         if (nextBlockType === 'InlineImageBlock' || nextBlockType === 'RichTextBlock') {
           return true

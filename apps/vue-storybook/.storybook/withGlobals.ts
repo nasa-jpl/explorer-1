@@ -55,8 +55,18 @@ export const withGlobals = (StoryFn, context) => {
         'data-variant'
       ) as Explorer1Theme
 
+      const themeOverride: Explorer1Theme | undefined = window.location.search.includes('edu-')
+        ? 'ThemeEdu'
+        : window.location.search.includes('www-')
+          ? 'defaultTheme'
+          : window.location.search.includes('internal-')
+            ? 'ThemeInternal'
+            : undefined
       // handle theme
-      if (savedTheme) {
+      if (themeOverride) {
+        updateGlobals({ theme: themeOverride })
+        useTheme.setTheme(themeOverride)
+      } else if (savedTheme) {
         // update theme attribute and save it to local storage
         updateGlobals({ theme: savedTheme })
         useTheme.setTheme(savedTheme)
@@ -86,7 +96,9 @@ export const withGlobals = (StoryFn, context) => {
     const savedTheme = window.localStorage.getItem('data-theme')
     useEffect(() => {
       if (theme) {
-        document.documentElement.classList.remove(savedTheme)
+        if (savedTheme) {
+          document.documentElement.classList.remove(savedTheme)
+        }
         document.documentElement.classList.add(theme)
         useTheme.setTheme(theme)
         window.localStorage.setItem('data-theme', theme)

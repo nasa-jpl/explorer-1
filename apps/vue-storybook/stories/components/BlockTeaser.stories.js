@@ -12,12 +12,12 @@ export const BlockTeaserData = {
   buttonText: 'Read more',
   image: {
     full: {
-      url: 'https://source.unsplash.com/pZ-XFIrJMtE/1096x400',
+      url: 'https://picsum.photos/1096/400',
       width: 1096,
       height: 400
     },
     half: {
-      url: 'https://source.unsplash.com/pZ-XFIrJMtE/540x400',
+      url: 'https://picsum.photos/540/400',
       width: 548,
       height: 400
     }

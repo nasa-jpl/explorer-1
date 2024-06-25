@@ -5,12 +5,12 @@
   background-size: 100% 215%; // 100% 200%
   background-position: 0 -1px; // top
   &:focus {
-    @apply outline-none ring-2;
+    @apply outline-none ring-2 z-10;
   }
   @apply font-secondary font-semibold uppercase tracking-wider leading-normal cursor-pointer transition-all duration-200 ease-linear bg-gradient-to-b from-transparent-w50;
 
   > .label {
-    @apply flex items-center justify-center;
+    @apply flex h-full items-center justify-center;
   }
 
   @include hover {
@@ -20,17 +20,6 @@
   &.-primary {
     @apply px-12 text-white bg-action to-action-dark-w50;
 
-    & > .label {
-      @apply border-2 border-transparent;
-    }
-  }
-
-  &.-reverse-primary {
-    @apply px-12 text-primary bg-white to-primary-dark-w50;
-
-    @include hover {
-      @apply text-white;
-    }
     & > .label {
       @apply border-2 border-transparent;
     }
@@ -51,6 +40,10 @@
       @apply text-dark-blue edu:text-primary-dark border-white bg-white;
     }
   }
+
+  // &.-social-edu {
+
+  // }
 
   &.-social {
     @apply px-12 bg-transparent border border-gray-mid text-gray-mid to-gray-dark-w50;
@@ -97,6 +90,15 @@
       @include hover {
         @apply bg-reddit border-reddit;
       }
+    }
+    .ThemeEdu & {
+      @apply border-action text-action to-action-w50 #{!important};
+      @include hover {
+        @apply text-white bg-action #{!important};
+      }
+    }
+    .share-buttons-list & {
+      @apply border-transparent bg-gray-light #{!important};
     }
   }
 
