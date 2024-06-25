@@ -3,14 +3,14 @@ import { computed } from 'vue'
 import type { StreamfieldBlockData } from '../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
   ImageObject,
-  PageResponse,
+  PageResponseObject,
   RelatedLinkObject,
   Topic,
   ThumbnailObject
 } from './../../interfaces'
 import isEmpty from 'lodash/isEmpty'
 
-interface PageEduNewsDetailObject extends PageResponse {
+interface PageEduNewsDetailObject extends PageResponseObject {
   heroImage: ImageObject
   thumbnailImage: ThumbnailObject
   heroPosition: string

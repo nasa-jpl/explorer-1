@@ -89,11 +89,27 @@ export interface RelatedLinkObject {
   text: string | null
 }
 
-export interface PageResponse {
+export interface PageResponseObject {
   __typename: string
   contentType: string
   breadcrumb?: string
   url?: string
+}
+
+export interface PageResponse {
+  __typename: string
+  page: PageResponseObject
+}
+
+export interface HeaderResponse {
+  __typename: string
+  desktop: any
+  mobile: any
+}
+
+export interface FooterResponse {
+  __typename: string
+  footer: any
 }
 
 export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
