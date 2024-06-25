@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import type { StreamfieldBlockData } from '../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
-  AuthorObject,
   ImageObject,
   PageResponse,
   RelatedLinkObject,
@@ -23,7 +22,6 @@ interface PageEduNewsDetailObject extends PageResponse {
   getTopicsForDisplay: Topic[]
   summary: string
   topper: string
-  author: AuthorObject
   relatedLinks: RelatedLinkObject[]
   body: StreamfieldBlockData[]
 }
@@ -84,7 +82,7 @@ const dateTimeArray = computed(() => {
       :constrain="data.heroConstrain"
     />
 
-    <!-- news headline and author -->
+    <!-- news headline -->
     <LayoutHelper
       indent="col-2"
       class="mb-10"
@@ -93,7 +91,6 @@ const dateTimeArray = computed(() => {
         :title="data.title"
         :publication-date="dateTimeArray?.length ? dateTimeArray[0] : undefined"
         :publication-time="dateTimeArray?.length ? dateTimeArray[1] : undefined"
-        :author="data.author"
         :topics="data.getTopicsForDisplay"
         schema
       />
