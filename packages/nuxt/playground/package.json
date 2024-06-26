@@ -2,12 +2,19 @@
   "private": true,
   "name": "my-module-playground",
   "type": "module",
+  "prettier": "@explorer-1/prettier-config",
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "generate": "nuxi generate"
+    "generate": "nuxi generate",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "nuxt": "^3.11.2"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^0.3.13",
+    "@explorer-1/eslint-config": "workspace:*"
   }
 }

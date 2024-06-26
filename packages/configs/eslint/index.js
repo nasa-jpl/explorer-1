@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
   baseDirectory: __dirname,
   recommendedConfig: {}, // Add recommendedConfig property
-  allConfig: {}, // Add allConfig property
+  allConfig: {} // Add allConfig property
 })
 
 export default [
@@ -37,29 +37,22 @@ export default [
       '**/*.ts',
       '**/*.tsx',
       '**/*.cts',
-      '**/*.mts',
+      '**/*.mts'
     ],
-    ignores: [
-      '**/*.d.ts',
-      '**/dist/**/*',
-      '**/dist/**/*',
-      '**/.nuxt/*',
-      '**/node_modules/**/*',
-      '.gitignore',
-    ],
+    ignores: ['**/*.d.ts', '**/dist/**/*', '**/.nuxt/*', '**/node_modules/**/*', '.gitignore'],
     plugins: {
       '@typescript-eslint': tsPlugin,
-      '@stylistic': stylistic,
+      '@stylistic': stylistic
     },
     languageOptions: {
       parser: vueParser,
       parserOptions: {
-        parser: tsParser,
+        parser: tsParser
       },
-      ecmaVersion: 'latest',
+      ecmaVersion: 'latest'
     },
     rules: {
-      'semi': 'off',
+      semi: 'off',
       '@stylistic/semi': ['warn', 'never'],
       // allow async-await
       'generator-star-spacing': 'off',
@@ -69,7 +62,7 @@ export default [
       'no-void': 'off',
       'multiline-ternary': 'off',
       'no-unused-vars': 'warn',
-      
+
       'no-undef': 'warn',
 
       'prefer-promise-reject-errors': 'off',
@@ -78,11 +71,7 @@ export default [
       'vue/multi-word-component-names': 'warn',
 
       // TypeScript
-      quotes: [
-        'warn',
-        'single',
-        { avoidEscape: true, allowTemplateLiterals: true },
-      ],
+      quotes: ['warn', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-unnecessary-type-assertion': 'off',
@@ -98,8 +87,8 @@ export default [
       'storybook/prefer-pascal-case': 'off',
       'storybook/story-exports': 'off',
       'vue/singleline-html-element-content-newline': 'off',
-      'vue/max-attributes-per-line': 'off',
-    },
+      'vue/max-attributes-per-line': 'off'
+    }
   },
-  eslintPluginPrettierRecommended,
+  eslintPluginPrettierRecommended
 ]
