@@ -1,7 +1,7 @@
 import BaseImage from './BaseImage.vue'
 import BaseImagePlaceholder, {
   aspectRatios
-} from '@explorer-1/vue/src/components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
+} from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 export default {
   title: 'Components/Base/BaseImagePlaceholder',
   component: BaseImagePlaceholder,

@@ -3,9 +3,9 @@ import remarkGfm from 'remark-gfm'
 const config = {
   stories: [
     './../stories/**/*.stories.@(js|jsx|ts|tsx)',
-    './../stories/**/*.docs.mdx',
-    './../docs/**/*.stories.@(js|jsx|ts|tsx)',
-    './../docs/**/*.docs.mdx',
+    // './../stories/**/*.docs.mdx',
+    // './../docs/**/*.stories.@(js|jsx|ts|tsx)',
+    // './../docs/**/*.docs.mdx',
     './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
   addons: [
