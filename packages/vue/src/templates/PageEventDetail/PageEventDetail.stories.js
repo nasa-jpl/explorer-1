@@ -1,6 +1,6 @@
-import { BlockKeyPointsData } from './../components/BlockKeyPoints/BlockKeyPoints.stories'
-import { EventDetailHeroData } from './../components/EventDetailHero/EventDetailHero.stories'
-import { EventsBlockLinkCarouselData } from './../components/BlockLinkCarousel/BlockLinkCarousel.stories'
+import { BlockKeyPointsData } from './../../components/BlockKeyPoints/BlockKeyPoints.stories'
+import { EventDetailHeroData } from './../../components/EventDetailHero/EventDetailHero.stories'
+import { EventsBlockLinkCarouselData } from './../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
 import PageEventDetail from './PageEventDetail.vue'
 
 export default {

@@ -1,4 +1,4 @@
-import ParallaxElement from './ParallaxElement.vue'
+import ParallaxElement from './../ParallaxElement/ParallaxElement.vue'
 import ParallaxContainer from './ParallaxContainer.vue'
 
 export default {

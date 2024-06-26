@@ -286,7 +286,7 @@ import {
   mixinFormatEventDates,
   mixinFormatEventTimeInHoursAndMinutes,
   mixinFormatSplitEventDates
-} from '../utils/mixins'
+} from '../../utils/mixins'
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 

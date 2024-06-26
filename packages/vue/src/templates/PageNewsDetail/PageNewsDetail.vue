@@ -160,19 +160,19 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import LayoutHelper from './../components/LayoutHelper/LayoutHelper.vue'
-import HeroMedia from './../components/HeroMedia/HeroMedia.vue'
-import DetailHeadline from './../components/DetailHeadline/DetailHeadline.vue'
-import BaseImagePlaceholder from './../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import BlockStreamfield from './../components/BlockStreamfield/BlockStreamfield.vue'
-import NewsDetailMediaContact from './../components/NewsDetailMediaContact/NewsDetailMediaContact.vue'
-import BlockRelatedLinks from './../components/BlockRelatedLinks/BlockRelatedLinks.vue'
-import BlockImageCarousel from './../components/BlockImageCarousel/BlockImageCarousel.vue'
-import BlockImageComparison from './../components/BlockImageComparison/BlockImageComparison.vue'
-import BlockImageStandard from './../components/BlockImage/BlockImageStandard.vue'
-import BlockLinkCarousel from './../components/BlockLinkCarousel/BlockLinkCarousel.vue'
-import ShareButtons from './../components/ShareButtons/ShareButtons.vue'
-import BlockText from './../components/BlockText/BlockText.vue'
+import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
+import HeroMedia from './../../components/HeroMedia/HeroMedia.vue'
+import DetailHeadline from './../../components/DetailHeadline/DetailHeadline.vue'
+import BaseImagePlaceholder from './../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import BlockStreamfield from './../../components/BlockStreamfield/BlockStreamfield.vue'
+import NewsDetailMediaContact from './../../components/NewsDetailMediaContact/NewsDetailMediaContact.vue'
+import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockImageCarousel from './../../components/BlockImageCarousel/BlockImageCarousel.vue'
+import BlockImageComparison from './../../components/BlockImageComparison/BlockImageComparison.vue'
+import BlockImageStandard from './../../components/BlockImage/BlockImageStandard.vue'
+import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
+import BlockText from './../../components/BlockText/BlockText.vue'
 
 export default defineComponent({
   name: 'PageNewsDetail',

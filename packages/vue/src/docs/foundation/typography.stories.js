@@ -1,6 +1,6 @@
 import FontVariants from './FontVariants.vue'
-import IconLocation from '@explorer-1/vue/src/components/Icons/IconLocation.vue'
-import BaseHeading from './BaseHeading.vue'
+import IconLocation from './../../components/Icons/IconLocation.vue'
+import BaseHeading from './../../components/BaseHeading/BaseHeading.vue'
 
 export default {
   title: 'Foundation/Typography',

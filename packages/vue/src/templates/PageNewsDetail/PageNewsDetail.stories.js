@@ -1,15 +1,15 @@
-import { HeroMediaData } from '../components/HeroMedia/HeroMedia.stories'
-import { DetailHeadlineData } from '../components/DetailHeadline/DetailHeadline.stories'
-import { BlockStreamfieldData } from '../components/BlockStreamfield/BlockStreamfield.stories'
+import { HeroMediaData } from './../../components/HeroMedia/HeroMedia/HeroMedia.stories'
+import { DetailHeadlineData } from './../../components/DetailHeadline/DetailHeadline/DetailHeadline.stories'
+import { BlockStreamfieldData } from './../../components/BlockStreamfield/BlockStreamfield/BlockStreamfield.stories'
 import {
   BlockLinkCardCarouselData,
   BlockLinkTileCarouselData
-} from '../components/BlockLinkCarousel.stories.js'
-import { BlockRelatedLinksData } from '../components/BlockRelatedLinks.stories.js'
-import { BlockImageCarouselData } from '../components/BlockImageCarousel.stories'
-import { BlockImageComparisonData } from '../components/BlockImageComparison.stories'
-import { BaseVideoData } from '../components/BaseVideo.stories'
-import { BlockVideoEmbedData } from '../components/BlockVideoEmbed.stories'
+} from './../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
+import { BlockRelatedLinksData } from './../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
+import { BlockImageCarouselData } from './../../components/BlockImageCarousel/BlockImageCarousel.stories'
+import { BlockImageComparisonData } from './../../components/BlockImageComparison/BlockImageComparison.stories'
+import { BaseVideoData } from './../../components/BaseVideo/BaseVideo.stories'
+import { BlockVideoEmbedData } from './../../components/BlockVideoEmbed/BlockVideoEmbed.stories'
 import PageNewsDetail from './PageNewsDetail.vue'
 
 export default {

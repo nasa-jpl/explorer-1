@@ -1,4 +1,4 @@
-import { BaseImageCaptionData } from './BaseImageCaption.stories.js'
+import { BaseImageCaptionData } from './../BaseImageCaption/BaseImageCaption.stories'
 import BlockInlineImage from './BlockInlineImage.vue'
 
 export default {

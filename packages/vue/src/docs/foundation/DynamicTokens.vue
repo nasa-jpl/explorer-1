@@ -96,10 +96,11 @@
   </table>
 </template>
 <style scoped>
-  .ThemeVariantDark table {
-    @apply text-white;
-  }
-  td, th {
-    @apply px-2;
-  }
+.ThemeVariantDark table {
+  @apply text-white;
+}
+td,
+th {
+  @apply px-2;
+}
 </style>
