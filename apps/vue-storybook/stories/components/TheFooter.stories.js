@@ -1,4 +1,4 @@
-import TheFooter from '@explorer-1/vue/src/components/TheFooter/TheFooter.vue'
+import TheFooter from './TheFooter.vue'
 
 export default {
   title: 'WWW/Header & Footer/TheFooter',

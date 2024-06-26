@@ -1,5 +1,5 @@
-import { BaseVideoData } from './BaseVideo.stories'
-import HeroMedium from '@explorer-1/vue/src/components/HeroMedium/HeroMedium.vue'
+import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
+import HeroMedium from './HeroMedium.vue'
 
 export default {
   title: 'Components/Heroes/HeroMedium',

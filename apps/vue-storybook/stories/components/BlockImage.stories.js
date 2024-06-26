@@ -1,4 +1,4 @@
-import BlockImage from '@explorer-1/vue/src/components/BlockImage/BlockImage.vue'
+import BlockImage from './BlockImage.vue'
 
 export default {
   title: 'Components/Blocks/BlockImage',

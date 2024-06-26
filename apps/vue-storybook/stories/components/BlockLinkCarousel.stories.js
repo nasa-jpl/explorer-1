@@ -1,6 +1,4 @@
-import BlockLinkCarousel, {
-  itemTypes
-} from '@explorer-1/vue/src/components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BlockLinkCarousel, { itemTypes } from './BlockLinkCarousel.vue'
 
 export default {
   title: 'Components/Blocks/BlockLinkCarousel',

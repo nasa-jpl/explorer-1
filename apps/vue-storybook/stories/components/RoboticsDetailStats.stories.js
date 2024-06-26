@@ -1,5 +1,5 @@
-import RoboticsDetailStats from '@explorer-1/vue/src/components/RoboticsDetailStats/RoboticsDetailStats.vue'
-import RoboticsDetailStatsMini from '@explorer-1/vue/src/components/RoboticsDetailStats/RoboticsDetailStatsMini.vue'
+import RoboticsDetailStats from './RoboticsDetailStats.vue'
+import RoboticsDetailStatsMini from './RoboticsDetailStatsMini.vue'
 
 export default {
   title: 'WWW/RoboticsDetail/RoboticsDetailStats',

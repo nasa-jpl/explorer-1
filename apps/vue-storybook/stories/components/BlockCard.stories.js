@@ -1,4 +1,4 @@
-import BlockCard from '@explorer-1/vue/src/components/BlockCard/BlockCard.vue'
+import BlockCard from './BlockCard.vue'
 
 export default {
   title: 'Components/Blocks/BlockCard',

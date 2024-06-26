@@ -1,6 +1,6 @@
-import BaseButton from '@explorer-1/vue/src/components/BaseButton/BaseButton.vue'
-import BaseModal from '@explorer-1/vue/src/components/BaseModal/BaseModal.vue'
-import BaseModalDialog from '@explorer-1/vue/src/components/BaseModal/BaseModalDialog.vue'
+import BaseButton from './../BaseButton/BaseButton.vue'
+import BaseModal from './BaseModal.vue'
+import BaseModalDialog from './BaseModalDialog.vue'
 
 export default {
   title: 'Components/Base/BaseModal',

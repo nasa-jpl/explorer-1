@@ -1,4 +1,4 @@
-import BlockCta from '@explorer-1/vue/src/components/BlockCta/BlockCta.vue'
+import BlockCta from './BlockCta.vue'
 
 export default {
   title: 'Components/Blocks/BlockCta',

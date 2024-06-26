@@ -1,4 +1,4 @@
-import MixinAnimationCaret from '@explorer-1/vue/src/components/MixinAnimationCaret/MixinAnimationCaret.vue'
+import MixinAnimationCaret from './MixinAnimationCaret.vue'
 
 export default {
   title: 'Mixins/MixinAnimationCaret',

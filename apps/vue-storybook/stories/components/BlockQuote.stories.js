@@ -1,4 +1,4 @@
-import BlockQuote from '@explorer-1/vue/src/components/BlockQuote/BlockQuote.vue'
+import BlockQuote from './BlockQuote.vue'
 
 export default {
   title: 'Components/Blocks/BlockQuote',

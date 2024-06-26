@@ -1,4 +1,4 @@
-import BaseHeading from '@explorer-1/vue/src/components/BaseHeading/BaseHeading.vue'
+import BaseHeading from './BaseHeading.vue'
 import IconArrows from '@explorer-1/vue/src/components/Icons/IconArrows.vue'
 import IconLocation from '@explorer-1/vue/src/components/Icons/IconLocation.vue'
 import IconUser from '@explorer-1/vue/src/components/Icons/IconUser.vue'

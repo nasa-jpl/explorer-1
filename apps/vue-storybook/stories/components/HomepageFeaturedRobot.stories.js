@@ -1,4 +1,4 @@
-import HomepageFeaturedRobot from '@explorer-1/vue/src/components/HomepageFeaturedRobot/HomepageFeaturedRobot.vue'
+import HomepageFeaturedRobot from './HomepageFeaturedRobot.vue'
 export default {
   title: 'WWW/Homepage/HomepageFeaturedRobot',
   component: HomepageFeaturedRobot,

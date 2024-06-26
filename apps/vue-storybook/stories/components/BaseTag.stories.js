@@ -1,4 +1,4 @@
-import BaseTag from '@explorer-1/vue/src/components/BaseTag/BaseTag.vue'
+import BaseTag from './BaseTag.vue'
 
 export default {
   title: 'Components/Base/BaseTag',

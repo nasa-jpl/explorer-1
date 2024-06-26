@@ -1,4 +1,4 @@
-import BackToTop from '@explorer-1/vue/src/components/BackToTop/BackToTop.vue'
+import BackToTop from './BackToTop.vue'
 
 export default {
   title: 'Components/Utilities/BackToTop',

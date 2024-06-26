@@ -1,10 +1,7 @@
-import MissionDetailStats, {
-  statuses,
-  clockTypes
-} from '@explorer-1/vue/src/components/MissionDetailStats/MissionDetailStats.vue'
-import MissionDetailStatsMini from '@explorer-1/vue/src/components/MissionDetailStats/MissionDetailStatsMini.vue'
-import MissionDetailStatsMicro from '@explorer-1/vue/src/components/MissionDetailStats/MissionDetailStatsMicro.vue'
-import { distanceTypes } from '@explorer-1/vue/src/components/MissionDetailStats/DistanceStats.vue'
+import MissionDetailStats, { statuses, clockTypes } from './MissionDetailStats.vue'
+import MissionDetailStatsMini from './MissionDetailStatsMini.vue'
+import MissionDetailStatsMicro from './MissionDetailStatsMicro.vue'
+import { distanceTypes } from './DistanceStats.vue'
 
 export default {
   title: 'WWW/MissionDetail/MissionDetailStats',

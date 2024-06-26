@@ -1,4 +1,4 @@
-import HomepageStats from '@explorer-1/vue/src/components/HomepageStats/HomepageStats.vue'
+import HomepageStats from './HomepageStats.vue'
 
 export default {
   title: 'WWW/Homepage/HomepageStats',

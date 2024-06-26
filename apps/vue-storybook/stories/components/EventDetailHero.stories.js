@@ -1,4 +1,4 @@
-import EventDetailHero from '@explorer-1/vue/src/components/EventDetailHero/EventDetailHero.vue'
+import EventDetailHero from './EventDetailHero.vue'
 
 export default {
   title: 'WWW/EventDetail/EventDetailHero',

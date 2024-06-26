@@ -1,4 +1,4 @@
-import SearchPagination from '@explorer-1/vue/src/components/SearchPagination/SearchPagination.vue'
+import SearchPagination from './SearchPagination.vue'
 
 export default {
   title: 'Components/Search/SearchPagination',

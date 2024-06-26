@@ -1,4 +1,4 @@
-import BaseTimer from '@explorer-1/vue/src/components/BaseTimer/BaseTimer.vue'
+import BaseTimer from './BaseTimer.vue'
 
 export default {
   title: 'Components/Base/BaseTimer',

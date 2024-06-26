@@ -1,7 +1,7 @@
-import { TheFooterData, MenuFooterPanelData } from './TheFooter.stories'
-import NavMobile from '@explorer-1/vue/src/components/NavMobile/NavMobile.vue'
-import NavMobileDropdown from '@explorer-1/vue/src/components/NavMobile/NavMobileDropdown.vue'
-import NavMobileLink from '@explorer-1/vue/src/components/NavMobile/NavMobileLink.vue'
+import { TheFooterData, MenuFooterPanelData } from './../TheFooter/TheFooter.stories'
+import NavMobile from './NavMobile.vue'
+import NavMobileDropdown from './NavMobileDropdown.vue'
+import NavMobileLink from './NavMobileLink.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavMobile',

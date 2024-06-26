@@ -1,4 +1,4 @@
-import BlockTwitterEmbed from '@explorer-1/vue/src/components/BlockTwitterEmbed/BlockTwitterEmbed.vue'
+import BlockTwitterEmbed from './BlockTwitterEmbed.vue'
 
 export default {
   title: 'Components/Blocks/BlockTwitterEmbed',

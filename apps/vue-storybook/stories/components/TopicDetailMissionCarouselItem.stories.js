@@ -1,6 +1,6 @@
 // the base component should really be a single vue component with a "type" prop where the user can select between card and list, but this works well enough for a demo atm.
 
-import TopicDetailMissionCarouselItem from '@explorer-1/vue/src/components/TopicDetailMissionCarouselItem/TopicDetailMissionCarouselItem.vue'
+import TopicDetailMissionCarouselItem from './TopicDetailMissionCarouselItem.vue'
 
 export default {
   title: 'WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarouselItem',

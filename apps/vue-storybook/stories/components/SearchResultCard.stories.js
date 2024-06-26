@@ -1,4 +1,4 @@
-import SearchResultCard from '@explorer-1/vue/src/components/SearchResultCard/SearchResultCard.vue'
+import SearchResultCard from './SearchResultCard.vue'
 
 export default {
   title: 'Components/Search/SearchResultCard',

@@ -1,4 +1,4 @@
-import BaseImage, { objectFitClasses } from '@explorer-1/vue/src/components/BaseImage/BaseImage.vue'
+import BaseImage, { objectFitClasses } from './BaseImage.vue'
 export default {
   title: 'Components/Base/BaseImage',
   component: BaseImage,

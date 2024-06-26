@@ -1,4 +1,4 @@
-import MissionDetailAbout from '@explorer-1/vue/src/components/MissionDetailAbout/MissionDetailAbout.vue'
+import MissionDetailAbout from './MissionDetailAbout.vue'
 
 export default {
   title: 'WWW/MissionDetail/MissionDetailAbout',

@@ -1,4 +1,4 @@
-import YearTicker from '@explorer-1/vue/src/components/YearTicker/YearTicker.vue'
+import YearTicker from './YearTicker.vue'
 
 export default {
   title: 'Components/YearTicker',

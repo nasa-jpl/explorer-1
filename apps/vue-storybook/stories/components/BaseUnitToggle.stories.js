@@ -1,6 +1,4 @@
-import BaseUnitToggle, {
-  unitPairs
-} from '@explorer-1/vue/src/components/BaseUnitToggle/BaseUnitToggle.vue'
+import BaseUnitToggle, { unitPairs } from './BaseUnitToggle.vue'
 
 export default {
   title: 'Components/Base/BaseUnitToggle',

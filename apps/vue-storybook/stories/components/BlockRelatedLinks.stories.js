@@ -1,4 +1,4 @@
-import BlockRelatedLinks from '@explorer-1/vue/src/components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockRelatedLinks from './BlockRelatedLinks.vue'
 
 export default {
   title: 'Components/Blocks/BlockRelatedLinks',

@@ -1,5 +1,5 @@
-import IconExternal from '@explorer-1/vue/src/components/Icons/IconExternal.vue'
-import BlockCircleImageCard from '@explorer-1/vue/src/components/BlockCircleImageCard/BlockCircleImageCard.vue'
+import IconExternal from './../Icons/IconExternal.vue'
+import BlockCircleImageCard from './BlockCircleImageCard.vue'
 
 export default {
   title: 'Components/Blocks/BlockCircleImageCard',

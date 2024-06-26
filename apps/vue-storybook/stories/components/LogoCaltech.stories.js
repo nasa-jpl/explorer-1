@@ -1,4 +1,4 @@
-import LogoCaltech from '@explorer-1/vue/src/components/LogoCaltech/LogoCaltech.vue'
+import LogoCaltech from './LogoCaltech.vue'
 
 export default {
   title: 'Foundation/Logos/LogoCaltech',

@@ -1,4 +1,4 @@
-import HeroLarge from '@explorer-1/vue/src/components/HeroLarge/HeroLarge.vue'
+import HeroLarge from './HeroLarge.vue'
 
 export default {
   title: 'Components/Heroes/HeroLarge',

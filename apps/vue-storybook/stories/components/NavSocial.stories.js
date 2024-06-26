@@ -1,4 +1,4 @@
-import NavSocial from '@explorer-1/vue/src/components/NavSocial/NavSocial.vue'
+import NavSocial from './NavSocial.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavSocial',

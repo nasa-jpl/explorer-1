@@ -1,4 +1,4 @@
-import BasePlaceholder from '@explorer-1/vue/src/components/BasePlaceholder/BasePlaceholder.vue'
+import BasePlaceholder from './BasePlaceholder.vue'
 
 export default {
   title: 'Components/Base/BasePlaceholder',

@@ -1,5 +1,5 @@
-import { HomepageCarouselItemData } from './HomepageCarouselItem.stories'
-import HomepageCarousel from '@explorer-1/vue/src/components/HomepageCarousel/HomepageCarousel.vue'
+import { HomepageCarouselItemData } from './../HomepageCarouselItem/HomepageCarouselItem.stories'
+import HomepageCarousel from './HomepageCarousel.vue'
 
 export default {
   title: 'WWW/Homepage/HomepageCarousel',

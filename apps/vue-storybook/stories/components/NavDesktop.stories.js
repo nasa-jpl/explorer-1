@@ -1,10 +1,10 @@
-import { MenuHighlightColumnData } from './NavHighlight.stories'
-import { MenuLinkColumnWithHeaderData } from './NavLinkList.stories'
-import NavDesktop from '@explorer-1/vue/src/components/NavDesktop/NavDesktop.vue'
-import NavDesktopTopHat from '@explorer-1/vue/src/components/NavDesktop/NavDesktopTopHat.vue'
-import NavDesktopDropdown from '@explorer-1/vue/src/components/NavDesktop/NavDesktopDropdown.vue'
-import NavDesktopDropdownContent from '@explorer-1/vue/src/components/NavDesktop/NavDesktopDropdownContent.vue'
-import NavDesktopDropdownMore from '@explorer-1/vue/src/components/NavDesktop/NavDesktopDropdownMore.vue'
+import { MenuHighlightColumnData } from './../NavHighlight/NavHighlight.stories'
+import { MenuLinkColumnWithHeaderData } from './../NavLinkList/NavLinkList.stories'
+import NavDesktop from './NavDesktop.vue'
+import NavDesktopTopHat from './NavDesktopTopHat.vue'
+import NavDesktopDropdown from './NavDesktopDropdown.vue'
+import NavDesktopDropdownContent from './NavDesktopDropdownContent.vue'
+import NavDesktopDropdownMore from './NavDesktopDropdownMore.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavDesktop',

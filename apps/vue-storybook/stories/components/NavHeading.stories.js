@@ -1,5 +1,5 @@
-import { MenuLinkColumnWithHeaderData } from './NavLinkList.stories'
-import NavHeading from '@explorer-1/vue/src/components/NavHeading/NavHeading.vue'
+import { MenuLinkColumnWithHeaderData } from './../NavLinkList/NavLinkList.stories'
+import NavHeading from './NavHeading.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavHeading',

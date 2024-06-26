@@ -1,4 +1,4 @@
-import BlockVideoEmbed from '@explorer-1/vue/src/components/BlockVideoEmbed/BlockVideoEmbed.vue'
+import BlockVideoEmbed from './BlockVideoEmbed.vue'
 
 export default {
   title: 'Components/Blocks/BlockVideoEmbed',

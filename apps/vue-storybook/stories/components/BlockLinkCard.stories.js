@@ -1,6 +1,6 @@
 // the base component should really be a single vue component with a "type" prop where the user can select between card and list, but this works well enough for a demo atm.
 
-import BlockLinkCard from '@explorer-1/vue/src/components/BlockLinkCard/BlockLinkCard.vue'
+import BlockLinkCard from './BlockLinkCard.vue'
 
 export default {
   title: 'Components/Blocks/BlockLinkCard',

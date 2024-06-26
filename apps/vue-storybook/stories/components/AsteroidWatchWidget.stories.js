@@ -1,4 +1,4 @@
-import AsteroidWatchWidget from '@explorer-1/vue/src/components/AsteroidWatchWidget/AsteroidWatchWidget.vue'
+import AsteroidWatchWidget from './AsteroidWatchWidget.vue'
 
 export default {
   title: 'Components/AsteroidWatchWidget',

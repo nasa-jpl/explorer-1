@@ -1,6 +1,4 @@
-import MixinCarousel, {
-  variants
-} from '@explorer-1/vue/src/components/MixinCarousel/MixinCarousel.vue'
+import MixinCarousel, { variants } from './MixinCarousel.vue'
 
 export default {
   title: 'Mixins/MixinCarousel',

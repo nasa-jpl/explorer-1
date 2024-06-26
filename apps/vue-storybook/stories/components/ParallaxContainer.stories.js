@@ -1,5 +1,5 @@
-import ParallaxElement from '@explorer-1/vue/src/components/ParallaxElement/ParallaxElement.vue'
-import ParallaxContainer from '@explorer-1/vue/src/components/ParallaxContainer/ParallaxContainer.vue'
+import ParallaxElement from './ParallaxElement.vue'
+import ParallaxContainer from './ParallaxContainer.vue'
 
 export default {
   title: 'Components/ParallaxContainer',

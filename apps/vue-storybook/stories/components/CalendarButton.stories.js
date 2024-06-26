@@ -1,4 +1,4 @@
-import CalendarButton from '@explorer-1/vue/src/components/CalendarButton/CalendarButton.vue'
+import CalendarButton from './CalendarButton.vue'
 
 export default {
   title: 'Components/CalendarButton',

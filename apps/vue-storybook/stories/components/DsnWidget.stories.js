@@ -1,4 +1,4 @@
-import DsnWidget from '@explorer-1/vue/src/components/DsnWidget/DsnWidget.vue'
+import DsnWidget from './DsnWidget.vue'
 
 export default {
   title: 'Components/DsnWidget',

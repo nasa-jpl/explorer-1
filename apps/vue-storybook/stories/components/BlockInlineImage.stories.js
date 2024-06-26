@@ -1,5 +1,5 @@
 import { BaseImageCaptionData } from './BaseImageCaption.stories.js'
-import BlockInlineImage from '@explorer-1/vue/src/components/BlockInlineImage/BlockInlineImage.vue'
+import BlockInlineImage from './BlockInlineImage.vue'
 
 export default {
   title: 'Components/Blocks/BlockInlineImage',

@@ -1,4 +1,4 @@
-import SearchResultGridItem from '@explorer-1/vue/src/components/SearchResultGridItem/SearchResultGridItem.vue'
+import SearchResultGridItem from './SearchResultGridItem.vue'
 
 export default {
   title: 'Components/Search/SearchResultGridItem',

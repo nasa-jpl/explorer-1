@@ -1,4 +1,4 @@
-import HomepageTeaserBlock from '@explorer-1/vue/src/components/HomepageTeaserBlock/HomepageTeaserBlock.vue'
+import HomepageTeaserBlock from './HomepageTeaserBlock.vue'
 
 export default {
   title: 'WWW/Homepage/HomepageTeaserBlock',

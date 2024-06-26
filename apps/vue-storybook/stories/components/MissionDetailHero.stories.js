@@ -10,7 +10,7 @@ import imageInstrumentEcostressWebP from '@explorer-1/common-storybook/src/image
 import imageInstrumentJason3WebP from '@explorer-1/common-storybook/src/images/mission-jason3.webp'
 import imageInstrumentOco2WebP from '@explorer-1/common-storybook/src/images/mission-oco2.webp'
 
-import MissionDetailHero from '@explorer-1/vue/src/components/MissionDetailHero/MissionDetailHero.vue'
+import MissionDetailHero from './MissionDetailHero.vue'
 
 export default {
   title: 'WWW/MissionDetail/MissionDetailHero',

@@ -1,5 +1,5 @@
-import { BaseVideoData } from './BaseVideo.stories'
-import MixinVideoBg from '@explorer-1/vue/src/components/MixinVideoBg/MixinVideoBg.vue'
+import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
+import MixinVideoBg from './MixinVideoBg.vue'
 
 export default {
   title: 'Mixins/MixinVideoBg',

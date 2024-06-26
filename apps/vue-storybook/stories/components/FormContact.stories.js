@@ -1,4 +1,4 @@
-import FormContact from '@explorer-1/vue/src/components/FormContact/FormContact.vue'
+import FormContact from './FormContact.vue'
 
 export default {
   title: 'Components/FormContact',

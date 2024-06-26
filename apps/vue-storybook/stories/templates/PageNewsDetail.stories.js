@@ -1,6 +1,6 @@
-import { HeroMediaData } from '../components/HeroMedia.stories.js'
-import { DetailHeadlineData } from '../components/DetailHeadline.stories.js'
-import { BlockStreamfieldData } from '../components/BlockStreamfield.stories.js'
+import { HeroMediaData } from '../components/HeroMedia/HeroMedia.stories'
+import { DetailHeadlineData } from '../components/DetailHeadline/DetailHeadline.stories'
+import { BlockStreamfieldData } from '../components/BlockStreamfield/BlockStreamfield.stories'
 import {
   BlockLinkCardCarouselData,
   BlockLinkTileCarouselData
@@ -10,7 +10,7 @@ import { BlockImageCarouselData } from '../components/BlockImageCarousel.stories
 import { BlockImageComparisonData } from '../components/BlockImageComparison.stories'
 import { BaseVideoData } from '../components/BaseVideo.stories'
 import { BlockVideoEmbedData } from '../components/BlockVideoEmbed.stories'
-import PageNewsDetail from '@explorer-1/vue/src/templates/PageNewsDetail.vue'
+import PageNewsDetail from './PageNewsDetail.vue'
 
 export default {
   title: 'Templates/PageNewsDetail',

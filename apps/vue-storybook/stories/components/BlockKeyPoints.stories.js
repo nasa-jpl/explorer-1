@@ -1,4 +1,4 @@
-import BlockKeyPoints from '@explorer-1/vue/src/components/BlockKeyPoints/BlockKeyPoints.vue'
+import BlockKeyPoints from './BlockKeyPoints.vue'
 
 export default {
   title: 'Components/Blocks/BlockKeyPoints',

@@ -1,5 +1,5 @@
-import { BaseVideoData } from './BaseVideo.stories'
-import HomepageCarouselItem from '@explorer-1/vue/src/components/HomepageCarouselItem/HomepageCarouselItem.vue'
+import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
+import HomepageCarouselItem from './HomepageCarouselItem.vue'
 
 export default {
   title: 'WWW/Homepage/HomepageCarousel/HomepageCarouselItem',

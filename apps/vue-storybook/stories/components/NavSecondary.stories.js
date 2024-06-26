@@ -1,4 +1,4 @@
-import NavSecondary from '@explorer-1/vue/src/components/NavSecondary/NavSecondary.vue'
+import NavSecondary from './NavSecondary.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavSecondary',

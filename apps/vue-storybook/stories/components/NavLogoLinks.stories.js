@@ -1,5 +1,5 @@
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
-import NavLogoLinks from '@explorer-1/vue/src/components/NavLogoLinks/NavLogoLinks.vue'
+import NavLogoLinks from './NavLogoLinks.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavLogoLinks',

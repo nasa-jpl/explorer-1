@@ -1,4 +1,4 @@
-import BlockText, { variants } from '@explorer-1/vue/src/components/BlockText/BlockText.vue'
+import BlockText, { variants } from './BlockText.vue'
 
 export default {
   title: 'Components/Blocks/BlockText',

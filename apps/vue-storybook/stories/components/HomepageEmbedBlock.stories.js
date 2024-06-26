@@ -1,5 +1,5 @@
-import { BlockVideoEmbedData } from './BlockVideoEmbed.stories'
-import HomepageEmbedBlock from '@explorer-1/vue/src/components/HomepageEmbedBlock/HomepageEmbedBlock.vue'
+import { BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.stories'
+import HomepageEmbedBlock from './HomepageEmbedBlock.vue'
 
 export default {
   title: 'WWW/Homepage/HomepageEmbedBlock',

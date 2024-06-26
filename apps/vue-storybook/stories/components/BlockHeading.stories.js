@@ -1,4 +1,4 @@
-import BlockHeading from '@explorer-1/vue/src/components/BlockHeading/BlockHeading.vue'
+import BlockHeading from './BlockHeading.vue'
 
 export default {
   title: 'Components/Blocks/BlockHeading',

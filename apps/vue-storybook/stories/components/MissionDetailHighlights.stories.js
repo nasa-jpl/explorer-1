@@ -5,7 +5,7 @@ import imageInterstellar from '@explorer-1/common-storybook/src/images/mission-h
 import imagePlanetMarsA from '@explorer-1/common-storybook/src/images/mission-highlights-800h-mars-orbiting.png'
 import imagePlanetMarsB from '@explorer-1/common-storybook/src/images/mission-highlights-800h-on-mars.png'
 
-import MissionDetailHighlights from '@explorer-1/vue/src/components/MissionDetailHighlights/MissionDetailHighlights.vue'
+import MissionDetailHighlights from './MissionDetailHighlights.vue'
 export default {
   title: 'WWW/MissionDetail/MissionHighlights',
   component: MissionDetailHighlights,

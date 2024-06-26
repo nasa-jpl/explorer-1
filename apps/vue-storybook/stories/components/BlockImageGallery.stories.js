@@ -1,5 +1,5 @@
 import { BlockImageCarouselData } from './BlockImageCarousel.stories'
-import BlockImageGallery from '@explorer-1/vue/src/components/BlockImageGallery/BlockImageGallery.vue'
+import BlockImageGallery from './BlockImageGallery.vue'
 
 export default {
   title: 'Components/Blocks/BlockImageGallery',

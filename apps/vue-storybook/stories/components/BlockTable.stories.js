@@ -1,4 +1,4 @@
-import BlockTable from '@explorer-1/vue/src/components/BlockTable/BlockTable.vue'
+import BlockTable from './BlockTable.vue'
 
 export default {
   title: 'Components/Blocks/BlockTable',

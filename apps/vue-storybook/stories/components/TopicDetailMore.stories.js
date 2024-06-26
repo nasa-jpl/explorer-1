@@ -1,4 +1,4 @@
-import TopicDetailMore from '@explorer-1/vue/src/components/TopicDetailMore/TopicDetailMore.vue'
+import TopicDetailMore from './TopicDetailMore.vue'
 export default {
   title: 'WWW/TopicDetail/TopicDetailMore',
   component: TopicDetailMore,

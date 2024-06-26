@@ -1,4 +1,4 @@
-import BlockCardGroup from '@explorer-1/vue/src/components/BlockCardGroup/BlockCardGroup.vue'
+import BlockCardGroup from './BlockCardGroup.vue'
 
 export default {
   title: 'Components/Blocks/BlockCardGroup',

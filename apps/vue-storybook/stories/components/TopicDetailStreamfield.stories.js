@@ -1,7 +1,7 @@
-import { BlockImageGalleryData } from './BlockImageGallery.stories'
-import { BlockQuoteData } from './BlockQuote.stories'
-import { BlockRelatedLinksData } from './BlockRelatedLinks.stories'
-import TopicDetailStreamfield from '@explorer-1/vue/src/components/TopicDetailStreamfield/TopicDetailStreamfield.vue'
+import { BlockImageGalleryData } from './../BlockImageGallery/BlockImageGallery.stories'
+import { BlockQuoteData } from './../BlockQuote/BlockQuote.stories'
+import { BlockRelatedLinksData } from './../BlockRelatedLinks/BlockRelatedLinks.stories'
+import TopicDetailStreamfield from './TopicDetailStreamfield.vue'
 
 export default {
   title: 'WWW/TopicDetail/TopicDetailStreamfield',

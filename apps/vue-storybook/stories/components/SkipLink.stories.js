@@ -1,4 +1,4 @@
-import SkipLink from '@explorer-1/vue/src/components/SkipLink/SkipLink.vue'
+import SkipLink from './SkipLink.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/SkipLink',

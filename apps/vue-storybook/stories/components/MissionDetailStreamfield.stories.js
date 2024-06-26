@@ -1,6 +1,6 @@
-import { BaseImageCaptionData } from './BaseImageCaption.stories.js'
-import { BlockIframeEmbedData } from './BlockIframeEmbed.stories.js'
-import MissionDetailStreamfield from '@explorer-1/vue/src/components/MissionDetailStreamfield/MissionDetailStreamfield.vue'
+import { BaseImageCaptionData } from './../BaseImageCaption/BaseImageCaption.stories.js'
+import { BlockIframeEmbedData } from './../BlockIframeEmbed/BlockIframeEmbed.stories.js'
+import MissionDetailStreamfield from './MissionDetailStreamfield.vue'
 
 export default {
   title: 'WWW/MissionDetail/MissionDetailStreamfield',

@@ -1,4 +1,4 @@
-import BaseButton, { variants } from '@explorer-1/vue/src/components/BaseButton/BaseButton.vue'
+import BaseButton, { variants } from './BaseButton.vue'
 
 // TODO: add the rest of the button stories (icons, disabled, etc.)
 export default {

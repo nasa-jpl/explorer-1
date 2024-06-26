@@ -3,8 +3,8 @@ import imagePlanetEarth from '@explorer-1/common-storybook/src/images/mission-hi
 import imageMoon from '@explorer-1/common-storybook/src/images/mission-highlights-800h-earths-moon.png'
 import imageInterstellar from '@explorer-1/common-storybook/src/images/mission-highlights-800h-interstellar.jpg'
 import imagePlanetMarsA from '@explorer-1/common-storybook/src/images/mission-highlights-800h-mars-orbiting.png'
-import HomepageMissionsCarousel from '@explorer-1/vue/src/components/HomepageMissionsCarousel/HomepageMissionsCarousel.vue'
-import HomepageMissionsCarouselItem from '@explorer-1/vue/src/components/HomepageMissionsCarousel/HomepageMissionsCarouselItem.vue'
+import HomepageMissionsCarousel from './HomepageMissionsCarousel.vue'
+import HomepageMissionsCarouselItem from './HomepageMissionsCarouselItem.vue'
 
 export default {
   title: 'WWW/Homepage/HomepageMissionsCarousel',

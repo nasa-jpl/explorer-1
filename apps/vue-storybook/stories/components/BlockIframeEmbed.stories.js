@@ -1,4 +1,4 @@
-import BlockIframeEmbed from '@explorer-1/vue/src/components/BlockIframeEmbed/BlockIframeEmbed.vue'
+import BlockIframeEmbed from './BlockIframeEmbed.vue'
 
 export default {
   title: 'Components/Blocks/BlockIframeEmbed',

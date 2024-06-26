@@ -1,5 +1,5 @@
-import { BaseVideoData } from './BaseVideo.stories'
-import BlockVideo from '@explorer-1/vue/src/components/BlockVideo/BlockVideo.vue'
+import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
+import BlockVideo from './BlockVideo.vue'
 
 export default {
   title: 'Components/Blocks/BlockVideo',

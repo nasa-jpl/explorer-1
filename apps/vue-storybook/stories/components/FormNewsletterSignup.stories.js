@@ -1,4 +1,4 @@
-import FormNewsletterSignup from '@explorer-1/vue/src/components/FormNewsletterSignup/FormNewsletterSignup.vue'
+import FormNewsletterSignup from './FormNewsletterSignup.vue'
 
 export default {
   title: 'Components/FormNewsletterSignup',

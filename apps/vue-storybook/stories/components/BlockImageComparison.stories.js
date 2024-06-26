@@ -1,4 +1,4 @@
-import BlockImageComparison from '@explorer-1/vue/src/components/BlockImageComparison/BlockImageComparison.vue'
+import BlockImageComparison from './BlockImageComparison.vue'
 
 export default {
   title: 'Components/Blocks/BlockImageComparison',

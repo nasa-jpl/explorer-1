@@ -1,13 +1,13 @@
-import { BlockHeadingData } from './../components/BlockHeading.stories'
-import { BlockKeyPointsData } from './../components/BlockKeyPoints.stories'
-import { BlockImageComparisonData } from './../components/BlockImageComparison.stories'
-import { BlockIframeEmbedData } from './../components/BlockIframeEmbed.stories'
-import { HeroMediaData } from './../components/HeroMedia.stories'
-import { BlockRelatedLinksData } from './../components/BlockRelatedLinks.stories.js'
-import { BlockLinkCardCarouselData } from './../components/BlockLinkCarousel.stories.js'
-import { NavSecondaryData } from './../components/NavSecondary.stories.js'
+import { BlockHeadingData } from './../components/BlockHeading/BlockHeading.stories'
+import { BlockKeyPointsData } from './../components/BlockKeyPoints/BlockKeyPoints.stories'
+import { BlockImageComparisonData } from './../components/BlockImageComparison/BlockImageComparison.stories'
+import { BlockIframeEmbedData } from './../components/BlockIframeEmbed/BlockIframeEmbed.stories'
+import { HeroMediaData } from './../components/HeroMedia/HeroMedia.stories'
+import { BlockRelatedLinksData } from './../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
+import { BlockLinkCardCarouselData } from './../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
+import { NavSecondaryData } from './../components/NavSecondary/NavSecondary.stories.js'
 
-import PageContent from '@explorer-1/vue/src/templates/PageContent.vue'
+import PageContent from './PageContent.vue'
 
 export default {
   title: 'Templates/PageContent',

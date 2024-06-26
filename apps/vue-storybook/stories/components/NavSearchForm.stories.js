@@ -1,4 +1,4 @@
-import NavSearchForm from '@explorer-1/vue/src/components/NavSearchForm/NavSearchForm.vue'
+import NavSearchForm from './NavSearchForm.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavSearchForm',

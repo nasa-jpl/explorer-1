@@ -1,4 +1,4 @@
-import PodcastSeriesCarousel from '@explorer-1/vue/src/components/PodcastSeriesCarousel/PodcastSeriesCarousel.vue'
+import PodcastSeriesCarousel from './PodcastSeriesCarousel.vue'
 
 export default {
   title: 'WWW/PodcastDetail/PodcastSeriesCarousel',

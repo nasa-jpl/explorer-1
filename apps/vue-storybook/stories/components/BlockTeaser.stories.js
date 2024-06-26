@@ -1,4 +1,4 @@
-import BlockTeaser from '@explorer-1/vue/src/components/BlockTeaser/BlockTeaser.vue'
+import BlockTeaser from './BlockTeaser.vue'
 
 export default {
   title: 'Components/Blocks/BlockTeaser',

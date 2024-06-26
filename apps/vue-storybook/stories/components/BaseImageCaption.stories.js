@@ -1,4 +1,4 @@
-import BaseImageCaption from '@explorer-1/vue/src/components/BaseImageCaption/BaseImageCaption.vue'
+import BaseImageCaption from './BaseImageCaption.vue'
 export default {
   title: 'Components/Base/BaseImageCaption',
   component: BaseImageCaption,

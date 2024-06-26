@@ -1,4 +1,4 @@
-import BlockImageCarousel from '@explorer-1/vue/src/components/BlockImageCarousel/BlockImageCarousel.vue'
+import BlockImageCarousel from './BlockImageCarousel.vue'
 
 export default {
   title: 'Components/Blocks/BlockImageCarousel',

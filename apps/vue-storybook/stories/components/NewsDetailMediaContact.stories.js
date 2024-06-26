@@ -1,4 +1,4 @@
-import NewsDetailMediaContact from '@explorer-1/vue/src/components/NewsDetailMediaContact/NewsDetailMediaContact.vue'
+import NewsDetailMediaContact from './NewsDetailMediaContact.vue'
 
 export default {
   title: 'WWW/NewsDetail/NewsDetailMediaContact',

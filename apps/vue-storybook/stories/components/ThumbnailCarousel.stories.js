@@ -1,4 +1,4 @@
-import ThumbnailCarousel from '@explorer-1/vue/src/components/ThumbnailCarousel/ThumbnailCarousel.vue'
+import ThumbnailCarousel from './ThumbnailCarousel.vue'
 
 export default {
   title: 'Components/ThumbnailCarousel',

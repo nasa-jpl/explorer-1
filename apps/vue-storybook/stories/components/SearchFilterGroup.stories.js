@@ -1,4 +1,4 @@
-import SearchFilterGroup from '@explorer-1/vue/src/components/SearchFilterGroup/SearchFilterGroup.vue'
+import SearchFilterGroup from './SearchFilterGroup.vue'
 
 export default {
   title: 'Components/Search/SearchFilterGroup',

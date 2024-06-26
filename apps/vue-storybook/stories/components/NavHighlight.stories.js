@@ -1,4 +1,4 @@
-import NavHighlight from '@explorer-1/vue/src/components/NavHighlight/NavHighlight.vue'
+import NavHighlight from './NavHighlight.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavHighlight',

@@ -1,4 +1,4 @@
-import BaseAudio from '@explorer-1/vue/src/components/BaseAudio/BaseAudio.vue'
+import BaseAudio from './BaseAudio.vue'
 
 export default {
   title: 'Components/Base/BaseAudio',

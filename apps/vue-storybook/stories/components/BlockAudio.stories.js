@@ -1,4 +1,4 @@
-import BlockAudio from '@explorer-1/vue/src/components/BlockAudio/BlockAudio.vue'
+import BlockAudio from './BlockAudio.vue'
 
 export default {
   title: 'Components/Blocks/BlockAudio',

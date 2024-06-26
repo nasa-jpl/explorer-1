@@ -1,4 +1,4 @@
-import SearchSelectMenu from '@explorer-1/vue/src/components/SearchSelectMenu/SearchSelectMenu.vue'
+import SearchSelectMenu from './SearchSelectMenu.vue'
 
 export default {
   title: 'Components/Search/SearchSelectMenu',

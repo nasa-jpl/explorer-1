@@ -1,4 +1,4 @@
-import DetailHeadline from '@explorer-1/vue/src/components/DetailHeadline/DetailHeadline.vue'
+import DetailHeadline from './DetailHeadline.vue'
 
 export default {
   title: 'Components/DetailHeadline',

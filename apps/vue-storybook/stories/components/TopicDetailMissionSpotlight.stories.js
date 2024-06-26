@@ -1,4 +1,4 @@
-import TopicDetailMissionSpotlight from '@explorer-1/vue/src/components/TopicDetailMissionSpotlight/TopicDetailMissionSpotlight.vue'
+import TopicDetailMissionSpotlight from './TopicDetailMissionSpotlight.vue'
 export default {
   title: 'WWW/TopicDetail/TopicDetailMissionSpotlight',
   component: TopicDetailMissionSpotlight,

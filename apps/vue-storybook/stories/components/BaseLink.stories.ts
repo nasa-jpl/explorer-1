@@ -1,4 +1,4 @@
-import BaseLink, { variants } from '@explorer-1/vue/src/components/BaseLink/BaseLink.vue'
+import BaseLink, { variants } from './BaseLink.vue'
 export default {
   title: 'Components/Base/BaseLink',
   component: BaseLink,

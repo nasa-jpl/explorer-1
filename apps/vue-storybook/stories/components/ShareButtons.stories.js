@@ -1,4 +1,4 @@
-import ShareButtons from '@explorer-1/vue/src/components/ShareButtons/ShareButtons.vue'
+import ShareButtons from './ShareButtons.vue'
 
 export default {
   title: 'Components/ShareButtons',

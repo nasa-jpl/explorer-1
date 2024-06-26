@@ -1,4 +1,4 @@
-import NavLinkList from '@explorer-1/vue/src/components/NavLinkList/NavLinkList.vue'
+import NavLinkList from './NavLinkList.vue'
 
 export default {
   title: 'WWW/Header & Footer/Elements/NavLinkList',

@@ -1,4 +1,4 @@
-import BaseImage from '@explorer-1/vue/src/components/BaseImage/BaseImage.vue'
+import BaseImage from './BaseImage.vue'
 import BaseImagePlaceholder, {
   aspectRatios
 } from '@explorer-1/vue/src/components/BaseImagePlaceholder/BaseImagePlaceholder.vue'

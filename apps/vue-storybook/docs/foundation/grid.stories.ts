@@ -1,4 +1,4 @@
-import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
+import LayoutHelper from './LayoutHelper.vue'
 export default {
   title: 'Foundation/Grid and Layout',
   component: LayoutHelper,
