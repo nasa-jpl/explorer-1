@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['../src/module'],
+  modules: ['@nuxt/eslint', '../src/module'],
   explorer1: {},
   devtools: { enabled: true }
 })

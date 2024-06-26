@@ -12,6 +12,11 @@ export default defineConfig({
       ]
     })
   ],
+  publicDir: './../public/',
+  // because pnpm and stories are in node_modules
+  resolve: {
+    preserveSymlinks: true
+  },
   server: {
     watch: {
       usePolling: true

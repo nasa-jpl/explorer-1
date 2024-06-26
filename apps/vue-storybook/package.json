@@ -14,8 +14,10 @@
     "build": "storybook build -c .storybook -o storybook_compiled",
     "percy": "percy storybook http://localhost:6006",
     "percy:dry-run": "percy storybook http://localhost:6006 --dry-run",
-    "lint": "eslint ./stories",
-    "lint:fix": "eslint ./stories --fix",
+    "lint:app": "eslint './.storybook/**/*.@(js|ts)'",
+    "lint:app:fix": "eslint './.storybook/**/*.@(js|ts)' --fix",
+    "lint": "eslint './../../packages/vue/src/**/*.stories.@(js|ts|mdx)' && pnpm lint:app",
+    "lint:fix": "eslint './../../packages/vue/src/**/*.stories.@(js|ts|mdx)' --fix && pnpm lint:app:fix",
     "init-msw": "msw init public/"
   },
   "dependencies": {
