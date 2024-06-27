@@ -1,7 +1,13 @@
 {
   "name": "@explorer-1/prettier-config",
+  "private": false,
   "version": "1.0.0",
   "description": "Shared prettier config",
+  "author": "DesignLab",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nasa-jpl/explorer-1"
+  },
   "main": "index.json",
   "keywords": [
     "prettier",

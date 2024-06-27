@@ -2,6 +2,11 @@
   "name": "@explorer-1/common-storybook",
   "version": "0.0.0",
   "private": true,
+  "author": "DesignLab",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nasa-jpl/explorer-1"
+  },
   "prettier": "@explorer-1/prettier-config",
   "devDependencies": {
     "@explorer-1/common": "workspace:*",
