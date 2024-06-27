@@ -65,6 +65,8 @@ storybook_compiled
 # Tailwind
 .www-frontend_temp/
 
+dist
+
 # copied assets when preparing builds
 apps/**/.storybook/static/dist
 packages/**/src/assets/fonts
