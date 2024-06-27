@@ -50,7 +50,7 @@
     "@storybook/vue3": "^8.1.6",
     "@storybook/vue3-vite": "^8.1.6",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/eslint-config-prettier": "^9.0.0",
     "@whitespace/storybook-addon-html": "^6.1.1",
     "autoprefixer": "^10.4.19",
     "msw": "^2.3.0",
