@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 // imports into root eslint.config.js
 
-// @ts-check
-
 import vueParser from 'vue-eslint-parser'
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
