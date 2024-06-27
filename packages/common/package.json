@@ -1,6 +1,10 @@
 {
   "name": "@explorer-1/common",
   "version": "1.0.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "shared assets for all flavors of explorer-1",
   "author": "DesignLab",
   "repository": {
