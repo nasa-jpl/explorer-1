@@ -1,5 +1,6 @@
 {
   "name": "@explorer-1/prettier-config",
+  "private": false,
   "version": "1.0.0",
   "description": "Shared prettier config",
   "author": "DesignLab",
