@@ -1,6 +1,9 @@
 {
   "name": "@explorer-1/nuxt",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "DesignLab",
   "repository": {
     "type": "git",

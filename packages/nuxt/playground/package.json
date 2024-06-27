@@ -1,5 +1,8 @@
 {
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "name": "my-module-playground",
   "type": "module",
   "prettier": "@explorer-1/prettier-config",

@@ -2,6 +2,9 @@
   "name": "@explorer-1/vue-storybook",
   "version": "0.0.0",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "DesignLab",
   "repository": {
     "type": "git",
