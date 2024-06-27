@@ -1,7 +1,10 @@
 {
   "name": "@explorer-1/common-storybook",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "DesignLab",
   "repository": {
     "type": "git",

@@ -1,6 +1,9 @@
 {
   "name": "explorer-1",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "3.0.0",
   "type": "module",
   "description": "Monorepo for JPL's design system, Explorer 1",

@@ -1,6 +1,9 @@
 {
   "name": "@explorer-1/prettier-config",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "1.0.0",
   "description": "Shared prettier config",
   "author": "DesignLab",
