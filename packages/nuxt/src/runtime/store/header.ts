@@ -1,3 +1,3 @@
-import { useHeaderStore } from '@explorer-1/vue/src/store/header'
+import useHeaderStore from '@explorer-1/vue'
 
 export default useHeaderStore

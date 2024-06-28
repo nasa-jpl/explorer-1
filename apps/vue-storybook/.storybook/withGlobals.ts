@@ -1,8 +1,8 @@
 import { useEffect, useGlobals } from '@storybook/preview-api'
-import { useThemeStore } from '@explorer-1/vue/src/store/theme'
-import { type Explorer1Theme } from '@explorer-1/vue/src/interfaces'
+import { useThemeStore } from './themeStore'
+type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
 
-const getConfig = (config) => {
+export const getConfig = (config) => {
   // default values
   let defaultMethod: string = 'css'
   let options: string[] | undefined = undefined
@@ -40,6 +40,7 @@ const getConfig = (config) => {
 
 export const withGlobals = (StoryFn, context) => {
   const useTheme = useThemeStore()
+  // function useTheme((context) => useThemeStore)
   const { themesConfig, variantsConfig } = context.globals
   const { options, method } = getConfig(themesConfig)
   const { options: variantOptions, method: variantMethod } = getConfig(variantsConfig)
@@ -119,7 +120,7 @@ export const withGlobals = (StoryFn, context) => {
     useEffect(() => {
       if (variant) {
         const savedVariant = window.localStorage.getItem('data-variant')
-        document.body.classList.remove(savedVariant)
+        if (savedVariant) document.body.classList.remove(savedVariant)
         document.body.classList.add(variant)
         window.localStorage.setItem('data-variant', variant)
       }
