@@ -6,7 +6,7 @@ import advancedFormat from 'dayjs/plugin/advancedFormat.js'
 
 // Locales must be imported manually
 // see https://github.com/iamkun/dayjs/tree/dev/src/locale
-import 'dayjs/locale/en-gb'
+import 'dayjs/locale/en-gb.js'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(updateLocale)
