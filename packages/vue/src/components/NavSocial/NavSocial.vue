@@ -82,7 +82,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .BaseButton {
   @apply relative;
-  @include hover {
+  &:hover {
     @apply z-10;
   }
   // we have to define these here to override the extracted border styles native to BaseButton

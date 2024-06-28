@@ -196,7 +196,7 @@ const buttonClass = computed(() => {
 .ShareButtonsEdu {
   .BaseButton {
     @apply relative focus:z-20;
-    @include hover {
+    &:hover {
       @apply z-20;
     }
   }

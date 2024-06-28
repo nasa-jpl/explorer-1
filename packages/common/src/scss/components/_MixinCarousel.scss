@@ -34,7 +34,7 @@
           }
         }
 
-        @include hover {
+        &:hover {
           > .arrow-wrapper > .arrow,
           > .arrow-wrapper > .arrow-fixed {
             animation-delay: 50ms !important; // hover intent
@@ -46,7 +46,7 @@
     @screen lg {
       // specific directional animation
       .swiper-next.BaseButton > .label {
-        @include hover {
+        &:hover {
           > .arrow-wrapper > .arrow {
             animation: arrow-carousel-next-anim 0.1s linear normal;
           }
@@ -58,7 +58,7 @@
       }
 
       .swiper-prev.BaseButton > .label {
-        @include hover {
+        &:hover {
           > .arrow-wrapper > .arrow {
             animation: arrow-carousel-prev-anim 0.1s linear normal;
           }

@@ -15,7 +15,7 @@
     }
   }
 
-  @include hover {
+  &:hover {
     > .arrow-wrapper > .arrow {
       animation: arrow-anim 0.25s ease-in normal;
     }

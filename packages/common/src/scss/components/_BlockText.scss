@@ -2,7 +2,7 @@
   a {
     @apply text-action underline cursor-pointer break-words;
 
-    @include hover {
+    &:hover {
       @apply text-action-hover;
     }
   }

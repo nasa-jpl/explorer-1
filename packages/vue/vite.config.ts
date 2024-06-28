@@ -15,13 +15,6 @@ export default defineConfig({
       dirs: ['./src/components', './src/templates']
     })
   ],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
-      }
-    }
-  },
   // build: {
   //   rollupOptions: {
   //     output: {

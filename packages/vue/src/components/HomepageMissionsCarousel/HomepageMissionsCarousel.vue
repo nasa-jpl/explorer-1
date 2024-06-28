@@ -234,7 +234,7 @@ export default defineComponent({
             @apply absolute top-0 left-0 block;
           }
         }
-        @include hover {
+        &:hover {
           > .arrow-wrapper > .arrow,
           > .arrow-wrapper > .arrow-fixed {
             animation-delay: 50ms !important; // hover intent
@@ -245,7 +245,7 @@ export default defineComponent({
     @screen lg {
       // specific directional animation
       .swiper-next.BaseButton > .label {
-        @include hover {
+        &:hover {
           > .arrow-wrapper > .arrow {
             animation: arrow-carousel-next-anim 0.1s linear normal;
           }
@@ -257,7 +257,7 @@ export default defineComponent({
       }
 
       .swiper-prev.BaseButton > .label {
-        @include hover {
+        &:hover {
           > .arrow-wrapper > .arrow {
             animation: arrow-carousel-prev-anim 0.1s linear normal;
           }
