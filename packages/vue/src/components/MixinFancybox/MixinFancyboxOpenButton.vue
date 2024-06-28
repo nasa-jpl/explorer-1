@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import IconExpand from '@explorer-1/vue/src/components/Icons/IconExpand.vue'
+import IconExpand from './../Icons/IconExpand.vue'
 
 export default defineComponent({
   name: 'MixinFancyboxOpenButton',

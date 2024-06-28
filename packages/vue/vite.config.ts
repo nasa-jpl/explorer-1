@@ -15,15 +15,6 @@ export default defineConfig({
       dirs: ['./src/components', './src/templates']
     })
   ],
-  // build: {
-  //   rollupOptions: {
-  //     output: {
-  //       assetFileNames: 'assets/[name].[ext]',
-  //       entryFileNames: 'assets/[name].js',
-  //       chunkFileNames: 'assets/[name].js'
-  //     }
-  //   }
-  // }
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
@@ -33,14 +24,14 @@ export default defineConfig({
       fileName: 'explorer-1-vue'
     },
     rollupOptions: {
-      // make sure to externalize deps that shouldn't be bundled
-      // into your library
-      external: ['vue', 'swiper', '@fancyapps/ui', 'dayjs', 'click-outside-vue3'],
+      // make sure to externalize deps that shouldn't be bundled into your library
+      external: ['vue', 'lodash'],
       output: {
-        // Provide global variables to use in the UMD build
-        // for externalized deps
+        // Provide global variables to use in the UMD build for externalized deps
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
+          lodash: 'lodash',
+          'lodash/throttle': '_throttle'
         }
       }
     }

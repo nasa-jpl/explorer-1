@@ -138,6 +138,15 @@ importers:
 
   apps/vue-storybook:
     dependencies:
+      '@explorer-1/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@explorer-1/common-storybook':
+        specifier: workspace:*
+        version: link:../../packages/common-storybook
+      '@explorer-1/vue':
+        specifier: workspace:*
+        version: link:../../packages/vue
       '@fancyapps/ui':
         specifier: ^4.0.26
         version: 4.0.31
@@ -160,12 +169,6 @@ importers:
         specifier: ^1.2.5
         version: 1.2.5(vue@3.4.27(typescript@5.4.5))
     devDependencies:
-      '@explorer-1/common':
-        specifier: workspace:*
-        version: link:../../packages/common
-      '@explorer-1/common-storybook':
-        specifier: workspace:*
-        version: link:../../packages/common-storybook
       '@explorer-1/html':
         specifier: workspace:*
         version: link:../../packages/html
@@ -175,9 +178,6 @@ importers:
       '@explorer-1/tsconfig':
         specifier: workspace:*
         version: link:../../packages/configs/tsconfig
-      '@explorer-1/vue':
-        specifier: workspace:*
-        version: link:../../packages/vue
       '@rushstack/eslint-patch':
         specifier: ^1.2.0
         version: 1.10.3
@@ -382,6 +382,12 @@ importers:
 
   packages/nuxt:
     dependencies:
+      '@explorer-1/common':
+        specifier: workspace:*
+        version: link:../common
+      '@explorer-1/vue':
+        specifier: workspace:*
+        version: link:../vue
       '@fancyapps/ui':
         specifier: ^4.0.26
         version: 4.0.31
@@ -419,15 +425,9 @@ importers:
         specifier: ^1.2.5
         version: 1.2.5(vue@3.4.27(typescript@5.4.5))
     devDependencies:
-      '@explorer-1/common':
-        specifier: workspace:*
-        version: link:../common
       '@explorer-1/prettier-config':
         specifier: workspace:*
         version: link:../configs/prettier
-      '@explorer-1/vue':
-        specifier: workspace:*
-        version: link:../vue
       '@nuxt/devtools':
         specifier: ^1.2.0
         version: 1.3.3(@unocss/reset@0.60.4)(floating-vue@5.2.2(@nuxt/kit@3.11.2(rollup@4.18.0))(vue@3.4.27(typescript@5.4.5)))(nuxt@3.11.2(@opentelemetry/api@1.9.0)(@parcel/watcher@2.4.1)(@types/node@20.14.2)(@unocss/reset@0.60.4)(encoding@0.1.13)(eslint@9.4.0)(floating-vue@5.2.2(@nuxt/kit@3.11.2(rollup@4.18.0))(vue@3.4.27(typescript@5.4.5)))(ioredis@5.4.1)(optionator@0.9.4)(rollup@4.18.0)(sass@1.77.4)(stylelint@16.6.1(typescript@5.4.5))(terser@5.31.1)(typescript@5.4.5)(unocss@0.60.4(postcss@8.4.38)(rollup@4.18.0)(vite@5.2.13(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)))(vite@5.2.13(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue-tsc@2.0.21(typescript@5.4.5)))(rollup@4.18.0)(unocss@0.60.4(postcss@8.4.38)(rollup@4.18.0)(vite@5.2.13(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)))(vite@5.2.13(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.4.27(typescript@5.4.5))
@@ -458,6 +458,9 @@ importers:
 
   packages/vue:
     dependencies:
+      '@explorer-1/common':
+        specifier: workspace:*
+        version: link:../common
       '@fancyapps/ui':
         specifier: ^4.0.26
         version: 4.0.31
@@ -497,13 +500,13 @@ importers:
       vue:
         specifier: ^3.4.21
         version: 3.4.27(typescript@5.4.5)
+      vue-observe-visibility:
+        specifier: ^1.0.0
+        version: 1.0.0
       vue3-compare-image:
         specifier: ^1.2.5
         version: 1.2.5(vue@3.4.27(typescript@5.4.5))
     devDependencies:
-      '@explorer-1/common':
-        specifier: workspace:*
-        version: link:../common
       '@explorer-1/prettier-config':
         specifier: workspace:*
         version: link:../configs/prettier
@@ -8288,6 +8291,9 @@ packages:
     resolution: {integrity: sha512-K3wt3iVmNGaFEOUR4JIThQRWfqokxLfnPslD41FDZB2ajXp789+wCqJyGYlIFsvEQ2P61PInw6/ph5iiqg51gg==}
     peerDependencies:
       vue: '>=2'
+
+  vue-observe-visibility@1.0.0:
+    resolution: {integrity: sha512-s5TFh3s3h3Mhd3jaz3zGzkVHKHnc/0C/gNr30olO99+yw2hl3WBhK3ng3/f9OF+qkW4+l7GkmwfAzDAcY3lCFg==}
 
   vue-observe-visibility@2.0.0-alpha.1:
     resolution: {integrity: sha512-flFbp/gs9pZniXR6fans8smv1kDScJ8RS7rEpMjhVabiKeq7Qz3D9+eGsypncjfIyyU84saU88XZ0zjbD6Gq/g==}
@@ -18213,6 +18219,8 @@ snapshots:
   vue-inbrowser-compiler-independent-utils@4.71.1(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       vue: 3.4.27(typescript@5.4.5)
+
+  vue-observe-visibility@1.0.0: {}
 
   vue-observe-visibility@2.0.0-alpha.1(vue@3.4.27(typescript@5.4.5)):
     dependencies:

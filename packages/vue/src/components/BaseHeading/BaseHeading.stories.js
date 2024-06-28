@@ -1,7 +1,7 @@
 import BaseHeading from './BaseHeading.vue'
-import IconArrows from '@explorer-1/vue/src/components/Icons/IconArrows.vue'
-import IconLocation from '@explorer-1/vue/src/components/Icons/IconLocation.vue'
-import IconUser from '@explorer-1/vue/src/components/Icons/IconUser.vue'
+import IconArrows from './../Icons/IconArrows.vue'
+import IconLocation from './../Icons/IconLocation.vue'
+import IconUser from './../Icons/IconUser.vue'
 
 export default {
   title: 'Components/Base/BaseHeading',

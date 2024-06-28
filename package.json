@@ -22,7 +22,12 @@
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "scripts": {
-    "clean": "rimraf \"**/node_modules\"",
+    "clean": "pnpm clean:nodemodules && pnpm clean:dist && pnpm clean:nuxt",
+    "clean:rimraf": "rimraf \"**/node_modules\"",
+    "clean:cache": "find . -name '.cache' -type d -prune -exec rm -rf '{}' +",
+    "clean:dist": "find . -name 'dist' -type d -prune -exec rm -rf '{}' +",
+    "clean:nodemodules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "clean:nuxt": "find . -name '.nuxt' -type d -prune -exec rm -rf '{}' +",
     "refresh": "pnpm clean && pnpm i",
     "nuke": "rimraf pnpm-lock.yaml && pnpm refresh",
     "preinstall": "npx --yes only-allow pnpm",
