@@ -93,7 +93,7 @@ export default defineNuxtModule<ModuleOptions>({
       })
     } // types
     addImportsSources({
-      from: '@explorer-1/vue/src/interfaces',
+      from: '@explorer-1/vue/interfaces',
       imports: ['ImageObject', 'Explorer1Theme']
     })
     if (options.includePageTemplates) {
@@ -107,15 +107,14 @@ export default defineNuxtModule<ModuleOptions>({
     }
     if (options.includeStore) {
       await installModule('@pinia/nuxt', {
-        autoImports: ['useThemeStore'],
-        storesDirs: ['./store/**', resolver.resolve(runtimeDir, 'store')]
+        storesDirs: ['./store/**']
       })
       addImportsSources({
-        from: '@explorer-1/vue/src/store/theme',
+        from: '@explorer-1/vue',
         imports: ['useThemeStore']
       })
       addImportsSources({
-        from: '@explorer-1/vue/src/store/header',
+        from: '@explorer-1/vue',
         imports: ['useHeaderStore']
       })
     }

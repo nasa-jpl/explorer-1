@@ -9,7 +9,7 @@
     "type": "git",
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "pnpm prepare && vite",
@@ -24,6 +24,7 @@
   },
   "prettier": "@explorer-1/prettier-config",
   "dependencies": {
+    "@explorer-1/common": "workspace:*",
     "@fancyapps/ui": "^4.0.26",
     "@tailwindcss/forms": "^0.5.7",
     "animejs": "^3.2.2",
@@ -37,10 +38,10 @@
     "tailwindcss": "^3.4.3",
     "twitter-widgets": "^2.0.0",
     "vue": "^3.4.21",
+    "vue-observe-visibility": "^1.0.0",
     "vue3-compare-image": "^1.2.5"
   },
   "devDependencies": {
-    "@explorer-1/common": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.19",

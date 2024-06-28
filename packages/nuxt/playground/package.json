@@ -15,9 +15,5 @@
   },
   "dependencies": {
     "nuxt": "^3.11.2"
-  },
-  "devDependencies": {
-    "@nuxt/eslint": "^0.3.13",
-    "@explorer-1/eslint-config": "workspace:*"
   }
 }

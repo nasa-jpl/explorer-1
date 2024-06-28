@@ -14,9 +14,8 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm storybook",
-    "prepare": "pnpm prepare:public && pnpm prepare:public:edu && pnpm prepare:fontcss",
+    "prepare": "pnpm prepare:public && pnpm prepare:fontcss",
     "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1",
-    "prepare:public:edu": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/edu/explorer-1",
     "prepare:fontcss": "cp ./node_modules/@explorer-1/common/src/scss/_fonts.scss ./public/css/font-face.css",
     "storybook": "storybook dev -c .storybook -p 6006 --ci",
     "build": "storybook build -c .storybook -o storybook_compiled",
@@ -29,6 +28,9 @@
     "init-msw": "msw init public/"
   },
   "dependencies": {
+    "@explorer-1/common": "workspace:*",
+    "@explorer-1/common-storybook": "workspace:*",
+    "@explorer-1/vue": "workspace:*",
     "@fancyapps/ui": "^4.0.26",
     "@tailwindcss/forms": "^0.5.7",
     "click-outside-vue3": "^4.0.1",
@@ -38,12 +40,9 @@
     "vue3-compare-image": "^1.2.5"
   },
   "devDependencies": {
-    "@explorer-1/common": "workspace:*",
-    "@explorer-1/common-storybook": "workspace:*",
     "@explorer-1/html": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
-    "@explorer-1/vue": "workspace:*",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storybook/addon-a11y": "^8.1.6",
     "@storybook/addon-essentials": "^8.1.6",

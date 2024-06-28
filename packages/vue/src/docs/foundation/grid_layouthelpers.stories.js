@@ -1,4 +1,4 @@
-import LayoutHelper, { indents } from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
+import LayoutHelper, { indents } from './../../components/LayoutHelper/LayoutHelper.vue'
 
 // TODO: DOCS: update this to match the full grid/layout documentation
 
