@@ -1,6 +1,6 @@
-import { HeroMediaData } from './../../components/HeroMedia/HeroMedia/HeroMedia.stories'
-import { DetailHeadlineData } from './../../components/DetailHeadline/DetailHeadline/DetailHeadline.stories'
-import { BlockStreamfieldData } from './../../components/BlockStreamfield/BlockStreamfield/BlockStreamfield.stories'
+import { HeroMediaData } from './../../components/HeroMedia/HeroMedia.stories'
+import { DetailHeadlineData } from './../../components/DetailHeadline/DetailHeadline.stories'
+import { BlockStreamfieldData } from './../../components/BlockStreamfield/BlockStreamfield.stories'
 import {
   BlockLinkCardCarouselData,
   BlockLinkTileCarouselData
