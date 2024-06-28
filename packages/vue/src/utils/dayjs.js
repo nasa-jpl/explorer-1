@@ -1,12 +1,12 @@
 import dayjs from 'dayjs'
-import updateLocale from 'dayjs/plugin/updateLocale'
-import localizedFormat from 'dayjs/plugin/localizedFormat'
-import timezone from 'dayjs/plugin/timezone'
-import advancedFormat from 'dayjs/plugin/advancedFormat'
+import updateLocale from 'dayjs/plugin/updateLocale.js'
+import localizedFormat from 'dayjs/plugin/localizedFormat.js'
+import timezone from 'dayjs/plugin/timezone.js'
+import advancedFormat from 'dayjs/plugin/advancedFormat.js'
 
 // Locales must be imported manually
 // see https://github.com/iamkun/dayjs/tree/dev/src/locale
-import 'dayjs/locale/en-gb'
+import 'dayjs/locale/en-gb.js'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(updateLocale)
