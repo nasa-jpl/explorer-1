@@ -139,7 +139,7 @@ export default defineComponent({
         @apply border-primary #{!important};
       }
     }
-    @include hover {
+    &:hover {
       &.-active {
         > span {
           @apply text-gray-mid-dark;

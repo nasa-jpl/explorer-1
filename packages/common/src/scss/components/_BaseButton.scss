@@ -13,7 +13,7 @@
     @apply flex h-full items-center justify-center;
   }
 
-  @include hover {
+  &:hover {
     background-position: bottom;
   }
 
@@ -28,7 +28,7 @@
   &.-secondary {
     @apply px-12 bg-transparent text-action border-2 border-action to-action-dark-w50;
 
-    @include hover {
+    &:hover {
       @apply text-white border-action-dark;
     }
   }
@@ -36,7 +36,7 @@
   &.-dark {
     @apply px-12 bg-transparent text-white border border-white/40 to-white-w50;
 
-    @include hover {
+    &:hover {
       @apply text-dark-blue edu:text-primary-dark border-white bg-white;
     }
   }
@@ -48,14 +48,14 @@
   &.-social {
     @apply px-12 bg-transparent border border-gray-mid text-gray-mid to-gray-dark-w50;
 
-    @include hover {
+    &:hover {
       @apply text-white bg-gray-dark;
     }
 
     &.-facebook {
       @apply to-facebook-w50;
 
-      @include hover {
+      &:hover {
         @apply bg-facebook border-facebook;
       }
     }
@@ -63,7 +63,7 @@
     &.-twitter {
       @apply to-twitter-w50;
 
-      @include hover {
+      &:hover {
         @apply bg-twitter border-twitter;
       }
     }
@@ -71,7 +71,7 @@
     &.-instagram {
       @apply to-instagram-w50;
 
-      @include hover {
+      &:hover {
         @apply bg-instagram border-instagram;
       }
     }
@@ -79,7 +79,7 @@
     &.-youtube {
       @apply to-youtube-w50;
 
-      @include hover {
+      &:hover {
         @apply bg-youtube border-youtube;
       }
     }
@@ -87,13 +87,13 @@
     &.-reddit {
       @apply to-reddit-w50;
 
-      @include hover {
+      &:hover {
         @apply bg-reddit border-reddit;
       }
     }
     .ThemeEdu & {
       @apply border-action text-action to-action-w50 #{!important};
-      @include hover {
+      &:hover {
         @apply text-white bg-action #{!important};
       }
     }

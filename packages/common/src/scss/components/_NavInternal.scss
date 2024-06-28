@@ -16,7 +16,9 @@
     visibility: hidden;
     max-height: 0;
     opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms,
+    transition:
+      visibility 0s linear 300ms,
+      opacity 300ms,
       max-height 0s linear 300s;
     @apply h-0 overflow-hidden;
 
@@ -36,7 +38,10 @@
       visibility: visible;
       max-height: 100%;
       opacity: 1;
-      transition: visibility 0s, opacity 300ms, max-height 0s;
+      transition:
+        visibility 0s,
+        opacity 300ms,
+        max-height 0s;
       @apply h-auto overflow-visible;
 
       @screen lg {
@@ -86,7 +91,7 @@
           @apply border-gray-dark/20 outline-none;
         }
 
-        @include hover {
+        &:hover {
           @apply text-gray-mid-dark;
         }
         // bold invisible psuedo element to prevent layout shift on hover
@@ -228,7 +233,7 @@
           @apply border-b border-transparent;
         }
 
-        @include hover {
+        &:hover {
           @apply text-jpl-sky-blue;
         }
 
@@ -269,7 +274,7 @@
           }
         }
 
-        @include hover {
+        &:hover {
           @apply text-gray-dark;
 
           > span {
@@ -284,7 +289,7 @@
             @apply border-0;
           }
 
-          @include hover {
+          &:hover {
             @apply text-jpl-sky-blue;
           }
 
@@ -353,12 +358,16 @@
   // complex transitions, so cannot use tailwind classes
   visibility: visible;
   opacity: 0.8;
-  transition: visibility 0s linear 0s, opacity 300ms;
+  transition:
+    visibility 0s linear 0s,
+    opacity 300ms;
   // must use a custom class, cannot use .invisible, or else other rules will get erroneously created
   // see: https://github.jpl.nasa.gov/18x/WCP/issues/492
   &.invisible-overlay {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms;
+    transition:
+      visibility 0s linear 300ms,
+      opacity 300ms;
   }
 }

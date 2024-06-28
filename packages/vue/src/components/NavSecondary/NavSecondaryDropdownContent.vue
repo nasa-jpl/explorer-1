@@ -124,7 +124,7 @@ export default defineComponent({
       @apply border-b border-transparent pb-2px;
     }
 
-    @include hover {
+    &:hover {
       > span {
         @apply border-black text-black;
       }

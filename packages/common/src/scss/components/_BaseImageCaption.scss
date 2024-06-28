@@ -9,7 +9,7 @@
     a {
       @apply text-action underline cursor-pointer;
 
-      @include hover {
+      &:hover {
         @apply text-action-hover;
       }
     }

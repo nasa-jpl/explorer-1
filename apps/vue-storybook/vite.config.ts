@@ -21,12 +21,5 @@ export default defineConfig({
     watch: {
       usePolling: true
     }
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
-      }
-    }
   }
 })
