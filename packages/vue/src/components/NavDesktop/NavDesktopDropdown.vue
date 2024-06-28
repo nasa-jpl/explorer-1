@@ -136,7 +136,7 @@ export default defineComponent({
         }
       }
     }
-    @include hover {
+    &:hover {
       > span {
         @apply border-jpl-red;
 

@@ -67,14 +67,6 @@ export default defineNuxtModule<ModuleOptions>({
       // extend nuxt's vite config without overriding nuxt.config.js
       nuxt.options.vite = {
         ...nuxt.options.vite,
-        css: {
-          ...nuxt.options.css,
-          preprocessorOptions: {
-            scss: {
-              additionalData: `@import "@explorer-1/common/src/scss/_hover.scss";`
-            }
-          }
-        },
         build: {
           rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled

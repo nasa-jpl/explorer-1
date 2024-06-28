@@ -124,7 +124,7 @@ export default defineComponent({
 .ShareButtons {
   .BaseButton {
     @apply relative;
-    @include hover {
+    &:hover {
       @apply z-10;
     }
   }
