@@ -5,8 +5,8 @@ export default {
   component: ShareButtonsEdu
 }
 
-export const Default = {
-  name: 'Share Buttons',
+export const ShareButtons = {
+  name: 'Share Buttons EDU',
   args: {
     url: 'https://jpl.nasa.gov/edu/news/nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
     title: "NASA's Ingenuity Mars Helicopter Recharges Its Batteries in Flight"
