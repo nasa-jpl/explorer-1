@@ -62,7 +62,7 @@
     "@types/node": "^20.12.11",
     "changelogen": "^0.5.5",
     "nuxt": "^3.11.2",
-    "typescript": "latest",
-    "vue-tsc": "^2.0.16"
+    "typescript": "^5.4.5",
+    "vue-tsc": "^2.0.6"
   }
 }
