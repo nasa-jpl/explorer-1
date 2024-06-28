@@ -11,11 +11,6 @@
   },
   "version": "0.0.0",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./dist/explorer-1-vue.umd.cjs"
-    }
-  },
   "scripts": {
     "dev": "pnpm prepare && vite",
     "build": "pnpm prepare && vue-tsc && vite build",

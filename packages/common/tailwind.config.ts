@@ -310,8 +310,7 @@ export default {
           selectors: ['.ThemeEdu'],
           extend: {
             backgroundImage: {
-              // TODO: would prefer to not hardcode the /edu/ path here
-              'star-pattern': 'url(/edu/explorer-1/bg-stars-edu.png)'
+              'star-pattern': 'url(/explorer-1/bg-stars-edu.png)'
             }
           }
         },

@@ -33,9 +33,8 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
-    "prepare": "pnpm prepare:public && pnpm prepare:public:edu",
-    "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./src/runtime/public/explorer-1",
-    "prepare:public:edu": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./src/runtime/public/edu/explorer-1"
+    "prepare": "pnpm prepare:public",
+    "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./src/runtime/public/explorer-1"
   },
   "prettier": "@explorer-1/prettier-config",
   "dependencies": {
