@@ -1,4 +1,4 @@
-import filters from '@explorer-1/vue'
+import filters from '@explorer-1/vue/src/utils/filters'
 import { defineNuxtPlugin } from 'nuxt/app'
 
 export default defineNuxtPlugin((nuxtApp) => {

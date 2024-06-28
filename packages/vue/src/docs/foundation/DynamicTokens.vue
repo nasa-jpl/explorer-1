@@ -1,5 +1,5 @@
 <template>
-  <table class="table-autotext-sm">
+  <table class="DynamicTokensTable table-autotext-sm">
     <thead>
       <tr>
         <th class="text-left w-1/2">Color</th>
@@ -95,12 +95,14 @@
     </tbody>
   </table>
 </template>
-<style scoped>
-.ThemeVariantDark table {
-  @apply text-white;
-}
-td,
-th {
-  @apply px-2;
+<style lang="scss">
+.DynamicTokensTable {
+  .ThemeVariantDark & {
+    @apply text-white #{!important};
+  }
+  td,
+  th {
+    @apply px-2;
+  }
 }
 </style>
