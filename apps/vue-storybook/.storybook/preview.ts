@@ -8,14 +8,12 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import vClickOutside from 'click-outside-vue3'
 import VueCompareImage from 'vue3-compare-image'
 import { createPinia } from 'pinia'
-import filters from '@explorer-1/vue'
+import filters from '@explorer-1/vue/src/utils/filters'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 import '@explorer-1/common/src/scss/styles.scss'
 import { withGlobals, globalTypes } from './withGlobals'
 import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/common-storybook/src/config/canvas.css'
-import useThemeStore from '@explorer-1/vue'
-type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
 
 const pinia = createPinia()
 

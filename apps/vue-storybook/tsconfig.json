@@ -1,9 +1,5 @@
 {
   "extends": "@explorer-1/tsconfig/storybook.json",
-  "compilerOptions": {
-    "moduleResolution": "bundler",
-    "module": "ESNext"
-  },
   "exclude": ["node_modules"],
   "include": ["./**/*"]
 }
