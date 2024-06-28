@@ -253,6 +253,12 @@ importers:
 
   packages/common:
     dependencies:
+      '@tailwindcss/forms':
+        specifier: ^0.5.7
+        version: 0.5.7(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.4.5)))
+      tailwindcss:
+        specifier: ^3.4.3
+        version: 3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.4.5))
       tailwindcss-themer:
         specifier: ^4.0.0
         version: 4.0.0(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.4.5)))
@@ -263,18 +269,12 @@ importers:
       '@explorer-1/tsconfig':
         specifier: workspace:*
         version: link:../configs/tsconfig
-      '@tailwindcss/forms':
-        specifier: ^0.5.7
-        version: 0.5.7(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.4.5)))
       stylelint:
         specifier: ^16.5.0
         version: 16.6.1(typescript@5.4.5)
       stylelint-config-standard-scss:
         specifier: ^13.1.0
         version: 13.1.0(postcss@8.4.38)(stylelint@16.6.1(typescript@5.4.5))
-      tailwindcss:
-        specifier: ^3.4.3
-        version: 3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.4.5))
 
   packages/common-storybook:
     devDependencies:
