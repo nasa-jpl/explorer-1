@@ -19,6 +19,6 @@
     "rimraf": "^5.0.5",
     "storybook": "^8.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.4.5"
   }
 }
