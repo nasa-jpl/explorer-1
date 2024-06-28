@@ -3,6 +3,16 @@ import BlockCard from './BlockCard.vue'
 export default {
   title: 'Components/Blocks/BlockCard',
   component: BlockCard,
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="lg:w-1/3"><story/></div>`
+    })
+  ],
+  parameters: {
+    html: {
+      root: '#storyDecorator'
+    }
+  },
   excludeStories: /.*Data$/
 }
 
