@@ -1,5 +1,6 @@
 {
   "name": "@explorer-1/vue",
+  "version": "0.0.2",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -9,7 +10,6 @@
     "type": "git",
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
-  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "pnpm prepare && vite",
@@ -17,10 +17,9 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "preview": "vite preview",
-    "prepare": "pnpm prepare:fonts && pnpm prepare:public && pnpm prepare:public:edu",
+    "prepare": "pnpm prepare:fonts && pnpm prepare:public",
     "prepare:fonts": "cp -R ./node_modules/@explorer-1/common/src/fonts/ ./src/assets/fonts/",
-    "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1",
-    "prepare:public:edu": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/edu/explorer-1"
+    "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1"
   },
   "prettier": "@explorer-1/prettier-config",
   "dependencies": {
