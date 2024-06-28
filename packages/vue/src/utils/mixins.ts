@@ -1,14 +1,14 @@
 // import Vue from 'vue'
 // @ts-ignore
 import dayjs from './dayjs'
-import { useHeaderStore } from './../store/header'
+import { useHeaderStore } from '@explorer-1/vue/src/store/header'
 import { useRoute } from 'vue-router'
 import type {
   BreadcrumbPathObject,
   ImageObject,
   ImageSrcObject,
   RelatedLinkObject
-} from '../interfaces'
+} from '@explorer-1/vue/src/interfaces'
 // srcSet data structure
 export interface SrcSetDataValue {
   url: string
