@@ -1,0 +1,118 @@
+# https://storybook.js.org/docs/vue/writing-tests/test-runner#run-against-non-deployed-storybooks
+
+name: 'Storybook & Testing CI'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/common/**'
+      - 'packages/vue/**'
+  pull_request:
+    paths:
+      - 'apps/vue-storybook/**'
+      - 'packages/common/**'
+      - 'packages/vue/**'
+
+jobs:
+  build:
+    name: Build
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node ⬢
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies 🧱
+        run: pnpm i
+
+      - name: Build Storybook
+        run: make vue-storybook-build
+
+      - name: Upload build to artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: storybook
+          path: apps/vue-storybook/storybook_compiled
+
+  a11y:
+    name: Accessibility Tests
+    needs: build
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node ⬢
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies 🧱
+        run: pnpm i
+
+      - name: Install Playwright
+        run: pnpm --filter @explorer-1/vue-storybook exec playwright install
+
+      - name: Download storybook build
+        uses: actions/download-artifact@v3
+        with:
+          name: storybook
+          path: apps/vue-storybook/storybook_compiled
+
+      - name: Serve Storybook and run tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "pnpm --filter @explorer-1/vue-storybook start" \
+            "pnpm --filter @explorer-1/vue-storybook test:storybook:ci"
+
+  chromatic:
+    name: Publish
+    needs: [build]
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node ⬢
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies 🧱
+        run: pnpm i
+
+      - name: Download storybook build
+        uses: actions/download-artifact@v3
+        with:
+          name: storybook
+          path: apps/vue-storybook/storybook_compiled
+
+      - uses: chromaui/action@v1
+        # Options required for Chromatic's GitHub Action
+        with:
+          storybookBuildDir: 'apps/vue-storybook/storybook_compiled'
+          #👇 Chromatic projectToken,
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          exitOnceUploaded: true

@@ -26,7 +26,8 @@ const config = {
     },
     '@storybook/addon-a11y',
     '@whitespace/storybook-addon-html',
-    'storybook-addon-vue-slots'
+    'storybook-addon-vue-slots',
+    '@chromatic-com/storybook'
   ],
   staticDirs: [
     './../public',
