@@ -41,28 +41,28 @@
           <div class="bg-secondary-light p-4"></div>
         </td>
         <td>Secondary light</td>
-        <td><code class="text-sm">primary-light</code></td>
+        <td><code class="text-sm">secondary-light</code></td>
       </tr>
       <tr>
         <td>
           <div class="bg-secondary p-4"></div>
         </td>
         <td>Secondary</td>
-        <td><code class="text-sm">primary</code></td>
+        <td><code class="text-sm">secondary</code></td>
       </tr>
       <tr>
         <td>
           <div class="bg-secondary-dark p-4"></div>
         </td>
         <td>Secondary dark</td>
-        <td><code class="text-sm">primary-dark</code></td>
+        <td><code class="text-sm">secondary-dark</code></td>
       </tr>
       <tr>
         <td>
           <div class="bg-secondary-darker p-4"></div>
         </td>
         <td>Secondary darker</td>
-        <td><code class="text-sm">primary-darker</code></td>
+        <td><code class="text-sm">secondary-darker</code></td>
       </tr>
       <tr>
         <td>
