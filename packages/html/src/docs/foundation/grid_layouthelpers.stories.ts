@@ -8,7 +8,7 @@ const meta: Meta = {
 export default meta
 
 const BaseWidthTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
-  <div class="indent-col-base border border-success-green p-4">
+  <div class="indent-col-base border border-success p-4">
     <code>.indent-col-base</code>
   </div>
 </div>`
@@ -16,7 +16,7 @@ const BaseWidthTemplate = () => `<div class="BaseGrid container mx-auto border b
 export const BaseWidth: StoryObj = BaseWidthTemplate.bind({})
 
 const ColTwoStartTemplate = () => `<div class="BaseGrid container mx-auto border border-black py-4">
-  <div class="indent-col-base indent-col-2 border border-success-green p-4">
+  <div class="indent-col-base indent-col-2 border border-success p-4">
     <code>.indent-col-base.indent-col-2</code>
   </div>
 </div>`
@@ -35,7 +35,7 @@ ColTwoStart.parameters = {
 
 const ColThreeStartTemplate =
   () => `<div class="BaseGrid container mx-auto border border-black py-4">
-  <div class="indent-col-base indent-col-3 border border-success-green p-4">
+  <div class="indent-col-base indent-col-3 border border-success p-4">
     <code>.indent-col-base.indent-col-3</code>
   </div>
 </div>`
@@ -47,7 +47,7 @@ export const ColThreeStart: StoryObj = {
 
 const ColFourStartTemplate =
   () => `<div class="BaseGrid container mx-auto border border-black py-4">
-  <div class="indent-col-base indent-col-4 border border-success-green p-4">
+  <div class="indent-col-base indent-col-4 border border-success p-4">
     <code>.indent-col-base.indent-col-4</code>
   </div>
 </div>`

@@ -6,7 +6,7 @@ export default {
   component: NavHeading,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="p-8 bg-dark-blue"><story/></div>`
+      template: `<div id="storyDecorator" class="p-8 bg-jpl-blue-darker"><story/></div>`
     })
   ],
   parameters: {

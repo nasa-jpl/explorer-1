@@ -13,7 +13,7 @@ const ExampleFormTemplate = () => `<form>
       type="text"
       name="name"
       placeholder="enter your name"
-      class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus-blue focus:shadow-jpl"
+      class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus focus:shadow-jpl"
     />
   </div>
   <div class="mb-4">
@@ -29,7 +29,7 @@ const ExampleFormTemplate = () => `<form>
       placeholder="enter your message..."
       cols="40"
       rows="5"
-      class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus-blue focus:shadow-jpl"
+      class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus focus:shadow-jpl"
     ></textarea>
   </div>
   <button

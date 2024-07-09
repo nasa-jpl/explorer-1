@@ -88,7 +88,7 @@ export const SearchResultCardTemplate = ({
     </div>
     `
         : `
-    <div class="bg-dark-blue xl:grid-cols-9 relative grid grid-cols-5 mb-10 text-white">
+    <div class="bg-jpl-blue-darker xl:grid-cols-9 relative grid grid-cols-5 mb-10 text-white">
       <div class="xl:col-span-7 flex items-center col-span-3 p-10">
         <div class="">
           ${

@@ -227,14 +227,14 @@
 
     .repeated-item {
       a {
-        @apply text-jpl-sky-blue-dark leading-tight transition-colors text-lg font-medium;
+        @apply text-jpl-teal-dark leading-tight transition-colors text-lg font-medium;
 
         span {
           @apply border-b border-transparent;
         }
 
         &:hover {
-          @apply text-jpl-sky-blue;
+          @apply text-jpl-teal;
         }
 
         &.active {
@@ -283,14 +283,14 @@
         }
 
         &.text-subtitle {
-          @apply text-jpl-sky-blue-dark transition-colors;
+          @apply text-jpl-teal-dark transition-colors;
 
           > span {
             @apply border-0;
           }
 
           &:hover {
-            @apply text-jpl-sky-blue;
+            @apply text-jpl-teal;
           }
 
           svg.IconExternal {
