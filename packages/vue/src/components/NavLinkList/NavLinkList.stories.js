@@ -5,7 +5,7 @@ export default {
   component: NavLinkList,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="bg-dark-blue p-8"><story/></div>`
+      template: `<div id="storyDecorator" class="bg-jpl-blue-darker p-8"><story/></div>`
     })
   ],
   parameters: {

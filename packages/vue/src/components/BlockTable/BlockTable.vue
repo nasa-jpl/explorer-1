@@ -13,7 +13,7 @@
             v-for="(col, index_col) in row.cols"
             :key="index_col"
             :class="
-              row.header ? 'bg-dark-blue text-subtitle text-white' : 'bg-white text-gray-dark'
+              row.header ? 'bg-jpl-blue-darker text-subtitle text-white' : 'bg-white text-gray-dark'
             "
             class="border-gray-light-mid lg:p-5 p-3 border-b"
           >

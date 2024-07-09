@@ -7,7 +7,7 @@ import * as Stories from './themes.stories'
 
 ## Internal Theme
 
-Apply a body class of `.ThemeInternal` to your build to reflect JPL's internal color scheme. The difference between the internal theme and the default theme is subtle: for the most part, only link colors are changed to `jpl-sky-blue` and `jpl-sky-blue-dark`.
+Apply a body class of `.ThemeInternal` to your build to reflect JPL's internal color scheme. The difference between the internal theme and the default theme is subtle: for the most part, only link colors are changed to `jpl-teal` and `jpl-teal-dark`.
 
 ```html
 <body class="ThemeInternal">
@@ -79,7 +79,7 @@ For components that have light and dark themes, add theme rules to the end of yo
 
 ## Adaptive Text Colors
 
-Usage of `.text-jpl-red` vs `.text-jpl-red-light` (or the `.text-jpl-sky-blue` variants for internal sites) in the correct context of `.ThemeVariantLight` and `.ThemeVariantDark` ensures that the contrast of the text color is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created text color classes that follow this rule automatically. These color classes also check for usage of `.ThemeInternal`.
+Usage of `.text-jpl-red` vs `.text-jpl-red-light` (or the `.text-jpl-teal` variants for internal sites) in the correct context of `.ThemeVariantLight` and `.ThemeVariantDark` ensures that the contrast of the text color is sufficient against the background color. To avoid rewriting the CSS rules for each use-case, we created text color classes that follow this rule automatically. These color classes also check for usage of `.ThemeInternal`.
 
 ```css
 .text-action
