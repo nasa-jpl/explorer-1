@@ -21,6 +21,6 @@ export const FormTextAreaTemplate = ({ placeholder, label, inputName, required }
   placeholder="${placeholder}"
   cols="40"
   rows="5"
-  class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus-blue focus:shadow-jpl"
+  class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus focus:shadow-jpl"
 ></textarea>`
 }

@@ -152,7 +152,7 @@ Dark_Button.args = {
   compact: false,
   disabled: false
 }
-Dark_Button.decorators = [(Story) => `<div class="p-5 bg-dark-blue">${Story()}</div>`]
+Dark_Button.decorators = [(Story) => `<div class="p-5 bg-jpl-blue-darker">${Story()}</div>`]
 
 export const Primary_Icon_Button = BaseButtonTemplate.bind({})
 Primary_Icon_Button.args = {
@@ -189,7 +189,7 @@ Dark_Icon_Button.args = {
   icon: 'next',
   iconOnly: true
 }
-Dark_Icon_Button.decorators = [(Story) => `<div class="p-5 bg-dark-blue">${Story()}</div>`]
+Dark_Icon_Button.decorators = [(Story) => `<div class="p-5 bg-jpl-blue-darker">${Story()}</div>`]
 
 export const Social_Icon_Button = () => {
   let facebook = BaseButtonTemplate({

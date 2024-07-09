@@ -1,5 +1,5 @@
 <template>
-  <div class="MissionDetailStatsMicro bg-dark-blue sm:py-0 p-3 py-1 text-white">
+  <div class="MissionDetailStatsMicro bg-jpl-blue-darker sm:py-0 p-3 py-1 text-white">
     <div v-if="showClock && startDateTime">
       <BaseTimer
         :target-date-time="startDateTime"

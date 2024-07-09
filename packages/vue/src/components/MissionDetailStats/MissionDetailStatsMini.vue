@@ -7,7 +7,7 @@
           v-if="showClock && startDateTime"
           class="theme-inner lg:col-span-4 xl:col-span-4 2xl:col-span-3 sm:col-span-7 col-span-11"
         >
-          <p class="text-jpl-aqua text-subtitle mb-3">
+          <p class="text-jpl-blue-light text-subtitle mb-3">
             {{ clockTypeLabel }}
           </p>
           <BaseTimer
@@ -25,7 +25,7 @@
           :distance-api-urls="distanceApiUrls"
         >
           <template #label="slotProps">
-            <p class="text-jpl-aqua text-subtitle mb-3">
+            <p class="text-jpl-blue-light text-subtitle mb-3">
               {{ slotProps.label }}
             </p>
           </template>
@@ -82,7 +82,7 @@ export default defineComponent({
 .MissionDetailStatsMini {
   .theme,
   .theme-inner {
-    @apply bg-dark-blue bg-opacity-75 text-white;
+    @apply bg-jpl-blue-darker bg-opacity-75 text-white;
   }
   // different padding left for first child, which is dynamic
   .theme-inner {

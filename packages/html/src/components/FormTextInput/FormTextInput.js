@@ -20,6 +20,6 @@ export const FormTextInputTemplate = ({ placeholder, label, inputName, required 
       : ``
   }
   placeholder="${placeholder}"
-  class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus-blue focus:shadow-jpl"
+  class="border-gray-light-mid w-full px-4 py-3 border mt-2 focus:border-focus focus:shadow-jpl"
 />`
 }

@@ -38,7 +38,7 @@
           </p>
           <p
             v-if="data.status || data.showClock"
-            class="text-subtitle text-jpl-aqua"
+            class="text-subtitle text-jpl-blue-light"
           >
             <span class="sr-only">.</span>
             <template v-if="data.showClock">

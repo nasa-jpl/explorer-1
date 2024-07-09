@@ -3,7 +3,6 @@ import type { CustomThemeConfig } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
 import themeColors, {
   foundationColors,
-  internalColors,
   grayScaleColors,
   socialColors,
   ThemeWww,
@@ -137,8 +136,8 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'jpl-red-dark-w50': foundationColors['jpl-red-dark'] + ' 50%',
     'jpl-red-darker-w50': foundationColors['jpl-red-darker'] + ' 50%',
     'jpl-red-light-w50': foundationColors['jpl-red-light'] + ' 50%',
-    'jpl-sky-blue-w50': internalColors['jpl-sky-blue'] + ' 50%',
-    'jpl-sky-blue-dark-w50': internalColors['jpl-sky-blue-dark'] + ' 50%',
+    'jpl-teal-w50': foundationColors['jpl-teal'] + ' 50%',
+    'jpl-teal-dark-w50': foundationColors['jpl-teal-dark'] + ' 50%',
     'white-w50': grayScaleColors.white + ' 50%',
     'gray-dark-w50': grayScaleColors['gray-dark'] + ' 50%',
     'facebook-w50': socialColors.facebook + ' 50%',

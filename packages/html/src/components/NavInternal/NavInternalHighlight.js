@@ -27,7 +27,7 @@ export const NavInternalHighlightTemplate = ({ title, description, image, link, 
       image && image.src && link
         ? `
         <a
-            class="block group cursor-hover text-jpl-sky-blue-dark can-hover:hover:jpl-sky-blue font-medium lg:font-normal"
+            class="block group cursor-hover text-jpl-teal-dark can-hover:hover:jpl-teal font-medium lg:font-normal"
             href="${link}"
             ${ariaLabel ? `aria-label="${ariaLabel}"` : ''}
           >

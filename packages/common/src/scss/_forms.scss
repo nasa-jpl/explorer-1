@@ -26,8 +26,8 @@
     @apply border-gray-light-mid;
 
     &:focus {
-      --tw-ring-color: #1871c9; // focus-blue
-      @apply border-focus-blue;
+      --tw-ring-color: #1871c9; // focus
+      @apply border-focus;
     }
   }
 
@@ -47,13 +47,13 @@
   [type='radio'],
   .form-checkbox,
   .form-radio {
-    @apply border-gray-mid text-focus-blue;
+    @apply border-gray-mid text-focus;
   }
 
   [type='checkbox']:focus,
   [type='radio']:focus,
   .form-checkbox:focus,
   .form-radio:focus {
-    --tw-ring-color: #1871c9; // focus-blue
+    --tw-ring-color: #1871c9; // focus
   }
 }
