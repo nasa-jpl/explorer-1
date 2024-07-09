@@ -13,7 +13,7 @@
   "prettier": "@explorer-1/prettier-config",
   "type": "module",
   "scripts": {
-    "dev": "pnpm storybook",
+    "dev": "pnpm storybook --force-build-preview",
     "dev:rebuild": "pnpm storybook --force-build-preview",
     "prepare": "pnpm prepare:public && pnpm prepare:fontcss",
     "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1",
