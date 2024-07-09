@@ -162,7 +162,7 @@
       >
         <BaseHeading level="h2">Thank you!</BaseHeading>
         <div
-          class="text-jpl-aqua h-22 w-22 p-5 mx-auto my-8 text-6xl font-bold border-4 rounded-full"
+          class="text-jpl-blue-light h-22 w-22 p-5 mx-auto my-8 text-6xl font-bold border-4 rounded-full"
         >
           &#10003;
         </div>
