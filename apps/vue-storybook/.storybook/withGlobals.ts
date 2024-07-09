@@ -146,7 +146,7 @@ export const globalTypes = {
   },
   variantsConfig: {
     defaultValue: {
-      variants: ['ThemeVariantLight', 'ThemeVariantDark'],
+      variants: ['ThemeVariantLight', 'ThemeVariantDark', 'ThemeVariantGray'],
       method: 'css'
     }
   },
@@ -182,7 +182,8 @@ export const globalTypes = {
           icon: 'circlehollow',
           title: 'Light Variant'
         },
-        { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' }
+        { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' },
+        { value: 'ThemeVariantGray', icon: 'circle', title: 'Gray Variant' }
       ],
       dynamicTitle: true
     }

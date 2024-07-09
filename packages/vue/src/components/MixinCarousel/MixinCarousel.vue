@@ -23,7 +23,7 @@
           </h2>
           <BaseLink
             v-if="link"
-            class="sm:block hidden"
+            class="ThemeVariantGray sm:block hidden"
             variant="primary"
             :to="typeof link === 'object' ? link : undefined"
             :href="typeof link != 'object' ? link : undefined"
@@ -196,7 +196,8 @@ export default defineComponent({
         initialSlide: this.initialSlide,
         a11y: {
           prevSlideMessage: this.heading ? this.heading + ' - Previous slide' : 'Previous slide',
-          nextSlideMessage: this.heading ? this.heading + ' - Next slide' : 'Next slide'
+          nextSlideMessage: this.heading ? this.heading + ' - Next slide' : 'Next slide',
+          slideRole: 'link'
         },
         breakpoints: {
           ...MixinCarouselOptions.breakpoints,
