@@ -14,6 +14,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm storybook",
+    "dev:rebuild": "pnpm storybook --force-build-preview",
     "prepare": "pnpm prepare:public && pnpm prepare:fontcss",
     "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1",
     "prepare:fontcss": "cp ./node_modules/@explorer-1/common/src/scss/_fonts.scss ./public/css/font-face.css",
@@ -26,9 +27,12 @@
     "lint": "eslint './../../packages/vue/src/**/*.stories.@(js|ts|mdx)' && pnpm lint:app",
     "lint:fix": "eslint './../../packages/vue/src/**/*.stories.@(js|ts|mdx)' --fix && pnpm lint:app:fix",
     "init-msw": "msw init public/",
+    "start": "http-server storybook_compiled -p 6006 -c-1 -s",
     "test": "pnpm test:storybook",
+    "test:ci": "pnpm run \"/test:storybook:ci/\"",
     "test:storybook": "test-storybook --stories-json --maxWorkers=4",
     "test:storybook:cross-browser": "test-storybook --stories-json --verbose --maxWorkers=4 --browsers chromium webkit firefox",
+    "test:storybook:ci:start": "pnpm start",
     "test:storybook:ci": "test-storybook --stories-json --maxWorkers=2"
   },
   "dependencies": {
@@ -60,6 +64,7 @@
     "@whitespace/storybook-addon-html": "^6.1.1",
     "autoprefixer": "^10.4.19",
     "axe-playwright": "^2.0.1",
+    "http-server": "^14.1.1",
     "msw": "^2.3.0",
     "msw-storybook-addon": "^2.0.2",
     "pinia": "^2.1.7",

@@ -76,10 +76,7 @@ jobs:
           path: apps/vue-storybook/storybook_compiled
 
       - name: Serve Storybook and run tests
-        run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "pnpm --filter @explorer-1/vue-storybook start" \
-            "pnpm --filter @explorer-1/vue-storybook test:storybook:ci"
+        run: pnpm --filter @explorer-1/vue-storybook test:ci
 
   chromatic:
     name: Publish
