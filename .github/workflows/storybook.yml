@@ -105,11 +105,12 @@ jobs:
           name: storybook
           path: apps/vue-storybook/storybook_compiled
 
-      - uses: chromaui/action@v1
+      - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
         with:
-          storybookBuildDir: 'apps/vue-storybook/storybook_compiled'
           #👇 Chromatic projectToken,
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          workingDir: 'apps/vue-storybook/storybook_compiled'
+          onlyChanged: true
           exitOnceUploaded: true
