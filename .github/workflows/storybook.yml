@@ -114,7 +114,7 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBaseDir: 'apps/vue-storybook'
-          storybookBuildDir: 'storybook_compiled'
+          storybookBuildDir: 'apps/vue-storybook/storybook_compiled'
           autoAcceptChanges: 'main'
           exitZeroOnChanges: true
           exitOnceUploaded: true
