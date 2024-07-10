@@ -76,8 +76,8 @@ jobs:
       - name: Serve Storybook & Run tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-             "pnpm --filter @explorer-1/vue-storybook test:storybook:ci:start" \
-             "pnpm --filter @explorer-1/vue-storybook test:storybook:ci"
+             "pnpm --filter @explorer-1/vue-storybook start" \
+             "pnpm --filter @explorer-1/vue-storybook test:ci"
 
   publish-to-chromatic:
     needs: [build, a11y-tests]
@@ -86,6 +86,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4

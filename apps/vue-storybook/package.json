@@ -28,12 +28,9 @@
     "lint:fix": "eslint './../../packages/vue/src/**/*.stories.@(js|ts|mdx)' --fix && pnpm lint:app:fix",
     "init-msw": "msw init public/",
     "start": "http-server storybook_compiled -p 6006 -c-1 -s",
-    "test": "pnpm test:storybook",
-    "test:ci": "pnpm run \"/test:storybook:ci/\"",
-    "test:storybook": "test-storybook --stories-json --maxWorkers=4",
-    "test:storybook:cross-browser": "test-storybook --stories-json --verbose --maxWorkers=4 --browsers chromium webkit firefox",
-    "test:storybook:ci:start": "pnpm start",
-    "test:storybook:ci": "test-storybook --stories-json --maxWorkers=2"
+    "test": "test-storybook --stories-json --maxWorkers=4",
+    "test:cross-browser": "test-storybook --stories-json --verbose --maxWorkers=4 --browsers chromium webkit firefox",
+    "test:ci": "test-storybook --stories-json --maxWorkers=4"
   },
   "dependencies": {
     "@explorer-1/common": "workspace:*",
