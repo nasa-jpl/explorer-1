@@ -1,11 +1,9 @@
 import { MixinVideoBgTemplate } from './MixinVideoBg'
-import videoMp4 from './../../../node_modules/@explorer-1/common/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4'
-import videoWebm from './../../../node_modules/@explorer-1/common/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm'
 
 export const MixinVideoBgData = {
-  file: videoMp4,
-  webm: videoWebm,
-  ogg: 'static/media/storybook/static/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.ogv' // no webpack loader for ogg files
+  file: '/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4',
+  webm: '/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm',
+  ogg: '/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.ogv' // no webpack loader for ogg files
 }
 
 export default {

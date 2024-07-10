@@ -217,6 +217,9 @@ importers:
       axe-playwright:
         specifier: ^2.0.1
         version: 2.0.1(playwright@1.45.1)
+      chromatic:
+        specifier: ^11.5.5
+        version: 11.5.5
       http-server:
         specifier: ^14.1.1
         version: 14.1.1
@@ -4131,8 +4134,8 @@ packages:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
 
-  chromatic@11.5.3:
-    resolution: {integrity: sha512-EtDDXA4OdhsjE0IuLr5AZvOX+ZYXgqdRPtdTAQrM3nImjlteQ5biBmdEEEcdAXDTPU881rEUaUIy2owecB0wYg==}
+  chromatic@11.5.5:
+    resolution: {integrity: sha512-YS0GJwegF0vpMbwZE68/xJlI4SlUGMqI78V2ATAF19YwTHaq8jGP1CPQGKUSlgWUhzPtyu3ELy6Dvv/owYljAg==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -10480,7 +10483,7 @@ snapshots:
 
   '@chromatic-com/storybook@1.5.0(react@18.3.1)':
     dependencies:
-      chromatic: 11.5.3
+      chromatic: 11.5.5
       filesize: 10.1.2
       jsonfile: 6.1.0
       react-confetti: 6.1.0(react@18.3.1)
@@ -14412,7 +14415,7 @@ snapshots:
 
   chownr@2.0.0: {}
 
-  chromatic@11.5.3: {}
+  chromatic@11.5.5: {}
 
   ci-info@3.9.0: {}
 

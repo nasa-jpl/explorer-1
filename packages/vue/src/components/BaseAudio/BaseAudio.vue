@@ -118,7 +118,6 @@
   </div>
 </template>
 <script lang="ts">
-// @ts-nocheck
 import { defineComponent } from 'vue'
 import IconPlay from './../Icons/IconPlay.vue'
 import IconPause from './../Icons/IconPause.vue'
@@ -136,7 +135,7 @@ export const generateUUID = () => {
   })
 }
 
-export const convertTimeHHMMSS = (val) => {
+export const convertTimeHHMMSS = (val: any) => {
   const hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
   return hhmmss.indexOf('00:') === 0 ? hhmmss.substr(3) : hhmmss
 }
@@ -161,7 +160,20 @@ export default defineComponent({
       default: false
     }
   },
-  data() {
+  data(): {
+    firstPlay: boolean
+    isMuted: boolean
+    loaded: boolean
+    playing: boolean
+    paused: boolean
+    progressStyle: string
+    currentTime: string
+    uuid: string
+    audio?: HTMLAudioElement
+    totalDuration: number
+    hideVolumeSlider: boolean
+    volumeValue: number
+  } {
     return {
       firstPlay: true,
       isMuted: false,
@@ -191,89 +203,106 @@ export default defineComponent({
     this.init()
   },
   beforeUnmount() {
-    this.audio.removeEventListener('timeupdate', this._handlePlayingUI)
-    this.audio.removeEventListener('loadeddata', this._handleLoaded)
-    this.audio.removeEventListener('pause', this._handlePlayPause)
-    this.audio.removeEventListener('play', this._handlePlayPause)
+    if (this.audio) {
+      this.audio.removeEventListener('timeupdate', this._handlePlayingUI)
+      this.audio.removeEventListener('loadeddata', this._handleLoaded)
+      this.audio.removeEventListener('pause', this._handlePlayPause)
+      this.audio.removeEventListener('play', this._handlePlayPause)
+    }
   },
   methods: {
-    setPosition: function name(e) {
-      const tag = e.target
-      if (this.paused) return
+    setPosition: function name(e: any) {
+      if (this.audio) {
+        const tag = e.target
+        if (this.paused) return
 
-      if (e.target.tagName === 'SPAN') {
-        return
+        if (e.target.tagName === 'SPAN') {
+          return
+        }
+        const pos = tag.getBoundingClientRect()
+        const seekPos = (e.clientX - pos.left) / pos.width
+        this.audio.currentTime = this.audio.duration * seekPos
       }
-      const pos = tag.getBoundingClientRect()
-      const seekPos = (e.clientX - pos.left) / pos.width
-      this.audio.currentTime = parseInt(this.audio.duration * seekPos)
     },
     updateVolume() {
-      this.hideVolumeSlider = false
-      this.audio.volume = this.volumeValue / 100
-      if (this.volumeValue / 100 > 0) {
-        this.isMuted = this.audio.muted = false
-      }
+      if (this.audio) {
+        this.hideVolumeSlider = false
+        this.audio.volume = this.volumeValue / 100
+        if (this.volumeValue / 100 > 0) {
+          this.isMuted = this.audio.muted = false
+        }
 
-      if (this.volumeValue / 100 === 0) {
-        this.isMuted = this.audio.muted = true
+        if (this.volumeValue / 100 === 0) {
+          this.isMuted = this.audio.muted = true
+        }
       }
     },
     toggleVolume() {
       this.hideVolumeSlider = true
     },
     stop() {
-      this.playing = false
-      this.paused = true
-      this.audio.pause()
-      this.audio.currentTime = 0
+      if (this.audio) {
+        this.playing = false
+        this.paused = true
+        this.audio.pause()
+        this.audio.currentTime = 0
+      }
     },
     play() {
-      if (this.playing && !this.paused) return
-      this.paused = false
-      this.audio.play()
-      this.playing = true
-      this.$root.$emit('play', this.uuid)
+      if (this.playing && !this.paused) {
+        return
+      } else if (this.audio) {
+        this.paused = false
+        this.audio.play()
+        this.playing = true
+        this.$root?.$emit('play', this.uuid)
+      }
     },
-    forward(duration) {
-      return (this.audio.currentTime += duration)
+    forward(duration: number) {
+      return this.audio ? (this.audio.currentTime += duration) : undefined
     },
-    rewind(duration) {
-      return (this.audio.currentTime -= duration)
+    rewind(duration: number) {
+      return this.audio ? (this.audio.currentTime -= duration) : undefined
     },
     pause() {
-      this.paused = !this.paused
-      this.paused ? this.audio.pause() : this.audio.play()
+      if (this.audio) {
+        this.paused = !this.paused
+        this.paused ? this.audio.pause() : this.audio.play()
+      }
     },
-    pauseOthers(activeUuid) {
-      if (this.uuid !== activeUuid) {
+    pauseOthers(activeUuid: string) {
+      if (this.audio && this.uuid !== activeUuid) {
         this.paused = true
         this.audio.pause()
       }
     },
     toggleMute() {
-      this.isMuted = !this.isMuted
-      this.audio.muted = this.isMuted
-      this.volumeValue = this.isMuted ? 0 : 100
+      if (this.audio) {
+        this.isMuted = !this.isMuted
+        this.audio.muted = this.isMuted
+        this.volumeValue = this.isMuted ? 0 : 100
+      }
     },
     _handleLoaded() {
-      if (this.audio.readyState >= 2) {
+      if (this.audio && this.audio.readyState >= 2) {
         if (this.autoPlay) this.play()
 
         this.loaded = true
-        this.totalDuration = parseInt(this.audio.duration)
+        this.totalDuration = this.audio.duration
       } else {
         throw new Error('Failed to load audio file')
       }
     },
-    _handlePlayingUI(_e) {
-      const currTime = this.audio.currentTime
-      const percentage = (currTime / this.totalDuration) * 100
-      this.progressStyle = `width: ${percentage}%;`
-      this.currentTime = convertTimeHHMMSS(currTime)
+    _handlePlayingUI(_e: any) {
+      if (this.audio) {
+        const currTime = this.audio.currentTime
+        const percentage = (currTime / this.totalDuration) * 100
+        this.progressStyle = `width: ${percentage}%;`
+        this.currentTime = convertTimeHHMMSS(currTime)
+      }
     },
-    _handlePlayPause(e) {
-      if (e.type === 'play' && this.firstPlay) {
+    _handlePlayPause(e: any) {
+      if (this.audio && e.type === 'play' && this.firstPlay) {
         // in some situations, audio.currentTime is the end one on chrome
         this.audio.currentTime = 0
         if (this.firstPlay) {
@@ -290,17 +319,20 @@ export default defineComponent({
       this.paused = this.playing = false
     },
     init() {
-      this.audio.addEventListener('timeupdate', this._handlePlayingUI)
-      this.audio.addEventListener('loadeddata', this._handleLoaded)
-      this.audio.addEventListener('pause', this._handlePlayPause)
-      this.audio.addEventListener('play', this._handlePlayPause)
-      this.audio.addEventListener('ended', this._handleEnded)
+      if (this.audio) {
+        this.audio.addEventListener('timeupdate', this._handlePlayingUI)
+        this.audio.addEventListener('loadeddata', this._handleLoaded)
+        this.audio.addEventListener('pause', this._handlePlayPause)
+        this.audio.addEventListener('play', this._handlePlayPause)
+        this.audio.addEventListener('ended', this._handleEnded)
+      }
       // TODO: VUE3: find solution for emitting event from slot
       // TODO: find a cleaner way to do this w/o using mounted or root level events
       // scoped slots? https://github.com/vuejs/vue/issues/4332
-      this.$root?.$on('play', this.pauseOthers)
+      // this.$root?.$on('play', this.pauseOthers)
     },
     getAudio() {
+      console.log(this.$el.querySelectorAll('audio')[0])
       return this.$el.querySelectorAll('audio')[0]
     }
   }

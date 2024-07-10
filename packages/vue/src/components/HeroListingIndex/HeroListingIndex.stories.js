@@ -1,5 +1,3 @@
-import videoMp4 from '@explorer-1/common-storybook/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4'
-import videoWebm from '@explorer-1/common-storybook/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm'
 import HeroListingIndex from './HeroListingIndex.vue'
 
 export default {
@@ -91,8 +89,8 @@ export const NewsVideoHero = {
           {
             blockType: 'VideoBlock',
             video: {
-              file: videoMp4,
-              fileWebm: videoWebm
+              file: '/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4',
+              fileWebm: '/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm'
             }
           }
         ]
