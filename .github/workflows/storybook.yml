@@ -7,6 +7,7 @@ on:
     branches:
       - main
     paths:
+      - 'apps/vue-storybook/**'
       - 'packages/common/**'
       - 'packages/vue/**'
   pull_request:
@@ -101,18 +102,17 @@ jobs:
       - name: Install dependencies 🧱
         run: pnpm i
 
-      # - name: Download storybook build
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: storybook
-      #     path: apps/vue-storybook/storybook_compiled
+      - name: Download storybook build
+        uses: actions/download-artifact@v3
+        with:
+          name: storybook
+          path: apps/vue-storybook/storybook_compiled
 
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          workingDir: 'apps/vue-storybook'
-          buildScriptName: 'build'
+          storybookBuildDir: 'apps/vue-storybook/storybook_compiled'
           zip: true
           exitOnceUploaded: true

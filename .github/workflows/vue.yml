@@ -34,5 +34,5 @@ jobs:
       - name: Install dependencies 🧱
         run: pnpm i
 
-      - name: Build static Storybook 🛠
+      - name: Build Vue package 🛠
         run: make vue-build
