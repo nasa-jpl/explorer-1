@@ -1,8 +1,10 @@
 {
   "buildScriptName": "build",
   "projectId": "Project:668c47cbeb95392cd79c3c0d",
-  "exitZeroOnChanges": true,
   "storybookBaseDir": "apps/vue-storybook",
   "storybookBuildDir": "storybook_compiled",
-  "zip": true
+  "skip": "dependabot/**",
+  "autoAcceptChanges": "main",
+  "exitOnceUploaded": true,
+  "exitZeroOnChanges": true
 }

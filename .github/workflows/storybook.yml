@@ -115,5 +115,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBaseDir: 'apps/vue-storybook'
           storybookBuildDir: 'storybook_compiled'
-          exitZeroOnChanges: true,
+          autoAcceptChanges: 'main'
+          exitZeroOnChanges: true
           exitOnceUploaded: true
