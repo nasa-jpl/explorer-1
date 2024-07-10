@@ -15,7 +15,7 @@ on:
       - 'packages/vue/**'
 
 jobs:
-  build-vue:
+  build:
     runs-on: ubuntu-latest
 
     steps:

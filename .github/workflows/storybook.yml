@@ -16,7 +16,7 @@ on:
       - 'packages/vue/**'
 
 jobs:
-  build-storybook:
+  build:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -45,7 +45,7 @@ jobs:
           path: apps/vue-storybook/storybook_compiled
 
   a11y-tests:
-    needs: build-storybook
+    needs: build
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -73,11 +73,16 @@ jobs:
           name: storybook
           path: apps/vue-storybook/storybook_compiled
 
-      - name: Serve Storybook and run tests
-        run: pnpm --filter @explorer-1/vue-storybook test:ci
+      - name: Serve Storybook
+        run: |
+          pnpm --filter @explorer-1/vue-storybook test:storybook:ci:start
+
+      - name: Run tests
+        run: |
+          pnpm --filter @explorer-1/vue-storybook test:storybook:ci
 
   publish-to-chromatic:
-    needs: [build-storybook]
+    needs: [build, a11y-tests]
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:

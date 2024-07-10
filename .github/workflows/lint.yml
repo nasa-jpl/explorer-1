@@ -1,4 +1,4 @@
-name: Linting/Formatting
+name: Linting
 
 # Run on the opening of a pull request and subsequent commits to it.
 on: pull_request
