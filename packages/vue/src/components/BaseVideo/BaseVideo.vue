@@ -15,7 +15,6 @@
         :playsinline="autoplay"
         :autoplay="autoplay"
         :controls="!autoplay"
-        data-chromatic="ignore"
       >
         <template v-if="data.fileWebm">
           <source

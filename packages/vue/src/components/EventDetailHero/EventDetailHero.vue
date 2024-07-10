@@ -6,14 +6,16 @@
     <div class="bg-gray-light">
       <div class="relative flex items-center mx-auto overflow-hidden vh-crop max-w-screen-3xl">
         <div class="hero">
-          <img
+          <BaseImage
             v-if="image.src"
-            class="object-cover object-center w-full h-full"
-            :srcset="getSrcSet"
             :src="image.src.url"
+            :srcset="getSrcSet"
+            :alt="image.alt"
             :width="image.src.width"
             :height="image.src.height"
-            :alt="image.alt"
+            image-class="object-center w-full h-full"
+            object-fit-class="cover"
+            loading="lazy"
           />
           <div
             v-if="startDateSplit"
@@ -33,11 +35,15 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import BaseImage from '../BaseImage/BaseImage.vue'
 import { mixinGetSrcSet, type EventDateObject } from './../../utils/mixins'
 import type { PropType } from 'vue'
 
 export default defineComponent({
   name: 'EventDetailHero',
+  components: {
+    BaseImage
+  },
   props: {
     data: {
       type: Object,

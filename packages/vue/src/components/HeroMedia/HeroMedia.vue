@@ -16,6 +16,7 @@
               :height="theImageData.src.height"
               :alt="theImageData.alt"
               itemprop="image"
+              data-chromatic="ignore"
             />
           </template>
           <template v-else-if="video">
