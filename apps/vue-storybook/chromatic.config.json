@@ -1,6 +1,6 @@
 {
-  "onlyChanged": true,
   "projectId": "Project:668c47cbeb95392cd79c3c0d",
-  "storybookBaseDir": "apps/vue-storybook",
+  "workingDir": "apps/vue-storybook",
+  "buildScriptName": "build",
   "zip": true
 }
