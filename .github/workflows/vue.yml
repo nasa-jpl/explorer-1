@@ -1,6 +1,6 @@
 # checks if vue package builds successfully
 
-name: Build Vue Library
+name: Vue
 
 on:
   push:

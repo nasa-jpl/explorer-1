@@ -1,6 +1,6 @@
 {
+  "buildScript": "build",
   "projectId": "Project:668c47cbeb95392cd79c3c0d",
-  "workingDir": "apps/vue-storybook",
-  "buildScriptName": "build",
+  "storybookBaseDir": "apps/vue-storybook",
   "zip": true
 }

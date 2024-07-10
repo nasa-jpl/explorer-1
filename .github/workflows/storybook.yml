@@ -1,6 +1,6 @@
 # https://storybook.js.org/docs/vue/writing-tests/test-runner#run-against-non-deployed-storybooks
 
-name: 'Storybook/Testing'
+name: 'Storybook'
 
 on:
   push:
@@ -16,7 +16,7 @@ on:
       - 'packages/vue/**'
 
 jobs:
-  build:
+  build-storybook:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -44,8 +44,8 @@ jobs:
           name: storybook
           path: apps/vue-storybook/storybook_compiled
 
-  a11y:
-    needs: build
+  a11y-tests:
+    needs: build-storybook
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -76,8 +76,8 @@ jobs:
       - name: Serve Storybook and run tests
         run: pnpm --filter @explorer-1/vue-storybook test:ci
 
-  chromatic:
-    needs: [build]
+  publish-to-chromatic:
+    needs: [build-storybook]
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
