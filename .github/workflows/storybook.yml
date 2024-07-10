@@ -1,6 +1,6 @@
 # https://storybook.js.org/docs/vue/writing-tests/test-runner#run-against-non-deployed-storybooks
 
-name: 'Storybook & Testing CI'
+name: 'Storybook/Testing'
 
 on:
   push:
@@ -17,7 +17,6 @@ on:
 
 jobs:
   build:
-    name: Build
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -46,7 +45,6 @@ jobs:
           path: apps/vue-storybook/storybook_compiled
 
   a11y:
-    name: Accessibility Tests
     needs: build
     timeout-minutes: 60
     runs-on: ubuntu-latest
@@ -79,7 +77,6 @@ jobs:
         run: pnpm --filter @explorer-1/vue-storybook test:ci
 
   chromatic:
-    name: Publish
     needs: [build]
     timeout-minutes: 30
     runs-on: ubuntu-latest
@@ -99,18 +96,18 @@ jobs:
       - name: Install dependencies 🧱
         run: pnpm i
 
-      - name: Download storybook build
-        uses: actions/download-artifact@v3
-        with:
-          name: storybook
-          path: apps/vue-storybook/storybook_compiled
+      # - name: Download storybook build
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: storybook
+      #     path: apps/vue-storybook/storybook_compiled
 
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          workingDir: 'apps/vue-storybook/storybook_compiled'
+          workingDir: 'apps/vue-storybook'
           buildScriptName: 'build'
           zip: true
           exitOnceUploaded: true
