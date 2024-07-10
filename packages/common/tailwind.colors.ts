@@ -30,7 +30,7 @@ export const jplYellow = {
 export const jplTeal = {
   lighter: '#CFF3FC',
   light: '#4BA7BE',
-  base: '#10829E',
+  base: '#0F7E99',
   dark: '#006077',
   darker: '#004050',
   darkest: '#002129'
