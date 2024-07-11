@@ -50,7 +50,7 @@ export default defineComponent({
       required: false
     },
     startDateSplit: {
-      type: Object as PropType<EventDateObject>,
+      type: Object as PropType<EventDateObject | undefined>,
       required: true
     },
     image: {
