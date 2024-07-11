@@ -62,7 +62,7 @@
 </template>
 <script lang="ts">
 // @ts-nocheck
-import isEqual from 'lodash/isEqual'
+import isEqual from 'lodash/isEqual.js'
 export default {
   name: 'SearchFilterGroup',
   props: {

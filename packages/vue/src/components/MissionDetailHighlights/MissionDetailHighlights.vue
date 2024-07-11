@@ -164,7 +164,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import _throttle from 'lodash/throttle'
+import _throttle from 'lodash/throttle.js'
 import type { DebouncedFunc } from 'lodash'
 import type { Slide } from './MissionDetailHighlightsCarouselItem.vue'
 // @ts-ignore

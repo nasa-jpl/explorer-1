@@ -12,7 +12,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import _throttle from 'lodash/throttle'
+import _throttle from 'lodash/throttle.js'
 import type { DebouncedFunc } from 'lodash'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconDropdown from './../Icons/IconDropdown.vue'
