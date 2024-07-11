@@ -1,9 +1,7 @@
 /** @type { import('@storybook/vue3').Preview } */
-import type { App } from 'vue'
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import useMockComponents from './_mock-components.js'
-import { StoryContext } from '@storybook/types'
-import { VueRenderer, setup, type Preview } from '@storybook/vue3'
+import { setup, type Preview } from '@storybook/vue3'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import vClickOutside from 'click-outside-vue3'
 import VueCompareImage from 'vue3-compare-image'

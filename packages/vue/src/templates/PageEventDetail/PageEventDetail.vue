@@ -287,11 +287,43 @@ import {
   mixinFormatEventTimeInHoursAndMinutes,
   mixinFormatSplitEventDates
 } from '../../utils/mixins'
+import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
+import BaseHeading from '@explorer-1/vue/src/components/BaseHeading/BaseHeading.vue'
+import ShareButtons from '@explorer-1/vue/src/components/ShareButtons/ShareButtons.vue'
+import EventDetailHero from '@explorer-1/vue/src/components/EventDetailHero/EventDetailHero.vue'
+import IconCalendar from '@explorer-1/vue/src/components/Icons/IconCalendar.vue'
+import IconLocation from '@explorer-1/vue/src/components/Icons/IconLocation.vue'
+import IconTime from '@explorer-1/vue/src/components/Icons/IconTime.vue'
+import BaseLink from '@explorer-1/vue/src/components/BaseLink/BaseLink.vue'
+import BaseButton from '@explorer-1/vue/src/components/BaseButton/BaseButton.vue'
+import CalendarButton from '@explorer-1/vue/src/components/CalendarButton/CalendarButton.vue'
+import BlockStreamfield from '@explorer-1/vue/src/components/BlockStreamfield/BlockStreamfield.vue'
+import BaseImagePlaceholder from '@explorer-1/vue/src/components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import BaseImage from '@explorer-1/vue/src/components/BaseImage/BaseImage.vue'
+import BlockRelatedLinks from '@explorer-1/vue/src/components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockLinkCarousel from '@explorer-1/vue/src/components/BlockLinkCarousel/BlockLinkCarousel.vue'
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 
 export default defineComponent({
   name: 'PageEventDetail',
+  components: {
+    LayoutHelper,
+    BaseHeading,
+    ShareButtons,
+    EventDetailHero,
+    IconCalendar,
+    IconLocation,
+    IconTime,
+    BaseLink,
+    BaseButton,
+    CalendarButton,
+    BlockStreamfield,
+    BaseImagePlaceholder,
+    BaseImage,
+    BlockRelatedLinks,
+    BlockLinkCarousel
+  },
   props: {
     data: {
       type: Object,

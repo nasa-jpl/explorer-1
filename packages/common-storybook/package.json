@@ -16,7 +16,6 @@
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
     "rimraf": "^5.0.5",
-    "storybook": "^8.1.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }

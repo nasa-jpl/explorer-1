@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import isEmpty from 'lodash/isEmpty'
 import type { StreamfieldBlockData } from '../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
   ImageObject,
@@ -8,7 +9,13 @@ import type {
   Topic,
   ThumbnailObject
 } from './../../interfaces'
-import isEmpty from 'lodash/isEmpty'
+import HeroMedia from '@explorer-1/vue/src/components/HeroMedia/HeroMedia.vue'
+import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
+import DetailHeadline from '@explorer-1/vue/src/components/DetailHeadline/DetailHeadline.vue'
+import ShareButtonsEdu from '@explorer-1/vue/src/components/ShareButtonsEdu/ShareButtonsEdu.vue'
+import BlockImageStandard from '@explorer-1/vue/src/components/BlockImage/BlockImageStandard.vue'
+import BlockText from '@explorer-1/vue/src/components/BlockText/BlockText.vue'
+import BlockStreamfield from '@explorer-1/vue/src/components/BlockStreamfield/BlockStreamfield.vue'
 
 interface PageEduNewsDetailObject extends PageResponseObject {
   heroImage: ImageObject
@@ -95,6 +102,7 @@ const dateTimeArray = computed(() => {
         schema
       />
       <share-buttons-edu
+        v-if="data?.url"
         class="mt-4"
         :url="data.url"
         :title="data.title"
