@@ -30,7 +30,7 @@ export const jplYellow = {
 export const jplTeal = {
   lighter: '#CFF3FC',
   light: '#4BA7BE',
-  base: '#10829E',
+  base: '#0F7E99',
   dark: '#006077',
   darker: '#004050',
   darkest: '#002129'
@@ -185,6 +185,20 @@ export const ThemeWww = {
     '--color-action-light': 'var(--color-primary-light)',
     '--color-action-dark': 'var(--color-primary-dark)',
     '--color-action-darker': 'var(--color-primary-darker)'
+  },
+  gray: {
+    '--color-primary': foundationColors['jpl-red-dark'],
+    '--color-primary-light': foundationColors['jpl-red'],
+    '--color-primary-dark': foundationColors['jpl-red-darker'],
+    '--color-primary-darker': foundationColors['jpl-red-darker'],
+    '--color-secondary': 'var(--color-primary)',
+    '--color-secondary-light': 'var(--color-primary-light)',
+    '--color-secondary-dark': 'var(--color-primary-dark)',
+    '--color-secondary-darker': 'var(--color-primary-darker)',
+    '--color-action': 'var(--color-primary)',
+    '--color-action-light': 'var(--color-primary-light)',
+    '--color-action-dark': 'var(--color-primary-dark)',
+    '--color-action-darker': 'var(--color-primary-darker)'
   }
 }
 
@@ -216,6 +230,20 @@ export const ThemeEdu = {
     '--color-action-light': foundationColors['jpl-teal-light'],
     '--color-action-dark': foundationColors['jpl-teal'],
     '--color-action-darker': foundationColors['jpl-teal-dark']
+  },
+  gray: {
+    '--color-primary': foundationColors['jpl-violet-dark'],
+    '--color-primary-light': foundationColors['jpl-violet'],
+    '--color-primary-dark': foundationColors['jpl-violet-darker'],
+    '--color-primary-darker': foundationColors['jpl-violet-darker'],
+    '--color-secondary': foundationColors['jpl-red-dark'],
+    '--color-secondary-light': foundationColors['jpl-red'],
+    '--color-secondary-dark': foundationColors['jpl-red-darker'],
+    '--color-secondary-darker': foundationColors['jpl-red-darker'],
+    '--color-action': foundationColors['jpl-teal-dark'],
+    '--color-action-light': foundationColors['jpl-teal'],
+    '--color-action-dark': foundationColors['jpl-teal-darker'],
+    '--color-action-darker': foundationColors['jpl-teal-darker']
   }
 }
 
@@ -238,7 +266,29 @@ export const ThemeInternal = {
     '--color-primary': foundationColors['jpl-teal-light'],
     '--color-primary-light': foundationColors['jpl-teal-light'],
     '--color-primary-dark': foundationColors['jpl-teal'],
-    '--color-primary-darker': foundationColors['jpl-teal-dark']
+    '--color-primary-darker': foundationColors['jpl-teal-dark'],
+    '--color-secondary': 'var(--color-primary)',
+    '--color-secondary-light': 'var(--color-primary-light)',
+    '--color-secondary-dark': 'var(--color-primary-dark)',
+    '--color-secondary-darker': 'var(--color-primary-darker)',
+    '--color-action': 'var(--color-primary)',
+    '--color-action-light': 'var(--color-primary-light)',
+    '--color-action-dark': 'var(--color-primary-dark)',
+    '--color-action-darker': 'var(--color-primary-darker)'
+  },
+  gray: {
+    '--color-primary': foundationColors['jpl-teal-dark'],
+    '--color-primary-light': foundationColors['jpl-teal'],
+    '--color-primary-dark': foundationColors['jpl-teal-darker'],
+    '--color-primary-darker': foundationColors['jpl-teal-darker'],
+    '--color-secondary': 'var(--color-primary)',
+    '--color-secondary-light': 'var(--color-primary-light)',
+    '--color-secondary-dark': 'var(--color-primary-dark)',
+    '--color-secondary-darker': 'var(--color-primary-darker)',
+    '--color-action': 'var(--color-primary)',
+    '--color-action-light': 'var(--color-primary-light)',
+    '--color-action-dark': 'var(--color-primary-dark)',
+    '--color-action-darker': 'var(--color-primary-darker)'
   }
 }
 

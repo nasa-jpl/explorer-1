@@ -11,7 +11,7 @@
         <MixinCarousel
           heading="Missions"
           variant="tiles"
-          class="pb-5"
+          class="pb-5 ThemeVariantGray"
           :center="false"
           :slides-per-view="3"
           :link="relatedMissionsLinkUrl ? relatedMissionsLinkUrl : undefined"

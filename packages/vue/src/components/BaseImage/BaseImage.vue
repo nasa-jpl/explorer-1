@@ -111,6 +111,7 @@ export default defineComponent({
       :width="width"
       :height="height"
       :loading="loading"
+      data-chromatic="ignore"
       @error="imageFailed"
     />
   </div>

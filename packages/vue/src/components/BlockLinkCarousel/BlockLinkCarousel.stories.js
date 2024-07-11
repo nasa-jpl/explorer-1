@@ -160,19 +160,12 @@ export const EventsBlockLinkCarouselData = [
   }
 ]
 
-// template
-const BlockLinkCarouselTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { BlockLinkCarousel },
-  template: `<BlockLinkCarousel :itemType="itemType" :heading="heading" :items="items"/>`
-})
-
 const BlockLinkCarouselMultipleTemplate = (args) => ({
   components: { BlockLinkCarousel },
   setup() {
     return { args }
   },
-  template: `<div><BlockLinkCarousel class="mb-20" v-bind="args" /><BlockLinkCarousel item-type="cards" v-bind="args" /></div>`
+  template: `<div><BlockLinkCarousel class="mb-20" v-bind="args[0]" /><BlockLinkCarousel v-bind="args[1]" /></div>`
 })
 
 // stories
@@ -209,9 +202,17 @@ export const TwoItems = {
 }
 
 export const MultipleCarousels = BlockLinkCarouselMultipleTemplate.bind({})
-MultipleCarousels.args = {
-  itemType: 'cards',
-  heading: 'Related Pages',
-  otherHeading: 'Explore More',
-  items: BlockLinkCardCarouselData
-}
+MultipleCarousels.args = [
+  {
+    itemType: 'cards',
+    heading: 'Related Pages',
+    otherHeading: 'Explore More',
+    items: BlockLinkCardCarouselData
+  },
+  {
+    itemType: 'cards',
+    heading: 'More Related Pages',
+    otherHeading: 'Explore Even More',
+    items: BlockLinkCardCarouselData
+  }
+]

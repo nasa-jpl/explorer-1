@@ -18,7 +18,7 @@ export default {
 
 // shared data
 export const BaseAudioData = {
-  file: 'http://127.0.0.1:9000/media/media/05_Da_Funk_Call_Out_Research_Hook.mp3',
+  file: '/audio/file_example_MP3_700KB.mp3',
   autoPlay: false,
   loop: false
 }

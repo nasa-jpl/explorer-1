@@ -283,6 +283,7 @@ export default defineComponent({
 <template>
   <a
     class="MixinFancybox group cursor-pointer block"
+    role="link"
     aria-label="Open in Lightbox"
     :href="src"
     :data-fancybox="galleryName || ''"

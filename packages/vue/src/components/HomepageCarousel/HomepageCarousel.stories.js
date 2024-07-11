@@ -94,6 +94,9 @@ export const Shuffled = {
   args: {
     items: HomepageCarouselShuffledData(),
     duration: 10000
+  },
+  parameters: {
+    chromatic: { disableSnapshot: true }
   }
 }
 export const OneSlide = {

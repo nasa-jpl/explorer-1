@@ -37,7 +37,7 @@
           class="form-check-label pl-2 tracking-normal align-middle"
         >
           {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
-          <span class="text-gray-mid"> ({{ bucket.doc_count.toLocaleString() }}) </span>
+          <span class="text-gray-mid-dark"> ({{ bucket.doc_count.toLocaleString() }}) </span>
         </label>
       </div>
     </div>

@@ -16,6 +16,7 @@
               :height="theImageData.src.height"
               :alt="theImageData.alt"
               itemprop="image"
+              data-chromatic="ignore"
             />
           </template>
           <template v-else-if="video">
@@ -43,7 +44,7 @@
       <div
         v-if="hasCaptionArea"
         :class="captionVisibilityClass"
-        class="max-w-screen-3xl bg-gray-light bg-opacity-90 lg:bg-opacity-100 lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto"
+        class="max-w-screen-3xl ThemeVariantGray bg-gray-light bg-opacity-90 lg:bg-opacity-100 ThemeVariantGray lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto"
       >
         <BaseImageCaption :data="theImageData || customCaption" />
       </div>

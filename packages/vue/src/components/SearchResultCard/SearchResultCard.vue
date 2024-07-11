@@ -173,6 +173,7 @@
             :alt="image.alt"
             class="object-cover w-full h-full"
             loading="lazy"
+            data-chromatic="ignore"
           />
         </div>
       </div>

@@ -20,6 +20,7 @@
           :width="theBackground.src.width"
           :height="theBackground.src.height"
           :alt="hasForeground ? '' : theBackground.alt"
+          data-chromatic="ignore"
         />
       </div>
     </div>
