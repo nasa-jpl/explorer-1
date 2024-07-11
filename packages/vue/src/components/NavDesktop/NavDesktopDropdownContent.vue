@@ -54,8 +54,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import _map from 'lodash/map'
-import _without from 'lodash/without'
+import _map from 'lodash/map.js'
+import _without from 'lodash/without.js'
 import NavLinkList from './../NavLinkList/NavLinkList.vue'
 import NavHighlight from './../NavHighlight/NavHighlight.vue'
 
