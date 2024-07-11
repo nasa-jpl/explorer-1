@@ -4,11 +4,6 @@ import HeroMedia from './HeroMedia.vue'
 export default {
   title: 'Components/Heroes/HeroMedia',
   component: HeroMedia,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
     html: {
       root: '#storyDecorator'

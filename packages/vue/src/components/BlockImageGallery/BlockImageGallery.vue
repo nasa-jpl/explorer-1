@@ -3,6 +3,7 @@
     v-if="items"
     class="BlockImageGallery"
     :items="items"
+    item-role="link"
     :loop="false"
     :block-id="blockId"
   >

@@ -2,7 +2,7 @@
   <nuxt-link
     v-if="data"
     :to="data.url"
-    class="TopicDetailMissionCarouselItem group block cursor-pointer"
+    class="TopicDetailMissionCarouselItem ThemeVariantLight group block cursor-pointer"
   >
     <div
       class="can-hover:group-hover:scale-105 relative transition-transform duration-200 ease-in transform scale-100"

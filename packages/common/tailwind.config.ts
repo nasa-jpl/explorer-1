@@ -286,13 +286,16 @@ export default {
         // www theme selectors
         ':root, .ThemeVariantLight': ThemeWww.default,
         '.ThemeVariantDark': ThemeWww.dark,
+        '.ThemeVariantGray': ThemeWww.gray,
         // edu theme selectors
         '.ThemeEdu, .ThemeEdu.ThemeVariantLight, .ThemeEdu .ThemeVariantLight': ThemeEdu.default,
         '.ThemeEdu .ThemeVariantDark, .ThemeEdu.ThemeVariantDark': ThemeEdu.dark,
+        '.ThemeEdu .ThemeVariantGray, .ThemeEdu.ThemeVariantGray': ThemeEdu.gray,
         // internal theme selectors
         '.ThemeInternal, .ThemeInternal.ThemeVariantLight, .ThemeInternal .ThemeVariantLight':
           ThemeInternal.default,
-        '.ThemeInternal .ThemeVariantDark, .ThemeInternal.ThemeVariantDark': ThemeInternal.dark
+        '.ThemeInternal .ThemeVariantDark, .ThemeInternal.ThemeVariantDark': ThemeInternal.dark,
+        '.ThemeInternal .ThemeVariantGray, .ThemeInternal.ThemeVariantGray': ThemeInternal.gray
       })
     }),
     require('tailwindcss-themer')({

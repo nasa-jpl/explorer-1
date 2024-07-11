@@ -1,16 +1,17 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
-// TODO: import applicable config keys from '@explorer-1/vue/vite.config'
+// import Components from 'unplugin-vue-components/vite'
+
 export default defineConfig({
   plugins: [
-    vue(),
-    Components({
-      dirs: [
-        './node_modules/@explorer-1/vue/src/components',
-        './node_modules/@explorer-1/vue/src/templates'
-      ]
-    })
+    vue()
+    // TODO: Doesn't work
+    // Components({
+    //   dirs: [
+    //     './../node_modules/@explorer-1/vue/src/components',
+    //     './../node_modules/@explorer-1/vue/src/templates'
+    //   ]
+    // })
   ],
   publicDir: './../public/',
   // because pnpm and stories are in node_modules

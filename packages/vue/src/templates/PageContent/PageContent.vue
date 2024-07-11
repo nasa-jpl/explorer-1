@@ -1,3 +1,65 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { useRoute } from 'vue-router'
+import HeroMedia from '@explorer-1/vue/src/components/HeroMedia/HeroMedia.vue'
+import NavSecondary from '@explorer-1/vue/src/components/NavSecondary/NavSecondary.vue'
+import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
+import DetailHeadline from '@explorer-1/vue/src/components/DetailHeadline/DetailHeadline.vue'
+import BlockImageStandard from '@explorer-1/vue/src/components/BlockImage/BlockImageStandard.vue'
+import ShareButtons from '@explorer-1/vue/src/components/ShareButtons/ShareButtons.vue'
+import BlockStreamfield from '@explorer-1/vue/src/components/BlockStreamfield/BlockStreamfield.vue'
+import BlockRelatedLinks from '@explorer-1/vue/src/components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import FormContact from '@explorer-1/vue/src/components/FormContact/FormContact.vue'
+import FormNewsletterSignup from '@explorer-1/vue/src/components/FormNewsletterSignup/FormNewsletterSignup.vue'
+import BlockLinkCarousel from '@explorer-1/vue/src/components/BlockLinkCarousel/BlockLinkCarousel.vue'
+
+const route = useRoute()
+
+export default defineComponent({
+  name: 'PageContent',
+  components: {
+    HeroMedia,
+    NavSecondary,
+    LayoutHelper,
+    DetailHeadline,
+    BlockImageStandard,
+    ShareButtons,
+    BlockStreamfield,
+    BlockRelatedLinks,
+    FormContact,
+    FormNewsletterSignup,
+    BlockLinkCarousel
+  },
+  props: {
+    data: {
+      type: Object,
+      required: false,
+      default: undefined
+    }
+  },
+  computed: {
+    heroInline() {
+      if (this.data?.heroPosition === 'inline') {
+        return true
+      }
+      return false
+    },
+    hideH1() {
+      if (route?.path === '/a-plan-for-jpl') {
+        return true
+      }
+      return false
+    },
+    h1LayoutHelperClasses() {
+      if (this.hideH1) {
+        // We're hiding the H1 from regular browsers, so reduce the standard margin.
+        return 'lg:mt-12 mt-5'
+      }
+      return 'lg:mt-12 lg:mb-18 mt-5 mb-10'
+    }
+  }
+})
+</script>
 <template>
   <div
     v-if="data"
@@ -101,40 +163,3 @@
     />
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { useRoute } from 'vue-router'
-const route = useRoute()
-
-export default defineComponent({
-  name: 'PageContent',
-  props: {
-    data: {
-      type: Object,
-      required: false,
-      default: undefined
-    }
-  },
-  computed: {
-    heroInline() {
-      if (this.data?.heroPosition === 'inline') {
-        return true
-      }
-      return false
-    },
-    hideH1() {
-      if (route?.path === '/a-plan-for-jpl') {
-        return true
-      }
-      return false
-    },
-    h1LayoutHelperClasses() {
-      if (this.hideH1) {
-        // We're hiding the H1 from regular browsers, so reduce the standard margin.
-        return 'lg:mt-12 mt-5'
-      }
-      return 'lg:mt-12 lg:mb-18 mt-5 mb-10'
-    }
-  }
-})
-</script>

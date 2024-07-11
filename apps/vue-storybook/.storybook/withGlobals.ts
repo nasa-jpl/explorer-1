@@ -1,5 +1,6 @@
 import { useEffect, useGlobals } from '@storybook/preview-api'
-import { useThemeStore } from '@explorer-1/vue/src/store/theme'
+// intentionally importing from node_modules path to avoid pinia initialization errors
+import { useThemeStore } from './../node_modules/@explorer-1/vue/src/store/theme'
 import { type Explorer1Theme } from '@explorer-1/vue/src/interfaces'
 
 export const getConfig = (config) => {
@@ -146,7 +147,7 @@ export const globalTypes = {
   },
   variantsConfig: {
     defaultValue: {
-      variants: ['ThemeVariantLight', 'ThemeVariantDark'],
+      variants: ['ThemeVariantLight', 'ThemeVariantDark', 'ThemeVariantGray'],
       method: 'css'
     }
   },
@@ -182,7 +183,8 @@ export const globalTypes = {
           icon: 'circlehollow',
           title: 'Light Variant'
         },
-        { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' }
+        { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' },
+        { value: 'ThemeVariantGray', icon: 'contrast', title: 'Gray Variant' }
       ],
       dynamicTitle: true
     }

@@ -1,6 +1,4 @@
 import BaseVideo from './BaseVideo.vue'
-import videoMp4 from '@explorer-1/common-storybook/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4'
-import videoWebm from '@explorer-1/common-storybook/src/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm'
 
 export default {
   title: 'Components/Base/BaseVideo',
@@ -11,10 +9,10 @@ export default {
 // shared data
 export const BaseVideoData = {
   duration: '8',
-  file: videoMp4,
+  file: '/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.mp4',
   fileExtension: 'mp4',
   fileOgg: 'http://127.0.0.1:9000/media/media/NASA-Mars-Helicopter-IngenuityAnimations-7sec.ogv', // no webpack loader for ogg files
-  fileWebm: videoWebm,
+  fileWebm: '/videos/NASA-Mars-Helicopter-IngenuityAnimations-7sec.webm',
   height: null,
   id: '1',
   sources:

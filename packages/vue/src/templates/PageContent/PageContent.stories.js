@@ -12,11 +12,6 @@ import PageContent from './PageContent.vue'
 export default {
   title: 'Templates/PageContent',
   component: PageContent,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0 disable-nav-offset"><story/></div>`
-    })
-  ],
   parameters: {
     html: {
       root: '#storyDecorator'

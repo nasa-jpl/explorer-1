@@ -1,10 +1,21 @@
-name: Linting
+# checks if vue package builds successfully
 
-# Run on the opening of a pull request and subsequent commits to it.
-on: pull_request
+name: Vue
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/common/**'
+      - 'packages/vue/**'
+  pull_request:
+    paths:
+      - 'packages/common/**'
+      - 'packages/vue/**'
 
 jobs:
-  lint-and-check-format:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +32,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies 🧱
-        run: pnpm install
+        run: pnpm i
 
-      - name: Lint scripts 🏗
-        run: pnpm run lint
+      - name: Build Vue package 🛠
+        run: make vue-build

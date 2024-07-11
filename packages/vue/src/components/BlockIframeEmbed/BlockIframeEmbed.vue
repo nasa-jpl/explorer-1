@@ -29,6 +29,7 @@
             :class="{ lazyload: !lazyNative }"
             :title="data.title"
             :data-src="data.url"
+            data-chromatic="ignore"
             width="90%"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen

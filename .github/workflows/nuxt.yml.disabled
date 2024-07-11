@@ -1,0 +1,40 @@
+# checks if nuxt module builds successfully
+
+name: Build Nuxt Module
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/common/**'
+      - 'packages/nuxt/**'
+      - 'packages/vue/**'
+  pull_request:
+    paths:
+      - 'packages/common/**'
+      - 'packages/nuxt/**'
+      - 'packages/vue/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node ⬢
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies 🧱
+        run: pnpm i
+
+      - name: Build static Storybook 🛠
+        run: make nuxt-build

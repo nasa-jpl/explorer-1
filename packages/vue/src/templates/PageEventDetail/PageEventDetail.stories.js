@@ -6,11 +6,6 @@ import PageEventDetail from './PageEventDetail.vue'
 export default {
   title: 'Templates/PageEventDetail',
   component: PageEventDetail,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0 disable-nav-offset"><story/></div>`
-    })
-  ],
   parameters: {
     html: {
       root: '#storyDecorator'

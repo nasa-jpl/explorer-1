@@ -88,6 +88,10 @@ export default defineComponent({
       type: Array as PropType<Partial<ImageObject>[]>,
       required: false
     },
+    itemRole: {
+      type: String,
+      required: false
+    },
     loop: {
       type: Boolean,
       default: true
@@ -122,6 +126,9 @@ export default defineComponent({
         loop: this.loop,
         // this component has custom pagination
         pagination: false,
+        a11y: {
+          slideRole: this.itemRole as string | undefined
+        },
         on: {
           slideChange: (swiper: Swiper) => {
             // See https://github.com/vuejs/vue/issues/8721.

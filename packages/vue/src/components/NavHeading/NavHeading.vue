@@ -6,7 +6,7 @@
     <template v-if="data.headingPage && data.heading">
       <BaseLink
         variant="none"
-        class="text-subtitle text-blue inline-block mb-4"
+        class="text-subtitle text-jpl-blue-lighter inline-block mb-4"
         link-class="p-2"
         :to="data.headingPage.url"
       >
@@ -14,7 +14,7 @@
       </BaseLink>
     </template>
     <template v-else-if="data.heading">
-      <div class="text-subtitle text-blue inline-block mb-4">
+      <div class="text-subtitle text-jpl-blue-lighter inline-block mb-4">
         <span class="p-2">{{ data.heading }}</span>
       </div>
     </template>

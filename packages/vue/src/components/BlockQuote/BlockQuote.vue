@@ -17,6 +17,7 @@
             class="attribution-image"
             :src="data.thumbnail.src"
             :alt="data.thumbnail.alt"
+            data-chromatic="ignore"
           />
 
           <BaseLink

@@ -46,7 +46,9 @@
           <div class="swiper-wrapper">
             <slot />
           </div>
-          <div class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full">
+          <div
+            class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full ThemeVariantLight"
+          >
             <div class="xl:-ml-22 top-1/2 absolute left-0 z-30 -ml-20">
               <BaseButton
                 class="swiper-prev xl:text-xl"
@@ -196,7 +198,8 @@ export default defineComponent({
         initialSlide: this.initialSlide,
         a11y: {
           prevSlideMessage: this.heading ? this.heading + ' - Previous slide' : 'Previous slide',
-          nextSlideMessage: this.heading ? this.heading + ' - Next slide' : 'Next slide'
+          nextSlideMessage: this.heading ? this.heading + ' - Next slide' : 'Next slide',
+          slideRole: 'link'
         },
         breakpoints: {
           ...MixinCarouselOptions.breakpoints,

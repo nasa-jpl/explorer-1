@@ -46,6 +46,7 @@
           :height="item.image.src.height"
           alt=""
           loading="lazy"
+          data-chromatic="ignore"
         />
       </picture>
     </div>
