@@ -1,10 +1,16 @@
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 import remarkGfm from 'remark-gfm'
 const config = {
-  stories: [
-    './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)',
-    './../node_modules/@explorer-1/vue/src/**/*.docs.mdx'
-  ],
+  stories:
+    process.env.NODE_ENV === 'production'
+      ? [
+          './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)',
+          './../node_modules/@explorer-1/vue/src/**/*.docs.mdx'
+        ]
+      : [
+          './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)',
+          './../../../packages/vue/src/**/*.docs.mdx'
+        ],
   addons: [
     {
       name: '@storybook/addon-essentials',

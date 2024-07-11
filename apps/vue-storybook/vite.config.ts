@@ -6,10 +6,9 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      dirs: [
-        './node_modules/@explorer-1/vue/src/components',
-        './node_modules/@explorer-1/vue/src/templates'
-      ]
+      dirs: ['./../../packages/vue/src/components'],
+      deep: true,
+      directoryAsNamespace: false
     })
   ],
   publicDir: './../public/',
