@@ -16,7 +16,7 @@ import { defineComponent } from 'vue'
 import { ICalendar } from 'datebook'
 import type { CalendarOptions } from 'datebook'
 // @ts-ignore
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 import BaseButton from './../BaseButton/BaseButton.vue'
 
 export default defineComponent({
