@@ -1,5 +1,6 @@
 import { useEffect, useGlobals } from '@storybook/preview-api'
-import { useThemeStore } from '@explorer-1/vue/src/store/theme'
+// intentionally importing from node_modules path to avoid pinia initialization errors
+import { useThemeStore } from './../node_modules/@explorer-1/vue/src/store/theme'
 import { type Explorer1Theme } from '@explorer-1/vue/src/interfaces'
 
 export const getConfig = (config) => {
