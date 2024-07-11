@@ -23,7 +23,7 @@
           </h2>
           <BaseLink
             v-if="link"
-            class="ThemeVariantGray sm:block hidden"
+            class="sm:block hidden"
             variant="primary"
             :to="typeof link === 'object' ? link : undefined"
             :href="typeof link != 'object' ? link : undefined"
@@ -46,7 +46,9 @@
           <div class="swiper-wrapper">
             <slot />
           </div>
-          <div class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full">
+          <div
+            class="swiper-navigation xl:block absolute top-0 left-0 hidden w-full ThemeVariantLight"
+          >
             <div class="xl:-ml-22 top-1/2 absolute left-0 z-30 -ml-20">
               <BaseButton
                 class="swiper-prev xl:text-xl"
