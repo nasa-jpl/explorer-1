@@ -1,5 +1,6 @@
 {
   "name": "@explorer-1/nuxt",
+  "version": "0.0.1",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -9,7 +10,6 @@
     "type": "git",
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
-  "version": "0.0.0",
   "type": "module",
   "exports": {
     ".": {
