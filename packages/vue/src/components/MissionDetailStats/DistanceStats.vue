@@ -31,7 +31,7 @@
 // @ts-nocheck
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 import BaseUnitToggle, { UnitSystemName } from './../BaseUnitToggle/BaseUnitToggle.vue'
 
 export const distanceTypes = {
