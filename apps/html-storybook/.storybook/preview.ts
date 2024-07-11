@@ -1,9 +1,9 @@
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
-import customTheme from './customTheme'
+import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/html/src/assets/scss/styles.scss'
 import './../public/dist/css/font-face.css'
 import '@explorer-1/html/src/main.js'
-import './canvas.css'
+import '@explorer-1/common-storybook/src/config/canvas.css'
 import { withGlobals } from './withGlobals'
 
 // viewports that match our tailwind config

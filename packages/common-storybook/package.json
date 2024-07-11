@@ -15,8 +15,6 @@
     "@explorer-1/common": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
-    "@storybook/blocks": "^8.2.1",
-    "@storybook/theming": "^8.2.1",
     "rimraf": "^5.0.5",
     "storybook": "^8.1.11",
     "ts-node": "^10.9.2",

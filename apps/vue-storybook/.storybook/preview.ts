@@ -11,8 +11,8 @@ import { createPinia } from 'pinia'
 import filters from '@explorer-1/vue/src/utils/filters'
 import '@explorer-1/common/src/scss/styles.scss'
 import { withGlobals, globalTypes } from './withGlobals'
-import customTheme from './customTheme'
-import './canvas.css'
+import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
+import '@explorer-1/common-storybook/src/config/canvas.css'
 
 const pinia = createPinia()
 
