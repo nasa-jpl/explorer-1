@@ -161,7 +161,7 @@ export const globalTypes = {
           title: 'Light Variant'
         },
         { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' },
-        { value: 'ThemeVariantGray', icon: 'circle', title: 'Gray Variant' }
+        { value: 'ThemeVariantGray', icon: 'contrast', title: 'Gray Variant' }
       ],
       dynamicTitle: true
     }
