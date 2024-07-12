@@ -1,12 +1,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import HeroMedia from './../../components/HeroMedia/HeroMedia.vue'
 import NavSecondary from './../../components/NavSecondary/NavSecondary.vue'
 import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../components/DetailHeadline/DetailHeadline.vue'
 import BlockImageStandard from './../../components/BlockImage/BlockImageStandard.vue'
 import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
+import ShareButtonsEdu from './../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 import BlockStreamfield from './../../components/BlockStreamfield/BlockStreamfield.vue'
 import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import FormContact from './../../components/FormContact/FormContact.vue'
@@ -24,6 +27,7 @@ export default defineComponent({
     DetailHeadline,
     BlockImageStandard,
     ShareButtons,
+    ShareButtonsEdu,
     BlockStreamfield,
     BlockRelatedLinks,
     FormContact,
@@ -38,6 +42,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
     heroInline() {
       if (this.data?.heroPosition === 'inline') {
         return true
@@ -55,7 +60,7 @@ export default defineComponent({
         // We're hiding the H1 from regular browsers, so reduce the standard margin.
         return 'lg:mt-12 mt-5'
       }
-      return 'lg:mt-12 lg:mb-18 mt-5 mb-10'
+      return 'lg:mt-12 lg:mb-18 edu:lg:mb-12 mt-5 mb-10 edu:mb-8'
     }
   }
 })
@@ -92,6 +97,13 @@ export default defineComponent({
         :label="data.displayLabel"
         :class="{ 'sr-only': hideH1 }"
       />
+      <share-buttons-edu
+        v-if="data?.url && themeStore.theme === 'ThemeEdu'"
+        class="mt-6"
+        :url="data.url"
+        :title="data.title"
+        :image="data.thumbnailImage?.original"
+      />
     </LayoutHelper>
 
     <!-- inline hero -->
@@ -110,6 +122,7 @@ export default defineComponent({
 
     <!-- share buttons -->
     <LayoutHelper
+      v-if="themeStore.theme !== 'ThemeEdu'"
       indent="col-2"
       class="lg:mb-0 relative mb-8"
     >

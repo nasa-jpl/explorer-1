@@ -86,7 +86,7 @@ export const ArticleDetail = {
 export const InlineHero = {
   args: {
     data: {
-      ...EduArticleDetail.args.data,
+      ...ArticleDetail.args.data,
       heroPosition: 'inline'
     }
   }
@@ -95,7 +95,7 @@ export const InlineHero = {
 export const HeroCarousel = {
   args: {
     data: {
-      ...EduArticleDetail.args.data,
+      ...ArticleDetail.args.data,
       hero: [{ blockType: 'CarouselBlock', blocks: BlockImageCarouselData }]
     }
   }
@@ -104,7 +104,7 @@ export const HeroCarousel = {
 export const HeroImageComparison = {
   args: {
     data: {
-      ...EduArticleDetail.args.data,
+      ...ArticleDetail.args.data,
       heroPosition: 'inline',
       hero: [
         {
@@ -118,7 +118,7 @@ export const HeroImageComparison = {
 export const HeroVideo = {
   args: {
     data: {
-      ...EduArticleDetail.args.data,
+      ...ArticleDetail.args.data,
       hero: [
         {
           blockType: 'VideoBlock',
@@ -134,7 +134,7 @@ export const HeroVideo = {
 export const HeroVideoEmbed = {
   args: {
     data: {
-      ...EduArticleDetail.args.data,
+      ...ArticleDetail.args.data,
       heroPosition: 'inline',
       hero: [
         {
@@ -152,7 +152,7 @@ export const HeroVideoEmbed = {
 export const HeroIframeEmbed = {
   args: {
     data: {
-      ...EduArticleDetail.args.data,
+      ...ArticleDetail.args.data,
       heroPosition: 'inline',
       hero: [
         {
@@ -166,7 +166,7 @@ export const HeroIframeEmbed = {
 export const NoHero = {
   args: {
     data: {
-      ...EduArticleDetail.args.data,
+      ...ArticleDetail.args.data,
       hero: []
     }
   }
