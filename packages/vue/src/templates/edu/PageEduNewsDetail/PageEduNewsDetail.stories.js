@@ -1,5 +1,5 @@
-import { HeroMediaData } from './../../components/HeroMedia/HeroMedia.stories'
-import { BlockStreamfieldData } from './../../components/BlockStreamfield/BlockStreamfield.stories'
+import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories'
+import { BlockStreamfieldData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageEduNewsDetail from './PageEduNewsDetail.vue'
 
 export default {

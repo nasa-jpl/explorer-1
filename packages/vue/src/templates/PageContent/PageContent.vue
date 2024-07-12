@@ -1,17 +1,17 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
-import HeroMedia from '@explorer-1/vue/src/components/HeroMedia/HeroMedia.vue'
-import NavSecondary from '@explorer-1/vue/src/components/NavSecondary/NavSecondary.vue'
-import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
-import DetailHeadline from '@explorer-1/vue/src/components/DetailHeadline/DetailHeadline.vue'
-import BlockImageStandard from '@explorer-1/vue/src/components/BlockImage/BlockImageStandard.vue'
-import ShareButtons from '@explorer-1/vue/src/components/ShareButtons/ShareButtons.vue'
-import BlockStreamfield from '@explorer-1/vue/src/components/BlockStreamfield/BlockStreamfield.vue'
-import BlockRelatedLinks from '@explorer-1/vue/src/components/BlockRelatedLinks/BlockRelatedLinks.vue'
-import FormContact from '@explorer-1/vue/src/components/FormContact/FormContact.vue'
-import FormNewsletterSignup from '@explorer-1/vue/src/components/FormNewsletterSignup/FormNewsletterSignup.vue'
-import BlockLinkCarousel from '@explorer-1/vue/src/components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import HeroMedia from './../../components/HeroMedia/HeroMedia.vue'
+import NavSecondary from './../../components/NavSecondary/NavSecondary.vue'
+import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
+import DetailHeadline from './../../components/DetailHeadline/DetailHeadline.vue'
+import BlockImageStandard from './../../components/BlockImage/BlockImageStandard.vue'
+import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
+import BlockStreamfield from './../../components/BlockStreamfield/BlockStreamfield.vue'
+import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import FormContact from './../../components/FormContact/FormContact.vue'
+import FormNewsletterSignup from './../../components/FormNewsletterSignup/FormNewsletterSignup.vue'
+import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 
 const route = useRoute()
 

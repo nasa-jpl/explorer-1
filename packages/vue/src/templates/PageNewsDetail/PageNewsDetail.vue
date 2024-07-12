@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="ThemeLight"
+    class="ThemeVariantLight"
     :class="computedClass"
     itemscope
     itemtype="http://schema.org/Article"
@@ -203,10 +203,9 @@ export default defineComponent({
     },
     heroInline(): boolean {
       if (!this.heroEmpty) {
-        // if (this.data.hero[0].blockType === 'VideoBlock') {
-        //   return false
-        // } else
-        if (
+        if (this.data?.hero[0].blockType === 'VideoBlock') {
+          return false
+        } else if (
           this.data?.heroPosition === 'inline' ||
           this.data?.hero[0].blockType === 'CarouselBlock'
         ) {
