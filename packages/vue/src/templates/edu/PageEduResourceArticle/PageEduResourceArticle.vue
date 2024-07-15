@@ -13,7 +13,7 @@ import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEm
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 
 export default defineComponent({
-  name: 'PageContent',
+  name: 'PageEduResourceArticle',
   components: {
     HeroMedia,
     LayoutHelper,

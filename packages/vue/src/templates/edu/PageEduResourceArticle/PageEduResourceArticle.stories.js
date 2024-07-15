@@ -9,11 +9,11 @@ import { BlockVideoEmbedData } from './../../../components/BlockVideoEmbed/Block
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
 import { BlockStreamfieldMinimalData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
-import PageEduArticleDetail from './PageEduArticleDetail.vue'
+import PageEduResourceArticle from './PageEduResourceArticle.vue'
 
 export default {
-  title: 'Templates/EDU/PageEduArticleDetail',
-  component: PageEduArticleDetail,
+  title: 'Templates/EDU/PageEduResourceArticle',
+  component: PageEduResourceArticle,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
