@@ -36,6 +36,6 @@ const BaseIframeData = {
   height: 400
 }
 
-export const BaseStory = BaseIframeTemplate.bind({})
-BaseStory.storyName = 'BaseIframe'
-BaseStory.args = BaseIframeData
+export const Default = BaseIframeTemplate.bind({})
+Default.storyName = 'BaseIframe'
+Default.args = BaseIframeData

@@ -12,5 +12,5 @@ export default {
   }
 }
 
-export const BaseStory = BasePlaceholderTemplate.bind()
-BaseStory.storyName = 'BasePlaceholder'
+export const Default = BasePlaceholderTemplate.bind()
+Default.storyName = 'BasePlaceholder'

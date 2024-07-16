@@ -14,13 +14,13 @@ export default {
   }
 }
 
-export const BaseStory = AppBarInternalTemplate.bind({})
-BaseStory.storyName = 'AppBar'
-BaseStory.args = AppBarInternalTemplate.stories.BaseStory.args
+export const Default = AppBarInternalTemplate.bind({})
+Default.storyName = 'AppBar'
+Default.args = AppBarInternalTemplate.stories.Default.args
 
 export const AppBarInternalStoryMeta = {
   stories: {
-    BaseStory: {
+    Default: {
       storyName: 'AppBar',
       args: {
         orgNumber: '18x',

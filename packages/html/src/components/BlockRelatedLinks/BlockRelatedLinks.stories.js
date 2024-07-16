@@ -51,9 +51,9 @@ export const BlockRelatedLinksData = {
   ]
 }
 
-export const BaseStory = BlockRelatedLinksTemplate.bind({})
-BaseStory.storyName = 'Block'
-BaseStory.args = {
+export const Default = BlockRelatedLinksTemplate.bind({})
+Default.storyName = 'Block'
+Default.args = {
   heading: BlockRelatedLinksData.heading,
   links: BlockRelatedLinksData.links
 }

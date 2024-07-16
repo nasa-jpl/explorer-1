@@ -62,8 +62,8 @@ const HeroMediumData = {
   }
 }
 
-export const BaseStory = HeroMediumTemplate.bind({})
-BaseStory.args = HeroMediumData
+export const Default = HeroMediumTemplate.bind({})
+Default.args = HeroMediumData
 
 export const Video = HeroMediumTemplate.bind({})
 Video.args = {

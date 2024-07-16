@@ -110,9 +110,9 @@ export default {
   }
 }
 
-export const BaseStory = BaseButtonTemplate.bind({})
-BaseStory.storyName = 'Primary Button'
-BaseStory.args = {
+export const Default = BaseButtonTemplate.bind({})
+Default.storyName = 'Primary Button'
+Default.args = {
   label: 'Explore',
   variant: 'primary',
   link: '#',

@@ -27,9 +27,9 @@ export default {
   }
 }
 
-export const BaseStory = FormTextInputTemplate.bind({})
-BaseStory.storyName = 'TextInput'
-BaseStory.args = {
+export const Default = FormTextInputTemplate.bind({})
+Default.storyName = 'TextInput'
+Default.args = {
   label: 'Label',
   placeholder: 'placeholder text',
   inputName: 'text_input',

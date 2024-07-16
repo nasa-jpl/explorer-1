@@ -54,8 +54,8 @@ export const HeroMediaData = {
   url: '/images/image-123/'
 }
 
-export const BaseStory = HeroMediaTemplate.bind({})
-BaseStory.args = HeroMediaData
+export const Default = HeroMediaTemplate.bind({})
+Default.args = HeroMediaData
 
 export const NoCaption = HeroMediaTemplate.bind({})
 NoCaption.args = {

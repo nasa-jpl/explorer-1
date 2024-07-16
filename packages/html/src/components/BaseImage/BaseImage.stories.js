@@ -61,8 +61,8 @@ export const BaseImageData = {
   imageClass: '',
   objectFitClass: 'object-contain'
 }
-export const BaseStory = BaseImageTemplate.bind({})
-BaseStory.args = BaseImageData
+export const Default = BaseImageTemplate.bind({})
+Default.args = BaseImageData
 
 export const LazyLoading = BaseImageTemplate.bind({})
 LazyLoading.args = BaseImageData

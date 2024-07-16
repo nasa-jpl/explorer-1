@@ -21,7 +21,7 @@ const InternalTemplate = () => `<div>
       <a
         class="group cursor-pointer -default underline text-action can-hover:hover:text-action-hover"
       >
-        BaseStory Theme: BaseLink
+        Default Theme: BaseLink
       </a>
     </div>
     <!-- /BaseLink -->

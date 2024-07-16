@@ -30,9 +30,9 @@ export default {
   }
 }
 
-export const BaseStory = BlockImageCarouselTemplate.bind({})
-BaseStory.storyName = 'BlockImageGallery'
-BaseStory.args = {
+export const Default = BlockImageCarouselTemplate.bind({})
+Default.storyName = 'BlockImageGallery'
+Default.args = {
   ...BlockImageCarouselData,
   galleryCoverImage: {
     label: 'Mars',

@@ -42,9 +42,9 @@ export default {
   }
 }
 
-export const BaseStory = BaseHeadingTemplate.bind({})
-BaseStory.storyName = 'H1'
-BaseStory.args = { text: 'Heading 1', size: 'h1', tag: 'h1' }
+export const Default = BaseHeadingTemplate.bind({})
+Default.storyName = 'H1'
+Default.args = { text: 'Heading 1', size: 'h1', tag: 'h1' }
 
 export const H2 = BaseHeadingTemplate.bind({})
 H2.storyName = 'H2'

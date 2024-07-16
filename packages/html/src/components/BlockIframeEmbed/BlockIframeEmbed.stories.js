@@ -41,9 +41,9 @@ const BlockIframeEmbedData = {
     '<p>Click (or touch) and drag to interact with this 3D model of the Mars 2020 Perseverance Rover. Learn more about the mission at <a href="mars.nasa.gov/mars2020/">mars.nasa.gov/mars2020/</a>.</p>'
 }
 
-export const BaseStory = BlockIframeEmbedTemplate.bind({})
-BaseStory.args = BlockIframeEmbedData
-BaseStory.decorators = [(Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`]
+export const Default = BlockIframeEmbedTemplate.bind({})
+Default.args = BlockIframeEmbedData
+Default.decorators = [(Story) => `<div id="storyRoot" class="mx-auto container">${Story()}</div>`]
 
 export const CustomHeight = BlockIframeEmbedTemplate.bind({})
 CustomHeight.args = { ...BlockIframeEmbedData, height: 400 }

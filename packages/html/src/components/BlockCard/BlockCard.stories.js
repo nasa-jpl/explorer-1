@@ -35,9 +35,9 @@ export default {
   }
 }
 
-export const BaseStory = BlockCardTemplate.bind({})
-BaseStory.storyName = 'BlockCard'
-BaseStory.args = {
+export const Default = BlockCardTemplate.bind({})
+Default.storyName = 'BlockCard'
+Default.args = {
   type: 'Factoid',
   title: 'Nimble Limbs',
   text: 'The robot has four limbs, each with seven degrees of freedom.',

@@ -63,6 +63,6 @@ export const NavInternalData = {
   ]
 }
 
-export const BaseStory = NavInternalTemplate.bind({})
-BaseStory.storyName = 'Navigation'
-BaseStory.args = NavInternalData
+export const Default = NavInternalTemplate.bind({})
+Default.storyName = 'Navigation'
+Default.args = NavInternalData

@@ -40,6 +40,6 @@ const ExampleFormTemplate = () => `<form>
   </button>
 </form>`
 
-export const BaseStory = {
+export const Default = {
   render: ExampleFormTemplate.bind({})
 }

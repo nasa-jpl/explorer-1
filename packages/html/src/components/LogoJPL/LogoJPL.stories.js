@@ -26,9 +26,9 @@ const Stories = {
   }
 }
 
-export const BaseStory = LogoJPLTemplate.bind({})
-BaseStory.storyName = 'Standard'
-BaseStory.args = { colorClass: 'text-jpl-red' }
+export const Default = LogoJPLTemplate.bind({})
+Default.storyName = 'Standard'
+Default.args = { colorClass: 'text-jpl-red' }
 
 export const Black = LogoJPLTemplate.bind({})
 Black.args = { colorClass: 'text-black' }

@@ -33,9 +33,9 @@ export default {
   }
 }
 
-export const BaseStory = FooterInternalTemplate.bind({})
-BaseStory.storyName = 'For Internal Sites'
-BaseStory.args = {
+export const Default = FooterInternalTemplate.bind({})
+Default.storyName = 'For Internal Sites'
+Default.args = {
   siteEditors: contactListData,
   siteManagers: contactListData,
   dateUpdated: 'July 28, 2022',

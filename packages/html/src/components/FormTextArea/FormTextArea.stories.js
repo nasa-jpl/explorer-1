@@ -27,9 +27,9 @@ export default {
   }
 }
 
-export const BaseStory = FormTextAreaTemplate.bind({})
-BaseStory.storyName = 'TextArea'
-BaseStory.args = {
+export const Default = FormTextAreaTemplate.bind({})
+Default.storyName = 'TextArea'
+Default.args = {
   label: 'Label',
   placeholder: 'placeholder text...',
   inputName: 'message_input',

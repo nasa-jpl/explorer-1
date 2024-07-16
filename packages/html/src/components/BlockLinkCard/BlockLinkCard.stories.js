@@ -47,9 +47,9 @@ export default {
   }
 }
 
-export const BaseStory = BlockLinkCardTemplate.bind({})
-BaseStory.storyName = 'BlockLinkCard'
-BaseStory.args = {
+export const Default = BlockLinkCardTemplate.bind({})
+Default.storyName = 'BlockLinkCard'
+Default.args = {
   url: '#',
   title: 'How engineers at NASA-JPL persevered to develop a ventilator',
   label: 'Solar System',

@@ -68,9 +68,9 @@ export default {
   }
 }
 
-export const BaseStory = BaseLinkTemplate.bind({})
-BaseStory.storyName = 'Primary'
-BaseStory.args = {
+export const Default = BaseLinkTemplate.bind({})
+Default.storyName = 'Primary'
+Default.args = {
   text: 'Explore',
   variant: 'primary',
   link: '#',

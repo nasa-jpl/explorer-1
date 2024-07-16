@@ -78,9 +78,9 @@ export const SearchResultCardData = {
   featured: false
 }
 
-export const BaseStory = SearchResultCardTemplate.bind({})
-BaseStory.storyName = 'Standard Result'
-BaseStory.args = SearchResultCardData
+export const Default = SearchResultCardTemplate.bind({})
+Default.storyName = 'Standard Result'
+Default.args = SearchResultCardData
 
 export const FeaturedResult = SearchResultCardTemplate.bind({})
 FeaturedResult.args = { ...SearchResultCardData, featured: true }

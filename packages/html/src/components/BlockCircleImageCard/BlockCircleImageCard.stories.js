@@ -44,9 +44,9 @@ export default {
   }
 }
 
-export const BaseStory = BlockCircleImageCardTemplate.bind({})
-BaseStory.storyName = 'BlockCircleImageCard'
-BaseStory.args = {
+export const Default = BlockCircleImageCardTemplate.bind({})
+Default.storyName = 'BlockCircleImageCard'
+Default.args = {
   imageOnRight: false,
   title: 'First Flight of Technology for Returning Warheads from Space',
   label: 'September 20, 1956',

@@ -84,8 +84,8 @@ const BlockCardGroupData = [
   }
 ]
 
-export const BaseStory = BlockCardGroupTemplate.bind({})
-BaseStory.storyName = 'BlockCardGroup'
-BaseStory.args = {
+export const Default = BlockCardGroupTemplate.bind({})
+Default.storyName = 'BlockCardGroup'
+Default.args = {
   items: BlockCardGroupData
 }

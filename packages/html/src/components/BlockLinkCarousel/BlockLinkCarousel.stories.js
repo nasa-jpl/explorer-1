@@ -89,9 +89,9 @@ const BlockLinkCarouselData = [
   }
 ]
 
-export const BaseStory = BlockLinkCarouselTemplate.bind({})
-BaseStory.storyName = 'Carousel'
-BaseStory.args = {
+export const Default = BlockLinkCarouselTemplate.bind({})
+Default.storyName = 'Carousel'
+Default.args = {
   heading: 'Related Pages',
   items: BlockLinkCarouselData
 }

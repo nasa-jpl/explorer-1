@@ -62,8 +62,8 @@ const HeroSmallData = {
   }
 }
 
-export const BaseStory = HeroSmallTemplate.bind({})
-BaseStory.args = HeroSmallData
+export const Default = HeroSmallTemplate.bind({})
+Default.args = HeroSmallData
 
 export const Video = HeroSmallTemplate.bind({})
 Video.args = {

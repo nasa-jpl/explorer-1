@@ -114,8 +114,8 @@ Basic.args = {
   noLogo: false,
   ...BaseImageData
 }
-export const BaseStory = BaseImagePlaceholderTemplate.bind({})
-BaseStory.args = {
+export const Default = BaseImagePlaceholderTemplate.bind({})
+Default.args = {
   aspectRatio: 'aspect-ratio-two-one',
   noLogo: false
 }

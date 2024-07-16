@@ -37,9 +37,9 @@ export default {
   }
 }
 
-export const BaseStory = HeaderInternalTemplate.bind({})
-BaseStory.storyName = 'With Navigation'
-BaseStory.args = HeaderInternalData
+export const Default = HeaderInternalTemplate.bind({})
+Default.storyName = 'With Navigation'
+Default.args = HeaderInternalData
 
 export const WithSignIn = HeaderInternalTemplate.bind({})
 WithSignIn.args = {
