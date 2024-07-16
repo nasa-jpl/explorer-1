@@ -41,6 +41,6 @@ export default {
   }
 }
 
-export const Default = BackToTopTemplate.bind({})
-Default.storyName = 'BackToTop'
-Default.args = { alwaysVisible: true, threshold: 300, scrollTo: 0 }
+export const BaseStory = BackToTopTemplate.bind({})
+BaseStory.storyName = 'BackToTop'
+BaseStory.args = { alwaysVisible: true, threshold: 300, scrollTo: 0 }

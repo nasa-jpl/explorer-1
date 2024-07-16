@@ -31,6 +31,6 @@ export const NavInternalHighlightData = {
   ariaLabel: 'Go to this Highlight'
 }
 
-export const Default = NavInternalHighlightTemplate.bind({})
-Default.storyName = 'Highlight'
-Default.args = NavInternalHighlightData
+export const BaseStory = NavInternalHighlightTemplate.bind({})
+BaseStory.storyName = 'Highlight'
+BaseStory.args = NavInternalHighlightData

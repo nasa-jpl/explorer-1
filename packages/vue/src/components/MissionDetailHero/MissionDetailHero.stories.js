@@ -89,7 +89,7 @@ const MissionDetailHeroTemplate = (args) => ({
 })
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'CubeRRT',
   args: {
     templateStyle: 'light',

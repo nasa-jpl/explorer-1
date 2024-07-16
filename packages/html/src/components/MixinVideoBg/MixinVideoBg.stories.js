@@ -36,5 +36,5 @@ export default {
   }
 }
 
-export const Default = MixinVideoBgTemplate.bind({})
-Default.args = MixinVideoBgData
+export const BaseStory = MixinVideoBgTemplate.bind({})
+BaseStory.args = MixinVideoBgData

@@ -13,4 +13,4 @@ export const BlockShareButtonsData = {
   inline: false
 }
 
-export const Default = { args: BlockShareButtonsData }
+export const BaseStory = { args: BlockShareButtonsData }

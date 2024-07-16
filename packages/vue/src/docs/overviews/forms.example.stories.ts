@@ -42,6 +42,6 @@ const ExampleFormTemplate = () => `<form>
   </button>
 </form>`
 
-export const Default = {
+export const BaseStory = {
   render: ExampleFormTemplate.bind({})
 }

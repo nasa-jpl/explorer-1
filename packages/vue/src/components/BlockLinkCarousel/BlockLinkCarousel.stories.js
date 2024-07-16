@@ -169,7 +169,7 @@ const BlockLinkCarouselMultipleTemplate = (args) => ({
 })
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'Card Carousel',
   args: {
     itemType: 'cards',

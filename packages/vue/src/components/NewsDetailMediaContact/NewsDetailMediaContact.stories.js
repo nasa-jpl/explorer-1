@@ -16,7 +16,7 @@ const contacts = [
   }
 ]
 
-export const Default = { args: { contacts, releaseNumber: '2020-140' } }
+export const BaseStory = { args: { contacts, releaseNumber: '2020-140' } }
 
 export const Multiple = {
   args: {

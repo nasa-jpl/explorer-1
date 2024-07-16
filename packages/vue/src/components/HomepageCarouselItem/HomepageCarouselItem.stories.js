@@ -46,7 +46,7 @@ export const HomepageCarouselItemData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'Single Item',
   args: {
     item: {

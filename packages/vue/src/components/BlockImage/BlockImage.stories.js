@@ -84,9 +84,9 @@ const BlockImageTemplate = (args) => ({
     <BlockImage v-bind="args" />`
 })
 
-export const Default = BlockImageTemplate.bind({})
-Default.storyName = 'Standard'
-Default.args = {
+export const BaseStory = BlockImageTemplate.bind({})
+BaseStory.storyName = 'Standard'
+BaseStory.args = {
   data: BlockImageData,
   fullBleed: BlockImageData.fullBleed
 }

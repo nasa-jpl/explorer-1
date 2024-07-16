@@ -5,7 +5,7 @@ export default {
   component: BaseTimer
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'Full Date Time',
   args: {
     targetDateTime: '2011-11-26 15:02:21+01:00',

@@ -45,7 +45,7 @@ export const EventDetailHeroData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   args: {
     image: EventDetailHeroData.heroImage,
     startDateSplit: EventDetailHeroData.startDateSplit

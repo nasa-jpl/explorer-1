@@ -50,7 +50,7 @@ export const MissionDetailStatsData = {
   status: 'future'
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'Full',
   args: MissionDetailStatsData,
   render: (args) => ({

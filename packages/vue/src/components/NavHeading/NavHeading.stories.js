@@ -18,6 +18,6 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Default = {
+export const BaseStory = {
   args: { data: MenuLinkColumnWithHeaderData }
 }

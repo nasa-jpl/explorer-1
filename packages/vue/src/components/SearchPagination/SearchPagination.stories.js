@@ -6,7 +6,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'Two Pages',
   args: {
     totalPages: 2,

@@ -22,9 +22,9 @@ export default {
   }
 }
 
-export const Default = BlockTableTemplate.bind({})
-Default.storyName = 'BlockTable'
-Default.args = {
+export const BaseStory = BlockTableTemplate.bind({})
+BaseStory.storyName = 'BlockTable'
+BaseStory.args = {
   caption: 'Third row intentionally blank to test parsing.',
   table: {
     data: [

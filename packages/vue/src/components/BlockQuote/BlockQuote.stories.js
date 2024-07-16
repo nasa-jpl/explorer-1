@@ -44,8 +44,8 @@ const BlockQuoteTemplate = (args) => ({
   template: `<BlockQuote v-bind="args" />`
 })
 
-export const Default = BlockQuoteTemplate.bind({})
-Default.args = {
+export const BaseStory = BlockQuoteTemplate.bind({})
+BaseStory.args = {
   data: {
     quote: BlockQuoteData.quote,
     attribution: BlockQuoteData.attribution,

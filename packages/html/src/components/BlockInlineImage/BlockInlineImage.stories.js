@@ -23,9 +23,9 @@ export const BlockInlineImageData = {
   image: BlockImageData.image
 }
 
-export const Default = BlockInlineImageTemplate.bind({})
-Default.storyName = 'Align Right'
-Default.args = BlockInlineImageData
+export const BaseStory = BlockInlineImageTemplate.bind({})
+BaseStory.storyName = 'Align Right'
+BaseStory.args = BlockInlineImageData
 
 export const AlignLeft = BlockInlineImageTemplate.bind({})
 AlignLeft.args = {

@@ -29,8 +29,8 @@ export default {
   }
 }
 
-export const Default = MixinAnimationCaretTemplate.bind({})
-Default.args = { text: 'Hover for animation', inline: false }
+export const BaseStory = MixinAnimationCaretTemplate.bind({})
+BaseStory.args = { text: 'Hover for animation', inline: false }
 
 export const Inline = MixinAnimationCaretTemplate.bind({})
 Inline.args = { text: 'Longer text to demonstrate text wrap', inline: true }

@@ -50,7 +50,7 @@ export const BlockTeaserData = {
   ]
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     ...BlockTeaserData
   }

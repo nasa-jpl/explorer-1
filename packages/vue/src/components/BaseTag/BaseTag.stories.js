@@ -19,7 +19,7 @@ export default {
   },
   parameters: {
     slots: {
-      default: 'Default slot'
+      default: 'BaseStory slot'
     }
   }
 }

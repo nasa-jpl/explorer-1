@@ -40,8 +40,8 @@ export const BlockQuoteData = {
   }
 }
 
-export const Default = BlockQuoteTemplate.bind({})
-Default.args = {
+export const BaseStory = BlockQuoteTemplate.bind({})
+BaseStory.args = {
   quote: BlockQuoteData.quote,
   attribution: BlockQuoteData.attribution
 }

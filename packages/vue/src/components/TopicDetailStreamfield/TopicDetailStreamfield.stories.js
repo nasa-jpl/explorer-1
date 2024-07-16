@@ -31,4 +31,4 @@ export const TopicDetailStreamfieldData = {
   ]
 }
 
-export const Default = { args: { data: TopicDetailStreamfieldData.body, topic: 'Topic Name' } }
+export const BaseStory = { args: { data: TopicDetailStreamfieldData.body, topic: 'Topic Name' } }

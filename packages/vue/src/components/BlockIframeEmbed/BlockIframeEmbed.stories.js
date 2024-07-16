@@ -25,7 +25,7 @@ export const BlockIframeEmbedData = {
   url: `https://eyes.nasa.gov/apps/orrery/#/sc_perseverance`
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     data: BlockIframeEmbedData
   }

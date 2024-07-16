@@ -103,4 +103,4 @@ export const ThumbnailCarouselData = {
   ]
 }
 
-export const Default = { args: ThumbnailCarouselData }
+export const BaseStory = { args: ThumbnailCarouselData }

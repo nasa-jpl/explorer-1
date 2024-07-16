@@ -72,8 +72,8 @@ export const BlockTeaserData = {
   link: '#'
 }
 
-export const Default = BlockTeaserTemplate.bind({})
-Default.args = BlockTeaserData
+export const BaseStory = BlockTeaserTemplate.bind({})
+BaseStory.args = BlockTeaserData
 
 export const FullWidth = BlockTeaserTemplate.bind({})
 FullWidth.args = {

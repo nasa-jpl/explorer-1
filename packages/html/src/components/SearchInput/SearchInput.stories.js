@@ -17,9 +17,9 @@ export default {
   }
 }
 
-export const Default = SearchInputTemplate.bind({})
-Default.storyName = 'SearchInput'
-Default.args = {
+export const BaseStory = SearchInputTemplate.bind({})
+BaseStory.storyName = 'SearchInput'
+BaseStory.args = {
   placeholder: 'Search this site&hellip;'
 }
 

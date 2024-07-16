@@ -56,7 +56,7 @@ export const WithImage = {
     }
   }
 }
-export const Default = {
+export const BaseStory = {
   name: 'No Image',
   args: {
     ...BaseImagePlaceholderData,

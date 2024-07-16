@@ -65,7 +65,7 @@ export const BlockCardGroupData = [
   }
 ]
 
-export const Default = {
+export const BaseStory = {
   name: 'BlockCardGroup',
   args: { facts: BlockCardGroupData }
 }

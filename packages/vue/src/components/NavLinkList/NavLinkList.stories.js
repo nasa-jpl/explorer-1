@@ -39,7 +39,7 @@ export const MenuLinkColumnWithHeaderData = {
   ]
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     data: MenuLinkColumnWithHeaderData
   }

@@ -53,10 +53,10 @@ export const BlockImageData = {
   }
 }
 
-export const Default = BlockImageStandardTemplate.bind({})
-Default.storyName = 'Standard'
-Default.args = { image: BlockImageData.image, fullBleed: false }
-Default.parameters = {
+export const BaseStory = BlockImageStandardTemplate.bind({})
+BaseStory.storyName = 'Standard'
+BaseStory.args = { image: BlockImageData.image, fullBleed: false }
+BaseStory.parameters = {
   docs: {
     storyDescription:
       'Standard image block that has a fluid width to fill any container. Most popular variant of `BlockImage`.'

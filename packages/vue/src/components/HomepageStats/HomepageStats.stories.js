@@ -57,8 +57,8 @@ const HomepageStatsTemplate = (args) => ({
   />`
 })
 
-export const Default = HomepageStatsTemplate.bind({})
-Default.args = HomepageStatsData
+export const BaseStory = HomepageStatsTemplate.bind({})
+BaseStory.args = HomepageStatsData
 
 export const StaticDate = HomepageStatsTemplate.bind({})
 StaticDate.args = {

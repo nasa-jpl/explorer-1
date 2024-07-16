@@ -83,7 +83,7 @@ const HomepageCarouselShuffledData = () => {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'HomepageCarousel',
   args: {
     items: HomepageCarouselData,

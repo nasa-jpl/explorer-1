@@ -54,7 +54,7 @@ export const HeroMediumData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     customTag: 'News',
     customLabel: HeroMediumData.label,

@@ -42,7 +42,7 @@ Imperial.args = {
   valueSystem: 'imperial'
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'Metric',
   args: {
     unitPair: 'MI_KM',

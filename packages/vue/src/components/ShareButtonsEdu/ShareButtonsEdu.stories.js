@@ -5,7 +5,7 @@ export default {
   component: ShareButtonsEdu
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'ShareButtonsEdu',
   args: {
     url: 'https://jpl.nasa.gov/edu/news/nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',

@@ -67,6 +67,6 @@ export const BlockAccordionData = {
   ]
 }
 
-export const Default = BlockAccordionTemplate.bind({})
-Default.storyName = 'BlockAccordion'
-Default.args = BlockAccordionData
+export const BaseStory = BlockAccordionTemplate.bind({})
+BaseStory.storyName = 'BlockAccordion'
+BaseStory.args = BlockAccordionData

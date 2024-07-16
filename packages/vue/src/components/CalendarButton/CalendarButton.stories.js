@@ -30,7 +30,7 @@ const CalendarButtonTemplate = (args) => ({
   `
 })
 
-export const Default = CalendarButtonTemplate.bind({})
-Default.args = {
+export const BaseStory = CalendarButtonTemplate.bind({})
+BaseStory.args = {
   ...CalendarButtonData
 }

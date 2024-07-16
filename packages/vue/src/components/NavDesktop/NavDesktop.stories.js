@@ -168,7 +168,7 @@ export const NavDesktopData = {
   ]
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'NavDesktop',
   args: {
     data: NavDesktopData,

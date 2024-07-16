@@ -84,7 +84,7 @@ const TopicDetailMoreItemData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   args: {
     data: TopicDetailMoreItemData.default
   }

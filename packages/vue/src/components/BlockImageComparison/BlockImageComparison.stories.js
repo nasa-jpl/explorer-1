@@ -38,7 +38,7 @@ export const BlockImageComparisonData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'BlockImageComparison',
   args: {
     data: BlockImageComparisonData

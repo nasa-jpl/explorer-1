@@ -19,7 +19,7 @@ const SearchFilterGroupTemplate = (args) => ({
 />`
 })
 
-export const Default = {
+export const BaseStory = {
   name: 'Topic Filter',
   args: {
     filterBy: [],

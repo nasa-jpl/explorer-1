@@ -151,6 +151,6 @@ export const AsteroidWatchWidgetData = {
   ]
 }
 
-export const Default = {
+export const BaseStory = {
   args: AsteroidWatchWidgetData
 }

@@ -27,7 +27,7 @@ export const HomepageEmbedBlockData = [
 ]
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'HomepageEmbedBlock',
   args: {
     data: HomepageEmbedBlockData

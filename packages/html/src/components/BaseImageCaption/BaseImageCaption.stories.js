@@ -40,6 +40,6 @@ export const BaseImageCaptionData = {
   linkText: 'Full Image Details'
 }
 
-export const Default = BaseImageCaptionTemplate.bind({})
-Default.storyName = 'BaseImageCaption'
-Default.args = BaseImageCaptionData
+export const BaseStory = BaseImageCaptionTemplate.bind({})
+BaseStory.storyName = 'BaseImageCaption'
+BaseStory.args = BaseImageCaptionData

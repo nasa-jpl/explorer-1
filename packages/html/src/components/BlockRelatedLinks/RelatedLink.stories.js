@@ -35,8 +35,8 @@ export default {
   }
 }
 
-export const Default = RelatedLinkTemplate.bind({})
-Default.storyName = 'SingleLink'
-Default.args = {
+export const BaseStory = RelatedLinkTemplate.bind({})
+BaseStory.storyName = 'SingleLink'
+BaseStory.args = {
   ...BlockRelatedLinksData.links[0]
 }

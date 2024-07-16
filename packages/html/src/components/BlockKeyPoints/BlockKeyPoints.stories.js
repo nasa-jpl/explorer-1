@@ -26,6 +26,6 @@ export const BlockKeyPointsData = {
   ]
 }
 
-export const Default = BlockKeyPointsTemplate.bind({})
-Default.storyName = 'BlockKeyPoints'
-Default.args = BlockKeyPointsData
+export const BaseStory = BlockKeyPointsTemplate.bind({})
+BaseStory.storyName = 'BlockKeyPoints'
+BaseStory.args = BlockKeyPointsData

@@ -60,7 +60,7 @@ export const MissionDetailAboutData = {
 }
 
 // stories
-export const Default = { args: MissionDetailAboutData }
+export const BaseStory = { args: MissionDetailAboutData }
 
 export const NoInstruments = {
   args: {

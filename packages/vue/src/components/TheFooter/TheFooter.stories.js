@@ -594,7 +594,7 @@ export const TheFooterData = {
   ]
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     data: TheFooterData,
     commitSha: 'commit no.'

@@ -50,7 +50,7 @@ export const BlockLinkCardData = {
   compact: false
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'Single Item',
   args: {
     ...BlockLinkCardData

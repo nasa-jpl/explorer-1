@@ -231,9 +231,9 @@ export const NavInternalPanelCombinationData = {
   allowSectionColumns: true
 }
 
-export const Default = NavInternalPanelTemplate.bind({})
-Default.storyName = 'Basic'
-Default.args = NavInternalPanelBasicData
+export const BaseStory = NavInternalPanelTemplate.bind({})
+BaseStory.storyName = 'Basic'
+BaseStory.args = NavInternalPanelBasicData
 
 export const NoHighlights = NavInternalPanelTemplate.bind({})
 NoHighlights.args = NavInternalPanelNoHighlightsData

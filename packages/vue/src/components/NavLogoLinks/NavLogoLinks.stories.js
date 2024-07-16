@@ -8,7 +8,7 @@ export default {
 }
 
 // TODO: VUE3 -- fix logo image in story
-export const Default = {
+export const BaseStory = {
   args: {
     src: LogoColor
   },

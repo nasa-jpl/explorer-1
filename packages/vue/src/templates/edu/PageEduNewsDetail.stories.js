@@ -18,7 +18,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     data: {
       slug: 'nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',

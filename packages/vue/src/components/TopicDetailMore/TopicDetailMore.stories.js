@@ -181,7 +181,7 @@ export const TopicDetailMoreData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   args: {
     topic: 'Mars',
     more: TopicDetailMoreData.moreAboutTopic,

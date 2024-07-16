@@ -63,7 +63,7 @@ export const HomepageFeaturedRobotData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'Featured Robot',
   args: {
     data: HomepageFeaturedRobotData

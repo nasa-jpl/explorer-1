@@ -113,7 +113,7 @@ const NavMobileTertiaryNavData = [
   }
 ]
 
-export const Default = {
+export const BaseStory = {
   name: 'NavMobile',
   args: {
     data: NavMobileData,

@@ -52,4 +52,4 @@ export const MissionDetailStreamfieldData = {
   ]
 }
 
-export const Default = { args: { data: MissionDetailStreamfieldData.feature } }
+export const BaseStory = { args: { data: MissionDetailStreamfieldData.feature } }

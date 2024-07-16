@@ -26,7 +26,7 @@ export const DetailHeadlineData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   args: DetailHeadlineData
 }
 

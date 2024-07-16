@@ -12,5 +12,5 @@ const FormContactTemplate = () => ({
 })
 
 // stories
-export const Default = FormContactTemplate.bind({})
-Default.storyName = 'FormContact'
+export const BaseStory = FormContactTemplate.bind({})
+BaseStory.storyName = 'FormContact'

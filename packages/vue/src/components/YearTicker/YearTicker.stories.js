@@ -33,5 +33,5 @@ const YearTickerTemplate = (args) => ({
   template: `<YearTicker :targetYear="demoYear"/>`
 })
 
-export const Default = YearTickerTemplate.bind({})
-Default.storyName = 'YearTicker'
+export const BaseStory = YearTickerTemplate.bind({})
+BaseStory.storyName = 'YearTicker'

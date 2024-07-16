@@ -16,7 +16,7 @@ export default {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   args: {
     data: {
       id: '285',

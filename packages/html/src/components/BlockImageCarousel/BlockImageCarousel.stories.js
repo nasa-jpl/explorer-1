@@ -83,6 +83,6 @@ export const BlockImageCarouselData = {
   ]
 }
 
-export const Default = BlockImageCarouselTemplate.bind({})
-Default.storyName = 'BlockImageCarousel'
-Default.args = BlockImageCarouselData
+export const BaseStory = BlockImageCarouselTemplate.bind({})
+BaseStory.storyName = 'BlockImageCarousel'
+BaseStory.args = BlockImageCarouselData

@@ -56,11 +56,7 @@ export function ComponentItem(props) {
 
     return (
       <div className={wrapperClass}>
-        <div
-          className={
-            'reactdocs-container pr-5' + (props.fullWidth ? '' : ' lg:w-1/2')
-          }
-        >
+        <div className={'reactdocs-container pr-5' + (props.fullWidth ? '' : ' lg:w-1/2')}>
           <h3 className="text-base tracking-tight font-medium mt-3 mb-3">
             <button
               className="sbdocs sbdocs-a font-medium"
@@ -96,7 +92,7 @@ export function ComponentItem(props) {
             <Canvas
               className={props.canvasClass}
               meta={props.meta}
-              of={props.meta.Default}
+              of={props.meta.BaseStory}
             />
           )}
         </div>

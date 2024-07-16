@@ -31,4 +31,4 @@ export const BlockCardData = {
   }
 }
 
-export const Default = { name: 'BlockCard', args: BlockCardData }
+export const BaseStory = { name: 'BlockCard', args: BlockCardData }

@@ -6,7 +6,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Default = { args: { dark: false } }
+export const BaseStory = { args: { dark: false } }
 
 export const Dark = {
   args: { dark: true },

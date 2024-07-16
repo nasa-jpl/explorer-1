@@ -98,7 +98,7 @@ export const BlockImageCarouselData = [
 ]
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'BlockImageCarousel',
   args: {
     blockId: 'ev106po56n',

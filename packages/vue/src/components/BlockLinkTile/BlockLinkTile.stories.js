@@ -45,7 +45,7 @@ export const BlockLinkTileData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'Single Item',
   args: {
     data: BlockLinkTileData.card,

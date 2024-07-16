@@ -61,7 +61,7 @@ export const BlockListCardsData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'BlockListCards',
   args: {
     data: BlockListCardsData

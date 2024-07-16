@@ -225,7 +225,7 @@ export const PodcastSeriesCarouselData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     series: PodcastSeriesCarouselData.series,
     initialSeasonId: PodcastSeriesCarouselData.parent?.id

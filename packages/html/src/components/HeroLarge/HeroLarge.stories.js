@@ -31,9 +31,9 @@ export default {
   }
 }
 
-export const Default = HeroLargeTemplate.bind({})
-Default.storyName = 'Large'
-Default.args = {
+export const BaseStory = HeroLargeTemplate.bind({})
+BaseStory.storyName = 'Large'
+BaseStory.args = {
   eyebrow: 'Robotics at JPL',
   title: 'FreeClimber: LEMUR 3',
   summary:

@@ -49,7 +49,7 @@ export const ImageGalleryData = {
   items: BlockImageCarouselData.slice(1)
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'BlockImageGallery',
   args: ImageGalleryData
 }

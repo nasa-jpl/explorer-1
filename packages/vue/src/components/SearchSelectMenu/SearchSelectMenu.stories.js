@@ -5,7 +5,7 @@ export default {
   component: SearchSelectMenu
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     title: 'Sort by',
     options: [

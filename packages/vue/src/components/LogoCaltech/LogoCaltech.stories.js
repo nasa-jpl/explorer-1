@@ -34,6 +34,6 @@ const LogoCaltechComponentTemplate = (args) => ({
   template: `<LogoCaltech :class="size" />`
 })
 
-export const Default = LogoCaltechComponentTemplate.bind({})
-Default.storyName = 'LogoCaltech' // single story hoisting
-Default.args = { size: 'text-base' }
+export const BaseStory = LogoCaltechComponentTemplate.bind({})
+BaseStory.storyName = 'LogoCaltech' // single story hoisting
+BaseStory.args = { size: 'text-base' }

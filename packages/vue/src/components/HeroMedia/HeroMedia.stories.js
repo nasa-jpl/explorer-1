@@ -74,7 +74,7 @@ export const HeroMediaData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'Hero',
   args: HeroMediaData
 }

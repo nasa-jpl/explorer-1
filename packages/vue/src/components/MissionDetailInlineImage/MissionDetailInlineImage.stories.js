@@ -34,7 +34,7 @@ const MissionDetailInlineImageData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     alignment: MissionDetailInlineImageData.alignTo,
     text: MissionDetailInlineImageData.text,

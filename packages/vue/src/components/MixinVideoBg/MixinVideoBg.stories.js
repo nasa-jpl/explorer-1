@@ -7,7 +7,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'MixinVideoBg',
   args: { video: BaseVideoData }
 }
