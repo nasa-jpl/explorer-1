@@ -1,7 +1,8 @@
 <template>
   <section
     aria-label="Feature"
-    class="HeroMedium ThemeVariantDark relative flex items-center overflow-hidden"
+    class="ThemeVariantDark relative flex items-center overflow-hidden"
+    :class="compact ? 'HeroSmall' : 'HeroMedium'"
   >
     <div class="absolute inset-0 z-10 overflow-hidden bg-black">
       <!-- video always overrides the image -->
@@ -29,13 +30,22 @@
         />
       </picture>
     </div>
-    <div class="lg:flex lg:items-end lg:relative lg:h-full absolute bottom-0 z-20 w-full">
+    <div
+      class="lg:flex lg:items-end lg:relative lg:h-full z-20 w-full"
+      :class="{
+        'absolute  bottom-0': !compact
+      }"
+    >
       <div
         class="bg-gradient-to-b lg:bg-gradient-to-bl from-transparent lg:from-transparent-w50 to-black lg:to-transparent-black-75 absolute inset-0"
       ></div>
       <div
         v-if="feature"
-        class="lg:px-10 2xl:px-0 lg:pb-0 lg:py-0 text-contrast container relative px-4 pt-40 pb-2 mx-auto mb-10 text-white"
+        class="px-4 lg:px-10 2xl:px-0 lg:pb-0 lg:py-0 text-contrast container relative mx-auto text-white"
+        :class="{
+          'pt-40 pb-2 mb-10': !compact,
+          'my-6 lg:mt-0 lg:mb-10': compact
+        }"
       >
         <nuxt-link
           :to="feature.url"
@@ -100,7 +110,8 @@ export default defineComponent({
   components: {
     IconArrow,
     BaseLink,
-    MixinVideoBg
+    MixinVideoBg,
+    BaseTag
   },
   props: {
     feature: {
@@ -118,6 +129,11 @@ export default defineComponent({
     cta: {
       type: String,
       default: 'View'
+    },
+    compact: {
+      type: Boolean,
+      required: false,
+      default: false
     },
     // to override media
     // use-case: news detail pages use this b/c their feature hero is structured differently
@@ -162,5 +178,6 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
+@import '@explorer-1/common/src/scss/components/HeroSmall';
 @import '@explorer-1/common/src/scss/components/HeroMedium';
 </style>

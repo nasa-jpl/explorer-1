@@ -63,6 +63,16 @@ export const BaseStory = {
     customVideo: undefined
   }
 }
+export const Compact = {
+  args: {
+    customTag: 'News',
+    customLabel: HeroMediumData.label,
+    feature: HeroMediumData.feature,
+    cta: HeroMediumData.cta,
+    customVideo: undefined,
+    compact: true
+  }
+}
 export const Video = {
   args: {
     customLabel: HeroMediumData.label,

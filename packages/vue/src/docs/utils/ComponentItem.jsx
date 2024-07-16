@@ -69,7 +69,7 @@ export function ComponentItem(props) {
           </h3>
           <div>
             {props.customDescription ? (
-              props.customDescription
+              <p>{props.customDescription}</p>
             ) : props.meta ? (
               <Description of={props.meta} />
             ) : (

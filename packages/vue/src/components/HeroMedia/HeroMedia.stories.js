@@ -8,7 +8,11 @@ export default {
     html: {
       root: '#storyDecorator'
     },
-    viewMode: 'canvas'
+    docs: {
+      description: {
+        component: 'No text overlay, just an image or video with a caption below.'
+      }
+    }
   },
   excludeStories: /.*Data$/
 }
