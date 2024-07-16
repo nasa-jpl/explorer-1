@@ -23,7 +23,7 @@ export default {
   },
   parameters: {
     slots: {
-      default: 'Default slot content'
+      default: 'BaseStory slot content'
     },
     viewMode: 'docs',
     docs: {
@@ -36,7 +36,7 @@ export default {
 }
 
 // stories
-export const H1 = {
+export const BaseStory = {
   name: 'H1',
   args: { size: 'h1', level: 'h1', default: 'Heading 1' }
 }

@@ -1,7 +1,7 @@
 import HomepageTeaserBlock from './HomepageTeaserBlock.vue'
 
 export default {
-  title: 'WWW/Homepage/HomepageTeaserBlock',
+  title: 'Components/WWW/Homepage/HomepageTeaserBlock',
   component: HomepageTeaserBlock,
   excludeStories: /.*(Data|Decorator)$/,
   parameters: {
@@ -76,8 +76,9 @@ export const HomepageTeaserBlockData = {
 }
 
 // stories
-export const TeaserBlock = HomepageTeaserBlockTemplate.bind({})
-TeaserBlock.args = {
+export const BaseStory = HomepageTeaserBlockTemplate.bind({})
+BaseStory.storyName = 'Teaser Block'
+BaseStory.args = {
   ...HomepageTeaserBlockData
 }
 

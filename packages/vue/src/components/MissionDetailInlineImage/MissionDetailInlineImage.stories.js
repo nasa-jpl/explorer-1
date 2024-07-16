@@ -2,7 +2,7 @@ import { BaseImageCaptionData } from './../BaseImageCaption/BaseImageCaption.sto
 import MissionDetailInlineImage from './MissionDetailInlineImage.vue'
 
 export default {
-  title: 'WWW/MissionDetail/MissionDetailInlineImage',
+  title: 'Components/WWW/MissionDetail/MissionDetailInlineImage',
   component: MissionDetailInlineImage,
   argTypes: {
     alignTo: {
@@ -34,7 +34,7 @@ const MissionDetailInlineImageData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     alignment: MissionDetailInlineImageData.alignTo,
     text: MissionDetailInlineImageData.text,

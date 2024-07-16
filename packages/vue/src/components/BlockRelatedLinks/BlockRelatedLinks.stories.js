@@ -52,7 +52,7 @@ export const BlockRelatedLinksData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'BlockRelatedLinks',
   args: {
     ...BlockRelatedLinksData

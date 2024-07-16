@@ -16,9 +16,9 @@ const BackToTopTemplate = (args) => ({
   `
 })
 
-export const Default = BackToTopTemplate.bind({})
-Default.storyName = 'BackToTop'
-Default.args = {
+export const BaseStory = BackToTopTemplate.bind({})
+BaseStory.storyName = 'BackToTop'
+BaseStory.args = {
   threshhold: 300,
   scrollTo: 0
 }

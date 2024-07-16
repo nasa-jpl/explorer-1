@@ -1,7 +1,7 @@
 import YearTicker from './YearTicker.vue'
 
 export default {
-  title: 'Components/YearTicker',
+  title: 'Components/Utilities/YearTicker',
   component: YearTicker,
   excludeStories: /.*Data$/
 }
@@ -33,5 +33,5 @@ const YearTickerTemplate = (args) => ({
   template: `<YearTicker :targetYear="demoYear"/>`
 })
 
-export const Default = YearTickerTemplate.bind({})
-Default.storyName = 'YearTicker'
+export const BaseStory = YearTickerTemplate.bind({})
+BaseStory.storyName = 'YearTicker'

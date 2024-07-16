@@ -1,7 +1,7 @@
 import DsnWidget from './DsnWidget.vue'
 
 export default {
-  title: 'Components/DsnWidget',
+  title: 'Components/WWW/DsnWidget',
   component: DsnWidget,
   excludeStories: /.*Data$/,
   argTypes: {
@@ -22,7 +22,7 @@ export const DsnWidgetData = {
   __typename: 'DeepSpaceNetworkWidget'
 }
 
-export const Base = {
+export const BaseStory = {
   args: {
     data: DsnWidgetData
   }

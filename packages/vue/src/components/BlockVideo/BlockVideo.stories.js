@@ -17,7 +17,7 @@ export const BlockVideoData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'BlockVideo',
   args: { data: BlockVideoData.block }
 }

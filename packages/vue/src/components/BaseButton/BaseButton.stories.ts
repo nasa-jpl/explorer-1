@@ -8,7 +8,7 @@ export default {
   tags: ['autodocs'],
   parameters: {
     slots: {
-      default: 'Default slot content'
+      default: 'BaseStory slot content'
     },
     docs: {
       description: {
@@ -45,7 +45,8 @@ export const BaseButtonData = {
   default: 'Button'
 }
 
-export const PrimaryButton = {
+export const BaseStory = {
+  name: 'Primary Button',
   args: {
     ...BaseButtonData,
     variant: 'primary'

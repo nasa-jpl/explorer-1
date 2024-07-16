@@ -42,6 +42,7 @@ export const BaseImagePlaceholderData = {
 }
 
 export const WithImage = {
+  name: 'With Image',
   args: {
     ...BaseImagePlaceholderData,
     BaseImageProps: {
@@ -55,7 +56,8 @@ export const WithImage = {
     }
   }
 }
-export const NoImage = {
+export const BaseStory = {
+  name: 'No Image',
   args: {
     ...BaseImagePlaceholderData,
     BaseImageProps: {

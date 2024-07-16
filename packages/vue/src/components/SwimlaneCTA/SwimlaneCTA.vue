@@ -16,7 +16,7 @@
       >
         <div class="absolute inset-0 z-10 bg-black bg-opacity-25"></div>
         <div
-          class="lg:pr-12 lg:py-5 lg:flex-row relative z-20 flex flex-col justify-center w-full px-5 py-6"
+          class="lg:pr-12 lg:py-5 lg:flex-row relative z-20 flex flex-col justify-center w-full px-5 py-6 font-primary"
         >
           <div class="lg:flex-row lg:pr-3 lg:pb-0 flex flex-col items-center justify-center pb-2">
             <div class="text-contrast relative z-20 p-2 pl-0">
@@ -24,7 +24,7 @@
                 <img
                   loading="lazy"
                   class="lg:pr-1 h-8 w-auto"
-                  src="@/assets/images/png/brand-jpl-logo-FFFFFF-S-94h28w@2x.png"
+                  :src="jplLogoSFFF"
                   alt="JPL Logo"
                   width="106"
                   height="32"
@@ -34,7 +34,7 @@
                 <img
                   loading="lazy"
                   class="lg:pr-1 h-8 w-auto"
-                  src="@/assets/images/png/brand-jpl-logo-222222-94h28w@2x.png"
+                  :src="jplLogo222"
                   alt="JPL Logo"
                   width="111"
                   height="32"
@@ -74,7 +74,7 @@
                 <img
                   loading="lazy"
                   class="lg:pr-1 h-8 w-auto"
-                  src="@/assets/images/png/brand-jpl-logo-FFFFFF-S-94h28w@2x.png"
+                  :src="jplLogoFFF"
                   alt="JPL Logo"
                   width="106"
                   height="32"
@@ -84,7 +84,7 @@
                 <img
                   loading="lazy"
                   class="lg:pr-1 h-8 w-auto"
-                  src="@/assets/images/png/brand-jpl-logo-222222-94h28w@2x.png"
+                  :src="jplLogo222"
                   alt="JPL Logo"
                   width="111"
                   height="32"
@@ -118,6 +118,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import jplLogoSFFF from '@explorer-1/common/src/images/png/brand-jpl-logo-FFFFFF-S-94h28w@2x.png'
+import jplLogoFFF from '@explorer-1/common/src/images/png/brand-jpl-logo-FFFFFF-94h28w@2x.png'
+import jplLogo222 from '@explorer-1/common/src/images/png/brand-jpl-logo-222222-94h28w@2x.png'
+
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseSwimlane from './../BaseSwimlane/BaseSwimlane.vue'
 
@@ -183,6 +187,9 @@ export default defineComponent({
   },
   data() {
     return {
+      jplLogoFFF: jplLogoFFF,
+      jplLogo222: jplLogo222,
+      jplLogoSFFF: jplLogoSFFF,
       mobileRows: 2,
       desktopRows: 9,
       mobileScale: 1.9,

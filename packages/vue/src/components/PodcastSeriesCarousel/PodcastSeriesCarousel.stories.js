@@ -1,7 +1,7 @@
 import PodcastSeriesCarousel from './PodcastSeriesCarousel.vue'
 
 export default {
-  title: 'WWW/PodcastDetail/PodcastSeriesCarousel',
+  title: 'Components/WWW/PodcastDetail/PodcastSeriesCarousel',
   component: PodcastSeriesCarousel,
   parameters: {
     docs: {
@@ -225,7 +225,7 @@ export const PodcastSeriesCarouselData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     series: PodcastSeriesCarouselData.series,
     initialSeasonId: PodcastSeriesCarouselData.parent?.id

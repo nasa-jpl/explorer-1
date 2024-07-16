@@ -17,7 +17,7 @@ export const BlockCtaData = {
   externalLink: ''
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     data: BlockCtaData
   }

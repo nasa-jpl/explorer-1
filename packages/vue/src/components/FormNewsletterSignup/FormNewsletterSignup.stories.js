@@ -1,7 +1,7 @@
 import FormNewsletterSignup from './FormNewsletterSignup.vue'
 
 export default {
-  title: 'Components/FormNewsletterSignup',
+  title: 'Components/Forms/FormNewsletterSignup',
   component: FormNewsletterSignup
 }
 
@@ -12,5 +12,5 @@ const FormNewsletterSignupTemplate = () => ({
 })
 
 // stories
-export const NewsletterSignup = FormNewsletterSignupTemplate.bind({})
-NewsletterSignup.storyName = 'FormNewsletterSignup'
+export const BaseStory = FormNewsletterSignupTemplate.bind({})
+BaseStory.storyName = 'FormNewsletterSignup'

@@ -24,6 +24,6 @@ const BasePlaceholderTemplate = (args) => ({
   template: `<div><BasePlaceholder /></div>`
 })
 
-export const Base = BasePlaceholderTemplate.bind({})
-Base.storyName = 'BasePlaceholder' // single story hoisting
-Base.args = { ...BasePlaceholderData }
+export const BaseStory = BasePlaceholderTemplate.bind({})
+BaseStory.storyName = 'BasePlaceholder' // single story hoisting
+BaseStory.args = { ...BasePlaceholderData }

@@ -20,7 +20,7 @@ export const BlockKeyPointsData = {
 }
 
 // stories
-export const KeyPoints = {
+export const BaseStory = {
   name: 'BlockKeyPoints',
   args: {
     data: BlockKeyPointsData

@@ -13,7 +13,7 @@ import imageInstrumentOco2WebP from '@explorer-1/common-storybook/src/images/mis
 import MissionDetailHero from './MissionDetailHero.vue'
 
 export default {
-  title: 'WWW/MissionDetail/MissionDetailHero',
+  title: 'Components/WWW/MissionDetail/MissionDetailHero',
   component: MissionDetailHero,
   argTypes: {
     templateStyle: {
@@ -89,7 +89,8 @@ const MissionDetailHeroTemplate = (args) => ({
 })
 
 // stories
-export const CubeRrt = {
+export const BaseStory = {
+  name: 'CubeRRT',
   args: {
     templateStyle: 'light',
     title: 'CubeRRT',

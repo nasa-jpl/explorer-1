@@ -1,7 +1,7 @@
 import NavLinkList from './NavLinkList.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavLinkList',
+  title: 'Navigation/Elements/NavLinkList',
   component: NavLinkList,
   decorators: [
     () => ({
@@ -39,7 +39,7 @@ export const MenuLinkColumnWithHeaderData = {
   ]
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     data: MenuLinkColumnWithHeaderData
   }

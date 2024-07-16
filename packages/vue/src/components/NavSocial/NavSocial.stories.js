@@ -1,14 +1,14 @@
 import NavSocial from './NavSocial.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavSocial',
+  title: 'Navigation/Elements/NavSocial',
   component: NavSocial,
   excludeStories: /.*Data$/
 }
 
-export const Social = { args: { dark: false } }
+export const BaseStory = { args: { dark: false } }
 
-export const SocialDark = {
+export const Dark = {
   args: { dark: true },
   render: (args) => ({
     components: { NavSocial },

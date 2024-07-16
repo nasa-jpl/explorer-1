@@ -1,7 +1,7 @@
 import ShareButtons from './ShareButtons.vue'
 
 export default {
-  title: 'Components/ShareButtons',
+  title: 'Components/Utilities/ShareButtons',
   component: ShareButtons,
   excludeStories: /.*Data$/
 }
@@ -13,4 +13,4 @@ export const BlockShareButtonsData = {
   inline: false
 }
 
-export const Default = { args: BlockShareButtonsData }
+export const BaseStory = { args: BlockShareButtonsData }

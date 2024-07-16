@@ -1,7 +1,7 @@
 import CalendarButton from './CalendarButton.vue'
 
 export default {
-  title: 'Components/CalendarButton',
+  title: 'Components/Utilities/CalendarButton',
   component: CalendarButton,
   excludeStories: /.*Data$/
 }
@@ -30,7 +30,7 @@ const CalendarButtonTemplate = (args) => ({
   `
 })
 
-export const Default = CalendarButtonTemplate.bind({})
-Default.args = {
+export const BaseStory = CalendarButtonTemplate.bind({})
+BaseStory.args = {
   ...CalendarButtonData
 }

@@ -46,7 +46,8 @@ export const SearchResultGridCardData = {
   headingLevel: 'h2'
 }
 
-export const StandardResult = {
+export const BaseStory = {
+  name: 'Standard Result',
   args: {
     ...SearchResultGridCardData.page,
     pageContentType: SearchResultGridCardData.page.content_type

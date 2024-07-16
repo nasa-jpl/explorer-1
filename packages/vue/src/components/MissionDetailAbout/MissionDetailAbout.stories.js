@@ -1,7 +1,7 @@
 import MissionDetailAbout from './MissionDetailAbout.vue'
 
 export default {
-  title: 'WWW/MissionDetail/MissionDetailAbout',
+  title: 'Components/WWW/MissionDetail/MissionDetailAbout',
   component: MissionDetailAbout,
   decorators: [
     () => ({
@@ -60,7 +60,7 @@ export const MissionDetailAboutData = {
 }
 
 // stories
-export const Default = { args: MissionDetailAboutData }
+export const BaseStory = { args: MissionDetailAboutData }
 
 export const NoInstruments = {
   args: {

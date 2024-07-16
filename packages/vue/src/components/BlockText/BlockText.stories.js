@@ -12,7 +12,7 @@ export default {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'BlockText',
   args: {
     variant: 'large',

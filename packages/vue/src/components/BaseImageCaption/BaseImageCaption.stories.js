@@ -20,7 +20,7 @@ export const BaseImageCaptionData = {
   detailUrl: '/image-detail/slug/'
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     data: BaseImageCaptionData
   }

@@ -1,7 +1,7 @@
 import AsteroidWatchWidget from './AsteroidWatchWidget.vue'
 
 export default {
-  title: 'Components/AsteroidWatchWidget',
+  title: 'Components/WWW/AsteroidWatchWidget',
   component: AsteroidWatchWidget,
   excludeStories: /.*Data$/,
   decorators: [
@@ -151,6 +151,6 @@ export const AsteroidWatchWidgetData = {
   ]
 }
 
-export const Base = {
+export const BaseStory = {
   args: AsteroidWatchWidgetData
 }
