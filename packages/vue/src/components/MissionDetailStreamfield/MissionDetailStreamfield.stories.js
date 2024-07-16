@@ -3,7 +3,7 @@ import { BlockIframeEmbedData } from './../BlockIframeEmbed/BlockIframeEmbed.sto
 import MissionDetailStreamfield from './MissionDetailStreamfield.vue'
 
 export default {
-  title: 'WWW/MissionDetail/MissionDetailStreamfield',
+  title: 'Components/WWW/MissionDetail/MissionDetailStreamfield',
   component: MissionDetailStreamfield,
   excludeStories: /.*Data$/
 }

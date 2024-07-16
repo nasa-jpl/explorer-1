@@ -3,7 +3,7 @@
 import TopicDetailMissionCarouselItem from './TopicDetailMissionCarouselItem.vue'
 
 export default {
-  title: 'WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarouselItem',
+  title: 'Components/WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarouselItem',
   component: TopicDetailMissionCarouselItem,
   decorators: [
     () => ({

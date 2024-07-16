@@ -1,7 +1,7 @@
 import PodcastSeriesCarousel from './PodcastSeriesCarousel.vue'
 
 export default {
-  title: 'WWW/PodcastDetail/PodcastSeriesCarousel',
+  title: 'Components/WWW/PodcastDetail/PodcastSeriesCarousel',
   component: PodcastSeriesCarousel,
   parameters: {
     docs: {

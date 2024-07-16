@@ -2,7 +2,7 @@ import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
 import HomepageCarouselItem from './HomepageCarouselItem.vue'
 
 export default {
-  title: 'WWW/Homepage/HomepageCarousel/HomepageCarouselItem',
+  title: 'Components/WWW/Homepage/HomepageCarousel/HomepageCarouselItem',
   component: HomepageCarouselItem,
   decorators: [
     () => ({

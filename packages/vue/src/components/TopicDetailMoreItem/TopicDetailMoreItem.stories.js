@@ -1,6 +1,6 @@
 import TopicDetailMoreItem from './TopicDetailMoreItem.vue'
 export default {
-  title: 'WWW/TopicDetail/TopicDetailMore/TopicDetailMoreItem',
+  title: 'Components/WWW/TopicDetail/TopicDetailMore/TopicDetailMoreItem',
   component: TopicDetailMoreItem,
   decorators: [
     () => ({

@@ -3,7 +3,7 @@ import LayoutHelper, { indents } from './../../components/LayoutHelper/LayoutHel
 // TODO: DOCS: update this to match the full grid/layout documentation
 
 export default {
-  title: 'Foundation/Grid and Layout/Column Layout Helpers',
+  title: 'Foundations/Grid and Layout/Column Layout Helpers',
   component: LayoutHelper,
   tags: ['!autodocs'],
   argTypes: {

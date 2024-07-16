@@ -1,6 +1,6 @@
 import HomepageFeaturedRobot from './HomepageFeaturedRobot.vue'
 export default {
-  title: 'WWW/Homepage/HomepageFeaturedRobot',
+  title: 'Components/WWW/Homepage/HomepageFeaturedRobot',
   component: HomepageFeaturedRobot,
   excludeStories: /.*Data$/,
   parameters: {

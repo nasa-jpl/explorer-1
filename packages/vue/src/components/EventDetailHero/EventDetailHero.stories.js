@@ -1,7 +1,7 @@
 import EventDetailHero from './EventDetailHero.vue'
 
 export default {
-  title: 'WWW/EventDetail/EventDetailHero',
+  title: 'Components/WWW/EventDetail/EventDetailHero',
   component: EventDetailHero,
   decorators: [
     () => ({

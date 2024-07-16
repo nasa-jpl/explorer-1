@@ -1,7 +1,7 @@
 import NavLinkList from './NavLinkList.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavLinkList',
+  title: 'Navigation/Elements/NavLinkList',
   component: NavLinkList,
   decorators: [
     () => ({

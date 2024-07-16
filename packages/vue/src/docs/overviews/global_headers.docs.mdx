@@ -1,25 +1,21 @@
 import { Meta } from '@storybook/blocks'
 import { ComponentList } from './../utils/ComponentList'
-import * as HeaderInternalStories from './../../components/HeaderInternal/HeaderInternal.stories'
+import * as NavDesktopStories from './../../components/NavDesktop/NavDesktop.stories'
 
-<Meta title="Global Layout/Headers/Overview" />
+<Meta title="Navigation/Headers/Overview" />
 
 # Headers
 
-Headers are to be placed at the very top of your website or application. Header styles are specific to your site's visibility (internal vs. external/public). If you are using the [Internal Theme](?path=/docs/foundation-themes--docs#internal-theme), be sure to use the [Internal Header](?path=/docs/global-layout-headers-for-internal-sites--docs). If your website or application is public-facing, be sure to use the External header (coming soon).
-
-Note: to view with functioning dropdowns and search field expansion, you must go to [an individual story and switch to **Canvas View**](?path=/story/global-layout-headers-for-internal-sites--base-story).
+Headers are to be placed at the very top of your website or application. Header styles are specific to your site's visibility (internal vs. external/public) and theme.
 
 <ComponentList
   components={[
     {
-      heading: 'Internal Header',
-      meta: HeaderInternalStories,
-      path: '/docs/global-layout-headers-overview--docs',
+      heading: 'External Header (WWW)',
+      meta: NavDesktopStories,
+      path: '/story/navigation-headers-www-navdesktop--base-story',
       fullWidth: true,
       fullCanvas: true
     }
   ]}
 />
-
-A header for public-facing (external) sites is coming soon.

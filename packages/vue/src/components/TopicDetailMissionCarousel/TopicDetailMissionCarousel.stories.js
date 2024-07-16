@@ -1,6 +1,6 @@
 import TopicDetailMissionCarousel from './TopicDetailMissionCarousel.vue'
 export default {
-  title: 'WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarousel',
+  title: 'Components/WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarousel',
   component: TopicDetailMissionCarousel,
   excludeStories: /.*Data$/
 }

@@ -1,7 +1,7 @@
 import NavSecondary from './NavSecondary.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavSecondary',
+  title: 'Navigation/Secondary Navigation/NavSecondary',
   component: NavSecondary,
   excludeStories: /.*Data$/,
   parameters: {

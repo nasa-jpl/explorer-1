@@ -4,7 +4,7 @@ import NavMobileDropdown from './NavMobileDropdown.vue'
 import NavMobileLink from './NavMobileLink.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavMobile',
+  title: 'Navigation/Headers/WWW/NavMobile',
   component: NavMobile,
   excludeStories: /.*Data$/,
   parameters: {

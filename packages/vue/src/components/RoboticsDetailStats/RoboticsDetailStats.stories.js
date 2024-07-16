@@ -2,7 +2,7 @@ import RoboticsDetailStats from './RoboticsDetailStats.vue'
 import RoboticsDetailStatsMini from './RoboticsDetailStatsMini.vue'
 
 export default {
-  title: 'WWW/RoboticsDetail/RoboticsDetailStats',
+  title: 'Components/WWW/RoboticsDetail/RoboticsDetailStats',
   component: RoboticsDetailStats,
   subcomponents: { RoboticsDetailStatsMini },
   decorators: [

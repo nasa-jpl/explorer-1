@@ -1,7 +1,7 @@
 import SkipLink from './SkipLink.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/SkipLink',
+  title: 'Navigation/Elements/SkipLink',
   component: SkipLink,
   excludeStories: /.*Data$/
 }

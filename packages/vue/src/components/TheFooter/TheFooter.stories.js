@@ -1,11 +1,16 @@
 import TheFooter from './TheFooter.vue'
 
 export default {
-  title: 'WWW/Header & Footer/TheFooter',
+  title: 'Navigation/Footers/External Footer',
   component: TheFooter,
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'canvas'
+    docs: {
+      description: {
+        component:
+          'This component can be used for any external footer. Its styles will change based on the theme being used.'
+      }
+    }
   }
 }
 

@@ -3,7 +3,7 @@ import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg
 import LogoTribrand from './LogoTribrand.vue'
 
 export default {
-  title: 'Foundation/Logos/LogoTribrand',
+  title: 'Foundations/Logos/LogoTribrand',
   component: LogoTribrand,
   excludeStories: /.*Data$/,
   parameters: {

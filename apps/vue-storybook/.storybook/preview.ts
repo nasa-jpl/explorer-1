@@ -104,7 +104,7 @@ const preview: Preview = {
           'Getting Started',
           ['Developer'],
           'Guides',
-          'Foundation',
+          'Foundations',
           [
             'Colors',
             'Typography',
@@ -114,6 +114,15 @@ const preview: Preview = {
             'Grid and Layout',
             ['Docs'],
             'Responsive Design'
+          ],
+          'Navigation',
+          [
+            'Overview',
+            'Headers',
+            ['Overview', 'WWW'],
+            'Footers',
+            ['Overview', 'WWW'],
+            'Secondary Navigation'
           ],
           'Global Layout',
           [

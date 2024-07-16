@@ -1,7 +1,7 @@
 import NavHighlight from './NavHighlight.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavHighlight',
+  title: 'Navigation/Elements/NavHighlight',
   component: NavHighlight,
   decorators: [
     () => ({

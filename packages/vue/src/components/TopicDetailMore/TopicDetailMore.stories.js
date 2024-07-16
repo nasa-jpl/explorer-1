@@ -1,6 +1,6 @@
 import TopicDetailMore from './TopicDetailMore.vue'
 export default {
-  title: 'WWW/TopicDetail/TopicDetailMore',
+  title: 'Components/WWW/TopicDetail/TopicDetailMore',
   component: TopicDetailMore,
   excludeStories: /.*Data$/
 }

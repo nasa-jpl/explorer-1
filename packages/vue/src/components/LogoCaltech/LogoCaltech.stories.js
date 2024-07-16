@@ -1,7 +1,7 @@
 import LogoCaltech from './LogoCaltech.vue'
 
 export default {
-  title: 'Foundation/Logos/LogoCaltech',
+  title: 'Foundations/Logos/LogoCaltech',
   component: LogoCaltech,
   argTypes: {
     size: {
