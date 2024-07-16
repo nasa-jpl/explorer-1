@@ -48,7 +48,7 @@ export const BaseStory = {
 export const InlineHero = {
   args: {
     data: {
-      ...EduNewsDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline'
     }
   }
@@ -57,7 +57,7 @@ export const InlineHero = {
 export const NoHero = {
   args: {
     data: {
-      ...EduNewsDetail.args.data,
+      ...BaseStory.args.data,
       hero: []
     }
   }
