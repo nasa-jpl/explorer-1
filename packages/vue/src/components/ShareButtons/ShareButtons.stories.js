@@ -1,7 +1,7 @@
 import ShareButtons from './ShareButtons.vue'
 
 export default {
-  title: 'Components/ShareButtons',
+  title: 'Components/Utilities/ShareButtons',
   component: ShareButtons,
   excludeStories: /.*Data$/
 }

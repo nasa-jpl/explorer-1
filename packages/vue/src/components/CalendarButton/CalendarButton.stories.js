@@ -1,7 +1,7 @@
 import CalendarButton from './CalendarButton.vue'
 
 export default {
-  title: 'Components/CalendarButton',
+  title: 'Components/Utilities/CalendarButton',
   component: CalendarButton,
   excludeStories: /.*Data$/
 }

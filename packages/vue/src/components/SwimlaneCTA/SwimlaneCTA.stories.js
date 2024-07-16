@@ -1,7 +1,7 @@
 import SwimlaneCTA from './SwimlaneCTA.vue'
 
 export default {
-  title: 'Components/SwimlaneCTA',
+  title: 'Components/WWW/SwimlaneCTA',
   component: SwimlaneCTA,
   parameters: {
     docs: {
