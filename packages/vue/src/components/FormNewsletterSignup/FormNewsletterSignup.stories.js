@@ -1,7 +1,7 @@
 import FormNewsletterSignup from './FormNewsletterSignup.vue'
 
 export default {
-  title: 'Components/FormNewsletterSignup',
+  title: 'Components/Forms/FormNewsletterSignup',
   component: FormNewsletterSignup
 }
 
