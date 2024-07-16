@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed } from 'vue'
 interface TextAreaProps {
   inputName: string
   label: string
@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<TextAreaProps>(), {
 })
 const emit = defineEmits(['input', 'esc'])
 
-const model = defineModel()
+const model = defineModel({ type: String })
 const TextAreaRef = ref(undefined)
 const isFocused = ref(false)
 
@@ -33,13 +33,6 @@ const inputId = computed(() => {
 })
 const labelId = computed(() => {
   return `${inputId.value}_label`
-})
-onMounted(() => {
-  if (props.autoFocus && TextAreaRef.value) {
-    const inputField = TextAreaRef.value as HTMLInputElement
-    inputField.focus()
-    isFocused.value = true
-  }
 })
 </script>
 <template>
@@ -62,7 +55,6 @@ onMounted(() => {
       :cols="props.cols"
       :rows="props.rows"
       :name="props.inputName"
-      :type="props.type"
       :required="props.required"
       :placeholder="props.placeholder"
       :aria-required="props.required"

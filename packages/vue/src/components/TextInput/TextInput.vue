@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<TextInputProps>(), {
 })
 const emit = defineEmits(['input', 'esc'])
 
-const model = defineModel()
+const model = defineModel({ type: String })
 const TextInputRef = ref(undefined)
 const isFocused = ref(false)
 

@@ -200,6 +200,8 @@ declare module 'vue' {
     ShareButtonsEdu: typeof import('./src/components/ShareButtonsEdu/ShareButtonsEdu.vue')['default']
     SkipLink: typeof import('./src/components/SkipLink/SkipLink.vue')['default']
     SwimlaneCTA: typeof import('./src/components/SwimlaneCTA/SwimlaneCTA.vue')['default']
+    TextArea: typeof import('./src/components/TextArea/TextArea.vue')['default']
+    TextInput: typeof import('./src/components/TextInput/TextInput.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter/TheFooter.vue')['default']
     TheFooterSignUp: typeof import('./src/components/TheFooter/TheFooterSignUp.vue')['default']
     ThumbnailCarousel: typeof import('./src/components/ThumbnailCarousel/ThumbnailCarousel.vue')['default']
