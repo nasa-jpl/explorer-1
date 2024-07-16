@@ -11,7 +11,7 @@ export const BlockTwitterEmbedData = {
   username: 'NASAJPL'
 }
 
-export const List = {
+export const Default = {
   name: 'BlockTwitterEmbed',
   args: {
     data: BlockTwitterEmbedData

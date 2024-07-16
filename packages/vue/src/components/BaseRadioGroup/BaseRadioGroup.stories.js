@@ -14,7 +14,7 @@ export default {
 }
 
 // stories
-export const Base = {
+export const Default = {
   args: {
     options: [
       {

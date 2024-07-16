@@ -14,7 +14,7 @@ export const BlockHeadingData = {
 }
 
 // stories
-export const Heading = {
+export const Default = {
   name: 'BlockHeading',
   args: {
     data: BlockHeadingData

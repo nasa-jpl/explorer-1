@@ -65,7 +65,7 @@ export const BlockCardGroupData = [
   }
 ]
 
-export const Group = {
+export const Default = {
   name: 'BlockCardGroup',
   args: { facts: BlockCardGroupData }
 }

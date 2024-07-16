@@ -46,7 +46,8 @@ export const HomepageCarouselItemData = {
   }
 }
 
-export const SingleItem = {
+export const Default = {
+  name: 'Single Item',
   args: {
     item: {
       ...HomepageCarouselItemData.item,

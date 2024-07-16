@@ -50,7 +50,8 @@ export const MissionDetailStatsData = {
   status: 'future'
 }
 
-export const Full = {
+export const Default = {
+  name: 'Full',
   args: MissionDetailStatsData,
   render: (args) => ({
     setup() {

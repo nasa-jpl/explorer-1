@@ -76,8 +76,9 @@ export const HomepageTeaserBlockData = {
 }
 
 // stories
-export const TeaserBlock = HomepageTeaserBlockTemplate.bind({})
-TeaserBlock.args = {
+export const Default = HomepageTeaserBlockTemplate.bind({})
+Default.storyName = 'Teaser Block'
+Default.args = {
   ...HomepageTeaserBlockData
 }
 

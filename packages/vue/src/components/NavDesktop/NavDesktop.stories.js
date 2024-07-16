@@ -168,7 +168,8 @@ export const NavDesktopData = {
   ]
 }
 
-export const Nav = {
+export const Default = {
+  name: 'NavDesktop',
   args: {
     data: NavDesktopData,
     headerVisible: true,

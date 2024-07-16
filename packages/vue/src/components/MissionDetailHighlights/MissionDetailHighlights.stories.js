@@ -103,7 +103,8 @@ const MissionDetailHighlightsNoImagesTemplate = (args) => ({
 })
 
 // stories
-export const Earth = {
+export const Default = {
+  name: 'Earth',
   args: {
     animation: MissionDetailHighlightsData.showHighlightsAnimation,
     graphic: MissionDetailHighlightsData.highlightsGraphic,

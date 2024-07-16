@@ -113,7 +113,8 @@ const NavMobileTertiaryNavData = [
   }
 ]
 
-export const Nav = {
+export const Default = {
+  name: 'NavMobile',
   args: {
     data: NavMobileData,
     headerVisible: true,

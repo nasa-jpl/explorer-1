@@ -22,7 +22,7 @@ export const DsnWidgetData = {
   __typename: 'DeepSpaceNetworkWidget'
 }
 
-export const Base = {
+export const Default = {
   args: {
     data: DsnWidgetData
   }

@@ -28,9 +28,10 @@ const LogoTribrandImageTemplate = (args) => ({
   template: `<img :src="src" alt="Logo Image" />`
 })
 
-export const LogoInlineSvg = LogoTribrandComponentTemplate.bind({})
-LogoInlineSvg.args = { invert: false, size: 'text-base' }
-LogoInlineSvg.argTypes = {
+export const Default = LogoTribrandComponentTemplate.bind({})
+Default.storyName = 'Logo Inline SVG'
+Default.args = { invert: false, size: 'text-base' }
+Default.argTypes = {
   size: {
     control: {
       type: 'select',
@@ -43,7 +44,7 @@ LogoInlineSvg.argTypes = {
     }
   }
 }
-LogoInlineSvg.decorators = [
+Default.decorators = [
   () => ({
     template: `<div class="inline-block" :class="invert ? 'bg-black ' : 'bg-white '"><story/></div>`,
     props: ['size', 'invert']

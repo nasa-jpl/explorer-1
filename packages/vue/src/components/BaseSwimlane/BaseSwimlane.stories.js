@@ -40,6 +40,6 @@ export const BaseSwimlaneData = {
 }
 
 // stories
-export const Base = {
+export const Default = {
   args: BaseSwimlaneData
 }

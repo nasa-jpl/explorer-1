@@ -50,7 +50,7 @@ export const TopicDetailMissionSpotlightData = {
 }
 
 // stories
-export const MissionSpotlight = {
+export const Default = {
   args: {
     data: TopicDetailMissionSpotlightData
   }

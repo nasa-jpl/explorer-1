@@ -35,4 +35,4 @@ export const TopicDetailMissionCarouselItemData = {
   url: '/missions/gravity-recovery-and-climate-experiment-follow-on-grace-fo/'
 }
 
-export const SingleItem = { args: { data: TopicDetailMissionCarouselItemData } }
+export const Default = { args: { data: TopicDetailMissionCarouselItemData } }

@@ -13,7 +13,7 @@ export default {
 }
 
 // stories
-export const Base = {
+export const Default = {
   args: {
     darkMode: true,
     targetLink: 'https://jpl.nasa.gov/about',

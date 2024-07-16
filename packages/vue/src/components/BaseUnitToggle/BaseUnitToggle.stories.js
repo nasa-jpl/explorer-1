@@ -42,7 +42,8 @@ Imperial.args = {
   valueSystem: 'imperial'
 }
 
-export const Metric = {
+export const Default = {
+  name: 'Metric',
   args: {
     unitPair: 'MI_KM',
     value: 999999,

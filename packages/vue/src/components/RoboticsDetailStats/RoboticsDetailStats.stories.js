@@ -67,7 +67,7 @@ export const RoboticsDetailStatsData = {
   ]
 }
 
-export const Base = {
+export const Default = {
   args: {
     mass: RoboticsDetailStatsData.mass,
     height: RoboticsDetailStatsData.height,

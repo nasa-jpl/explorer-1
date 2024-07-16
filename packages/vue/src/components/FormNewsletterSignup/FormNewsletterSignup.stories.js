@@ -12,5 +12,5 @@ const FormNewsletterSignupTemplate = () => ({
 })
 
 // stories
-export const NewsletterSignup = FormNewsletterSignupTemplate.bind({})
-NewsletterSignup.storyName = 'FormNewsletterSignup'
+export const Default = FormNewsletterSignupTemplate.bind({})
+Default.storyName = 'FormNewsletterSignup'

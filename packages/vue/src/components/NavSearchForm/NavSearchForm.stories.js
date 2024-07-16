@@ -6,7 +6,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Form = {
+export const Default = {
   args: {
     mobile: false
   }

@@ -50,7 +50,8 @@ export const BlockLinkCardData = {
   compact: false
 }
 
-export const SingleItem = {
+export const Default = {
+  name: 'Single Item',
   args: {
     ...BlockLinkCardData
   }

@@ -19,7 +19,8 @@ const SearchFilterGroupTemplate = (args) => ({
 />`
 })
 
-export const TopicFilter = {
+export const Default = {
+  name: 'Topic Filter',
   args: {
     filterBy: [],
     buckets: [

@@ -17,7 +17,7 @@ export default {
   }
 }
 
-export const Base = {
+export const Default = {
   name: 'MixinVideoBg',
   args: { video: BaseVideoData }
 }

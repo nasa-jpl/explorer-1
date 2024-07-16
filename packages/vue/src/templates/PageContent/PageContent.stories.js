@@ -79,7 +79,7 @@ export const ContentPageData = {
 }
 
 // stories
-export const Template = {
+export const Default = {
   name: 'PageContent',
   args: {
     data: ContentPageData

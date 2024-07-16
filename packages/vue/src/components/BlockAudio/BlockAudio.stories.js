@@ -26,4 +26,4 @@ export const BlockAudioData = {
     type: 'audio'
   }
 }
-export const Base = { name: 'BlockAudio', args: { data: BlockAudioData } }
+export const Default = { name: 'BlockAudio', args: { data: BlockAudioData } }

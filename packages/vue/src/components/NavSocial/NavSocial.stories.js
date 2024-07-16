@@ -6,9 +6,9 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Social = { args: { dark: false } }
+export const Default = { args: { dark: false } }
 
-export const SocialDark = {
+export const Dark = {
   args: { dark: true },
   render: (args) => ({
     components: { NavSocial },

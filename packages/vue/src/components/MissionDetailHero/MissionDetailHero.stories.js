@@ -89,7 +89,8 @@ const MissionDetailHeroTemplate = (args) => ({
 })
 
 // stories
-export const CubeRrt = {
+export const Default = {
+  name: 'CubeRRT',
   args: {
     templateStyle: 'light',
     title: 'CubeRRT',

@@ -16,7 +16,7 @@ export default {
 }
 
 // stories
-export const EventDetail = {
+export const Default = {
   args: {
     data: {
       id: '285',

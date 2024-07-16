@@ -594,7 +594,7 @@ export const TheFooterData = {
   ]
 }
 
-export const Footer = {
+export const Default = {
   args: {
     data: TheFooterData,
     commitSha: 'commit no.'

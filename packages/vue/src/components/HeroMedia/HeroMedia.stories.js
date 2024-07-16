@@ -74,7 +74,8 @@ export const HeroMediaData = {
 }
 
 // stories
-export const Hero = {
+export const Default = {
+  name: 'Hero',
   args: HeroMediaData
 }
 export const CustomImageCaption = {
