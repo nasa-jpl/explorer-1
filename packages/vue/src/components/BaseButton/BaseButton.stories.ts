@@ -45,7 +45,8 @@ export const BaseButtonData = {
   default: 'Button'
 }
 
-export const PrimaryButton = {
+export const Default = {
+  name: 'Primary Button',
   args: {
     ...BaseButtonData,
     variant: 'primary'

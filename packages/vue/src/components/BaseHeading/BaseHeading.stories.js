@@ -36,7 +36,7 @@ export default {
 }
 
 // stories
-export const H1 = {
+export const Default = {
   name: 'H1',
   args: { size: 'h1', level: 'h1', default: 'Heading 1' }
 }

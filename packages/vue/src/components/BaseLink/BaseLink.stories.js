@@ -27,7 +27,8 @@ export const BaseLinkData = {
 }
 
 // stories
-export const Primary = {
+export const Default = {
+  name: 'Primary',
   args: { ...BaseLinkData }
 }
 
