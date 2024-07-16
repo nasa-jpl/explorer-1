@@ -1,6 +1,6 @@
 import HomepageFeaturedRobot from './HomepageFeaturedRobot.vue'
 export default {
-  title: 'WWW/Homepage/HomepageFeaturedRobot',
+  title: 'Components/WWW/Homepage/HomepageFeaturedRobot',
   component: HomepageFeaturedRobot,
   excludeStories: /.*Data$/,
   parameters: {
@@ -63,7 +63,8 @@ export const HomepageFeaturedRobotData = {
 }
 
 // stories
-export const FeaturedRobot = {
+export const BaseStory = {
+  name: 'Featured Robot',
   args: {
     data: HomepageFeaturedRobotData
   }

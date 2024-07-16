@@ -36,7 +36,7 @@ export const HeroLargeData = {
 }
 
 // stories
-export const Hero = {
+export const BaseStory = {
   name: 'HeroLarge',
   args: {
     eyebrow: 'Robotics at JPL',

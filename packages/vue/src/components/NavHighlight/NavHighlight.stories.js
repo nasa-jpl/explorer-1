@@ -1,7 +1,7 @@
 import NavHighlight from './NavHighlight.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavHighlight',
+  title: 'Navigation/Elements/NavHighlight',
   component: NavHighlight,
   decorators: [
     () => ({
@@ -34,7 +34,7 @@ export const MenuHighlightColumnData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     customLabel: MenuHighlightColumnData.label,
     highlight: MenuHighlightColumnData.highlight

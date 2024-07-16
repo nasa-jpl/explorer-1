@@ -37,7 +37,7 @@ export const HeroListingIndexData = {
 
 // templates
 
-export const Default = {
+export const BaseStory = {
   args: {
     customLabel: 'Featured',
     pageData: HeroListingIndexData.listingPage

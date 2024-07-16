@@ -28,7 +28,8 @@ export const BlockInlineImageData = {
   }
 }
 
-export const AlignRight = {
+export const BaseStory = {
+  name: 'Align Right',
   args: { data: BlockInlineImageData.block }
 }
 

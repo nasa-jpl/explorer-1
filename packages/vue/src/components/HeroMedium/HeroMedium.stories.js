@@ -54,13 +54,23 @@ export const HeroMediumData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     customTag: 'News',
     customLabel: HeroMediumData.label,
     feature: HeroMediumData.feature,
     cta: HeroMediumData.cta,
     customVideo: undefined
+  }
+}
+export const Compact = {
+  args: {
+    customTag: 'News',
+    customLabel: HeroMediumData.label,
+    feature: HeroMediumData.feature,
+    cta: HeroMediumData.cta,
+    customVideo: undefined,
+    compact: true
   }
 }
 export const Video = {

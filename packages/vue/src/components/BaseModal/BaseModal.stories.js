@@ -71,8 +71,8 @@ export const BaseModalDialogData = {
 }
 
 // stories
-export const Default = BaseModalTemplate.bind({})
-Default.args = { ...BaseModalData }
+export const BaseStory = BaseModalTemplate.bind({})
+BaseStory.args = { ...BaseModalData }
 
 export const CustomTrigger = BaseModalWithTriggerTemplate.bind({})
 CustomTrigger.args = { ...BaseModalData }

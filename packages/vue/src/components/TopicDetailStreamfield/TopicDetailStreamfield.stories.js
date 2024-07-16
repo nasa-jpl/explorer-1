@@ -4,7 +4,7 @@ import { BlockRelatedLinksData } from './../BlockRelatedLinks/BlockRelatedLinks.
 import TopicDetailStreamfield from './TopicDetailStreamfield.vue'
 
 export default {
-  title: 'WWW/TopicDetail/TopicDetailStreamfield',
+  title: 'Components/WWW/TopicDetail/TopicDetailStreamfield',
   component: TopicDetailStreamfield,
   decorators: [
     () => ({
@@ -31,4 +31,4 @@ export const TopicDetailStreamfieldData = {
   ]
 }
 
-export const Default = { args: { data: TopicDetailStreamfieldData.body, topic: 'Topic Name' } }
+export const BaseStory = { args: { data: TopicDetailStreamfieldData.body, topic: 'Topic Name' } }

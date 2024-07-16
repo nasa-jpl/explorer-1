@@ -1,7 +1,7 @@
 import HomepageStats from './HomepageStats.vue'
 
 export default {
-  title: 'WWW/Homepage/HomepageStats',
+  title: 'Components/WWW/Homepage/HomepageStats',
   component: HomepageStats,
   excludeStories: /.*Data$/,
   parameters: {
@@ -57,8 +57,8 @@ const HomepageStatsTemplate = (args) => ({
   />`
 })
 
-export const Base = HomepageStatsTemplate.bind({})
-Base.args = HomepageStatsData
+export const BaseStory = HomepageStatsTemplate.bind({})
+BaseStory.args = HomepageStatsData
 
 export const StaticDate = HomepageStatsTemplate.bind({})
 StaticDate.args = {

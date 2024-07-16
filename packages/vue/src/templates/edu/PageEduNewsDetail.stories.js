@@ -18,7 +18,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const EduNewsDetail = {
+export const BaseStory = {
   args: {
     data: {
       slug: 'nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
@@ -48,7 +48,7 @@ export const EduNewsDetail = {
 export const InlineHero = {
   args: {
     data: {
-      ...EduNewsDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline'
     }
   }
@@ -57,7 +57,7 @@ export const InlineHero = {
 export const NoHero = {
   args: {
     data: {
-      ...EduNewsDetail.args.data,
+      ...BaseStory.args.data,
       hero: []
     }
   }

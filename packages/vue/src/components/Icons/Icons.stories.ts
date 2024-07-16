@@ -53,7 +53,7 @@ import IconUser from './IconUser.vue'
 import IconVolume from './IconVolume.vue'
 
 export default {
-  title: 'Foundation/Icons',
+  title: 'Foundations/Icons',
   component: IconArrows,
   subcomponents: {
     IconArrow,

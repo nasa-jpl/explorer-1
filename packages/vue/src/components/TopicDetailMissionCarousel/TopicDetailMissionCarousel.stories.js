@@ -1,6 +1,6 @@
 import TopicDetailMissionCarousel from './TopicDetailMissionCarousel.vue'
 export default {
-  title: 'WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarousel',
+  title: 'Components/WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarousel',
   component: TopicDetailMissionCarousel,
   excludeStories: /.*Data$/
 }
@@ -83,7 +83,7 @@ export const TopicDetailMissionCarouselData = [
   }
 ]
 // stories
-export const Default = {
+export const BaseStory = {
   args: {
     title: 'Mars',
     relatedMissionsLinkUrl: 'http://localhost:3000/missions?mission_target=Mars',

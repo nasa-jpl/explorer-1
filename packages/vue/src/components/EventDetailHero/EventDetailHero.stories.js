@@ -1,7 +1,7 @@
 import EventDetailHero from './EventDetailHero.vue'
 
 export default {
-  title: 'WWW/EventDetail/EventDetailHero',
+  title: 'Components/WWW/EventDetail/EventDetailHero',
   component: EventDetailHero,
   decorators: [
     () => ({
@@ -45,7 +45,7 @@ export const EventDetailHeroData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   args: {
     image: EventDetailHeroData.heroImage,
     startDateSplit: EventDetailHeroData.startDateSplit

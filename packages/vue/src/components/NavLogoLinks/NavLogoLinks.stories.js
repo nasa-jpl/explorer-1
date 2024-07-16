@@ -2,13 +2,13 @@ import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg
 import NavLogoLinks from './NavLogoLinks.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavLogoLinks',
+  title: 'Navigation/Elements/NavLogoLinks',
   component: NavLogoLinks,
   excludeStories: /.*Data$/
 }
 
 // TODO: VUE3 -- fix logo image in story
-export const Default = {
+export const BaseStory = {
   args: {
     src: LogoColor
   },

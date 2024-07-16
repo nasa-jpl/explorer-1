@@ -4,7 +4,7 @@ export default {
   component: BaseLink,
   parameters: {
     slots: {
-      default: 'Default slot content'
+      default: 'BaseStory slot content'
     }
   },
   argTypes: {
@@ -27,7 +27,8 @@ export const BaseLinkData = {
 }
 
 // stories
-export const Primary = {
+export const BaseStory = {
+  name: 'Primary',
   args: { ...BaseLinkData }
 }
 

@@ -51,7 +51,7 @@ export const BlockImageCarouselItemData = {
   }
 }
 
-export const SingleItem = {
+export const BaseStory = {
   name: 'BlockImageCarouselItem',
   args: {
     image: BlockImageCarouselItemData.item.image,

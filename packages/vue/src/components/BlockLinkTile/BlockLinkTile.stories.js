@@ -45,7 +45,8 @@ export const BlockLinkTileData = {
   }
 }
 
-export const SingleItem = {
+export const BaseStory = {
+  name: 'Single Item',
   args: {
     data: BlockLinkTileData.card,
     headingLevel: 'h2',

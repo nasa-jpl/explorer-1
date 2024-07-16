@@ -2,7 +2,7 @@ import { HomepageCarouselItemData } from './../HomepageCarouselItem/HomepageCaro
 import HomepageCarousel from './HomepageCarousel.vue'
 
 export default {
-  title: 'WWW/Homepage/HomepageCarousel',
+  title: 'Components/WWW/Homepage/HomepageCarousel',
   component: HomepageCarousel,
   excludeStories: /.*Data$/,
   parameters: {
@@ -83,7 +83,8 @@ const HomepageCarouselShuffledData = () => {
 }
 
 // stories
-export const Carousel = {
+export const BaseStory = {
+  name: 'HomepageCarousel',
   args: {
     items: HomepageCarouselData,
     duration: 10000

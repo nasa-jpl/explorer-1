@@ -1,6 +1,6 @@
 import TopicDetailMissionSpotlight from './TopicDetailMissionSpotlight.vue'
 export default {
-  title: 'WWW/TopicDetail/TopicDetailMissionSpotlight',
+  title: 'Components/WWW/TopicDetail/TopicDetailMissionSpotlight',
   component: TopicDetailMissionSpotlight,
   decorators: [
     () => ({
@@ -50,7 +50,7 @@ export const TopicDetailMissionSpotlightData = {
 }
 
 // stories
-export const MissionSpotlight = {
+export const BaseStory = {
   args: {
     data: TopicDetailMissionSpotlightData
   }

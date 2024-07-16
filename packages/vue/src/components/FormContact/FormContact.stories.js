@@ -1,7 +1,7 @@
 import FormContact from './FormContact.vue'
 
 export default {
-  title: 'Components/FormContact',
+  title: 'Components/Forms/FormContact',
   component: FormContact
 }
 
@@ -12,5 +12,5 @@ const FormContactTemplate = () => ({
 })
 
 // stories
-export const Contact = FormContactTemplate.bind({})
-Contact.storyName = 'FormContact'
+export const BaseStory = FormContactTemplate.bind({})
+BaseStory.storyName = 'FormContact'

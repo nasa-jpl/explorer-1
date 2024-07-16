@@ -104,7 +104,7 @@ const preview: Preview = {
           'Getting Started',
           ['Developer'],
           'Guides',
-          'Foundation',
+          'Foundations',
           [
             'Colors',
             'Typography',
@@ -112,7 +112,17 @@ const preview: Preview = {
             'Logos',
             'Themes',
             'Grid and Layout',
+            ['Docs'],
             'Responsive Design'
+          ],
+          'Navigation',
+          [
+            'Overview',
+            'Headers',
+            ['Overview', 'WWW'],
+            'Footers',
+            ['Overview', 'WWW'],
+            'Secondary Navigation'
           ],
           'Global Layout',
           [
@@ -139,7 +149,7 @@ const preview: Preview = {
             'Blocks',
             ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
             'Heroes',
-            ['*', 'HeroMedia', 'HeroListingIndex'],
+            ['Overview', 'HeroSmall', 'HeroMedium', 'HeroLarge', 'HeroMedia', 'HeroListingIndex'],
             'Forms',
             ['Overview', 'TextInput', 'TextArea'],
             'Search',
@@ -149,7 +159,9 @@ const preview: Preview = {
             'Utilities',
             ['Overview', '*'],
             'EDU'
-          ]
+          ],
+          'Mixins',
+          ['Overview']
         ]
       }
     }

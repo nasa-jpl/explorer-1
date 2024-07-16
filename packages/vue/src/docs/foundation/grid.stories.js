@@ -1,6 +1,6 @@
 import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
 export default {
-  title: 'Foundation/Grid and Layout',
+  title: 'Foundations/Grid and Layout',
   component: LayoutHelper,
   tags: ['!autodocs']
 }

@@ -76,7 +76,7 @@ export const BlockStreamfieldData = {
   ]
 }
 
-export const Default = {
+export const BaseStory = {
   args: { data: BlockStreamfieldData.body, variant: 'default' }
 }
 
