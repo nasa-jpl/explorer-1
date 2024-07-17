@@ -161,7 +161,7 @@ import MissionDetailStats from './../src/components/MissionDetailStats/MissionDe
 import MissionDetailStreamfield from './../src/components/MissionDetailStreamfield/MissionDetailStreamfield.vue'
 import MixinAnimationCaret from './../src/components/MixinAnimationCaret/MixinAnimationCaret.vue'
 import MixinCarousel from './../src/components/MixinCarousel/MixinCarousel.vue'
-import MixinDropdownToggle from './../src/components/MixinDropdownToggle/MixinDropdownToggle.vue'
+import NavDropdownToggle from './../src/components/NavDropdownToggle/NavDropdownToggle.vue'
 import MixinFancybox from './../src/components/MixinFancybox/MixinFancybox.vue'
 import MixinVideoBg from './../src/components/MixinVideoBg/MixinVideoBg.vue'
 import NavDesktop from './../src/components/NavDesktop/NavDesktop.vue'
@@ -363,7 +363,7 @@ export {
   MissionDetailStreamfield,
   MixinAnimationCaret,
   MixinCarousel,
-  MixinDropdownToggle,
+  NavDropdownToggle,
   MixinFancybox,
   MixinVideoBg,
   NavDesktop,

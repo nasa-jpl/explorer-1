@@ -1,5 +1,6 @@
 <template>
   <div v-if="data">
+    <NavHeading :data="{ heading: 'Test' }" />
     <NavHeading :data="data" />
     <div
       v-if="data.links"

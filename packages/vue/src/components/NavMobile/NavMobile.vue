@@ -2,22 +2,39 @@
   <transition name="headerMobileReveal">
     <div
       v-show="headerVisible"
-      class="NavMobile border-gray-light-mid z-50 w-full transition-all duration-150 ease-in bg-white border-b"
+      class="NavMobile border-gray-light-mid z-50 w-full transition-all duration-150 ease-in bg-white border-b edu:bg-gray-light edu:border-none"
       :class="headerClasses"
     >
       <!-- navbar -->
       <div class="relative w-full">
-        <div class="h-18 flex items-center justify-between px-5">
+        <div
+          class="h-18 flex w-full justify-between items-center px-5 edu:bg-gradient-to-r edu:from-black edu:to-primary edu:to-90% edu:bg-black"
+        >
           <!-- branding -->
-          <NavLogoLinks class="lg:p-0 w-72 z-20 p-2 pl-0 -ml-3">
-            <img
-              :src="LogoColor"
-              alt="JPL Logo"
-              width="324"
-              height="72"
-            />
-          </NavLogoLinks>
-
+          <div class="flex items-center">
+            <NavLogoLinks class="lg:p-0 w-72 z-20 p-2 pl-0 -ml-3 edu:w-[12rem]">
+              <img
+                v-if="themeStore.theme === 'ThemeEdu'"
+                :src="LogoWhite"
+                alt="JPL Logo"
+                width="324"
+                height="72"
+              />
+              <img
+                v-else
+                :src="LogoColor"
+                alt="JPL Logo"
+                width="324"
+                height="72"
+              />
+            </NavLogoLinks>
+            <div
+              v-if="themeStore.theme === 'ThemeEdu'"
+              class="-ml-1 pl-2 border-l border-white border-opacity-30 z-20"
+            >
+              <span class="text-white font-bold text-xl pl-px">Education</span>
+            </div>
+          </div>
           <button
             v-if="data"
             class="text-gray-dark p-4 -mr-4 cursor-pointer"
@@ -26,11 +43,11 @@
           >
             <IconMenu
               v-if="!menuVisible"
-              class="text-6xl"
+              class="text-6xl edu:text-white"
             />
             <IconClose
               v-else
-              class="text-3xl"
+              class="text-3xl edu:text-white"
             />
           </button>
         </div>
@@ -96,7 +113,9 @@
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
+import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
 import { useHeaderStore } from './../../store/header'
+import { useThemeStore } from './../../store/theme'
 import IconMenu from './../Icons/IconMenu.vue'
 import IconClose from './../Icons/IconClose.vue'
 import NavLogoLinks from './../NavLogoLinks/NavLogoLinks.vue'
@@ -150,11 +169,13 @@ export default defineComponent({
     return {
       menuVisible: false,
       searchQuery: null,
-      LogoColor: LogoColor
+      LogoColor,
+      LogoWhite
     }
   },
   computed: {
     ...mapStores(useHeaderStore),
+    ...mapStores(useThemeStore),
     // get the breadcrumb JSON string and convert to object. used to determine active class.
     breadcrumb(): BreadcrumbObject | null {
       if (this.data) {
