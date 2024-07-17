@@ -3,7 +3,7 @@ import { HeroMediumData } from './HeroMedium.stories'
 import HeroMedium from './HeroMedium.vue'
 
 export default {
-  title: 'Components/Heroes/HeroSmall',
+  title: 'Components/Heroes/Small',
   component: HeroMedium,
   decorators: [
     () => ({
@@ -36,6 +36,7 @@ export default {
 }
 
 export const BaseStory = {
+  name: 'HeroMedium (compact)',
   args: {
     customTag: 'News',
     customLabel: HeroMediumData.label,
