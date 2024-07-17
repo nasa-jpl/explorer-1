@@ -1,7 +1,7 @@
 import HeroLarge from './HeroLarge.vue'
 
 export default {
-  title: 'Components/Heroes/HeroLarge',
+  title: 'Components/Heroes/Large',
   component: HeroLarge,
   excludeStories: /.*Data$/,
   parameters: {
