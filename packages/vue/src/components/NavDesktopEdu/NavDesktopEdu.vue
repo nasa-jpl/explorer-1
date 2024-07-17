@@ -1,6 +1,6 @@
 <template>
   <div
-    class="NavDesktopEdu z-50 w-full duration-150 ease-in"
+    class="NavDesktopEdu ThemeEdu z-50 w-full duration-150 ease-in"
     :class="{
       'sticky top-0': scrolledUp,
       relative: !scrolledUp,

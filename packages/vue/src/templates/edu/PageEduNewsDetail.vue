@@ -67,7 +67,7 @@ const dateTimeArray = computed(() => {
 <template>
   <div
     v-if="data"
-    class="ThemeVariantLight"
+    class="ThemeEdu ThemeVariantLight"
     :class="computedClass"
     itemscope
     itemtype="http://schema.org/Article"

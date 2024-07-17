@@ -163,8 +163,7 @@ export const NavDesktopData = {
         },
         title: null
       }
-    },
-    NavDesktopDropdownMoreData
+    }
   ]
 }
 
@@ -183,73 +182,5 @@ export const BaseStory = {
       return { args }
     },
     template: `<NavDesktop v-bind="args" />`
-  })
-}
-
-export const NavInverted = {
-  args: {
-    data: NavDesktopData,
-    headerVisible: true,
-    scrolledUp: false,
-    scrollTop: 0,
-    invertOverride: true
-  },
-  render: (args) => ({
-    components: { NavDesktop },
-    setup() {
-      return { args }
-    },
-    template: `<div class="absolute inset-0">
-  <div style="height:2500px" class="nav-offset bg-jpl-blue-darker">
-    <NavDesktop v-bind="args" />
-    <div v-if="invertOverride" class="-nav-offset max-w-screen-3xl mx-auto">
-      <img class="w-full h-auto block" src="https://picsum.photos/1600/900" alt="Example Hero" />
-    </div>
-  </div>
-</div>`
-  })
-}
-
-export const TopHat = {
-  args: { data: NavDesktopData.topHat },
-  render: (args) => ({
-    components: { NavDesktopTopHat },
-    setup() {
-      return { args }
-    },
-    template: `<NavDesktopTopHat v-bind="args" />`
-  })
-}
-
-export const Dropdown = {
-  args: { data: NavDesktopDropdownContentData },
-  render: (args) => ({
-    components: { NavDesktopDropdown, NavDesktopDropdownContent },
-    setup() {
-      return { args }
-    },
-    template: `<div class="relative"><NavDesktopDropdown><template #dropdownLabel>Label Text</template><NavDesktopDropdownContent v-bind="args" /></NavDesktopDropdown></div>`
-  })
-}
-
-export const DropdownContent = {
-  args: { data: NavDesktopDropdownContentData },
-  render: (args) => ({
-    components: { NavDesktopDropdownContent },
-    setup() {
-      return { args }
-    },
-    template: `<NavDesktopDropdownContent v-bind="args" />`
-  })
-}
-
-export const DropdownMore = {
-  args: { data: NavDesktopDropdownMoreData },
-  render: (args) => ({
-    components: { NavDesktopDropdownMore },
-    setup() {
-      return { args }
-    },
-    template: `<NavDesktopDropdownMore v-bind="args" />`
   })
 }
