@@ -43,6 +43,7 @@
         <NavSocial
           class="lg:mb-14 mb-12"
           dark
+          :edu="themeStore.theme === 'ThemeEdu'"
         />
         <template v-if="themeStore.theme === 'defaultTheme'">
           <!-- caltech aside -->
