@@ -101,7 +101,10 @@
                 :data="item"
               />
             </nav>
-            <NavSocial class="mt-8" />
+            <NavSocial
+              v-if="themeStore.theme === 'defaultTheme'"
+              class="mt-8"
+            />
           </div>
         </div>
       </div>
@@ -165,6 +168,7 @@ export default defineComponent({
       default: null
     }
   },
+  emits: ['closeMobileMenu', 'openMobileMenu'],
   data() {
     return {
       menuVisible: false,
