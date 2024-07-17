@@ -2,7 +2,7 @@ import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
 import HeroMedia from './HeroMedia.vue'
 
 export default {
-  title: 'Components/Heroes/HeroMedia',
+  title: 'Components/Heroes/Media Only',
   component: HeroMedia,
   parameters: {
     html: {
@@ -79,7 +79,7 @@ export const HeroMediaData = {
 
 // stories
 export const BaseStory = {
-  name: 'Hero',
+  name: 'HeroMedia',
   args: HeroMediaData
 }
 export const CustomImageCaption = {
