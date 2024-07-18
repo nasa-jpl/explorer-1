@@ -273,8 +273,6 @@ export default defineComponent({
 .NavDesktopEdu {
   @apply border-b border-transparent;
 
-  @apply bg-black;
-
   > .header-bg {
     @apply bg-gradient-to-r from-black to-primary bg-transparent to-90%;
   }
