@@ -101,7 +101,7 @@ const dateTimeArray = computed(() => {
         :topics="data.getTopicsForDisplay"
         schema
       />
-      <share-buttons-edu
+      <ShareButtonsEdu
         v-if="data?.url"
         class="mt-4"
         :url="data.url"
