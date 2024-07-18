@@ -13,6 +13,11 @@ export default {
   parameters: {
     html: {
       root: '#storyDecorator'
+    },
+    docs: {
+      description: {
+        component: 'Doesn\'t look like EDU? Be sure to select "EDU Theme" in the toolbar dropdown.'
+      }
     }
   },
   excludeStories: /.*Data$/

@@ -1,5 +1,4 @@
 <template>
-  <!-- branding -->
   <div class="NavLogoLinks relative">
     <div class="absolute inset-0 flex items-start">
       <BaseLink
