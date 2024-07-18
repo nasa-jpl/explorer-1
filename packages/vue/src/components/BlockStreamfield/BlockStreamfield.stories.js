@@ -50,6 +50,16 @@ export const BlockStreamfieldData = {
     },
     BlockInlineImageData.block,
     {
+      blockType: 'HeadingBlock',
+      heading: 'Heading 2',
+      level: 'h2'
+    },
+    {
+      blockType: 'HeadingBlock',
+      heading: 'Heading 3',
+      level: 'h3'
+    },
+    {
       blockType: 'RichTextBlock',
       value:
         '<p>Cras sed tincidunt dui.</p><p>Integer imperdiet blandit neque vitae euismod. Nulla aliquet lacus nibh,  vel tincidunt urna efficitur non. In et eros vitae ex posuere maximus  quis eget urna. Morbi malesuada bibendum vehicula. Donec faucibus ut erat ut mattis.  Suspendisse ornare, quam at placerat cursus, dolor mi lacinia nunc, eget  maximus augue nulla in dolor.</p>\n'
