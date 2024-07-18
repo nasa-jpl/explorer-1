@@ -1,3 +1,6 @@
+// needed to @extend .BlockText
+@import '@explorer-1/common/src/scss/components/BlockText';
+
 .BlockTable {
   table {
     @apply border-gray-light-mid border-t border-b border-collapse w-full;
@@ -8,7 +11,7 @@
   }
 
   th {
-    @apply p-3 lg:p-5 border-gray-light-mid border-b text-subtitle text-white text-left font-normal;
+    @apply p-3 lg:p-5 border-gray-light-mid border-b font-secondary uppercase text-base leading-tight tracking-wider text-white text-left font-normal;
   }
 
   tbody {
