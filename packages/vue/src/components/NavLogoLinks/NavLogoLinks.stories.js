@@ -9,14 +9,11 @@ export default {
 
 // TODO: VUE3 -- fix logo image in story
 export const BaseStory = {
-  args: {
-    src: LogoColor
-  },
   render: (args) => ({
     components: { NavLogoLinks },
     setup() {
       return { args }
     },
-    template: `<div class="flex"><NavLogoLinks><img :src="src" alt="Logo Image" /></NavLogoLinks></div>`
+    template: `<div class="flex"><NavLogoLinks><img src="/images/svg/logo-tribrand-color.svg" alt="Logo Image" /></NavLogoLinks></div>`
   })
 }

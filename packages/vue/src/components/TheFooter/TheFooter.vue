@@ -36,24 +36,30 @@
         </div>
         <TheFooterSignUp class="lg:mb-10 mb-8" />
         <!-- social media -->
-        <div class="text-subtitle text-blue edu:text-white lg:mb-5 mb-3">Follow Us</div>
+        <div class="text-subtitle text-blue edu:text-white lg:mb-5 mb-3">
+          <template v-if="themeStore.theme === 'ThemeEdu'"> Follow JPL Education </template>
+          <template v-else> Follow Us </template>
+        </div>
         <NavSocial
           class="lg:mb-14 mb-12"
           dark
+          :edu="themeStore.theme === 'ThemeEdu'"
         />
-        <!-- caltech aside -->
-        <BaseLink
-          variant="none"
-          href="https://caltech.edu"
-          aria-label="Caltech"
-          class="lg:mb-8 mb-5"
-          link-class="inline-block"
-        >
-          <LogoCaltech class="lg:text-base text-sm text-white" />
-        </BaseLink>
-        <p class="mb-12">
-          JPL is a federally funded research and development center managed for NASA by Caltech.
-        </p>
+        <template v-if="themeStore.theme === 'defaultTheme'">
+          <!-- caltech aside -->
+          <BaseLink
+            variant="none"
+            href="https://caltech.edu"
+            aria-label="Caltech"
+            class="lg:mb-8 mb-5"
+            link-class="inline-block"
+          >
+            <LogoCaltech class="lg:text-base text-sm text-white" />
+          </BaseLink>
+          <p class="mb-12">
+            JPL is a federally funded research and development center managed for NASA by Caltech.
+          </p>
+        </template>
       </div>
     </div>
     <!-- more from JPL buttons / links -->
@@ -94,7 +100,12 @@
     <div class="bg-opacity-15 lg:py-16 lg:mt-10 pt-10 pb-3 mt-8 bg-black">
       <div class="3xl:px-0 container px-4 mx-auto">
         <div v-if="data && data.relatedNasaSites">
-          <div class="text-subtitle text-blue edu:text-white mb-5">Related NASA Sites</div>
+          <div class="text-subtitle text-blue edu:text-white mb-5">
+            <template v-if="themeStore.theme === 'ThemeEdu'">
+              Related NASA Education Sites
+            </template>
+            <template v-else> Related NASA Sites </template>
+          </div>
           <div class="auto-col-4">
             <BaseLink
               v-for="(item, index) in data.relatedNasaSites"
@@ -168,6 +179,8 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from './../../store/theme'
 import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
@@ -202,6 +215,9 @@ export default defineComponent({
     getRouterLink(link) {
       return mixinGetRouterLink(link)
     }
+  },
+  computed: {
+    ...mapStores(useThemeStore)
   }
 })
 </script>
