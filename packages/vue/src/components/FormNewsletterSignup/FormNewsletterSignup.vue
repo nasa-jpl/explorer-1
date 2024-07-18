@@ -126,7 +126,7 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
-import qs from 'qs'
+import { stringify } from 'fast-qs'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
@@ -280,7 +280,7 @@ export default defineComponent({
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
-          body: qs.stringify({
+          body: stringify({
             'data[email]': data.email,
             'data[fname]': data.first_name,
             'data[lname]': data.last_name,
