@@ -100,7 +100,12 @@
     <div class="bg-opacity-15 lg:py-16 lg:mt-10 pt-10 pb-3 mt-8 bg-black">
       <div class="3xl:px-0 container px-4 mx-auto">
         <div v-if="data && data.relatedNasaSites">
-          <div class="text-subtitle text-blue edu:text-white mb-5">Related NASA Sites</div>
+          <div class="text-subtitle text-blue edu:text-white mb-5">
+            <template v-if="themeStore.theme === 'ThemeEdu'">
+              Related NASA Education Sites
+            </template>
+            <template v-else> Related NASA Sites </template>
+          </div>
           <div class="auto-col-4">
             <BaseLink
               v-for="(item, index) in data.relatedNasaSites"
