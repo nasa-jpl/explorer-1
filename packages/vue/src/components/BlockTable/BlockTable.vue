@@ -65,9 +65,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@explorer-1/common/src/scss/typography';
-// required for @apply text-subtitle in _BlockTable.scss
-@import '@explorer-1/common/src/scss/components/BlockText';
-// required for @extend .BlockText in _BlockTable.scss
 @import '@explorer-1/common/src/scss/components/BlockTable';
 </style>
