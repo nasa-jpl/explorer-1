@@ -1,12 +1,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
+
 import HeroMedia from '@explorer-1/vue/src/components/HeroMedia/HeroMedia.vue'
 import NavSecondary from '@explorer-1/vue/src/components/NavSecondary/NavSecondary.vue'
 import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from '@explorer-1/vue/src/components/DetailHeadline/DetailHeadline.vue'
 import BlockImageStandard from '@explorer-1/vue/src/components/BlockImage/BlockImageStandard.vue'
 import ShareButtons from '@explorer-1/vue/src/components/ShareButtons/ShareButtons.vue'
+import ShareButtonsEdu from '@explorer-1/vue/src/components/ShareButtonsEdu/ShareButtonsEdu.vue'
 import BlockStreamfield from '@explorer-1/vue/src/components/BlockStreamfield/BlockStreamfield.vue'
 import BlockRelatedLinks from '@explorer-1/vue/src/components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import FormContact from '@explorer-1/vue/src/components/FormContact/FormContact.vue'
@@ -24,6 +28,7 @@ export default defineComponent({
     DetailHeadline,
     BlockImageStandard,
     ShareButtons,
+    ShareButtonsEdu,
     BlockStreamfield,
     BlockRelatedLinks,
     FormContact,
@@ -38,6 +43,10 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
+    isEdu() {
+      return this.themeStore.theme === 'ThemeEdu'
+    },
     heroInline() {
       if (this.data?.heroPosition === 'inline') {
         return true
@@ -92,6 +101,13 @@ export default defineComponent({
         :label="data.displayLabel"
         :class="{ 'sr-only': hideH1 }"
       />
+      <ShareButtonsEdu
+        v-if="isEdu && data?.url"
+        class="mt-4"
+        :url="data.url"
+        :title="data.title"
+        :image="data.thumbnailImage?.original"
+      />
     </LayoutHelper>
 
     <!-- inline hero -->
@@ -114,7 +130,7 @@ export default defineComponent({
       class="lg:mb-0 relative mb-8"
     >
       <ShareButtons
-        v-if="data.title && data.url"
+        v-if="data.title && data.url && !isEdu"
         :title="data.title"
         :url="data.url"
       />
