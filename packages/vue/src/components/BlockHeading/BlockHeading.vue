@@ -2,7 +2,6 @@
   <BaseHeading
     v-if="data"
     :level="data.level"
-    :size="data.size"
   >
     {{ data.heading }}
   </BaseHeading>
