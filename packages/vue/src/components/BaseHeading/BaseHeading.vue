@@ -26,7 +26,7 @@ export default defineComponent({
     size: {
       type: String as PropType<HeadingLevel>,
       required: false,
-      default: 'h2',
+      default: '',
       validator: (prop: string): boolean => Object.keys(headings).includes(prop)
     }
   },
