@@ -8,13 +8,11 @@
       'transition-transform': scrollTop > 0 && scrolledCurrentPage, // If not at the top of the page, just transition the transform to prevents content from peeking through on header reveal.
       'transform -translate-y-full': !scrolledUp && !headerVisible,
       '-scrolled transform translate-y-0': scrolledUp && headerVisible && scrollTop > 0,
-      '-transparent': invert,
       '-hasSecondary': !headerStore?.highlightPrimary
     }"
   >
     <!-- navbar -->
     <div class="header-bg z-10 max-w-screen-3xl absolute inset-0 mx-auto"></div>
-    <div class="bg-primary z-0 absolute right-0 w-1/2 top-0 bottom-0"></div>
     <div class="px-4">
       <div class="h-18 container flex items-center justify-between mx-auto">
         <!-- branding -->
@@ -69,7 +67,7 @@
             </button>
             <div
               v-else
-              class="flex items-center w-full -transparent"
+              class="flex items-center w-full"
             >
               <NavSearchForm
                 class="w-full"
@@ -285,30 +283,6 @@ export default defineComponent({
         // mimics .text-contrast class
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
       }
-    }
-  }
-
-  &.-scrolled {
-    @apply border-b border-gray-mid border-opacity-50 bg-white;
-
-    &.-transparent {
-      > .header-bg {
-        @apply opacity-0 bg-white;
-      }
-
-      .main-navigation {
-        > * {
-          @apply text-gray-dark;
-
-          .NavDesktopDropdown > button {
-            text-shadow: none;
-          }
-        }
-      }
-    }
-
-    &.-hasSecondary {
-      @apply border-0 border-transparent;
     }
   }
 }
