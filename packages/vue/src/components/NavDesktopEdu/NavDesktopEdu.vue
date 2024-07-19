@@ -67,7 +67,7 @@
             </button>
             <div
               v-else
-              class="flex items-center w-full"
+              class="flex items-center w-full -transparent"
             >
               <NavSearchForm
                 class="w-full"
