@@ -1,5 +1,8 @@
 <template>
-  <div v-if="data" class="-nav-offset">
+  <div
+    v-if="data"
+    class="-nav-offset"
+  >
     <div class="lg:mb-24 mb-12">
       <HeroLarge
         class="relative z-10"
@@ -21,7 +24,11 @@
         indent="col-3"
         class="description lg:my-18 my-10"
       >
-        <BaseHeading v-if="data.descriptionHeading" level="h2" class="mb-5">
+        <BaseHeading
+          v-if="data.descriptionHeading"
+          level="h2"
+          class="mb-5"
+        >
           {{ data.descriptionHeading }}
         </BaseHeading>
         <BlockText :text="data.description" />
@@ -42,7 +49,10 @@
         />
       </LayoutHelper>
 
-      <TopicDetailStreamfield :data="data.body" :topic="data.title" />
+      <TopicDetailStreamfield
+        :data="data.body"
+        :topic="data.title"
+      />
 
       <TopicDetailMore
         v-if="
@@ -99,13 +109,13 @@ export default defineComponent({
     BlockText,
     BlockTeaser,
     TopicDetailStreamfield,
-    BlockLinkCarousel,
+    BlockLinkCarousel
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>

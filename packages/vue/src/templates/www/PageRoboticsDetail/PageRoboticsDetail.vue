@@ -1,5 +1,8 @@
 <template>
-  <div v-if="data" class="-nav-offset">
+  <div
+    v-if="data"
+    class="-nav-offset"
+  >
     <HeroLarge
       eyebrow="Robotics at JPL"
       :title="data.title"
@@ -23,7 +26,9 @@
     <!-- Introduction -->
     <div class="lg:BaseGrid lg:my-24 mt-18 container mx-auto mb-10">
       <div class="lg:px-0 relative col-span-8 col-start-2 px-4">
-        <BaseHeading level="h2" class="mb-5"
+        <BaseHeading
+          level="h2"
+          class="mb-5"
           >About {{ data.title }}
         </BaseHeading>
         <p class="text-body-lg">
@@ -84,13 +89,13 @@ export default defineComponent({
     BlockRelatedLinks,
     BlockLinkCarousel,
     LayoutHelper,
-    BlockStreamfield,
+    BlockStreamfield
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 })
 </script>
