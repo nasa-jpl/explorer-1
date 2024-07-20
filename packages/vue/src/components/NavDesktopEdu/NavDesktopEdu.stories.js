@@ -9,9 +9,11 @@ import NavDesktopDropdownMore from './../NavDesktop/NavDesktopDropdownMore.vue'
 export default {
   title: 'Navigation/Headers/EDU/NavDesktopEdu',
   component: NavDesktop,
+  tags: ['!autodocs'],
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'canvas'
+    viewMode: 'canvas',
+    layout: 'fullscreen'
   }
 }
 

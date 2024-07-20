@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
-import type { StreamfieldBlockData } from '../../components/BlockStreamfield/BlockStreamfield.vue'
+import type { StreamfieldBlockData } from '../../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
   ImageObject,
   PageResponseObject,

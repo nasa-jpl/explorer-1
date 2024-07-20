@@ -161,7 +161,9 @@ const preview: Preview = {
             'EDU'
           ],
           'Mixins',
-          ['Overview']
+          ['Overview'],
+          'Templates',
+          ['WWW', 'EDU']
         ]
       }
     }

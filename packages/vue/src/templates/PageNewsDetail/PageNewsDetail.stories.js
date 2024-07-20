@@ -1,6 +1,6 @@
 import { HeroMediaData } from './../../components/HeroMedia/HeroMedia.stories'
 import { DetailHeadlineData } from './../../components/DetailHeadline/DetailHeadline.stories'
-import { BlockStreamfieldData } from './../../components/BlockStreamfield/BlockStreamfield.stories'
+import { BlockStreamfieldTruncatedData } from './../../components/BlockStreamfield/BlockStreamfield.stories'
 import {
   BlockLinkCardCarouselData,
   BlockLinkTileCarouselData
@@ -21,6 +21,7 @@ export default {
     })
   ],
   parameters: {
+    layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
     }
@@ -53,7 +54,7 @@ export const BaseStory = {
           blockType: 'HeroImageBlock'
         }
       ],
-      ...BlockStreamfieldData,
+      ...BlockStreamfieldTruncatedData,
       releaseNumber: '2020-157',
       relatedLinks: [BlockRelatedLinksData.data],
       mediaContacts: [

@@ -1,16 +1,18 @@
-import { HeroMediaData } from './../../components/HeroMedia/HeroMedia.stories'
-import { BlockStreamfieldData } from './../../components/BlockStreamfield/BlockStreamfield.stories'
+import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories'
+import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageEduNewsDetail from './PageEduNewsDetail.vue'
 
 export default {
   title: 'Templates/EDU/PageEduNewsDetail',
   component: PageEduNewsDetail,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
     })
   ],
   parameters: {
+    layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
     },
@@ -45,7 +47,7 @@ export const BaseStory = {
       heroPosition: 'full_bleed',
       heroImage: HeroMediaData.image,
       heroImageInline: HeroMediaData.imageInline,
-      ...BlockStreamfieldData
+      ...BlockStreamfieldTruncatedData
     }
   }
 }

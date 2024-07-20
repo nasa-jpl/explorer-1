@@ -16,7 +16,7 @@ export default {
     html: {
       root: '#storyDecorator'
     },
-    viewMode: 'canvas'
+    layout: 'fullscreen'
   },
   excludeStories: /.*(Data)$/
 }
