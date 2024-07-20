@@ -1,8 +1,8 @@
-import { BlockLinkTileCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
+import { BlockLinkTileCarouselData } from './../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
 import PageVideoDetail from './PageVideoDetail.vue'
 
 export default {
-  title: 'Templates/WWW/PageVideoDetail',
+  title: 'Templates/PageVideoDetail',
   component: PageVideoDetail,
   tags: ['!autodocs'],
   excludeStories: /.*Data$/,

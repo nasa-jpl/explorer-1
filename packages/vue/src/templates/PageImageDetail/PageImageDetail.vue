@@ -335,19 +335,19 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import BaseButton from './../../../components/BaseButton/BaseButton.vue'
-import MixinFancybox from './../../../components/MixinFancybox/MixinFancybox.vue'
-import BaseImage from './../../../components/BaseImage/BaseImage.vue'
-import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import BaseLink from './../../../components/BaseLink/BaseLink.vue'
-import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
-import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
-import BlockText from './../../../components/BlockText/BlockText.vue'
-import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
-import IconExternal from './../../../components/Icons/IconExternal.vue'
-import ImageDetailContextImage from './../../../components/ImageDetailContextImage/ImageDetailContextImage.vue'
-import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
-import ThumbnailCarousel from './../../../components/ThumbnailCarousel/ThumbnailCarousel.vue'
+import BaseButton from './../../components/BaseButton/BaseButton.vue'
+import MixinFancybox from './../../components/MixinFancybox/MixinFancybox.vue'
+import BaseImage from './../../components/BaseImage/BaseImage.vue'
+import BaseImagePlaceholder from './../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import BaseLink from './../../components/BaseLink/BaseLink.vue'
+import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BlockStreamfield from './../../components/BlockStreamfield/BlockStreamfield.vue'
+import BlockText from './../../components/BlockText/BlockText.vue'
+import DetailHeadline from './../../components/DetailHeadline/DetailHeadline.vue'
+import IconExternal from './../../components/Icons/IconExternal.vue'
+import ImageDetailContextImage from './../../components/ImageDetailContextImage/ImageDetailContextImage.vue'
+import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
+import ThumbnailCarousel from './../../components/ThumbnailCarousel/ThumbnailCarousel.vue'
 
 export default defineComponent({
   name: 'PageImageDetail',

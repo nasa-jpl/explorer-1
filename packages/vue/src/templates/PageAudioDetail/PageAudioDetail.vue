@@ -222,19 +222,19 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
-import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
-import BaseButton from './../../../components/BaseButton/BaseButton.vue'
-import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
-import BlockText from './../../../components/BlockText/BlockText.vue'
-import BlockAudio from './../../../components/BlockAudio/BlockAudio.vue'
-import IconDownload from './../../../components/Icons/IconDownload.vue'
-import IconDropdown from './../../../components/Icons/IconDropdown.vue'
-import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
-import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
-import BaseLink from './../../../components/BaseLink/BaseLink.vue'
-import BaseModal from './../../../components/BaseModal/BaseModal.vue'
-import PodcastSeriesCarousel from './../../../components/PodcastSeriesCarousel/PodcastSeriesCarousel.vue'
+import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
+import DetailHeadline from './../../components/DetailHeadline/DetailHeadline.vue'
+import BaseButton from './../../components/BaseButton/BaseButton.vue'
+import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockText from './../../components/BlockText/BlockText.vue'
+import BlockAudio from './../../components/BlockAudio/BlockAudio.vue'
+import IconDownload from './../../components/Icons/IconDownload.vue'
+import IconDropdown from './../../components/Icons/IconDropdown.vue'
+import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BaseHeading from './../../components/BaseHeading/BaseHeading.vue'
+import BaseLink from './../../components/BaseLink/BaseLink.vue'
+import BaseModal from './../../components/BaseModal/BaseModal.vue'
+import PodcastSeriesCarousel from './../../components/PodcastSeriesCarousel/PodcastSeriesCarousel.vue'
 
 export default defineComponent({
   name: 'PageAudioDetail',

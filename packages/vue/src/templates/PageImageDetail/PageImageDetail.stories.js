@@ -1,5 +1,5 @@
-import { BlockLinkTileCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
-import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
+import { BlockLinkTileCarouselData } from './../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
+import { BlockStreamfieldTruncatedData } from './../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageImageDetail from './PageImageDetail.vue'
 
 export default {

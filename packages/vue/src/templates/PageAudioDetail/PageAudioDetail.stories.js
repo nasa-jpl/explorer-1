@@ -1,5 +1,5 @@
-import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories'
-import { BlockLinkTileCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
+import { BlockRelatedLinksData } from './../../components/BlockRelatedLinks/BlockRelatedLinks.stories'
+import { BlockLinkTileCarouselData } from './../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
 import PageAudioDetail from './PageAudioDetail.vue'
 
 export default {

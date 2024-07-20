@@ -163,7 +163,7 @@ const preview: Preview = {
           'Mixins',
           ['Overview'],
           'Templates',
-          ['WWW', 'EDU']
+          ['WWW', 'EDU', 'PageContent']
         ]
       }
     }

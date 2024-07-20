@@ -39,7 +39,10 @@
       v-if="data.block.length"
       class="max-w-screen-2xl lg:mb-24 mx-auto mt-10 mb-8"
     >
-      <div v-for="(block, index) in data.block" :key="index">
+      <div
+        v-for="(block, index) in data.block"
+        :key="index"
+      >
         <BlockVideoEmbed :data="block" />
       </div>
     </div>
@@ -47,15 +50,28 @@
       v-else-if="data.uploadedMedia"
       class="max-w-screen-2xl lg:mb-24 mx-auto mt-10 mb-8"
     >
-      <BaseVideo :data="data.uploadedMedia" schema />
+      <BaseVideo
+        :data="data.uploadedMedia"
+        schema
+      />
     </div>
     <LayoutHelper indent="col-2">
       <div class="lg:grid grid-cols-10">
-        <div v-if="data.body" class="col-span-7">
+        <div
+          v-if="data.body"
+          class="col-span-7"
+        >
           <BlockText :text="data.body" />
           <hr class="border-gray-light-mid lg:my-8 my-5" />
-          <div v-if="data.transcript" class="col-span-7 my-5">
-            <BaseHeading level="h2" class="mb-5">Transcript</BaseHeading>
+          <div
+            v-if="data.transcript"
+            class="col-span-7 my-5"
+          >
+            <BaseHeading
+              level="h2"
+              class="mb-5"
+              >Transcript</BaseHeading
+            >
             <BlockText
               :text="data.transcript"
               variant="medium"
@@ -74,8 +90,7 @@
                 class="w-full mb-5"
                 variant="primary"
                 compact
-                >Download
-                {{ data.uploadedMedia.fileExtension || 'Video' }}</BaseButton
+                >Download {{ data.uploadedMedia.fileExtension || 'Video' }}</BaseButton
               >
             </div>
           </div>
@@ -96,14 +111,14 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
-import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
-import BaseButton from './../../../components/BaseButton/BaseButton.vue'
-import BlockText from './../../../components/BlockText/BlockText.vue'
-import BaseVideo from './../../../components/BaseVideo/BaseVideo.vue'
-import BlockVideoEmbed from './../../../components/BlockVideoEmbed/BlockVideoEmbed.vue'
-import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
-import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
+import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
+import DetailHeadline from './../../components/DetailHeadline/DetailHeadline.vue'
+import BaseButton from './../../components/BaseButton/BaseButton.vue'
+import BlockText from './../../components/BlockText/BlockText.vue'
+import BaseVideo from './../../components/BaseVideo/BaseVideo.vue'
+import BlockVideoEmbed from './../../components/BlockVideoEmbed/BlockVideoEmbed.vue'
+import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BaseHeading from './../../components/BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
   name: 'PageVideoDetail',
@@ -115,19 +130,19 @@ export default defineComponent({
     BaseVideo,
     BlockVideoEmbed,
     BlockLinkCarousel,
-    BaseHeading,
+    BaseHeading
   },
   props: {
     data: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
-      openTab: 1,
+      openTab: 1
     }
-  },
+  }
 })
 </script>
 
