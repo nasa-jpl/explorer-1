@@ -42,7 +42,7 @@ export const PagePodcastData = {
       },
       thumbnailImage: {
         src: {
-          url: 'https://source.unsplash.com/Q1p7bh3SHj8/560x560',
+          url: 'https://picsum.photos/560/560',
           width: '560',
           height: '560'
         }
@@ -63,7 +63,7 @@ export const PagePodcastData = {
       },
       thumbnailImage: {
         src: {
-          url: 'https://source.unsplash.com/Q1p7bh3SHj8/560x560',
+          url: 'https://picsum.photos/560/560',
           width: '560',
           height: '560'
         }

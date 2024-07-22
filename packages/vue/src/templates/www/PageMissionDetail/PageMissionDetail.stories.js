@@ -49,10 +49,9 @@ export const BaseStory = {
       missionWebsiteUrl: 'http://oco.jpl.nasa.gov/',
       topicLabels: ['Stars and Galaxies', 'Exoplanets'],
       heroImage: {
-        srcSet:
-          'https://source.unsplash.com/OLlj17tUZnU//320x200 320w, https://source.unsplash.com/OLlj17tUZnU/1920x1200 1440w',
+        srcSet: 'https://https://picsum.photos/320/200 320w, https://picsum.photos/1920/1200 1440w',
         src: {
-          url: 'https://source.unsplash.com/OLlj17tUZnU/1920x1200',
+          url: 'https://picsum.photos/1920/1200',
           width: 1920,
           height: 1200
         },
@@ -101,10 +100,9 @@ export const LightTemplateWithHero = {
         'OCO-2 is an Earth satellite mission designed to study the sources and sinks of carbon dioxide globally and provide scientists with a better idea of how carbon is contributing to climate change. ',
       missionWebsiteUrl: 'http://oco.jpl.nasa.gov/',
       heroImage: {
-        srcSet:
-          'https://source.unsplash.com/OLlj17tUZnU//320x200 320w, https://source.unsplash.com/OLlj17tUZnU/1920x1200 1440w',
+        srcSet: 'https://picsum.photos/320/320 320w, https://picsum.photos/1920/1200 1440w',
         src: {
-          url: 'https://source.unsplash.com/OLlj17tUZnU/1920x1200',
+          url: 'https://picsum.photos/1920/1200',
           width: 1920,
           height: 1200
         },
@@ -134,10 +132,9 @@ export const LightTemplateNoBackground = {
         'OCO-2 is an Earth satellite mission designed to study the sources and sinks of carbon dioxide globally and provide scientists with a better idea of how carbon is contributing to climate change. ',
       missionWebsiteUrl: 'http://oco.jpl.nasa.gov/',
       heroImage: {
-        srcSet:
-          'https://source.unsplash.com/OLlj17tUZnU//320x200 320w, https://source.unsplash.com/OLlj17tUZnU/1920x1200 1440w',
+        srcSet: 'https://picsum.photos/320/320 320w, https://picsum.photos/1920/1200 1440w',
         src: {
-          url: 'https://source.unsplash.com/OLlj17tUZnU/1920x1200',
+          url: 'https://picsum.photos/1920/1200',
           width: 1920,
           height: 1200
         },
@@ -215,10 +212,9 @@ export const GraceFO = {
       thumbnailImage: 'https://picsum.photos/400/200',
       missionWebsiteUrl: 'http://gracefo.jpl.nasa.gov/',
       heroImage: {
-        srcSet:
-          'https://source.unsplash.com/OLlj17tUZnU//320x200 320w, https://source.unsplash.com/OLlj17tUZnU/1920x1200 1440w',
+        srcSet: 'https://picsum.photos/320/320 320w, https://picsum.photos/1920/1200 1440w',
         src: {
-          url: 'https://source.unsplash.com/OLlj17tUZnU/1920x1200',
+          url: 'https://picsum.photos/1920/1200',
           width: 1920,
           height: 1200
         },
