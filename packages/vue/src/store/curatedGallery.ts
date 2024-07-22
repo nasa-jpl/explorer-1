@@ -6,6 +6,7 @@ export interface State {
   showGridView?: boolean
 }
 
+// @ts-expect-error
 export const useCuratedGalleryStore = defineStore('curatedGallery', {
   state: (): State => {
     return {
@@ -16,5 +17,7 @@ export const useCuratedGalleryStore = defineStore('curatedGallery', {
     updateView(value: boolean) {
       this.showGridView = value
     }
-  }
+  },
+  // @pinia-plugin-persistedstate/nuxt
+  persist: true
 })

@@ -25,16 +25,8 @@ export default {
       options: Object.keys(variants)
     }
   },
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    },
-    viewMode: 'canvas'
+    layout: 'fullscreen'
   },
   excludeStories: /.*(Data)$/
 }

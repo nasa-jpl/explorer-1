@@ -13,8 +13,7 @@ export default {
     layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
-    },
-    viewMode: 'canvas'
+    }
   },
   excludeStories: /.*(Data)$/
 }

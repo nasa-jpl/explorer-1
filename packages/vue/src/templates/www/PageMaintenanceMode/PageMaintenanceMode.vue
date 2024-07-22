@@ -15,20 +15,15 @@
               alt=""
             />
             <h1 class="lg:text-7xl mt-10 text-4xl font-bold leading-normal tracking-normal">
-              {{
-                $config && $config.MAINTENANCE_MODE_HEADING
-                  ? $config.MAINTENANCE_MODE_HEADING
-                  : 'Houston, we have an&nbsp;update.'
-              }}
+              {{ heading || 'Houston, we have an&nbsp;update.' }}
             </h1>
 
             <p
               class="lg:text-xl text-base py-5 max-w-2xl mx-auto lg:mb-10 mb-6 font-semibold leading-normal tracking-normal"
             >
               {{
-                $config && $config.MAINTENANCE_MODE_DESCRIPTION
-                  ? $config.MAINTENANCE_MODE_DESCRIPTION
-                  : 'The JPL website is undergoing planned maintenance and will be back online when the update is complete in a few&nbsp;minutes.'
+                description ||
+                'The JPL website is undergoing planned maintenance and will be back online when the update is complete in a few&nbsp;minutes.'
               }}
             </p>
             <NavSocial class="justify-center" />
@@ -48,6 +43,18 @@ export default defineComponent({
   name: 'PageMaintenanceMode',
   components: {
     NavSocial
+  },
+  props: {
+    heading: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    description: {
+      type: String,
+      required: false,
+      default: undefined
+    }
   },
   data() {
     return {

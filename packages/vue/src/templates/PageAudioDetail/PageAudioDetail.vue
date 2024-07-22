@@ -256,7 +256,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   data() {
@@ -291,20 +292,10 @@ export default defineComponent({
       }
     },
     toggleTranscript() {
-      let scrollOffset = -150
-      if (window.innerWidth < 1024) {
-        scrollOffset = -80
-      }
       if (!this.collapseTranscript && this.$refs.audioTranscript) {
-        this.$scrollTo(this.$refs.audioTranscript as HTMLElement, 300, {
-          offset: scrollOffset,
-          // Disabled to fix keyboard-triggered scroll stopping too early.
-          // See https://github.com/rigor789/vue-scrollto/issues/130.
-          cancelable: false,
-          onDone: () => {
-            this.collapseTranscript = true
-          }
-        })
+        // @ts-ignore
+        this.$refs.audioTranscript.scrollIntoView({ behavior: 'smooth' })
+        this.collapseTranscript = true
       } else {
         this.collapseTranscript = false
       }

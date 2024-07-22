@@ -117,18 +117,19 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {
-    theNews(): object | false {
+    theNews(): any[] | undefined {
       // check first for featured news
-      if (this.data.featuredNews && this.data.featuredNews.length) {
+      if (this.data?.featuredNews?.length) {
         return this.data.featuredNews
-      } else if (this.data.latestNews && this.data.latestNews.length) {
+      } else if (this.data?.latestNews?.length) {
         return this.data.latestNews
       }
-      return false
+      return undefined
     }
   }
 })

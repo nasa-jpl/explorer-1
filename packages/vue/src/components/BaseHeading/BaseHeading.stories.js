@@ -25,7 +25,6 @@ export default {
     slots: {
       default: 'BaseStory slot content'
     },
-    viewMode: 'docs',
     docs: {
       description: {
         component:

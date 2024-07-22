@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 /** Stores the state of various user preferences on listing and search pages
  */
 
-export interface SearchState {
+export interface State {
   showSidebar: boolean | undefined
   showGridView: boolean | undefined
   showSidebarForGalleries: boolean | undefined
@@ -10,8 +10,9 @@ export interface SearchState {
   showGridViewForPodcasts: boolean | undefined
 }
 
-export const useSearchStore = defineStore('search', {
-  state: (): SearchState => {
+// @ts-expect-error
+export const useHeaderStore = defineStore('search', {
+  state: (): State => {
     return {
       showSidebar: undefined,
       showGridView: undefined,
@@ -37,5 +38,6 @@ export const useSearchStore = defineStore('search', {
       this.showGridViewForPodcasts = value
     }
   },
+  // @pinia-plugin-persistedstate/nuxt
   persist: true
 })

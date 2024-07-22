@@ -8,8 +8,7 @@ export default {
   excludeStories: /.*Data$/,
   tags: ['!autodocs'],
   parameters: {
-    layout: 'fullscreen',
-    viewMode: 'canvas'
+    layout: 'fullscreen'
   }
 }
 

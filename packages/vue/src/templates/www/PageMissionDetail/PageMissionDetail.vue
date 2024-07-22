@@ -107,7 +107,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {
@@ -118,6 +119,7 @@ export default defineComponent({
       return 'ThemeVariantLight'
     },
     moreAboutTopicHeading() {
+      // @ts-ignore
       const { topicLabels } = this.data
       if (!topicLabels || topicLabels.length === 0) {
         return 'More'

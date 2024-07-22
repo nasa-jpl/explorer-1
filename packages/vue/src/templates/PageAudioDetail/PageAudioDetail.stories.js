@@ -23,11 +23,39 @@ export const PageAudioDetailData = {
     thumbnailImage: {
       alt: '',
       id: '341',
-      url: 'http://127.0.0.1:9000/media/original_images/imagessg_otherblackhole-16.jpg'
+      url: '/public/images/bg-earth-1440x810.jpg'
     },
     title: 'Testing Audio',
     topicLabel: 'JPL Life',
-    transcript: '<p>Transcript here</p><p></p><p>transcript there</p>',
+    transcript: `<p>Preparing to Land Perseverance</p>
+    <p>The following tests, conducted from 2017-2020, helped prepare NASA's Perseverance rover for its landing on Mars.</p>
+    <p>[music]</p>
+    <p>Centrifuge Spin Test</p>
+    <p>Santa Clarita, CA June 2019</p>
+    <p>[music]</p>
+    <p>Parachute Firing Test</p>
+    <p>Moses Lake, WA May 2019</p>
+    <p>[music]</p>
+    <p>[mortar firing]</p>
+    <p>[mortar firing]</p>
+    <p>[clapping]</p>
+    <p>Parachute Wind Tunnel Test</p>
+    <p>NASA's Ames Research Center </p>
+    <p>Moffett Field, CA June 2017</p>
+    <p>[music]</p>
+    <p>[mortar firing]</p>
+    <p>[wind]</p>
+    <p>[clapping]</p>
+    <p>Lander Vision System Test</p>
+    <p>For Avoiding Landing Hazards</p>
+    <p>Death Valley, CA May 2019</p>
+    <p>[helicopter taking off]</p>
+    <p>[music]</p>
+    <p>Rover Wheel Drop Test</p>
+    <p>NASA's Jet Propulsion Laboratory</p>
+    <p>Southern CA August 2019</p>
+    <p>[wheel dropping]</p>
+    <p>[hitting rock]</p>`,
     uploadedMedia: {
       collection: {
         id: '1',
@@ -36,12 +64,11 @@ export const PageAudioDetailData = {
       },
       createdAt: '2020-12-10T07:38:30.951546+00:00',
       duration: '11',
-      file: 'http://127.0.0.1:9000/media/media/05_Da_Funk_Call_Out_Research_Hook.mp3',
+      file: '/audio/file_example_MP3_700KB.mp3',
       fileExtension: 'mp3',
       fileOgg: '',
       id: '1',
-      sources:
-        "[{'src': 'http://127.0.0.1:9000/media/media/05_Da_Funk_Call_Out_Research_Hook.mp3', 'type': 'audio/mpeg'}]",
+      sources: "[{'src': '/audio/file_example_MP3_700KB.mp3', 'type': 'audio/mpeg'}]",
       thumbnail: '',
       title: 'audio file',
       type: 'audio'

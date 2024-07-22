@@ -10,7 +10,6 @@ export default {
   },
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'docs',
     docs: {
       description: {
         component:

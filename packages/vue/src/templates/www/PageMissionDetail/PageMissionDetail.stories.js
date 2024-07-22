@@ -22,8 +22,7 @@ export default {
     layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
-    },
-    viewMode: 'canvas'
+    }
   },
   excludeStories: /.*(Data)$/
 }
@@ -48,7 +47,7 @@ export const BaseStory = {
         'OCO-2 is an Earth satellite mission designed to study the sources and sinks of carbon dioxide globally and provide scientists with a better idea of how carbon is contributing to climate change. ',
       thumbnailImage: 'https://placekitten.com/400/200',
       missionWebsiteUrl: 'http://oco.jpl.nasa.gov/',
-      topicLabel: 'Topic Label',
+      topicLabels: ['Stars and Galaxies', 'Exoplanets'],
       heroImage: {
         srcSet:
           'https://source.unsplash.com/OLlj17tUZnU//320x200 320w, https://source.unsplash.com/OLlj17tUZnU/1920x1200 1440w',

@@ -4,7 +4,6 @@ import { HeroMediaTemplate } from './HeroMedia'
 export default {
   title: 'Components/Blocks/Heroes/Media Only',
   excludeStories: /.*Data$/,
-  decorators: [(Story) => `<div id="storyRoot" class="absolute inset-0">${Story()}</div>`],
   argTypes: {
     image: {
       type: { name: 'array', required: false },
@@ -24,9 +23,7 @@ export default {
     }
   },
   parameters: {
-    html: {
-      root: '#storyRoot'
-    },
+    layout: 'fullscreen',
     viewMode: 'docs',
     docs: {
       inlineStories: false,

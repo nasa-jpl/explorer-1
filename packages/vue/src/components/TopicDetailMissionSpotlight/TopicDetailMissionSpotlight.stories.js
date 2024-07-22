@@ -2,16 +2,8 @@ import TopicDetailMissionSpotlight from './TopicDetailMissionSpotlight.vue'
 export default {
   title: 'Components/WWW/TopicDetail/TopicDetailMissionSpotlight',
   component: TopicDetailMissionSpotlight,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    },
-    viewMode: 'canvas'
+    layout: 'fullscreen'
   },
   excludeStories: /.*Data$/
 }
