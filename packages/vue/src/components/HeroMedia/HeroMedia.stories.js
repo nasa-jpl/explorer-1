@@ -2,13 +2,17 @@ import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
 import HeroMedia from './HeroMedia.vue'
 
 export default {
-  title: 'Components/Heroes/HeroMedia',
+  title: 'Components/Heroes/Media Only',
   component: HeroMedia,
   parameters: {
     html: {
       root: '#storyDecorator'
     },
-    viewMode: 'canvas'
+    docs: {
+      description: {
+        component: 'No text overlay, just an image or video with a caption below.'
+      }
+    }
   },
   excludeStories: /.*Data$/
 }
@@ -74,7 +78,8 @@ export const HeroMediaData = {
 }
 
 // stories
-export const Hero = {
+export const BaseStory = {
+  name: 'HeroMedia',
   args: HeroMediaData
 }
 export const CustomImageCaption = {

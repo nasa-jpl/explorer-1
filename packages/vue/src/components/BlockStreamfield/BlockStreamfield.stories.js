@@ -25,39 +25,31 @@ export default {
       options: Object.keys(variants)
     }
   },
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    },
-    viewMode: 'canvas'
+    layout: 'fullscreen'
   },
   excludeStories: /.*(Data)$/
 }
 
-export const BlockStreamfieldMinimalData = {
+export const BlockStreamfieldTruncatedData = {
   body: [
     BlockKeyPointsData,
-    { ...BlockHeadingData, level: 'h2', size: 'h2' },
+    BlockHeadingData,
     {
       blockType: 'RichTextBlock',
       value:
         '<p>Lorem ipsum <a href="/missions/test-mission/">dolor</a> sit amet, consectetur adipiscing elit. Quisque vitae justo quis justo malesuada molestie. Cras sed tincidunt dui.</p><p>Integer imperdiet blandit neque vitae euismod. Nulla aliquet lacus nibh,  vel tincidunt urna efficitur non. In et eros vitae ex posuere maximus  quis eget urna. Suspendisse fringilla posuere velit sit amet posuere.  Morbi malesuada bibendum vehicula. Donec faucibus ut erat ut mattis.  Suspendisse ornare, quam at placerat cursus, dolor mi lacinia nunc, eget  maximus augue nulla in dolor.</p>\n'
     },
-    BlockInlineImageData.block,
+    BlockImageComparisonData,
+    BlockHeadingData,
     {
       blockType: 'RichTextBlock',
       value:
-        '<p>Cras sed tincidunt dui.</p><p>Integer imperdiet blandit neque vitae euismod. Nulla aliquet lacus nibh,  vel tincidunt urna efficitur non. In et eros vitae ex posuere maximus  quis eget urna. Morbi malesuada bibendum vehicula. Donec faucibus ut erat ut mattis.  Suspendisse ornare, quam at placerat cursus, dolor mi lacinia nunc, eget  maximus augue nulla in dolor.</p>\n'
+        '<p>Lorem ipsum <a href="/missions/test-mission/">dolor</a> sit amet, consectetur adipiscing elit. Quisque vitae justo quis justo malesuada molestie. Cras sed tincidunt dui.</p><p>Integer imperdiet blandit neque vitae euismod. Nulla aliquet lacus nibh,  vel tincidunt urna efficitur non. In et eros vitae ex posuere maximus  quis eget urna. Suspendisse fringilla posuere velit sit amet posuere.  Morbi malesuada bibendum vehicula. Donec faucibus ut erat ut mattis.  Suspendisse ornare, quam at placerat cursus, dolor mi lacinia nunc, eget  maximus augue nulla in dolor.</p>\n'
     },
-    BlockCtaData
+    BlockIframeEmbedData
   ]
 }
-
 export const BlockStreamfieldData = {
   body: [
     BlockKeyPointsData,
@@ -68,6 +60,16 @@ export const BlockStreamfieldData = {
         '<p>Lorem ipsum <a href="/missions/test-mission/">dolor</a> sit amet, consectetur adipiscing elit. Quisque vitae justo quis justo malesuada molestie. Cras sed tincidunt dui.</p><p>Integer imperdiet blandit neque vitae euismod. Nulla aliquet lacus nibh,  vel tincidunt urna efficitur non. In et eros vitae ex posuere maximus  quis eget urna. Suspendisse fringilla posuere velit sit amet posuere.  Morbi malesuada bibendum vehicula. Donec faucibus ut erat ut mattis.  Suspendisse ornare, quam at placerat cursus, dolor mi lacinia nunc, eget  maximus augue nulla in dolor.</p>\n'
     },
     BlockInlineImageData.block,
+    {
+      blockType: 'HeadingBlock',
+      heading: 'Heading 2',
+      level: 'h2'
+    },
+    {
+      blockType: 'HeadingBlock',
+      heading: 'Heading 3',
+      level: 'h3'
+    },
     {
       blockType: 'RichTextBlock',
       value:
@@ -95,7 +97,7 @@ export const BlockStreamfieldData = {
   ]
 }
 
-export const Default = {
+export const BaseStory = {
   args: { data: BlockStreamfieldData.body, variant: 'default' }
 }
 

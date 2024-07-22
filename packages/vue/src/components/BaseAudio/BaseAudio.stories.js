@@ -23,7 +23,7 @@ export const BaseAudioData = {
   loop: false
 }
 
-export const Base = {
+export const BaseStory = {
   name: 'BaseAudio', // single story hoisting
   args: BaseAudioData
 }

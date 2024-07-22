@@ -1,7 +1,7 @@
 import NewsDetailMediaContact from './NewsDetailMediaContact.vue'
 
 export default {
-  title: 'WWW/NewsDetail/NewsDetailMediaContact',
+  title: 'Components/WWW/NewsDetail/NewsDetailMediaContact',
   component: NewsDetailMediaContact
 }
 
@@ -16,7 +16,7 @@ const contacts = [
   }
 ]
 
-export const Single = { args: { contacts, releaseNumber: '2020-140' } }
+export const BaseStory = { args: { contacts, releaseNumber: '2020-140' } }
 
 export const Multiple = {
   args: {

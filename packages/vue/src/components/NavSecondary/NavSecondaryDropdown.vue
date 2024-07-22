@@ -6,7 +6,7 @@
       'mr-auto': index === 0
     }"
   >
-    <MixinDropdownToggle
+    <NavDropdownToggle
       :aria-expanded="dropdownVisible ? true : false"
       :path="item.path"
       class="font-medium border-t-2 border-transparent block px-3 py-2"
@@ -29,7 +29,7 @@
         <span>{{ item.title }}</span>
         <IconCaret class="transform rotate-90 text-sm ml-2 pl-2 -mt-px" />
       </span>
-    </MixinDropdownToggle>
+    </NavDropdownToggle>
     <transition name="navfade">
       <div
         v-if="dropdownVisible"
@@ -48,14 +48,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import IconCaret from './../Icons/IconCaret.vue'
-import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
+import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavSecondaryDropdownContent from './../NavSecondary/NavSecondaryDropdownContent.vue'
 
 export default defineComponent({
   name: 'NavSecondaryDropdown',
   components: {
     IconCaret,
-    MixinDropdownToggle,
+    NavDropdownToggle,
     NavSecondaryDropdownContent
   },
   props: {
@@ -126,7 +126,7 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .NavSecondaryDropdown {
-  .MixinDropdownToggle {
+  .NavDropdownToggle {
     &.-open {
       > span {
         @apply border-black text-gray-dark #{!important};

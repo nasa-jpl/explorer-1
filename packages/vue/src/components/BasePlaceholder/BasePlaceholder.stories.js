@@ -5,7 +5,6 @@ export default {
   component: BasePlaceholder,
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'docs',
     docs: {
       description: {
         component: `An animated loading component frequently used as a placeholder for <a href="/story/components-search-searchresultcard--standard-result" target="_blank">SearchResultCard</a>`
@@ -24,6 +23,6 @@ const BasePlaceholderTemplate = (args) => ({
   template: `<div><BasePlaceholder /></div>`
 })
 
-export const Base = BasePlaceholderTemplate.bind({})
-Base.storyName = 'BasePlaceholder' // single story hoisting
-Base.args = { ...BasePlaceholderData }
+export const BaseStory = BasePlaceholderTemplate.bind({})
+BaseStory.storyName = 'BasePlaceholder' // single story hoisting
+BaseStory.args = { ...BasePlaceholderData }

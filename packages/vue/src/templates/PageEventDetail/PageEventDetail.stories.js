@@ -10,13 +10,13 @@ export default {
     html: {
       root: '#storyDecorator'
     },
-    viewMode: 'canvas'
+    layout: 'fullscreen'
   },
   excludeStories: /.*Data$/
 }
 
 // stories
-export const EventDetail = {
+export const BaseStory = {
   args: {
     data: {
       id: '285',

@@ -1,6 +1,41 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import IconSearch from './../Icons/IconSearch.vue'
+
+interface SearchInputProps {
+  underlinedInput?: boolean
+  underlinedInputValue?: string
+  placeholder?: string
+  autoFocus?: boolean
+  defaultColors?: boolean
+}
+
+// define props
+const props = withDefaults(defineProps<SearchInputProps>(), {
+  underlinedInput: false,
+  underlinedInputValue: undefined,
+  placeholder: '',
+  autoFocus: false,
+  defaultColors: true
+})
+
+const emit = defineEmits(['input', 'esc'])
+
+const model = defineModel()
+const isFocused = ref(false)
+const searchQueryRef = ref(undefined)
+
+onMounted(() => {
+  if (props.autoFocus && searchQueryRef.value) {
+    const inputField = searchQueryRef.value as HTMLElement
+    inputField.focus()
+    isFocused.value = true
+  }
+})
+</script>
 <template>
   <!--
-    A somewhat generic component that can be used for handiling search input
+    A somewhat generic component that can be used for handling search input
     We do this in at least two places:
       * on pages (such as the search page and listing pages)
       * for site-wide search -->
@@ -48,41 +83,6 @@
     />
   </div>
 </template>
-<script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import IconSearch from './../Icons/IconSearch.vue'
-
-interface SearchInputProps {
-  underlinedInput?: boolean
-  underlinedInputValue?: string
-  placeholder?: string
-  autoFocus?: boolean
-  defaultColors?: boolean
-}
-
-// define props
-const props = withDefaults(defineProps<SearchInputProps>(), {
-  underlinedInput: false,
-  underlinedInputValue: undefined,
-  placeholder: '',
-  autoFocus: false,
-  defaultColors: true
-})
-
-const emit = defineEmits(['input', 'esc'])
-
-const model = defineModel()
-const isFocused = ref(false)
-const searchQueryRef = ref(undefined)
-
-onMounted(() => {
-  if (props.autoFocus && searchQueryRef.value) {
-    const inputField = searchQueryRef.value as HTMLElement
-    inputField.focus()
-    isFocused.value = true
-  }
-})
-</script>
 <style lang="scss" scoped>
 .custom-focus {
   input {

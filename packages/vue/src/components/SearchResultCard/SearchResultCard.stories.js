@@ -36,7 +36,7 @@ export const SearchResultCardData = {
   featured: false
 }
 
-export const StandardResult = { args: SearchResultCardData }
+export const BaseStory = { name: 'Standard Result', args: SearchResultCardData }
 
 export const FeaturedResult = {
   args: { ...SearchResultCardData, featured: true }

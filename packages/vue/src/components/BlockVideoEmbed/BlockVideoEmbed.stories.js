@@ -17,4 +17,4 @@ export const BlockVideoEmbedData = {
   }
 }
 
-export const Default = { name: 'BlockVideoEmbed', args: { data: BlockVideoEmbedData.data } }
+export const BaseStory = { name: 'BlockVideoEmbed', args: { data: BlockVideoEmbedData.data } }

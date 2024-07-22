@@ -1,6 +1,6 @@
 {
   "name": "@explorer-1/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared eslint config",
   "main": "index.js",
   "private": false,

@@ -5,7 +5,6 @@ export default {
   component: BlockQuote,
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'docs',
     docs: {
       description: {
         component:
@@ -44,8 +43,8 @@ const BlockQuoteTemplate = (args) => ({
   template: `<BlockQuote v-bind="args" />`
 })
 
-export const Default = BlockQuoteTemplate.bind({})
-Default.args = {
+export const BaseStory = BlockQuoteTemplate.bind({})
+BaseStory.args = {
   data: {
     quote: BlockQuoteData.quote,
     attribution: BlockQuoteData.attribution,

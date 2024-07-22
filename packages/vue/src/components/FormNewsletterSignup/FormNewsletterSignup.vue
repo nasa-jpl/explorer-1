@@ -27,93 +27,44 @@
             size="h6"
             >Contact Information</BaseHeading
           >
-          <div class="mt-8">
-            <label
-              id="email_label"
-              for="email"
-              class="text-gray-dark text-subtitle"
-            >
-              Email <span class="text-jpl-red">*</span>
-            </label>
-            <div class="mt-2">
-              <input
-                id="email"
-                v-model="prefilledEmail"
-                type="email"
-                name="data[email]"
-                required
-                aria-required="true"
-                aria-labelledby="email_label"
-                placeholder="enter your email"
-                class="w-full px-4 py-3"
-              />
-            </div>
-          </div>
-          <div class="mt-8">
-            <label
-              id="first_name_label"
-              for="first_name"
-              class="text-gray-dark text-subtitle"
-            >
-              First Name
-            </label>
-            <div class="mt-2">
-              <input
-                id="first_name"
-                type="text"
-                name="data[fname]"
-                maxlength="32"
-                aria-required="false"
-                aria-labelledby="first_name_label"
-                placeholder="enter your first name"
-                class="w-full px-4 py-3"
-              />
-            </div>
-          </div>
-          <div class="mt-8">
-            <label
-              id="last_name_label"
-              for="last_name"
-              class="text-gray-dark text-subtitle"
-            >
-              Last Name
-            </label>
-            <div class="mt-2">
-              <input
-                id="last_name"
-                type="text"
-                name="data[lname]"
-                maxlength="64"
-                aria-required="false"
-                aria-labelledby="last_name_label"
-                placeholder="enter your last name"
-                class="w-full px-4 py-3"
-              />
-            </div>
-          </div>
-          <div class="mt-8">
-            <label
-              id="zip_code_label"
-              for="zip_code"
-              class="text-gray-dark text-subtitle"
-            >
-              Zip
-            </label>
-            <div class="mt-2">
-              <input
-                id="zip_code"
-                type="text"
-                name="data[zip]"
-                pattern="[0-9]{5-10}"
-                maxlength="10"
-                title="Five digit zip code"
-                aria-required="false"
-                aria-labelledby="zip_code_label"
-                placeholder="enter your 5-digit zip code"
-                class="w-full px-4 py-3"
-              />
-            </div>
-          </div>
+          <TextInput
+            v-model="prefilledEmail"
+            class="mt-8"
+            input-name="data[email]"
+            label="Email"
+            type="email"
+            required
+            placeholder="enter your email"
+          />
+
+          <TextInput
+            class="mt-8"
+            input-name="data[fname]"
+            label="First Name"
+            type="text"
+            placeholder="enter your first name"
+          />
+
+          <TextInput
+            class="mt-8"
+            input-name="data[lname]"
+            label="Last Name"
+            type="text"
+            maxlength="64"
+            placeholder="enter your last name"
+          />
+
+          <TextInput
+            class="mt-8"
+            input-name="data[zip]"
+            label="Zip"
+            type="text"
+            maxlength="10"
+            pattern="[0-9]{5-10}"
+            title="Five digit zip code"
+            placeholder="enter your 5-digit zip code"
+          />
+
           <BaseHeading
             level="h2"
             size="h6"
@@ -175,12 +126,13 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
-import qs from 'qs'
+import { stringify } from 'fast-qs'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import BaseRadioGroup from './../BaseRadioGroup/BaseRadioGroup.vue'
 import BaseCheckboxGroup from './../BaseCheckboxGroup/BaseCheckboxGroup.vue'
+import TextInput from './../TextInput/TextInput.vue'
 
 const iContactForm =
   'https://app.icontact.com/icp/core/mycontacts/signup/designer/form/?id=5&cid=1389932&lid=11365'
@@ -267,7 +219,8 @@ export default defineComponent({
     BaseHeading,
     BaseButton,
     BaseCheckboxGroup,
-    BaseRadioGroup
+    BaseRadioGroup,
+    TextInput
   },
   data() {
     return {
@@ -327,7 +280,7 @@ export default defineComponent({
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
-          body: qs.stringify({
+          body: stringify({
             'data[email]': data.email,
             'data[fname]': data.first_name,
             'data[lname]': data.last_name,

@@ -2,7 +2,7 @@ import RoboticsDetailStats from './RoboticsDetailStats.vue'
 import RoboticsDetailStatsMini from './RoboticsDetailStatsMini.vue'
 
 export default {
-  title: 'WWW/RoboticsDetail/RoboticsDetailStats',
+  title: 'Components/WWW/RoboticsDetail/RoboticsDetailStats',
   component: RoboticsDetailStats,
   subcomponents: { RoboticsDetailStatsMini },
   decorators: [
@@ -31,7 +31,7 @@ export const RoboticsDetailStatsData = {
   animalAnalogName: 'Lemur',
   animalAnalogIcon: {
     webp: {
-      url: 'https://images.unsplash.com/photo-1535468899888-92047ec84051?fm=webp&crop=entropy&w=320&h=320&fit=crop'
+      url: 'https://picsum.photos/320/320'
     },
     src: {
       url: 'https://picsum.photos/320/320'
@@ -67,7 +67,7 @@ export const RoboticsDetailStatsData = {
   ]
 }
 
-export const Base = {
+export const BaseStory = {
   args: {
     mass: RoboticsDetailStatsData.mass,
     height: RoboticsDetailStatsData.height,

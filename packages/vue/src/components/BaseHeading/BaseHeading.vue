@@ -18,16 +18,14 @@ export default defineComponent({
   name: 'BaseHeading',
   props: {
     level: {
-      type: (String as PropType<HeadingLevel>) || null,
+      type: String as PropType<HeadingLevel | undefined>,
       required: false,
-      default: 'h2',
-      validator: (prop: string): boolean => Object.keys(headings).includes(prop)
+      default: 'h2'
     },
     size: {
-      type: String as PropType<HeadingLevel>,
+      type: String as PropType<HeadingLevel | '' | undefined>,
       required: false,
-      default: 'h2',
-      validator: (prop: string): boolean => Object.keys(headings).includes(prop)
+      default: ''
     }
   },
   computed: {
@@ -35,7 +33,7 @@ export default defineComponent({
       if (this.level) {
         return this.level
       } else {
-        return this.size
+        return this.size || 'h2'
       }
     },
     computedClass(): string {

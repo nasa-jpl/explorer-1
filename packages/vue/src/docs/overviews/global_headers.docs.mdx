@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/blocks'
+import { ComponentList } from './../utils/ComponentList'
+import * as NavDesktopStories from './../../components/NavDesktop/NavDesktop.stories'
+import * as NavDesktopEduStories from './../../components/NavDesktopEdu/NavDesktopEdu.stories'
+
+<Meta title="Navigation/Headers/Overview" />
+
+# Headers
+
+Headers are to be placed at the very top of your website or application. Header styles are specific to your site's visibility (internal vs. external/public) and theme.
+
+<ComponentList
+  components={[
+    {
+      heading: 'External Header (WWW)',
+      meta: NavDesktopStories,
+      path: '/story/navigation-headers-www-navdesktop--base-story',
+      fullWidth: true,
+      fullCanvas: true
+    },
+    {
+      heading: 'External Header (EDU)',
+      meta: NavDesktopEduStories,
+      path: '/story/navigation-headers-edu-navdesktopedu--base-story',
+      fullWidth: true,
+      fullCanvas: true
+    }
+  ]}
+/>

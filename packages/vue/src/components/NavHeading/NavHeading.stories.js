@@ -2,7 +2,7 @@ import { MenuLinkColumnWithHeaderData } from './../NavLinkList/NavLinkList.stori
 import NavHeading from './NavHeading.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavHeading',
+  title: 'Navigation/Elements/NavHeading',
   component: NavHeading,
   decorators: [
     () => ({
@@ -18,6 +18,6 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Default = {
+export const BaseStory = {
   args: { data: MenuLinkColumnWithHeaderData }
 }

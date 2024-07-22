@@ -1,7 +1,7 @@
 import HeroLarge from './HeroLarge.vue'
 
 export default {
-  title: 'Components/Heroes/HeroLarge',
+  title: 'Components/Heroes/Large',
   component: HeroLarge,
   excludeStories: /.*Data$/,
   parameters: {
@@ -36,7 +36,7 @@ export const HeroLargeData = {
 }
 
 // stories
-export const Hero = {
+export const BaseStory = {
   name: 'HeroLarge',
   args: {
     eyebrow: 'Robotics at JPL',

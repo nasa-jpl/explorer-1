@@ -2,7 +2,7 @@ import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
 import HeroMedium from './HeroMedium.vue'
 
 export default {
-  title: 'Components/Heroes/HeroMedium',
+  title: 'Components/Heroes/Medium',
   component: HeroMedium,
   decorators: [
     () => ({
@@ -54,13 +54,24 @@ export const HeroMediumData = {
   }
 }
 
-export const Default = {
+export const BaseStory = {
+  name: 'HeroMedium',
   args: {
     customTag: 'News',
     customLabel: HeroMediumData.label,
     feature: HeroMediumData.feature,
     cta: HeroMediumData.cta,
     customVideo: undefined
+  }
+}
+export const Compact = {
+  args: {
+    customTag: 'News',
+    customLabel: HeroMediumData.label,
+    feature: HeroMediumData.feature,
+    cta: HeroMediumData.cta,
+    customVideo: undefined,
+    compact: true
   }
 }
 export const Video = {

@@ -1,24 +1,31 @@
 import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories'
-import { BlockStreamfieldData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
+import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageEduNewsDetail from './PageEduNewsDetail.vue'
 
 export default {
   title: 'Templates/EDU/PageEduNewsDetail',
   component: PageEduNewsDetail,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
     })
   ],
   parameters: {
+    layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
+    },
+    docs: {
+      description: {
+        component: 'Doesn\'t look like EDU? Be sure to select "EDU Theme" in the toolbar dropdown.'
+      }
     }
   },
   excludeStories: /.*Data$/
 }
 
-export const EduNewsDetail = {
+export const BaseStory = {
   args: {
     data: {
       slug: 'nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
@@ -40,7 +47,7 @@ export const EduNewsDetail = {
       heroPosition: 'full_bleed',
       heroImage: HeroMediaData.image,
       heroImageInline: HeroMediaData.imageInline,
-      ...BlockStreamfieldData
+      ...BlockStreamfieldTruncatedData
     }
   }
 }
@@ -48,7 +55,7 @@ export const EduNewsDetail = {
 export const InlineHero = {
   args: {
     data: {
-      ...EduNewsDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline'
     }
   }
@@ -57,7 +64,7 @@ export const InlineHero = {
 export const NoHero = {
   args: {
     data: {
-      ...EduNewsDetail.args.data,
+      ...BaseStory.args.data,
       hero: []
     }
   }

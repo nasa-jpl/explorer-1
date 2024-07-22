@@ -31,7 +31,7 @@ export const BaseImageData = {
   objectFitClass: 'contain'
 }
 // stories
-export const Default = {
+export const BaseStory = {
   args: BaseImageData,
   decorators: [() => ({ template: '<div class="max-w-full"><story /></div>' })]
 }

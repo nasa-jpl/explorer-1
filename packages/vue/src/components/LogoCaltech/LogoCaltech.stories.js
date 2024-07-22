@@ -1,7 +1,7 @@
 import LogoCaltech from './LogoCaltech.vue'
 
 export default {
-  title: 'Foundation/Logos/LogoCaltech',
+  title: 'Foundations/Logos/LogoCaltech',
   component: LogoCaltech,
   argTypes: {
     size: {
@@ -34,6 +34,6 @@ const LogoCaltechComponentTemplate = (args) => ({
   template: `<LogoCaltech :class="size" />`
 })
 
-export const Caltech = LogoCaltechComponentTemplate.bind({})
-Caltech.storyName = 'LogoCaltech' // single story hoisting
-Caltech.args = { size: 'text-base' }
+export const BaseStory = LogoCaltechComponentTemplate.bind({})
+BaseStory.storyName = 'LogoCaltech' // single story hoisting
+BaseStory.args = { size: 'text-base' }

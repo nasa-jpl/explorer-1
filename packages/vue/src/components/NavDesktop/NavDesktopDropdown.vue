@@ -1,6 +1,6 @@
 <template>
   <div class="NavDesktopDropdown">
-    <MixinDropdownToggle
+    <NavDropdownToggle
       v-click-outside="closeDropdown"
       :aria-expanded="dropdownVisible ? true : false"
       class="group relative z-20 px-4 font-medium border-t-2 border-transparent"
@@ -16,7 +16,7 @@
       >
         <slot name="dropdownLabel">Dropdown</slot>
       </span>
-    </MixinDropdownToggle>
+    </NavDropdownToggle>
 
     <transition name="navfade">
       <div
@@ -39,12 +39,12 @@
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from './../../store/header'
-import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
+import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 
 export default defineComponent({
   name: 'NavDesktopDropdown',
   components: {
-    MixinDropdownToggle
+    NavDropdownToggle
   },
   props: {
     parentScrolled: {
@@ -125,27 +125,27 @@ export default defineComponent({
 
     &.-open {
       > span {
-        @apply border-jpl-red;
+        @apply border-primary edu:border-white;
 
         .-transparent & {
           @apply border-white;
         }
 
         .-transparent.-scrolled & {
-          @apply border-jpl-red;
+          @apply border-primary edu:border-white;
         }
       }
     }
     &:hover {
       > span {
-        @apply border-jpl-red;
+        @apply border-primary edu:border-white;
 
         .-transparent & {
           @apply border-white;
         }
 
         .-transparent.-scrolled & {
-          @apply border-jpl-red;
+          @apply border-primary edu:border-white;
         }
       }
     }
@@ -154,14 +154,14 @@ export default defineComponent({
   &.-active {
     > button {
       > span {
-        @apply border-jpl-red font-bold;
+        @apply border-primary edu:border-white font-bold;
 
         .-transparent & {
           @apply border-white;
         }
 
         .-transparent.-scrolled & {
-          @apply border-jpl-red;
+          @apply border-primary edu:border-white;
         }
 
         &.hasSecondary {

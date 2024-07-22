@@ -1,6 +1,6 @@
 import { HeroMediaData } from './../../components/HeroMedia/HeroMedia.stories'
 import { DetailHeadlineData } from './../../components/DetailHeadline/DetailHeadline.stories'
-import { BlockStreamfieldData } from './../../components/BlockStreamfield/BlockStreamfield.stories'
+import { BlockStreamfieldTruncatedData } from './../../components/BlockStreamfield/BlockStreamfield.stories'
 import {
   BlockLinkCardCarouselData,
   BlockLinkTileCarouselData
@@ -21,6 +21,7 @@ export default {
     })
   ],
   parameters: {
+    layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
     }
@@ -28,7 +29,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const NewsDetail = {
+export const BaseStory = {
   args: {
     data: {
       slug: 'nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
@@ -53,7 +54,7 @@ export const NewsDetail = {
           blockType: 'HeroImageBlock'
         }
       ],
-      ...BlockStreamfieldData,
+      ...BlockStreamfieldTruncatedData,
       releaseNumber: '2020-157',
       relatedLinks: [BlockRelatedLinksData.data],
       mediaContacts: [
@@ -75,7 +76,7 @@ export const NewsDetail = {
 export const InlineHero = {
   args: {
     data: {
-      ...NewsDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline'
     }
   }
@@ -84,7 +85,7 @@ export const InlineHero = {
 export const HeroCarousel = {
   args: {
     data: {
-      ...NewsDetail.args.data,
+      ...BaseStory.args.data,
       hero: [{ blockType: 'CarouselBlock', blocks: BlockImageCarouselData }]
     }
   }
@@ -93,7 +94,7 @@ export const HeroCarousel = {
 export const HeroImageComparison = {
   args: {
     data: {
-      ...NewsDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline',
       hero: [
         {
@@ -107,7 +108,7 @@ export const HeroImageComparison = {
 export const HeroVideo = {
   args: {
     data: {
-      ...NewsDetail.args.data,
+      ...BaseStory.args.data,
       hero: [
         {
           blockType: 'VideoBlock',
@@ -123,7 +124,7 @@ export const HeroVideo = {
 export const HeroVideoEmbed = {
   args: {
     data: {
-      ...NewsDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline',
       hero: [
         {
@@ -141,7 +142,7 @@ export const HeroVideoEmbed = {
 export const NoHero = {
   args: {
     data: {
-      ...NewsDetail.args.data,
+      ...BaseStory.args.data,
       hero: []
     }
   }
@@ -150,7 +151,7 @@ export const NoHero = {
 export const WithTopper = {
   args: {
     data: {
-      ...NewsDetail.args.data,
+      ...BaseStory.args.data,
       topper:
         '<p>Editor’s Note: Mars Helicopter flight delayed to no earlier than April 14.</p><p><a href="https://mars.nasa.gov/technology/helicopter/status/291/mars-helicopter-flight-delayed-to-no-earlier-than-april-14/"><i>Read here for more information</i></a><i>.</i></p><p></p><hr/><p></p>'
     }

@@ -283,6 +283,13 @@ export default {
     require('@tailwindcss/forms'),
     plugin(({ addBase }) => {
       addBase({
+        // reusable typography classes TODO: write a more robust way to include most typography classes
+        '.text-subtitle': {
+          '@apply font-secondary uppercase text-base leading-tight tracking-wider': {}
+        },
+        '.text-subtitle-sm': {
+          '@apply font-secondary uppercase text-sm leading-tight tracking-wider': {}
+        },
         // www theme selectors
         ':root, .ThemeVariantLight': ThemeWww.default,
         '.ThemeVariantDark': ThemeWww.dark,

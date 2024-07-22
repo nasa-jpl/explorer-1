@@ -1,6 +1,6 @@
 import TopicDetailMore from './TopicDetailMore.vue'
 export default {
-  title: 'WWW/TopicDetail/TopicDetailMore',
+  title: 'Components/WWW/TopicDetail/TopicDetailMore',
   component: TopicDetailMore,
   excludeStories: /.*Data$/
 }
@@ -181,7 +181,7 @@ export const TopicDetailMoreData = {
 }
 
 // stories
-export const Default = {
+export const BaseStory = {
   args: {
     topic: 'Mars',
     more: TopicDetailMoreData.moreAboutTopic,

@@ -7,9 +7,7 @@
       v-if="hasCoverImage"
       class="lg:mb-0 mb-10"
       :src="data.coverImage.src.url"
-      :srcset="
-        mixinGetSrcSet(data.coverImage) ? mixinGetSrcSet(data.coverImage) : data.coverImage.srcSet
-      "
+      :srcset="theSrcSet"
       :alt="data.coverImage.alt"
       :width="data.coverImage.src.width"
       :height="data.coverImage.src.height"
@@ -35,13 +33,13 @@
             class="lg:pr-14"
             :text="data.paragraph"
           />
-          <template v-if="data.link">
+          <template v-if="data.link && theLink">
             <BaseLink
               variant="primary"
               class="mt-5"
               link-class="inline-block"
               caret-wrapper-class="py-2"
-              :href="mixinGetExternalLink(data.link) ? mixinGetExternalLink(data.link) : null"
+              :href="theLink"
               :to="data.link.page ? data.link.page.url : null"
               external-target-blank
             >
@@ -62,14 +60,12 @@
               v-if="theCard.image"
               class="relative h-auto"
             >
-              <template v-if="theCard.link">
+              <template v-if="theCard.link && theLink">
                 <BaseLink
                   variant="none"
                   link-class="block"
                   :aria-label="theCard.link.text || 'Learn more'"
-                  :href="
-                    mixinGetExternalLink(theCard.link) ? mixinGetExternalLink(theCard.link) : null
-                  "
+                  :href="theLink"
                   :to="theCard.link.page ? theCard.link.page.url : null"
                   external-target-blank
                 >
@@ -91,15 +87,13 @@
                 {{ theCard.description }}
               </p>
 
-              <template v-if="theCard.link">
+              <template v-if="theCard.link && theLink">
                 <BaseLink
                   variant="primary"
                   class="mt-3"
                   link-class="inline-block"
                   caret-wrapper-class="py-2"
-                  :href="
-                    mixinGetExternalLink(theCard.link) ? mixinGetExternalLink(theCard.link) : null
-                  "
+                  :href="theLink"
                   :to="theCard.link.page ? theCard.link.page.url : null"
                   external-target-blank
                 >
@@ -117,6 +111,7 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
+import { mixinGetExternalLink, mixinGetSrcSet } from './../../utils/mixins.ts'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BlockText from './../BlockText/BlockText.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -135,7 +130,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {
@@ -150,6 +146,16 @@ export default defineComponent({
         return true
       }
       return false
+    },
+    theLink() {
+      return mixinGetExternalLink(this.data.link) || undefined
+    },
+    theSrcSet() {
+      return this.data.coverImage
+        ? mixinGetSrcSet(this.data.coverImage)
+          ? mixinGetSrcSet(this.data.coverImage)
+          : this.data.coverImage.srcSet
+        : undefined
     }
   }
 })

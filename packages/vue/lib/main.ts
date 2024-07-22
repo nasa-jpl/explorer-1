@@ -4,8 +4,10 @@ import filters from './../src/utils/filters'
 import type { Explorer1Theme } from '../src/interfaces'
 
 // stores
+import { useCuratedGalleryStore } from './../src/store/curatedGallery'
 import { useHeaderStore } from './../src/store/header'
 import { useThemeStore } from './../src/store/theme'
+import { useSearchStore } from './../src/store/search'
 // mixins
 import {
   mixinTransparentHeader,
@@ -161,7 +163,7 @@ import MissionDetailStats from './../src/components/MissionDetailStats/MissionDe
 import MissionDetailStreamfield from './../src/components/MissionDetailStreamfield/MissionDetailStreamfield.vue'
 import MixinAnimationCaret from './../src/components/MixinAnimationCaret/MixinAnimationCaret.vue'
 import MixinCarousel from './../src/components/MixinCarousel/MixinCarousel.vue'
-import MixinDropdownToggle from './../src/components/MixinDropdownToggle/MixinDropdownToggle.vue'
+import NavDropdownToggle from './../src/components/NavDropdownToggle/NavDropdownToggle.vue'
 import MixinFancybox from './../src/components/MixinFancybox/MixinFancybox.vue'
 import MixinVideoBg from './../src/components/MixinVideoBg/MixinVideoBg.vue'
 import NavDesktop from './../src/components/NavDesktop/NavDesktop.vue'
@@ -211,7 +213,9 @@ export {
   type Explorer1Theme,
   dayjs,
   filters,
+  useCuratedGalleryStore,
   useHeaderStore,
+  useSearchStore,
   useThemeStore,
   mixinTransparentHeader,
   mixinGetLinkText,
@@ -363,7 +367,7 @@ export {
   MissionDetailStreamfield,
   MixinAnimationCaret,
   MixinCarousel,
-  MixinDropdownToggle,
+  NavDropdownToggle,
   MixinFancybox,
   MixinVideoBg,
   NavDesktop,

@@ -1,6 +1,6 @@
 <template>
   <div class="NavMobileSecondaryDropdown relative">
-    <MixinDropdownToggle
+    <NavDropdownToggle
       :aria-expanded="dropdownVisible ? true : false"
       :path="item.path"
       class="w-full group cursor-pointer pl-12 flex items-center py-2 text-lg leading-tight"
@@ -12,7 +12,7 @@
     >
       <span>{{ index === 0 ? 'Home' : item.title }}</span>
       <IconCaret class="transform rotate-90 text-sm ml-2" />
-    </MixinDropdownToggle>
+    </NavDropdownToggle>
     <template v-if="dropdownVisible">
       <slot>
         <NavSecondaryDropdownContent
@@ -28,7 +28,7 @@
 import { defineComponent } from 'vue'
 import { mixinIsActivePath } from '../../utils/mixins'
 import IconCaret from './../Icons/IconCaret.vue'
-import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
+import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavSecondaryDropdownContent from './../NavSecondary/NavSecondaryDropdownContent.vue'
 
 export default defineComponent({
@@ -36,7 +36,7 @@ export default defineComponent({
 
   components: {
     IconCaret,
-    MixinDropdownToggle,
+    NavDropdownToggle,
     NavSecondaryDropdownContent
   },
   props: {
@@ -103,7 +103,7 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .NavMobileSecondaryDropdown {
-  .MixinDropdownToggle {
+  .NavDropdownToggle {
     span {
       @apply border-b border-transparent;
     }

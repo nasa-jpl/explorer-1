@@ -22,7 +22,7 @@ export const BaseVideoData = {
   width: null
 }
 
-export const Base = {
+export const BaseStory = {
   args: {
     data: BaseVideoData
   }

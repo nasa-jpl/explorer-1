@@ -97,9 +97,9 @@ export default defineComponent({
         :label="data.displayLabel"
         :class="{ 'sr-only': hideH1 }"
       />
-      <share-buttons-edu
-        v-if="data?.url && themeStore.theme === 'ThemeEdu'"
-        class="mt-6"
+      <ShareButtonsEdu
+        v-if="themeStore.isEdu && data?.url"
+        class="mt-4"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
@@ -127,7 +127,7 @@ export default defineComponent({
       class="lg:mb-0 relative mb-8"
     >
       <ShareButtons
-        v-if="data.title && data.url"
+        v-if="data.title && data.url && !isEdu"
         :title="data.title"
         :url="data.url"
       />

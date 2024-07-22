@@ -9,12 +9,12 @@ export default {
 export const BlockHeadingData = {
   blockType: 'HeadingBlock',
   heading: 'Heading Text',
-  level: 'h3',
-  size: 'h3'
+  level: 'h2',
+  size: 'h2'
 }
 
 // stories
-export const Heading = {
+export const BaseStory = {
   name: 'BlockHeading',
   args: {
     data: BlockHeadingData

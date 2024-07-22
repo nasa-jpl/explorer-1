@@ -13,12 +13,11 @@
         class="flex w-full h-full"
       >
         <source
-          class="swiper-lazy"
           :srcset="data.image.webp.url"
           type="image/webp"
         />
         <img
-          class="swiper-lazy object-contain w-auto mx-auto"
+          class="object-contain w-auto mx-auto"
           :src="data.image.src.url"
           :srcset="data.image.srcSet"
           :width="data.image.src.width"

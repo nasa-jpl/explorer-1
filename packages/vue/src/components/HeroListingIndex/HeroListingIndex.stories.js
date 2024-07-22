@@ -1,7 +1,7 @@
 import HeroListingIndex from './HeroListingIndex.vue'
 
 export default {
-  title: 'Components/Heroes/HeroListingIndex',
+  title: 'Components/Heroes/For Listing Pages',
   component: HeroListingIndex,
   parameters: {
     viewMode: 'canvas'
@@ -37,7 +37,8 @@ export const HeroListingIndexData = {
 
 // templates
 
-export const Default = {
+export const BaseStory = {
+  name: 'HeroListingIndex',
   args: {
     customLabel: 'Featured',
     pageData: HeroListingIndexData.listingPage

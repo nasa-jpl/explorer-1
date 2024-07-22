@@ -12,7 +12,7 @@ export default {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   name: 'BaseCarousel',
   args: {
     heading: 'Heading',
@@ -24,8 +24,8 @@ export const Default = {
       return { args }
     },
     template: `<MixinCarousel v-bind="args">
-    <div v-for="(item, index) in [1, 2, 3, 4, 5, 6, 7]" :key="index" class="swiper-slide">
-      <img src="https://picsum.photos/550/483" width="550" height="483" alt="test slide" data-chromatic="ignore">
+    <div v-for="(item, index) in [1, 2, 3, 4, 5, 6, 7]" :key="index" class="swiper-slide bg-gray-dark">
+      <img src="https://picsum.photos/550/483" width="550" height="483" :alt="'Demo slide ' + index" data-chromatic="ignore">
     </div>
   </MixinCarousel>`
   })

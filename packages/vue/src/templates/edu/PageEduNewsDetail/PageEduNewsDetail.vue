@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
-import type { StreamfieldBlockData } from '../../../components/BlockStreamfield/BlockStreamfield.vue'
+import type { StreamfieldBlockData } from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
   ImageObject,
   PageResponseObject,
@@ -18,6 +18,7 @@ import BlockText from '@explorer-1/vue/src/components/BlockText/BlockText.vue'
 import BlockStreamfield from '@explorer-1/vue/src/components/BlockStreamfield/BlockStreamfield.vue'
 
 interface PageEduNewsDetailObject extends PageResponseObject {
+  url: string
   heroImage: ImageObject
   thumbnailImage: ThumbnailObject
   heroPosition: string
@@ -67,7 +68,7 @@ const dateTimeArray = computed(() => {
 <template>
   <div
     v-if="data"
-    class="ThemeVariantLight"
+    class="ThemeEdu ThemeVariantLight"
     :class="computedClass"
     itemscope
     itemtype="http://schema.org/Article"
@@ -101,7 +102,7 @@ const dateTimeArray = computed(() => {
         :topics="data.getTopicsForDisplay"
         schema
       />
-      <share-buttons-edu
+      <ShareButtonsEdu
         v-if="data?.url"
         class="mt-4"
         :url="data.url"

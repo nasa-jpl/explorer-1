@@ -8,7 +8,7 @@ import { BlockVideoEmbedData } from './../../../components/BlockVideoEmbed/Block
 
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
-import { BlockStreamfieldMinimalData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
+import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageEduResourceArticle from './PageEduResourceArticle.vue'
 
 export default {
@@ -46,7 +46,7 @@ export const ArticleDetail = {
           blockType: 'HeroImageBlock'
         }
       ],
-      ...BlockStreamfieldMinimalData,
+      ...BlockStreamfieldTruncatedData,
       relatedLinks: [BlockRelatedLinksData.data],
       relatedContentHeading: 'Related Activities',
       relatedContent: [

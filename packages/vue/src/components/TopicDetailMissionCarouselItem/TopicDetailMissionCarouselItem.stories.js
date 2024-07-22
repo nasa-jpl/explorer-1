@@ -3,7 +3,7 @@
 import TopicDetailMissionCarouselItem from './TopicDetailMissionCarouselItem.vue'
 
 export default {
-  title: 'WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarouselItem',
+  title: 'Components/WWW/TopicDetail/MissionCarousel/TopicDetailMissionCarouselItem',
   component: TopicDetailMissionCarouselItem,
   decorators: [
     () => ({
@@ -35,4 +35,4 @@ export const TopicDetailMissionCarouselItemData = {
   url: '/missions/gravity-recovery-and-climate-experiment-follow-on-grace-fo/'
 }
 
-export const SingleItem = { args: { data: TopicDetailMissionCarouselItemData } }
+export const BaseStory = { args: { data: TopicDetailMissionCarouselItemData } }

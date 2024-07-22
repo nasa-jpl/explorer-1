@@ -1,12 +1,9 @@
 import HomepageStats from './HomepageStats.vue'
 
 export default {
-  title: 'WWW/Homepage/HomepageStats',
+  title: 'Components/WWW/Homepage/HomepageStats',
   component: HomepageStats,
-  excludeStories: /.*Data$/,
-  parameters: {
-    viewMode: 'canvas'
-  }
+  excludeStories: /.*Data$/
 }
 
 export const HomepageStatsData = {
@@ -46,19 +43,22 @@ export const HomepageStatsData = {
 }
 
 const HomepageStatsTemplate = (args) => ({
-  props: Object.keys(args),
+  setup() {
+    return { args }
+  },
   components: { HomepageStats },
   template: `<HomepageStats
-    :statistics="statistics"
-    :mission-count="statisticsMissionCount"
-    :dsn="dsnWidget"
-    :asteroid-watch="asteroidWatchWidget"
-    :featured-embed="featuredEmbed"
+    :statistics="args.statistics"
+    :mission-count="args.statisticsMissionCount"
+    :dsn="args.dsnWidget"
+    :asteroid-watch="args.asteroidWatchWidget"
+    :featured-embed="args.featuredEmbed"
   />`
 })
 
-export const Base = HomepageStatsTemplate.bind({})
-Base.args = HomepageStatsData
+export const BaseStory = HomepageStatsTemplate.bind({})
+BaseStory.storyName = 'HomepageStats'
+BaseStory.args = HomepageStatsData
 
 export const StaticDate = HomepageStatsTemplate.bind({})
 StaticDate.args = {

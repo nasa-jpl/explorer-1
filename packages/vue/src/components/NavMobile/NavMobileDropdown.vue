@@ -3,7 +3,7 @@
     ref="NavDropdownMobile"
     class="NavDropdownMobile"
   >
-    <MixinDropdownToggle
+    <NavDropdownToggle
       :aria-expanded="dropdownVisible ? true : false"
       class="group relative block w-full px-4 py-2 text-xl font-medium text-left"
       :class="{
@@ -18,7 +18,7 @@
       >
         {{ (data.length && data[0].title) || getLinkText(data.titleLink) }}
       </span>
-    </MixinDropdownToggle>
+    </NavDropdownToggle>
 
     <div v-if="dropdownVisible">
       <div class="mt-1 mb-3">
@@ -60,14 +60,14 @@
 // @ts-nocheck
 import { defineComponent } from 'vue'
 import type { LinkObject } from '../../utils/mixins'
-import MixinDropdownToggle from './../MixinDropdownToggle/MixinDropdownToggle.vue'
+import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavMobileLink from './../NavMobile/NavMobileLink.vue'
 import NavMobileSecondaryDropdown from './../NavMobile/NavMobileSecondaryDropdown.vue'
 import { mixinGetLinkText } from '../../utils/mixins'
 export default defineComponent({
   name: 'NavMobileDropdown',
   components: {
-    MixinDropdownToggle,
+    NavDropdownToggle,
     NavMobileLink,
     NavMobileSecondaryDropdown
   },

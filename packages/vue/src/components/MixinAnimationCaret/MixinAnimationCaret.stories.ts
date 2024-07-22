@@ -5,7 +5,7 @@ export default {
   component: MixinAnimationCaret,
   parameters: {
     slots: {
-      default: 'Default slot content'
+      default: 'BaseStory slot content'
     },
     viewMode: 'docs',
     docs: {
@@ -17,7 +17,7 @@ export default {
   }
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     default: 'Text with caret'
   }

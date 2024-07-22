@@ -188,13 +188,15 @@
     }
   }
 
-  .text-subtitle {
-    @apply font-secondary uppercase text-base leading-tight tracking-wider;
-  }
+  // moved to a tailwind plugin in tailwind.config.js which allows us to @apply text-subtitle
+  // .text-subtitle {
+  //   @apply font-secondary uppercase text-base leading-tight tracking-wider;
+  // }
 
-  .text-subtitle-sm {
-    @apply font-secondary uppercase text-sm leading-tight tracking-wider;
-  }
+  // moved to a tailwind plugin in tailwind.config.js which allows us to @apply text-subtitle
+  // .text-subtitle-sm {
+  //   @apply font-secondary uppercase text-sm leading-tight tracking-wider;
+  // }
 
   .text-body-lg {
     font-size: pxToRem(18); // Based on Tailwind's text-lg

@@ -1,17 +1,10 @@
 import MissionDetailAbout from './MissionDetailAbout.vue'
 
 export default {
-  title: 'WWW/MissionDetail/MissionDetailAbout',
+  title: 'Components/WWW/MissionDetail/MissionDetailAbout',
   component: MissionDetailAbout,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    }
+    layout: 'fullscreen'
   },
   excludeStories: /.*(Data)$/
 }
@@ -60,7 +53,7 @@ export const MissionDetailAboutData = {
 }
 
 // stories
-export const Default = { args: MissionDetailAboutData }
+export const BaseStory = { args: MissionDetailAboutData }
 
 export const NoInstruments = {
   args: {

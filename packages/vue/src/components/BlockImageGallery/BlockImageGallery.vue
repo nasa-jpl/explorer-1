@@ -57,7 +57,6 @@
               :height="cover.src.height"
               alt=""
               object-fit-class="cover"
-              image-class="swiper-lazy"
               loading="lazy"
             />
           </BaseImagePlaceholder>

@@ -1,24 +1,17 @@
 import HomepageTeaserBlock from './HomepageTeaserBlock.vue'
 
 export default {
-  title: 'WWW/Homepage/HomepageTeaserBlock',
+  title: 'Components/WWW/Homepage/HomepageTeaserBlock',
   component: HomepageTeaserBlock,
-  excludeStories: /.*(Data|Decorator)$/,
+  excludeStories: /.*(Data)$/,
   parameters: {
     viewMode: 'canvas'
   }
 }
 
-// template
-const HomepageTeaserBlockTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { HomepageTeaserBlock },
-  template: `<HomepageTeaserBlock :data="block" />`
-})
-
 // data
 export const HomepageTeaserBlockData = {
-  block: {
+  data: {
     blockType: 'HomePageTeaserBlock',
     coverImage: {
       alt: 'JPL Campus',
@@ -76,15 +69,16 @@ export const HomepageTeaserBlockData = {
 }
 
 // stories
-export const TeaserBlock = HomepageTeaserBlockTemplate.bind({})
-TeaserBlock.args = {
-  ...HomepageTeaserBlockData
+export const BaseStory = {
+  name: 'Teaser Block',
+  args: HomepageTeaserBlockData
 }
 
-export const NoImage = HomepageTeaserBlockTemplate.bind({})
-NoImage.args = {
-  block: {
-    ...HomepageTeaserBlockData.block,
-    coverImage: null
+export const NoImage = {
+  args: {
+    data: {
+      ...HomepageTeaserBlockData.block,
+      coverImage: null
+    }
   }
 }

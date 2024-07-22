@@ -45,7 +45,7 @@ export const BlockCircleImageCardData = {
   icon: true
 }
 
-export const Default = {
+export const BaseStory = {
   args: {
     ...BlockCircleImageCardData,
     icon: false

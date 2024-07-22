@@ -14,97 +14,46 @@
           size="h6"
           >Contact Information</BaseHeading
         >
-        <div class="mt-8">
-          <label
-            id="full_name_label"
-            for="full_name"
-            class="text-gray-dark text-subtitle"
-          >
-            Name <span class="text-jpl-red">*</span>
-          </label>
-          <div class="mt-2">
-            <input
-              id="full_name"
-              type="text"
-              name="full_name"
-              required
-              aria-required="true"
-              aria-labelledby="full_name_label"
-              placeholder="enter your first and last name"
-              class="w-full px-4 py-3"
-            />
-          </div>
-        </div>
-        <div class="mt-8">
-          <label
-            id="email_label"
-            for="email"
-            class="text-gray-dark text-subtitle"
-          >
-            Email <span class="text-jpl-red">*</span>
-          </label>
-          <div class="mt-2">
-            <input
-              id="email"
-              type="text"
-              name="email"
-              required
-              aria-required="true"
-              aria-labelledby="email_label"
-              placeholder="enter your email"
-              class="w-full px-4 py-3"
-            />
-          </div>
-        </div>
+        <TextInput
+          class="mt-8"
+          input-name="full_name"
+          label="Name"
+          type="text"
+          required
+          placeholder="enter your first and last name"
+        />
+        <TextInput
+          class="mt-8"
+          input-name="email"
+          label="Email"
+          type="email"
+          required
+          placeholder="enter your email"
+        />
         <BaseHeading
           level="h2"
           size="h6"
           class="mt-12"
           >Write Us</BaseHeading
         >
+        <TextInput
+          class="mt-8"
+          input-name="subject"
+          label="Subject"
+          type="text"
+          required
+          placeholder="write a subject"
+        />
+        <TextArea
+          class="mt-8"
+          input-name="message"
+          label="Message"
+          input-class="w-full px-4 py-3"
+          required
+          placeholder="write your message..."
+        />
+
         <div class="mt-8">
-          <label
-            id="subject_label"
-            for="subject"
-            class="text-gray-dark text-subtitle"
-          >
-            Subject <span class="text-jpl-red">*</span>
-          </label>
-          <div class="mt-2">
-            <input
-              id="subject"
-              type="text"
-              name="subject"
-              required
-              aria-required="true"
-              aria-labelledby="subject_label"
-              placeholder="write a subject"
-              class="w-full px-4 py-3"
-            />
-          </div>
-        </div>
-        <div class="mt-8">
-          <label
-            id="message_label"
-            for="message"
-            class="text-subtitle text-gray-dark"
-          >
-            Message <span class="text-jpl-red">*</span>
-          </label>
-          <div class="mt-2">
-            <textarea
-              id="message"
-              name="message"
-              required
-              aria-required="true"
-              aria-labelledby="message_label"
-              placeholder="write your message..."
-              rows="4"
-              class="w-full px-4 py-3"
-            ></textarea>
-          </div>
-        </div>
-        <div class="mt-4">
           <BaseButton
             type="submit"
             variant="primary"
@@ -132,17 +81,21 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
-import qs from 'qs'
+import { stringify } from 'fast-qs'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
+import TextInput from './../TextInput/TextInput.vue'
+import TextArea from './../TextArea/TextArea.vue'
 
 export default defineComponent({
   name: 'FormContact',
   components: {
     LayoutHelper,
     BaseHeading,
-    BaseButton
+    BaseButton,
+    TextArea,
+    TextInput
   },
   data() {
     return {
@@ -181,7 +134,7 @@ export default defineComponent({
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
-          body: qs.stringify({
+          body: stringify({
             full_name: data.full_name,
             email: data.email,
             subject: data.subject,

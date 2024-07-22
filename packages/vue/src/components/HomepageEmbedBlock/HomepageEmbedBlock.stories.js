@@ -2,17 +2,10 @@ import { BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.storie
 import HomepageEmbedBlock from './HomepageEmbedBlock.vue'
 
 export default {
-  title: 'WWW/Homepage/HomepageEmbedBlock',
+  title: 'Components/WWW/Homepage/HomepageEmbedBlock',
   component: HomepageEmbedBlock,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    },
+    layout: 'fullscreen',
     viewMode: 'canvas'
   },
   excludeStories: /.*(Data)$/
@@ -27,7 +20,7 @@ export const HomepageEmbedBlockData = [
 ]
 
 // stories
-export const Default = {
+export const BaseStory = {
   name: 'HomepageEmbedBlock',
   args: {
     data: HomepageEmbedBlockData

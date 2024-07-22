@@ -7,12 +7,9 @@ import NavDesktopDropdownContent from './NavDesktopDropdownContent.vue'
 import NavDesktopDropdownMore from './NavDesktopDropdownMore.vue'
 
 export default {
-  title: 'WWW/Header & Footer/Elements/NavDesktop',
+  title: 'Navigation/Headers/WWW/NavDesktop',
   component: NavDesktop,
-  excludeStories: /.*Data$/,
-  parameters: {
-    viewMode: 'canvas'
-  }
+  excludeStories: /.*Data$/
 }
 
 export const NavDesktopTopHatData = {
@@ -168,7 +165,8 @@ export const NavDesktopData = {
   ]
 }
 
-export const Nav = {
+export const BaseStory = {
+  name: 'NavDesktop',
   args: {
     data: NavDesktopData,
     headerVisible: true,

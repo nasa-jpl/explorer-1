@@ -1,6 +1,6 @@
 <template>
   <button
-    class="MixinDropdownToggle group cursor-pointer"
+    class="NavDropdownToggle group cursor-pointer"
     :class="{ '-active': isActivePath }"
     :aria-expanded="ariaExpanded"
     @click="clickEvent()"
@@ -22,7 +22,7 @@ export default defineComponent({
    * - NavMobileDropdown
    */
 
-  name: 'MixinDropdownToggle',
+  name: 'NavDropdownToggle',
   props: {
     path: {
       type: String,

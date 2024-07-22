@@ -1,54 +1,26 @@
 <template>
   <div class="NavSocial relative flex flex-row items-start border-collapse">
     <BaseButton
+      v-for="(item, index) in socialLinks"
+      :key="index"
       :variant="dark ? 'dark' : 'social'"
       class="-facebook w-12 h-12 text-2xl"
-      href="http://www.facebook.com/NASAJPL"
-      aria-label="Follow JPL on Facebook"
+      :class="{
+        '-facebook': item.facebook,
+        '-twitter': item.twitter,
+        '-instagram': item.instagram,
+        '-youtube': item.youtube
+      }"
+      :href="item.url"
+      :aria-label="item.label"
       target="_blank"
       rel="noopener"
     >
       <template #icon>
-        <IconSocialFacebook />
-      </template>
-    </BaseButton>
-    <BaseButton
-      :variant="dark ? 'dark' : 'social'"
-      class="-twitter w-12 h-12 text-2xl"
-      :class="{ '-ml-px': !dark }"
-      href="https://x.com/NASAJPL"
-      aria-label="Follow JPL on X"
-      target="_blank"
-      rel="noopener"
-    >
-      <template #icon>
-        <IconSocialTwitter />
-      </template>
-    </BaseButton>
-    <BaseButton
-      :variant="dark ? 'dark' : 'social'"
-      class="-instagram w-12 h-12 text-2xl"
-      :class="{ '-ml-px': !dark }"
-      href="http://instagram.com/nasajpl"
-      aria-label="Follow JPL on Instagram"
-      target="_blank"
-      rel="noopener"
-    >
-      <template #icon>
-        <IconSocialInstagram />
-      </template>
-    </BaseButton>
-    <BaseButton
-      :variant="dark ? 'dark' : 'social'"
-      class="-youtube w-12 h-12 text-3xl"
-      :class="{ '-ml-px': !dark }"
-      href="http://www.youtube.com/user/JPLnews?sub_confirmation=1"
-      aria-label="Follow JPL on YouTube"
-      target="_blank"
-      rel="noopener"
-    >
-      <template #icon>
-        <IconSocialYoutube />
+        <IconSocialFacebook v-if="item.facebook" />
+        <IconSocialTwitter v-else-if="item.twitter" />
+        <IconSocialInstagram v-else-if="item.instagram" />
+        <IconSocialYoutube v-else-if="item.youtube" />
       </template>
     </BaseButton>
   </div>
@@ -60,6 +32,52 @@ import IconSocialFacebook from './../Icons/IconSocialFacebook.vue'
 import IconSocialTwitter from './../Icons/IconSocialTwitter.vue'
 import IconSocialInstagram from './../Icons/IconSocialInstagram.vue'
 import IconSocialYoutube from './../Icons/IconSocialYoutube.vue'
+
+const wwwSocialLinks = [
+  {
+    facebook: true,
+    url: 'http://www.facebook.com/NASAJPL',
+    label: 'Follow JPL on Facebook'
+  },
+  {
+    twitter: true,
+    url: 'https://x.com/NASAJPL',
+    label: 'Follow JPL on X'
+  },
+  {
+    instagram: true,
+    url: 'http://instagram.com/nasajpl',
+    label: 'Follow JPL on Instagram'
+  },
+  {
+    youtube: true,
+    url: 'http://www.youtube.com/user/JPLnews?sub_confirmation=1',
+    label: 'Follow JPL on YouTube'
+  }
+]
+
+const eduSocialLinks = [
+  {
+    facebook: true,
+    url: 'http://facebook.com/nasajpledu',
+    label: 'Follow JPL Education on Facebook'
+  },
+  {
+    twitter: true,
+    url: 'http://x.com/nasajpl_edu',
+    label: 'Follow JPL Education on X'
+  },
+  {
+    instagram: true,
+    url: 'http://instagram.com/nasajpl_edu',
+    label: 'Follow JPL Education on Instagram'
+  },
+  {
+    youtube: true,
+    url: 'https://www.youtube.com/@nasajpledu3401',
+    label: 'Follow JPL Education on YouTube'
+  }
+]
 
 export default defineComponent({
   name: 'NavSocial',
@@ -75,6 +93,16 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false
+    },
+    edu: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  computed: {
+    socialLinks() {
+      return this.edu ? eduSocialLinks : wwwSocialLinks
     }
   }
 })

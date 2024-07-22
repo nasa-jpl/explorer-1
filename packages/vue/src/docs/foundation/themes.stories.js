@@ -1,7 +1,7 @@
 import DynamicTokens from './DynamicTokens.vue'
 
 export default {
-  title: 'Foundation/Themes',
+  title: 'Foundations/Themes',
   component: DynamicTokens,
   tags: ['!autodocs']
 }
