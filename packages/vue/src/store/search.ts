@@ -11,7 +11,7 @@ export interface State {
 }
 
 // @ts-expect-error
-export const useHeaderStore = defineStore('search', {
+export const useSearchStore = defineStore('search', {
   state: (): State => {
     return {
       showSidebar: undefined,

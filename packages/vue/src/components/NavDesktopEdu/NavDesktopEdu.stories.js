@@ -12,7 +12,6 @@ export default {
   tags: ['!autodocs'],
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'canvas',
     layout: 'fullscreen'
   }
 }

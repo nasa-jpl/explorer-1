@@ -154,7 +154,7 @@
 <script>
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
-import { useSearchStore } from '../../../store/search'
+import { useSearchStore } from './../../../store/search.ts'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
 import IconGrid from './../../../components/Icons/IconGrid.vue'
 import IconList from './../../../components/Icons/IconList.vue'
