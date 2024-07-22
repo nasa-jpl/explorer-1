@@ -144,20 +144,12 @@ export default defineComponent({
         spaceBetween: 0,
         centeredSlides: true,
         loop: true,
-        preloadImages: false,
-        // check swiper.js docs to learn how to use lazy loading on slide elements
-        // https://swiperjs.com/api/#lazy
-        lazy: {
-          loadPrevNext: true,
-          loadOnTransitionStart: true,
-          loadPrevNextAmount: 2
-        },
         navigation: {
           nextEl: '.swiper-next',
           prevEl: '.swiper-prev'
         },
         a11y: {
-          slideRole: this.itemRole as string | undefined
+          slideRole: this.itemRole as unknown as string | undefined
         },
         breakpoints: {
           640: {
