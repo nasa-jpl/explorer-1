@@ -35,7 +35,7 @@ export const BaseStory = {
             'Maecenas tristique tortor non ornare lobortis. Nam sollicitudin sapien sit amet enim vulputate laoreet. Sed mattis dui metus, sit amet faucibus arcu volutpat ut. Vestibulum sit amet felis sem. Duis interdum risus nulla, sed varius enim viverra vitae.',
           thumbnailImage: {
             src: {
-              url: 'https://source.unsplash.com/Q1p7bh3SHj8/560x560',
+              url: 'https://picsum.photos/560/560',
               width: '560',
               height: '560'
             }
@@ -49,7 +49,7 @@ export const BaseStory = {
           title: 'Title of the go site homepage',
           thumbnailImage: {
             src: {
-              url: 'https://source.unsplash.com/Q1p7bh3SHj8/560x560',
+              url: 'https://picsum.photos/560/560',
               width: '560',
               height: '560'
             }

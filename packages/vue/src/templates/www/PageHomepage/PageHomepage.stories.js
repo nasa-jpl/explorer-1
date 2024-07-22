@@ -13,6 +13,7 @@ import PageHomepage from './PageHomepage.vue'
 
 export default {
   title: 'Templates/WWW/PageHomepage',
+  excludeStories: /.*Data$/,
   component: PageHomepage,
   tags: ['!autodocs'],
   decorators: [
@@ -25,8 +26,7 @@ export default {
     html: {
       root: '#storyDecorator'
     }
-  },
-  excludeStories: /.*(Data)$/
+  }
 }
 
 // data
@@ -37,7 +37,7 @@ export const PageHomepageData = {
   featuredNewsHeading: 'Related Stories',
   featuredNews: [],
   latestNews: BlockLinkCardCarouselData,
-  body: [HomepageTeaserBlockData.block, BlockQuoteData],
+  body: [HomepageTeaserBlockData.data, BlockQuoteData],
   relatedContentHeading: 'Engage with JPL',
   relatedContent: [
     // external link card, no image
@@ -54,7 +54,7 @@ export const PageHomepageData = {
         label: 'Mission',
         thumbnailImage: {
           src: {
-            url: 'https://placekitten.com/490/430',
+            url: 'https://picsum.photos/490/430',
             width: 490,
             height: 430
           }
@@ -65,14 +65,14 @@ export const PageHomepageData = {
     },
     ...BlockLinkTileCarouselData
   ],
-  ...HomepageFeaturedRobotData,
-  ...HomepageMissionsCarouselData,
+  featuredRobots: [{ page: HomepageFeaturedRobotData }],
+  missionsCarousel: HomepageMissionsCarouselData.data,
   ...HomepageStatsData
 }
 
 // stories
 export const BaseStory = {
-  name: 'PageHomepageData',
+  name: 'PageHomepage',
   args: {
     data: PageHomepageData
   }

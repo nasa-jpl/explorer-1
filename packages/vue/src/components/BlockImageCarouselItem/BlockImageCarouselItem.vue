@@ -22,7 +22,6 @@
           :height="theImageData.src.height"
           :alt="theImageData.alt"
           object-fit-class="contain"
-          image-class="swiper-lazy"
           loading="lazy"
         />
       </BaseImagePlaceholder>

@@ -101,7 +101,6 @@
   </section>
 </template>
 <script lang="ts">
-// @ts-nocheck
 import { defineComponent } from 'vue'
 import Swiper from 'swiper'
 import { A11y, Navigation } from 'swiper/modules'
@@ -128,7 +127,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   data(): {
@@ -157,10 +157,7 @@ export default defineComponent({
           prevEl: '.swiper-prev'
         },
         a11y: {
-          prevSlideMessage: this.data.heading
-            ? this.data.heading + ' - Previous slide'
-            : 'Previous slide',
-          nextSlideMessage: this.data.heading ? this.data.heading + ' - Next slide' : 'Next slide'
+          slideRole: this.itemRole as string | undefined
         },
         breakpoints: {
           640: {
@@ -267,15 +264,6 @@ export default defineComponent({
           }
         }
       }
-    }
-  }
-
-  // fade in lazy loaded slides
-  .swiper-lazy {
-    @apply opacity-0;
-
-    &.swiper-lazy-loaded {
-      @apply opacity-100;
     }
   }
 }

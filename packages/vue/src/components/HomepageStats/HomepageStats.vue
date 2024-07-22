@@ -6,7 +6,7 @@
   >
     <div class="MixedBleedGrid lg:pl-0 pl-4">
       <div
-        class="bg-gray-light text-gray-dark col-start-container col-end-container lg:py-18 lg:px-0 text-body-lg px-8 py-10 pr-0"
+        class="ThemeVariantGray bg-gray-light text-gray-dark col-start-container col-end-container lg:py-18 lg:px-0 text-body-lg px-8 py-10 pr-0"
       >
         <div class="gap-y-10 lg:col-end-9 grid grid-cols-12 gap-6">
           <div class="lg:block hidden"></div>
@@ -24,7 +24,7 @@
               >
                 <p
                   v-if="dataMissionStatsBlock.heading"
-                  class="text-subtitle text-jpl-red mb-4"
+                  class="text-subtitle text-primary mb-4"
                 >
                   {{ dataMissionStatsBlock.heading }}
                 </p>
@@ -33,7 +33,7 @@
             <template v-else>
               <p
                 v-if="dataMissionStatsBlock.heading"
-                class="text-subtitle text-jpl-red mb-4"
+                class="text-subtitle text-primary mb-4"
               >
                 {{ dataMissionStatsBlock.heading }}
               </p>
@@ -65,7 +65,7 @@
               >
                 <p
                   v-if="dataGenericStatsBlock.heading"
-                  class="text-subtitle text-jpl-red mb-4"
+                  class="text-subtitle text-primary mb-4"
                 >
                   {{ dataGenericStatsBlock.heading }}
                 </p>
@@ -74,7 +74,7 @@
             <template v-else>
               <p
                 v-if="dataGenericStatsBlock.heading"
-                class="text-subtitle text-jpl-red mb-4"
+                class="text-subtitle text-primary mb-4"
               >
                 {{ dataGenericStatsBlock.heading }}
               </p>
@@ -108,7 +108,6 @@
             <template v-else-if="dataGenericStatsBlock.dateDisplay === 'live'">
               <component
                 :is="hasFeaturedEmbed ? 'a' : 'div'"
-                v-scroll-to="hasFeaturedEmbed ? '#featuredEmbed' : null"
                 :href="hasFeaturedEmbed ? '#featuredEmbed' : null"
                 class="group block"
                 :class="{ 'cursor-pointer': hasFeaturedEmbed }"
@@ -159,7 +158,7 @@
               >
                 <p
                   v-if="asteroidWatch.heading"
-                  class="text-subtitle text-jpl-red mb-4"
+                  class="text-subtitle text-primary mb-4"
                 >
                   {{ asteroidWatch.heading }}
                 </p>
@@ -168,7 +167,7 @@
             <template v-else>
               <p
                 v-if="asteroidWatch.heading"
-                class="text-subtitle text-jpl-red mb-4"
+                class="text-subtitle text-primary mb-4"
               >
                 {{ asteroidWatch.heading }}
               </p>
@@ -309,6 +308,7 @@ export default defineComponent({
       if (this.hasFeaturedEmbed) {
         const featuredEmbedDiv = document.getElementById('featuredEmbed')
         if (featuredEmbedDiv) {
+          featuredEmbedDiv.scrollIntoView({ behavior: 'smooth' })
           const featuredEmbedIframe = featuredEmbedDiv.querySelector('iframe') as HTMLIFrameElement
           if (featuredEmbedIframe && this.autoplayAdded === false) {
             featuredEmbedIframe.src += '&autoplay=1'

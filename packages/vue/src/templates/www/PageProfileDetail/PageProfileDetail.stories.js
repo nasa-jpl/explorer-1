@@ -27,17 +27,17 @@ export const PageProfileDetailData = {
   jobTitle: 'Electrical engineer',
   email: 'dariush.divsalar@jpl.nasa.gov',
   image: {
-    original: 'https://source.unsplash.com/mrTydVjg04o/312x390',
+    original: 'https://picsum.photos/312/390',
     screenSm: {
-      url: 'https://source.unsplash.com/mrTydVjg04o/156x195',
+      url: 'https://picsum.photos/156/195',
       width: '156'
     },
     screenMd: {
-      url: 'https://source.unsplash.com/mrTydVjg04o/232x290',
+      url: 'https://picsum.photos/232/290',
       width: '232'
     },
     src: {
-      url: 'https://source.unsplash.com/mrTydVjg04o/312x390',
+      url: 'https://picsum.photos/312/390',
       width: '312',
       height: '390'
     }

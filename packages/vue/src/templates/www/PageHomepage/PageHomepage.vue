@@ -60,14 +60,14 @@
 
     <!-- mission carousel -->
     <HomepageMissionsCarousel
-      v-if="data.missionsCarousel && data.missionsCarousel.length"
-      :data="data.missionsCarousel[0]"
+      v-if="data?.missionsCarousel?.targets?.length"
+      :data="data.missionsCarousel"
       class="lg:my-18 my-10"
     />
 
     <!-- featured robot -->
     <HomepageFeaturedRobot
-      v-if="data.featuredRobots && data.featuredRobots.length"
+      v-if="data?.featuredRobots?.length"
       class="lg:my-24 my-12"
       :data="data.featuredRobots[0].page"
     />

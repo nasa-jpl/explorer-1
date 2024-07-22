@@ -45,7 +45,7 @@ export const BaseStory = {
       subtitle: 'Orbiting Carbon Observatory 2',
       summary:
         'OCO-2 is an Earth satellite mission designed to study the sources and sinks of carbon dioxide globally and provide scientists with a better idea of how carbon is contributing to climate change. ',
-      thumbnailImage: 'https://placekitten.com/400/200',
+      thumbnailImage: 'https://picsum.photos/400/200',
       missionWebsiteUrl: 'http://oco.jpl.nasa.gov/',
       topicLabels: ['Stars and Galaxies', 'Exoplanets'],
       heroImage: {
@@ -212,7 +212,7 @@ export const GraceFO = {
       subtitle: 'Gravity Recovery and Climate Experiment Follow-On',
       summary:
         'The Gravity Recovery and Climate Experiment Follow-on (GRACE-FO) mission is a partnership between NASA and the German Research Centre for Geosciences (GFZ).',
-      thumbnailImage: 'https://placekitten.com/400/200',
+      thumbnailImage: 'https://picsum.photos/400/200',
       missionWebsiteUrl: 'http://gracefo.jpl.nasa.gov/',
       heroImage: {
         srcSet:
