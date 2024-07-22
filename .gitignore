@@ -62,6 +62,9 @@ storybook_compiled
 .build-*
 .netlify
 
+# Typescript
+*.d.ts
+
 # Tailwind
 .www-frontend_temp/
 

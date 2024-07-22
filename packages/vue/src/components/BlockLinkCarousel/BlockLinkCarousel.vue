@@ -46,11 +46,13 @@ export default defineComponent({
     },
     items: {
       type: Array,
-      required: false
+      required: false,
+      default: undefined
     },
     heading: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {

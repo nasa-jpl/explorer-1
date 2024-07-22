@@ -4,8 +4,10 @@ import filters from './../src/utils/filters'
 import type { Explorer1Theme } from '../src/interfaces'
 
 // stores
+import { useCuratedGalleryStore } from './../src/store/curatedGallery'
 import { useHeaderStore } from './../src/store/header'
 import { useThemeStore } from './../src/store/theme'
+import { useSearchStore } from './../src/store/search'
 // mixins
 import {
   mixinTransparentHeader,
@@ -211,7 +213,9 @@ export {
   type Explorer1Theme,
   dayjs,
   filters,
+  useCuratedGalleryStore,
   useHeaderStore,
+  useSearchStore,
   useThemeStore,
   mixinTransparentHeader,
   mixinGetLinkText,

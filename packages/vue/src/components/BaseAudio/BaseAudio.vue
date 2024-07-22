@@ -332,7 +332,6 @@ export default defineComponent({
       // this.$root?.$on('play', this.pauseOthers)
     },
     getAudio() {
-      console.log(this.$el.querySelectorAll('audio')[0])
       return this.$el.querySelectorAll('audio')[0]
     }
   }

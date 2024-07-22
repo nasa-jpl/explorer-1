@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs'
+import * as Stories from './TimelineDialog.stories'
+
+<Meta of={Stories} />
+
+# TimelineDialog
+
+This component is an accessible dialog window that utilizes the efficient and lightweight `a11y-dialog` package.
+It adheres to the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) outlined in the Accessible Rich Internet Applications (ARIA) Authoring Practices Guide.
+
+<Canvas
+  of={Stories.BaseStory}
+  className="sbdocs-preview-full-width"
+/>
+
+### Basic Usage
+
+To trigger dialog opening, use the `data-a11y-dialog-show` attribute with the value set to the `id` of the dialog element you want to open.
+
+```
+<button type="button" data-a11y-dialog-show="your-dialog-id">
+  Open the dialog
+</button>
+```
+
+See [all documentation in the repository](https://github.com/KittyGiraudel/a11y-dialog).

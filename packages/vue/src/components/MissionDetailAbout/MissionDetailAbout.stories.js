@@ -3,15 +3,8 @@ import MissionDetailAbout from './MissionDetailAbout.vue'
 export default {
   title: 'Components/WWW/MissionDetail/MissionDetailAbout',
   component: MissionDetailAbout,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    }
+    layout: 'fullscreen'
   },
   excludeStories: /.*(Data)$/
 }

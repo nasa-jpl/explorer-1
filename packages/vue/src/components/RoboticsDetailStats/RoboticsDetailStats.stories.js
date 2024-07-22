@@ -31,7 +31,7 @@ export const RoboticsDetailStatsData = {
   animalAnalogName: 'Lemur',
   animalAnalogIcon: {
     webp: {
-      url: 'https://images.unsplash.com/photo-1535468899888-92047ec84051?fm=webp&crop=entropy&w=320&h=320&fit=crop'
+      url: 'https://picsum.photos/320/320'
     },
     src: {
       url: 'https://picsum.photos/320/320'
