@@ -5,16 +5,17 @@ import PageTimeline from './PageTimeline.vue'
 export default {
   title: 'Templates/WWW/PageTimeline',
   component: PageTimeline,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0 disable-nav-offset"><story/></div>`
+      template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
     })
   ],
   parameters: {
+    layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
-    },
-    viewMode: 'canvas'
+    }
   },
   excludeStories: /.*(Data)$/
 }
