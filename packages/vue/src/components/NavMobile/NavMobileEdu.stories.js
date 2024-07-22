@@ -4,9 +4,10 @@ import NavMobile from './NavMobile.vue'
 export default {
   title: 'Navigation/Headers/EDU/NavMobile',
   component: NavMobile,
+  tags: ['!autodocs'],
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'canvas',
+    layout: 'fullscreen',
     viewport: {
       defaultViewport: 'mobile2'
     },

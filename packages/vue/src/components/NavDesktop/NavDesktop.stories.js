@@ -9,10 +9,7 @@ import NavDesktopDropdownMore from './NavDesktopDropdownMore.vue'
 export default {
   title: 'Navigation/Headers/WWW/NavDesktop',
   component: NavDesktop,
-  excludeStories: /.*Data$/,
-  parameters: {
-    viewMode: 'canvas'
-  }
+  excludeStories: /.*Data$/
 }
 
 export const NavDesktopTopHatData = {

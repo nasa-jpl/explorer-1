@@ -1,9 +1,9 @@
-import imagePlanetJupiter from '@explorer-1/common-storybook/src/images/mission-highlights-800h-at-jupiter.png'
-import imagePlanetEarth from '@explorer-1/common-storybook/src/images/mission-highlights-800h-earth-orbiting-on-earth.png'
-import imageMoon from '@explorer-1/common-storybook/src/images/mission-highlights-800h-earths-moon.png'
-import imageInterstellar from '@explorer-1/common-storybook/src/images/mission-highlights-800h-interstellar.jpg'
-import imagePlanetMarsA from '@explorer-1/common-storybook/src/images/mission-highlights-800h-mars-orbiting.png'
-import imagePlanetMarsB from '@explorer-1/common-storybook/src/images/mission-highlights-800h-on-mars.png'
+import imagePlanetJupiter from '@explorer-1/common-storybook/src/public/images/mission-highlights-800h-at-jupiter.png'
+import imagePlanetEarth from '@explorer-1/common-storybook/src/public/images/mission-highlights-800h-earth-orbiting-on-earth.png'
+import imageMoon from '@explorer-1/common-storybook/src/public/images/mission-highlights-800h-earths-moon.png'
+import imageInterstellar from '@explorer-1/common-storybook/src/public/images/mission-highlights-800h-interstellar.jpg'
+import imagePlanetMarsA from '@explorer-1/common-storybook/src/public/images/mission-highlights-800h-mars-orbiting.png'
+import imagePlanetMarsB from '@explorer-1/common-storybook/src/public/images/mission-highlights-800h-on-mars.png'
 
 import MissionDetailHighlights from './MissionDetailHighlights.vue'
 export default {

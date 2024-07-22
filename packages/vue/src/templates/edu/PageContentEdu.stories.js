@@ -4,6 +4,7 @@ import PageContent from './../PageContent/PageContent.vue'
 export default {
   title: 'Templates/EDU/PageContent',
   component: PageContent,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="ThemeEdu"><story/></div>`

@@ -42,8 +42,9 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<BlockData>,
-      required: false
+      type: Object as PropType<Partial<BlockData>>,
+      required: false,
+      default: undefined
     }
   },
   mounted() {

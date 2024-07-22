@@ -101,7 +101,6 @@
   </section>
 </template>
 <script lang="ts">
-// @ts-nocheck
 import { defineComponent } from 'vue'
 import Swiper from 'swiper'
 import { A11y, Navigation } from 'swiper/modules'
@@ -128,7 +127,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   data(): {
@@ -144,23 +144,12 @@ export default defineComponent({
         spaceBetween: 0,
         centeredSlides: true,
         loop: true,
-        preloadImages: false,
-        // check swiper.js docs to learn how to use lazy loading on slide elements
-        // https://swiperjs.com/api/#lazy
-        lazy: {
-          loadPrevNext: true,
-          loadOnTransitionStart: true,
-          loadPrevNextAmount: 2
-        },
         navigation: {
           nextEl: '.swiper-next',
           prevEl: '.swiper-prev'
         },
         a11y: {
-          prevSlideMessage: this.data.heading
-            ? this.data.heading + ' - Previous slide'
-            : 'Previous slide',
-          nextSlideMessage: this.data.heading ? this.data.heading + ' - Next slide' : 'Next slide'
+          slideRole: this.itemRole as unknown as string | undefined
         },
         breakpoints: {
           640: {
@@ -267,15 +256,6 @@ export default defineComponent({
           }
         }
       }
-    }
-  }
-
-  // fade in lazy loaded slides
-  .swiper-lazy {
-    @apply opacity-0;
-
-    &.swiper-lazy-loaded {
-      @apply opacity-100;
     }
   }
 }

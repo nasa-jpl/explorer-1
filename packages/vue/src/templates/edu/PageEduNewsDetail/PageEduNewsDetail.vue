@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
-import type { StreamfieldBlockData } from '../../components/BlockStreamfield/BlockStreamfield.vue'
+import type { StreamfieldBlockData } from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
   ImageObject,
   PageResponseObject,
   RelatedLinkObject,
   Topic,
   ThumbnailObject
-} from './../../interfaces'
+} from './../../../interfaces'
 import HeroMedia from '@explorer-1/vue/src/components/HeroMedia/HeroMedia.vue'
 import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from '@explorer-1/vue/src/components/DetailHeadline/DetailHeadline.vue'
@@ -18,6 +18,7 @@ import BlockText from '@explorer-1/vue/src/components/BlockText/BlockText.vue'
 import BlockStreamfield from '@explorer-1/vue/src/components/BlockStreamfield/BlockStreamfield.vue'
 
 interface PageEduNewsDetailObject extends PageResponseObject {
+  url: string
   heroImage: ImageObject
   thumbnailImage: ThumbnailObject
   heroPosition: string

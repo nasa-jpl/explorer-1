@@ -12,11 +12,12 @@ import PageContent from './PageContent.vue'
 export default {
   title: 'Templates/PageContent',
   component: PageContent,
+  tags: ['!autodocs'],
   parameters: {
     html: {
       root: '#storyDecorator'
     },
-    viewMode: 'canvas'
+    layout: 'fullscreen'
   },
   excludeStories: /.*(Data)$/
 }

@@ -5,7 +5,6 @@ export default {
   component: BlockQuote,
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'docs',
     docs: {
       description: {
         component:

@@ -6,15 +6,8 @@ import TopicDetailStreamfield from './TopicDetailStreamfield.vue'
 export default {
   title: 'Components/WWW/TopicDetail/TopicDetailStreamfield',
   component: TopicDetailStreamfield,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    }
+    layout: 'fullscreen'
   },
   excludeStories: /.*(Data)$/
 }

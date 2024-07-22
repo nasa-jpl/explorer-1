@@ -5,7 +5,6 @@ export default {
   component: BasePlaceholder,
   excludeStories: /.*Data$/,
   parameters: {
-    viewMode: 'docs',
     docs: {
       description: {
         component: `An animated loading component frequently used as a placeholder for <a href="/story/components-search-searchresultcard--standard-result" target="_blank">SearchResultCard</a>`

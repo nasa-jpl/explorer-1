@@ -4,15 +4,8 @@ import HomepageEmbedBlock from './HomepageEmbedBlock.vue'
 export default {
   title: 'Components/WWW/Homepage/HomepageEmbedBlock',
   component: HomepageEmbedBlock,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="absolute inset-0"><story/></div>`
-    })
-  ],
   parameters: {
-    html: {
-      root: '#storyDecorator'
-    },
+    layout: 'fullscreen',
     viewMode: 'canvas'
   },
   excludeStories: /.*(Data)$/

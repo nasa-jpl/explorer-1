@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mixinGetSrcSet } from '../../utils/mixins'
+import { mixinGetSrcSet } from './../../utils/mixins.ts'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import Icon360 from './../Icons/Icon360.vue'

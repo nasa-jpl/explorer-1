@@ -12,7 +12,7 @@
       >
         <p
           v-if="data.heading"
-          class="text-subtitle text-jpl-red mb-4"
+          class="text-subtitle text-primary mb-4"
         >
           {{ data.heading }}
         </p>
@@ -21,7 +21,7 @@
     <template v-else>
       <p
         v-if="data.heading"
-        class="text-subtitle text-jpl-red mb-4"
+        class="text-subtitle text-primary mb-4"
       >
         {{ data.heading }}
       </p>
