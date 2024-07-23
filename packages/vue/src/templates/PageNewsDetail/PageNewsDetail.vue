@@ -207,7 +207,8 @@ export default defineComponent({
           return false
         } else if (
           this.data?.heroPosition === 'inline' ||
-          this.data?.hero[0].blockType === 'CarouselBlock'
+          this.data?.hero[0].blockType === 'CarouselBlock' ||
+          this.data?.hero[0].blockType === 'VideoEmbedBlock'
         ) {
           return true
         }

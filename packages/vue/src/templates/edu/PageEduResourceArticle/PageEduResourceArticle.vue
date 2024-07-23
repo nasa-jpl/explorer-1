@@ -46,7 +46,8 @@ export default defineComponent({
           return false
         } else if (
           this.data?.heroPosition === 'inline' ||
-          this.data?.hero[0].blockType === 'CarouselBlock'
+          this.data?.hero[0].blockType === 'CarouselBlock' ||
+          this.data?.hero[0].blockType === 'VideoEmbedBlock'
         ) {
           return true
         }
@@ -108,7 +109,7 @@ export default defineComponent({
         :label="data.displayLabel"
         schema
       />
-      <share-buttons-edu
+      <ShareButtonsEdu
         v-if="data?.url"
         class="mt-4"
         :url="data.url"
