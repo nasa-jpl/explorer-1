@@ -127,7 +127,7 @@ export default defineComponent({
       class="lg:mb-0 relative mb-8"
     >
       <ShareButtons
-        v-if="data.title && data.url && !isEdu"
+        v-if="data.title && data.url && !themeStore.isEdu"
         :title="data.title"
         :url="data.url"
       />
