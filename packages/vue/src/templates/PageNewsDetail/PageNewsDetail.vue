@@ -208,6 +208,7 @@ export default defineComponent({
         } else if (
           this.data?.heroPosition === 'inline' ||
           this.data?.hero[0].blockType === 'CarouselBlock'
+          // TODO: should this match PageEduResourceArticle and also check for VideoEmbedBlock?
         ) {
           return true
         }

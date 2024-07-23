@@ -46,13 +46,28 @@ export default defineComponent({
           return false
         } else if (
           this.data?.heroPosition === 'inline' ||
-          this.data?.hero[0].blockType === 'CarouselBlock'
+          this.data?.hero[0].blockType === 'CarouselBlock' ||
+          this.data?.hero[0].blockType === 'VideoEmbedBlock'
         ) {
           return true
         }
       }
       return false
     },
+    // heroInline(): boolean {
+    //   if (!this.heroEmpty) {
+    //     const type = this.data?.hero[0].blockType
+    //     if (type === 'VideoBlock' || type === 'VideoEmbedBlock') {
+    //       return false
+    //     } else if (
+    //       this.data?.heroPosition === 'inline' ||
+    //       this.data?.hero[0].blockType === 'CarouselBlock'
+    //     ) {
+    //       return true
+    //     }
+    //   }
+    //   return false
+    // },
     computedClass(): string {
       if (this.heroInline || this.heroEmpty) {
         return 'pt-5 lg:pt-12'
@@ -108,7 +123,7 @@ export default defineComponent({
         :label="data.displayLabel"
         schema
       />
-      <share-buttons-edu
+      <ShareButtonsEdu
         v-if="data?.url"
         class="mt-4"
         :url="data.url"

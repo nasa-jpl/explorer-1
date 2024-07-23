@@ -9,6 +9,7 @@ export default {
 // shared data
 export const BlockVideoEmbedData = {
   data: {
+    blockType: 'VideoEmbedBlock',
     embed: {
       embed: `<iframe title="Meet NASA's Diana Trujillo" width="480" height="270" src="https://www.youtube.com/embed/vUuUyYqI83Q?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     },
