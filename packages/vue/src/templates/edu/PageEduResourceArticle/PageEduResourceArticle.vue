@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
+import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
@@ -16,6 +17,7 @@ export default defineComponent({
   name: 'PageEduResourceArticle',
   components: {
     HeroMedia,
+    BaseImagePlaceholder,
     LayoutHelper,
     DetailHeadline,
     BlockImageStandard,

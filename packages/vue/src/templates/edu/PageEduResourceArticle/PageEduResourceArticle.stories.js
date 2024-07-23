@@ -1,5 +1,4 @@
 import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories'
-import { DetailHeadlineData } from './../../../components/DetailHeadline/DetailHeadline.stories'
 import { BlockIframeEmbedData } from './../../../components/BlockIframeEmbed/BlockIframeEmbed.stories.js'
 import { BlockImageCarouselData } from './../../../components/BlockImageCarousel/BlockImageCarousel.stories'
 import { BlockImageComparisonData } from './../../../components/BlockImageComparison/BlockImageComparison.stories'
@@ -27,18 +26,18 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const ArticleDetail = {
+export const BaseStory = {
   args: {
     data: {
-      slug: 'nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
-      url: '/news/nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
-      ...DetailHeadlineData,
-      displayLabel: 'Resource',
-      summary:
-        'Headed to the Red Planet with the Perseverance rover, the pioneering helicopter is powered up for the first time in interplanetary space as part of a systems check.',
-      thumbnailImage: {
-        original: 'https://picsum.photos/400/200'
-      },
+      __typename: 'EDUResourceArticlePage',
+      pageType: 'EDUResourceArticlePage',
+      contentType: 'edu_resources.EDUResourceArticlePage',
+      seoTitle: 'Test Resource',
+      searchDescription: '',
+      slug: 'test-resource',
+      url: 'http://localhost:3000/edu/resources/test-resource',
+      title: 'Test Resource',
+      heroConstrain: true,
       heroPosition: 'full_bleed',
       hero: [
         {
@@ -47,46 +46,66 @@ export const ArticleDetail = {
         }
       ],
       ...BlockStreamfieldTruncatedData,
-      relatedLinks: [BlockRelatedLinksData.data],
-      relatedContentHeading: 'Related Activities',
-      relatedContent: [
-        // external link card, no image
+      publicationDate: '2024-07-09',
+      summary: 'Summary of resource article',
+      getTopicsForDisplay: [
         {
-          label: 'Explore NASA',
-          thumbnailImage: {
-            src: {
-              url: 'https://picsum.photos/550/288',
-              width: 550,
-              height: 288
-            }
-          },
-          title: 'NASA website',
-          externalLink: 'https://www.nasa.gov'
-        },
-        // via page chooser
+          __typename: 'TopicPage',
+          title: 'Asteroids',
+          url: 'http://localhost:3000/topics/asteroids'
+        }
+      ],
+      topicLabel: 'Asteroids',
+      primarySubject: {
+        __typename: 'EDUPrimarySubject',
+        id: '2',
+        subject: 'Engineering'
+      },
+      additionalSubjects: [
         {
-          page: {
-            label: 'Mission',
-            thumbnailImage: {
-              src: {
-                url: 'https://picsum.photos/512/288',
-                width: 512,
-                height: 288
-              }
-            },
-            title: 'GRACE-FO',
-            url: '/mission/placeholder'
-          }
+          __typename: 'EDUPrimarySubject',
+          id: '1',
+          subject: 'Art'
+        }
+      ],
+      gradeLevels: [
+        {
+          __typename: 'EDUGradeLevel',
+          id: '2',
+          gradeLevel: 'K'
         },
-        ...BlockLinkCardCarouselData
-      ]
+        {
+          __typename: 'EDUGradeLevel',
+          id: '3',
+          gradeLevel: '1'
+        },
+        {
+          __typename: 'EDUGradeLevel',
+          id: '4',
+          gradeLevel: '2'
+        },
+        {
+          __typename: 'EDUGradeLevel',
+          id: '13',
+          gradeLevel: '11'
+        }
+      ],
+      body: BlockStreamfieldTruncatedData.body,
+      thumbnailImage: {
+        __typename: 'CustomImage',
+        original: 'http://127.0.0.1:9000/media/original_images/imagessirtfsirtf-090303-16.jpg',
+        alt: ''
+      },
+      relatedLinks: BlockRelatedLinksData.data,
+      relatedContentHeading: 'Related Content',
+      relatedContent: BlockLinkCardCarouselData
     }
   }
 }
 export const InlineHero = {
   args: {
     data: {
-      ...ArticleDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline'
     }
   }
@@ -95,7 +114,7 @@ export const InlineHero = {
 export const HeroCarousel = {
   args: {
     data: {
-      ...ArticleDetail.args.data,
+      ...BaseStory.args.data,
       hero: [{ blockType: 'CarouselBlock', blocks: BlockImageCarouselData }]
     }
   }
@@ -104,7 +123,7 @@ export const HeroCarousel = {
 export const HeroImageComparison = {
   args: {
     data: {
-      ...ArticleDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline',
       hero: [
         {
@@ -118,7 +137,7 @@ export const HeroImageComparison = {
 export const HeroVideo = {
   args: {
     data: {
-      ...ArticleDetail.args.data,
+      ...BaseStory.args.data,
       hero: [
         {
           blockType: 'VideoBlock',
@@ -134,7 +153,7 @@ export const HeroVideo = {
 export const HeroVideoEmbed = {
   args: {
     data: {
-      ...ArticleDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline',
       hero: [
         {
@@ -152,7 +171,7 @@ export const HeroVideoEmbed = {
 export const HeroIframeEmbed = {
   args: {
     data: {
-      ...ArticleDetail.args.data,
+      ...BaseStory.args.data,
       heroPosition: 'inline',
       hero: [
         {
@@ -166,7 +185,7 @@ export const HeroIframeEmbed = {
 export const NoHero = {
   args: {
     data: {
-      ...ArticleDetail.args.data,
+      ...BaseStory.args.data,
       hero: []
     }
   }
