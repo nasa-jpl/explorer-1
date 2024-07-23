@@ -12,7 +12,7 @@
           variant="secondary"
           :to="topics[0].url"
           class="py-3"
-          use-primary-color
+          :use-primary-color="themeStore.theme === 'ThemeEdu'"
         >
           <span :itemprop="schema ? 'articleSection' : undefined">
             {{ topics[0].title }}
@@ -21,7 +21,7 @@
       </div>
       <span
         v-else-if="label"
-        class="text-subtitle py-3"
+        class="text-subtitle py-3 edu:text-primary"
       >
         <template v-if="!labelLink">
           {{ label }}
@@ -31,6 +31,7 @@
             variant="secondary"
             :to="labelLink"
             class="py-3"
+            :use-primary-color="themeStore.theme === 'ThemeEdu'"
           >
             {{ label }}
           </BaseLink>
