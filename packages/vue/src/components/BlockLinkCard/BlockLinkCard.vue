@@ -58,7 +58,7 @@
 
       <component
         :is="headingLevel || 'p'"
-        class="text-gray-dark text-xl font-medium leading-tight tracking-tight"
+        class="text-gray-dark text-xl font-medium leading-tight tracking-tight edu:font-extrabold"
         :class="{ 'lg:text-3xl': !compact }"
       >
         {{ theItem.title }}
