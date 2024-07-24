@@ -59,7 +59,7 @@
           </p>
           <component
             :is="headingLevel || 'p'"
-            class="text-xl leading-tight tracking-tight transition-all duration-200 ease-in delay-200"
+            class="text-xl leading-tight tracking-tight transition-all duration-200 ease-in delay-200 edu:font-extrabold"
             :class="
               compact
                 ? 'font-semibold mb-0 lg:group-hover:mb-1'
