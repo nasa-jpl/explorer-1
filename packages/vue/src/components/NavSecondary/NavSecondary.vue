@@ -8,7 +8,7 @@
   >
     <div class="max-w-screen-3xl mx-auto">
       <div
-        class="nav-secondary-container lg:container lg:px-0 lg:whitespace-normal border-gray-mid text-gray-mid-dark lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap border-t border-opacity-50"
+        class="nav-secondary-container lg:container lg:px-0 lg:whitespace-normal border-gray-mid text-gray-mid-dark lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap border-t border-opacity-50 edu:border-0"
       >
         <div class="lg:ml-0 2xl:-mr-3 lg:justify-end flex -ml-3">
           <template v-for="(item, index) in theBreadcrumb">
@@ -184,7 +184,7 @@ export default defineComponent({
       }
     }
     @screen lg {
-      @apply top-28;
+      @apply top-28 edu:top-18;
     }
   }
 }
