@@ -68,6 +68,11 @@ const twitterLink = computed((): string => {
 const pinterestLink = computed(() => {
   return `http://pinterest.com/pin/create/button/?url=${encodedURL.value}&media=${props.image}&description=${encodedTitle.value}`
 })
+
+const googleClassroomLink = computed(() => {
+  return `https://classroom.google.com/share?url=${encodedURL.value}`
+})
+
 const mailLink = computed((): string => {
   return `mailto:?body=${encodedTitle.value}:%20${encodedURL.value}&subject=${encodedTitle.value}`
 })
@@ -178,7 +183,7 @@ const buttonClass = computed(() => {
 
           <BaseButton
             variant="social"
-            href="#"
+            :href="googleClassroomLink"
             aria-label="Google Classroom"
             target="_blank"
             rel="noopener"
