@@ -213,7 +213,11 @@ export const mixinGetExternalLink = (link: RelatedLinkObject): string | undefine
 // Gets the fully qualified canonical URL of the current page if passed $route.path string
 export const mixinCanonicalUrl = (path: string): string => {
   const domain = 'https://www.jpl.nasa.gov'
-  return domain + path
+  if (path.startsWith('http')) {
+    return path
+  } else {
+    return domain + path
+  }
 }
 // Used to construct an array of image objects to use with BaseLightbox
 // TODO: currently only assembles an array of 1 item (single image lightbox).
