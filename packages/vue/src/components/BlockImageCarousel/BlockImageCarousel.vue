@@ -170,7 +170,7 @@ export default defineComponent({
       return false
     },
     itemsMobileNav(): Partial<ImageObject>[] | undefined {
-      const navArray = this.items
+      const navArray = this.items ? this.items.map((item) => item) : undefined
       if (navArray && this.hasCover) {
         navArray.push({ cover: 'hasCover' })
         return navArray

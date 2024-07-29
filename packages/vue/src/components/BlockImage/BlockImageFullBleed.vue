@@ -84,7 +84,7 @@ export default defineComponent({
       <div class="max-w-screen-3xl mx-auto">
         <MixinFancybox
           v-if="theData.src"
-          :src="theData.original"
+          :src="theData.original || theData.src?.url"
           :caption="theData.caption"
           :credit="theData.credit"
           :detail-url="theData.detailUrl"
