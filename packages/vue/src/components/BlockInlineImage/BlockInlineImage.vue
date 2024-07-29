@@ -1,49 +1,51 @@
 <template>
   <div
     v-if="data"
-    class="BlockInlineImage lg:BaseGrid container mx-auto"
+    class="BlockInlineImage container mx-auto"
   >
-    <!-- the image -->
-    <div
-      v-if="theImageData"
-      class="lg:mb-0 lg:w-full sm:w-xl lg:mt-0 lg:pr-4 2xl:pr-0 col-span-5 mx-auto mt-8 mb-8"
-      :class="data.alignTo === 'right' ? 'col-start-8 lg:order-2' : 'col-start-1 lg:order-1'"
-    >
-      <!-- should accommodate any size/shape image without cropping -->
-      <MixinFancybox
+    <div class="lg:BaseGrid lg:px-0 px-4">
+      <!-- the image -->
+      <div
         v-if="theImageData"
-        :src="theImageData.original || theImageData.src?.url"
-        :caption="theImageData.caption"
-        :credit="theImageData.credit"
-        :detail-url="theImageData.detailUrl"
+        class="lg:mb-0 lg:w-full sm:w-xl lg:mt-0 lg:pr-4 2xl:pr-0 col-span-5 mx-auto mt-8 mb-8"
+        :class="data.alignTo === 'right' ? 'col-start-8 lg:order-2' : 'col-start-1 lg:order-1'"
       >
-        <BaseImagePlaceholder aspect-ratio="none">
-          <BaseImage
-            v-if="theImageData && theImageData.src"
-            :src="theImageData.src.url"
-            :srcset="theSrcSet"
-            :width="theImageData.src.width"
-            :height="theImageData.src.height"
-            image-class="w-full h-auto"
-            :alt="theImageData.alt"
-            loading="lazy"
-          />
-        </BaseImagePlaceholder>
-      </MixinFancybox>
-      <BaseImageCaption
-        v-if="hasCaptionArea"
-        class="lg:mt-3 mt-2"
-        :data="theImageData"
-      />
-    </div>
+        <!-- should accommodate any size/shape image without cropping -->
+        <MixinFancybox
+          v-if="theImageData"
+          :src="theImageData.original || theImageData.src?.url"
+          :caption="theImageData.caption"
+          :credit="theImageData.credit"
+          :detail-url="theImageData.detailUrl"
+        >
+          <BaseImagePlaceholder aspect-ratio="none">
+            <BaseImage
+              v-if="theImageData && theImageData.src"
+              :src="theImageData.src.url"
+              :srcset="theSrcSet"
+              :width="theImageData.src.width"
+              :height="theImageData.src.height"
+              image-class="w-full h-auto"
+              :alt="theImageData.alt"
+              loading="lazy"
+            />
+          </BaseImagePlaceholder>
+        </MixinFancybox>
+        <BaseImageCaption
+          v-if="hasCaptionArea"
+          class="lg:mt-3 mt-2"
+          :data="theImageData"
+        />
+      </div>
 
-    <!-- the text -->
-    <div
-      v-if="data.text"
-      class="flex col-span-5"
-      :class="data.alignTo === 'right' ? 'col-start-3 lg:order-1' : 'col-start-6 lg:order-2'"
-    >
-      <BlockText :text="data.text" />
+      <!-- the text -->
+      <div
+        v-if="data.text"
+        class="flex col-span-5"
+        :class="data.alignTo === 'right' ? 'col-start-3 lg:order-1' : 'col-start-6 lg:order-2'"
+      >
+        <BlockText :text="data.text" />
+      </div>
     </div>
   </div>
 </template>

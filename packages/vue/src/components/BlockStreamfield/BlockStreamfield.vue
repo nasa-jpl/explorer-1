@@ -28,7 +28,6 @@
       <BlockInlineImage
         v-else-if="block.blockType == 'InlineImageBlock'"
         :key="`inlineImageBlock${index}`"
-        class="lg:px-0 px-4"
         :class="seamlessText(index) ? 'lg:mb-8 mb-5' : 'lg:mb-18 mb-10'"
         :data="block"
       />
