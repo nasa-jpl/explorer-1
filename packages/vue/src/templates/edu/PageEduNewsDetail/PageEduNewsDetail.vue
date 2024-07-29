@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
 import type { StreamfieldBlockData } from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
+  AuthorObject,
   ImageObject,
   PageResponseObject,
   RelatedLinkObject,
@@ -25,6 +26,7 @@ interface PageEduNewsDetailObject extends PageResponseObject {
   heroPosition: string
   heroConstrain: boolean
   heroImageCaption: string
+  authors: AuthorObject[]
   publicationDate: string
   title: string
   getTopicsForDisplay: Topic[]
@@ -97,6 +99,7 @@ const dateTimeArray = computed(() => {
     >
       <DetailHeadline
         :title="data.title"
+        :author="data.authors"
         :publication-date="dateTimeArray?.length ? dateTimeArray[0] : undefined"
         :publication-time="dateTimeArray?.length ? dateTimeArray[1] : undefined"
         :topics="data.getTopicsForDisplay"

@@ -46,11 +46,11 @@
       >{{ title }}
     </BaseHeading>
     <div
-      v-if="author || publicationDate"
+      v-if="authors?.length || publicationDate"
       class="lg:text-base text-gray-mid-dark divide-gray-mid-dark px-3 mt-5 -ml-3 text-sm leading-normal"
     >
       <span
-        v-if="authors"
+        v-if="authors?.length"
         :itemprop="schema ? 'author' : undefined"
         itemscope
         itemtype="https://schema.org/Person"
@@ -99,14 +99,10 @@
 import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
-import type { Topic } from './../../interfaces'
+import type { Topic, AuthorObject } from './../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
-interface Author {
-  name: string
-  organization: string
-}
 export default defineComponent({
   name: 'DetailHeadline',
   components: {
@@ -120,7 +116,7 @@ export default defineComponent({
       default: undefined
     },
     author: {
-      type: Object as PropType<Author | Author[]>,
+      type: Object as PropType<AuthorObject | AuthorObject[]>,
       required: false,
       default: undefined
     },
@@ -163,16 +159,16 @@ export default defineComponent({
       return returnDate.toISOString()
     },
     authors(): { name: string; organization: string }[] | undefined {
-      let authors: Author[] | undefined = undefined
+      let authors: AuthorObject[] | undefined = undefined
       if (this.author && this.author.constructor === Array) {
         authors = []
         // @ts-expect-error we know it's an array at this point
-        this.author.forEach((author: { author: Author }) => {
+        this.author.forEach((author: { author: AuthorObject }) => {
           // @ts-expect-error authors array is defined above
           authors.push(author.author)
         })
-      } else {
-        authors = [this.author] as Author[]
+      } else if (this.author) {
+        authors = [this.author] as AuthorObject[]
       }
       return authors
     }
