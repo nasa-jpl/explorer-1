@@ -1,4 +1,5 @@
-import dayjs from './dayjs'
+// must include `.js`
+import dayjs from './dayjs.js'
 
 const filters = {
   // To support more locales update add imports to dayjs.js'
