@@ -13,7 +13,7 @@
     <div class="max-w-screen-3xl lg:mb-24 mx-auto mt-10 mb-8">
       <MixinFancybox
         v-if="data.image"
-        :src="data.image.original"
+        :src="data.image.original || data.image.src?.url"
         :caption="data.image.caption"
         :credit="data.image.credit"
         :detail-url="data.image.detailUrl"

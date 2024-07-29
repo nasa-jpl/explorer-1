@@ -46,18 +46,30 @@
       >{{ title }}
     </BaseHeading>
     <div
-      v-if="author || publicationDate"
+      v-if="authors?.length || publicationDate"
       class="lg:text-base text-gray-mid-dark divide-gray-mid-dark px-3 mt-5 -ml-3 text-sm leading-normal"
     >
       <span
-        v-if="author"
+        v-if="authors?.length"
         :itemprop="schema ? 'author' : undefined"
         itemscope
         itemtype="https://schema.org/Person"
         class="pr-3 border-r mr-2"
       >
         Written by
-        <span :itemprop="schema ? 'name' : undefined">{{ author.name }}</span>
+        <template
+          v-for="(a, index) of authors"
+          :key="index"
+        >
+          <span
+            class="inline-block"
+            :itemprop="schema ? 'name' : undefined"
+            >{{ a.name }}</span
+          >
+          <template v-if="index !== authors.length - 1"
+            ><span class="inline-block pr-1">,</span></template
+          >
+        </template>
       </span>
       <span
         v-else
@@ -87,7 +99,7 @@
 import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
-import type { Topic } from './../../interfaces'
+import type { Topic, AuthorObject } from './../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
@@ -100,32 +112,39 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     author: {
-      type: Object,
-      required: false
+      type: Object as PropType<AuthorObject | AuthorObject[]>,
+      required: false,
+      default: undefined
     },
     publicationDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     publicationTime: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     topics: {
       type: Array as PropType<Topic[]>,
-      required: false
+      required: false,
+      default: undefined
     },
     // if topics array isn't available
     label: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     labelLink: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     schema: {
       type: Boolean,
@@ -138,6 +157,20 @@ export default defineComponent({
       const currentTime = this.publicationTime || '00:00:00'
       const returnDate = new Date(this.publicationDate + ' ' + currentTime)
       return returnDate.toISOString()
+    },
+    authors(): { name: string; organization: string }[] | undefined {
+      let authors: AuthorObject[] | undefined = undefined
+      if (this.author && this.author.constructor === Array) {
+        authors = []
+        // @ts-expect-error we know it's an array at this point
+        this.author.forEach((author: { author: AuthorObject }) => {
+          // @ts-expect-error authors array is defined above
+          authors.push(author.author)
+        })
+      } else if (this.author) {
+        authors = [this.author] as AuthorObject[]
+      }
+      return authors
     }
   }
 })

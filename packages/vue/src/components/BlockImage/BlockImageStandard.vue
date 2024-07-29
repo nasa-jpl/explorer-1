@@ -74,7 +74,7 @@ export default defineComponent({
   <div v-if="theData">
     <MixinFancybox
       v-if="theData.src"
-      :src="theData.original"
+      :src="theData.original || theData.src?.url"
       :caption="theData.caption"
       :credit="theData.credit"
       :detail-url="theData.detailUrl"

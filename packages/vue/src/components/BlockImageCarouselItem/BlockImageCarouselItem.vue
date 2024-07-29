@@ -1,7 +1,7 @@
 <template>
   <div v-if="theImageData">
     <MixinFancybox
-      :src="theImageData.original"
+      :src="theImageData.original || theImageData.src?.url"
       :caption="theImageData.caption"
       :credit="theImageData.credit"
       :detail-url="theImageData.detailUrl"
