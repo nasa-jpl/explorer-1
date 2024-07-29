@@ -9,17 +9,18 @@ import type {
   Topic,
   ThumbnailObject
 } from './../../../interfaces'
-import HeroMedia from '@explorer-1/vue/src/components/HeroMedia/HeroMedia.vue'
-import LayoutHelper from '@explorer-1/vue/src/components/LayoutHelper/LayoutHelper.vue'
-import DetailHeadline from '@explorer-1/vue/src/components/DetailHeadline/DetailHeadline.vue'
-import ShareButtonsEdu from '@explorer-1/vue/src/components/ShareButtonsEdu/ShareButtonsEdu.vue'
-import BlockImageStandard from '@explorer-1/vue/src/components/BlockImage/BlockImageStandard.vue'
-import BlockText from '@explorer-1/vue/src/components/BlockText/BlockText.vue'
-import BlockStreamfield from '@explorer-1/vue/src/components/BlockStreamfield/BlockStreamfield.vue'
+import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
+import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
+import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
+import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
+import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
+import BlockText from './../../../components/BlockText/BlockText.vue'
+import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 
 interface PageEduNewsDetailObject extends PageResponseObject {
   url: string
   heroImage: ImageObject
+  heroImageInline: ImageObject
   thumbnailImage: ThumbnailObject
   heroPosition: string
   heroConstrain: boolean
@@ -118,9 +119,9 @@ const dateTimeArray = computed(() => {
       class="lg:mb-22 mt-10 mb-10"
     >
       <BlockImageStandard
-        :data="data.heroImage"
-        :display-caption="data.heroImage.displayCaption"
-        :caption="data.heroImage.caption"
+        :data="data.heroImageInline"
+        :display-caption="data.heroImageInline.displayCaption"
+        :caption="data.heroImageInline.caption"
         :constrain="data.heroConstrain"
       />
     </LayoutHelper>
