@@ -139,7 +139,7 @@ export default defineComponent({
 <style lang="scss">
 .NavSecondary {
   top: -1px; // for intersection observer to work
-  @apply sticky z-50 w-full bg-white border-b edu:border-0 border-gray-mid border-opacity-0 transition-border-opacity duration-150 ease-in;
+  @apply sticky z-40 w-full bg-white border-b edu:border-0 border-gray-mid border-opacity-0 transition-border-opacity duration-150 edu:duration-300 ease-in;
   @apply hidden;
   @screen lg {
     @apply block;
@@ -184,8 +184,14 @@ export default defineComponent({
       }
     }
     @screen lg {
-      @apply top-28 edu:top-18;
+      @apply top-28;
     }
+  }
+}
+// since we depend on a body class, the edu: prefix won't work as usual and requires the below line
+body.header-sticky-showing .ThemeEdu .NavSecondary {
+  @screen lg {
+    @apply top-[4.45rem];
   }
 }
 </style>
