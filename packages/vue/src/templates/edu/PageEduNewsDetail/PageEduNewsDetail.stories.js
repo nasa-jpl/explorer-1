@@ -31,7 +31,7 @@ export const BaseStory = {
       slug: 'nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
       url: '/news/nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
       title: "NASA's Ingenuity Mars Helicopter Recharges Its Batteries in Flight",
-      firstPublishedAt: '2024-06-20T20:36:49.657301+00:00',
+      publicationDate: '2024-06-20 20:36:49.657301+00:00',
       getTopicsForDisplay: [
         {
           title: 'Mars',

@@ -25,8 +25,7 @@ interface PageEduNewsDetailObject extends PageResponseObject {
   heroPosition: string
   heroConstrain: boolean
   heroImageCaption: string
-  firstPublishedAt: string
-  lastPublishedAt: string
+  publicationDate: string
   title: string
   getTopicsForDisplay: Topic[]
   summary: string
@@ -63,7 +62,7 @@ const computedClass = computed(() => {
 })
 
 const dateTimeArray = computed(() => {
-  return props.data.firstPublishedAt.split('T')
+  return props.data.publicationDate.split(' ')
 })
 </script>
 <template>
