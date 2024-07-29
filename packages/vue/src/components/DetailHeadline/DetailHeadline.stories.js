@@ -30,6 +30,26 @@ export const BaseStory = {
   args: DetailHeadlineData
 }
 
+export const MultipleAuthors = {
+  args: {
+    ...DetailHeadlineData,
+    author: [
+      {
+        author: {
+          name: 'Author Name',
+          organization: 'Organization'
+        }
+      },
+      {
+        author: {
+          name: 'Another Author',
+          organization: 'Organization'
+        }
+      }
+    ]
+  }
+}
+
 export const NoAuthor = {
   args: {
     title: "NASA's Ingenuity Mars Helicopter Recharges Its Batteries in Flight",
