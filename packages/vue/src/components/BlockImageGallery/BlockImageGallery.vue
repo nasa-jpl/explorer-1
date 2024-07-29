@@ -10,7 +10,7 @@
     <template #firstSlide>
       <MixinFancybox
         v-if="cover"
-        :src="cover.original"
+        :src="cover.original || cover.src?.url"
         :caption="description"
         :credit="cover.credit"
         :detail-url="cover.detailUrl"

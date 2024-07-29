@@ -40,7 +40,7 @@
       />
       <MixinFancybox
         v-if="data.image"
-        :src="data.image.original"
+        :src="data.image.original || data.image.src?.url"
         :caption="data.image.caption"
         :credit="data.image.credit"
         :title="data.title"
