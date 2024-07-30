@@ -181,6 +181,12 @@ importers:
       '@explorer-1/tsconfig':
         specifier: workspace:*
         version: link:../../packages/configs/tsconfig
+      '@percy/cli':
+        specifier: ^1.28.6
+        version: 1.28.7(typescript@5.4.5)
+      '@percy/storybook':
+        specifier: ^6.0.0
+        version: 6.0.0(typescript@5.4.5)
       '@rushstack/eslint-patch':
         specifier: ^1.2.0
         version: 1.10.3
