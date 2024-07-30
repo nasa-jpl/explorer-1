@@ -58,11 +58,7 @@ export const ImageDetailPageData = {
       }
     ],
     keepExploringInstrument: BlockLinkTileCarouselData,
-    keepExploringMission: [
-      BlockLinkTileCarouselData[0],
-      BlockLinkTileCarouselData[1],
-      BlockLinkTileCarouselData[2]
-    ],
+    keepExploringMission: BlockLinkTileCarouselData,
     keepExploringTarget: BlockLinkTileCarouselData,
     label: 'Image',
     piaNumber: 'PIA23356',
