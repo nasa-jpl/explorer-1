@@ -75,12 +75,12 @@
     @apply overflow-visible #{!important};
 
     .swiper-slide {
-      @apply opacity-50 transition-opacity duration-500 ease-in-out h-auto;
+      @apply opacity-50 transition-opacity duration-500 ease-in-out h-auto pointer-events-none;
 
       &.swiper-slide-visible,
       &:focus,
       &:focus-within {
-        @apply opacity-100;
+        @apply opacity-100 pointer-events-auto;
       }
     }
   }
