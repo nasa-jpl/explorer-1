@@ -40,7 +40,7 @@ jobs:
         run: make vue-storybook-build
 
       - name: Upload build to artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: storybook
           path: apps/vue-storybook/storybook_compiled
