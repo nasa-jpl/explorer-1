@@ -1,4 +1,3 @@
-\
 <template>
   <MixinCarousel
     v-if="hasContent"

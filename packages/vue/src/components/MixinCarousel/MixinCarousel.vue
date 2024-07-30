@@ -17,7 +17,7 @@
         <div class="sm:flex flex-wrap items-center justify-between">
           <h2
             v-if="heading"
-            class="font-primary text-gray-dark lg:text-6xl text-3xl font-semibold leading-normal tracking-normal uppercase"
+            class="text-h3 defaultTheme:uppercase"
           >
             {{ heading }}
           </h2>
