@@ -32,7 +32,7 @@
       <div class="footer-extras lg:col-span-3 col-span-12">
         <!-- email sign up -->
         <div class="text-subtitle text-blue edu:text-white lg:mb-5 mb-3">
-          Get the Latest from JPL
+          {{ `Get the Latest from JPL ${themeStore.isEdu ? 'Education' : ''} ` }}
         </div>
         <TheFooterSignUp class="lg:mb-10 mb-8" />
         <!-- social media -->
@@ -101,9 +101,7 @@
       <div class="3xl:px-0 container px-4 mx-auto">
         <div v-if="data && data.relatedNasaSites">
           <div class="text-subtitle text-blue edu:text-white mb-5">
-            <template v-if="themeStore.theme === 'ThemeEdu'">
-              Related NASA Education Sites
-            </template>
+            <template v-if="themeStore.isEdu"> Related NASA Education Sites </template>
             <template v-else> Related NASA Sites </template>
           </div>
           <div class="auto-col-4">
@@ -148,9 +146,9 @@
         >
           <div
             v-if="commitSha"
-            class="lg:inline-block lg:mb-0 block px-3 mb-2"
+            class="lg:inline-block lg:mb-0 block pr-4 mb-2"
           >
-            <span class="text-gray-light font-bold">Version:</span>
+            <span class="text-gray-light font-bold inline-block pr-1">Version:</span>
             <span>{{ commitSha }}</span>
           </div>
           <div
@@ -159,7 +157,7 @@
             class="lg:inline-block lg:mb-0 block mb-2"
             :class="{ 'ml-5': index !== 0 }"
           >
-            <span class="font-bold">{{ item.label }}:</span>
+            <span class="font-bold inline-block pr-1">{{ item.label }}:</span>
             <span>{{ item.text }}</span>
           </div>
         </div>
@@ -168,7 +166,7 @@
             v-if="commitSha != null"
             class="lg:inline-block lg:mb-0 block px-3 mb-2"
           >
-            <span class="text-gray-light font-bold">Version:</span>
+            <span class="text-gray-light font-bold inline-block pr-1">Version:</span>
             <span>{{ commitSha }}</span>
           </div>
         </div>
