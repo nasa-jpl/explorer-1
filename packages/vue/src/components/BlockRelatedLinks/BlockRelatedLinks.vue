@@ -44,8 +44,6 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { BlockData, RelatedLinkObject } from './../../interfaces'
-import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
-
 import RelatedLink from './../BlockRelatedLinks/RelatedLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
