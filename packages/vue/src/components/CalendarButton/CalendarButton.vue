@@ -70,7 +70,6 @@ export default defineComponent({
   },
   methods: {
     init() {
-      // this.icalendar = new ICalendar(this.options)
       let recurrence = {}
       if (this.endDatetime && this.isAllDay) {
         // Calculate how many full days
@@ -107,8 +106,6 @@ export default defineComponent({
       fileLink.href = objectUrl
       fileLink.download = kebabCase(this.title)
       fileLink.click()
-      // this.icalendar.render()
-      console.log(this.icalendar.render())
     }
   }
 })
