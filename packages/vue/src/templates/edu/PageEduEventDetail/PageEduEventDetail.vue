@@ -155,7 +155,7 @@
             <!-- Todo IF VIRTUAL EVENT passes url as string to location prop -->
             <!-- location= location name and link -->
             <CalendarButton
-              :is-all-day="data.isAllDay"
+              v-if="data.startDatetime"
               :start-datetime="data.startDatetime"
               :end-datetime="data.endDatetime ? data.endDatetime : null"
               :title="data.title ? data.title : null"
@@ -291,11 +291,11 @@
     <!-- Related Content -->
     <div
       v-if="data.relatedContent?.length"
-      class="bg-stars bg-primary-dark lg:py-24 lg:mt-24 py-12 mt-12"
+      class="bg-stars bg-[#15003B] lg:py-24 lg:mt-24 py-12 mt-12"
     >
       <BlockLinkCarousel
-        class="text-white"
-        item-type="tiles"
+        class="ThemeVariantDark"
+        item-type="cards"
         heading="Explore More"
         :items="data.relatedContent"
       />
@@ -410,6 +410,9 @@ export default defineComponent({
     @apply lg:mt-0;
 
     max-width: 260px;
+  }
+  .bg-stars .MixinCarousel__Heading {
+    @apply text-white;
   }
 }
 </style>

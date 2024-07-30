@@ -5,7 +5,7 @@
     :to="theItem.url ? theItem.url : undefined"
     :href="theItem.externalLink ? theItem.externalLink : undefined"
     class="BlockLinkCard group"
-    link-class="block pb-5"
+    :link-class="`block ${compact ? 'pb-3' : 'pb-5'}`"
     external-target-blank
   >
     <BaseImagePlaceholder
@@ -29,7 +29,7 @@
     </BaseImagePlaceholder>
 
     <div
-      class="transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform"
+      class="BlockLinkCard__CardContent transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform"
       :class="
         compact ? 'can-hover:group-hover:-translate-y-2' : 'can-hover:group-hover:-translate-y-3'
       "
@@ -71,7 +71,7 @@
       </p>
     </div>
     <div
-      class="can-hover:block text-action can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
+      class="BlockLinkCard__CardArrow can-hover:block text-action can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
     >
       <IconArrow />
     </div>
@@ -100,41 +100,50 @@ export default defineComponent({
   props: {
     data: {
       type: Object as PropType<Card>,
-      required: false
+      required: false,
+      default: undefined
     },
     // override props as needed
     // so we can use this component in search results
     url: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     externalLink: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     thumbnailImage: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
     label: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     title: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     date: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     startDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     endDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     // if styling should be compact
     compact: {
@@ -144,7 +153,8 @@ export default defineComponent({
     // if a heading should be used and at what level
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {
@@ -192,6 +202,16 @@ export default defineComponent({
 .BlockLinkCard {
   .text-subtitle.divide-x {
     @apply leading-none #{!important};
+  }
+  .ThemeVariantDark & {
+    @apply bg-white;
+    .BlockLinkCard__CardContent,
+    .BlockLinkCard__CardArrow {
+      @apply px-6;
+    }
+    .BaseImagePlaceholder {
+      @apply bg-gray-mid-dark;
+    }
   }
 }
 </style>

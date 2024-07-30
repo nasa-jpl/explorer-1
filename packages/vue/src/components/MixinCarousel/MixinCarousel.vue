@@ -17,7 +17,7 @@
         <div class="sm:flex flex-wrap items-center justify-between">
           <h2
             v-if="heading"
-            class="text-h3 defaultTheme:uppercase"
+            class="MixinCarousel__Heading text-h3 defaultTheme:uppercase"
           >
             {{ heading }}
           </h2>

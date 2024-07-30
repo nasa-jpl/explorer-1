@@ -23,7 +23,7 @@ export const BaseStory = {
   args: {
     data: {
       id: '285',
-      title: 'Becoming a nasa engineer',
+      title: 'Becoming a NASA engineer',
       slug: 'becoming-a-nasa-engineer',
       url: '/events/becoming-a-nasa-engineer',
       startDate: '2022-01-23',
