@@ -6,7 +6,7 @@ import filters from './utils/filters'
 // @ts-ignore
 import vClickOutside from 'click-outside-vue3'
 import VueCompareImage from 'vue3-compare-image'
-import './assets/scss/styles.scss'
+import './assets/scss/styles-with-fonts.scss'
 import App from './App.vue'
 
 const pinia = createPinia()

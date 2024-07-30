@@ -5,7 +5,7 @@ import initBlockAccordion from './assets/js/components/_BlockAccordion.js'
 import initBackToTop from './assets/js/components/_BackToTop.js'
 import initHeaderInternal from './assets/js/components/_HeaderInternal.js'
 import initHeroMedia from './assets/js/components/_HeroMedia.js'
-import './assets/scss/styles.scss'
+import './assets/scss/styles-with-fonts.scss'
 
 initBackToTop()
 initBlockAccordion()

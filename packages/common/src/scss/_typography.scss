@@ -1,6 +1,4 @@
 @use 'sass:math';
-@tailwind base;
-@tailwind utilities;
 
 // Conversion util for easier definition of font sizes by pixel size
 @function pxToRem($pxValue) {
