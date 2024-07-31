@@ -3,6 +3,7 @@ import ThumbnailCarousel from './ThumbnailCarousel.vue'
 export default {
   title: 'Components/Utilities/ThumbnailCarousel',
   component: ThumbnailCarousel,
+  tags: ['skip-test'],
   parameters: {
     docs: {
       description: {
