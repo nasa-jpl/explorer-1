@@ -19,7 +19,7 @@ storybook:
   # additionalSnapshots: []
   include: [
       'Foundations/Typography: Text Styles',
-      'Foundations/Themes: Dynamic Tokens'
+      'Foundations/Themes: Dynamic Tokens',
       'Foundations/Logos/LogoTribrand: Logo Inline SVG',
       'Foundations/Grid and Layout: Full Page Example',
       # TODO: add a story that has all icons in it
