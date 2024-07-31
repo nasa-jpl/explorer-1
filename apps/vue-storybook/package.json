@@ -29,7 +29,7 @@
     "start": "http-server storybook_compiled -p 6006 -c-1 -s",
     "test": "test-storybook --stories-json --maxWorkers=4 --skipTags=\"skip-test\"",
     "test:cross-browser": "test-storybook --stories-json --verbose --maxWorkers=4 --browsers chromium webkit firefox",
-    "test:ci": "test-storybook --stories-json --maxWorkers=4",
+    "test:ci": "test-storybook --stories-json --maxWorkers=4 --skipTags=\"skip-test\"",
     "update:storybook": "npx storybook@latest upgrade --package-manager pnpm"
   },
   "dependencies": {
