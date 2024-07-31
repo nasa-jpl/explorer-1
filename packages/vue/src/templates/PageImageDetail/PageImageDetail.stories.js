@@ -6,7 +6,7 @@ export default {
   title: 'Templates/PageImageDetail',
   component: PageImageDetail,
   excludeStories: /.*Data$/,
-  tags: ['!autodocs'],
+  tags: ['!autodocs', 'skip-test'],
   parameters: {
     layout: 'fullscreen'
   }

@@ -182,11 +182,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/configs/tsconfig
       '@percy/cli':
-        specifier: ^1.28.6
+        specifier: ^1.28.7
         version: 1.28.7(typescript@5.4.5)
       '@percy/storybook':
-        specifier: ^6.0.0
-        version: 6.0.0(typescript@5.4.5)
+        specifier: ^6.0.1
+        version: 6.0.1(typescript@5.4.5)
       '@rushstack/eslint-patch':
         specifier: ^1.2.0
         version: 1.10.3
@@ -2302,6 +2302,10 @@ packages:
 
   '@percy/storybook@6.0.0':
     resolution: {integrity: sha512-7EAlaJT4B+naFLkF8YECOw1koZxUM59YSA90SS9KPxezEFQ1lZNBlbXN2zcK7xBF5tqdA05wHQECJkuA4V71kA==}
+    hasBin: true
+
+  '@percy/storybook@6.0.1':
+    resolution: {integrity: sha512-A1EmBOY6dfv5RR4OiqkjOf0Ga5glASrgq6A/wHDBIpZTTUuBxHXUT3J7hKfGx5pr6P4TdZ1gy4fuVhtvOlTFgA==}
     hasBin: true
 
   '@percy/webdriver-utils@1.28.7':
@@ -9143,6 +9147,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.18.0:
+    resolution: {integrity: sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
     engines: {node: '>=12'}
@@ -11379,7 +11395,7 @@ snapshots:
       pako: 2.1.0
       path-to-regexp: 6.2.2
       rimraf: 3.0.2
-      ws: 8.17.0
+      ws: 8.18.0
       yaml: 2.4.5
     transitivePeerDependencies:
       - bufferutil
@@ -11398,6 +11414,17 @@ snapshots:
   '@percy/sdk-utils@1.28.7': {}
 
   '@percy/storybook@6.0.0(typescript@5.4.5)':
+    dependencies:
+      '@percy/cli-command': 1.28.7(typescript@5.4.5)
+      cross-spawn: 7.0.3
+      qs: 6.12.1
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - typescript
+      - utf-8-validate
+
+  '@percy/storybook@6.0.1(typescript@5.4.5)':
     dependencies:
       '@percy/cli-command': 1.28.7(typescript@5.4.5)
       cross-spawn: 7.0.3
@@ -19935,6 +19962,8 @@ snapshots:
       signal-exit: 4.1.0
 
   ws@8.17.0: {}
+
+  ws@8.18.0: {}
 
   xml-name-validator@4.0.0: {}
 

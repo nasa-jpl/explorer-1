@@ -1,6 +1,6 @@
 <template>
   <div
-    class="shadow-jpl relative h-full"
+    class="shadow-jpl relative h-full bg-white"
     :class="{ 'flex items-center min-h-32': !image }"
   >
     <div
@@ -23,7 +23,7 @@
         />
       </BaseImagePlaceholder>
     </div>
-    <div class="px-6 py-6">
+    <div class="px-6 py-6 ThemeVariantLight">
       <div class="text-primary text-subtitle">
         {{ type }}
       </div>
@@ -64,15 +64,18 @@ export default defineComponent({
     },
     title: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     text: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {

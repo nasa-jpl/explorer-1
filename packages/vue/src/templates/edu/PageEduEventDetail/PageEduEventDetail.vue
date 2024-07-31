@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="PageEventDetail pt-5 ThemeVariantLight lg:pt-12"
+    class="PageEduEventDetail pt-5 ThemeVariantLight lg:pt-12"
     itemscope
     itemtype="http://schema.org/Event"
   >
@@ -31,15 +31,15 @@
       class="mb-6 lg:mb-12"
     >
       <div
-        v-if="data.label"
-        class="flex flex-wrap items-start mb-4"
+        v-if="data.eventType"
+        class="flex flex-wrap items-start mb-3"
       >
-        <nuxt-link
-          class="py-3 cursor-pointer group nuxt-link-active text-subtitle text-primary can-hover:hover:text-primary-dark"
-          to="/events"
+        <BaseTag
+          variant="primary"
+          size="md"
         >
-          {{ data.label }}
-        </nuxt-link>
+          {{ data.eventType }}
+        </BaseTag>
       </div>
       <BaseHeading
         level="h1"
@@ -47,14 +47,8 @@
       >
         {{ data.title }}
       </BaseHeading>
-    </LayoutHelper>
-
-    <!-- share buttons -->
-    <LayoutHelper
-      indent="col-1"
-      class="relative mb-16 lg:mb-0"
-    >
-      <ShareButtons
+      <ShareButtonsEdu
+        class="mt-4"
         :title="data.title"
         :url="data.url"
       />
@@ -72,13 +66,16 @@
           class="py-1 mb-10 text-xl lg:mb-0 lg:flex"
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
-          <div class="PageEventDetail__Metadata text-primary">
+          <div
+            v-if="formattedEventDates || data.customDate"
+            class="PageEduEventDetail__Metadata text-primary"
+          >
             <IconCalendar class="relative mr-3 text-[1.2rem]" />
-            <span>{{ formattedEventDates }}</span>
+            <span>{{ formattedEventDates || data.customDate }}</span>
           </div>
           <div
             v-show="displayTime"
-            class="PageEventDetail__Metadata text-primary"
+            class="PageEduEventDetail__Metadata text-primary"
           >
             <IconTime class="relative mr-3" />
             <span>{{ displayTime }}</span>
@@ -89,7 +86,7 @@
             itemprop="location"
             itemscope
             itemtype="https://schema.org/VirtualLocation"
-            class="PageEventDetail__Metadata text-primary"
+            class="PageEduEventDetail__Metadata text-primary"
           >
             <link
               itemprop="url"
@@ -97,25 +94,26 @@
             />
             <meta
               itemprop="name"
-              :content="data.location"
+              :content="data.locationName"
             />
             <IconLocation class="relative mr-3" />
             <BaseLink
               variant="none"
+              class="text-action"
               :href="data.locationLink"
               external-target-blank
             >
-              {{ data.location }}
+              {{ data.locationName }}
             </BaseLink>
           </div>
           <!-- Normal location -->
           <div
-            v-else-if="data.location"
-            class="PageEventDetail__Metadata text-primary"
+            v-else-if="data.locationName"
+            class="PageEduEventDetail__Metadata text-primary"
           >
             <meta
               itemprop="location"
-              :content="data.location"
+              :content="data.locationName"
             />
             <IconLocation class="relative mr-3" />
             <BaseLink
@@ -124,11 +122,19 @@
               :href="data.locationLink"
               external-target-blank
             >
-              {{ data.location }}
+              {{ data.locationName }}
             </BaseLink>
-            <span v-else>{{ data.location }}</span>
+            <span v-else>{{ data.locationName }}</span>
           </div>
-          <div class="PageEventDetail__Buttons">
+          <div
+            v-if="data.targetAudience"
+            class="PageEduEventDetail__Metadata text-primary"
+          >
+            <IconUser class="relative mr-3 text-[.9rem]" />
+            <span>{{ data.targetAudience }}</span>
+          </div>
+
+          <div class="PageEduEventDetail__Buttons">
             <BaseButton
               v-if="
                 data.registerLink &&
@@ -150,11 +156,11 @@
             <!-- Todo IF VIRTUAL EVENT passes url as string to location prop -->
             <!-- location= location name and link -->
             <CalendarButton
-              :is-all-day="data.isAllDay"
+              v-if="data.startDatetime"
               :start-datetime="data.startDatetime"
               :end-datetime="data.endDatetime ? data.endDatetime : null"
               :title="data.title ? data.title : null"
-              :location="data.location ? data.location : null"
+              :location="data.locationName ? data.locationName : null"
               :description="data.summary ? data.summary : null"
             />
           </div>
@@ -168,7 +174,7 @@
           <div class="col-span-7">
             <p
               v-if="data.summary"
-              class="BlockText text-body-lg mb-8 px-4 lg:px-0"
+              class="BlockText text-body-lg mb-8 px-4 lg:px-0 font-semibold"
             >
               {{ data.summary }}
             </p>
@@ -192,6 +198,7 @@
         <div class="col-span-7">
           <BaseHeading
             level="h2"
+            size="h3"
             class="mb-5 md:mb-8"
             >Speakers</BaseHeading
           >
@@ -226,7 +233,7 @@
               <div class="flex-1 h-full">
                 <h3
                   v-if="speaker.name"
-                  class="my-3 text-lg font-normal leading-none"
+                  class="my-3 text-lg !font-normal !tracking-normal leading-none"
                 >
                   <BaseLink
                     v-if="speaker.internalLink || speaker.externalLink"
@@ -243,11 +250,11 @@
                 </h3>
                 <p
                   v-if="speaker.title"
-                  class="mb-3 text-gray-dark"
+                  class="mb-3 text-gray-mid-dark"
                 >
                   {{ speaker.title }}
                 </p>
-                <p>
+                <p class="text-action capitalize">
                   {{ speaker.host }}
                 </p>
               </div>
@@ -263,21 +270,37 @@
       indent="col-2"
       class="my-12 lg:my-16"
     >
-      <BlockRelatedLinks :data="data.relatedLinks[0]" />
+      <BlockRelatedLinks
+        :data="data.relatedLinks[0]"
+        size="h3"
+      />
     </LayoutHelper>
 
     <!-- Related Events -->
     <LayoutHelper
-      v-if="data.moreEvents && data.moreEvents.length > 0"
+      v-if="data.relatedEvents?.length"
       indent="col-1"
       class="my-12 lg:my-16"
     >
       <BlockLinkCarousel
         item-type="cards"
-        heading="MORE EVENTS"
-        :items="data.moreEvents"
+        size="h3"
+        heading="Related Events"
+        :items="data.relatedEvents"
       />
     </LayoutHelper>
+    <!-- Related Content -->
+    <div
+      v-if="data.relatedContent?.length"
+      class="bg-stars bg-[#15003B] lg:py-24 lg:mt-24 py-12 mt-12"
+    >
+      <BlockLinkCarousel
+        class="ThemeVariantDark"
+        item-type="cards"
+        heading="Explore More"
+        :items="data.relatedContent"
+      />
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -286,35 +309,39 @@ import {
   mixinFormatEventDates,
   mixinFormatEventTimeInHoursAndMinutes,
   mixinFormatSplitEventDates
-} from '../../utils/mixins'
-import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
-import BaseHeading from './../../components/BaseHeading/BaseHeading.vue'
-import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
-import EventDetailHero from './../../components/EventDetailHero/EventDetailHero.vue'
-import IconCalendar from './../../components/Icons/IconCalendar.vue'
-import IconLocation from './../../components/Icons/IconLocation.vue'
-import IconTime from './../../components/Icons/IconTime.vue'
-import BaseLink from './../../components/BaseLink/BaseLink.vue'
-import BaseButton from './../../components/BaseButton/BaseButton.vue'
-import CalendarButton from './../../components/CalendarButton/CalendarButton.vue'
-import BlockStreamfield from './../../components/BlockStreamfield/BlockStreamfield.vue'
-import BaseImagePlaceholder from './../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import BaseImage from './../../components/BaseImage/BaseImage.vue'
-import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
-import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+} from '../../../utils/mixins'
+import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
+import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
+import BaseTag from './../../../components/BaseTag/BaseTag.vue'
+import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
+import EventDetailHero from './../../../components/EventDetailHero/EventDetailHero.vue'
+import IconCalendar from './../../../components/Icons/IconCalendar.vue'
+import IconLocation from './../../../components/Icons/IconLocation.vue'
+import IconTime from './../../../components/Icons/IconTime.vue'
+import IconUser from './../../../components/Icons/IconUser.vue'
+import BaseLink from './../../../components/BaseLink/BaseLink.vue'
+import BaseButton from './../../../components/BaseButton/BaseButton.vue'
+import CalendarButton from './../../../components/CalendarButton/CalendarButton.vue'
+import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
+import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import BaseImage from './../../../components/BaseImage/BaseImage.vue'
+import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 
 export default defineComponent({
-  name: 'PageEventDetail',
+  name: 'PageEduEventDetail',
   components: {
     LayoutHelper,
     BaseHeading,
-    ShareButtons,
+    BaseTag,
+    ShareButtonsEdu,
     EventDetailHero,
     IconCalendar,
     IconLocation,
     IconTime,
+    IconUser,
     BaseLink,
     BaseButton,
     CalendarButton,
@@ -327,7 +354,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   data() {
@@ -357,14 +385,12 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.PageEventDetail {
-  .PageEventDetail__Metadata {
+.PageEduEventDetail {
+  .PageEduEventDetail__Metadata {
     @apply flex;
     @apply items-baseline;
-    @apply mr-12;
-    @apply md:mr-8;
-    @apply lg:mr-12;
-    @apply mb-5;
+    @apply mr-12 md:mr-8 lg:mr-12;
+    @apply mb-5 lg:mb-7;
 
     span {
       max-width: 230px;
@@ -378,13 +404,16 @@ export default defineComponent({
     }
   }
 
-  .PageEventDetail__Buttons {
+  .PageEduEventDetail__Buttons {
     @apply text-base;
     @apply lg:ml-auto;
     @apply mt-10;
     @apply lg:mt-0;
 
     max-width: 260px;
+  }
+  .bg-stars .MixinCarousel__Heading {
+    @apply text-white;
   }
 }
 </style>

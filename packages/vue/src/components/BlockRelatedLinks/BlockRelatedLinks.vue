@@ -3,6 +3,7 @@
     <BaseHeading
       v-if="data.heading"
       level="h2"
+      v-bind="$attrs"
       class="md:mb-8 mb-5"
     >
       {{ data.heading }}
@@ -43,7 +44,6 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { BlockData, RelatedLinkObject } from './../../interfaces'
-
 import RelatedLink from './../BlockRelatedLinks/RelatedLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
@@ -63,6 +63,11 @@ export default defineComponent({
       type: Object as PropType<BlockRelatedLinksObject>,
       required: true,
       default: () => ({})
+    },
+    headingSize: {
+      type: String,
+      required: false,
+      default: undefined
     }
   },
   computed: {
