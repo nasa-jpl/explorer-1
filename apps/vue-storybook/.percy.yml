@@ -8,8 +8,6 @@ snapshot:
   enableJavascript: true
   enableLayout: true
 discovery:
-  launch-options:
-    headless: false
   concurrency: 15
 storybook:
   # args: {}
