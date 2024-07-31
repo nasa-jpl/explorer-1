@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 <template>
   <MixinCarousel
     v-if="slides"
