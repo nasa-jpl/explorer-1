@@ -1,7 +1,7 @@
 version: 2
 snapshot:
   widths:
-    # - 375
+    - 375
     - 1280
   minHeight: 1024
   percyCSS: ''
@@ -9,8 +9,6 @@ snapshot:
   enableJavascript: true
   enableLayout: true
 discovery:
-  launch-options:
-    headless: false
   concurrency: 15
   retry: true
 storybook:
@@ -21,16 +19,15 @@ storybook:
   # waitForSelector: ''
   # additionalSnapshots: []
   include: [
-      'Templates/WWW/PageTopicDetail: PageTopicDetail'
-      # 'Foundations/Typography: Text Styles',
-      # 'Foundations/Themes: Dynamic Tokens',
-      # 'Foundations/Logos/LogoTribrand: Logo Inline SVG',
-      # 'Foundations/Grid and Layout: Full Page Example',
-      # # TODO: add a story that has all icons in it
-      # 'Navigation/*'
-      # 'Components/*',
-      # 'Mixins/*',
-      # 'Templates/*'
+      'Foundations/Typography: Text Styles',
+      'Foundations/Themes: Dynamic Tokens',
+      'Foundations/Logos/LogoTribrand: Logo Inline SVG',
+      'Foundations/Grid and Layout: Full Page Example',
+      # TODO: add a story that has all icons in it
+      'Navigation/*',
+      'Components/*',
+      'Mixins/*',
+      'Templates/*'
     ]
   exclude:
     [
@@ -58,7 +55,7 @@ storybook:
       'Components/Blocks/BlockLinkCarousel: Two Items',
       'Components/Blocks/BlockLinkCarousel: Multiple Carousels',
       'Components/Heroes/Small: Video',
-      'Snapshot found: Components/Heroes/Small: HeroMedium (compact)',
+      'Components/Heroes/Small: HeroMedium (compact)',
       'Components/WWW/Homepage/HomepageCarousel: Carousel with shuffled items',
       'Components/WWW/Homepage/HomepageCarousel: Carousel with few slides',
       'Components/WWW/Homepage/HomepageCarousel/HomepageCarouselItem: Single Item',
