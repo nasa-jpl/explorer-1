@@ -22,5 +22,9 @@ export default defineConfig({
     watch: {
       usePolling: true
     }
+  },
+  build: {
+    // storybook-only
+    modulePreload: false
   }
 })

@@ -8,6 +8,9 @@ snapshot:
   disableShadowDOM: false
   enableJavascript: true
   enableLayout: true
+discovery:
+  concurrency: 15
+  retry: true
 storybook:
   # args: {}
   # globals: {}
@@ -52,7 +55,7 @@ storybook:
       'Components/Blocks/BlockLinkCarousel: Two Items',
       'Components/Blocks/BlockLinkCarousel: Multiple Carousels',
       'Components/Heroes/Small: Video',
-      'Snapshot found: Components/Heroes/Small: HeroMedium (compact)',
+      'Components/Heroes/Small: HeroMedium (compact)',
       'Components/WWW/Homepage/HomepageCarousel: Carousel with shuffled items',
       'Components/WWW/Homepage/HomepageCarousel: Carousel with few slides',
       'Components/WWW/Homepage/HomepageCarousel/HomepageCarouselItem: Single Item',

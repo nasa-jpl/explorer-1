@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="BlockInlineImage container mx-auto"
+    class="BlockInlineImage LayoutHelper container mx-auto"
   >
     <div class="lg:BaseGrid lg:px-0 px-4">
       <!-- the image -->

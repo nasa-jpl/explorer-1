@@ -316,6 +316,9 @@ export default defineComponent({
   &.-fluid {
     .LayoutHelper {
       @apply block;
+      &.container {
+        @apply px-0;
+      }
     }
 
     .BlockInlineImage {

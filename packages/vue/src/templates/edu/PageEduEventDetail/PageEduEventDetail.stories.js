@@ -1,11 +1,12 @@
-import { BlockKeyPointsData } from './../../components/BlockKeyPoints/BlockKeyPoints.stories'
-import { EventDetailHeroData } from './../../components/EventDetailHero/EventDetailHero.stories'
-import { EventsBlockLinkCarouselData } from './../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
-import PageEventDetail from './PageEventDetail.vue'
+import { BlockKeyPointsData } from './../../../components/BlockKeyPoints/BlockKeyPoints.stories'
+import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
+import { EventDetailHeroData } from './../../../components/EventDetailHero/EventDetailHero.stories'
+import { EventsBlockLinkCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
+import PageEduEventDetail from './PageEduEventDetail.vue'
 
 export default {
-  title: 'Templates/PageEventDetail',
-  component: PageEventDetail,
+  title: 'Templates/EDU/PageEduEventDetail',
+  component: PageEduEventDetail,
   tags: ['!autodocs'],
   parameters: {
     html: {
@@ -18,11 +19,11 @@ export default {
 
 // stories
 export const BaseStory = {
-  name: 'PageEventDetail',
+  name: 'PageEduEventDetail',
   args: {
     data: {
       id: '285',
-      title: 'Becoming a nasa engineer',
+      title: 'Becoming a NASA engineer',
       slug: 'becoming-a-nasa-engineer',
       url: '/events/becoming-a-nasa-engineer',
       startDate: '2022-01-23',
@@ -33,16 +34,43 @@ export const BaseStory = {
       endTime: '23:00:00',
       isAllDay: false,
       timezone: 'PST',
-      label: 'Events',
-      location: 'Webcast',
-      registerLink: [],
+      eventType: 'Workshop',
+      summary:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et luctus nisi. Maecenas vel turpis sem. Nullam ultricies nulla quis nisi faucibus eleifend. In turpis ante, blandit nec dapibus tempor, posuere at erat. In justo quam, imperdiet at hendrerit eget, imperdiet ut orci. ',
+      locationName: 'Webcast',
+      registerLink: [
+        {
+          text: 'Registration Link',
+          document: '',
+          page: {
+            url: '/placeholder'
+          },
+          externalLink: ''
+        }
+      ],
       eventImage: {
-        ...EventDetailHeroData.heroImage
+        __typename: 'CustomImage',
+        srcSet:
+          'https://picsum.photos/720/420 320w, https://picsum.photos/720/420 640w, https://picsum.photos/720/420 720w',
+        original: 'https://picsum.photos/720/420',
+        src: {
+          __typename: 'CustomRendition',
+          url: 'https://picsum.photos/720/420',
+          width: '720',
+          height: '420'
+        },
+        title: 'Marine Picks First Public Mars Global Surveyor Image',
+        alt: '',
+        caption:
+          '<p data-block-key="y00sz">A close-up view of part of the area imaged by Mars Global Surveyor for its public request program.</p>',
+        credit: 'Credit',
+        detailUrl: null
       },
       thumbnailImage: {
         alt: '',
         original: 'https://picsum.photos/512/288'
       },
+      targetAudience: 'All ages',
       body: [
         BlockKeyPointsData,
         {
@@ -51,7 +79,7 @@ export const BaseStory = {
             '<p>Lorem ipsum <a href="/missions/test-mission/">dolor</a> sit amet, consectetur adipiscing elit. Quisque vitae justo quis justo malesuada molestie. Cras sed tincidunt dui.</p><p>Integer imperdiet blandit neque vitae euismod. Nulla aliquet lacus nibh,  vel tincidunt urna efficitur non. In et eros vitae ex posuere maximus  quis eget urna. Suspendisse fringilla posuere velit sit amet posuere.  Morbi malesuada bibendum vehicula. Donec faucibus ut erat ut mattis.  Suspendisse ornare, quam at placerat cursus, dolor mi lacinia nunc, eget  maximus augue nulla in dolor.</p>\n'
         }
       ],
-      moreEvents: [...EventsBlockLinkCarouselData],
+      relatedEvents: [...EventsBlockLinkCarouselData],
       speakers: [
         {
           host: 'host',
@@ -79,23 +107,24 @@ export const BaseStory = {
       relatedLinks: [
         {
           blockType: 'RelatedLinksBlock',
-          heading: 'Webcast',
+          heading: 'Related Links',
           links: [
             {
               document: null,
               externalLink: 'http://www.google.com',
               page: null,
-              text: 'Watch the event live on YouTube'
+              text: 'Lorem ipsum dolor'
             },
             {
               document: null,
               externalLink: 'http://www.google.com',
               page: null,
-              text: 'Watch the event live on Ustream'
+              text: 'Sit amet consectatur'
             }
           ]
         }
-      ]
+      ],
+      relatedContent: BlockLinkCardCarouselData
     }
   }
 }

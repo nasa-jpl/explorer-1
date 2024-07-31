@@ -26,6 +26,7 @@ export default {
 
 // stories
 export const BaseStory = {
+  name: 'PageContent',
   args: {
     data: ContentPageData
   }
