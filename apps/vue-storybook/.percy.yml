@@ -21,12 +21,13 @@ storybook:
   # waitForSelector: ''
   # additionalSnapshots: []
   include: [
+      'Templates/WWW/PageTopicDetail: PageTopicDetail'
       # 'Foundations/Typography: Text Styles',
       # 'Foundations/Themes: Dynamic Tokens',
       # 'Foundations/Logos/LogoTribrand: Logo Inline SVG',
       # 'Foundations/Grid and Layout: Full Page Example',
       # # TODO: add a story that has all icons in it
-      'Navigation/*'
+      # 'Navigation/*'
       # 'Components/*',
       # 'Mixins/*',
       # 'Templates/*'
