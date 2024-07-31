@@ -1,14 +1,16 @@
 version: 2
 snapshot:
   widths:
-    - 375
     - 1280
   minHeight: 1024
   percyCSS: ''
-  concurrency: 15
   disableShadowDOM: false
   enableJavascript: true
   enableLayout: true
+discovery:
+  launch-options:
+    headless: false
+  concurrency: 15
 storybook:
   # args: {}
   # globals: {}
