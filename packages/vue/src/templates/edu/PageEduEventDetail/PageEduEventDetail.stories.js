@@ -49,7 +49,22 @@ export const BaseStory = {
         }
       ],
       eventImage: {
-        ...EventDetailHeroData.heroImage
+        __typename: 'CustomImage',
+        srcSet:
+          'https://picsum.photos/720/420 320w, https://picsum.photos/720/420 640w, https://picsum.photos/720/420 720w',
+        original: 'https://picsum.photos/720/420',
+        src: {
+          __typename: 'CustomRendition',
+          url: 'https://picsum.photos/720/420',
+          width: '720',
+          height: '420'
+        },
+        title: 'Marine Picks First Public Mars Global Surveyor Image',
+        alt: '',
+        caption:
+          '<p data-block-key="y00sz">A close-up view of part of the area imaged by Mars Global Surveyor for its public request program.</p>',
+        credit: 'Credit',
+        detailUrl: null
       },
       thumbnailImage: {
         alt: '',

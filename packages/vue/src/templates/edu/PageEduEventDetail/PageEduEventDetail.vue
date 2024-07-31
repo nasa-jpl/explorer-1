@@ -99,6 +99,7 @@
             <IconLocation class="relative mr-3" />
             <BaseLink
               variant="none"
+              class="text-action"
               :href="data.locationLink"
               external-target-blank
             >
