@@ -43,7 +43,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
     startDateSplit: {
       type: Object as PropType<EventDateObject | undefined>,
@@ -51,7 +52,8 @@ export default defineComponent({
     },
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {
@@ -61,6 +63,3 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss">
-@import '@explorer-1/common/src/scss/components/HeroMedia';
-</style>

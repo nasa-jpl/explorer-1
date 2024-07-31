@@ -5,6 +5,7 @@ snapshot:
     - 1280
   minHeight: 1024
   percyCSS: ''
+  concurrency: 15
   disableShadowDOM: false
   enableJavascript: true
   enableLayout: true
