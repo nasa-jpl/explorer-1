@@ -9,7 +9,10 @@ snapshot:
   enableJavascript: true
   enableLayout: true
 discovery:
+  launch-options:
+    headless: false
   concurrency: 15
+  retry: true
 storybook:
   # args: {}
   # globals: {}
@@ -23,10 +26,10 @@ storybook:
       # 'Foundations/Logos/LogoTribrand: Logo Inline SVG',
       # 'Foundations/Grid and Layout: Full Page Example',
       # # TODO: add a story that has all icons in it
-      # 'Navigation/*',
+      'Navigation/*'
       # 'Components/*',
       # 'Mixins/*',
-      'Templates/*'
+      # 'Templates/*'
     ]
   exclude:
     [
