@@ -33,7 +33,7 @@ export default {
 export const BlockLinkTileData = {
   card: {
     url: '/topics/placeholder-slug-1',
-    title: 'How engineers at NASA-JPL persevered to develop a ventilator',
+    title: 'Lorem ipsum dolor',
     label: 'Solar System',
     thumbnailImage: {
       src: {

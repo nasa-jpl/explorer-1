@@ -48,7 +48,7 @@ storybook:
       'Components/Base/BaseModal: Nested',
       'Components/Base/BaseSwimlane: Base Story',
       'Components/Base/BaseVideo: Base Story',
-      'Components/Blocks/BlockCircleImageCard: Base Story',
+      'Components/Cards/BlockCircleImageCard: Base Story',
       'Components/Blocks/BlockCta: Base Story',
       'Components/Blocks/BlockIframeEmbed: Lazy Load',
       'Components/Blocks/BlockImageCarousel/BlockImageCarouselItem: BlockImageCarouselItem',
