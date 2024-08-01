@@ -147,6 +147,7 @@ const preview: Preview = {
             'Base',
             ['Overview'],
             'Cards',
+            ['Overview', 'BlockLinkCard', 'BlockLinkTile', 'BlockCircleImageCard'],
             'Blocks',
             ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
             'Heroes',
