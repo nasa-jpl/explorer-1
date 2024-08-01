@@ -20,6 +20,10 @@ export default defineComponent({
       required: false,
       default: 'col-1',
       validator: (prop: string): boolean => Object.keys(indents).includes(prop)
+    },
+    fullBleed: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -31,7 +35,9 @@ export default defineComponent({
 </script>
 <template>
   <div class="LayoutHelper BaseGrid container mx-auto">
-    <div :class="theWidth + ' col-start-1 col-end-13 lg:px-0 px-4 relative'">
+    <div
+      :class="`${theWidth} col-start-1 col-end-13 lg:px-0 ${fullBleed ? 'px-0' : 'px-4'} relative`"
+    >
       <slot></slot>
     </div>
   </div>

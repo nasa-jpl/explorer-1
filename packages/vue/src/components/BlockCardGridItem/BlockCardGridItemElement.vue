@@ -25,13 +25,15 @@
       </BaseImagePlaceholder>
     </div>
     <div class="px-6 py-6 ThemeVariantLight">
-      <div class="text-primary text-subtitle">
-        {{ label }}
-      </div>
-      <hr
-        aria-hidden="true"
-        class="bg-primary text-primary w-8 h-2px border-0 my-2"
-      />
+      <template v-if="label">
+        <div class="text-primary text-subtitle">
+          {{ label }}
+        </div>
+        <hr
+          aria-hidden="true"
+          class="bg-primary text-primary w-8 h-2px border-0 my-2"
+        />
+      </template>
       <BaseHeading
         size="h5"
         level="h3"
@@ -69,8 +71,7 @@ export default defineComponent({
   props: {
     label: {
       type: String,
-      required: false,
-      default: 'Factoid'
+      default: undefined
     },
     title: {
       type: String,
@@ -79,17 +80,14 @@ export default defineComponent({
     },
     description: {
       type: String,
-      required: false,
       default: undefined
     },
     image: {
       type: Object,
-      required: false,
       default: undefined
     },
     link: {
       type: Object as PropType<LinkObject>,
-      required: false,
       default: undefined
     }
   },

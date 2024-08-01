@@ -1,3 +1,4 @@
+import { BlockCardGridData } from './../BlockCardGrid/BlockCardGrid.stories'
 import { BlockCtaData } from './../BlockCta/BlockCta.stories'
 import { BlockHeadingData } from './../BlockHeading/BlockHeading.stories'
 import { BlockImageCarouselData } from './../BlockImageCarousel/BlockImageCarousel.stories'
@@ -94,7 +95,12 @@ export const BlockStreamfieldData = {
       ...BlockInlineImageData.block,
       alignTo: 'left'
     },
-    BlockTableData
+    BlockTableData,
+    {
+      blockType: 'ListBlock',
+      field: 'card_grid',
+      items: BlockCardGridData
+    }
   ]
 }
 

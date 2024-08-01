@@ -6,6 +6,8 @@ export interface BreadcrumbPathObject {
 
 export interface BlockData {
   blockType: string
+  field?: string
+  items?: any[]
 }
 export interface ImageSrcObject {
   url: string

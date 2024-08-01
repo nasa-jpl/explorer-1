@@ -37,7 +37,7 @@ export const Template = {
       ...BlockStreamfieldTruncatedData,
       relatedLinks: [BlockRelatedLinksData.data],
       moreRobots: BlockLinkTileCarouselData,
-      items: BlockCardGridData
+      facts: BlockCardGridData
     }
   }
 }

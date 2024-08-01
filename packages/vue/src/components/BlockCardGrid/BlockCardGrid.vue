@@ -3,12 +3,14 @@
     v-if="cards"
     class="BlockCardGrid"
   >
-    <div class="md:grid md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 hidden gap-8">
+    <div
+      :class="`hidden md:grid md:grid-cols-2 lg:grid-cols-3 ${compact ? ' gap-5' : '3xl:grid-cols-4 gap-8'}`"
+    >
       <BlockCardGridItem
         v-for="(card, index) of cards"
         :key="`item-${index}`"
         class="col-span-1"
-        :type="card.type"
+        :label="card.label"
         :title="card.title"
         :description="card.description"
         :image="card.image"
@@ -24,6 +26,7 @@
       <BlockCardGridItem
         v-for="(card, index) of cards"
         :key="index"
+        :label="card.label"
         :title="card.title"
         :text="card.description"
         :image="card.image"
@@ -41,7 +44,7 @@ import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 
 interface CardGridItem {
   title: string
-  type: string
+  label: string
   description: string
   image: Partial<ImageObject>
   link?: LinkObject
@@ -54,9 +57,12 @@ export default defineComponent({
     BlockCardGridItem
   },
   props: {
+    compact: {
+      type: Boolean,
+      default: false
+    },
     cards: {
       type: Array as PropType<CardGridItem[]>,
-      required: false,
       default: undefined
     }
   }
