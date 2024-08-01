@@ -1,6 +1,6 @@
 <template>
   <BaseLink
-    v-if="link"
+    v-if="link?.page || link?.externalLink"
     variant="none"
     :to="link?.page?.url ? link.page.url : undefined"
     :href="link?.externalLink ? link?.externalLink : undefined"

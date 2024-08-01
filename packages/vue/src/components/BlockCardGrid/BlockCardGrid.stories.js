@@ -21,6 +21,10 @@ export const BlockCardGridData = [
         width: 800
       },
       srcSet: 'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w'
+    },
+    link: {
+      page: null,
+      externalLink: ''
     }
   },
   {
@@ -39,7 +43,8 @@ export const BlockCardGridData = [
     link: {
       page: {
         url: '#'
-      }
+      },
+      externalLink: ''
     }
   },
   {
@@ -47,7 +52,11 @@ export const BlockCardGridData = [
     title: 'Nimble Limbs',
     description:
       'Proin sapien nulla, consequat et aliquam tristique, sollicitudin vitae lorem. Etiam nec vestibulum ante, semper blandit tortor. Nam id bibendum leo. Suspendisse a cursus felis, eget tristique nibh. Proin facilisis tortor eget pulvinar cursus.',
-    image: null
+    image: null,
+    link: {
+      page: null,
+      externalLink: ''
+    }
   },
   {
     label: 'Factoid 4',
@@ -61,6 +70,10 @@ export const BlockCardGridData = [
         width: 800
       },
       srcSet: 'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w'
+    },
+    link: {
+      page: null,
+      externalLink: ''
     }
   },
   {
@@ -69,7 +82,8 @@ export const BlockCardGridData = [
     description: 'The robot has four limbs, each with seven degrees of freedom.',
     image: null,
     link: {
-      externalLink: '#'
+      externalLink: '#',
+      page: null
     }
   }
 ]
