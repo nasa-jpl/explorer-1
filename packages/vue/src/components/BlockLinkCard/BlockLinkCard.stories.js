@@ -3,8 +3,9 @@
 import BlockLinkCard from './BlockLinkCard.vue'
 
 export default {
-  title: 'Components/Blocks/BlockLinkCard',
+  title: 'Components/Cards/BlockLinkCard',
   component: BlockLinkCard,
+  tags: ['!autodocs'],
   excludeStories: /.*Data$/,
   decorators: [
     () => ({

@@ -8,6 +8,7 @@ export default {
 
 export const BlockListCardsData = {
   blockType: 'ListBlock',
+  field: 'content_card_list',
   items: [
     {
       description:

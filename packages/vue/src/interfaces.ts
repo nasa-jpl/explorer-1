@@ -6,6 +6,8 @@ export interface BreadcrumbPathObject {
 
 export interface BlockData {
   blockType: string
+  field?: string
+  items?: any[]
 }
 export interface ImageSrcObject {
   url: string
@@ -80,12 +82,15 @@ export interface Card {
   thumbnailImage?: Partial<ImageObject>
 }
 
-export interface RelatedLinkObject {
+export interface LinkObject {
   page: {
     url: string
   } | null
-  document: { url: string } | null
   externalLink: string | null
+}
+
+export interface RelatedLinkObject extends LinkObject {
+  document: { url: string } | null
   text: string | null
 }
 

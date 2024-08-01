@@ -50,8 +50,8 @@ import BaseUnitToggle from './../src/components/BaseUnitToggle/BaseUnitToggle.vu
 import BaseVideo from './../src/components/BaseVideo/BaseVideo.vue'
 import BlockAnchor from './../src/components/BlockAnchor/BlockAnchor.vue'
 import BlockAudio from './../src/components/BlockAudio/BlockAudio.vue'
-import BlockCard from './../src/components/BlockCard/BlockCard.vue'
-import BlockCardGroup from './../src/components/BlockCardGroup/BlockCardGroup.vue'
+import BlockCardGridItem from './../src/components/BlockCardGridItem/BlockCardGridItem.vue'
+import BlockCardGrid from './../src/components/BlockCardGrid/BlockCardGrid.vue'
 import BlockCircleImageCard from './../src/components/BlockCircleImageCard/BlockCircleImageCard.vue'
 import BlockCta from './../src/components/BlockCta/BlockCta.vue'
 import BlockHeading from './../src/components/BlockHeading/BlockHeading.vue'
@@ -254,8 +254,8 @@ export {
   BaseVideo,
   BlockAnchor,
   BlockAudio,
-  BlockCard,
-  BlockCardGroup,
+  BlockCardGridItem,
+  BlockCardGrid,
   BlockCircleImageCard,
   BlockCta,
   BlockHeading,
