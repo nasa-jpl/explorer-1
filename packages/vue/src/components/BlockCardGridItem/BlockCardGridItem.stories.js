@@ -1,8 +1,9 @@
-import BlockCard from './BlockCard.vue'
+import BlockCardGridItem from './BlockCardGridItem.vue'
 
 export default {
-  title: 'Components/Blocks/BlockCard',
-  component: BlockCard,
+  title: 'Components/Cards/BlockCardGridItem',
+  component: BlockCardGridItem,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="lg:w-1/3"><story/></div>`
@@ -17,9 +18,9 @@ export default {
 }
 
 export const BlockCardData = {
-  type: 'Factoid',
+  label: 'Factoid',
   title: 'Nimble Limbs',
-  text: 'The robot has four limbs, each with seven degrees of freedom.',
+  description: 'The robot has four limbs, each with seven degrees of freedom.',
   image: {
     alt: 'Fourth image',
     src: {
@@ -28,7 +29,14 @@ export const BlockCardData = {
       width: 800
     },
     srcSet: 'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w'
+  },
+  link: {
+    page: {
+      url: '#'
+    },
+    externalLink: null
   }
 }
 
-export const BaseStory = { name: 'BlockCard', args: BlockCardData }
+export const BaseStory = { name: 'BlockCardGridItem', args: BlockCardData }
+export const NoLink = { args: { ...BlockCardData, link: undefined } }

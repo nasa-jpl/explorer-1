@@ -2,8 +2,8 @@
 import { Meta } from '@storybook/blocks'
 import { ComponentList } from './../utils/ComponentList'
 import _ as BlockAccordionStories from './../../components/BlockAccordion/BlockAccordion.stories'
-import _ as BlockCardGroupStories from './../../components/BlockCardGroup/BlockCardGroup.stories'
-import _ as BlockCardStories from './../../components/BlockCard/BlockCard.stories'
+import _ as BlockCardGridStories from './../../components/BlockCardGrid/BlockCardGrid.stories'
+import _ as BlockCardStories from './../../components/BlockCardGridItem/BlockCardGridItem.stories'
 import _ as BlockCircleImageCardStories from './../../components/BlockCircleImageCard/BlockCircleImageCard.stories'
 import _ as BlockIframeEmbedStories from './../../components/BlockIframeEmbed/BlockIframeEmbed.stories'
 import _ as BlockImageCarouselStories from './../../components/BlockImageCarousel/BlockImageCarousel.stories'
@@ -88,11 +88,11 @@ Reserved for the top of the page. Learn more about our heroes on the [heroes ove
       fullWidth: true
     },
     {
-      heading: 'BlockCardGroup',
+      heading: 'BlockCardGrid',
       customDescription:
         'A collection of smaller cards that support images, labels, headings, and descriptions, laid out in a grid on medium and larger screens, or in a carousel on small screens.',
-      meta: BlockCardGroupStories,
-      path: '/docs/components-blocks-blockcardgroup--docs',
+      meta: BlockCardGridStories,
+      path: '/docs/components-blocks-BlockCardGrid--docs',
       canvasClass: 'sbdocs-inline-height',
       fullWidth: true
     },
@@ -161,9 +161,9 @@ Reserved for the top of the page. Learn more about our heroes on the [heroes ove
 <ComponentList
   components={[
     {
-      heading: 'BlockCard',
+      heading: 'BlockCardGridItem',
       meta: BlockCardStories,
-      path: '/docs/components-blocks-blockcard--docs'
+      path: '/docs/components-blocks-BlockCardGridItem--docs'
     },
     {
       heading: 'BlockLinkCard',

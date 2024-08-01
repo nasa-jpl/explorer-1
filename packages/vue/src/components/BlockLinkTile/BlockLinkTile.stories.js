@@ -3,13 +3,14 @@
 import BlockLinkTile from './BlockLinkTile.vue'
 
 export default {
-  title: 'Components/Blocks/BlockLinkTile',
+  title: 'Components/Cards/BlockLinkTile',
   component: BlockLinkTile,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3 lg:grid-cols-3"><story/></div>`
     })
   ],
+  tags: ['!autodocs'],
   argTypes: {
     headingLevel: {
       description:
@@ -32,7 +33,7 @@ export default {
 export const BlockLinkTileData = {
   card: {
     url: '/topics/placeholder-slug-1',
-    title: 'How engineers at NASA-JPL persevered to develop a ventilator',
+    title: 'Lorem ipsum dolor',
     label: 'Solar System',
     thumbnailImage: {
       src: {

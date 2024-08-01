@@ -2,8 +2,9 @@ import IconExternal from './../Icons/IconExternal.vue'
 import BlockCircleImageCard from './BlockCircleImageCard.vue'
 
 export default {
-  title: 'Components/Blocks/BlockCircleImageCard',
+  title: 'Components/Cards/BlockCircleImageCard',
   component: BlockCircleImageCard,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
       template: `<div class="relative max-w-xl mx-auto container"><story/></div>`

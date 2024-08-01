@@ -33,7 +33,7 @@
       />
 
       <LayoutHelper
-        v-else-if="block.blockType == 'ListBlock'"
+        v-else-if="block.blockType == 'ListBlock' && block.field === 'content_card_list'"
         :key="`listBlock${index}`"
         indent="col-3"
         class="lg:mb-18 mb-10"
@@ -186,6 +186,15 @@
         :data="block"
       />
 
+      <LayoutHelper
+        v-else-if="block.blockType == 'ListBlock' && block.field === 'card_grid'"
+        :key="`gridBlock${index}`"
+        indent="col-1"
+        class="lg:mb-18 mb-10"
+      >
+        <BlockCardGrid :cards="block.items" />
+      </LayoutHelper>
+
       <div
         v-else
         :key="index"
@@ -199,10 +208,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { ImageObject } from '../../interfaces'
+import type { BlockData, ImageObject } from '../../interfaces'
 import type { BlockData as VideoBlockEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import type { BlockQuoteAttributes } from './../BlockQuote/BlockQuote.vue'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
+import BlockCardGrid from './../BlockCardGrid/BlockCardGrid.vue'
 import BlockCta from './../BlockCta/BlockCta.vue'
 import BlockHeading from './../BlockHeading/BlockHeading.vue'
 import BlockImage from './../BlockImage/BlockImage.vue'
@@ -233,8 +243,7 @@ export const variants: Variants = {
   fluid: '-fluid'
 }
 
-export interface StreamfieldBlockData {
-  blockType: string
+export interface StreamfieldBlockData extends BlockData {
   id: string
   fullBleed: boolean
   heading: string
@@ -256,6 +265,7 @@ export default defineComponent({
   name: 'BlockStreamfield',
   components: {
     LayoutHelper,
+    BlockCardGrid,
     BlockCta,
     BlockHeading,
     BlockImage,
