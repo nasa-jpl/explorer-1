@@ -18,7 +18,7 @@
       />
     </div>
     <MixinCarousel
-      class="md:hidden sm:px-10 sm:-ml-10 py-10 -mt-10"
+      class="md:hidden sm:px-10 sm:-ml-10 py-10 -mt-10 overflow-x-visible"
       indent="col-1"
       :slides-per-view="3"
       no-links

@@ -190,8 +190,7 @@
         v-else-if="block.blockType == 'ListBlock' && block.field === 'card_grid'"
         :key="`gridBlock${index}`"
         indent="col-1"
-        class="lg:mb-18 mb-10 px-0"
-        full-bleed
+        class="lg:mb-18 mb-10"
       >
         <BlockCardGrid :cards="block.items" />
       </LayoutHelper>
