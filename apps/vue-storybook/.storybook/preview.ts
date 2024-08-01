@@ -146,6 +146,7 @@ const preview: Preview = {
             'Overview',
             'Base',
             ['Overview'],
+            'Cards',
             'Blocks',
             ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
             'Heroes',

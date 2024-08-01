@@ -36,7 +36,7 @@
         </p>
       </div>
       <!-- facts -->
-      <BlockCardGroup
+      <BlockCardGrid
         v-if="data.facts"
         class="3xl:col-end-13 xl:col-end-11 md:px-4 lg:px-0 relative col-start-2 col-end-13 px-0 mt-12"
         :facts="data.facts"
@@ -73,7 +73,7 @@ import { defineComponent } from 'vue'
 import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import RoboticsDetailStats from './../../../components/RoboticsDetailStats/RoboticsDetailStats.vue'
-import BlockCardGroup from './../../../components/BlockCardGroup/BlockCardGroup.vue'
+import BlockCardGrid from './../../../components/BlockCardGrid/BlockCardGrid.vue'
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
@@ -85,7 +85,7 @@ export default defineComponent({
     BaseHeading,
     HeroLarge,
     RoboticsDetailStats,
-    BlockCardGroup,
+    BlockCardGrid,
     BlockRelatedLinks,
     BlockLinkCarousel,
     LayoutHelper,

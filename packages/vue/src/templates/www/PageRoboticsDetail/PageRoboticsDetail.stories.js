@@ -1,6 +1,6 @@
 import { HeroLargeData } from './../../../components/HeroLarge/HeroLarge.stories.js'
 import { RoboticsDetailStatsData } from './../../../components/RoboticsDetailStats/RoboticsDetailStats.stories.js'
-import { BlockCardGroupData } from './../../../components/BlockCardGroup/BlockCardGroup.stories.js'
+import { BlockCardGridData } from './../../../components/BlockCardGrid/BlockCardGrid.stories.js'
 import { BlockLinkTileCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
@@ -37,7 +37,7 @@ export const Template = {
       ...BlockStreamfieldTruncatedData,
       relatedLinks: [BlockRelatedLinksData.data],
       moreRobots: BlockLinkTileCarouselData,
-      facts: BlockCardGroupData
+      items: BlockCardGridData
     }
   }
 }

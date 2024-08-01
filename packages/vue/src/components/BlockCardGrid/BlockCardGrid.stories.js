@@ -1,14 +1,15 @@
-import BlockCardGroup from './BlockCardGroup.vue'
+import BlockCardGrid from './BlockCardGrid.vue'
 
 export default {
-  title: 'Components/Blocks/BlockCardGroup',
-  component: BlockCardGroup,
+  title: 'Components/Blocks/BlockCardGrid',
+  component: BlockCardGrid,
+  tags: ['!autodocs'],
   excludeStories: /.*Data$/
 }
 
-export const BlockCardGroupData = [
+export const BlockCardGridData = [
   {
-    type: 'Factoid 1',
+    label: 'Factoid 1',
     title: 'Nimble Limbs',
     description:
       'The robot has four limbs, each with seven degrees of freedom. The robot has four limbs, each with seven degrees of freedom. The robot has four limbs, each with seven degrees of freedom.',
@@ -23,7 +24,7 @@ export const BlockCardGroupData = [
     }
   },
   {
-    type: 'Factoid 2',
+    label: 'Factoid 2',
     title: 'Nimble Limbs',
     description: 'The robot has four limbs, each with seven degrees of freedom.',
     image: {
@@ -34,17 +35,22 @@ export const BlockCardGroupData = [
         width: 800
       },
       srcSet: 'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w'
+    },
+    link: {
+      page: {
+        url: '#'
+      }
     }
   },
   {
-    type: 'Factoid 3',
+    label: 'Factoid 3',
     title: 'Nimble Limbs',
     description:
       'Proin sapien nulla, consequat et aliquam tristique, sollicitudin vitae lorem. Etiam nec vestibulum ante, semper blandit tortor. Nam id bibendum leo. Suspendisse a cursus felis, eget tristique nibh. Proin facilisis tortor eget pulvinar cursus.',
     image: null
   },
   {
-    type: 'Factoid 4',
+    label: 'Factoid 4',
     title: 'Nimble Limbs',
     description: 'The robot has four limbs, each with seven degrees of freedom.',
     image: {
@@ -58,14 +64,17 @@ export const BlockCardGroupData = [
     }
   },
   {
-    type: 'Factoid 5',
+    label: 'Factoid 5',
     title: 'Nimble Limbs',
     description: 'The robot has four limbs, each with seven degrees of freedom.',
-    image: null
+    image: null,
+    link: {
+      externalLink: '#'
+    }
   }
 ]
 
 export const BaseStory = {
-  name: 'BlockCardGroup',
-  args: { facts: BlockCardGroupData }
+  name: 'BlockCardGrid',
+  args: { cards: BlockCardGridData }
 }
