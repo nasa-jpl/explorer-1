@@ -42,6 +42,7 @@ export const BaseStory = {
         }
       ],
       topper: '',
+      readTime: '2 min read',
       summary:
         'Headed to the Red Planet with the Perseverance rover, the pioneering helicopter is powered up for the first time in interplanetary space as part of a systems check.',
       thumbnailImage: {

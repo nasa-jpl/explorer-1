@@ -19,6 +19,7 @@ export default {
     })
   ],
   parameters: {
+    layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
     }
@@ -37,6 +38,7 @@ export const BaseStory = {
       slug: 'test-resource',
       url: 'http://localhost:3000/edu/resources/test-resource',
       title: 'Test Resource',
+      readTime: '6 min read',
       heroConstrain: true,
       heroPosition: 'full_bleed',
       hero: [

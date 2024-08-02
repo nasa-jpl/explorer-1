@@ -19,6 +19,7 @@ import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 
 interface PageEduNewsDetailObject extends PageResponseObject {
+  readTime: string
   url: string
   heroImage: ImageObject
   heroImageInline: ImageObject
@@ -99,6 +100,7 @@ const dateTimeArray = computed(() => {
     >
       <DetailHeadline
         :title="data.title"
+        :read-time="data.readTime"
         :author="data.authors"
         :publication-date="dateTimeArray?.length ? dateTimeArray[0] : undefined"
         :publication-time="dateTimeArray?.length ? dateTimeArray[1] : undefined"
