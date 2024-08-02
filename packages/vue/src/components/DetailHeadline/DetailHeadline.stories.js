@@ -9,6 +9,7 @@ export default {
 export const DetailHeadlineData = {
   title: "NASA's Ingenuity Mars Helicopter Recharges Its Batteries in Flight",
   publicationDate: '2020-08-13',
+  readTime: '3 min read',
   author: {
     name: 'Jane Platt',
     organization: 'JPL'
