@@ -103,6 +103,7 @@ export default defineComponent({
     >
       <DetailHeadline
         :title="data.title"
+        :read-time="data.readTime"
         :publication-date="data.publicationDate"
         :publication-time="data.publicationTime"
         :author="data.author"

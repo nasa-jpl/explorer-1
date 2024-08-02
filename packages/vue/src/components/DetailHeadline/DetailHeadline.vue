@@ -1,7 +1,7 @@
 <template>
   <div v-if="title || label || topics || publicationDate || author">
     <div
-      v-if="label || (topics && topics.length)"
+      v-if="label || (topics && topics.length) || readTime"
       class="flex flex-wrap items-start mb-3"
     >
       <div
@@ -38,6 +38,11 @@
         </template>
       </span>
       <span class="sr-only">.</span>
+      <span
+        :class="`${(topics && topics.length) || label ? 'divide-gray-mid-dark border-l ml-3 pl-3 ' : ''} my-4  text-gray-mid-dark uppercase text-sm lg:text-base leading-none`"
+      >
+        {{ readTime }}
+      </span>
     </div>
     <BaseHeading
       level="h1"
@@ -47,7 +52,7 @@
     </BaseHeading>
     <div
       v-if="authors?.length || publicationDate"
-      class="lg:text-base text-gray-mid-dark divide-gray-mid-dark px-3 mt-5 -ml-3 text-sm leading-normal"
+      class="lg:text-base text-gray-mid-dark divide-gray-mid-dark px-3 mt-5 -ml-3 text-sm leading-none"
     >
       <span
         v-if="authors?.length"
@@ -126,6 +131,11 @@ export default defineComponent({
       default: undefined
     },
     publicationTime: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    readTime: {
       type: String,
       required: false,
       default: undefined
