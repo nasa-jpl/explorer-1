@@ -19,6 +19,7 @@ export default {
     })
   ],
   parameters: {
+    layout: 'fullscreen',
     html: {
       root: '#storyDecorator'
     }
