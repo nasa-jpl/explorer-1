@@ -5,15 +5,11 @@
     link-class="block px-3 py-2"
     variant="none"
     class="NavSecondaryLink border-t-2 border-transparent"
-    :class="index === 0 ? 'mr-auto text-primary font-semibold secondary-root' : 'text-gray-dark'"
+    :class="baseLinkClasses(index)"
   >
     <span
       class="inline-block pt-2 pb-1 mb-1 transition-colors duration-100 ease-in border-b-2 border-transparent"
-      :class="
-        index === 0
-          ? 'can-hover:group-hover:border-primary'
-          : 'can-hover:group-hover:border-gray-mid-dark can-hover:group-hover:text-gray-mid-dark '
-      "
+      :class="spanClasses(index)"
     >
       {{ item.title }}
     </span>
@@ -21,7 +17,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { BasicLinkObject } from './../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 export default defineComponent({
   name: 'NavSecondaryLink',
@@ -32,12 +29,17 @@ export default defineComponent({
     // the index from the v-for loop
     index: {
       type: Number,
-      required: false
+      required: false,
+      default: undefined
     },
     // the nav item object that includes path and title
     item: {
-      type: Object,
+      type: Object as PropType<BasicLinkObject>,
       required: true
+    },
+    invert: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -46,6 +48,23 @@ export default defineComponent({
         return true
       }
       return false
+    },
+    baseLinkClasses(index: number | undefined) {
+      let rootClasses = 'mr-auto font-semibold secondary-root'
+      rootClasses = this.invert
+        ? `${rootClasses} text-white -invert`
+        : `${rootClasses} text-primary`
+      const regularClasses = this.invert ? 'text-white -invert' : 'text-gray-dark'
+      return index === 0 ? rootClasses : regularClasses
+    },
+    spanClasses(index: number | undefined) {
+      const rootClasses = this.invert
+        ? 'can-hover:group-hover:border-white'
+        : 'can-hover:group-hover:border-primary'
+      const regularClasses = this.invert
+        ? 'can-hover:group-hover:border-white can-hover:group-hover:text-white'
+        : 'can-hover:group-hover:border-gray-mid-dark can-hover:group-hover:text-gray-mid-dark'
+      return index === 0 ? rootClasses : regularClasses
     }
   }
 })
@@ -56,6 +75,14 @@ export default defineComponent({
     span {
       @apply font-bold text-gray-dark;
       @apply border-primary #{!important};
+    }
+  }
+  &.-invert {
+    .nuxt-link-exact-active {
+      span {
+        @apply font-bold text-white;
+        @apply border-white #{!important};
+      }
     }
   }
 }

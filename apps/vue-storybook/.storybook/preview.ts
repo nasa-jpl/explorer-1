@@ -122,7 +122,8 @@ const preview: Preview = {
             ['Overview', 'WWW'],
             'Footers',
             ['Overview', 'WWW'],
-            'Secondary Navigation'
+            'Secondary Navigation',
+            'Jump Menu'
           ],
           'Global Layout',
           [
