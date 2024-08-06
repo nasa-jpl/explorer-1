@@ -2,6 +2,7 @@
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import useMockComponents from './_mock-components.js'
 import { setup, type Preview } from '@storybook/vue3'
+import { createRouter, createWebHashHistory, type RouterOptions } from 'vue-router'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import vClickOutside from 'click-outside-vue3'
 import VueCompareImage from 'vue3-compare-image'
@@ -13,9 +14,28 @@ import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 
 const pinia = createPinia()
-
+const router = createRouter({
+  routes: [],
+  history: createWebHashHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth'
+      }
+    }
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return {
+        top: 0
+      }
+    }
+  }
+} as RouterOptions)
 setup((app, _context) => {
   app.use(pinia)
+  app.use(router)
   app.use(vClickOutside)
   app.use(VueCompareImage)
   app.component('Swiper', Swiper)

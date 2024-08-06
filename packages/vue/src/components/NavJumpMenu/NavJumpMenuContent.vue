@@ -8,7 +8,7 @@
       <BaseLink
         :href="child.path"
         variant="none"
-        :link-class="linkClass(child, index === item.children.length - 1)"
+        :link-class="linkClass(child)"
       >
         <span>
           {{ child.title }}
@@ -39,12 +39,8 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['jumpMenuLinkClicked'],
   methods: {
-    linkClicked() {
-      this.$emit('jumpMenuLinkClicked')
-    },
-    linkClass(item?: NavItemObject, isLast?: Boolean) {
+    linkClass(item?: NavItemObject) {
       // default
       let computedClass = 'py-2 lg:py-4'
       if (!item) {

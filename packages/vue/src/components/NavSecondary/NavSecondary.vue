@@ -4,7 +4,10 @@
     ref="NavSecondary"
     aria-label="Secondary"
     class="NavSecondary"
-    :class="{ 'has-intro': hasIntro, '!bg-transparent': invert }"
+    :class="{
+      'has-intro': hasIntro,
+      '!bg-transparent': invert
+    }"
   >
     <div
       class="max-w-screen-3xl mx-auto"
@@ -40,7 +43,7 @@
   </nav>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, defineExpose } from 'vue'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from './../../store/header'
 import NavSecondaryDropdown from './NavSecondaryDropdown.vue'

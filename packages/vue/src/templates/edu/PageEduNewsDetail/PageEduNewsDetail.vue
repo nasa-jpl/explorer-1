@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, defineExpose, onMounted } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
 import type { StreamfieldBlockData } from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
@@ -45,6 +45,8 @@ interface PageEduNewsDetailProps {
 // define props
 const props = defineProps<PageEduNewsDetailProps>()
 
+const PageEduNewsDetailJumpMenu = ref()
+
 const heroEmpty = computed(() => {
   return isEmpty(props.data?.heroImage)
 })
@@ -67,6 +69,29 @@ const computedClass = computed(() => {
 
 const dateTimeArray = computed(() => {
   return props.data.publicationDate.split(' ')
+})
+
+defineExpose({
+  PageEduNewsDetailJumpMenu
+})
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // add 'animate-delay' class to the target
+          entry.target.classList.add('animate-delay')
+        }
+      })
+    },
+    {
+      threshold: 0.5
+    }
+  )
+  if (PageEduNewsDetailJumpMenu.value) {
+    observer.observe(PageEduNewsDetailJumpMenu.value)
+  }
 })
 </script>
 <template>
@@ -92,6 +117,12 @@ const dateTimeArray = computed(() => {
       :caption="data.heroImage.caption"
       :credit="data.heroImage.credit"
       :constrain="data.heroConstrain"
+    />
+
+    <NavJumpMenu
+      ref="PageEduNewsDetailJumpMenu"
+      :title="data.title"
+      :blocks="data.body"
     />
 
     <!-- news headline -->
@@ -148,10 +179,6 @@ const dateTimeArray = computed(() => {
         {{ data.summary }}
       </p>
     </LayoutHelper>
-    <NavJumpMenu
-      :title="data.title"
-      :blocks="data.body"
-    />
     <!-- streamfield blocks -->
     <BlockStreamfield
       itemprop="articleBody"
