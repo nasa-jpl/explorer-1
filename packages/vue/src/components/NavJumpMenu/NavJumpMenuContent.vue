@@ -6,10 +6,9 @@
       class="text-base border-b border-gray-light"
     >
       <BaseLink
-        :to="child.path"
+        :href="child.path"
         variant="none"
         :link-class="linkClass(child, index === item.children.length - 1)"
-        exact
       >
         <span>
           {{ child.title }}

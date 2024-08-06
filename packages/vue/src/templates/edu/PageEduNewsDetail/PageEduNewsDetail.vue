@@ -17,6 +17,7 @@ import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsE
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
+import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 
 interface PageEduNewsDetailObject extends PageResponseObject {
   readTime: string
@@ -147,7 +148,7 @@ const dateTimeArray = computed(() => {
         {{ data.summary }}
       </p>
     </LayoutHelper>
-
+    <NavJumpMenu :blocks="data.body" />
     <!-- streamfield blocks -->
     <BlockStreamfield
       itemprop="articleBody"

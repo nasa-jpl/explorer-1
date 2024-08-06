@@ -150,7 +150,7 @@ const preview: Preview = {
             'Cards',
             ['Overview', 'BlockLinkCard', 'BlockLinkTile', 'BlockCircleImageCard'],
             'Blocks',
-            ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
+            ['BlockStreamfield'],
             'Heroes',
             ['Overview', 'Small', 'Medium', 'Large', 'Media Only', 'HeroListingIndex'],
             'Forms',

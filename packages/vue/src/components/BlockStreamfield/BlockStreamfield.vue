@@ -11,7 +11,11 @@
         indent="col-3"
         class="mb-5"
       >
-        <BlockHeading :data="block" />
+        <BlockHeading
+          :data="block"
+          :index="index"
+          generate-id
+        />
       </LayoutHelper>
 
       <!-- custom margin bottom that matches BlockText styles if followed by InlineImageBlock -->

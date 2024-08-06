@@ -9,7 +9,8 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 import NavSecondary from './../NavSecondary/NavSecondary.vue'
-import type { BreadcrumbPathObject } from './../../interfaces'
+import type { BlockData, BreadcrumbPathObject } from './../../interfaces'
+import { getHeadingId } from '../../utils/getHeadingId'
 
 export default defineComponent({
   /** The complexity of this component is due to the need for it to be populated from multiple data sources
@@ -28,10 +29,22 @@ export default defineComponent({
       required: false,
       default: undefined
     },
+    // manually define jumpLinks
     jumpLinks: {
       type: Object as PropType<BreadcrumbPathObject[]>,
       required: false,
       default: undefined
+    },
+    // or provide a streamfield
+    blocks: {
+      type: Object as PropType<BlockData[]>,
+      required: false,
+      default: undefined
+    },
+    headingLevel: {
+      type: String,
+      required: false,
+      default: 'h2'
     },
     enabled: {
       type: Boolean,
@@ -40,6 +53,12 @@ export default defineComponent({
     invert: {
       type: Boolean,
       default: true
+    },
+    // if the JumpMenu should initially be visible or hidden.
+    // if hidden, it will appear once the user has scrolled past the first Jump menu item
+    hidden: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -59,13 +78,36 @@ export default defineComponent({
       const jumpMenu: BreadcrumbPathObject = {
         title: 'Jump to',
         path: '#',
-        children: this.jumpLinks as BreadcrumbPathObject[]
+        children: this.theJumpLinks as BreadcrumbPathObject[]
       }
-      if (this.jumpLinks) {
+      if (this.theJumpLinks) {
         breadcrumb = [rootItem, jumpMenu]
       }
       return breadcrumb as BreadcrumbPathObject[] | undefined
+    },
+    theJumpLinks(): BreadcrumbPathObject[] {
+      if (this.jumpLinks) {
+        return this.jumpLinks
+      } else if (this.blocks) {
+        const filteredBlocks = this.blocks.filter((b, index) => {
+          // @ts-expect-error adding a parameter to BlockData
+          b.index = index
+          return b.blockType === 'HeadingBlock' && b.level === this.headingLevel
+        })
+        // map to the correct data shape
+        const links: BreadcrumbPathObject[] = filteredBlocks.map((l) => {
+          return {
+            // @ts-expect-error using parameter that was added to BlockData
+            path: '#' + getHeadingId(l.heading, l.index),
+            title: l.heading
+          } as BreadcrumbPathObject
+        })
+        return links
+      }
+      return []
     }
   }
 })
+// path: string
+// title: string
 </script>

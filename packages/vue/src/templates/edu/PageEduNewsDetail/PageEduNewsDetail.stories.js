@@ -1,5 +1,5 @@
 import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories'
-import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
+import { BlockStreamfieldData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageEduNewsDetail from './PageEduNewsDetail.vue'
 
 export default {
@@ -56,7 +56,7 @@ export const BaseStory = {
       heroPosition: 'full_bleed',
       heroImage: HeroMediaData.image,
       heroImageInline: HeroMediaData.imageInline,
-      ...BlockStreamfieldTruncatedData
+      ...BlockStreamfieldData
     }
   }
 }

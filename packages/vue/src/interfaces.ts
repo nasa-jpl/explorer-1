@@ -11,6 +11,8 @@ export interface BasicLinkObject {
 export interface BlockData {
   blockType: string
   field?: string
+  heading?: string
+  level?: string
   items?: any[]
 }
 export interface ImageSrcObject {

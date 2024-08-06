@@ -4,7 +4,7 @@
     ref="NavSecondary"
     aria-label="Secondary"
     class="NavSecondary"
-    :class="{ 'has-intro': hasIntro }"
+    :class="{ 'has-intro': hasIntro, '!bg-transparent': invert }"
   >
     <div
       class="max-w-screen-3xl mx-auto"
