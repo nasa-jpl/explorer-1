@@ -40,6 +40,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { eventBus } from './../../utils/eventBus'
 import IconCaret from './../Icons/IconCaret.vue'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavSecondaryDropdownContent from './../NavSecondary/NavSecondaryDropdownContent.vue'
@@ -89,15 +90,10 @@ export default defineComponent({
     }
   },
   mounted() {
-    // TODO: VUE3: find solution for emitting event from slot
-    // https://stackoverflow.com/questions/50181858/this-root-emit-not-working-in-vue
-    // TODO: find a cleaner way to do this w/o using mounted or root level events
-    // scoped slots? https://github.com/vuejs/vue/issues/4332
-    // this.$root?.$on('linkClicked', this.closeDropdown)
+    eventBus.on('linkClicked', () => this.closeDropdown())
   },
   methods: {
     toggleDropdown() {
-      console.log('dropdown toggled')
       if (this.dropdownVisible) {
         this.closeDropdown()
       } else {

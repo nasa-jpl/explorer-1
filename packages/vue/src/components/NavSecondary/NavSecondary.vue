@@ -22,14 +22,7 @@
                 :index="index"
                 :is-last="theBreadcrumb && index === theBreadcrumb.length - 1"
                 :invert="invert"
-              >
-                <template v-if="isJumpMenu">
-                  <NavJumpMenuContent
-                    :key="index"
-                    :item="item"
-                  />
-                </template>
-              </NavSecondaryDropdown>
+              />
             </template>
             <template v-else>
               <NavSecondaryLink
@@ -47,12 +40,11 @@
   </nav>
 </template>
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue'
+import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from './../../store/header'
 import NavSecondaryDropdown from './NavSecondaryDropdown.vue'
 import NavSecondaryLink from './NavSecondaryLink.vue'
-import NavJumpMenuContent from './../NavJumpMenu/NavJumpMenuContent.vue'
 import { mixinHighlightPrimary, mixinUpdateSecondary } from './../../utils/mixins'
 import type { BreadcrumbPathObject } from './../../interfaces'
 
@@ -65,19 +57,12 @@ export default defineComponent({
   name: 'NavSecondary',
   components: {
     NavSecondaryDropdown,
-    NavJumpMenuContent,
     NavSecondaryLink
   },
   props: {
     // breadcrumbs create a secondary navigation
     breadcrumb: {
       type: String,
-      required: false,
-      default: undefined
-    },
-    // jump links create a jump link menu
-    jumpLinks: {
-      type: Object as PropType<BreadcrumbPathObject[]>,
       required: false,
       default: undefined
     },
@@ -99,13 +84,8 @@ export default defineComponent({
   },
   computed: {
     ...mapStores(useHeaderStore),
-    isJumpMenu(): boolean {
-      return this.jumpLinks ? true : false
-    },
     theBreadcrumb(): BreadcrumbPathObject[] | undefined {
-      if (this.isJumpMenu) {
-        return this.jumpLinks
-      } else if (this.breadcrumb) {
+      if (this.breadcrumb) {
         // we also want to update the store to override secondary nav
         mixinUpdateSecondary(JSON.parse(this.breadcrumb))
         return JSON.parse(this.breadcrumb)
@@ -115,18 +95,14 @@ export default defineComponent({
       return undefined
     },
     enabled(): Boolean {
-      if (
-        (this.theBreadcrumb && this.theBreadcrumb.length > 1) ||
-        this.jumpLinks ||
-        this.$slots.default
-      ) {
+      if ((this.theBreadcrumb && this.theBreadcrumb.length > 1) || this.$slots.default) {
         return true
       }
       return false
     }
   },
   mounted() {
-    if (this.enabled && !this.isJumpMenu) {
+    if (this.enabled) {
       // if there is a secondary nav displayed, then don't highlight the primary active item
       mixinHighlightPrimary(false)
     }

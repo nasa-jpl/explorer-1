@@ -39,7 +39,11 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['jumpMenuLinkClicked'],
   methods: {
+    linkClicked() {
+      this.$emit('jumpMenuLinkClicked')
+    },
     linkClass(item?: NavItemObject, isLast?: Boolean) {
       // default
       let computedClass = 'py-2 lg:py-4'
@@ -49,9 +53,6 @@ export default defineComponent({
       } else if (item.children && item.children.length > 0) {
         // if has children
         computedClass = 'pt-2 pb-1 lg:pt-4 lg:pb-2'
-      } else if (isLast) {
-        // if the very last
-        computedClass = 'py-2 lg:pt-4 lg:pb-6'
       }
       return computedClass
     }

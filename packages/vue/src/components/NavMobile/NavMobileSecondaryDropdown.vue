@@ -79,7 +79,6 @@ export default defineComponent({
   },
   methods: {
     toggleDropdown() {
-      console.log('dropdown toggled')
       if (this.dropdownVisible) {
         this.closeDropdown()
       } else {

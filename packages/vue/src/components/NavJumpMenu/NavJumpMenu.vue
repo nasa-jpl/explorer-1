@@ -2,13 +2,41 @@
   <NavSecondary
     v-if="enabled"
     :invert="invert"
-    :jump-links="theBreadcrumbs"
     :include-overview="false"
-  />
+  >
+    <template v-for="(item, index) in theBreadcrumbs">
+      <template v-if="item.children && item.children.length > 0">
+        <NavSecondaryDropdown
+          :key="index"
+          :item="item"
+          :index="index"
+          :is-last="theBreadcrumbs && index === theBreadcrumbs.length - 1"
+          :invert="invert"
+        >
+          <NavJumpMenuContent
+            :key="index"
+            :item="item"
+            @jump-menu-link-clicked="closeDropdown()"
+          />
+        </NavSecondaryDropdown>
+      </template>
+      <template v-else>
+        <NavSecondaryLink
+          :key="index"
+          :item="item"
+          :index="index"
+          :invert="invert"
+        />
+      </template>
+    </template>
+  </NavSecondary>
 </template>
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 import NavSecondary from './../NavSecondary/NavSecondary.vue'
+import NavSecondaryDropdown from './../NavSecondary/NavSecondaryDropdown.vue'
+import NavSecondaryLink from './../NavSecondary/NavSecondaryLink.vue'
+import NavJumpMenuContent from './../NavJumpMenu/NavJumpMenuContent.vue'
 import type { BlockData, BreadcrumbPathObject } from './../../interfaces'
 import { getHeadingId } from '../../utils/getHeadingId'
 
@@ -20,12 +48,15 @@ export default defineComponent({
    */
   name: 'NavJumpMenu',
   components: {
-    NavSecondary
+    NavSecondary,
+    NavSecondaryDropdown,
+    NavSecondaryLink,
+    NavJumpMenuContent
   },
   props: {
     // jump links create a jump link menu
     title: {
-      type: Object as PropType<Partial<BreadcrumbPathObject>>,
+      type: String,
       required: false,
       default: undefined
     },
@@ -61,22 +92,22 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['closeDropdown'],
   computed: {
     // formats content in a way that NavSecondary will recognize it
     theBreadcrumbs(): BreadcrumbPathObject[] | undefined {
       let breadcrumb = undefined
       const rootItem = this.title
         ? {
-            ...this.title,
-            children: []
+            title: this.title,
+            path: '#top'
           }
         : {
-            title: 'nothing',
-            path: '#',
-            children: []
+            title: 'Back to top',
+            path: '#top'
           }
       const jumpMenu: BreadcrumbPathObject = {
-        title: 'Jump to',
+        title: 'Jump to…',
         path: '#',
         children: this.theJumpLinks as BreadcrumbPathObject[]
       }
@@ -105,6 +136,11 @@ export default defineComponent({
         return links
       }
       return []
+    }
+  },
+  methods: {
+    closeDropdown() {
+      this.$emit('closeDropdown')
     }
   }
 })

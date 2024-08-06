@@ -32,10 +32,7 @@ const JumpLinksData = [
 export const BaseStory = {
   name: 'Jump Menu',
   args: {
-    title: {
-      title: 'Page Title',
-      path: '#'
-    },
+    title: 'Page Title',
     jumpLinks: JumpLinksData,
     invert: true
   }
@@ -43,10 +40,7 @@ export const BaseStory = {
 
 export const Light = {
   args: {
-    title: {
-      title: 'Page Title',
-      path: '#'
-    },
+    title: 'Page Title',
     jumpLinks: JumpLinksData,
     invert: false
   }

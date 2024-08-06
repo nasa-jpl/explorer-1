@@ -37,6 +37,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { eventBus } from './../../utils/eventBus'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from './../../store/header'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
@@ -80,10 +81,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    // TODO: VUE3: find solution for emitting event from slot
-    // TODO: find a cleaner way to do this w/o using mounted or root level events
-    // scoped slots? https://github.com/vuejs/vue/issues/4332
-    // this.$root?.$on('linkClicked', this.closeDropdown)
+    eventBus.on('linkClicked', () => this.closeDropdown())
   },
   methods: {
     toggleDropdown() {

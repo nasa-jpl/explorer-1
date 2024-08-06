@@ -148,7 +148,10 @@ const dateTimeArray = computed(() => {
         {{ data.summary }}
       </p>
     </LayoutHelper>
-    <NavJumpMenu :blocks="data.body" />
+    <NavJumpMenu
+      :title="data.title"
+      :blocks="data.body"
+    />
     <!-- streamfield blocks -->
     <BlockStreamfield
       itemprop="articleBody"
