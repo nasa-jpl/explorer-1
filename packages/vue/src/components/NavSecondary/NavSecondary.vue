@@ -43,9 +43,10 @@
   </nav>
 </template>
 <script lang="ts">
-import { defineComponent, defineExpose } from 'vue'
+import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from './../../store/header'
+import { useThemeStore } from './../../store/theme'
 import NavSecondaryDropdown from './NavSecondaryDropdown.vue'
 import NavSecondaryLink from './NavSecondaryLink.vue'
 import { mixinHighlightPrimary, mixinUpdateSecondary } from './../../utils/mixins'
@@ -87,6 +88,7 @@ export default defineComponent({
   },
   computed: {
     ...mapStores(useHeaderStore),
+    ...mapStores(useThemeStore),
     theBreadcrumb(): BreadcrumbPathObject[] | undefined {
       if (this.breadcrumb) {
         // we also want to update the store to override secondary nav
@@ -134,7 +136,9 @@ export default defineComponent({
         ([e]) => {
           e.target.classList.toggle('-is-sticky', e.intersectionRatio < 1)
         },
-        { threshold: [1] }
+        {
+          threshold: [1]
+        }
       )
       const observerOffset = new IntersectionObserver(
         ([e]) => {

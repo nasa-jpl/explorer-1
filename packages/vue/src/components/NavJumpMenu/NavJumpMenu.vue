@@ -1,10 +1,10 @@
 <template>
   <NavSecondary
     v-if="enabled"
+    id="JumpMenuTop"
     ref="NavJumpMenuRef"
     class="NavJumpMenu -hide-until-threshold"
     :invert="invert"
-    hide-until-threshold
   >
     <template v-for="(item, index) in theBreadcrumbs">
       <template v-if="item.children && item.children.length > 0">
@@ -33,7 +33,9 @@
   </NavSecondary>
 </template>
 <script setup lang="ts">
-import { computed, defineExpose, ref } from 'vue'
+import { computed, defineExpose, ref, onMounted, watch } from 'vue'
+import { mixinUpdateSecondary } from './../../utils/mixins'
+import { useRoute } from 'vue-router'
 import NavSecondary from './../NavSecondary/NavSecondary.vue'
 import NavSecondaryDropdown from './../NavSecondary/NavSecondaryDropdown.vue'
 import NavSecondaryLink from './../NavSecondary/NavSecondaryLink.vue'
@@ -93,11 +95,11 @@ const theBreadcrumbs = computed(() => {
   const rootItem = props.title
     ? {
         title: props.title,
-        path: '#top'
+        path: '#JumpMenuTop'
       }
     : {
         title: 'Back to top',
-        path: '#top'
+        path: '#JumpMenuTop'
       }
   const jumpMenu: BreadcrumbPathObject = {
     title: 'Jump to…',
@@ -112,13 +114,27 @@ const theBreadcrumbs = computed(() => {
 defineExpose({
   NavJumpMenuRef
 })
+onMounted(() => {
+  mixinUpdateSecondary(theBreadcrumbs.value, true)
+})
+const route = useRoute()
+
+// repopulate the store with the jump links since the store is cleared on route changes
+watch(
+  route,
+  () => {
+    mixinUpdateSecondary(theBreadcrumbs.value, true)
+  }
+  // { flush: 'pre', immediate: true, deep: true }
+)
 </script>
 <style lang="scss">
 .NavJumpMenu {
   &.-hide-until-threshold {
-    @apply opacity-0 transition-all;
-    &.-is-sticky {
-      @apply opacity-100;
+    @apply opacity-0 h-0 transition-none overflow-visible;
+    &.-is-sticky,
+    &.-is-sticky-offset {
+      @apply opacity-100 transition-opacity;
     }
   }
 }

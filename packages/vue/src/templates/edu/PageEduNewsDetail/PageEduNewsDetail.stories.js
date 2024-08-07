@@ -65,7 +65,8 @@ export const InlineHero = {
   args: {
     data: {
       ...BaseStory.args.data,
-      heroPosition: 'inline'
+      heroPosition: 'inline',
+      showJumpMenu: true
     }
   }
 }
@@ -74,7 +75,8 @@ export const NoHero = {
   args: {
     data: {
       ...BaseStory.args.data,
-      hero: []
+      hero: [],
+      showJumpMenu: true
     }
   }
 }

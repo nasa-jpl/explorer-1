@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, defineExpose, onMounted } from 'vue'
+import { computed, ref, defineExpose } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
 import type { StreamfieldBlockData } from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
@@ -36,6 +36,7 @@ interface PageEduNewsDetailObject extends PageResponseObject {
   topper: string
   relatedLinks: RelatedLinkObject[]
   body: StreamfieldBlockData[]
+  showJumpMenu: boolean
 }
 
 interface PageEduNewsDetailProps {
@@ -74,25 +75,6 @@ const dateTimeArray = computed(() => {
 defineExpose({
   PageEduNewsDetailJumpMenu
 })
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // add 'animate-delay' class to the target
-          entry.target.classList.add('animate-delay')
-        }
-      })
-    },
-    {
-      threshold: 0.5
-    }
-  )
-  if (PageEduNewsDetailJumpMenu.value) {
-    observer.observe(PageEduNewsDetailJumpMenu.value)
-  }
-})
 </script>
 <template>
   <div
@@ -102,6 +84,13 @@ onMounted(() => {
     itemscope
     itemtype="http://schema.org/Article"
   >
+    <NavJumpMenu
+      ref="PageEduNewsDetailJumpMenu"
+      :title="data.title"
+      :blocks="data.body"
+      :enabled="true"
+    />
+
     <!-- schema.org -->
     <meta
       v-if="data.thumbnailImage && data.thumbnailImage.original"
@@ -117,12 +106,6 @@ onMounted(() => {
       :caption="data.heroImage.caption"
       :credit="data.heroImage.credit"
       :constrain="data.heroConstrain"
-    />
-
-    <NavJumpMenu
-      ref="PageEduNewsDetailJumpMenu"
-      :title="data.title"
-      :blocks="data.body"
     />
 
     <!-- news headline -->

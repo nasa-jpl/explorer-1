@@ -42,6 +42,7 @@
             </template>
             <template v-else>
               <NavMobileLink
+                v-if="!headerStore.secondaryNavIsJumpMenu && index !== 0"
                 :key="index"
                 :title="index === 0 ? 'Home' : undefined"
                 :data="item"
@@ -59,6 +60,8 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useHeaderStore } from '../../store/header'
 import type { LinkObject } from '../../utils/mixins'
 import { eventBus } from './../../utils/eventBus'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
@@ -98,6 +101,9 @@ export default defineComponent({
       dropdownVisible: false,
       theDropdown: null
     }
+  },
+  computed: {
+    ...mapStores(useHeaderStore)
   },
   mounted() {
     if (this.startOpen) {

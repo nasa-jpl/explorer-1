@@ -123,9 +123,13 @@ export const mixinUpdateGlobalChildren = (value: [BreadcrumbPathObject] | null) 
 /* -- mixinUpdateSecondary --
       This mixin is used by the navigation to share secondary nav override items between components
     */
-export const mixinUpdateSecondary = (value: [BreadcrumbPathObject] | null) => {
+export const mixinUpdateSecondary = (
+  value: BreadcrumbPathObject[] | undefined,
+  isJumpMenu: boolean = false
+) => {
   const headerStore = useHeaderStore()
   headerStore.updateSecondary(value)
+  headerStore.updateSecondaryNavIsJumpMenu(isJumpMenu)
 }
 /* -- mixinHighlightPrimary --
       This mixin is used to specify if active primary navigation items should be highlighted/underlined
