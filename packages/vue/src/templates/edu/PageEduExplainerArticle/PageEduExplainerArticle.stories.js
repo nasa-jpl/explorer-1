@@ -8,11 +8,11 @@ import { BlockVideoEmbedData } from './../../../components/BlockVideoEmbed/Block
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
 import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
-import PageEduResourceArticle from './PageEduResourceArticle.vue'
+import PageEduExplainerArticle from './PageEduExplainerArticle.vue'
 
 export default {
-  title: 'Templates/EDU/PageEduResourceArticle',
-  component: PageEduResourceArticle,
+  title: 'Templates/EDU/PageEduExplainerArticle',
+  component: PageEduExplainerArticle,
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
@@ -30,9 +30,9 @@ export default {
 export const BaseStory = {
   args: {
     data: {
-      __typename: 'EDUResourceArticlePage',
-      pageType: 'EDUResourceArticlePage',
-      contentType: 'edu_resources.EDUResourceArticlePage',
+      __typename: 'EDUExplainerArticlePage',
+      pageType: 'EDUExplainerArticlePage',
+      contentType: 'edu_resources.EDUExplainerArticlePage',
       seoTitle: 'Test Resource',
       searchDescription: '',
       slug: 'test-resource',

@@ -14,7 +14,7 @@ import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEm
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 
 export default defineComponent({
-  name: 'PageEduResourceArticle',
+  name: 'PageEduExplainerArticle',
   components: {
     HeroMedia,
     BaseImagePlaceholder,
@@ -107,8 +107,10 @@ export default defineComponent({
         :publication-date="data.publicationDate"
         :publication-time="data.publicationTime"
         :author="data.author"
-        :label="data.displayLabel"
+        label="Explainer Article"
+        pill-color="secondary"
         schema
+        pill
       />
       <ShareButtonsEdu
         v-if="data?.url"
