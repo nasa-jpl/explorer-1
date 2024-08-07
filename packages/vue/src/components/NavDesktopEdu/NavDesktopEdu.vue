@@ -26,7 +26,14 @@
         </NavLogoLinks>
         <!-- site title -->
         <div class="ml-2 pl-3 xl:ml-3 xl:pl-5 border-l border-white border-opacity-30 z-20">
-          <span class="text-white font-bold text-2xl xl:text-3xl">Education</span>
+          <BaseLink
+            class="text-white font-bold text-2xl xl:text-3xl"
+            to="/edu/"
+            link-class="py-2"
+            variant="none"
+          >
+            Education
+          </BaseLink>
         </div>
         <!-- main nav with dropdowns -->
         <nav

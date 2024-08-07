@@ -56,16 +56,8 @@ export const NavDesktopDropdownContentData = {
       description: 'Lorem ipsum dolor sit amet.',
       title: 'About'
     },
-    {
-      ...MenuLinkColumnWithHeaderData,
-      heading: null,
-      headingPage: null
-    },
-    {
-      ...MenuLinkColumnWithHeaderData,
-      heading: null,
-      headingPage: null
-    }
+    MenuLinkColumnWithHeaderData,
+    MenuLinkColumnWithHeaderData
   ]
 }
 // combined dropdown data for "more" menu
