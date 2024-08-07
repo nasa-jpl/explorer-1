@@ -32,11 +32,11 @@
     >
       <div
         v-if="data.eventType"
-        class="flex flex-wrap items-start mb-3"
+        class="flex flex-wrap items-start mb-4"
       >
         <BaseTag
           variant="primary"
-          size="md"
+          size="lg"
         >
           {{ data.eventType }}
         </BaseTag>

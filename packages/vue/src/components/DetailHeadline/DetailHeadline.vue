@@ -1,45 +1,60 @@
 <template>
-  <div v-if="title || label || topics || publicationDate || author">
+  <div v-if="hasData">
     <div
-      v-if="label || (topics && topics.length) || readTime"
-      class="flex flex-wrap items-start mb-3"
+      v-if="hasEyebrow"
+      class="flex flex-wrap items-center mb-3"
     >
-      <div
-        v-if="topics && topics.length"
-        class="inline"
-      >
-        <BaseLink
-          variant="secondary"
-          :to="topics[0].url"
-          class="py-3"
-          :use-primary-color="themeStore.theme === 'ThemeEdu'"
+      <template v-if="pill && pillLabel">
+        <BaseTag
+          :variant="pillColor"
+          size="lg"
+          class="mr-3"
         >
-          <span :itemprop="schema ? 'articleSection' : undefined">
-            {{ topics[0].title }}
-          </span>
-        </BaseLink>
-      </div>
-      <span
-        v-else-if="label"
-        class="text-subtitle py-3 edu:text-primary"
-      >
-        <template v-if="!labelLink">
-          {{ label }}
-        </template>
-        <template v-else>
+          {{ pillLabel }}
+        </BaseTag>
+      </template>
+      <template v-else>
+        <div
+          v-if="topics && topics.length"
+          class="inline"
+        >
           <BaseLink
             variant="secondary"
-            :to="labelLink"
+            :to="topics[0].url"
             class="py-3"
             :use-primary-color="themeStore.theme === 'ThemeEdu'"
           >
-            {{ label }}
+            <span :itemprop="schema ? 'articleSection' : undefined">
+              {{ topics[0].title }}
+            </span>
           </BaseLink>
-        </template>
-      </span>
-      <span class="sr-only">.</span>
+        </div>
+        <span
+          v-else-if="label"
+          class="text-subtitle py-3 edu:text-primary"
+        >
+          <template v-if="!labelLink">
+            {{ label }}
+          </template>
+          <template v-else>
+            <BaseLink
+              variant="secondary"
+              :to="labelLink"
+              class="py-3"
+              :use-primary-color="themeStore.theme === 'ThemeEdu'"
+            >
+              {{ label }}
+            </BaseLink>
+          </template>
+        </span>
+      </template>
       <span
-        :class="`${(topics && topics.length) || label ? 'divide-gray-mid-dark border-l ml-3 pl-3 ' : ''} my-4  text-gray-mid-dark uppercase text-sm lg:text-base leading-none`"
+        v-if="hasTag"
+        class="sr-only"
+        >.</span
+      >
+      <span
+        :class="`${hasTag && !pill ? 'divide-gray-mid-dark border-l ml-3 pl-3 ' : ''} my-4  text-gray-mid-dark uppercase text-sm lg:text-base leading-none`"
       >
         {{ readTime }}
       </span>
@@ -51,7 +66,7 @@
       >{{ title }}
     </BaseHeading>
     <div
-      v-if="authors?.length || publicationDate"
+      v-if="hasByline"
       class="lg:text-base text-gray-mid-dark divide-gray-mid-dark px-3 mt-5 -ml-3 text-sm leading-none"
     >
       <span
@@ -107,12 +122,16 @@ import { useThemeStore } from '../../store/theme'
 import type { Topic, AuthorObject } from './../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
+import BaseTag from '../BaseTag/BaseTag.vue'
+
+export const pillColorVariants = ['primary', 'secondary', 'action']
 
 export default defineComponent({
   name: 'DetailHeadline',
   components: {
     BaseLink,
-    BaseHeading
+    BaseHeading,
+    BaseTag
   },
   props: {
     title: {
@@ -156,6 +175,15 @@ export default defineComponent({
       required: false,
       default: undefined
     },
+    pill: {
+      type: Boolean,
+      default: false
+    },
+    pillColor: {
+      type: String,
+      default: 'primary',
+      validator: (prop: string): boolean => pillColorVariants.includes(prop)
+    },
     schema: {
       type: Boolean,
       default: false
@@ -163,6 +191,18 @@ export default defineComponent({
   },
   computed: {
     ...mapStores(useThemeStore),
+    hasTag(): boolean {
+      return this.topics?.length || this.label ? true : false
+    },
+    hasEyebrow(): boolean {
+      return this.hasTag || this.readTime ? true : false
+    },
+    hasByline(): boolean {
+      return this.authors?.length || this.publicationDate ? true : false
+    },
+    hasData(): boolean {
+      return this.title || this.hasEyebrow || this.hasByline ? true : false
+    },
     pubDatetime(): string | undefined {
       const currentTime = this.publicationTime || '00:00:00'
       const returnDate = new Date(this.publicationDate + ' ' + currentTime)
@@ -181,6 +221,9 @@ export default defineComponent({
         authors = [this.author] as AuthorObject[]
       }
       return authors
+    },
+    pillLabel(): string | undefined {
+      return this.label ? this.label : this.topics?.length ? this.topics[0].title : undefined
     }
   }
 })
