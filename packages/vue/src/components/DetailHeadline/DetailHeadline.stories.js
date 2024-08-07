@@ -1,9 +1,27 @@
-import DetailHeadline from './DetailHeadline.vue'
+import DetailHeadline, { pillColorVariants } from './DetailHeadline.vue'
 
 export default {
   title: 'Components/Utilities/DetailHeadline',
   component: DetailHeadline,
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
+  argTypes: {
+    ariaLabel: {
+      type: 'string',
+      description:
+        "ARIA label. Recommended if your button label isn't descriptive, or if it only contains an icon."
+    },
+    pillColor: {
+      type: 'string',
+      description: 'Color of pill',
+      control: {
+        type: 'select'
+      },
+      options: pillColorVariants,
+      table: {
+        defaultValue: { summary: 'primary' }
+      }
+    }
+  }
 }
 
 export const DetailHeadlineData = {
@@ -65,5 +83,12 @@ export const NoAuthor = {
         url: '/topics/rover'
       }
     ]
+  }
+}
+
+export const Pill = {
+  args: {
+    ...DetailHeadlineData,
+    pill: true
   }
 }

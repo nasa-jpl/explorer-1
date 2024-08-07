@@ -10,8 +10,8 @@ const variantMap: Attributes = {
 
 const sizeMap: Attributes = {
   sm: 'text-xs uppercase border-t-2 py-1 px-2.5',
-  md: 'text-base capitalize border-t py-1 px-3',
-  lg: 'text-lg capitalize border-t py-1 px-3'
+  md: 'text-xs lg:text-base capitalize border-t py-1 px-3',
+  lg: 'text-base lg:text-lg capitalize border-t py-1 px-3'
 }
 
 interface BaseTagProps {

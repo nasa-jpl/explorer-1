@@ -14,7 +14,7 @@ import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEm
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 
 export default defineComponent({
-  name: 'PageEduResourceArticle',
+  name: 'PageEduExplainerArticle',
   components: {
     HeroMedia,
     BaseImagePlaceholder,
