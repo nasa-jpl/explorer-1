@@ -92,7 +92,7 @@
                 variant="none"
                 href="https://www.nasa.gov/learning-resources/"
                 class="group relative block w-full px-4 py-2 text-xl font-medium text-left"
-                link-class="flex flex-wrap-none overflow-visible whitespace-nowrap items-center  py-0 pl-6 -ml-4 border-l-4 border-transparent"
+                link-class="flex flex-wrap-none overflow-visible whitespace-nowrap items-center py-0 pl-6 -ml-4 border-l-4 border-transparent"
                 external-target-blank
               >
                 <span class="pr-2">NASA OSTEM</span>
