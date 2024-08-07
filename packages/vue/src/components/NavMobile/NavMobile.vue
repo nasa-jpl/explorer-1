@@ -87,6 +87,18 @@
                 :start-open="checkActive(item.titleLink) && !hasSecondary"
               />
             </template>
+            <template v-if="themeStore.isEdu">
+              <BaseLink
+                variant="none"
+                href="https://www.nasa.gov/learning-resources/"
+                class="group relative block w-full px-4 py-2 text-xl font-medium text-left"
+                link-class="flex flex-wrap-none overflow-visible whitespace-nowrap items-center py-0 pl-6 -ml-4 border-l-4 border-transparent"
+                external-target-blank
+              >
+                <span class="pr-2">NASA OSTEM</span>
+                <IconExternal class="shrink-0 text-sm -mt-0.5" />
+              </BaseLink>
+            </template>
           </nav>
           <div class="pl-8">
             <nav
@@ -122,6 +134,8 @@ import { useHeaderStore } from './../../store/header'
 import { useThemeStore } from './../../store/theme'
 import IconMenu from './../Icons/IconMenu.vue'
 import IconClose from './../Icons/IconClose.vue'
+import IconExternal from './../Icons/IconExternal.vue'
+import BaseLink from './../BaseLink/BaseLink.vue'
 import NavLogoLinks from './../NavLogoLinks/NavLogoLinks.vue'
 import NavMobileDropdown from './../NavMobile/NavMobileDropdown.vue'
 import NavMobileLink from './../NavMobile/NavMobileLink.vue'
@@ -140,7 +154,9 @@ export default defineComponent({
     NavMobileDropdown,
     NavMobileLink,
     NavSocial,
-    NavSearchForm
+    NavSearchForm,
+    BaseLink,
+    IconExternal
   },
   props: {
     data: {

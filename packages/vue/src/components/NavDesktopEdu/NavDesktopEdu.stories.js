@@ -56,16 +56,8 @@ export const NavDesktopDropdownContentData = {
       description: 'Lorem ipsum dolor sit amet.',
       title: 'About'
     },
-    {
-      ...MenuLinkColumnWithHeaderData,
-      heading: null,
-      headingPage: null
-    },
-    {
-      ...MenuLinkColumnWithHeaderData,
-      heading: null,
-      headingPage: null
-    }
+    MenuLinkColumnWithHeaderData,
+    MenuLinkColumnWithHeaderData
   ]
 }
 // combined dropdown data for "more" menu
@@ -106,12 +98,11 @@ export const NavDesktopData = {
     '{"/": [{"path": "http://www.jpl.nasa.gov/", "title": "Asteroid watch"}, {"path": "http://www.jpl.nasa.gov/", "title": "Asteroid fast facts"}, {"path": "http://www.jpl.nasa.gov/", "title": "Meteor shower viewing guide"}, {"path": "http://www.jpl.nasa.gov/", "title": "Yeoman\'s top 10"}, {"path": "http://www.jpl.nasa.gov/", "title": "Glossary of space rocks"}, {"path": "/robotics-at-jpl/", "title": "Robotics"}, {"path": "http://www.jpl.nasa.gov/", "title": "Apps"}, {"path": "/jpl-life/", "title": "JPL Life"}, {"path": "/stars-and-galaxies/", "title": "Stars and Galaxies"}, {"path": "/exoplanets/", "title": "Exoplanets"}, {"path": "/solar-system/", "title": "Solar System"}, {"path": "/asteroids/", "title": "Asteroids"}, {"path": "/comets/", "title": "Comets"}, {"path": "/technology/", "title": "Technology"}, {"path": "/mars/", "title": "Mars"}, {"path": "/earth/", "title": "Earth"}, {"path": "/climate-change/", "title": "Climate Change"}, {"path": "/earthquakes/", "title": "Earthquakes"}, {"path": "/weather/", "title": "Weather"}, {"path": "/robotics/", "title": "Robotics"}], "/missions/": [{"path": "/missions/", "title": "Current"}, {"path": "/missions/", "title": "Past"}, {"path": "/missions/", "title": "Future"}, {"path": "/missions/", "title": "Proposed"}, {"path": "/missions/", "title": "All"}], "/news/": [{"path": "/news/", "title": "All news"}, {"path": "/news/", "title": "Press kits"}, {"path": "/news/", "title": "Fact sheets"}, {"path": "/news/", "title": "Media Information"}, {"path": "/news/", "title": "JPL newsletter"}]}',
   ...NavDesktopTopHatData,
   primaryNavigation: [
-    NavDesktopDropdownContentData,
     {
       ...NavDesktopDropdownContentData,
       titleLink: {
         linkPage: {
-          title: 'Missions',
+          title: 'K-12 Resources',
           url: '/missions/'
         },
         title: null
@@ -139,7 +130,7 @@ export const NavDesktopData = {
       ...NavDesktopDropdownContentData,
       titleLink: {
         linkPage: {
-          title: 'News',
+          title: 'Internships',
           url: '/news/'
         },
         title: null
@@ -149,7 +140,7 @@ export const NavDesktopData = {
       ...NavDesktopDropdownContentData,
       titleLink: {
         linkPage: {
-          title: 'Galleries',
+          title: 'News & Events',
           url: '/galleries/'
         },
         title: null
@@ -159,7 +150,7 @@ export const NavDesktopData = {
       ...NavDesktopDropdownContentData,
       titleLink: {
         linkPage: {
-          title: 'Engage',
+          title: 'About',
           url: '/engage/'
         },
         title: null

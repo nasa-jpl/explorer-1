@@ -26,6 +26,18 @@
               {{ getLinkText(link) }}
             </BaseLink>
           </div>
+          <template v-if="themeStore.isEdu">
+            <BaseLink
+              variant="none"
+              href="https://www.nasa.gov/learning-resources/"
+              class="text-subtitle text-blue edu:text-white mb-3"
+              link-class="flex flex-wrap-none overflow-visible whitespace-nowrap items-center"
+              external-target-blank
+            >
+              <span class="pr-2">NASA OSTEM</span>
+              <IconExternal class="shrink-0 text-sm -mt-0.5" />
+            </BaseLink>
+          </template>
         </div>
       </div>
       <!-- footer extras -->
@@ -180,6 +192,7 @@ import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from './../../store/theme'
 import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
+import IconExternal from './../Icons/IconExternal.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import NavSocial from './../NavSocial/NavSocial.vue'
@@ -193,7 +206,8 @@ export default defineComponent({
     BaseButton,
     NavSocial,
     TheFooterSignUp,
-    LogoCaltech
+    LogoCaltech,
+    IconExternal
   },
   props: {
     data: {
