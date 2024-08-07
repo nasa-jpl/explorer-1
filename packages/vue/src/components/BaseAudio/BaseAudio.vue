@@ -119,7 +119,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { eventBus } from './../../utils/eventBus'
+// import { eventBus } from './../../utils/eventBus'
 import IconPlay from './../Icons/IconPlay.vue'
 import IconPause from './../Icons/IconPause.vue'
 import IconVolume from './../Icons/IconVolume.vue'

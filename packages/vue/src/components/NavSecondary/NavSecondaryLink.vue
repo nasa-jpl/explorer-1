@@ -1,7 +1,7 @@
 <template>
   <BaseLink
-    :href="isExternal(item.path) ? item.path : null"
-    :to="!isExternal(item.path) ? item.path : null"
+    :href="isExternal(item.path) ? item.path : undefined"
+    :to="!isExternal(item.path) ? item.path : undefined"
     link-class="block px-3 py-2"
     variant="none"
     class="NavSecondaryLink border-t-2 border-transparent"
