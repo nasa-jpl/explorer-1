@@ -1,7 +1,7 @@
 <template>
   <button
     class="NavDropdownToggle group cursor-pointer"
-    :class="{ '-active': isActivePath }"
+    :class="{ '-active': isActivePath, '-invert': invert }"
     :aria-expanded="ariaExpanded"
     @click="clickEvent()"
     @keydown.esc="escEvent()"
@@ -26,13 +26,18 @@ export default defineComponent({
   props: {
     path: {
       type: String,
-      required: false
+      default: undefined
     },
     ariaExpanded: {
       type: Boolean,
-      required: false
+      default: false
+    },
+    invert: {
+      type: Boolean,
+      default: false
     }
   },
+  emits: ['closeDropdown', 'toggleClicked'],
   computed: {
     isActivePath() {
       if (this.path) {

@@ -11,6 +11,7 @@ export interface State {
   highlightPrimary: boolean
   globalChildren?: any | null
   secondaryNav?: any | null
+  secondaryNavIsJumpMenu: boolean
 }
 
 export const useHeaderStore = defineStore('header', {
@@ -19,7 +20,8 @@ export const useHeaderStore = defineStore('header', {
       headerTransparent: false,
       highlightPrimary: true,
       globalChildren: null,
-      secondaryNav: null
+      secondaryNav: null,
+      secondaryNavIsJumpMenu: false
     }
   },
   actions: {
@@ -35,6 +37,9 @@ export const useHeaderStore = defineStore('header', {
     },
     updateSecondary(value: any) {
       this.secondaryNav = value
+    },
+    updateSecondaryNavIsJumpMenu(value: boolean) {
+      this.secondaryNavIsJumpMenu = value
     }
   }
 })

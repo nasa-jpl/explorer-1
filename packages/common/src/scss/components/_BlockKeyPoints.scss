@@ -1,7 +1,7 @@
 .BlockKeyPoints {
   ul li {
     &::before {
-      @apply bg-jpl-red;
+      @apply bg-primary;
       @apply inline-block;
       @apply relative;
       @apply mr-4;

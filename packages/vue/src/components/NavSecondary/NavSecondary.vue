@@ -4,11 +4,17 @@
     ref="NavSecondary"
     aria-label="Secondary"
     class="NavSecondary"
-    :class="{ 'has-intro': hasIntro }"
+    :class="{
+      'has-intro': hasIntro,
+      '!bg-transparent': invert
+    }"
   >
-    <div class="max-w-screen-3xl mx-auto">
+    <div
+      class="max-w-screen-3xl mx-auto"
+      :class="{ 'bg-gradient-to-r from-black to-primary bg-transparent to-90% text-white': invert }"
+    >
       <div
-        class="nav-secondary-container lg:container lg:px-0 lg:whitespace-normal border-gray-mid text-gray-mid-dark lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap border-t border-opacity-50 edu:border-0"
+        :class="`nav-secondary-container lg:container lg:px-0 lg:whitespace-normal lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap ${invert ? 'border-0' : 'border-t border-gray-mid text-gray-mid-dark  border-opacity-50'}`"
       >
         <div class="lg:ml-0 2xl:-mr-3 lg:justify-end flex -ml-3">
           <template v-for="(item, index) in theBreadcrumb">
@@ -18,6 +24,7 @@
                 :item="item"
                 :index="index"
                 :is-last="theBreadcrumb && index === theBreadcrumb.length - 1"
+                :invert="invert"
               />
             </template>
             <template v-else>
@@ -25,6 +32,7 @@
                 :key="index"
                 :item="item"
                 :index="index"
+                :invert="invert"
               />
             </template>
           </template>
@@ -38,6 +46,7 @@
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from './../../store/header'
+import { useThemeStore } from './../../store/theme'
 import NavSecondaryDropdown from './NavSecondaryDropdown.vue'
 import NavSecondaryLink from './NavSecondaryLink.vue'
 import { mixinHighlightPrimary, mixinUpdateSecondary } from './../../utils/mixins'
@@ -49,16 +58,24 @@ export default defineComponent({
    ** If there is no breadcrumb override, then it will fallback to using the breadcrumbs derived form the active global nav item (store.header.globalChildren)
    ** store.header.secondaryNav reverts to null on route changes, so the breadcrumb override is re-evaluted on every page
    */
+  name: 'NavSecondary',
   components: {
     NavSecondaryDropdown,
     NavSecondaryLink
   },
   props: {
+    // breadcrumbs create a secondary navigation
     breadcrumb: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     hasIntro: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    invert: {
       type: Boolean,
       required: false,
       default: false
@@ -71,7 +88,8 @@ export default defineComponent({
   },
   computed: {
     ...mapStores(useHeaderStore),
-    theBreadcrumb(): [BreadcrumbPathObject] | undefined {
+    ...mapStores(useThemeStore),
+    theBreadcrumb(): BreadcrumbPathObject[] | undefined {
       if (this.breadcrumb) {
         // we also want to update the store to override secondary nav
         mixinUpdateSecondary(JSON.parse(this.breadcrumb))
@@ -118,7 +136,9 @@ export default defineComponent({
         ([e]) => {
           e.target.classList.toggle('-is-sticky', e.intersectionRatio < 1)
         },
-        { threshold: [1] }
+        {
+          threshold: [1]
+        }
       )
       const observerOffset = new IntersectionObserver(
         ([e]) => {

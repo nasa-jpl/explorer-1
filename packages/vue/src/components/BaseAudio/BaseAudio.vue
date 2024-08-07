@@ -119,6 +119,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+// import { eventBus } from './../../utils/eventBus'
 import IconPlay from './../Icons/IconPlay.vue'
 import IconPause from './../Icons/IconPause.vue'
 import IconVolume from './../Icons/IconVolume.vue'
@@ -326,10 +327,8 @@ export default defineComponent({
         this.audio.addEventListener('play', this._handlePlayPause)
         this.audio.addEventListener('ended', this._handleEnded)
       }
-      // TODO: VUE3: find solution for emitting event from slot
-      // TODO: find a cleaner way to do this w/o using mounted or root level events
-      // scoped slots? https://github.com/vuejs/vue/issues/4332
-      // this.$root?.$on('play', this.pauseOthers)
+      // TODO: VUE3: pass uuID to pauseOthers() method
+      // eventBus.on('play', () => this.pauseOthers())
     },
     getAudio() {
       return this.$el.querySelectorAll('audio')[0]

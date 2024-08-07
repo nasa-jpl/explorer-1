@@ -115,6 +115,7 @@
 // @ts-nocheck
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
+import { eventBus } from './../../utils/eventBus'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
 import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
 import { useHeaderStore } from './../../store/header'
@@ -216,10 +217,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    // // TODO: VUE3: find solution for emitting event from slot
-    // // TODO: find a cleaner way to do this w/o using mounted or root level events
-    // // scoped slots? https://github.com/vuejs/vue/issues/4332
-    // this.$root?.$on('linkClicked', this.closeMenu)
+    eventBus.on('linkClicked', () => this.closeMenu())
   },
   methods: {
     toggleMenu() {

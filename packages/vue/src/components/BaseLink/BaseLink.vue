@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { eventBus } from './../../utils/eventBus'
 import MixinAnimationCaret from './../MixinAnimationCaret/MixinAnimationCaret.vue'
 
 interface Variants {
@@ -145,6 +146,7 @@ export default defineComponent({
     clickEvent() {
       this.$root?.$emit('linkClicked')
       this.$emit('specificLinkClicked')
+      eventBus.emit('linkClicked')
     }
   }
 })

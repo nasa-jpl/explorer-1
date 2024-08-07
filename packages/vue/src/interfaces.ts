@@ -1,12 +1,18 @@
 export interface BreadcrumbPathObject {
   path: string
   title: string
-  children: any[]
+  children: BreadcrumbPathObject[]
+}
+export interface BasicLinkObject {
+  title: string
+  path: string
 }
 
 export interface BlockData {
   blockType: string
   field?: string
+  heading?: string
+  level?: string
   items?: any[]
 }
 export interface ImageSrcObject {

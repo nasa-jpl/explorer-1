@@ -42,6 +42,7 @@
             </template>
             <template v-else>
               <NavMobileLink
+                v-if="!headerStore.secondaryNavIsJumpMenu && index !== 0"
                 :key="index"
                 :title="index === 0 ? 'Home' : undefined"
                 :data="item"
@@ -59,7 +60,10 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useHeaderStore } from '../../store/header'
 import type { LinkObject } from '../../utils/mixins'
+import { eventBus } from './../../utils/eventBus'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavMobileLink from './../NavMobile/NavMobileLink.vue'
 import NavMobileSecondaryDropdown from './../NavMobile/NavMobileSecondaryDropdown.vue'
@@ -98,16 +102,16 @@ export default defineComponent({
       theDropdown: null
     }
   },
+  computed: {
+    ...mapStores(useHeaderStore)
+  },
   mounted() {
     if (this.startOpen) {
       this.dropdownVisible = true
     }
     this.theDropdown = this.$refs.NavDropdownMobile as HTMLElement
     if (!this.expandMultiple) {
-      // TODO: VUE3: find solution for emitting event from slot
-      // TODO: find a cleaner way to do this w/o using mounted or root level events
-      // scoped slots? https://github.com/vuejs/vue/issues/4332
-      // this.$root?.$on('openMobileDropdown', this.closeIfOtherOpened)
+      eventBus.on('openMobileDropdown', () => this.closeIfOtherOpened())
     }
   },
   methods: {
