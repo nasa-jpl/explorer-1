@@ -25,8 +25,8 @@
           />
         </NavLogoLinks>
         <!-- site title -->
-        <div class="ml-3 pl-5 border-l border-white border-opacity-30 z-20">
-          <span class="text-white font-bold text-3xl">Education</span>
+        <div class="ml-2 pl-3 xl:ml-3 xl:pl-5 border-l border-white border-opacity-30 z-20">
+          <span class="text-white font-bold text-2xl xl:text-3xl">Education</span>
         </div>
         <!-- main nav with dropdowns -->
         <nav
@@ -51,6 +51,16 @@
                 <NavDesktopDropdownContent :data="item" />
               </NavDesktopDropdown>
             </template>
+            <BaseLink
+              href="https://www.nasa.gov/learning-resources/"
+              variant="none"
+              class="NavDesktopLink group relative z-20 font-medium border-t-2 border-transparent text-sm xl:text-base px-2 xl:px-4"
+              link-class="inline-block py-2 transition-colors duration-100 ease-in border-b-2 border-transparent group-hover:border-white flex flex-wrap-none items-center"
+              external-target-blank
+            >
+              NASA OSTEM
+              <IconExternal class="text-sm -mt-0.5 ml-2" />
+            </BaseLink>
           </div>
           <!-- search -->
           <div
@@ -93,10 +103,12 @@
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from './../../store/header'
+import BaseLink from './../BaseLink/BaseLink.vue'
 import NavDesktopDropdown from './../NavDesktop/NavDesktopDropdown.vue'
 import NavDesktopDropdownContent from './../NavDesktop/NavDesktopDropdownContent.vue'
 import NavLogoLinks from './../NavLogoLinks/NavLogoLinks.vue'
 import NavSearchForm from './../NavSearchForm/NavSearchForm.vue'
+import IconExternal from './../Icons/IconExternal.vue'
 import IconSearch from './../Icons/IconSearch.vue'
 import IconClose from './../Icons/IconClose.vue'
 import type { LinkObject, BreadcrumbObject } from './../../utils/mixins'
@@ -112,12 +124,14 @@ import {
 export default defineComponent({
   name: 'NavDesktop',
   components: {
+    BaseLink,
     NavDesktopDropdown,
     NavDesktopDropdownContent,
     NavLogoLinks,
     NavSearchForm,
     IconSearch,
-    IconClose
+    IconClose,
+    IconExternal
   },
   props: {
     data: {
@@ -278,11 +292,6 @@ export default defineComponent({
   .main-navigation {
     > * {
       @apply text-white;
-
-      .NavDesktopDropdown > button {
-        // mimics .text-contrast class
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-      }
     }
   }
 }
