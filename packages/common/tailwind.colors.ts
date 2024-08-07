@@ -217,6 +217,7 @@ export const ThemeWww = {
 export const ThemeEdu = {
   default: {
     '--color-primary': foundationColors['jpl-violet'],
+    '--color-primary-lighter': foundationColors['jpl-violet-lighter'],
     '--color-primary-light': foundationColors['jpl-violet-light'],
     '--color-primary-dark': foundationColors['jpl-violet-dark'],
     '--color-primary-darker': foundationColors['jpl-violet-darker'],
@@ -231,6 +232,7 @@ export const ThemeEdu = {
   },
   dark: {
     '--color-primary': foundationColors['jpl-violet-light'],
+    '--color-primary-lighter': foundationColors['jpl-violet-lighter'],
     '--color-primary-light': foundationColors['jpl-violet-light'],
     '--color-primary-dark': foundationColors['jpl-violet'],
     '--color-primary-darker': foundationColors['jpl-violet-dark'],
@@ -245,6 +247,7 @@ export const ThemeEdu = {
   },
   gray: {
     '--color-primary': foundationColors['jpl-violet-dark'],
+    '--color-primary-lighter': foundationColors['jpl-violet-light'],
     '--color-primary-light': foundationColors['jpl-violet'],
     '--color-primary-dark': foundationColors['jpl-violet-darker'],
     '--color-primary-darker': foundationColors['jpl-violet-darker'],
@@ -262,6 +265,7 @@ export const ThemeEdu = {
 export const ThemeInternal = {
   default: {
     '--color-primary': foundationColors['jpl-teal'],
+    '--color-primary-lighter': foundationColors['jpl-teal-lighter'],
     '--color-primary-light': foundationColors['jpl-teal-light'],
     '--color-primary-dark': foundationColors['jpl-teal-dark'],
     '--color-primary-darker': foundationColors['jpl-teal-darker'],
@@ -276,6 +280,7 @@ export const ThemeInternal = {
   },
   dark: {
     '--color-primary': foundationColors['jpl-teal-light'],
+    '--color-primary-lighter': foundationColors['jpl-teal-lighter'],
     '--color-primary-light': foundationColors['jpl-teal-light'],
     '--color-primary-dark': foundationColors['jpl-teal'],
     '--color-primary-darker': foundationColors['jpl-teal-dark'],
@@ -290,6 +295,7 @@ export const ThemeInternal = {
   },
   gray: {
     '--color-primary': foundationColors['jpl-teal-dark'],
+    '--color-primary-lighter': foundationColors['jpl-teal-light'],
     '--color-primary-light': foundationColors['jpl-teal'],
     '--color-primary-dark': foundationColors['jpl-teal-darker'],
     '--color-primary-darker': foundationColors['jpl-teal-darker'],

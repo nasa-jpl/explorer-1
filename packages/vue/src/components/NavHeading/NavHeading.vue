@@ -7,7 +7,7 @@
       <BaseLink
         variant="none"
         class="text-subtitle text-jpl-blue-lighter edu:text-primary-lighter inline-block mb-4"
-        link-class="p-2"
+        link-class="px-2 block"
         :to="data.headingPage.url"
       >
         {{ data.heading }}
