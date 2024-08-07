@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, defineExpose } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
 import type { StreamfieldBlockData } from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import type {
@@ -17,6 +17,7 @@ import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsE
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
+import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 
 interface PageEduNewsDetailObject extends PageResponseObject {
   readTime: string
@@ -35,6 +36,7 @@ interface PageEduNewsDetailObject extends PageResponseObject {
   topper: string
   relatedLinks: RelatedLinkObject[]
   body: StreamfieldBlockData[]
+  showJumpMenu: boolean
 }
 
 interface PageEduNewsDetailProps {
@@ -43,6 +45,8 @@ interface PageEduNewsDetailProps {
 
 // define props
 const props = defineProps<PageEduNewsDetailProps>()
+
+const PageEduNewsDetailJumpMenu = ref()
 
 const heroEmpty = computed(() => {
   return isEmpty(props.data?.heroImage)
@@ -67,6 +71,10 @@ const computedClass = computed(() => {
 const dateTimeArray = computed(() => {
   return props.data.publicationDate.split(' ')
 })
+
+defineExpose({
+  PageEduNewsDetailJumpMenu
+})
 </script>
 <template>
   <div
@@ -76,6 +84,13 @@ const dateTimeArray = computed(() => {
     itemscope
     itemtype="http://schema.org/Article"
   >
+    <NavJumpMenu
+      ref="PageEduNewsDetailJumpMenu"
+      :title="data.title"
+      :blocks="data.body"
+      :enabled="true"
+    />
+
     <!-- schema.org -->
     <meta
       v-if="data.thumbnailImage && data.thumbnailImage.original"
@@ -147,7 +162,6 @@ const dateTimeArray = computed(() => {
         {{ data.summary }}
       </p>
     </LayoutHelper>
-
     <!-- streamfield blocks -->
     <BlockStreamfield
       itemprop="articleBody"

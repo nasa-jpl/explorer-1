@@ -1,7 +1,7 @@
 import NavSecondary from './NavSecondary.vue'
 
 export default {
-  title: 'Navigation/Secondary Navigation/NavSecondary',
+  title: 'Navigation/Secondary Navigation',
   component: NavSecondary,
   excludeStories: /.*Data$/,
   parameters: {
@@ -19,6 +19,11 @@ export const NavSecondaryData = {
 }
 
 export const BaseStory = {
-  name: 'NavSecondary',
-  args: { breadcrumb: NavSecondaryData.breadcrumb }
+  name: 'Secondary Navigation',
+  args: {
+    breadcrumb: NavSecondaryData.breadcrumb
+  }
+}
+export const Inverted = {
+  args: { breadcrumb: NavSecondaryData.breadcrumb, invert: true }
 }

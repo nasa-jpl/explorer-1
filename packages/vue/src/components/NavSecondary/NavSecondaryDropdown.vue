@@ -10,21 +10,14 @@
       :aria-expanded="dropdownVisible ? true : false"
       :path="item.path"
       class="font-medium border-t-2 border-transparent block px-3 py-2"
-      :class="{
-        'mr-auto text-primary font-semibold secondary-root': index === 0,
-        'text-gray-dark': index !== 0,
-        '-open': dropdownVisible
-      }"
+      :class="dropdownToggleClasses(index)"
+      :invert="invert"
       @toggle-clicked="toggleDropdown()"
       @close-dropdown="closeDropdown()"
     >
       <span
         class="flex content-center pt-2 pb-1 mb-1 transition-colors duration-100 ease-in border-b-2 border-transparent"
-        :class="
-          index === 0
-            ? 'can-hover:group-hover:border-primary'
-            : 'can-hover:group-hover:border-gray-mid-dark can-hover:group-hover:text-gray-mid-dark '
-        "
+        :class="dropdownButtonClasses(index)"
       >
         <span>{{ item.title }}</span>
         <IconCaret class="transform rotate-90 text-sm ml-2 pl-2 -mt-px" />
@@ -47,6 +40,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { eventBus } from './../../utils/eventBus'
 import IconCaret from './../Icons/IconCaret.vue'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavSecondaryDropdownContent from './../NavSecondary/NavSecondaryDropdownContent.vue'
@@ -62,7 +56,8 @@ export default defineComponent({
     // the index from the parent v-for loop
     index: {
       type: Number,
-      required: false
+      required: false,
+      default: 0
     },
     isLast: {
       type: Boolean,
@@ -73,8 +68,15 @@ export default defineComponent({
     item: {
       type: Object,
       required: true
+    },
+
+    invert: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
+  emits: ['closeDropdown', 'openDropdown'],
   data() {
     return {
       dropdownVisible: false
@@ -88,15 +90,10 @@ export default defineComponent({
     }
   },
   mounted() {
-    // TODO: VUE3: find solution for emitting event from slot
-    // https://stackoverflow.com/questions/50181858/this-root-emit-not-working-in-vue
-    // TODO: find a cleaner way to do this w/o using mounted or root level events
-    // scoped slots? https://github.com/vuejs/vue/issues/4332
-    // this.$root?.$on('linkClicked', this.closeDropdown)
+    eventBus.on('linkClicked', () => this.closeDropdown())
   },
   methods: {
     toggleDropdown() {
-      console.log('dropdown toggled')
       if (this.dropdownVisible) {
         this.closeDropdown()
       } else {
@@ -120,6 +117,28 @@ export default defineComponent({
         return true
       }
       return false
+    },
+    dropdownToggleClasses(index: number) {
+      return this.invert
+        ? {
+            'mr-auto text-white font-semibold secondary-root': index === 0,
+            'text-white': index !== 0,
+            '-open': this.dropdownVisible
+          }
+        : {
+            'mr-auto text-primary font-semibold secondary-root': index === 0,
+            'text-gray-dark': index !== 0,
+            '-open': this.dropdownVisible
+          }
+    },
+    dropdownButtonClasses(index: number) {
+      const titleButton = this.invert
+        ? 'can-hover:group-hover:border-white'
+        : 'can-hover:group-hover:border-primary'
+      const regularButton = this.invert
+        ? 'can-hover:group-hover:border-white can-hover:group-hover:text-white'
+        : 'can-hover:group-hover:border-gray-mid-dark can-hover:group-hover:text-gray-mid-dark'
+      return index === 0 ? titleButton : regularButton
     }
   }
 })
@@ -131,6 +150,11 @@ export default defineComponent({
       > span {
         @apply border-black text-gray-dark #{!important};
       }
+      &.-invert {
+        > span {
+          @apply border-white text-white #{!important};
+        }
+      }
     }
 
     &.-active {
@@ -138,11 +162,22 @@ export default defineComponent({
         @apply font-bold text-gray-dark;
         @apply border-primary #{!important};
       }
+      &.-invert {
+        > span {
+          @apply text-white;
+          @apply border-white #{!important};
+        }
+      }
     }
     &:hover {
       &.-active {
         > span {
           @apply text-gray-mid-dark;
+        }
+        &.-invert {
+          > span {
+            @apply text-white;
+          }
         }
       }
     }

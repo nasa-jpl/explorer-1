@@ -1,5 +1,5 @@
 import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories'
-import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
+import { BlockStreamfieldData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageEduNewsDetail from './PageEduNewsDetail.vue'
 
 export default {
@@ -56,7 +56,7 @@ export const BaseStory = {
       heroPosition: 'full_bleed',
       heroImage: HeroMediaData.image,
       heroImageInline: HeroMediaData.imageInline,
-      ...BlockStreamfieldTruncatedData
+      ...BlockStreamfieldData
     }
   }
 }
@@ -65,7 +65,8 @@ export const InlineHero = {
   args: {
     data: {
       ...BaseStory.args.data,
-      heroPosition: 'inline'
+      heroPosition: 'inline',
+      showJumpMenu: true
     }
   }
 }
@@ -74,7 +75,8 @@ export const NoHero = {
   args: {
     data: {
       ...BaseStory.args.data,
-      hero: []
+      hero: [],
+      showJumpMenu: true
     }
   }
 }

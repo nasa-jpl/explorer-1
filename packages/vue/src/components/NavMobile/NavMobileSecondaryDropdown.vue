@@ -18,6 +18,7 @@
         <NavSecondaryDropdownContent
           class="relative w-full text-lg"
           :item="item"
+          :include-overview="!headerStore.secondaryNavIsJumpMenu"
         />
       </slot>
     </template>
@@ -27,6 +28,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mixinIsActivePath } from '../../utils/mixins'
+import { mapStores } from 'pinia'
+import { useHeaderStore } from '../../store/header'
 import IconCaret from './../Icons/IconCaret.vue'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavSecondaryDropdownContent from './../NavSecondary/NavSecondaryDropdownContent.vue'
@@ -58,6 +61,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useHeaderStore),
     startOpen(): Boolean {
       if (this.item) {
         return mixinIsActivePath(this.item.path)
@@ -79,7 +83,6 @@ export default defineComponent({
   },
   methods: {
     toggleDropdown() {
-      console.log('dropdown toggled')
       if (this.dropdownVisible) {
         this.closeDropdown()
       } else {

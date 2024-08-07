@@ -1,6 +1,6 @@
 <template>
   <ul class="NavSecondaryDropdownContent">
-    <li>
+    <li v-if="includeOverview">
       <BaseLink
         :to="item.path"
         variant="none"
@@ -80,6 +80,10 @@ export default defineComponent({
     item: {
       type: Object,
       required: true
+    },
+    includeOverview: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
