@@ -9,9 +9,9 @@ const variantMap: Attributes = {
 }
 
 const sizeMap: Attributes = {
-  sm: 'text-xs uppercase border-t-2 py-1 px-2.5',
-  md: 'text-xs lg:text-base capitalize border-t py-1 px-3',
-  lg: 'text-base lg:text-lg capitalize border-t py-1 px-3'
+  sm: 'text-xs border-t-2 py-1 px-2.5',
+  md: 'text-xs lg:text-base border-t py-1.5 px-3.5',
+  lg: 'text-base lg:text-lg border-t py-1.5 px-5'
 }
 
 interface BaseTagProps {
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<BaseTagProps>(), {
 <template>
   <p
     :class="`${variantMap[props.variant]} ${sizeMap[props.size]}`"
-    class="ThemeVariantLight text-contrast-none inline-block text-white font-bold edu:font-extrabold rounded-full leading-tight m-0"
+    class="ThemeVariantLight text-contrast-none inline-block text-white font-bold edu:font-extrabold rounded-full leading-tight m-0 uppercase"
   >
     <slot />
     <span class="sr-only">.</span>

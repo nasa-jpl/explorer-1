@@ -7,6 +7,7 @@
       <template v-if="pill && pillLabel">
         <BaseTag
           :variant="pillColor"
+          size="lg"
           class="mr-3"
         >
           {{ pillLabel }}

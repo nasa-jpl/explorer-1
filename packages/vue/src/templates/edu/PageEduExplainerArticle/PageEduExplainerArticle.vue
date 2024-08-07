@@ -107,8 +107,10 @@ export default defineComponent({
         :publication-date="data.publicationDate"
         :publication-time="data.publicationTime"
         :author="data.author"
-        :label="data.displayLabel"
+        label="Explainer Article"
+        pill-color="secondary"
         schema
+        pill
       />
       <ShareButtonsEdu
         v-if="data?.url"
