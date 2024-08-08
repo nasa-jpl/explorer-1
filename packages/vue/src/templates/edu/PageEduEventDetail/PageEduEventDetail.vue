@@ -234,7 +234,7 @@
           >
           <div class="flex flex-col flex-wrap justify-start md:flex-row md:-mx-4">
             <div
-              v-for="(speaker, index) in data.speakers"
+              v-for="(item, index) in data.speakers"
               :key="index"
               class="flex flex-1 mb-6 md:flex-none md:flex-wrap md:mx-4 md:w-56"
             >
@@ -245,10 +245,10 @@
                   transparent-mode
                 >
                   <BaseImage
-                    v-if="speaker.image && speaker.image.src"
-                    :src="speaker.image.src.url"
-                    :width="speaker.image.src.width"
-                    :height="speaker.image.src.height"
+                    v-if="item.speaker.image && item.speaker.image.src"
+                    :src="item.speaker.image.src.url"
+                    :width="item.speaker.image.src.width"
+                    :height="item.speaker.image.src.height"
                     alt=""
                     class="object-cover"
                     loading="lazy"
@@ -262,30 +262,30 @@
               </div>
               <div class="flex-1 h-full">
                 <h3
-                  v-if="speaker.name"
+                  v-if="item.speaker.name"
                   class="my-3 text-lg !font-normal !tracking-normal leading-none"
                 >
                   <BaseLink
-                    v-if="speaker.internalLink || speaker.externalLink"
+                    v-if="item.speaker.internalLink || item.speaker.externalLink"
                     link-class="no-underline normal-case"
-                    :to="speaker.internalLink ? speaker.internalLink.url : null"
-                    :href="speaker.externalLink ? speaker.externalLink : null"
+                    :to="item.speaker.internalLink ? item.speaker.internalLink.url : null"
+                    :href="item.speaker.externalLink ? item.speaker.externalLink : null"
                     external-target-blank
                   >
-                    {{ speaker.name }}
+                    {{ item.speaker.name }}
                   </BaseLink>
                   <template v-else>
-                    {{ speaker.name }}
+                    {{ item.speaker.name }}
                   </template>
                 </h3>
                 <p
-                  v-if="speaker.title"
+                  v-if="item.speaker.title"
                   class="mb-3 text-gray-mid-dark"
                 >
-                  {{ speaker.title }}
+                  {{ item.speaker.title }}
                 </p>
                 <p class="text-action capitalize">
-                  {{ speaker.host }}
+                  {{ item.speaker.host }}
                 </p>
               </div>
             </div>

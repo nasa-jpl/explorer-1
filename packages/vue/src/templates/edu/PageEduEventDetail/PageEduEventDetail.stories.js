@@ -90,26 +90,30 @@ export const BaseStory = {
       relatedEvents: [...EventsBlockLinkCarouselData],
       speakers: [
         {
-          host: 'host',
-          id: '1',
-          internalLink: null,
-          name: 'Varoujan Gorjian',
-          title: 'Splitzer Research Scientest, JPL'
+          speaker: {
+            host: 'host',
+            id: '1',
+            internalLink: null,
+            name: 'Varoujan Gorjian',
+            title: 'Splitzer Research Scientest, JPL'
+          }
         },
         {
-          host: 'co-host',
-          id: '2',
-          image: {
-            alt: '',
-            src: {
-              height: '450',
-              url: 'https://picsum.photos/560/560',
-              width: '450'
-            }
-          },
-          internalLink: null,
-          name: 'Robert Hurt',
-          title: 'Splitzer visualisation'
+          speaker: {
+            host: 'co-host',
+            id: '2',
+            image: {
+              alt: '',
+              src: {
+                height: '450',
+                url: 'https://picsum.photos/560/560',
+                width: '450'
+              }
+            },
+            internalLink: null,
+            name: 'Robert Hurt',
+            title: 'Splitzer visualisation'
+          }
         }
       ],
       relatedLinks: [
