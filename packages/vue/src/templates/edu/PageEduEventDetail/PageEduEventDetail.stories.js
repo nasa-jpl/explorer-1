@@ -26,26 +26,31 @@ export const BaseStory = {
       title: 'Becoming a NASA engineer',
       slug: 'becoming-a-nasa-engineer',
       url: '/events/becoming-a-nasa-engineer',
-      startDate: '2022-01-23',
-      startDatetime: '2022-01-23T17:00:00-08:00',
-      startTime: '17:00:00',
-      endDate: '2022-01-25',
-      endDatetime: '2022-01-25T23:00:00-08:00',
-      endTime: '23:00:00',
+      // startDate: '2022-01-23',
+      // startDatetime: '2022-01-23T17:00:00-08:00',
+      // startTime: '17:00:00',
+      // endDate: '2022-01-25',
+      // endDatetime: '2022-01-25T23:00:00-08:00',
+      // endTime: '23:00:00',
+      startDate: '2024-08-08',
+      startDatetime: '2024-08-08T14:00:00-07:00',
+      startTime: '15:00:00',
+      endDate: '2024-08-08',
+      endDatetime: '2024-08-08T22:00:00-07:00',
+      endTime: '22:00:00',
       isAllDay: false,
       timezone: 'PST',
       eventType: 'Workshop',
+      topper: '<p data-block-key="yecrn">Event topper</p>',
       summary:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et luctus nisi. Maecenas vel turpis sem. Nullam ultricies nulla quis nisi faucibus eleifend. In turpis ante, blandit nec dapibus tempor, posuere at erat. In justo quam, imperdiet at hendrerit eget, imperdiet ut orci. ',
       locationName: 'Webcast',
       registerLink: [
         {
-          text: 'Registration Link',
-          document: '',
-          page: {
-            url: '/placeholder'
-          },
-          externalLink: ''
+          document: null,
+          externalLink: 'https://nasa.gov',
+          page: null,
+          text: 'Registration Link'
         }
       ],
       eventImage: {
@@ -66,11 +71,14 @@ export const BaseStory = {
         credit: 'Credit',
         detailUrl: null
       },
+      heroConstrain: false,
+      heroPosition: 'inline',
       thumbnailImage: {
         alt: '',
         original: 'https://picsum.photos/512/288'
       },
       targetAudience: 'All ages',
+
       body: [
         BlockKeyPointsData,
         {

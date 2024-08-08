@@ -1,7 +1,10 @@
 <template>
   <div
     v-if="data"
-    class="PageEduEventDetail pt-5 ThemeVariantLight lg:pt-12"
+    class="PageEduEventDetail ThemeVariantLight"
+    :class="{
+      'pt-5 lg:pt-12': heroIsInline
+    }"
     itemscope
     itemtype="http://schema.org/Event"
   >
@@ -25,7 +28,25 @@
       itemprop="description"
       :content="data.summary || data.body"
     />
-
+    <div v-if="!heroIsInline">
+      <!-- hero image -->
+      <HeroMedia
+        class="md:mb-12 lg:mb-18 mb-10"
+        :image="data.eventImage"
+        :constrain="data.heroConstrain"
+      />
+      <div
+        v-if="formattedSplitEventDates"
+        class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
+      >
+        <div class="font-extrabold text-6xl leading-tight tracking-wider">
+          {{ formattedSplitEventDates.day }}
+        </div>
+        <div class="text-subtitle">
+          {{ formattedSplitEventDates.monthAndYear }}
+        </div>
+      </div>
+    </div>
     <LayoutHelper
       indent="col-2"
       class="mb-6 lg:mb-12"
@@ -47,6 +68,14 @@
       >
         {{ data.title }}
       </BaseHeading>
+      <div
+        v-if="data.targetAudience"
+        class="text-body-lg mt-3 mb-6"
+      >
+        <strong>Target Audience:</strong>
+
+        {{ data.targetAudience }}
+      </div>
       <ShareButtonsEdu
         class="mt-4"
         :title="data.title"
@@ -56,8 +85,10 @@
 
     <LayoutHelper indent="col-2">
       <EventDetailHero
+        v-if="heroIsInline"
         :image="data.eventImage"
         :start-date-split="formattedSplitEventDates"
+        :constrain="data.heroConstrain"
       />
 
       <!-- Event details -->
@@ -126,13 +157,6 @@
             </BaseLink>
             <span v-else>{{ data.locationName }}</span>
           </div>
-          <div
-            v-if="data.targetAudience"
-            class="PageEduEventDetail__Metadata text-primary"
-          >
-            <IconUser class="relative mr-3 text-[.9rem]" />
-            <span>{{ data.targetAudience }}</span>
-          </div>
 
           <div class="PageEduEventDetail__Buttons">
             <BaseButton
@@ -172,6 +196,12 @@
           class="grid-cols-10 lg:grid -mx-4 lg:mx-0"
         >
           <div class="col-span-7">
+            <BlockText
+              v-if="data.topper && data.topper.length > 2"
+              class="lg:mb-8 mb-5 px-4 lg:px-0"
+              :text="data.topper"
+            />
+
             <p
               v-if="data.summary"
               class="BlockText text-body-lg mb-8 px-4 lg:px-0 font-semibold"
@@ -315,10 +345,10 @@ import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import BaseTag from './../../../components/BaseTag/BaseTag.vue'
 import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 import EventDetailHero from './../../../components/EventDetailHero/EventDetailHero.vue'
+import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
 import IconCalendar from './../../../components/Icons/IconCalendar.vue'
 import IconLocation from './../../../components/Icons/IconLocation.vue'
 import IconTime from './../../../components/Icons/IconTime.vue'
-import IconUser from './../../../components/Icons/IconUser.vue'
 import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import BaseButton from './../../../components/BaseButton/BaseButton.vue'
 import CalendarButton from './../../../components/CalendarButton/CalendarButton.vue'
@@ -327,6 +357,8 @@ import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/Bas
 import BaseImage from './../../../components/BaseImage/BaseImage.vue'
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BlockText from './../../../components/BlockText/BlockText.vue'
+
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 
@@ -338,10 +370,10 @@ export default defineComponent({
     BaseTag,
     ShareButtonsEdu,
     EventDetailHero,
+    HeroMedia,
     IconCalendar,
     IconLocation,
     IconTime,
-    IconUser,
     BaseLink,
     BaseButton,
     CalendarButton,
@@ -349,7 +381,8 @@ export default defineComponent({
     BaseImagePlaceholder,
     BaseImage,
     BlockRelatedLinks,
-    BlockLinkCarousel
+    BlockLinkCarousel,
+    BlockText
   },
   props: {
     data: {
@@ -365,13 +398,14 @@ export default defineComponent({
   },
   computed: {
     displayTime(): string {
-      return this.data
+      const time = this.data
         ? mixinFormatEventTimeInHoursAndMinutes(
             this.data.startDatetime,
             this.data.endDatetime,
             this.data.endTime
           )
-        : ''
+        : undefined
+      return time ? time.replaceAll(':00', '') : ''
     },
     formattedEventDates(): string {
       return this.data ? mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime) : ''
@@ -380,6 +414,9 @@ export default defineComponent({
       return this.data
         ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
         : undefined
+    },
+    heroIsInline(): boolean {
+      return this.data?.heroPosition === 'inline'
     }
   }
 })
