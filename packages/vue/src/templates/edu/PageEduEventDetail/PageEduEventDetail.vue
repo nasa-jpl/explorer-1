@@ -28,7 +28,10 @@
       itemprop="description"
       :content="data.summary || data.body"
     />
-    <div v-if="!heroIsInline">
+    <div
+      v-if="!heroIsInline"
+      class="relative max-w-screen-3xl mx-auto -mt-1"
+    >
       <!-- hero image -->
       <HeroMedia
         class="md:mb-12 lg:mb-18 mb-10"
