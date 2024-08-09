@@ -401,7 +401,7 @@ export default defineComponent({
   },
   computed: {
     displayTime(): string {
-      const time = this.data
+      const time = this.data?.startDatetime
         ? mixinFormatEventTimeInHoursAndMinutes(
             this.data.startDatetime,
             this.data.endDatetime,
@@ -410,11 +410,13 @@ export default defineComponent({
         : undefined
       return time ? time.replaceAll(':00', '') : ''
     },
-    formattedEventDates(): string {
-      return this.data ? mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime) : ''
+    formattedEventDates(): string | undefined {
+      return this.data?.startDatetime
+        ? mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime)
+        : undefined
     },
     formattedSplitEventDates() {
-      return this.data
+      return this.data?.startDatetime
         ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
         : undefined
     },
