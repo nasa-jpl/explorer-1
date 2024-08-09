@@ -64,13 +64,18 @@ export default defineComponent({
       options: undefined
     }
   },
+  computed: {
+    icsDescription() {
+      return `${(this.description ? this.description + '\n\n' : '') + window?.location.href}`
+    }
+  },
 
   mounted() {
     this.init()
   },
   methods: {
     init() {
-      let recurrence = {}
+      let recurrence = undefined
       if (this.endDatetime && this.isAllDay) {
         // Calculate how many full days
         const startDateDayjs = dayjs(this.startDatetime)
@@ -81,20 +86,14 @@ export default defineComponent({
 
       this.options = {
         title: this.title ? this.title : undefined,
-        location: this.location ? this.addSlashes(this.location) : undefined,
-        description: this.description ? this.description : undefined,
+        location: this.location ? this.location : undefined,
+        description: this.icsDescription,
         start: new Date(this.startDatetime),
         end: !this.isAllDay && this.endDatetime ? new Date(this.endDatetime) : undefined,
         recurrence
       }
+
       this.icalendar = new ICalendar(this.options)
-    },
-    addSlashes(string: string): string {
-      // Escape special characters COMMA, SEMI-COLON and BACKSLASH
-      // as temporary fix for this issue https://github.com/jshor/datebook/issues/179
-      // regex based of https://stackoverflow.com/a/770533
-      // eslint-disable-next-line
-      return string.replace(/[,;\\]/g, '\\$&').replace(/\u0000/g, '\\0')
     },
     handleDownload() {
       const ics = this.icalendar.render()
