@@ -57,6 +57,8 @@ export type lightboxGalleryObject = {
 
 export interface EventDateObject {
   day: string
+  month: string
+  year: string
   monthAndYear: string
 }
 
@@ -285,6 +287,8 @@ export const mixinFormatSplitEventDates = (
   const startDateDayjs = dayjs(startDatetime)
 
   let day = startDateDayjs.format('D')
+  const month = startDateDayjs.format('MMM').replace('.', '')
+  const year = startDateDayjs.format('YYYY')
   const monthAndYear = startDateDayjs.format('MMM YYYY')
 
   if (endDatetime) {
@@ -299,7 +303,7 @@ export const mixinFormatSplitEventDates = (
     }
     // Otherwise, we only show the start date
   }
-  return { day, monthAndYear }
+  return { day, month, year, monthAndYear }
 }
 
 // return event dates formatted for listing cards
@@ -335,27 +339,27 @@ export const mixinFormatEventTimeInHoursAndMinutes = (
   endDatetime?: string,
   endTime?: string
 ): string => {
-  // Only display time if event spans less than one day
   const startDateDayjs = dayjs(startDatetime)
   let time = ''
 
   if (endDatetime) {
     const endDateDayjs = dayjs(endDatetime)
-    if (
-      endDateDayjs.diff(startDateDayjs, 'hour') <= 24 &&
-      endDateDayjs.diff(startDateDayjs, 'day') === 0
-    ) {
-      // Event is less than 24 hours and spans 1 day
-      if (endTime) {
-        if (startDateDayjs.format('a') === endDateDayjs.format('a')) {
-          time = `${startDateDayjs.format('h:mm')}-${endDateDayjs.format('h:mm a z')}`
-        } else {
-          time = `${startDateDayjs.format('h:mm a')} - ${endDateDayjs.format('h:mm a z')}`
-        }
+    // Only display time if event spans less than one day
+    // if (
+    //   endDateDayjs.diff(startDateDayjs, 'hour') <= 24 &&
+    //   endDateDayjs.diff(startDateDayjs, 'day') === 0
+    // ) {
+    // Event is less than 24 hours and spans 1 day
+    if (endTime) {
+      if (startDateDayjs.format('a') === endDateDayjs.format('a')) {
+        time = `${startDateDayjs.format('h:mm')} - ${endDateDayjs.format('h:mm a z')}`
       } else {
-        time = `${startDateDayjs.format('h:mm a z')}`
+        time = `${startDateDayjs.format('h:mm a')} - ${endDateDayjs.format('h:mm a z')}`
       }
+    } else {
+      time = `${startDateDayjs.format('h:mm a z')}`
     }
+    // }
   }
   return time
 }
