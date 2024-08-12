@@ -155,7 +155,7 @@ export const MultiDayEvent = {
       ...PageEduEventDetailData,
       startDate: '2024-08-08',
       endDate: '2024-08-12',
-      startDatetime: '2024-08-08T14:00:00-07:00',
+      startDatetime: '2024-08-08T11:00:00-07:00',
       startTime: '15:00:00',
       endDatetime: '2024-08-12T22:00:00-07:00'
     }

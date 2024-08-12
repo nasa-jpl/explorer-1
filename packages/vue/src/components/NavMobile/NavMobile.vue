@@ -295,7 +295,9 @@ export default defineComponent({
   // styles for default vs transparent header
   // underline color and logo inversion styles handled within their respective components
   &.-scrolled {
-    @apply fixed;
+    @media not print {
+      @apply fixed;
+    }
   }
 }
 // vue-transition classes
