@@ -10,7 +10,7 @@
 
     <div
       v-if="(data.caption && data.caption.length > 2) || data.credit"
-      class="lg:px-0 p-4 pb-0"
+      class="lg:px-0 p-4 pb-0 print:pl-0"
     >
       <BaseImageCaption :data="data" />
     </div>

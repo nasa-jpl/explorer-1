@@ -208,6 +208,7 @@ export default defineComponent({
     .BlockLinkCard__CardContent,
     .BlockLinkCard__CardArrow {
       @apply px-6;
+      @apply print:px-0;
     }
     .BaseImagePlaceholder {
       @apply bg-gray-mid-dark;

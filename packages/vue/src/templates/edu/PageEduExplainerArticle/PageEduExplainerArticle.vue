@@ -192,7 +192,7 @@ export default defineComponent({
     <!-- related content -->
     <BlockLinkCarousel
       item-type="cards"
-      class="lg:my-24 my-12"
+      class="lg:my-24 my-12 print:px-4"
       :heading="data.relatedContentHeading"
       :items="data.relatedContent"
     />

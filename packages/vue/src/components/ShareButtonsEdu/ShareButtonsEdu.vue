@@ -89,7 +89,7 @@ const buttonClass = computed(() => {
 })
 </script>
 <template>
-  <div class="ShareButtonsEdu relative flex flex-row items-start border-collapse">
+  <div class="ShareButtonsEdu relative flex flex-row items-start border-collapse print:hidden">
     <BaseButton
       variant="social"
       :class="buttonClass"

@@ -19,6 +19,14 @@
         <NavLogoLinks class="w-[17rem] z-20 flex flex-shrink-0 my-2 -ml-1">
           <img
             :src="LogoWhite"
+            class="print:hidden"
+            alt="JPL Logo"
+            width="324"
+            height="72"
+          />
+          <img
+            :src="LogoColor"
+            class="hidden print:block"
             alt="JPL Logo"
             width="324"
             height="72"
@@ -119,6 +127,7 @@ import IconExternal from './../Icons/IconExternal.vue'
 import IconSearch from './../Icons/IconSearch.vue'
 import IconClose from './../Icons/IconClose.vue'
 import type { LinkObject, BreadcrumbObject } from './../../utils/mixins'
+import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
 import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
 import type { BreadcrumbPathObject } from '../../interfaces'
 import {
@@ -179,7 +188,8 @@ export default defineComponent({
       // This is used in transition logic to avoid distracting animations on route changes
       // without this check, the nav would swoop in/out on a route change if it was visible before the route change occured (e.g. partially scrolled up on a page)
       scrolledCurrentPage: false,
-      LogoWhite: LogoWhite
+      LogoWhite: LogoWhite,
+      LogoColor: LogoColor
     }
   },
   computed: {

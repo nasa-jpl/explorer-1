@@ -2,7 +2,7 @@
   <transition name="headerMobileReveal">
     <div
       v-show="headerVisible"
-      class="NavMobile border-gray-light-mid z-50 w-full transition-all duration-150 ease-in bg-white border-b edu:bg-gray-light edu:border-none"
+      class="NavMobile border-gray-light-mid z-50 w-full transition-all duration-150 ease-in bg-white border-b edu:bg-gray-light edu:border-none print:edu:!border-b print:border-black"
       :class="headerClasses"
     >
       <!-- navbar -->
@@ -13,13 +13,22 @@
           <!-- branding -->
           <div class="flex items-center">
             <NavLogoLinks class="lg:p-0 w-72 z-20 p-2 pl-0 -ml-3 edu:w-[12rem]">
-              <img
-                v-if="themeStore.theme === 'ThemeEdu'"
-                :src="LogoWhite"
-                alt="JPL Logo"
-                width="324"
-                height="72"
-              />
+              <template v-if="themeStore.theme === 'ThemeEdu'">
+                <img
+                  class="print:hidden"
+                  :src="LogoWhite"
+                  alt="JPL Logo"
+                  width="324"
+                  height="72"
+                />
+                <img
+                  class="hidden print:block"
+                  :src="LogoColor"
+                  alt="JPL Logo"
+                  width="324"
+                  height="72"
+                />
+              </template>
               <img
                 v-else
                 :src="LogoColor"
@@ -30,14 +39,14 @@
             </NavLogoLinks>
             <div
               v-if="themeStore.theme === 'ThemeEdu'"
-              class="-ml-1 pl-2 border-l border-white border-opacity-30 z-20"
+              class="-ml-1 pl-2 border-l border-white border-opacity-30 z-20 print:border-black"
             >
               <span class="text-white font-bold text-xl pl-px">Education</span>
             </div>
           </div>
           <button
             v-if="data"
-            class="text-gray-dark p-4 -mr-4 cursor-pointer"
+            class="print:hidden text-gray-dark p-4 -mr-4 cursor-pointer"
             :aria-label="menuVisible ? 'Close menu' : 'Open menu'"
             @click="toggleMenu"
           >

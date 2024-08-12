@@ -270,10 +270,11 @@
     <LayoutHelper
       v-if="data.moreEvents && data.moreEvents.length > 0"
       indent="col-1"
-      class="my-12 lg:my-16"
+      class="my-12 lg:my-16 print:!px-4"
     >
       <BlockLinkCarousel
         item-type="cards"
+        class="print:!px-4"
         heading="MORE EVENTS"
         :items="data.moreEvents"
       />
