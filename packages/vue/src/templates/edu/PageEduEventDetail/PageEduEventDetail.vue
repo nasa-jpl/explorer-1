@@ -1,7 +1,10 @@
 <template>
   <div
     v-if="data"
-    class="PageEduEventDetail pt-5 ThemeVariantLight lg:pt-12"
+    class="PageEduEventDetail ThemeVariantLight"
+    :class="{
+      'pt-5 lg:pt-12': heroIsInline
+    }"
     itemscope
     itemtype="http://schema.org/Event"
   >
@@ -25,7 +28,28 @@
       itemprop="description"
       :content="data.summary || data.body"
     />
-
+    <div
+      v-if="!heroIsInline"
+      class="relative max-w-screen-3xl mx-auto -mt-1"
+    >
+      <!-- hero image -->
+      <HeroMedia
+        class="md:mb-12 lg:mb-18 mb-10"
+        :image="data.eventImage"
+        :constrain="data.heroConstrain"
+      />
+      <div
+        v-if="formattedSplitEventDates"
+        class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
+      >
+        <div class="font-extrabold text-6xl leading-tight tracking-wider">
+          {{ formattedSplitEventDates.month }}
+        </div>
+        <div class="text-subtitle">
+          {{ formattedSplitEventDates.year }}
+        </div>
+      </div>
+    </div>
     <LayoutHelper
       indent="col-2"
       class="mb-6 lg:mb-12"
@@ -47,6 +71,14 @@
       >
         {{ data.title }}
       </BaseHeading>
+      <div
+        v-if="data.targetAudience"
+        class="text-body-lg mt-3 mb-6"
+      >
+        <strong>Target Audience:</strong>
+
+        {{ data.targetAudience }}
+      </div>
       <ShareButtonsEdu
         class="mt-4"
         :title="data.title"
@@ -56,8 +88,11 @@
 
     <LayoutHelper indent="col-2">
       <EventDetailHero
+        v-if="heroIsInline"
         :image="data.eventImage"
         :start-date-split="formattedSplitEventDates"
+        :constrain="data.heroConstrain"
+        :ongoing="data.ongoing"
       />
 
       <!-- Event details -->
@@ -67,17 +102,18 @@
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
           <div
-            v-if="formattedEventDates || data.customDate"
+            v-if="data.ongoing || data.customDate || formattedEventDates"
             class="PageEduEventDetail__Metadata text-primary"
+            :class="{ 'flex-2': data.customDate }"
           >
-            <IconCalendar class="relative mr-3 text-[1.2rem]" />
-            <span>{{ formattedEventDates || data.customDate }}</span>
+            <IconCalendar class="relative mr-3 lg:mr-2 xl:mr-3 text-[1.2rem]" />
+            <span>{{ data.ongoing ? 'Ongoing' : data.customDate || formattedEventDates }}</span>
           </div>
           <div
             v-show="displayTime"
             class="PageEduEventDetail__Metadata text-primary"
           >
-            <IconTime class="relative mr-3" />
+            <IconTime class="relative mr-3 lg:mr-2 xl:mr-3" />
             <span>{{ displayTime }}</span>
           </div>
           <!--Virtual location -->
@@ -96,7 +132,7 @@
               itemprop="name"
               :content="data.locationName"
             />
-            <IconLocation class="relative mr-3" />
+            <IconLocation class="relative mr-3 lg:mr-2 xl:mr-3" />
             <BaseLink
               variant="none"
               class="text-action"
@@ -109,13 +145,14 @@
           <!-- Normal location -->
           <div
             v-else-if="data.locationName"
+            min-
             class="PageEduEventDetail__Metadata text-primary"
           >
             <meta
               itemprop="location"
               :content="data.locationName"
             />
-            <IconLocation class="relative mr-3" />
+            <IconLocation class="relative mr-3 lg:mr-2 xl:mr-3" />
             <BaseLink
               v-if="data.locationLink"
               variant="none"
@@ -125,13 +162,6 @@
               {{ data.locationName }}
             </BaseLink>
             <span v-else>{{ data.locationName }}</span>
-          </div>
-          <div
-            v-if="data.targetAudience"
-            class="PageEduEventDetail__Metadata text-primary"
-          >
-            <IconUser class="relative mr-3 text-[.9rem]" />
-            <span>{{ data.targetAudience }}</span>
           </div>
 
           <div class="PageEduEventDetail__Buttons">
@@ -172,6 +202,12 @@
           class="grid-cols-10 lg:grid -mx-4 lg:mx-0"
         >
           <div class="col-span-7">
+            <BlockText
+              v-if="data.topper && data.topper.length > 2"
+              class="lg:mb-8 mb-5 px-4 lg:px-0"
+              :text="data.topper"
+            />
+
             <p
               v-if="data.summary"
               class="BlockText text-body-lg mb-8 px-4 lg:px-0 font-semibold"
@@ -204,7 +240,7 @@
           >
           <div class="flex flex-col flex-wrap justify-start md:flex-row md:-mx-4">
             <div
-              v-for="(speaker, index) in data.speakers"
+              v-for="(item, index) in data.speakers"
               :key="index"
               class="flex flex-1 mb-6 md:flex-none md:flex-wrap md:mx-4 md:w-56"
             >
@@ -215,10 +251,10 @@
                   transparent-mode
                 >
                   <BaseImage
-                    v-if="speaker.image && speaker.image.src"
-                    :src="speaker.image.src.url"
-                    :width="speaker.image.src.width"
-                    :height="speaker.image.src.height"
+                    v-if="item.speaker.image && item.speaker.image.src"
+                    :src="item.speaker.image.src.url"
+                    :width="item.speaker.image.src.width"
+                    :height="item.speaker.image.src.height"
                     alt=""
                     class="object-cover"
                     loading="lazy"
@@ -232,30 +268,30 @@
               </div>
               <div class="flex-1 h-full">
                 <h3
-                  v-if="speaker.name"
+                  v-if="item.speaker.name"
                   class="my-3 text-lg !font-normal !tracking-normal leading-none"
                 >
                   <BaseLink
-                    v-if="speaker.internalLink || speaker.externalLink"
+                    v-if="item.speaker.internalLink || item.speaker.externalLink"
                     link-class="no-underline normal-case"
-                    :to="speaker.internalLink ? speaker.internalLink.url : null"
-                    :href="speaker.externalLink ? speaker.externalLink : null"
+                    :to="item.speaker.internalLink ? item.speaker.internalLink.url : null"
+                    :href="item.speaker.externalLink ? item.speaker.externalLink : null"
                     external-target-blank
                   >
-                    {{ speaker.name }}
+                    {{ item.speaker.name }}
                   </BaseLink>
                   <template v-else>
-                    {{ speaker.name }}
+                    {{ item.speaker.name }}
                   </template>
                 </h3>
                 <p
-                  v-if="speaker.title"
+                  v-if="item.speaker.title"
                   class="mb-3 text-gray-mid-dark"
                 >
-                  {{ speaker.title }}
+                  {{ item.speaker.title }}
                 </p>
                 <p class="text-action capitalize">
-                  {{ speaker.host }}
+                  {{ item.speaker.host }}
                 </p>
               </div>
             </div>
@@ -280,7 +316,7 @@
     <LayoutHelper
       v-if="data.relatedEvents?.length"
       indent="col-1"
-      class="my-12 lg:my-16"
+      class="my-12 lg:my-16 px-0"
     >
       <BlockLinkCarousel
         item-type="cards"
@@ -315,10 +351,10 @@ import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import BaseTag from './../../../components/BaseTag/BaseTag.vue'
 import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 import EventDetailHero from './../../../components/EventDetailHero/EventDetailHero.vue'
+import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
 import IconCalendar from './../../../components/Icons/IconCalendar.vue'
 import IconLocation from './../../../components/Icons/IconLocation.vue'
 import IconTime from './../../../components/Icons/IconTime.vue'
-import IconUser from './../../../components/Icons/IconUser.vue'
 import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import BaseButton from './../../../components/BaseButton/BaseButton.vue'
 import CalendarButton from './../../../components/CalendarButton/CalendarButton.vue'
@@ -327,6 +363,8 @@ import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/Bas
 import BaseImage from './../../../components/BaseImage/BaseImage.vue'
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BlockText from './../../../components/BlockText/BlockText.vue'
+
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 
@@ -338,10 +376,10 @@ export default defineComponent({
     BaseTag,
     ShareButtonsEdu,
     EventDetailHero,
+    HeroMedia,
     IconCalendar,
     IconLocation,
     IconTime,
-    IconUser,
     BaseLink,
     BaseButton,
     CalendarButton,
@@ -349,7 +387,8 @@ export default defineComponent({
     BaseImagePlaceholder,
     BaseImage,
     BlockRelatedLinks,
-    BlockLinkCarousel
+    BlockLinkCarousel,
+    BlockText
   },
   props: {
     data: {
@@ -364,22 +403,35 @@ export default defineComponent({
     }
   },
   computed: {
-    displayTime(): string {
-      return this.data
-        ? mixinFormatEventTimeInHoursAndMinutes(
-            this.data.startDatetime,
-            this.data.endDatetime,
-            this.data.endTime
-          )
-        : ''
+    startDateTimeForFormatting(): string {
+      return this.data?.startDatetime || this.data?.startDate
     },
-    formattedEventDates(): string {
-      return this.data ? mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime) : ''
+    displayTime(): string {
+      if (!this.data?.customDate) {
+        const time =
+          this.data && this.startDateTimeForFormatting
+            ? mixinFormatEventTimeInHoursAndMinutes(
+                this.startDateTimeForFormatting,
+                this.data.endDatetime,
+                this.data.endTime
+              )
+            : undefined
+        return time ? time.replaceAll(':00', '') : ''
+      }
+      return ''
+    },
+    formattedEventDates(): string | undefined {
+      return this.data && this.startDateTimeForFormatting
+        ? mixinFormatEventDates(this.startDateTimeForFormatting, this.data.endDatetime)
+        : undefined
     },
     formattedSplitEventDates() {
-      return this.data
-        ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
+      return this.data && this.startDateTimeForFormatting
+        ? mixinFormatSplitEventDates(this.startDateTimeForFormatting, this.data.endDatetime)
         : undefined
+    },
+    heroIsInline(): boolean {
+      return this.data?.heroPosition === 'inline'
     }
   }
 })
@@ -389,12 +441,11 @@ export default defineComponent({
   .PageEduEventDetail__Metadata {
     @apply flex;
     @apply items-baseline;
-    @apply mr-12 md:mr-8 lg:mr-12;
+    @apply mr-4 md:mr-4 xl:mr-12;
     @apply mb-5 lg:mb-7;
+    @apply lg:max-w-[17rem] lg:min-w-[10rem];
 
     span {
-      max-width: 230px;
-      min-width: 110px;
       @apply text-gray-dark;
     }
 
@@ -409,8 +460,8 @@ export default defineComponent({
     @apply lg:ml-auto;
     @apply mt-10;
     @apply lg:mt-0;
-
-    max-width: 260px;
+    @apply text-center;
+    @apply max-w-[17rem];
   }
   .bg-stars .MixinCarousel__Heading {
     @apply text-white;
