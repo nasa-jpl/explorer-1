@@ -98,7 +98,7 @@ export default defineComponent({
     </MixinFancybox>
     <div
       v-if="theData && hasCaptionArea"
-      class="lg:px-0 p-4 pb-0"
+      class="lg:px-0 p-4 pb-0 print:pl-0"
     >
       <BaseImageCaption :data="theData" />
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ShareButtons relative flex flex-row items-start border-collapse"
+    class="ShareButtons relative flex flex-row items-start border-collapse print:hidden"
     :class="{ 'lg:absolute lg:top-0 lg:left-0 lg:flex-col': !inline }"
   >
     <BaseButton

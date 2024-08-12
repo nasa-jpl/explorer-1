@@ -5,7 +5,7 @@
         v-if="data.url"
         ref="BlockIframeEmbed"
         loading="lazy"
-        class="w-full border-none"
+        class="w-full border-none print:!border print:border-gray-dark"
         :class="{ lazyload: !lazyNative }"
         :title="data.title"
         :data-src="data.url"
@@ -18,6 +18,7 @@
     <template v-else>
       <BaseImagePlaceholder
         v-if="data.url"
+        class="print:border print:border-gray-dark"
         aspect-ratio="16:9"
         dark-mode
       >
@@ -39,7 +40,7 @@
     </template>
     <div
       v-if="data.caption && data.caption.length > 2"
-      class="lg:px-0 p-4 pb-0"
+      class="lg:px-0 p-4 pb-0 print:pl-0"
     >
       <BaseImageCaption :data="data" />
     </div>

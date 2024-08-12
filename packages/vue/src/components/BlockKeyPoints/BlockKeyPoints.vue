@@ -7,11 +7,11 @@
       class="mb-5"
       :data="{ heading: data.heading }"
     />
-    <ul>
+    <ul class="print:!list-disc">
       <li
         v-for="(item, index) in data.listItem"
         :key="index"
-        class="flex"
+        class="flex print:!list-item print:ml-4"
         :class="index + 1 === data.listItem.length ? 'mb-0' : 'mb-4'"
       >
         <BlockText

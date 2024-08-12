@@ -103,7 +103,7 @@ export default defineComponent({
     <img
       v-if="src"
       ref="BaseImage"
-      class="BaseImage"
+      class="BaseImage print:border print:border-gray-mid"
       :class="computedClass"
       :data-src="src"
       :data-srcset="srcset"

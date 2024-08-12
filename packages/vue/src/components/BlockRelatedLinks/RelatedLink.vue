@@ -3,16 +3,16 @@
     :is="tag"
     :to="to"
     :href="href"
-    class="bg-gray-light group text-body-lg flex items-center justify-between px-4 py-4 cursor-pointer"
+    class="bg-gray-light group text-body-lg flex items-center justify-between px-4 py-4 cursor-pointer print:px-0 print:py-0 print:block"
     :target="target"
     rel="noopener"
   >
-    <span class="can-hover:group-hover:underline min-w-12 block w-auto break-words">
+    <span class="can-hover:group-hover:underline min-w-12 block w-auto break-words print:inline">
       <slot />
     </span>
     <component
       :is="icon"
-      class="text-action xl:mx-4 flex-none ml-4 text-2xl leading-normal"
+      class="text-action xl:mx-4 flex-none ml-4 text-2xl leading-normal print:inline print:text-sm print:mx-2"
       :class="variant === 'external' ? 'text-lg' : 'text-3xl'"
     />
   </component>
