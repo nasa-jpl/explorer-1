@@ -8,36 +8,38 @@
     >
       {{ data.heading }}
     </BaseHeading>
-    <div
+    <ul
       v-for="(link, index) in data.links"
       :key="index"
-      class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2"
+      class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2 print:list-disc print:ml-4"
     >
-      <template v-if="link.externalLink">
-        <RelatedLink
-          variant="external"
-          :href="link.externalLink"
-        >
-          {{ link.text }}
-        </RelatedLink>
-      </template>
-      <template v-else-if="link.document">
-        <RelatedLink
-          variant="document"
-          :href="link.document.url"
-        >
-          {{ link.text }}
-        </RelatedLink>
-      </template>
-      <template v-else-if="link.page">
-        <RelatedLink
-          variant="page"
-          :to="link.page.url"
-        >
-          {{ link.text }}
-        </RelatedLink>
-      </template>
-    </div>
+      <li>
+        <template v-if="link.externalLink">
+          <RelatedLink
+            variant="external"
+            :href="link.externalLink"
+          >
+            {{ link.text }}
+          </RelatedLink>
+        </template>
+        <template v-else-if="link.document">
+          <RelatedLink
+            variant="document"
+            :href="link.document.url"
+          >
+            {{ link.text }}
+          </RelatedLink>
+        </template>
+        <template v-else-if="link.page">
+          <RelatedLink
+            variant="page"
+            :to="link.page.url"
+          >
+            {{ link.text }}
+          </RelatedLink>
+        </template>
+      </li>
+    </ul>
   </div>
 </template>
 <script lang="ts">

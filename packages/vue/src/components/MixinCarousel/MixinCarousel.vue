@@ -12,7 +12,7 @@
       <div
         v-if="heading || link"
         :class="colStart"
-        class="lg:pl-0 col-start-1 col-end-13 px-4 mb-1"
+        class="lg:pl-0 col-start-1 col-end-13 px-4 mb-1 print:px-0"
       >
         <div class="sm:flex flex-wrap items-center justify-between">
           <h2
@@ -35,7 +35,7 @@
       </div>
       <div
         :class="colStart"
-        class="lg:pl-0 sm:col-end-11 3xl:col-end-12 col-start-1 col-end-13 pl-4 overflow-x-visible"
+        class="lg:pl-0 sm:col-end-11 3xl:col-end-12 col-start-1 col-end-13 pl-4 print:pl-0 overflow-x-visible"
       >
         <!-- Slider main container -->
         <div

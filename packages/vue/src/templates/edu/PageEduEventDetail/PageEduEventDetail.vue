@@ -292,7 +292,7 @@
     <!-- Related Content -->
     <div
       v-if="data.relatedContent?.length"
-      class="bg-stars bg-[#15003B] lg:py-24 lg:mt-24 py-12 mt-12"
+      class="bg-stars bg-[#15003B] lg:py-24 lg:mt-24 py-12 mt-12 print:px-4"
     >
       <BlockLinkCarousel
         class="ThemeVariantDark"
