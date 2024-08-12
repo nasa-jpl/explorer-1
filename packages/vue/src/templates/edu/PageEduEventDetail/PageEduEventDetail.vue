@@ -316,7 +316,7 @@
     <LayoutHelper
       v-if="data.relatedEvents?.length"
       indent="col-1"
-      class="my-12 lg:my-16"
+      class="my-12 lg:my-16 px-0"
     >
       <BlockLinkCarousel
         item-type="cards"
