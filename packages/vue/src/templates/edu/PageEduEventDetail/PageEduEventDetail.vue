@@ -43,10 +43,10 @@
         class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
       >
         <div class="font-extrabold text-6xl leading-tight tracking-wider">
-          {{ formattedSplitEventDates.day }}
+          {{ formattedSplitEventDates.month }}
         </div>
         <div class="text-subtitle">
-          {{ formattedSplitEventDates.monthAndYear }}
+          {{ formattedSplitEventDates.year }}
         </div>
       </div>
     </div>
@@ -92,6 +92,7 @@
         :image="data.eventImage"
         :start-date-split="formattedSplitEventDates"
         :constrain="data.heroConstrain"
+        :ongoing="data.ongoing"
       />
 
       <!-- Event details -->
@@ -101,18 +102,18 @@
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
           <div
-            v-if="data.customDate || formattedEventDates"
+            v-if="data.ongoing || data.customDate || formattedEventDates"
             class="PageEduEventDetail__Metadata text-primary"
             :class="{ 'flex-2': data.customDate }"
           >
-            <IconCalendar class="relative mr-3 text-[1.2rem]" />
-            <span>{{ data.customDate || formattedEventDates }}</span>
+            <IconCalendar class="relative mr-3 lg:mr-2 xl:mr-3 text-[1.2rem]" />
+            <span>{{ data.ongoing ? 'Ongoing' : data.customDate || formattedEventDates }}</span>
           </div>
           <div
             v-show="displayTime"
             class="PageEduEventDetail__Metadata text-primary"
           >
-            <IconTime class="relative mr-3" />
+            <IconTime class="relative mr-3 lg:mr-2 xl:mr-3" />
             <span>{{ displayTime }}</span>
           </div>
           <!--Virtual location -->
@@ -131,7 +132,7 @@
               itemprop="name"
               :content="data.locationName"
             />
-            <IconLocation class="relative mr-3" />
+            <IconLocation class="relative mr-3 lg:mr-2 xl:mr-3" />
             <BaseLink
               variant="none"
               class="text-action"
@@ -151,7 +152,7 @@
               itemprop="location"
               :content="data.locationName"
             />
-            <IconLocation class="relative mr-3" />
+            <IconLocation class="relative mr-3 lg:mr-2 xl:mr-3" />
             <BaseLink
               v-if="data.locationLink"
               variant="none"
@@ -440,9 +441,9 @@ export default defineComponent({
   .PageEduEventDetail__Metadata {
     @apply flex;
     @apply items-baseline;
-    @apply mr-12 md:mr-8 lg:mr-12;
+    @apply mr-4 md:mr-4 xl:mr-12;
     @apply mb-5 lg:mb-7;
-    @apply lg:max-w-[30%] lg:min-w-[12%];
+    @apply lg:max-w-[17rem] lg:min-w-[10rem];
 
     span {
       @apply text-gray-dark;
@@ -460,7 +461,7 @@ export default defineComponent({
     @apply mt-10;
     @apply lg:mt-0;
     @apply text-center;
-    @apply max-w-[45%];
+    @apply max-w-[17rem];
   }
   .bg-stars .MixinCarousel__Heading {
     @apply text-white;

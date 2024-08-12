@@ -20,15 +20,20 @@
           loading="lazy"
         />
         <div
-          v-if="startDateSplit"
+          v-if="startDateSplit || ongoing"
           class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
         >
-          <div class="font-extrabold text-6xl leading-tight tracking-wider uppercase">
-            {{ themeStore.isEdu ? startDateSplit.month : startDateSplit.day }}
-          </div>
-          <div class="text-subtitle">
-            {{ themeStore.isEdu ? startDateSplit.year : startDateSplit.monthAndYear }}
-          </div>
+          <template v-if="ongoing">
+            <div class="text-subtitle">Ongoing</div>
+          </template>
+          <template v-else>
+            <div class="font-extrabold text-6xl leading-tight tracking-wider uppercase">
+              {{ themeStore.isEdu ? startDateSplit?.month : startDateSplit?.day }}
+            </div>
+            <div class="text-subtitle">
+              {{ themeStore.isEdu ? startDateSplit?.year : startDateSplit?.monthAndYear }}
+            </div>
+          </template>
         </div>
       </BaseImagePlaceholder>
     </div>
@@ -58,6 +63,10 @@ export default defineComponent({
     startDateSplit: {
       type: Object as PropType<EventDateObject | undefined>,
       required: true
+    },
+    ongoing: {
+      type: Boolean,
+      default: false
     },
     image: {
       type: Object,
