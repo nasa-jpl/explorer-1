@@ -21,7 +21,7 @@
         />
         <div
           v-if="startDateSplit || ongoing"
-          class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
+          class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary print:hidden"
         >
           <template v-if="ongoing">
             <div class="text-subtitle">Ongoing</div>
