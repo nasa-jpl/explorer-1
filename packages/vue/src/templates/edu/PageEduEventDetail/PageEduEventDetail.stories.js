@@ -1,6 +1,5 @@
 import { BlockKeyPointsData } from './../../../components/BlockKeyPoints/BlockKeyPoints.stories'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
-import { EventDetailHeroData } from './../../../components/EventDetailHero/EventDetailHero.stories'
 import { EventsBlockLinkCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
 import PageEduEventDetail from './PageEduEventDetail.vue'
 
@@ -146,6 +145,19 @@ export const CustomDate = {
       endTime: null,
       customDate: 'Custom date information',
       ongoing: false
+    }
+  }
+}
+
+export const MultiDayEvent = {
+  args: {
+    data: {
+      ...PageEduEventDetailData,
+      startDate: '2024-08-08',
+      endDate: '2024-08-12',
+      startDatetime: '2024-08-08T14:00:00-07:00',
+      startTime: '15:00:00',
+      endDatetime: '2024-08-12T22:00:00-07:00'
     }
   }
 }
