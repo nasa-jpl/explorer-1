@@ -101,11 +101,12 @@
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
           <div
-            v-if="formattedEventDates || data.customDate"
+            v-if="data.customDate || formattedEventDates"
             class="PageEduEventDetail__Metadata text-primary"
+            :class="{ 'flex-2': data.customDate }"
           >
             <IconCalendar class="relative mr-3 text-[1.2rem]" />
-            <span>{{ formattedEventDates || data.customDate }}</span>
+            <span>{{ data.customDate || formattedEventDates }}</span>
           </div>
           <div
             v-show="displayTime"
@@ -143,6 +144,7 @@
           <!-- Normal location -->
           <div
             v-else-if="data.locationName"
+            min-
             class="PageEduEventDetail__Metadata text-primary"
           >
             <meta
@@ -400,24 +402,31 @@ export default defineComponent({
     }
   },
   computed: {
+    startDateTimeForFormatting(): string {
+      return this.data?.startDatetime || this.data?.startDate
+    },
     displayTime(): string {
-      const time = this.data?.startDatetime
-        ? mixinFormatEventTimeInHoursAndMinutes(
-            this.data.startDatetime,
-            this.data.endDatetime,
-            this.data.endTime
-          )
-        : undefined
-      return time ? time.replaceAll(':00', '') : ''
+      if (!this.data?.customDate) {
+        const time =
+          this.data && this.startDateTimeForFormatting
+            ? mixinFormatEventTimeInHoursAndMinutes(
+                this.startDateTimeForFormatting,
+                this.data.endDatetime,
+                this.data.endTime
+              )
+            : undefined
+        return time ? time.replaceAll(':00', '') : ''
+      }
+      return ''
     },
     formattedEventDates(): string | undefined {
-      return this.data?.startDatetime
-        ? mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime)
+      return this.data && this.startDateTimeForFormatting
+        ? mixinFormatEventDates(this.startDateTimeForFormatting, this.data.endDatetime)
         : undefined
     },
     formattedSplitEventDates() {
-      return this.data?.startDatetime
-        ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
+      return this.data && this.startDateTimeForFormatting
+        ? mixinFormatSplitEventDates(this.startDateTimeForFormatting, this.data.endDatetime)
         : undefined
     },
     heroIsInline(): boolean {
@@ -433,10 +442,9 @@ export default defineComponent({
     @apply items-baseline;
     @apply mr-12 md:mr-8 lg:mr-12;
     @apply mb-5 lg:mb-7;
+    @apply lg:max-w-[30%] lg:min-w-[12%];
 
     span {
-      max-width: 230px;
-      min-width: 110px;
       @apply text-gray-dark;
     }
 
@@ -451,8 +459,8 @@ export default defineComponent({
     @apply lg:ml-auto;
     @apply mt-10;
     @apply lg:mt-0;
-
-    max-width: 260px;
+    @apply text-center;
+    @apply max-w-[45%];
   }
   .bg-stars .MixinCarousel__Heading {
     @apply text-white;

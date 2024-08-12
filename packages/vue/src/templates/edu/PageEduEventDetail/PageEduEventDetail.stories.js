@@ -134,7 +134,7 @@ export const BaseStory = {
   args: { data: PageEduEventDetailData }
 }
 
-export const NoStartTime = {
+export const CustomDate = {
   args: {
     data: {
       ...PageEduEventDetailData,
@@ -146,6 +146,15 @@ export const NoStartTime = {
       endTime: null,
       customDate: 'Custom date information',
       ongoing: false
+    }
+  }
+}
+
+export const Ongoing = {
+  args: {
+    data: {
+      ...PageEduEventDetailData,
+      ongoing: true
     }
   }
 }

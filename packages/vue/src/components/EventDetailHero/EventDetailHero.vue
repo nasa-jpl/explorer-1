@@ -23,11 +23,11 @@
           v-if="startDateSplit"
           class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
         >
-          <div class="font-extrabold text-6xl leading-tight tracking-wider">
-            {{ startDateSplit.day }}
+          <div class="font-extrabold text-6xl leading-tight tracking-wider uppercase">
+            {{ themeStore.isEdu ? startDateSplit.month : startDateSplit.day }}
           </div>
           <div class="text-subtitle">
-            {{ startDateSplit.monthAndYear }}
+            {{ themeStore.isEdu ? startDateSplit.year : startDateSplit.monthAndYear }}
           </div>
         </div>
       </BaseImagePlaceholder>
@@ -36,6 +36,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import BaseImage from '../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from '../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import { mixinGetSrcSet, type EventDateObject } from './../../utils/mixins'
@@ -69,6 +71,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
     getSrcSet() {
       return this.image ? mixinGetSrcSet(this.image) : undefined
     }
