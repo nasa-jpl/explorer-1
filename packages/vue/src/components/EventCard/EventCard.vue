@@ -65,12 +65,22 @@
             v-if="splitDate"
             class="hidden md:block absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
           >
-            <div class="font-extrabold text-6xl leading-tight tracking-wider">
-              {{ splitDate.day }}
-            </div>
-            <div class="text-subtitle">
-              {{ splitDate.monthAndYear }}
-            </div>
+            <template v-if="themeStore.isEdu">
+              <div class="font-extrabold text-6xl leading-tight tracking-wider">
+                {{ splitDate.month }}
+              </div>
+              <div class="text-subtitle">
+                {{ splitDate.year }}
+              </div>
+            </template>
+            <template v-else>
+              <div class="font-extrabold text-6xl leading-tight tracking-wider">
+                {{ splitDate.day }}
+              </div>
+              <div class="text-subtitle">
+                {{ splitDate.monthAndYear }}
+              </div>
+            </template>
           </div>
         </BaseImagePlaceholder>
       </div>
@@ -84,8 +94,11 @@ import { defineComponent } from 'vue'
 import {
   mixinFormatEventDates,
   mixinFormatSplitEventDates,
-  mixinFormatEventTimeInHoursAndMinutes
+  mixinFormatEventTimeInHoursAndMinutes,
+  type EventDateObject
 } from './../../utils/mixins'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -145,7 +158,8 @@ export default defineComponent({
     }
   },
   computed: {
-    splitDate(): { day: string; monthAndYear: string } | null {
+    ...mapStores(useThemeStore),
+    splitDate(): EventDateObject | null {
       if (this.startDate) {
         return mixinFormatSplitEventDates(this.startDate, this.endDate)
       }
