@@ -352,7 +352,7 @@ export const mixinFormatEventTimeInHoursAndMinutes = (
     // Event is less than 24 hours and spans 1 day
     if (endTime) {
       if (startDateDayjs.format('a') === endDateDayjs.format('a')) {
-        time = `${startDateDayjs.format('h:mm')} - ${endDateDayjs.format('h:mm a z')}`
+        time = `${startDateDayjs.format('h:mm')}-${endDateDayjs.format('h:mm a z')}`
       } else {
         time = `${startDateDayjs.format('h:mm a')} - ${endDateDayjs.format('h:mm a z')}`
       }
