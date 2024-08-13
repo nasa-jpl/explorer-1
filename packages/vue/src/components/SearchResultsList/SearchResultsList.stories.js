@@ -5,9 +5,10 @@ export default {
   component: SearchResultsList,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="max-w-screen-lg"><story/></div>`
+      template: `<div id="storyDecorator" class="max-w-screen-xl"><story/></div>`
     })
   ],
+  tags: ['!autodocs'],
   parameters: {
     html: {
       root: '#storyDecorator'

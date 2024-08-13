@@ -103,6 +103,9 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import IconCalendar from './../Icons/IconCalendar.vue'
+import IconTime from './../Icons/IconTime.vue'
+import IconLocation from './../Icons/IconLocation.vue'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -111,7 +114,10 @@ export default defineComponent({
     BaseLink,
     BaseHeading,
     BaseImage,
-    BaseImagePlaceholder
+    BaseImagePlaceholder,
+    IconCalendar,
+    IconTime,
+    IconLocation
   },
   props: {
     url: {
