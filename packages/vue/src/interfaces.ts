@@ -56,7 +56,7 @@ export interface ElasticSearchPage {
   topic: string
   image: string | any
   date: string
-  startDate: string | null | undefined
+  startDate: string
   endDate: string
   startTime: string
   endTime: string

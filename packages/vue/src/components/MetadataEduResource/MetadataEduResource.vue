@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { EduResourceCardObject } from './../../interfaces.ts'
-import IconCalendar from './../Icons/IconCalendar.vue'
+import IconSubject from './../Icons/IconSubject.vue'
+import IconProfile from './../Icons/IconProfile.vue'
 import IconTime from './../Icons/IconTime.vue'
 import {} from './../../utils/mixins'
 import { rangeifyGrades } from './../../utils/rangeifyGrades'
@@ -38,8 +39,8 @@ const audience = computed(() => {
       v-if="primarySubject"
       class="MetadataEduResourceItem"
     >
-      <IconCalendar
-        class="MetadataEduResourceIcon text-[.95em]"
+      <IconSubject
+        class="MetadataEduResourceIcon text-[1.25em]"
         :class="iconClass"
       />
       <span>
@@ -50,8 +51,8 @@ const audience = computed(() => {
       v-if="audience"
       class="MetadataEduResourceItem"
     >
-      <IconTime
-        class="MetadataEduResourceIcon"
+      <IconProfile
+        class="MetadataEduResourceIcon text-[1.3em]"
         :class="iconClass"
       />
       <span>{{ audience }}</span>
@@ -64,7 +65,7 @@ const audience = computed(() => {
   @apply lg:flex lg:flex-grow;
   .MetadataEduResourceItem {
     @apply flex;
-    @apply items-baseline;
+    @apply items-start;
     @apply mr-4 md:mr-4 xl:mr-8;
     @apply mb-5 lg:mb-7;
     @apply lg:min-w-[10rem];

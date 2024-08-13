@@ -53,7 +53,7 @@ const displayTime = computed((): string => {
       v-if="props.event.ongoing || props.event.customDate || formattedEventDates"
       class="MetadataEventItem"
     >
-      <IconCalendar class="MetadataEventIcon text-[.95em]" />
+      <IconCalendar class="MetadataEventIcon text-[1.05em]" />
       <span>{{
         props.event.ongoing ? 'Ongoing' : props.event.customDate || formattedEventDates
       }}</span>
@@ -62,7 +62,7 @@ const displayTime = computed((): string => {
       v-show="displayTime"
       class="MetadataEventItem"
     >
-      <IconTime class="MetadataEventIcon" />
+      <IconTime class="MetadataEventIcon text-[1.15em]" />
       <span>{{ displayTime }}</span>
     </div>
     <!--Virtual location -->
@@ -81,7 +81,7 @@ const displayTime = computed((): string => {
         itemprop="name"
         :content="props.event.locationName"
       />
-      <IconLocation class="MetadataEventIcon" />
+      <IconLocation class="MetadataEventIcon text-[1.1em]" />
       <BaseLink
         variant="none"
         class="text-action"
@@ -101,7 +101,7 @@ const displayTime = computed((): string => {
         itemprop="location"
         :content="props.event.locationName"
       />
-      <IconLocation class="MetadataEventIcon" />
+      <IconLocation class="MetadataEventIcon text-[1.2em]" />
       <BaseLink
         v-if="props.event.locationLink && !props.compact"
         variant="none"
@@ -121,7 +121,7 @@ const displayTime = computed((): string => {
   @apply lg:flex lg:flex-grow;
   .MetadataEventItem {
     @apply flex;
-    @apply items-baseline;
+    @apply items-start;
     @apply mr-4 md:mr-4 xl:mr-8;
     @apply mb-5 lg:mb-7;
     @apply lg:min-w-[10rem];
