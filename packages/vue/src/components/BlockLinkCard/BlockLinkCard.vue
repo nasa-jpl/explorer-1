@@ -5,13 +5,13 @@
     :to="theItem.url ? theItem.url : undefined"
     :href="theItem.externalLink ? theItem.externalLink : undefined"
     class="BlockLinkCard group"
-    :link-class="`block ${compact ? 'pb-3' : 'pb-5'}`"
+    :link-class="`block ${small ? 'pb-3' : 'pb-5'} ${large ? 'sm:flex flex-row' : ''}`"
     external-target-blank
   >
     <BaseImagePlaceholder
-      aspect-ratio="16:9"
+      :aspect-ratio="large ? '3:2' : '16:9'"
       class="bg-gray-dark relative mb-6 edu:lg:mb-8 overflow-hidden"
-      :class="{ 'lg:mb-10': !compact }"
+      :class="{ 'lg:mb-10': medium, 'sm:w-1/3': large }"
       dark-mode
       no-logo
     >
@@ -39,15 +39,11 @@
 
     <div
       class="BlockLinkCard__CardContent transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform ThemeVariantLight"
-      :class="
-        compact
-          ? 'can-hover:group-hover:-translate-y-2'
-          : 'can-hover:group-hover:-translate-y-3 edu:can-hover:group-hover:-translate-y-2'
-      "
+      :class="contentClasses"
     >
       <template v-if="metadataType && metadataAttrs">
         <BasePill
-          class="mb-2"
+          :class="{ 'mb-2': !large, 'mb-4': large }"
           size="sm"
           :variant="metadataAttrs.variant"
         >
@@ -59,7 +55,7 @@
           <p
             v-if="theItem.label || ((theItem as EventCardObject).startDate && !themeStore.isEdu)"
             class="text-subtitle divide-gray-mid flex divide-x"
-            :class="compact ? 'mb-2' : 'mb-4'"
+            :class="small ? 'mb-2' : 'mb-4'"
           >
             <span
               v-if="theItem.label"
@@ -82,19 +78,26 @@
       <component
         :is="headingLevel || 'p'"
         class="text-gray-dark text-xl font-medium leading-tight tracking-tight edu:font-extrabold"
-        :class="{ 'lg:text-3xl': !compact }"
+        :class="{ 'lg:text-3xl': !small }"
       >
         {{ theItem.title }}
       </component>
       <p
         v-if="theItem.date"
         class="text-gray-mid-dark mt-2"
+        :class="{ 'mt-2': !large, 'mt-4': large }"
       >
         {{ theItem.date }}
       </p>
+      <p
+        v-if="large && theItem.summary"
+        class="mt-4 text-gray-mid-dark"
+      >
+        {{ theItem.summary }}
+      </p>
       <div
         v-if="metadataType && metadataAttrs"
-        :class="{ 'mt-2 mb-1': !compact, 'mt-1 mb-0': compact }"
+        :class="{ 'mt-4': large, 'mt-2 mb-1': medium, 'mt-1 mb-0': small }"
       >
         <MetadataEvent
           v-if="metadataType === 'EDUEventPage'"
@@ -110,6 +113,7 @@
       </div>
     </div>
     <div
+      v-if="!large"
       class="BlockLinkCard__CardArrow ThemeVariantLight can-hover:block can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
       :class="
         metadataType && metadataAttrs
@@ -220,11 +224,10 @@ export default defineComponent({
       type: String,
       default: undefined
     },
-
     // if styling should be compact
-    compact: {
-      type: Boolean,
-      default: false
+    size: {
+      type: String,
+      default: 'md'
     },
     // if a heading should be used and at what level
     headingLevel: {
@@ -235,6 +238,26 @@ export default defineComponent({
   },
   computed: {
     ...mapStores(useThemeStore),
+    small() {
+      return this.size === 'sm'
+    },
+    medium() {
+      return this.size === 'md'
+    },
+    large() {
+      return this.size === 'lg'
+    },
+    contentClasses() {
+      let classes = ''
+      if (this.small) {
+        classes = 'can-hover:group-hover:-translate-y-2'
+      } else if (this.medium) {
+        classes = 'can-hover:group-hover:-translate-y-3 edu:can-hover:group-hover:-translate-y-2'
+      } else if (this.large) {
+        classes = 'sm:pl-8 sm:w-2/3'
+      }
+      return classes
+    },
     eduMetadataDictionaryComputed() {
       return eduMetadataDictionary
     },
@@ -322,11 +345,14 @@ export default defineComponent({
   .MetadataEvent,
   .MetadataEduResource {
     &.-compact {
-      @apply mr-2;
+      .MetadataEventItem,
+      .MetadataEduResourceItem {
+        @apply mr-2.5;
+      }
     }
     .MetadataEventIcon,
     .MetadataEduResourceIcon {
-      @apply mr-[3px];
+      @apply mr-1;
     }
   }
 }

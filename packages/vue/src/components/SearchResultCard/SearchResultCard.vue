@@ -1,7 +1,32 @@
 <template>
   <div>
+    <BlockLinkCard
+      v-if="themeStore.isEdu"
+      :heading-level="headingLevel"
+      size="lg"
+      :data="{
+        page: {
+          __typename: pageContentType
+            ? (searchContentTypeToPageType[pageContentType] as string)
+            : undefined,
+          url,
+          type,
+          label: topic,
+          date,
+          title,
+          summary,
+          thumbnailImage: image,
+          startTime,
+          startDate,
+          endTime,
+          endDate,
+          location,
+          eventType: eventType
+        }
+      }"
+    />
     <EventCard
-      v-if="isEvents"
+      v-else-if="isEvents"
       :url="url"
       :title="title"
       :summary="summary"
@@ -192,6 +217,8 @@ import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import EventCard from './../EventCard/EventCard.vue'
+import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
+import { searchContentTypeToPageType } from './../../constants'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -202,6 +229,7 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     EventCard,
+    BlockLinkCard,
     PodcastEpisodeCard
   },
   props: {
@@ -211,6 +239,11 @@ export default defineComponent({
       default: '#'
     },
     type: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    eventType: {
       type: String,
       required: false,
       default: undefined
@@ -298,7 +331,10 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapStores(useThemeStore)
+    ...mapStores(useThemeStore),
+    searchContentTypeToPageType() {
+      return searchContentTypeToPageType
+    }
   }
 })
 </script>

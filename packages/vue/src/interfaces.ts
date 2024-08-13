@@ -79,11 +79,12 @@ export interface Card {
   type?: string
   url?: string
   externalLink?: string
-  page?: Card
+  page?: Card | EventCardObject | EduResourceCardObject
   title?: string
   date?: string
   label?: string
   thumbnailImage?: Partial<ImageObject>
+  summary?: string
 }
 export interface EventCardObject extends Card {
   startDate?: string
@@ -171,4 +172,7 @@ export interface LabelObject {
 }
 export interface PillDictionaryInterface {
   [EDUExplainerArticlePage: string]: LabelObject
+}
+export interface DictionaryInterface {
+  [key: string]: string
 }

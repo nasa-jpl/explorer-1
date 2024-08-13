@@ -49,8 +49,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: '5330d600-bec5-4860-8a6f-4220aecb255f',
           missions_mission__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmars_odyssey.2e16d0ba.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           missions_mission__mission_target_labels_filter: ['Mars'],
           missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -107,8 +106,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: '5330d600-bec5-4860-8a6f-4220aecb255f',
                     missions_mission__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmars_odyssey.2e16d0ba.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     missions_mission__mission_target_labels_filter: ['Mars'],
                     missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -163,8 +161,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: '50075567-bb01-4813-b91b-a7839818b63a',
           missions_mission__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmgs.2e16d0ba.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           missions_mission__mission_target_labels_filter: ['Mars'],
           missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -216,8 +213,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: '50075567-bb01-4813-b91b-a7839818b63a',
                     missions_mission__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmgs.2e16d0ba.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     missions_mission__mission_target_labels_filter: ['Mars'],
                     missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -267,8 +263,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: '8c264721-ea5e-46b6-8e5f-35cfa7956179',
           missions_mission__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmars_climate_orbite.2e16d0ba.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           missions_mission__mission_target_labels_filter: ['Mars'],
           missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -320,8 +315,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: '8c264721-ea5e-46b6-8e5f-35cfa7956179',
                     missions_mission__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmars_climate_orbite.2e16d0ba.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     missions_mission__mission_target_labels_filter: ['Mars'],
                     missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -371,8 +365,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: '8c9ccb64-62c2-4103-8d7e-26d773a60b6a',
           missions_mission__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmars_observer.2e16d0ba.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           missions_mission__mission_target_labels_filter: ['Mars'],
           missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -424,8 +417,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: '8c9ccb64-62c2-4103-8d7e-26d773a60b6a',
                     missions_mission__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmars_observer.2e16d0ba.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     missions_mission__mission_target_labels_filter: ['Mars'],
                     missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -475,8 +467,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: '6540f7a8-b084-4162-867f-5971dd5f82b0',
           missions_mission__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebpathfinder.2e16d0ba.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           missions_mission__mission_target_labels_filter: ['Mars'],
           missions_mission__mission_type_labels_filter: ['Lander/Rover'],
@@ -528,8 +519,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: '6540f7a8-b084-4162-867f-5971dd5f82b0',
                     missions_mission__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebpathfinder.2e16d0ba.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     missions_mission__mission_target_labels_filter: ['Mars'],
                     missions_mission__mission_type_labels_filter: ['Lander/Rover'],
@@ -582,8 +572,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: 'e7dd859c-ffaa-4f32-bea3-049f6a1e7e31',
           missions_mission__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmpl.2e16d0ba.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           missions_mission__mission_target_labels_filter: ['Mars'],
           missions_mission__mission_type_labels_filter: ['Lander'],
@@ -635,8 +624,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: 'e7dd859c-ffaa-4f32-bea3-049f6a1e7e31',
                     missions_mission__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmpl.2e16d0ba.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     missions_mission__mission_target_labels_filter: ['Mars'],
                     missions_mission__mission_type_labels_filter: ['Lander'],
@@ -689,8 +677,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: '7cc4a79f-1457-479c-8ced-64916df886f2',
           video_detail_videodetailpage__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/multimediathumbswhatsup2014070.9e4f0d2d.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           url: '/videos/whats-up-december-2007-mars-mars-and-more-mars',
           video_detail_videodetailpage__summary:
@@ -743,8 +730,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: '7cc4a79f-1457-479c-8ced-64916df886f2',
                     video_detail_videodetailpage__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/multimediathumbswhatsup2014070.9e4f0d2d.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     url: '/videos/whats-up-december-2007-mars-mars-and-more-mars',
                     video_detail_videodetailpage__summary:
@@ -795,8 +781,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: 'f960c7d0-3182-48b9-8cf2-bd7652242098',
           missions_mission__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmars_sample_return.2e16d0ba.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           missions_mission__mission_target_labels_filter: ['Mars'],
           missions_mission__mission_type_labels_filter: ['Lander/Rover'],
@@ -851,8 +836,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: 'f960c7d0-3182-48b9-8cf2-bd7652242098',
                     missions_mission__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/missionswebmars_sample_return.2e16d0ba.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     missions_mission__mission_target_labels_filter: ['Mars'],
                     missions_mission__mission_type_labels_filter: ['Lander/Rover'],
@@ -905,8 +889,7 @@ export const SearchResultsListData = {
           locale_id_filter: 1,
           translation_key_filter: '9cf5ff61-4580-4c03-95fa-7ee8ac109655',
           missions_mission__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/spaceimagesimageslargesizePIA0.2e16d0ba.fill-400x400-c50_tlMTkJd.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           missions_mission__mission_target_labels_filter: ['Mars'],
           missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -963,8 +946,7 @@ export const SearchResultsListData = {
                     locale_id_filter: 1,
                     translation_key_filter: '9cf5ff61-4580-4c03-95fa-7ee8ac109655',
                     missions_mission__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/spaceimagesimageslargesizePIA0.2e16d0ba.fill-400x400-c50_tlMTkJd.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     missions_mission__mission_target_labels_filter: ['Mars'],
                     missions_mission__mission_type_labels_filter: ['Orbiter'],
@@ -1020,8 +1002,7 @@ export const SearchResultsListData = {
           translation_key_filter: '5fd6635e-f633-4a32-88a4-8050333f58fb',
           news_news__author: null,
           news_news__thumbnail_image: {
-            thumbnail_image:
-              'https://d2pn8kiwq2w21t.cloudfront.net/images/imagesmgsmgs-640.2e16d0ba.fill-400x400-c50.jpg'
+            thumbnail_image: 'https://picsum.photos/512/288'
           },
           url: '/news/mars-pathfinder-passes-global-surveyor-on-its-way-to-mars',
           news_news__topper: [''],
@@ -1075,8 +1056,7 @@ export const SearchResultsListData = {
                     translation_key_filter: '5fd6635e-f633-4a32-88a4-8050333f58fb',
                     news_news__author: null,
                     news_news__thumbnail_image: {
-                      thumbnail_image:
-                        'https://d2pn8kiwq2w21t.cloudfront.net/images/imagesmgsmgs-640.2e16d0ba.fill-400x400-c50.jpg'
+                      thumbnail_image: 'https://picsum.photos/512/288'
                     },
                     url: '/news/mars-pathfinder-passes-global-surveyor-on-its-way-to-mars',
                     news_news__topper: [''],

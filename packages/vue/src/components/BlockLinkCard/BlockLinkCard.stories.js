@@ -7,12 +7,13 @@ export default {
   component: BlockLinkCard,
   tags: ['!autodocs'],
   excludeStories: /.*Data$/,
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
-    })
-  ],
   argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg']
+      }
+    },
     headingLevel: {
       description:
         'Change the heading level for semantic markup. This does not affect the style of the heading.',
@@ -47,25 +48,39 @@ export const BlockLinkCardData = {
   },
   headingLevel: 'h2',
   startDate: undefined,
-  endDate: undefined,
-  compact: false
+  endDate: undefined
 }
 
 export const BaseStory = {
   name: 'Single Item',
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
   args: {
     ...BlockLinkCardData
   }
 }
 
 export const SingleItemCompactStyles = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
   args: {
     ...BlockLinkCardData,
     headingLevel: 'h2',
-    compact: true
+    size: 'sm'
   }
 }
 export const Compact = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
   name: 'Compact w/ Custom Props',
   parameters: {
     docs: {
@@ -89,10 +104,15 @@ export const Compact = {
       alt: 'Alt text'
     },
     headingLevel: 'h2',
-    compact: true
+    size: 'sm'
   }
 }
 export const EventItem = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
   args: {
     ...BlockLinkCardData,
     data: {
@@ -110,8 +130,38 @@ export const EventItem = {
   }
 }
 export const EduExplainerArticle = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
   args: {
     ...BlockLinkCardData,
+    data: {
+      page: {
+        __typename: 'EDUExplainerArticlePage',
+        ...BlockLinkCardData.data,
+        primarySubject: {
+          subject: 'Engineering'
+        },
+        gradeLevels: [
+          { gradeLevel: 'All Ages' },
+          { gradeLevel: 'K' },
+          { gradeLevel: '1' },
+          { gradeLevel: '2' },
+          { gradeLevel: '5' },
+          { gradeLevel: '6' },
+          { gradeLevel: '7' },
+          { gradeLevel: '8' }
+        ]
+      }
+    }
+  }
+}
+export const LargeEduExplainerArticle = {
+  args: {
+    ...BlockLinkCardData,
+    size: 'lg',
     data: {
       page: {
         __typename: 'EDUExplainerArticlePage',

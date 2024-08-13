@@ -32,8 +32,7 @@ export const SearchResultCardData = {
     },
     alt: 'Alt text'
   },
-  headingLevel: 'h3',
-  featured: false
+  headingLevel: 'h3'
 }
 
 export const BaseStory = { name: 'SearchResultCard', args: SearchResultCardData }
@@ -60,11 +59,16 @@ export const PodcastEpisodeCard = {
     ...SearchResultCardData,
     isPodcastSeason: true,
     type: 'Podcast',
-    startTime: '00:00:00-08:00',
-    endTime: '23:59:59.999999-08:00',
+    compact: false
+  }
+}
+
+export const EduEventCard = {
+  args: {
+    ...SearchResultCardData,
+    pageContentType: 'eduevents_edueventpage',
     startDate: '2021-11-11',
     endDate: '2021-11-11',
-    location: 'On lab',
-    compact: false
+    eventType: 'Internship'
   }
 }
