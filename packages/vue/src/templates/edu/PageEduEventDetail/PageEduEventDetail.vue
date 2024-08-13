@@ -99,7 +99,7 @@
         >
           <MetadataEvent :event="data" />
 
-          <div class="PageEduEventDetail__Buttons">
+          <div class="PageEduEventDetail__Buttons max-w-[17rem]">
             <BaseButton
               v-if="
                 data.registerLink &&
@@ -249,14 +249,14 @@
 
     <!-- Related Events -->
     <div
-      v-if="data.relatedEvents?.length"
+      v-if="relatedEvents?.length"
       class="my-12 lg:my-16 px-0"
     >
       <BlockLinkCarousel
         item-type="cards"
         size="h3"
         heading="Related Events"
-        :items="data.relatedEvents"
+        :items="relatedEvents"
       />
     </div>
     <!-- Related Content -->
@@ -275,6 +275,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { EventCardObject } from './../../../interfaces'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import BasePill from './../../../components/BasePill/BasePill.vue'
@@ -335,6 +336,18 @@ export default defineComponent({
     },
     heroIsInline(): boolean {
       return this.data?.heroPosition === 'inline'
+    },
+    relatedEvents(): EventCardObject[] {
+      // mimic the data shape of a PageChooserBlock array
+      const mapped = this.data?.relatedEvents
+        ? this.data.relatedEvents.map((event: EventCardObject) => {
+            return {
+              __typename: 'EDUEventPage',
+              page: event
+            }
+          })
+        : undefined
+      return mapped
     }
   }
 })
@@ -364,7 +377,6 @@ export default defineComponent({
     @apply mt-10;
     @apply lg:mt-0;
     @apply text-center;
-    @apply max-w-[17rem];
   }
   .bg-stars .MixinCarousel__Heading {
     @apply text-white;

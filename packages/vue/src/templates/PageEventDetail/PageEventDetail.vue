@@ -213,32 +213,25 @@
 
     <!-- Related Events -->
     <div
-      v-if="data.moreEvents && data.moreEvents.length > 0"
+      v-if="moreEvents?.length > 0"
       class="my-12 lg:my-16 print:!px-4"
     >
       <BlockLinkCarousel
         item-type="cards"
         class="print:!px-4"
         heading="MORE EVENTS"
-        :items="data.moreEvents"
+        :items="moreEvents"
       />
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {
-  mixinFormatEventDates,
-  mixinFormatEventTimeInHoursAndMinutes,
-  mixinFormatSplitEventDates
-} from '../../utils/mixins'
+import type { EventCardObject } from './../../interfaces'
 import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../../components/BaseHeading/BaseHeading.vue'
 import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
 import EventDetailHero from './../../components/EventDetailHero/EventDetailHero.vue'
-import IconCalendar from './../../components/Icons/IconCalendar.vue'
-import IconLocation from './../../components/Icons/IconLocation.vue'
-import IconTime from './../../components/Icons/IconTime.vue'
 import BaseLink from './../../components/BaseLink/BaseLink.vue'
 import BaseButton from './../../components/BaseButton/BaseButton.vue'
 import CalendarButton from './../../components/CalendarButton/CalendarButton.vue'
@@ -258,9 +251,6 @@ export default defineComponent({
     BaseHeading,
     ShareButtons,
     EventDetailHero,
-    IconCalendar,
-    IconLocation,
-    IconTime,
     BaseLink,
     BaseButton,
     CalendarButton,
@@ -283,22 +273,19 @@ export default defineComponent({
     }
   },
   computed: {
-    displayTime(): string {
-      return this.data
-        ? mixinFormatEventTimeInHoursAndMinutes(
-            this.data.startDatetime,
-            this.data.endDatetime,
-            this.data.endTime
-          )
-        : ''
-    },
-    formattedEventDates(): string {
-      return this.data ? mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime) : ''
-    },
-    formattedSplitEventDates() {
-      return this.data
-        ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
+    moreEvents(): EventCardObject[] {
+      // mimic the data shape of a PageChooserBlock array
+      const mapped = this.data?.moreEvents
+        ? this.data.moreEvents.map((event: EventCardObject) => {
+            return {
+              page: {
+                __typename: 'EventPage',
+                ...event
+              }
+            }
+          })
         : undefined
+      return mapped
     }
   }
 })

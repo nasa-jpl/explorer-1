@@ -29,8 +29,8 @@ const numbersAsGrades = computed(
   }
 )
 
-const rangeify = (a: number[]) => {
-  const res = []
+const rangeify = (a: number[]): string[] => {
+  const res: string[] = []
   let run = []
   for (let i = 0; i < a.length; i++) {
     run.push(a[i])
@@ -43,7 +43,7 @@ const rangeify = (a: number[]) => {
       run = []
     }
   }
-  return res.join(', ')
+  return res
 }
 
 export const rangeifyGrades = (gradeLevels: GradeLevelsObject[]) => {
@@ -58,6 +58,15 @@ export const rangeifyGrades = (gradeLevels: GradeLevelsObject[]) => {
     return level
   })
 
-  const audienceArray = [allAges, rangeify(gradesArray.filter(Number.isFinite))]
+  const filteredGrades = rangeify(gradesArray.filter(Number.isFinite))
+  let preparedGrades: string = ''
+  if (filteredGrades?.length) {
+    const gradeString = filteredGrades.length > 1 ? 'Grades: ' : 'Grade: '
+    preparedGrades = filteredGrades
+      .map((grade, index) => (index === 0 ? gradeString + grade : grade))
+      .join(', ')
+  }
+
+  const audienceArray = [allAges, preparedGrades]
   return audienceArray.filter(Boolean).join(', ')
 }

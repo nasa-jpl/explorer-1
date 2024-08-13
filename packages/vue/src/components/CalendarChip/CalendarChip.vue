@@ -5,9 +5,9 @@ import { mixinFormatSplitEventDates } from './../../utils/mixins'
 const themeStore = useThemeStore()
 
 interface CalendarChipProps {
-  startDate: string
+  startDate?: string
   endDate?: string
-  ongoing: boolean
+  ongoing?: boolean
 }
 
 // define props
