@@ -52,16 +52,18 @@
           class="lg:w-1/2 xl:w-5/12 block"
         >
           <div
-            v-if="customTag || customLabel || feature.label"
+            v-if="customPill || customLabel || feature.label"
             class="flex items-center lg:mb-3 mb-2"
           >
             <BasePill
-              v-if="customTag"
+              v-if="customPill || customPillType"
               variant="primary"
               size="sm"
               class="mr-3"
-              >{{ customTag }}</BasePill
+              :content-type="customPillType"
             >
+              {{ customPill }}
+            </BasePill>
             <p
               v-if="customLabel || feature.label"
               class="text-subtitle"
@@ -116,15 +118,23 @@ export default defineComponent({
   props: {
     feature: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
-    customTag: {
+    customPill: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
+    },
+    customPillType: {
+      type: String,
+      required: false,
+      default: undefined
     },
     customLabel: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     cta: {
       type: String,
@@ -139,11 +149,13 @@ export default defineComponent({
     // use-case: news detail pages use this b/c their feature hero is structured differently
     customVideo: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
     customImage: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {

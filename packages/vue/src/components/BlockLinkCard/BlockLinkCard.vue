@@ -45,9 +45,9 @@
         <BasePill
           :class="{ 'mb-2': !large, 'mb-4': large }"
           size="sm"
-          :variant="metadataAttrs.variant"
+          :content-type="metadataType"
         >
-          {{ (theItem as EventCardObject).eventType || metadataAttrs.label }}
+          {{ (theItem as EventCardObject).eventType }}
         </BasePill>
       </template>
       <template v-else>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { Attributes } from './../../interfaces'
+import { eduMetadataDictionary } from './../../constants'
 
 // using borders to vertically center wonky font face
 const variantMap: Attributes = {
@@ -26,13 +28,27 @@ const props = withDefaults(defineProps<BasePillProps>(), {
   size: 'md',
   contentType: undefined
 })
+
+const metadataType = computed(() => {
+  const validContentTypes = Object.keys(eduMetadataDictionary)
+  return props.contentType && validContentTypes.includes(props.contentType)
+    ? props.contentType
+    : undefined
+})
+const metadataAttrs = computed(() => {
+  if (metadataType.value) {
+    return eduMetadataDictionary[metadataType.value]
+  }
+  return { variant: undefined, label: undefined }
+})
 </script>
 <template>
   <p
-    :class="`${variantMap[props.variant]} ${sizeMap[props.size]}`"
+    :class="`${variantMap[metadataAttrs.variant || props.variant]} ${sizeMap[props.size]}`"
     class="ThemeVariantLight text-contrast-none inline-block text-white font-bold edu:font-extrabold rounded-full leading-tight m-0 uppercase print:border-none print:px-0"
   >
-    <slot />
+    <template v-if="metadataAttrs.label"> {{ metadataAttrs.label }} </template>
+    <template v-else> <slot /></template>
     <span class="sr-only">.</span>
   </p>
 </template>

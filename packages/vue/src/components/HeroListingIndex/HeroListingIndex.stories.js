@@ -13,6 +13,7 @@ export default {
 export const HeroListingIndexData = {
   listingPage: {
     featured: {
+      __typename: 'EDUExplainerArticlePage',
       topicLabel: 'Mars',
       url: '/news/new-maps-open-roads-to-research/',
       title: 'Creating Robots to go Where Humans Can’t',
