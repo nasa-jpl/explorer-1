@@ -319,5 +319,15 @@ export default defineComponent({
       @apply bg-gray-mid-dark;
     }
   }
+  .MetadataEvent,
+  .MetadataEduResource {
+    &.-compact {
+      @apply mr-2;
+    }
+    .MetadataEventIcon,
+    .MetadataEduResourceIcon {
+      @apply mr-[3px];
+    }
+  }
 }
 </style>

@@ -184,6 +184,8 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import PodcastEpisodeCard from './../PodcastEpisodeCard/PodcastEpisodeCard.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
@@ -210,27 +212,33 @@ export default defineComponent({
     },
     type: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     topic: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     date: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     title: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     summary: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
     featured: {
       type: Boolean,
@@ -256,28 +264,41 @@ export default defineComponent({
     },
     media: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     startTime: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     startDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     endTime: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     endDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     location: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
+    },
+    pageContentType: {
+      type: String,
+      default: undefined
     }
+  },
+  computed: {
+    ...mapStores(useThemeStore)
   }
 })
 </script>

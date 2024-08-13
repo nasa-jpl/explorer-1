@@ -17,6 +17,7 @@
         <SearchResultCard
           :is-events="isEvents"
           :is-profiles="isProfiles"
+          :page-content-type="page.content_type"
           :url="page.url"
           :type="page.type"
           :topic="page.topic"

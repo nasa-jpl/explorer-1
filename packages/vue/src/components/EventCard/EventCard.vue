@@ -22,27 +22,18 @@
         >
           {{ summary }}
         </p>
-
-        <div class="md:mt-10 text-xl md:flex">
-          <div class="EventCard__Metadata flex text-primary text-body-sm">
-            <IconCalendar class="relative mr-3" />
-            <span> {{ formattedEventDates }}</span>
-          </div>
-          <div
-            v-show="displayTime"
-            class="EventCard__Metadata hidden md:flex text-primary text-body-sm"
-          >
-            <IconTime class="relative mr-3" />
-            <span>{{ displayTime }}</span>
-          </div>
-          <div
-            v-if="location"
-            class="EventCard__Metadata flex text-primary text-body-sm"
-          >
-            <IconLocation class="relative mr-3" />
-            <span>{{ location }}</span>
-          </div>
-        </div>
+        <MetadataEvent
+          class="mt-6 lg:mt-8 block lg:flex"
+          :event="{
+            startTime,
+            endTime,
+            startDate,
+            endDate,
+            location
+          }"
+          compact
+          allow-break
+        />
       </div>
       <div
         v-if="image"
@@ -91,6 +82,8 @@ import CalendarChip from './../CalendarChip/CalendarChip.vue'
 import IconCalendar from './../Icons/IconCalendar.vue'
 import IconTime from './../Icons/IconTime.vue'
 import IconLocation from './../Icons/IconLocation.vue'
+import MetadataEvent from './../../components/MetadataEvent/MetadataEvent.vue'
+
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -103,7 +96,8 @@ export default defineComponent({
     CalendarChip,
     IconCalendar,
     IconTime,
-    IconLocation
+    IconLocation,
+    MetadataEvent
   },
   props: {
     url: {
@@ -175,24 +169,24 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .EventCard {
-  .EventCard__Metadata {
-    @apply items-baseline;
-    @apply mr-0;
-    @apply mb-4;
-    @apply md:mb-0;
-    @apply md:mr-3;
-    @apply lg:mr-6;
+  // .EventCard__Metadata {
+  //   @apply items-baseline;
+  //   @apply mr-0;
+  //   @apply mb-4;
+  //   @apply md:mb-0;
+  //   @apply md:mr-3;
+  //   @apply lg:mr-6;
 
-    span {
-      max-width: 230px;
-      min-width: 110px;
-      @apply text-gray-dark;
-    }
+  //   span {
+  //     max-width: 230px;
+  //     min-width: 110px;
+  //     @apply text-gray-dark;
+  //   }
 
-    svg {
-      min-width: 1.25rem;
-      @apply top-0.5;
-    }
-  }
+  //   svg {
+  //     min-width: 1.25rem;
+  //     @apply top-0.5;
+  //   }
+  // }
 }
 </style>

@@ -33,7 +33,7 @@ const audience = computed(() => {
 <template>
   <div
     class="MetadataEduResource"
-    :class="{ '-compact': props.compact }"
+    :class="{ '-compact text-body-sm': props.compact, 'text-body-lg': !props.compact }"
   >
     <div
       v-if="primarySubject"
@@ -61,7 +61,6 @@ const audience = computed(() => {
 </template>
 <style lang="scss">
 .MetadataEduResource {
-  @apply text-xl;
   @apply lg:flex lg:flex-grow;
   .MetadataEduResourceItem {
     @apply flex;
@@ -84,14 +83,10 @@ const audience = computed(() => {
   }
 
   &.-compact {
-    @apply text-sm;
     @apply flex flex-grow;
     .MetadataEduResourceItem {
       @apply max-w-none min-w-[4em];
-      @apply mr-2 mb-0;
-      .MetadataEduResourceIcon {
-        @apply mr-[3px];
-      }
+      @apply mr-6 mb-0;
     }
   }
 }

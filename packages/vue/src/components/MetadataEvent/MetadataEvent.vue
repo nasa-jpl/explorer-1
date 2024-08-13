@@ -12,12 +12,14 @@ const themeStore = useThemeStore()
 interface MetadataEventProps {
   event: EventCardObject
   compact?: boolean
+  allowBreak?: boolean
 }
 
 // define props
 const props = withDefaults(defineProps<MetadataEventProps>(), {
   event: undefined,
-  compact: false
+  compact: false,
+  allowBreak: false
 })
 
 const startDatetimeForFormatting = computed(() => {
@@ -26,7 +28,10 @@ const startDatetimeForFormatting = computed(() => {
 
 const formattedEventDates = computed((): string | undefined => {
   return props.event && startDatetimeForFormatting.value
-    ? mixinFormatEventDates(startDatetimeForFormatting.value, props.event.endDatetime)
+    ? mixinFormatEventDates(
+        startDatetimeForFormatting.value,
+        props.event.endDatetime || props.event.endDate
+      )
     : undefined
 })
 const displayTime = computed((): string => {
@@ -35,7 +40,7 @@ const displayTime = computed((): string => {
       props.event && startDatetimeForFormatting.value
         ? mixinFormatEventTimeInHoursAndMinutes(
             startDatetimeForFormatting.value,
-            props.event.endDatetime,
+            props.event.endDatetime || props.event.endDate,
             props.event.endTime
           )
         : undefined
@@ -43,11 +48,18 @@ const displayTime = computed((): string => {
   }
   return ''
 })
+const locationName = computed(() => {
+  return props.event?.locationName || props.event?.location
+})
 </script>
 <template>
   <div
     class="MetadataEvent"
-    :class="{ '-compact': props.compact }"
+    :class="{
+      '-compact text-body-sm': props.compact,
+      'text-body-lg': !props.compact,
+      '-allow-break': props.allowBreak
+    }"
   >
     <div
       v-if="props.event.ongoing || props.event.customDate || formattedEventDates"
@@ -79,7 +91,7 @@ const displayTime = computed((): string => {
       />
       <meta
         itemprop="name"
-        :content="props.event.locationName"
+        :content="locationName"
       />
       <IconLocation class="MetadataEventIcon text-[1.1em]" />
       <BaseLink
@@ -88,18 +100,18 @@ const displayTime = computed((): string => {
         :href="props.event.locationLink"
         external-target-blank
       >
-        {{ props.event.locationName }}
+        {{ locationName }}
       </BaseLink>
     </div>
     <!-- Normal location -->
     <div
-      v-else-if="props.event.locationName"
+      v-else-if="locationName"
       class="MetadataEventItem"
     >
       <meta
         v-if="!props.compact"
         itemprop="location"
-        :content="props.event.locationName"
+        :content="locationName"
       />
       <IconLocation class="MetadataEventIcon text-[1.2em]" />
       <BaseLink
@@ -109,15 +121,14 @@ const displayTime = computed((): string => {
         :href="props.event.locationLink"
         external-target-blank
       >
-        {{ props.event.locationName }}
+        {{ locationName }}
       </BaseLink>
-      <span v-else>{{ props.event.locationName }}</span>
+      <span v-else>{{ locationName }}</span>
     </div>
   </div>
 </template>
 <style lang="scss">
 .MetadataEvent {
-  @apply text-xl;
   @apply lg:flex lg:flex-grow;
   .MetadataEventItem {
     @apply flex;
@@ -140,14 +151,13 @@ const displayTime = computed((): string => {
   }
 
   &.-compact {
-    @apply text-sm;
     @apply flex flex-grow;
     .MetadataEventItem {
       @apply max-w-none min-w-[4em];
-      @apply mr-2 mb-0;
-      .MetadataEventIcon {
-        @apply mr-[3px];
-      }
+      @apply mr-6 mb-0;
+    }
+    &.-allow-break {
+      @apply block lg:flex;
     }
   }
 }

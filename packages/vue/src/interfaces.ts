@@ -90,12 +90,14 @@ export interface EventCardObject extends Card {
   endDate?: string
   startDatetime?: string
   endDatetime?: string
+  startTime?: string
   endTime?: string
   customDate?: string
   eventType?: string
   ongoing?: boolean
   isVirtualEvent?: boolean
   locationName?: string
+  location?: string
   locationLink?: string
 }
 
