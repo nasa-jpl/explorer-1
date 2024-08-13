@@ -69,3 +69,10 @@ export const MissionResult = {
     headingLevel: 'h2'
   }
 }
+export const Event = {
+  args: {
+    ...SearchResultGridCardData.page,
+    startTime: '00:00:00-08:00',
+    startDate: '2021-11-11'
+  }
+}

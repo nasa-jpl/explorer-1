@@ -16,7 +16,7 @@
       <template v-else>
         <div
           v-if="topics && topics.length"
-          class="inline"
+          class="inline edu:text-primary"
         >
           <BaseLink
             variant="secondary"

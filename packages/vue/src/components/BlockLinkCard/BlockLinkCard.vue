@@ -42,6 +42,7 @@
         >
           <span
             v-if="theItem.label"
+            class="edu:text-primary"
             :class="{ 'pr-2': theItem.startDate }"
           >
             {{ theItem.label }}

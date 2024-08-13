@@ -38,17 +38,12 @@
         :image="data.eventImage"
         :constrain="data.heroConstrain"
       />
-      <div
-        v-if="formattedSplitEventDates"
-        class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary print:hidden"
-      >
-        <div class="font-extrabold text-6xl leading-tight tracking-wider">
-          {{ formattedSplitEventDates.month }}
-        </div>
-        <div class="text-subtitle">
-          {{ formattedSplitEventDates.year }}
-        </div>
-      </div>
+      <CalendarChip
+        v-if="data"
+        :start-date="startDateTimeForFormatting"
+        :end-date="data.endDatetime"
+        :ongoing="data.ongoing"
+      />
     </div>
     <LayoutHelper
       indent="col-2"
@@ -90,7 +85,8 @@
       <EventDetailHero
         v-if="heroIsInline"
         :image="data.eventImage"
-        :start-date-split="formattedSplitEventDates"
+        :start-date="data.startDateTimeForFormatting"
+        :end-date="data.endDate"
         :constrain="data.heroConstrain"
         :ongoing="data.ongoing"
       />
@@ -364,6 +360,7 @@ import BaseImage from './../../../components/BaseImage/BaseImage.vue'
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
+import CalendarChip from './../../../components/CalendarChip/CalendarChip.vue'
 
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
@@ -388,7 +385,8 @@ export default defineComponent({
     BaseImage,
     BlockRelatedLinks,
     BlockLinkCarousel,
-    BlockText
+    BlockText,
+    CalendarChip
   },
   props: {
     data: {

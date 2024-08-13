@@ -41,17 +41,11 @@
             class="sm:object-cover object-cover"
             loading="lazy"
           />
-          <div
-            v-if="splitDate"
-            class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white lg:py-6 bg-primary"
-          >
-            <div class="font-extrabold text-8xl leading-tight tracking-wider">
-              {{ splitDate.day }}
-            </div>
-            <div class="text-subtitle">
-              {{ splitDate.monthAndYear }}
-            </div>
-          </div>
+          <CalendarChip
+            :start-date="startDate"
+            :end-date="endDate"
+            :ongoing="ongoing"
+          />
         </BaseImagePlaceholder>
       </div>
       <component
@@ -69,12 +63,12 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import { mixinFormatSplitEventDates } from '../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 import BlockLinkTile from './../BlockLinkTile/BlockLinkTile.vue'
+import CalendarChip from './../CalendarChip/CalendarChip.vue'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -84,7 +78,8 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     BlockLinkCard,
-    BlockLinkTile
+    BlockLinkTile,
+    CalendarChip
   },
   props: {
     url: {
@@ -111,6 +106,10 @@ export default defineComponent({
       type: String,
       required: false
     },
+    ongoing: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       required: false
@@ -126,14 +125,6 @@ export default defineComponent({
     pageContentType: {
       type: String,
       required: false
-    }
-  },
-  computed: {
-    splitDate(): { day: string; monthAndYear: string } | null {
-      if (this.startDate) {
-        return mixinFormatSplitEventDates(this.startDate, this.endDate)
-      }
-      return null
     }
   }
 })

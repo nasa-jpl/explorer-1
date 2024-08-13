@@ -61,27 +61,11 @@
             object-fit-class="cover"
             loading="lazy"
           />
-          <div
-            v-if="splitDate"
-            class="hidden md:block absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
-          >
-            <template v-if="themeStore.isEdu">
-              <div class="font-extrabold text-6xl leading-tight tracking-wider">
-                {{ splitDate.month }}
-              </div>
-              <div class="text-subtitle">
-                {{ splitDate.year }}
-              </div>
-            </template>
-            <template v-else>
-              <div class="font-extrabold text-6xl leading-tight tracking-wider">
-                {{ splitDate.day }}
-              </div>
-              <div class="text-subtitle">
-                {{ splitDate.monthAndYear }}
-              </div>
-            </template>
-          </div>
+          <CalendarChip
+            :start-date="startDate"
+            :end-date="endDate"
+            :ongoing="ongoing"
+          />
         </BaseImagePlaceholder>
       </div>
     </div>
@@ -103,6 +87,7 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import CalendarChip from './../CalendarChip/CalendarChip.vue'
 import IconCalendar from './../Icons/IconCalendar.vue'
 import IconTime from './../Icons/IconTime.vue'
 import IconLocation from './../Icons/IconLocation.vue'
@@ -115,6 +100,7 @@ export default defineComponent({
     BaseHeading,
     BaseImage,
     BaseImagePlaceholder,
+    CalendarChip,
     IconCalendar,
     IconTime,
     IconLocation
@@ -140,6 +126,10 @@ export default defineComponent({
     startDate: {
       type: String,
       required: false
+    },
+    ongoing: {
+      type: Boolean,
+      default: false
     },
     endTime: {
       type: String,

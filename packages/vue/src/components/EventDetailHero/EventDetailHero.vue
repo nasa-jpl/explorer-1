@@ -19,40 +19,29 @@
           object-fit-class="cover"
           loading="lazy"
         />
-        <div
-          v-if="startDateSplit || ongoing"
-          class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary print:hidden"
-        >
-          <template v-if="ongoing">
-            <div class="text-subtitle">Ongoing</div>
-          </template>
-          <template v-else>
-            <div class="font-extrabold text-6xl leading-tight tracking-wider uppercase">
-              {{ themeStore.isEdu ? startDateSplit?.month : startDateSplit?.day }}
-            </div>
-            <div class="text-subtitle">
-              {{ themeStore.isEdu ? startDateSplit?.year : startDateSplit?.monthAndYear }}
-            </div>
-          </template>
-        </div>
+        <CalendarChip
+          v-if="startDate || ongoing"
+          :start-date="startDate"
+          :end-date="endDate"
+          :ongoing="ongoing"
+        />
       </BaseImagePlaceholder>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mapStores } from 'pinia'
-import { useThemeStore } from '../../store/theme'
 import BaseImage from '../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from '../BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import { mixinGetSrcSet, type EventDateObject } from './../../utils/mixins'
-import type { PropType } from 'vue'
+import CalendarChip from '../CalendarChip/CalendarChip.vue'
+import { mixinGetSrcSet } from './../../utils/mixins'
 
 export default defineComponent({
   name: 'EventDetailHero',
   components: {
     BaseImage,
-    BaseImagePlaceholder
+    BaseImagePlaceholder,
+    CalendarChip
   },
   props: {
     data: {
@@ -60,9 +49,14 @@ export default defineComponent({
       required: false,
       default: undefined
     },
-    startDateSplit: {
-      type: Object as PropType<EventDateObject | undefined>,
-      required: true
+    startDate: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    endDate: {
+      type: String,
+      default: undefined
     },
     ongoing: {
       type: Boolean,
@@ -80,7 +74,6 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapStores(useThemeStore),
     getSrcSet() {
       return this.image ? mixinGetSrcSet(this.image) : undefined
     }
