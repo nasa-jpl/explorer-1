@@ -9,13 +9,13 @@ import IconLocation from './../Icons/IconLocation.vue'
 import { mixinFormatEventDates, mixinFormatEventTimeInHoursAndMinutes } from './../../utils/mixins'
 const themeStore = useThemeStore()
 
-interface EventMetadataProps {
+interface MetadataEventProps {
   event: EventCardObject
   compact?: boolean
 }
 
 // define props
-const props = withDefaults(defineProps<EventMetadataProps>(), {
+const props = withDefaults(defineProps<MetadataEventProps>(), {
   event: undefined,
   compact: false
 })
@@ -46,24 +46,23 @@ const displayTime = computed((): string => {
 </script>
 <template>
   <div
-    class="EventMetadata"
+    class="MetadataEvent"
     :class="{ '-compact': props.compact }"
   >
     <div
       v-if="props.event.ongoing || props.event.customDate || formattedEventDates"
-      class="EventMetadataItem !whitespace-normal"
-      :class="{ 'flex-2': props.event.customDate }"
+      class="MetadataEventItem"
     >
-      <IconCalendar class="EventMetadataIcon text-[.95em]" />
+      <IconCalendar class="MetadataEventIcon text-[.95em]" />
       <span>{{
         props.event.ongoing ? 'Ongoing' : props.event.customDate || formattedEventDates
       }}</span>
     </div>
     <div
       v-show="displayTime"
-      class="EventMetadataItem"
+      class="MetadataEventItem"
     >
-      <IconTime class="EventMetadataIcon" />
+      <IconTime class="MetadataEventIcon" />
       <span>{{ displayTime }}</span>
     </div>
     <!--Virtual location -->
@@ -72,7 +71,7 @@ const displayTime = computed((): string => {
       itemprop="location"
       itemscope
       itemtype="https://schema.org/VirtualLocation"
-      class="EventMetadataItem"
+      class="MetadataEventItem"
     >
       <link
         itemprop="url"
@@ -82,7 +81,7 @@ const displayTime = computed((): string => {
         itemprop="name"
         :content="props.event.locationName"
       />
-      <IconLocation class="EventMetadataIcon" />
+      <IconLocation class="MetadataEventIcon" />
       <BaseLink
         variant="none"
         class="text-action"
@@ -95,14 +94,14 @@ const displayTime = computed((): string => {
     <!-- Normal location -->
     <div
       v-else-if="props.event.locationName"
-      class="EventMetadataItem"
+      class="MetadataEventItem"
     >
       <meta
         v-if="!props.compact"
         itemprop="location"
         :content="props.event.locationName"
       />
-      <IconLocation class="EventMetadataIcon" />
+      <IconLocation class="MetadataEventIcon" />
       <BaseLink
         v-if="props.event.locationLink && !props.compact"
         variant="none"
@@ -117,10 +116,10 @@ const displayTime = computed((): string => {
   </div>
 </template>
 <style lang="scss">
-.EventMetadata {
+.MetadataEvent {
   @apply text-xl;
   @apply lg:flex lg:flex-grow;
-  .EventMetadataItem {
+  .MetadataEventItem {
     @apply flex;
     @apply items-baseline;
     @apply mr-4 md:mr-4 xl:mr-8;
@@ -135,7 +134,7 @@ const displayTime = computed((): string => {
       min-width: 1.25rem;
       @apply top-0.5;
     }
-    .EventMetadataIcon {
+    .MetadataEventIcon {
       @apply text-primary relative mr-3 lg:mr-2 xl:mr-3;
     }
   }
@@ -143,10 +142,10 @@ const displayTime = computed((): string => {
   &.-compact {
     @apply text-body-xs;
     @apply flex flex-grow;
-    .EventMetadataItem {
+    .MetadataEventItem {
       @apply max-w-none min-w-[4em];
       @apply mr-2 mb-0;
-      .EventMetadataIcon {
+      .MetadataEventIcon {
         @apply mr-[3px];
       }
     }

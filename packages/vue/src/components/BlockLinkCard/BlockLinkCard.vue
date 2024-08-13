@@ -96,7 +96,7 @@
         {{ theItem.date }}
       </p>
       <template v-if="themeStore.isEdu">
-        <EventMetadata
+        <MetadataEvent
           class="mt-2"
           :event="theItem"
           compact
@@ -125,7 +125,7 @@ import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BasePill from './../BasePill/BasePill.vue'
 import CalendarChip from './../CalendarChip/CalendarChip.vue'
-import EventMetadata from './../EventMetadata/EventMetadata.vue'
+import MetadataEvent from './../MetadataEvent/MetadataEvent.vue'
 
 export default defineComponent({
   name: 'BlockLinkCard',
@@ -136,7 +136,7 @@ export default defineComponent({
     BaseImagePlaceholder,
     BasePill,
     CalendarChip,
-    EventMetadata
+    MetadataEvent
   },
   props: {
     data: {

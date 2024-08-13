@@ -97,7 +97,7 @@
           class="py-1 mb-10 lg:mb-0 lg:flex"
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
-          <EventMetadata :event="data" />
+          <MetadataEvent :event="data" />
 
           <div class="PageEduEventDetail__Buttons">
             <BaseButton
@@ -291,7 +291,7 @@ import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRela
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
 import CalendarChip from './../../../components/CalendarChip/CalendarChip.vue'
-import EventMetadata from './../../../components/EventMetadata/EventMetadata.vue'
+import MetadataEvent from './../../../components/MetadataEvent/MetadataEvent.vue'
 
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
@@ -315,7 +315,7 @@ export default defineComponent({
     BlockLinkCarousel,
     BlockText,
     CalendarChip,
-    EventMetadata
+    MetadataEvent
   },
   props: {
     data: {

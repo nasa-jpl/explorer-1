@@ -99,6 +99,17 @@ export interface EventCardObject extends Card {
   locationLink?: string
 }
 
+export interface PrimarySubjectObject {
+  subject: string
+}
+export interface GradeLevelsObject {
+  gradeLevel: string
+}
+export interface EduResourceCardObject extends Card {
+  primarySubject: PrimarySubjectObject
+  gradeLevels: GradeLevelsObject[]
+}
+
 export interface LinkObject {
   page: {
     url: string
