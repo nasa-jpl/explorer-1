@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { EduResourceCardObject } from './../../interfaces.ts'
 import IconSubject from './../Icons/IconSubject.vue'
 import IconProfile from './../Icons/IconProfile.vue'
-import IconTime from './../Icons/IconTime.vue'
+// import IconTime from './../Icons/IconTime.vue'
 import {} from './../../utils/mixins'
 import { rangeifyGrades } from './../../utils/rangeifyGrades'
 
@@ -84,7 +84,7 @@ const audience = computed(() => {
   }
 
   &.-compact {
-    @apply text-body-xs;
+    @apply text-sm;
     @apply flex flex-grow;
     .MetadataEduResourceItem {
       @apply max-w-none min-w-[4em];

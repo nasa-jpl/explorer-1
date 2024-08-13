@@ -295,7 +295,6 @@ export default defineComponent({
     formattedEventDates() {
       return (this.theItem as EventCardObject)?.startDate
         ? mixinFormatEventDates(
-            // @ts-expect-error startDate is not undefined in this instance
             (this.theItem as EventCardObject).startDate,
             (this.theItem as EventCardObject).endDate
           )

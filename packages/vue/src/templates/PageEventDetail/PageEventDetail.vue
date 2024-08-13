@@ -228,6 +228,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { EventCardObject } from './../../interfaces'
+import { mixinFormatSplitEventDates, type EventDateObject } from './../../utils/mixins'
 import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../../components/BaseHeading/BaseHeading.vue'
 import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
@@ -286,6 +287,14 @@ export default defineComponent({
           })
         : undefined
       return mapped
+    },
+    startDateTimeForFormatting(): string {
+      return this.data?.startDatetime || this.data?.startDate
+    },
+    formattedSplitEventDates(): string | EventDateObject | undefined {
+      return this.data && this.startDateTimeForFormatting
+        ? mixinFormatSplitEventDates(this.startDateTimeForFormatting, this.data.endDatetime)
+        : undefined
     }
   }
 })

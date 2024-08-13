@@ -140,7 +140,7 @@ const displayTime = computed((): string => {
   }
 
   &.-compact {
-    @apply text-body-xs;
+    @apply text-sm;
     @apply flex flex-grow;
     .MetadataEventItem {
       @apply max-w-none min-w-[4em];

@@ -36,6 +36,7 @@ const rangeify = (a: number[]): string[] => {
     run.push(a[i])
     if (i + 1 >= a.length || a[i + 1] - a[i] > 1) {
       res.push(
+        // @ts-expect-error
         run.length > 1
           ? `${numbersAsGrades.value[run[0]]}-${run.pop()}`
           : run.map((item) => numbersAsGrades.value[item])
