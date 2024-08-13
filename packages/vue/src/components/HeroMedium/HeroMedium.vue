@@ -55,12 +55,12 @@
             v-if="customTag || customLabel || feature.label"
             class="flex items-center lg:mb-3 mb-2"
           >
-            <BaseTag
+            <BasePill
               v-if="customTag"
               variant="primary"
               size="sm"
               class="mr-3"
-              >{{ customTag }}</BaseTag
+              >{{ customTag }}</BasePill
             >
             <p
               v-if="customLabel || feature.label"
@@ -102,7 +102,7 @@ import { mixinTransparentHeader } from '../../utils/mixins'
 import type { ImageObject } from '../../interfaces'
 import IconArrow from './../Icons/IconArrow.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
-import BaseTag from './../BaseTag/BaseTag.vue'
+import BasePill from './../BasePill/BasePill.vue'
 import MixinVideoBg from './../MixinVideoBg/MixinVideoBg.vue'
 
 export default defineComponent({
@@ -111,7 +111,7 @@ export default defineComponent({
     IconArrow,
     BaseLink,
     MixinVideoBg,
-    BaseTag
+    BasePill
   },
   props: {
     feature: {

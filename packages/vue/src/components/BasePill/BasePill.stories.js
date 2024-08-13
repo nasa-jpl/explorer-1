@@ -1,8 +1,8 @@
-import BaseTag from './BaseTag.vue'
+import BasePill from './BasePill.vue'
 
 export default {
-  title: 'Components/Base/BaseTag',
-  component: BaseTag,
+  title: 'Components/Base/BasePill',
+  component: BasePill,
   argTypes: {
     variant: {
       type: { name: 'string', required: false },

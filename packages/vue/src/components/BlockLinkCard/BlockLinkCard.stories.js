@@ -9,7 +9,7 @@ export default {
   excludeStories: /.*Data$/,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3 lg:grid-cols-3"><story/></div>`
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   argTypes: {
@@ -97,8 +97,12 @@ export const EventItem = {
     ...BlockLinkCardData,
     data: {
       ...BlockLinkCardData.data,
-      startDate: '2021-11-11T00:00:00-08:00',
-      endDate: '2021-11-11T23:59:59.999999-08:00'
+      startDate: '2021-11-11',
+      startDatetime: '2021-11-11T00:00:00-08:00',
+      endDatetime: '2021-11-11T23:59:59.999999-08:00',
+      endDate: '2021-11-11',
+      ongoing: false,
+      eventType: 'Workshop'
     }
   }
 }

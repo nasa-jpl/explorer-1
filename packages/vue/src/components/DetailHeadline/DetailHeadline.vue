@@ -5,13 +5,13 @@
       class="flex flex-wrap items-center mb-3"
     >
       <template v-if="pill && pillLabel">
-        <BaseTag
+        <BasePill
           :variant="pillColor"
           size="lg"
           class="mr-3"
         >
           {{ pillLabel }}
-        </BaseTag>
+        </BasePill>
       </template>
       <template v-else>
         <div
@@ -122,7 +122,7 @@ import { useThemeStore } from '../../store/theme'
 import type { Topic, AuthorObject } from './../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
-import BaseTag from '../BaseTag/BaseTag.vue'
+import BasePill from '../BasePill/BasePill.vue'
 
 export const pillColorVariants = ['primary', 'secondary', 'action']
 
@@ -131,7 +131,7 @@ export default defineComponent({
   components: {
     BaseLink,
     BaseHeading,
-    BaseTag
+    BasePill
   },
   props: {
     title: {

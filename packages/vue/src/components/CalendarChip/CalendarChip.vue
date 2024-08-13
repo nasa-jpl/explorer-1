@@ -26,13 +26,13 @@ const splitDate = computed(() => {
 </script>
 <template>
   <div
-    v-if="splitDate"
-    class="hidden md:block absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
+    v-if="splitDate || ongoing"
+    class="hidden md:block absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary ThemeVariantLight"
   >
     <template v-if="ongoing">
       <div class="text-subtitle">Ongoing</div>
     </template>
-    <template v-else-if="themeStore.isEdu">
+    <template v-else-if="themeStore.isEdu && splitDate">
       <div class="font-extrabold text-6xl leading-tight tracking-wider uppercase">
         {{ splitDate.month }}
       </div>

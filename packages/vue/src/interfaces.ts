@@ -82,10 +82,21 @@ export interface Card {
   page?: Card
   title?: string
   date?: string
-  startDate?: string
-  endDate?: string
   label?: string
   thumbnailImage?: Partial<ImageObject>
+}
+export interface EventCardObject extends Card {
+  startDate?: string
+  endDate?: string
+  startDatetime?: string
+  endDatetime?: string
+  endTime?: string
+  customDate?: string
+  eventType?: string
+  ongoing?: boolean
+  isVirtualEvent?: boolean
+  locationName?: string
+  locationLink?: string
 }
 
 export interface LinkObject {
@@ -138,3 +149,5 @@ export interface Topic {
   title: string
   url: string
 }
+
+export type MetadataType = 'event' | 'resource'

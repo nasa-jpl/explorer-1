@@ -72,62 +72,7 @@
           class="py-1 mb-10 text-xl lg:mb-0 lg:flex"
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
-          <div class="PageEventDetail__Metadata text-primary">
-            <IconCalendar class="relative mr-3 text-[1.2rem]" />
-            <span>{{ formattedEventDates }}</span>
-          </div>
-          <div
-            v-show="displayTime"
-            class="PageEventDetail__Metadata text-primary"
-          >
-            <IconTime class="relative mr-3" />
-            <span>{{ displayTime }}</span>
-          </div>
-          <!--Virtual location -->
-          <div
-            v-if="data.isVirtualEvent && data.locationLink"
-            itemprop="location"
-            itemscope
-            itemtype="https://schema.org/VirtualLocation"
-            class="PageEventDetail__Metadata text-primary"
-          >
-            <link
-              itemprop="url"
-              :href="data.locationLink"
-            />
-            <meta
-              itemprop="name"
-              :content="data.location"
-            />
-            <IconLocation class="relative mr-3" />
-            <BaseLink
-              variant="none"
-              :href="data.locationLink"
-              external-target-blank
-            >
-              {{ data.location }}
-            </BaseLink>
-          </div>
-          <!-- Normal location -->
-          <div
-            v-else-if="data.location"
-            class="PageEventDetail__Metadata text-primary"
-          >
-            <meta
-              itemprop="location"
-              :content="data.location"
-            />
-            <IconLocation class="relative mr-3" />
-            <BaseLink
-              v-if="data.locationLink"
-              variant="none"
-              :href="data.locationLink"
-              external-target-blank
-            >
-              {{ data.location }}
-            </BaseLink>
-            <span v-else>{{ data.location }}</span>
-          </div>
+          <EventMetadata :event="data" />
           <div class="PageEventDetail__Buttons">
             <BaseButton
               v-if="
@@ -267,9 +212,8 @@
     </LayoutHelper>
 
     <!-- Related Events -->
-    <LayoutHelper
+    <div
       v-if="data.moreEvents && data.moreEvents.length > 0"
-      indent="col-1"
       class="my-12 lg:my-16 print:!px-4"
     >
       <BlockLinkCarousel
@@ -278,7 +222,7 @@
         heading="MORE EVENTS"
         :items="data.moreEvents"
       />
-    </LayoutHelper>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -303,6 +247,7 @@ import BaseImagePlaceholder from './../../components/BaseImagePlaceholder/BaseIm
 import BaseImage from './../../components/BaseImage/BaseImage.vue'
 import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import EventMetadata from './../../components/EventMetadata/EventMetadata.vue'
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 
@@ -323,7 +268,8 @@ export default defineComponent({
     BaseImagePlaceholder,
     BaseImage,
     BlockRelatedLinks,
-    BlockLinkCarousel
+    BlockLinkCarousel,
+    EventMetadata
   },
   props: {
     data: {
