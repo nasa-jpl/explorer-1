@@ -1,7 +1,7 @@
 import SearchResultCard from './SearchResultCard.vue'
 
 export default {
-  title: 'Components/Search/SearchResultCard',
+  title: 'Components/Cards/SearchResultCard',
   component: SearchResultCard,
   argTypes: {
     headingLevel: {

@@ -1,7 +1,7 @@
 import SearchResultGridItem from './SearchResultGridItem.vue'
 
 export default {
-  title: 'Components/Search/SearchResultGridItem',
+  title: 'Components/Cards/SearchResultGridItem',
   component: SearchResultGridItem,
   decorators: [
     () => ({
