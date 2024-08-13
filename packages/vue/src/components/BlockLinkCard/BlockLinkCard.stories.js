@@ -96,13 +96,40 @@ export const EventItem = {
   args: {
     ...BlockLinkCardData,
     data: {
-      ...BlockLinkCardData.data,
-      startDate: '2021-11-11',
-      startDatetime: '2021-11-11T00:00:00-08:00',
-      endDatetime: '2021-11-11T23:59:59.999999-08:00',
-      endDate: '2021-11-11',
-      ongoing: false,
-      eventType: 'Workshop'
+      page: {
+        ...BlockLinkCardData.data,
+        __typename: 'EDUEventPage',
+        startDate: '2021-11-11',
+        startDatetime: '2021-11-11T00:00:00-08:00',
+        endDatetime: '2021-11-11T23:59:59.999999-08:00',
+        endDate: '2021-11-11',
+        ongoing: false,
+        eventType: 'Workshop'
+      }
+    }
+  }
+}
+export const EduExplainerArticle = {
+  args: {
+    ...BlockLinkCardData,
+    data: {
+      page: {
+        __typename: 'EDUExplainerArticlePage',
+        ...BlockLinkCardData.data,
+        primarySubject: {
+          subject: 'Engineering'
+        },
+        gradeLevels: [
+          { gradeLevel: 'All Ages' },
+          { gradeLevel: 'K' },
+          { gradeLevel: '1' },
+          { gradeLevel: '2' },
+          { gradeLevel: '5' },
+          { gradeLevel: '6' },
+          { gradeLevel: '7' },
+          { gradeLevel: '8' }
+        ]
+      }
     }
   }
 }

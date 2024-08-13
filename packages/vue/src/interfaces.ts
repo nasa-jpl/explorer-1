@@ -162,3 +162,11 @@ export interface Topic {
 }
 
 export type MetadataType = 'event' | 'resource'
+
+export interface LabelObject {
+  label?: string
+  variant: string
+}
+export interface PillDictionaryInterface {
+  [EDUExplainerArticlePage: string]: LabelObject
+}

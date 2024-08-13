@@ -40,7 +40,7 @@ const splitDate = computed(() => {
         {{ splitDate.year }}
       </div>
     </template>
-    <template v-else>
+    <template v-else-if="splitDate">
       <div class="font-extrabold text-6xl leading-tight tracking-wider">
         {{ splitDate.day }}
       </div>

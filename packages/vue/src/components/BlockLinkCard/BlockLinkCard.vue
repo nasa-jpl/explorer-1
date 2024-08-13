@@ -38,24 +38,21 @@
     </BaseImagePlaceholder>
 
     <div
-      class="BlockLinkCard__CardContent transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform"
+      class="BlockLinkCard__CardContent transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform ThemeVariantLight"
       :class="
         compact
           ? 'can-hover:group-hover:-translate-y-2'
           : 'can-hover:group-hover:-translate-y-3 edu:can-hover:group-hover:-translate-y-2'
       "
     >
-      <template
-        v-if="
-          themeStore.isEdu && ((theItem as EventCardObject).eventType || data?.page?.__typename)
-        "
-      >
+      <template v-if="metadataType && metadataAttrs">
         <BasePill
           class="mb-2"
           size="sm"
-          :content-type="data?.page?.__typename"
-          >{{ (theItem as EventCardObject).eventType }}</BasePill
+          :variant="metadataAttrs.variant"
         >
+          {{ (theItem as EventCardObject).eventType || metadataAttrs.label }}
+        </BasePill>
       </template>
       <template v-else>
         <div class="flex flex-wrap">
@@ -95,16 +92,30 @@
       >
         {{ theItem.date }}
       </p>
-      <template v-if="themeStore.isEdu">
+      <div
+        v-if="metadataType && metadataAttrs"
+        :class="{ 'mt-2 mb-1': !compact, 'mt-1 mb-0': compact }"
+      >
         <MetadataEvent
-          class="mt-2"
+          v-if="metadataType === 'EDUEventPage'"
           :event="theItem"
           compact
         />
-      </template>
+        <MetadataEduResource
+          v-else
+          :resource="theItem as EduResourceCardObject"
+          :variant="eduMetadataDictionaryComputed[metadataType].variant"
+          compact
+        />
+      </div>
     </div>
     <div
-      class="BlockLinkCard__CardArrow ThemeVariantLight can-hover:block text-primary can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
+      class="BlockLinkCard__CardArrow ThemeVariantLight can-hover:block can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
+      :class="
+        metadataType && metadataAttrs
+          ? `text-${eduMetadataDictionaryComputed[metadataType].variant}`
+          : 'text-primary'
+      "
     >
       <IconArrow />
     </div>
@@ -113,7 +124,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue'
-import type { Card, EventCardObject } from '../../interfaces'
+import type { Card, EventCardObject, EduResourceCardObject } from '../../interfaces'
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
@@ -126,6 +137,8 @@ import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder
 import BasePill from './../BasePill/BasePill.vue'
 import CalendarChip from './../CalendarChip/CalendarChip.vue'
 import MetadataEvent from './../MetadataEvent/MetadataEvent.vue'
+import MetadataEduResource from './../MetadataEduResource/MetadataEduResource.vue'
+import { eduMetadataDictionary } from './../../constants'
 
 export default defineComponent({
   name: 'BlockLinkCard',
@@ -136,7 +149,8 @@ export default defineComponent({
     BaseImagePlaceholder,
     BasePill,
     CalendarChip,
-    MetadataEvent
+    MetadataEvent,
+    MetadataEduResource
   },
   props: {
     data: {
@@ -221,6 +235,9 @@ export default defineComponent({
   },
   computed: {
     ...mapStores(useThemeStore),
+    eduMetadataDictionaryComputed() {
+      return eduMetadataDictionary
+    },
     // to allow for various data shapes and sources
     // use-case: content pages provide this.data.page with non-page siblings (i.e. external link cards)
     // use-case: search and listing pages pass individual props
@@ -236,9 +253,9 @@ export default defineComponent({
         this.label ||
         this.title ||
         this.date ||
-        this.eventType ||
         this.startDate ||
         this.endDate ||
+        this.eventType ||
         this.startDatetime ||
         this.endDatetime ||
         this.ongoing ||
@@ -260,6 +277,18 @@ export default defineComponent({
           ongoing: this.ongoing,
           locationName: this.location
         }
+      }
+      return undefined
+    },
+    metadataType() {
+      const validContentTypes = Object.keys(eduMetadataDictionary)
+      return this.data?.page?.__typename && validContentTypes.includes(this.data?.page?.__typename)
+        ? this.data?.page?.__typename
+        : undefined
+    },
+    metadataAttrs() {
+      if (this.metadataType) {
+        return eduMetadataDictionary[this.metadataType]
       }
       return undefined
     },

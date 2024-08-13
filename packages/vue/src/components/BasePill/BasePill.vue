@@ -1,20 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { Attributes } from './../../interfaces'
-
-interface LabelObject {
-  label: string
-  variant: string
-}
-interface labelDictionaryInterface {
-  [EDUExplainerArticlePage: string]: LabelObject
-}
-const labelDictionary: labelDictionaryInterface = {
-  EDUExplainerArticlePage: {
-    label: 'Explainer Article',
-    variant: 'secondary'
-  }
-}
 
 // using borders to vertically center wonky font face
 const variantMap: Attributes = {
@@ -41,24 +26,13 @@ const props = withDefaults(defineProps<BasePillProps>(), {
   size: 'md',
   contentType: undefined
 })
-
-const label = computed(() => {
-  return props.contentType && labelDictionary[props.contentType]
-    ? labelDictionary[props.contentType]?.label
-    : undefined
-})
 </script>
 <template>
   <p
-    :class="`${variantMap[label && props.contentType ? labelDictionary[props.contentType]?.variant : props.variant]} ${sizeMap[props.size]}`"
+    :class="`${variantMap[props.variant]} ${sizeMap[props.size]}`"
     class="ThemeVariantLight text-contrast-none inline-block text-white font-bold edu:font-extrabold rounded-full leading-tight m-0 uppercase print:border-none print:px-0"
   >
-    <template v-if="!label">
-      <slot>{{ label }}</slot>
-    </template>
-    <template v-else>
-      {{ label }}
-    </template>
+    <slot />
     <span class="sr-only">.</span>
   </p>
 </template>
