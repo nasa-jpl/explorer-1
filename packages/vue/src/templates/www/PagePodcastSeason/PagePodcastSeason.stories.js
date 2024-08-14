@@ -29,7 +29,7 @@ export const PagePodcastSeasonData = {
   summary:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in nibh mauris. Praesent vel tempus enim, a ultricies justo. Cras nec lorem quis lorem ullamcorper accumsan. Aliquam lacus tortor, vulputate sit amet purus vitae, accumsan maximus diam. Vivamus ac dui non sapien hendrerit elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porttitor ac quam sed eleifend.',
   featuredEpisode: HeroMediumData.feature,
-  heroImage: {
+  listingPageHeroImage: {
     // same dimensions used for HeroMedium
     src: {
       url: 'https://picsum.photos/id/247/1800/1200',

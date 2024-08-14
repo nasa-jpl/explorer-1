@@ -29,21 +29,21 @@
         />
       </video>
       <!-- change to v-if if image should load as fallback until video loads -->
-      <picture v-else-if="item.image && item.image.src">
+      <picture v-else-if="item.listingPageHeroImage && item.listingPageHeroImage.src">
         <source
           media="(min-width: 768px)"
-          :srcset="item.image.srcSet"
+          :srcset="item.listingPageHeroImage.srcSet"
         />
         <source
           media="(min-width: 420px)"
-          :srcset="item.image.screenMd?.url"
+          :srcset="item.listingPageHeroImage.screenMd?.url"
         />
-        <source :srcset="item.image.screenSm?.url" />
+        <source :srcset="item.listingPageHeroImage.screenSm?.url" />
         <img
           class="md:object-right object-cover object-bottom w-full h-full"
-          :src="item.image.src.url"
-          :width="item.image.src.width"
-          :height="item.image.src.height"
+          :src="item.listingPageHeroImage.src.url"
+          :width="item.listingPageHeroImage.src.width"
+          :height="item.listingPageHeroImage.src.height"
           alt=""
           loading="lazy"
           data-chromatic="ignore"
@@ -116,7 +116,7 @@ export interface Slide {
     fileOgg: string
     fileWebm: string
   }
-  image: Partial<ImageObject>
+  listingPageHeroImage: Partial<ImageObject>
 }
 
 export default defineComponent({

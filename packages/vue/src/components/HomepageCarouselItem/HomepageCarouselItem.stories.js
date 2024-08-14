@@ -28,7 +28,7 @@ export const HomepageCarouselItemData = {
     externalLink: 'https://mars.nasa.gov',
     slideTitle: 'Creating Robots to go Where Humans Can’t',
     video: BaseVideoData,
-    image: {
+    listingPageHeroImage: {
       src: {
         url: 'https://picsum.photos/id/973/1800/1200',
         width: 1800,

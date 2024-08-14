@@ -22,9 +22,9 @@
       :content="data.thumbnailImage.original"
     />
     <meta
-      v-if="data.summary || data.body"
+      v-if="data.summary || data.videoDetailBody"
       itemprop="description"
-      :content="data.summary || data.body"
+      :content="data.summary || data.videoDetailBody"
     />
     <div class="lg:container 3xl:px-0 lg:mt-12 px-5 mx-auto mt-5">
       <DetailHeadline
@@ -58,10 +58,10 @@
     <LayoutHelper indent="col-2">
       <div class="lg:grid grid-cols-10">
         <div
-          v-if="data.body"
+          v-if="data.videoDetailBody"
           class="col-span-7"
         >
-          <BlockText :text="data.body" />
+          <BlockText :text="data.videoDetailBody" />
           <hr class="border-gray-light-mid lg:my-8 my-5" />
           <div
             v-if="data.transcript"

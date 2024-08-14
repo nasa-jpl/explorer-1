@@ -39,7 +39,7 @@ export const BaseStory = {
       publicationDate: '2012-07-05T20:04:21+00:00',
       title: 'Milky Way',
       topicLabel: 'Stars and Galaxies',
-      description:
+      descriptionString:
         '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis lorem non purus consequat rutrum. Nulla vel convallis urna, eu porta purus. In hendrerit odio id diam volutpat auctor. Curabitur imperdiet dolor ipsum, quis luctus quam hendrerit eu. Quisque gravida lacus velit, a tempor dolor facilisis interdum. Sed pharetra mi eget feugiat bibendum. Donec vel nisi non nisi ultrices pellentesque eget non massa. Proin hendrerit sodales auctor. Phasellus egestas tortor eget ullamcorper tempor. Cras quis mauris erat. Curabitur tempor quam eget tellus aliquam semper. Morbi fringilla sodales dapibus. Proin pellentesque turpis eu neque pretium, in sodales sem auctor.</p>'
     }
   }

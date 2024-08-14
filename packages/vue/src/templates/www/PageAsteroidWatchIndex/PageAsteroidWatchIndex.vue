@@ -5,7 +5,7 @@
   >
     <HeroLarge
       :title="data.title"
-      :image="data.heroImage"
+      :image="data.listingPageHeroImage"
       has-overlay
     />
 

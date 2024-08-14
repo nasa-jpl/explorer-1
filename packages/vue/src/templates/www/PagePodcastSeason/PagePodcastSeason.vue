@@ -10,7 +10,7 @@
         v-if="data.featuredEpisode"
         :custom-label="data.label"
         :feature="data.featuredEpisode"
-        :custom-image="data.heroImage"
+        :custom-image="data.listingPageHeroImage"
         cta="Listen Now"
       />
     </div>
