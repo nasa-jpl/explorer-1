@@ -48,26 +48,29 @@ const rangeify = (a: number[]): string[] => {
 }
 
 export const rangeifyGrades = (gradeLevels: GradeLevelsObject[]) => {
-  const allAgesArray = gradeLevels.map((item) => {
-    if (item.gradeLevel === 'All Ages') return item.gradeLevel
-  })
-  const allAges = allAgesArray.join('')
+  if (gradeLevels) {
+    const allAgesArray = gradeLevels.map((item) => {
+      if (item.gradeLevel === 'All Ages') return item.gradeLevel
+    })
+    const allAges = allAgesArray.join('')
 
-  const gradesArray = gradeLevels.map((item) => {
-    // @ts-expect-error
-    const level: number = gradesAsNumbers.value[item.gradeLevel]
-    return level
-  })
+    const gradesArray = gradeLevels.map((item) => {
+      // @ts-expect-error
+      const level: number = gradesAsNumbers.value[item.gradeLevel]
+      return level
+    })
 
-  const filteredGrades = rangeify(gradesArray.filter(Number.isFinite))
-  let preparedGrades: string = ''
-  if (filteredGrades?.length) {
-    const gradeString = filteredGrades.length > 1 ? 'Grades: ' : 'Grade: '
-    preparedGrades = filteredGrades
-      .map((grade, index) => (index === 0 ? gradeString + grade : grade))
-      .join(', ')
+    const filteredGrades = rangeify(gradesArray.filter(Number.isFinite))
+    let preparedGrades: string = ''
+    if (filteredGrades?.length) {
+      const gradeString = filteredGrades.length > 1 ? 'Grades: ' : 'Grade: '
+      preparedGrades = filteredGrades
+        .map((grade, index) => (index === 0 ? gradeString + grade : grade))
+        .join(', ')
+    }
+
+    const audienceArray = [allAges, preparedGrades]
+    return audienceArray.filter(Boolean).join(', ')
   }
-
-  const audienceArray = [allAges, preparedGrades]
-  return audienceArray.filter(Boolean).join(', ')
+  return undefined
 }

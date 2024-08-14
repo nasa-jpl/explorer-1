@@ -24,10 +24,10 @@ const iconClass = computed(() => {
   return props.variant === 'primary' ? 'text-primary' : 'text-secondary'
 })
 const primarySubject = computed(() => {
-  return props.resource.primarySubject.subject
+  return props.resource?.primarySubject?.subject
 })
 const audience = computed(() => {
-  return rangeifyGrades(props.resource.gradeLevels)
+  return rangeifyGrades(props.resource?.gradeLevels)
 })
 </script>
 <template>

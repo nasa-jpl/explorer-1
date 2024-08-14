@@ -105,7 +105,7 @@
           compact
         />
         <MetadataEduResource
-          v-else
+          v-else-if="metadataType === 'EDUExplainerArticlePage'"
           :resource="theItem as EduResourceCardObject"
           :variant="eduMetadataDictionaryComputed[metadataType].variant"
           compact

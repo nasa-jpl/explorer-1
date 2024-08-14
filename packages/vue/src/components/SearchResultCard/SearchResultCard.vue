@@ -195,7 +195,7 @@
             :src="image.src.url"
             :width="image.src.width"
             :height="image.src.height"
-            :alt="image.alt"
+            :alt="image.alt || ''"
             class="object-cover w-full h-full"
             loading="lazy"
             data-chromatic="ignore"
