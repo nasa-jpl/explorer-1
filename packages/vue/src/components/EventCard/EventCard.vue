@@ -66,12 +66,6 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import {
-  mixinFormatEventDates,
-  mixinFormatSplitEventDates,
-  mixinFormatEventTimeInHoursAndMinutes,
-  type EventDateObject
-} from './../../utils/mixins'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import BaseLink from './../BaseLink/BaseLink.vue'
@@ -79,9 +73,6 @@ import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import CalendarChip from './../CalendarChip/CalendarChip.vue'
-import IconCalendar from './../Icons/IconCalendar.vue'
-import IconTime from './../Icons/IconTime.vue'
-import IconLocation from './../Icons/IconLocation.vue'
 import MetadataEvent from './../../components/MetadataEvent/MetadataEvent.vue'
 
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
@@ -94,9 +85,6 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     CalendarChip,
-    IconCalendar,
-    IconTime,
-    IconLocation,
     MetadataEvent
   },
   props: {
@@ -148,45 +136,7 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapStores(useThemeStore),
-    splitDate(): EventDateObject | null {
-      if (this.startDate) {
-        return mixinFormatSplitEventDates(this.startDate, this.endDate)
-      }
-      return null
-    },
-    displayTime(): string | undefined {
-      if (this.startDate) {
-        return mixinFormatEventTimeInHoursAndMinutes(this.startDate, this.endDate, this.endTime)
-      }
-      return undefined
-    },
-    formattedEventDates() {
-      return this.startDate ? mixinFormatEventDates(this.startDate, this.endDate) : undefined
-    }
+    ...mapStores(useThemeStore)
   }
 })
 </script>
-<style lang="scss">
-.EventCard {
-  // .EventCard__Metadata {
-  //   @apply items-baseline;
-  //   @apply mr-0;
-  //   @apply mb-4;
-  //   @apply md:mb-0;
-  //   @apply md:mr-3;
-  //   @apply lg:mr-6;
-
-  //   span {
-  //     max-width: 230px;
-  //     min-width: 110px;
-  //     @apply text-gray-dark;
-  //   }
-
-  //   svg {
-  //     min-width: 1.25rem;
-  //     @apply top-0.5;
-  //   }
-  // }
-}
-</style>
