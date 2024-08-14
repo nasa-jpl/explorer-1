@@ -1,7 +1,32 @@
 <template>
   <div>
+    <BlockLinkCard
+      v-if="themeStore.isEdu"
+      :heading-level="headingLevel"
+      size="lg"
+      :data="{
+        page: {
+          __typename: pageContentType
+            ? (searchContentTypeToPageType[pageContentType] as string)
+            : undefined,
+          url,
+          type,
+          label: topic,
+          date,
+          title,
+          summary,
+          thumbnailImage: image,
+          startTime,
+          startDate,
+          endTime,
+          endDate,
+          location,
+          eventType: eventType
+        }
+      }"
+    />
     <EventCard
-      v-if="isEvents"
+      v-else-if="isEvents"
       :url="url"
       :title="title"
       :summary="summary"
@@ -170,7 +195,7 @@
             :src="image.src.url"
             :width="image.src.width"
             :height="image.src.height"
-            :alt="image.alt"
+            :alt="image.alt || ''"
             class="object-cover w-full h-full"
             loading="lazy"
             data-chromatic="ignore"
@@ -184,12 +209,16 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import PodcastEpisodeCard from './../PodcastEpisodeCard/PodcastEpisodeCard.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import EventCard from './../EventCard/EventCard.vue'
+import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
+import { searchContentTypeToPageType } from './../../constants'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -200,6 +229,7 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     EventCard,
+    BlockLinkCard,
     PodcastEpisodeCard
   },
   props: {
@@ -210,27 +240,38 @@ export default defineComponent({
     },
     type: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
+    },
+    eventType: {
+      type: String,
+      required: false,
+      default: undefined
     },
     topic: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     date: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     title: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     summary: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
     featured: {
       type: Boolean,
@@ -256,27 +297,43 @@ export default defineComponent({
     },
     media: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     startTime: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     startDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     endTime: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     endDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     location: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
+    },
+    pageContentType: {
+      type: String,
+      default: undefined
+    }
+  },
+  computed: {
+    ...mapStores(useThemeStore),
+    searchContentTypeToPageType() {
+      return searchContentTypeToPageType
     }
   }
 })

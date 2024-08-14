@@ -40,17 +40,17 @@
           :class="{ 'xl:px-10 xl:py-6 lg:px-8': !compact }"
         >
           <p
-            v-if="theItem.label || theItem.startDate"
+            v-if="theItem.label || (theItem as EventCardObject).startDate"
             class="text-subtitle divide-white flex divide-x mb-2"
           >
             <span
               v-if="theItem.label"
-              :class="{ 'pr-2': theItem.startDate }"
+              :class="{ 'pr-2': (theItem as EventCardObject).startDate }"
             >
               {{ theItem.label }}
             </span>
             <span
-              v-if="theItem.startDate"
+              v-if="(theItem as EventCardObject).startDate"
               :class="{ 'pl-2': theItem.label }"
             >
               {{ formattedEventDates }}
@@ -81,7 +81,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue'
-import type { Card } from '../../interfaces'
+import type { Card, EventCardObject } from '../../interfaces'
 import { defineComponent } from 'vue'
 import { mixinFormatEventDates } from './../../utils/mixins'
 import IconArrow from './../Icons/IconArrow.vue'
@@ -101,7 +101,7 @@ export default defineComponent({
   props: {
     // if some cards contain external links, be sure to alias the external url as 'externalLink'
     data: {
-      type: Object as PropType<Card>,
+      type: Object as PropType<Card | EventCardObject>,
       required: false
     },
     // override props as needed
@@ -149,7 +149,7 @@ export default defineComponent({
     // to allow for various data shapes and sources
     // use-case: the homepage provides this.data.page with non-page siblings
     // use-case: search and listing pages pass individual props
-    theItem(): Card | undefined {
+    theItem(): Card | EventCardObject | undefined {
       if ((this.data as Card)?.page) {
         return (this.data as Card).page
       } else if (this.data) {
@@ -177,8 +177,11 @@ export default defineComponent({
       return undefined
     },
     formattedEventDates() {
-      return this.theItem?.startDate
-        ? mixinFormatEventDates(this.theItem.startDate, this.theItem.endDate)
+      return (this.theItem as EventCardObject)?.startDate
+        ? mixinFormatEventDates(
+            (this.theItem as EventCardObject).startDate,
+            (this.theItem as EventCardObject).endDate
+          )
         : undefined
     }
   }

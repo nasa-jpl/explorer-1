@@ -40,7 +40,7 @@
     <div class="text-gray-dark md:px-5 md:py-5 lg:px-10 lg:py-8 w-full px-10 py-8">
       <!-- label area -->
       <div
-        v-if="theData.label || theData.date || theData.startDate"
+        v-if="theData.label || theData.date || (theData as EventCardObject).startDate"
         class="flex flex-wrap items-center justify-between mb-5"
       >
         <p class="divide-gray-mid text-subtitle flex divide-x">
@@ -50,7 +50,7 @@
             >{{ theData.label }}</span
           >
           <span
-            v-if="theData.date || theData.startDate"
+            v-if="theData.date || (theData as EventCardObject).startDate"
             class="text-gray-mid-dark"
             :class="{ 'pl-2': theData.label }"
           >
@@ -60,7 +60,7 @@
                 $filters.displayDate(theData.date)
               }}
             </template>
-            <template v-else-if="theData.startDate">
+            <template v-else-if="(theData as EventCardObject).startDate">
               {{ formattedEventDates }}
             </template>
           </span>
@@ -80,7 +80,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { Card } from '../../interfaces'
+import type { Card, EventCardObject } from '../../interfaces'
 import { mixinFormatEventDates } from '../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -99,8 +99,9 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<Card>,
-      required: false
+      type: Object as PropType<Card | EventCardObject>,
+      required: false,
+      default: undefined
     }
   },
   computed: {
@@ -113,8 +114,11 @@ export default defineComponent({
       return undefined
     },
     formattedEventDates() {
-      if (this.theData?.startDate) {
-        return mixinFormatEventDates(this.theData.startDate, this.theData.endDate)
+      if ((this.theData as EventCardObject)?.startDate) {
+        return mixinFormatEventDates(
+          (this.theData as EventCardObject).startDate,
+          (this.theData as EventCardObject).endDate
+        )
       }
       return undefined
     }

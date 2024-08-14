@@ -63,7 +63,8 @@
     <LayoutHelper indent="col-2">
       <EventDetailHero
         :image="data.eventImage"
-        :start-date-split="formattedSplitEventDates"
+        :start-date="data.startDate"
+        :end-date="data.endDate"
       />
 
       <!-- Event details -->
@@ -72,62 +73,7 @@
           class="py-1 mb-10 text-xl lg:mb-0 lg:flex"
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
-          <div class="PageEventDetail__Metadata text-primary">
-            <IconCalendar class="relative mr-3 text-[1.2rem]" />
-            <span>{{ formattedEventDates }}</span>
-          </div>
-          <div
-            v-show="displayTime"
-            class="PageEventDetail__Metadata text-primary"
-          >
-            <IconTime class="relative mr-3" />
-            <span>{{ displayTime }}</span>
-          </div>
-          <!--Virtual location -->
-          <div
-            v-if="data.isVirtualEvent && data.locationLink"
-            itemprop="location"
-            itemscope
-            itemtype="https://schema.org/VirtualLocation"
-            class="PageEventDetail__Metadata text-primary"
-          >
-            <link
-              itemprop="url"
-              :href="data.locationLink"
-            />
-            <meta
-              itemprop="name"
-              :content="data.location"
-            />
-            <IconLocation class="relative mr-3" />
-            <BaseLink
-              variant="none"
-              :href="data.locationLink"
-              external-target-blank
-            >
-              {{ data.location }}
-            </BaseLink>
-          </div>
-          <!-- Normal location -->
-          <div
-            v-else-if="data.location"
-            class="PageEventDetail__Metadata text-primary"
-          >
-            <meta
-              itemprop="location"
-              :content="data.location"
-            />
-            <IconLocation class="relative mr-3" />
-            <BaseLink
-              v-if="data.locationLink"
-              variant="none"
-              :href="data.locationLink"
-              external-target-blank
-            >
-              {{ data.location }}
-            </BaseLink>
-            <span v-else>{{ data.location }}</span>
-          </div>
+          <MetadataEvent :event="data" />
           <div class="PageEventDetail__Buttons">
             <BaseButton
               v-if="
@@ -267,34 +213,26 @@
     </LayoutHelper>
 
     <!-- Related Events -->
-    <LayoutHelper
-      v-if="data.moreEvents && data.moreEvents.length > 0"
-      indent="col-1"
+    <div
+      v-if="moreEvents?.length > 0"
       class="my-12 lg:my-16 print:!px-4"
     >
       <BlockLinkCarousel
         item-type="cards"
         class="print:!px-4"
         heading="MORE EVENTS"
-        :items="data.moreEvents"
+        :items="moreEvents"
       />
-    </LayoutHelper>
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {
-  mixinFormatEventDates,
-  mixinFormatEventTimeInHoursAndMinutes,
-  mixinFormatSplitEventDates
-} from '../../utils/mixins'
+import type { EventCardObject } from './../../interfaces'
 import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../../components/BaseHeading/BaseHeading.vue'
 import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
 import EventDetailHero from './../../components/EventDetailHero/EventDetailHero.vue'
-import IconCalendar from './../../components/Icons/IconCalendar.vue'
-import IconLocation from './../../components/Icons/IconLocation.vue'
-import IconTime from './../../components/Icons/IconTime.vue'
 import BaseLink from './../../components/BaseLink/BaseLink.vue'
 import BaseButton from './../../components/BaseButton/BaseButton.vue'
 import CalendarButton from './../../components/CalendarButton/CalendarButton.vue'
@@ -303,6 +241,7 @@ import BaseImagePlaceholder from './../../components/BaseImagePlaceholder/BaseIm
 import BaseImage from './../../components/BaseImage/BaseImage.vue'
 import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import MetadataEvent from './../../components/MetadataEvent/MetadataEvent.vue'
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
 
@@ -313,9 +252,6 @@ export default defineComponent({
     BaseHeading,
     ShareButtons,
     EventDetailHero,
-    IconCalendar,
-    IconLocation,
-    IconTime,
     BaseLink,
     BaseButton,
     CalendarButton,
@@ -323,12 +259,14 @@ export default defineComponent({
     BaseImagePlaceholder,
     BaseImage,
     BlockRelatedLinks,
-    BlockLinkCarousel
+    BlockLinkCarousel,
+    MetadataEvent
   },
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   data() {
@@ -337,22 +275,19 @@ export default defineComponent({
     }
   },
   computed: {
-    displayTime(): string {
-      return this.data
-        ? mixinFormatEventTimeInHoursAndMinutes(
-            this.data.startDatetime,
-            this.data.endDatetime,
-            this.data.endTime
-          )
-        : ''
-    },
-    formattedEventDates(): string {
-      return this.data ? mixinFormatEventDates(this.data.startDatetime, this.data.endDatetime) : ''
-    },
-    formattedSplitEventDates() {
-      return this.data
-        ? mixinFormatSplitEventDates(this.data.startDatetime, this.data.endDatetime)
+    moreEvents(): EventCardObject[] {
+      // mimic the data shape of a PageChooserBlock array
+      const mapped = this.data?.moreEvents
+        ? this.data.moreEvents.map((event: EventCardObject) => {
+            return {
+              page: {
+                __typename: 'EventPage',
+                ...event
+              }
+            }
+          })
         : undefined
+      return mapped
     }
   }
 })

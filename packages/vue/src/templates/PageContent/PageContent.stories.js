@@ -62,6 +62,7 @@ export const ContentPageData = {
     // via page chooser
     {
       page: {
+        __typename: 'EDUExplainerArticlePage',
         label: 'Mission',
         thumbnailImage: {
           src: {

@@ -79,13 +79,38 @@ export interface Card {
   type?: string
   url?: string
   externalLink?: string
-  page?: Card
+  page?: Card | EventCardObject | EduResourceCardObject
   title?: string
   date?: string
-  startDate?: string
-  endDate?: string
   label?: string
   thumbnailImage?: Partial<ImageObject>
+  summary?: string
+}
+export interface EventCardObject extends Card {
+  startDate?: string
+  endDate?: string
+  startDatetime?: string
+  endDatetime?: string
+  startTime?: string
+  endTime?: string
+  customDate?: string
+  eventType?: string
+  ongoing?: boolean
+  isVirtualEvent?: boolean
+  locationName?: string
+  location?: string
+  locationLink?: string
+}
+
+export interface PrimarySubjectObject {
+  subject: string
+}
+export interface GradeLevelsObject {
+  gradeLevel: string
+}
+export interface EduResourceCardObject extends Card {
+  primarySubject: PrimarySubjectObject
+  gradeLevels: GradeLevelsObject[]
 }
 
 export interface LinkObject {
@@ -137,4 +162,17 @@ export interface AuthorObject {
 export interface Topic {
   title: string
   url: string
+}
+
+export type MetadataType = 'event' | 'resource'
+
+export interface LabelObject {
+  label?: string
+  variant: string
+}
+export interface PillDictionaryInterface {
+  [EDUExplainerArticlePage: string]: LabelObject
+}
+export interface DictionaryInterface {
+  [key: string]: string
 }

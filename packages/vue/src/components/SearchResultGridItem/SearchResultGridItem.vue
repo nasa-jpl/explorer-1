@@ -1,18 +1,45 @@
 <template>
   <div>
     <BlockLinkCard
-      v-if="pageContentType === 'news_news'"
-      :url="url"
-      :title="title"
-      :label="topic"
-      :thumbnail-image="image"
-      :date="date"
+      v-if="themeStore.isEdu"
+      :data="{
+        page: {
+          __typename: typename,
+          url,
+          type,
+          label: topic,
+          date,
+          title,
+          thumbnailImage: image,
+          startTime,
+          startDate,
+          endTime,
+          endDate,
+          location,
+          eventType: eventType
+        }
+      }"
       :heading-level="headingLevel"
-      compact
+      size="sm"
+    />
+    <BlockLinkCard
+      v-else-if="typename === 'News'"
+      :data="{
+        page: {
+          __typename: typename,
+          url,
+          title,
+          label: topic,
+          thumbnailImage: image,
+          date
+        }
+      }"
+      :heading-level="headingLevel"
+      size="sm"
     />
 
     <BlockLinkTile
-      v-else-if="pageContentType === 'missions_mission'"
+      v-else-if="typename === 'Mission'"
       :url="url"
       :title="title"
       :thumbnail-image="image"
@@ -41,17 +68,11 @@
             class="sm:object-cover object-cover"
             loading="lazy"
           />
-          <div
-            v-if="splitDate"
-            class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white lg:py-6 bg-primary"
-          >
-            <div class="font-extrabold text-8xl leading-tight tracking-wider">
-              {{ splitDate.day }}
-            </div>
-            <div class="text-subtitle">
-              {{ splitDate.monthAndYear }}
-            </div>
-          </div>
+          <CalendarChip
+            :start-date="startDate"
+            :end-date="endDate"
+            :ongoing="ongoing"
+          />
         </BaseImagePlaceholder>
       </div>
       <component
@@ -69,12 +90,15 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import { mixinFormatSplitEventDates } from '../../utils/mixins'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 import BlockLinkTile from './../BlockLinkTile/BlockLinkTile.vue'
+import CalendarChip from './../CalendarChip/CalendarChip.vue'
+import { searchContentTypeToPageType } from './../../constants'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -84,7 +108,8 @@ export default defineComponent({
     BaseImage,
     BaseImagePlaceholder,
     BlockLinkCard,
-    BlockLinkTile
+    BlockLinkTile,
+    CalendarChip
   },
   props: {
     url: {
@@ -92,6 +117,10 @@ export default defineComponent({
       required: false
     },
     type: {
+      type: String,
+      required: false
+    },
+    eventType: {
       type: String,
       required: false
     },
@@ -103,6 +132,14 @@ export default defineComponent({
       type: String,
       required: false
     },
+    title: {
+      type: String,
+      required: false
+    },
+    image: {
+      type: Object,
+      required: false
+    },
     startDate: {
       type: String,
       required: false
@@ -111,13 +148,23 @@ export default defineComponent({
       type: String,
       required: false
     },
-    title: {
+    startTime: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
-    image: {
-      type: Object,
-      required: false
+    endTime: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    ongoing: {
+      type: Boolean,
+      default: false
+    },
+    location: {
+      type: String,
+      default: undefined
     },
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
@@ -129,11 +176,14 @@ export default defineComponent({
     }
   },
   computed: {
-    splitDate(): { day: string; monthAndYear: string } | null {
-      if (this.startDate) {
-        return mixinFormatSplitEventDates(this.startDate, this.endDate)
-      }
-      return null
+    ...mapStores(useThemeStore),
+    searchContentTypeToPageType() {
+      return searchContentTypeToPageType
+    },
+    typename() {
+      return this.pageContentType
+        ? (this.searchContentTypeToPageType[this.pageContentType] as string)
+        : undefined
     }
   }
 })

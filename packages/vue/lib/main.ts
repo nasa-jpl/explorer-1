@@ -44,7 +44,7 @@ import BaseModal from './../src/components/BaseModal/BaseModal.vue'
 import BasePlaceholder from './../src/components/BasePlaceholder/BasePlaceholder.vue'
 import BaseRadioGroup from './../src/components/BaseRadioGroup/BaseRadioGroup.vue'
 import BaseSwimlane from './../src/components/BaseSwimlane/BaseSwimlane.vue'
-import BaseTag from './../src/components/BaseTag/BaseTag.vue'
+import BasePill from './../src/components/BasePill/BasePill.vue'
 import BaseTimer from './../src/components/BaseTimer/BaseTimer.vue'
 import BaseUnitToggle from './../src/components/BaseUnitToggle/BaseUnitToggle.vue'
 import BaseVideo from './../src/components/BaseVideo/BaseVideo.vue'
@@ -248,7 +248,7 @@ export {
   BasePlaceholder,
   BaseRadioGroup,
   BaseSwimlane,
-  BaseTag,
+  BasePill,
   BaseTimer,
   BaseUnitToggle,
   BaseVideo,

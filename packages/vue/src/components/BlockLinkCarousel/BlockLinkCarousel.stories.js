@@ -143,10 +143,18 @@ export const EventsBlockLinkCarouselData = [
       }
     },
     title: 'Past event',
-    url: '/events/becoming-a-nasa-engineer'
+    url: '/events/becoming-a-nasa-engineer',
+    startDatetime: '2019-11-11T00:00:00-08:00',
+    ongoing: false,
+    isVirtualEvent: false,
+    endDatetime: null,
+    eventType: 'Internship',
+    locationName: 'Webcast',
+    locationLink: 'https://www.nasa.gov',
+    customDate: undefined
   },
   {
-    endDate: null,
+    endDate: '2021-12-1',
     startDate: '2021-11-27',
     thumbnailImage: {
       src: {
@@ -156,7 +164,56 @@ export const EventsBlockLinkCarouselData = [
       }
     },
     title: 'Future event',
-    url: '/events/becoming-a-nasa-engineer'
+    eventType: 'Workshop',
+    url: '/events/becoming-a-nasa-engineer',
+    startDatetime: '2021-11-11T00:00:00-08:00',
+    ongoing: false,
+    isVirtualEvent: false,
+    endDatetime: '2021-12-01T23:59:59.999999-08:00',
+    locationName: 'Webcast',
+    locationLink: 'https://www.nasa.gov',
+    customDate: undefined
+  },
+  {
+    endDate: '2021-12-1',
+    startDate: '2021-11-27',
+    thumbnailImage: {
+      src: {
+        height: '288',
+        url: 'https://picsum.photos/512/288',
+        width: '512'
+      }
+    },
+    title: 'Custom event',
+    eventType: 'Workshop',
+    url: '/events/becoming-a-nasa-engineer',
+    startDatetime: '2021-11-11T00:00:00-08:00',
+    customDate: 'Custom date goes here',
+    ongoing: false,
+    isVirtualEvent: false,
+    endDatetime: '2021-12-01T23:59:59.999999-08:00',
+    locationName: 'Webcast',
+    locationLink: 'https://www.nasa.gov'
+  },
+  {
+    endDate: '2021-12-1',
+    startDate: '2021-11-27',
+    thumbnailImage: {
+      src: {
+        height: '288',
+        url: 'https://picsum.photos/512/288',
+        width: '512'
+      }
+    },
+    title: 'Ongoing event',
+    url: '/events/becoming-a-nasa-engineer',
+    startDatetime: '2021-11-11T00:00:00-08:00',
+    customDate: 'Custom date goes here',
+    ongoing: true,
+    isVirtualEvent: false,
+    endDatetime: '2021-12-01T23:59:59.999999-08:00',
+    locationName: 'Webcast',
+    locationLink: 'https://www.nasa.gov'
   }
 ]
 
