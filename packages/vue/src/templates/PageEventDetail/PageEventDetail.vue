@@ -63,7 +63,8 @@
     <LayoutHelper indent="col-2">
       <EventDetailHero
         :image="data.eventImage"
-        :start-date-split="formattedSplitEventDates"
+        :start-date="data.startDate"
+        :end-date="data.endDate"
       />
 
       <!-- Event details -->
@@ -228,7 +229,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { EventCardObject } from './../../interfaces'
-import { mixinFormatSplitEventDates, type EventDateObject } from './../../utils/mixins'
 import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../../components/BaseHeading/BaseHeading.vue'
 import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
@@ -265,7 +265,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   data() {
@@ -287,14 +288,6 @@ export default defineComponent({
           })
         : undefined
       return mapped
-    },
-    startDateTimeForFormatting(): string {
-      return this.data?.startDatetime || this.data?.startDate
-    },
-    formattedSplitEventDates(): string | EventDateObject | undefined {
-      return this.data && this.startDateTimeForFormatting
-        ? mixinFormatSplitEventDates(this.startDateTimeForFormatting, this.data.endDatetime)
-        : undefined
     }
   }
 })
