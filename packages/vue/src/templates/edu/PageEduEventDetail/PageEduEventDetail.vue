@@ -38,17 +38,12 @@
         :image="data.eventImage"
         :constrain="data.heroConstrain"
       />
-      <div
-        v-if="formattedSplitEventDates"
-        class="ThemeVariantLight absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary print:hidden"
-      >
-        <div class="font-extrabold text-6xl leading-tight tracking-wider">
-          {{ formattedSplitEventDates.month }}
-        </div>
-        <div class="text-subtitle">
-          {{ formattedSplitEventDates.year }}
-        </div>
-      </div>
+      <CalendarChip
+        v-if="startDatetimeForFormatting"
+        :start-date="startDatetimeForFormatting"
+        :end-date="data.endDatetime"
+        :ongoing="data.ongoing"
+      />
     </div>
     <LayoutHelper
       indent="col-2"
@@ -58,12 +53,12 @@
         v-if="data.eventType"
         class="flex flex-wrap items-start mb-4"
       >
-        <BaseTag
+        <BasePill
           variant="primary"
           size="lg"
         >
           {{ data.eventType }}
-        </BaseTag>
+        </BasePill>
       </div>
       <BaseHeading
         level="h1"
@@ -90,7 +85,8 @@
       <EventDetailHero
         v-if="heroIsInline"
         :image="data.eventImage"
-        :start-date-split="formattedSplitEventDates"
+        :start-date="startDatetimeForFormatting"
+        :end-date="data.endDate"
         :constrain="data.heroConstrain"
         :ongoing="data.ongoing"
       />
@@ -98,73 +94,12 @@
       <!-- Event details -->
       <div>
         <div
-          class="py-1 mb-10 text-xl lg:mb-0 lg:flex"
+          class="py-1 mb-10 lg:mb-0 lg:flex"
           :class="data.registerLink && data.registerLink.length > 0 ? '' : 'lg:mb-10'"
         >
-          <div
-            v-if="data.ongoing || data.customDate || formattedEventDates"
-            class="PageEduEventDetail__Metadata text-primary"
-            :class="{ 'flex-2': data.customDate }"
-          >
-            <IconCalendar class="relative mr-3 lg:mr-2 xl:mr-3 text-[1.2rem]" />
-            <span>{{ data.ongoing ? 'Ongoing' : data.customDate || formattedEventDates }}</span>
-          </div>
-          <div
-            v-show="displayTime"
-            class="PageEduEventDetail__Metadata text-primary"
-          >
-            <IconTime class="relative mr-3 lg:mr-2 xl:mr-3" />
-            <span>{{ displayTime }}</span>
-          </div>
-          <!--Virtual location -->
-          <div
-            v-if="data.isVirtualEvent && data.locationLink"
-            itemprop="location"
-            itemscope
-            itemtype="https://schema.org/VirtualLocation"
-            class="PageEduEventDetail__Metadata text-primary"
-          >
-            <link
-              itemprop="url"
-              :href="data.locationLink"
-            />
-            <meta
-              itemprop="name"
-              :content="data.locationName"
-            />
-            <IconLocation class="relative mr-3 lg:mr-2 xl:mr-3" />
-            <BaseLink
-              variant="none"
-              class="text-action"
-              :href="data.locationLink"
-              external-target-blank
-            >
-              {{ data.locationName }}
-            </BaseLink>
-          </div>
-          <!-- Normal location -->
-          <div
-            v-else-if="data.locationName"
-            min-
-            class="PageEduEventDetail__Metadata text-primary"
-          >
-            <meta
-              itemprop="location"
-              :content="data.locationName"
-            />
-            <IconLocation class="relative mr-3 lg:mr-2 xl:mr-3" />
-            <BaseLink
-              v-if="data.locationLink"
-              variant="none"
-              :href="data.locationLink"
-              external-target-blank
-            >
-              {{ data.locationName }}
-            </BaseLink>
-            <span v-else>{{ data.locationName }}</span>
-          </div>
+          <MetadataEvent :event="data" />
 
-          <div class="PageEduEventDetail__Buttons">
+          <div class="PageEduEventDetail__Buttons max-w-[17rem]">
             <BaseButton
               v-if="
                 data.registerLink &&
@@ -313,18 +248,17 @@
     </LayoutHelper>
 
     <!-- Related Events -->
-    <LayoutHelper
-      v-if="data.relatedEvents?.length"
-      indent="col-1"
+    <div
+      v-if="relatedEvents?.length"
       class="my-12 lg:my-16 px-0"
     >
       <BlockLinkCarousel
         item-type="cards"
         size="h3"
         heading="Related Events"
-        :items="data.relatedEvents"
+        :items="relatedEvents"
       />
-    </LayoutHelper>
+    </div>
     <!-- Related Content -->
     <div
       v-if="data.relatedContent?.length"
@@ -341,20 +275,13 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {
-  mixinFormatEventDates,
-  mixinFormatEventTimeInHoursAndMinutes,
-  mixinFormatSplitEventDates
-} from '../../../utils/mixins'
+import type { EventCardObject } from './../../../interfaces'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
-import BaseTag from './../../../components/BaseTag/BaseTag.vue'
+import BasePill from './../../../components/BasePill/BasePill.vue'
 import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 import EventDetailHero from './../../../components/EventDetailHero/EventDetailHero.vue'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
-import IconCalendar from './../../../components/Icons/IconCalendar.vue'
-import IconLocation from './../../../components/Icons/IconLocation.vue'
-import IconTime from './../../../components/Icons/IconTime.vue'
 import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import BaseButton from './../../../components/BaseButton/BaseButton.vue'
 import CalendarButton from './../../../components/CalendarButton/CalendarButton.vue'
@@ -364,6 +291,8 @@ import BaseImage from './../../../components/BaseImage/BaseImage.vue'
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
+import CalendarChip from './../../../components/CalendarChip/CalendarChip.vue'
+import MetadataEvent from './../../../components/MetadataEvent/MetadataEvent.vue'
 
 // @ts-ignore
 import PlaceholderPortrait from '@explorer-1/common/src/images/svg/placeholder-portrait.svg'
@@ -373,13 +302,10 @@ export default defineComponent({
   components: {
     LayoutHelper,
     BaseHeading,
-    BaseTag,
+    BasePill,
     ShareButtonsEdu,
     EventDetailHero,
     HeroMedia,
-    IconCalendar,
-    IconLocation,
-    IconTime,
     BaseLink,
     BaseButton,
     CalendarButton,
@@ -388,7 +314,9 @@ export default defineComponent({
     BaseImage,
     BlockRelatedLinks,
     BlockLinkCarousel,
-    BlockText
+    BlockText,
+    CalendarChip,
+    MetadataEvent
   },
   props: {
     data: {
@@ -403,35 +331,23 @@ export default defineComponent({
     }
   },
   computed: {
-    startDateTimeForFormatting(): string {
+    startDatetimeForFormatting(): string {
       return this.data?.startDatetime || this.data?.startDate
-    },
-    displayTime(): string {
-      if (!this.data?.customDate) {
-        const time =
-          this.data && this.startDateTimeForFormatting
-            ? mixinFormatEventTimeInHoursAndMinutes(
-                this.startDateTimeForFormatting,
-                this.data.endDatetime,
-                this.data.endTime
-              )
-            : undefined
-        return time ? time.replaceAll(':00', '') : ''
-      }
-      return ''
-    },
-    formattedEventDates(): string | undefined {
-      return this.data && this.startDateTimeForFormatting
-        ? mixinFormatEventDates(this.startDateTimeForFormatting, this.data.endDatetime)
-        : undefined
-    },
-    formattedSplitEventDates() {
-      return this.data && this.startDateTimeForFormatting
-        ? mixinFormatSplitEventDates(this.startDateTimeForFormatting, this.data.endDatetime)
-        : undefined
     },
     heroIsInline(): boolean {
       return this.data?.heroPosition === 'inline'
+    },
+    relatedEvents(): EventCardObject[] {
+      // mimic the data shape of a PageChooserBlock array
+      const mapped = this.data?.relatedEvents
+        ? this.data.relatedEvents.map((event: EventCardObject) => {
+            return {
+              __typename: 'EDUEventPage',
+              page: event
+            }
+          })
+        : undefined
+      return mapped
     }
   }
 })
@@ -461,7 +377,6 @@ export default defineComponent({
     @apply mt-10;
     @apply lg:mt-0;
     @apply text-center;
-    @apply max-w-[17rem];
   }
   .bg-stars .MixinCarousel__Heading {
     @apply text-white;

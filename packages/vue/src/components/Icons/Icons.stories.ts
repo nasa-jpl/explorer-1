@@ -34,6 +34,7 @@ import IconPause from './IconPause.vue'
 import IconPlay from './IconPlay.vue'
 import IconPlus from './IconPlus.vue'
 import IconPrev from './IconPrev.vue'
+import IconProfile from './IconProfile.vue'
 import IconRewindTen from './IconRewindTen.vue'
 import IconSearch from './IconSearch.vue'
 import IconShare from './IconShare.vue'
@@ -47,6 +48,7 @@ import IconSocialReddit from './IconSocialReddit.vue'
 import IconSocialTwitter from './IconSocialTwitter.vue'
 import IconSocialYoutube from './IconSocialYoutube.vue'
 import IconStop from './IconStop.vue'
+import IconSubject from './IconSubject.vue'
 import IconTime from './IconTime.vue'
 import IconUniversity from './IconUniversity.vue'
 import IconUser from './IconUser.vue'
@@ -92,6 +94,7 @@ export default {
     IconPlay,
     IconPlus,
     IconPrev,
+    IconProfile,
     IconRewindTen,
     IconSearch,
     IconShare,
@@ -430,6 +433,18 @@ export const User = {
   render: () => ({
     components: { IconUser },
     template: '<IconUser />'
+  })
+}
+export const Profile = {
+  render: () => ({
+    components: { IconProfile },
+    template: '<IconProfile />'
+  })
+}
+export const Subject = {
+  render: () => ({
+    components: { IconSubject },
+    template: '<IconSubject />'
   })
 }
 export const Volume = {

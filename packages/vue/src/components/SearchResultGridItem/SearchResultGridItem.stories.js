@@ -1,7 +1,7 @@
 import SearchResultGridItem from './SearchResultGridItem.vue'
 
 export default {
-  title: 'Components/Search/SearchResultGridItem',
+  title: 'Components/Cards/SearchResultGridItem',
   component: SearchResultGridItem,
   decorators: [
     () => ({
@@ -67,5 +67,12 @@ export const MissionResult = {
     ...SearchResultGridCardData.page,
     pageContentType: 'missions_mission',
     headingLevel: 'h2'
+  }
+}
+export const Event = {
+  args: {
+    ...SearchResultGridCardData.page,
+    startTime: '00:00:00-08:00',
+    startDate: '2021-11-11'
   }
 }

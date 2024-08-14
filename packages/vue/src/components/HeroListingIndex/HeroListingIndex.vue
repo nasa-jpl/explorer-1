@@ -7,7 +7,12 @@
     <HeroMedium
       v-if="pageData.featured"
       class="md:mb-12 lg:mb-18 mb-10"
-      :custom-tag="themeStore.theme === 'ThemeEdu' && customLabel ? customLabel : undefined"
+      :custom-pill="themeStore.theme === 'ThemeEdu' && customLabel ? customLabel : undefined"
+      :custom-pill-type="
+        themeStore.theme === 'ThemeEdu' && pageData.featured?.__typename
+          ? pageData.featured.__typename
+          : undefined
+      "
       :custom-label="themeStore.theme === 'ThemeEdu' ? pageData.featured.topicLabel : customLabel"
       :feature="pageData.featured"
       :custom-video="customVideo"
@@ -34,11 +39,11 @@ export default defineComponent({
     // pass these directly to HeroMedium
     pageData: {
       type: Object,
-      required: false
+      default: undefined
     },
     customLabel: {
       type: String,
-      required: false
+      default: undefined
     },
     cta: {
       type: String,

@@ -1,7 +1,7 @@
 import SearchResultCard from './SearchResultCard.vue'
 
 export default {
-  title: 'Components/Search/SearchResultCard',
+  title: 'Components/Cards/SearchResultCards',
   component: SearchResultCard,
   argTypes: {
     headingLevel: {
@@ -32,17 +32,16 @@ export const SearchResultCardData = {
     },
     alt: 'Alt text'
   },
-  headingLevel: 'h3',
-  featured: false
+  headingLevel: 'h3'
 }
 
-export const BaseStory = { name: 'Standard Result', args: SearchResultCardData }
+export const BaseStory = { name: 'SearchResultCard', args: SearchResultCardData }
 
 export const FeaturedResult = {
   args: { ...SearchResultCardData, featured: true }
 }
 
-export const EventResult = {
+export const EventCard = {
   args: {
     ...SearchResultCardData,
     isEvents: true,
@@ -53,5 +52,23 @@ export const EventResult = {
     endDate: '2021-11-11',
     location: 'On lab',
     compact: false
+  }
+}
+export const PodcastEpisodeCard = {
+  args: {
+    ...SearchResultCardData,
+    isPodcastSeason: true,
+    type: 'Podcast',
+    compact: false
+  }
+}
+
+export const EduEventCard = {
+  args: {
+    ...SearchResultCardData,
+    pageContentType: 'eduevents_edueventpage',
+    startDate: '2021-11-11',
+    endDate: '2021-11-11',
+    eventType: 'Internship'
   }
 }

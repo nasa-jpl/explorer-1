@@ -22,27 +22,18 @@
         >
           {{ summary }}
         </p>
-
-        <div class="md:mt-10 text-xl md:flex">
-          <div class="EventCard__Metadata flex text-primary text-body-sm">
-            <IconCalendar class="relative mr-3" />
-            <span> {{ formattedEventDates }}</span>
-          </div>
-          <div
-            v-show="displayTime"
-            class="EventCard__Metadata hidden md:flex text-primary text-body-sm"
-          >
-            <IconTime class="relative mr-3" />
-            <span>{{ displayTime }}</span>
-          </div>
-          <div
-            v-if="location"
-            class="EventCard__Metadata flex text-primary text-body-sm"
-          >
-            <IconLocation class="relative mr-3" />
-            <span>{{ location }}</span>
-          </div>
-        </div>
+        <MetadataEvent
+          class="mt-6 lg:mt-8 block lg:flex"
+          :event="{
+            startTime,
+            endTime,
+            startDate,
+            endDate,
+            location
+          }"
+          compact
+          allow-break
+        />
       </div>
       <div
         v-if="image"
@@ -61,27 +52,11 @@
             object-fit-class="cover"
             loading="lazy"
           />
-          <div
-            v-if="splitDate"
-            class="hidden md:block absolute top-0 left-0 z-10 px-4 py-4 text-center text-white bg-primary"
-          >
-            <template v-if="themeStore.isEdu">
-              <div class="font-extrabold text-6xl leading-tight tracking-wider">
-                {{ splitDate.month }}
-              </div>
-              <div class="text-subtitle">
-                {{ splitDate.year }}
-              </div>
-            </template>
-            <template v-else>
-              <div class="font-extrabold text-6xl leading-tight tracking-wider">
-                {{ splitDate.day }}
-              </div>
-              <div class="text-subtitle">
-                {{ splitDate.monthAndYear }}
-              </div>
-            </template>
-          </div>
+          <CalendarChip
+            :start-date="startDate"
+            :end-date="endDate"
+            :ongoing="ongoing"
+          />
         </BaseImagePlaceholder>
       </div>
     </div>
@@ -91,18 +66,15 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import {
-  mixinFormatEventDates,
-  mixinFormatSplitEventDates,
-  mixinFormatEventTimeInHoursAndMinutes,
-  type EventDateObject
-} from './../../utils/mixins'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import CalendarChip from './../CalendarChip/CalendarChip.vue'
+import MetadataEvent from './../../components/MetadataEvent/MetadataEvent.vue'
+
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -111,7 +83,9 @@ export default defineComponent({
     BaseLink,
     BaseHeading,
     BaseImage,
-    BaseImagePlaceholder
+    BaseImagePlaceholder,
+    CalendarChip,
+    MetadataEvent
   },
   props: {
     url: {
@@ -134,6 +108,10 @@ export default defineComponent({
     startDate: {
       type: String,
       required: false
+    },
+    ongoing: {
+      type: Boolean,
+      default: false
     },
     endTime: {
       type: String,
@@ -158,45 +136,7 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapStores(useThemeStore),
-    splitDate(): EventDateObject | null {
-      if (this.startDate) {
-        return mixinFormatSplitEventDates(this.startDate, this.endDate)
-      }
-      return null
-    },
-    displayTime(): string | undefined {
-      if (this.startDate) {
-        return mixinFormatEventTimeInHoursAndMinutes(this.startDate, this.endDate, this.endTime)
-      }
-      return undefined
-    },
-    formattedEventDates() {
-      return this.startDate ? mixinFormatEventDates(this.startDate, this.endDate) : undefined
-    }
+    ...mapStores(useThemeStore)
   }
 })
 </script>
-<style lang="scss">
-.EventCard {
-  .EventCard__Metadata {
-    @apply items-baseline;
-    @apply mr-0;
-    @apply mb-4;
-    @apply md:mb-0;
-    @apply md:mr-3;
-    @apply lg:mr-6;
-
-    span {
-      max-width: 230px;
-      min-width: 110px;
-      @apply text-gray-dark;
-    }
-
-    svg {
-      min-width: 1.25rem;
-      @apply top-0.5;
-    }
-  }
-}
-</style>

@@ -307,7 +307,7 @@ export const mixinFormatSplitEventDates = (
 }
 
 // return event dates formatted for listing cards
-export const mixinFormatEventDates = (startDatetime: string, endDatetime?: string): string => {
+export const mixinFormatEventDates = (startDatetime?: string, endDatetime?: string): string => {
   const startDateDayjs = dayjs(startDatetime)
 
   let eventDate = startDateDayjs.format('ll')
