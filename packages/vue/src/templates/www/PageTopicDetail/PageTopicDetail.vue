@@ -9,7 +9,7 @@
         :eyebrow="data.parentDisplayTitle"
         :title="data.displayTitle"
         :summary="data.strapline"
-        :image="data.heroImage"
+        :image="data.listingPageHeroImage"
       />
       <TopicDetailMissionCarousel
         v-if="data.title || data.featuredMissions"

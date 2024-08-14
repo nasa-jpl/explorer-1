@@ -7,7 +7,7 @@
       eyebrow="Robotics at JPL"
       :title="data.title"
       :summary="data.description"
-      :image="data.heroImage"
+      :image="data.listingPageHeroImage"
     />
     <RoboticsDetailStats
       :mass="data.mass"
