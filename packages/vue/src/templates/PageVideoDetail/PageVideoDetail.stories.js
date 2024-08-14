@@ -17,7 +17,8 @@ export const BaseStory = {
   args: {
     data: {
       block: [],
-      body: 'How Earth satellites including the JPL-managed Topex/Poseidon are helping researchers track the movements and behaviors of sea lions and seals to keep them from extinction.',
+      videoDetailBody:
+        'How Earth satellites including the JPL-managed Topex/Poseidon are helping researchers track the movements and behaviors of sea lions and seals to keep them from extinction.',
       firstPublishedAt: '2001-12-03T08:00:00+00:00',
       id: '6723',
       label: 'Video',
