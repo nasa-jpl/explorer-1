@@ -42,10 +42,10 @@
     >
       <div class="lg:grid grid-cols-10">
         <div
-          v-if="data.description"
+          v-if="data.descriptionString"
           class="col-span-7"
         >
-          <BlockText :text="data.description" />
+          <BlockText :text="data.descriptionString" />
         </div>
         <aside class="col-start-9 col-end-11">
           <div class="lg:pt-0 pt-8 mb-12">

@@ -32,7 +32,7 @@ export const TopicDetailData = {
   parentDisplayTitle: 'Solar System Exploration at JPL',
   strapline:
     'Robotic orbiters, landers and mobile laboratories explore Mars and communicate with Earth via the Deep Space Network.',
-  heroImage: {
+  listingPageHeroImage: {
     src: {
       url: 'https://picsum.photos/1800/1200',
       width: 1800,
