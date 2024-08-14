@@ -51,12 +51,9 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import dayjs, { type Dayjs } from 'dayjs'
-import duration, { type Duration } from 'dayjs/plugin/duration'
-import minMax from 'dayjs/plugin/minMax'
-
-dayjs.extend(duration)
-dayjs.extend(minMax)
+import dayjs from './../../utils/dayjs'
+import { type Dayjs } from 'dayjs'
+import { type Duration } from 'dayjs/plugin/duration.js'
 
 const calculateDuration = (start: Dayjs): Duration | undefined => {
   // Use round seconds so the datetime string stays valid and can be read by screen readers.

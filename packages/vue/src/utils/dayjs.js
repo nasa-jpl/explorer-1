@@ -4,6 +4,10 @@ import localizedFormat from 'dayjs/plugin/localizedFormat.js'
 import timezone from 'dayjs/plugin/timezone.js'
 import advancedFormat from 'dayjs/plugin/advancedFormat.js'
 
+// needed for BaseTimer
+import duration from 'dayjs/plugin/duration.js'
+import minMax from 'dayjs/plugin/minMax.js'
+
 // Locales must be imported manually
 // see https://github.com/iamkun/dayjs/tree/dev/src/locale
 import 'dayjs/locale/en-gb.js'
@@ -28,5 +32,9 @@ dayjs.updateLocale('en', {
 })
 dayjs.extend(timezone)
 dayjs.extend(advancedFormat)
+
+// needed for BaseTimer
+dayjs.extend(duration)
+dayjs.extend(minMax)
 
 export default dayjs
