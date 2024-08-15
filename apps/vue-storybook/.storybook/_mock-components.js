@@ -1,5 +1,6 @@
 // import and assign mock components
 import { action } from '@storybook/addon-actions'
+import DsnWidget from '@explorer-1/vue/src/components/DsnWidget/DsnWidget.vue'
 
 export default (app) => {
   // nuxt-link mock component
@@ -18,4 +19,7 @@ export default (app) => {
     template:
       '<a href="#" @click.prevent="log()" :class="this.class" v-bind="$attrs"><slot></slot></a>'
   })
+
+  // use static dsn widget instead of fetch
+  app.component('FetchDsnWidget', DsnWidget)
 }

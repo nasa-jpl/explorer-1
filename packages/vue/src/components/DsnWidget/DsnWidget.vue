@@ -52,7 +52,7 @@
         </span>
         <span
           v-if="data.location"
-          class="mr-1"
+          class="mr-1 mt-.5"
           aria-hidden="true"
         >
           {{ data.location }}

@@ -143,7 +143,7 @@
             </template>
           </div>
           <!-- DSN Widget -->
-          <DsnWidget />
+          <FetchDsnWidget />
           <!-- asteroid watch -->
           <div
             v-if="asteroidWatch"
