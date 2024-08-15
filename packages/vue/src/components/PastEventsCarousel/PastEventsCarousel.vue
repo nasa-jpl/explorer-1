@@ -29,6 +29,8 @@
 </template>
 <script lang="ts">
 // relative link to view past events assumes that this component will only be used on an events index page.
+// @ts-nocheck
+// @ts-expect-error Elastic search response is not fully typed
 import { defineComponent } from 'vue'
 import type { ElasticSearchPage } from '../../interfaces'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
