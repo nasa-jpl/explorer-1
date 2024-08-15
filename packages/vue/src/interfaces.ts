@@ -15,6 +15,24 @@ export interface BlockData {
   level?: string
   items?: any[]
 }
+export interface StreamfieldBlockData extends BlockData {
+  id: string
+  fullBleed: boolean
+  heading: string
+  galleryTitle: string
+  galleryDescription: string
+  coverImage: ImageObject
+  gallerySlides: ImageObject[]
+  blocks: object[]
+  value: string
+  customLabel: string
+  introduction: string
+  teaserPage: object | string[]
+  image: ImageObject
+  buttonText: string
+  fullWidthImage: boolean
+}
+
 export interface ImageSrcObject {
   url: string
   width: number
@@ -176,4 +194,8 @@ export interface PillDictionaryInterface {
 }
 export interface DictionaryInterface {
   [key: string]: string
+}
+export interface AccordionItemObject {
+  title?: string
+  body?: StreamfieldBlockData[]
 }

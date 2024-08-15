@@ -212,9 +212,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { BlockData, ImageObject } from '../../interfaces'
-import type { BlockData as VideoBlockEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
-import type { BlockQuoteAttributes } from './../BlockQuote/BlockQuote.vue'
+import type { StreamfieldBlockData } from '../../interfaces'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BlockCardGrid from './../BlockCardGrid/BlockCardGrid.vue'
 import BlockCta from './../BlockCta/BlockCta.vue'
@@ -226,7 +224,7 @@ import BlockImageGallery from './../BlockImageGallery/BlockImageGallery.vue'
 import BlockInlineImage from './../BlockInlineImage/BlockInlineImage.vue'
 import BlockKeyPoints from './../BlockKeyPoints/BlockKeyPoints.vue'
 import BlockListCards from './../BlockListCards/BlockListCards.vue'
-import BlockQuote from './../BlockQuote/BlockQuote.vue'
+import BlockQuote, { type BlockQuoteAttributes } from './../BlockQuote/BlockQuote.vue'
 import BlockRelatedLinks, {
   type BlockRelatedLinksObject
 } from './../BlockRelatedLinks/BlockRelatedLinks.vue'
@@ -236,7 +234,9 @@ import BlockText from './../BlockText/BlockText.vue'
 import BlockTwitterEmbed from './../BlockTwitterEmbed/BlockTwitterEmbed.vue'
 import BlockIframeEmbed from './../BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockVideo from './../BlockVideo/BlockVideo.vue'
-import BlockVideoEmbed from './../BlockVideoEmbed/BlockVideoEmbed.vue'
+import BlockVideoEmbed, {
+  type BlockData as VideoBlockEmbedData
+} from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockAnchor from './../BlockAnchor/BlockAnchor.vue'
 interface Variants {
   [name: string]: string
@@ -245,24 +245,6 @@ interface Variants {
 export const variants: Variants = {
   default: '',
   fluid: '-fluid'
-}
-
-export interface StreamfieldBlockData extends BlockData {
-  id: string
-  fullBleed: boolean
-  heading: string
-  galleryTitle: string
-  galleryDescription: string
-  coverImage: ImageObject
-  gallerySlides: ImageObject[]
-  blocks: object[]
-  value: string
-  customLabel: string
-  introduction: string
-  teaserPage: object | string[]
-  image: ImageObject
-  buttonText: string
-  fullWidthImage: boolean
 }
 
 export default defineComponent({
