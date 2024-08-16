@@ -143,17 +143,14 @@ export interface RelatedLinkObject extends LinkObject {
   document: { url: string } | null
   text: string | null
 }
-
-export interface PageResponseObject {
-  __typename: string
-  contentType: string
-  breadcrumb?: string
-  url?: string
+export interface BlockRelatedLinksObject extends BlockData {
+  heading: string
+  links: RelatedLinkObject[]
 }
 
 export interface PageResponse {
   __typename: string
-  page: PageResponseObject
+  page: PageObject
 }
 
 export interface HeaderResponse {
@@ -209,4 +206,53 @@ export interface EduStandard {
     domain: string
   }
   definition: string
+}
+
+export interface PageObject {
+  __typename: string
+  contentType: string
+  breadcrumb?: string
+  slug: string
+  url: string
+  title: string
+  getTopicsForDisplay?: Topic[]
+  label?: string
+  summary?: string
+  topper?: string
+  seoTitle?: string
+  searchDescription?: string
+  heroPosition?: 'full_bleed' | 'inline'
+  heroConstrain?: boolean
+  publicationDate?: string
+  body?: StreamfieldBlockData[]
+  thumbnailImage?: ThumbnailObject
+  relatedLinks?: BlockRelatedLinksObject
+  relatedContent?: any
+}
+
+export interface EduResourcesSubject {
+  subject: string
+}
+export interface EduResourcesGradeLevel {
+  gradeLevel: string
+}
+
+export interface EduResourcesTime {
+  time: string
+}
+export interface EduResourceStandard {
+  code: string
+  definition: string
+  domain: {
+    domain: string
+  }
+  type: string
+}
+export interface PageEduResourcesObject extends PageObject {
+  hero?: StreamfieldBlockData[]
+  primarySubject?: EduResourcesSubject
+  additionalSubjects?: EduResourcesSubject[]
+  gradeLevels?: EduResourcesGradeLevel[]
+  time?: EduResourcesTime
+  standards: EduResourceStandard[]
 }

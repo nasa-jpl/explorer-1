@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { rangeifyGrades } from './../../utils/rangeifyGrades'
-import { MetaPanelTheme } from './../../interfaces'
+import {
+  MetaPanelTheme,
+  EduResourcesSubject,
+  EduResourcesGradeLevel,
+  EduResourcesTime
+} from './../../interfaces'
 import IconSubject from './../Icons/IconSubject.vue'
 import IconProfile from './../Icons/IconProfile.vue'
 import IconTime from './../Icons/IconTime.vue'
 
 interface MetaPanelProps {
   theme?: MetaPanelTheme
-  primarySubject: string
-  additionalSubjects?: string[]
-  gradeLevels?: any
-  time?: string
+  primarySubject: EduResourcesSubject
+  additionalSubjects?: EduResourcesSubject[]
+  gradeLevels?: EduResourcesGradeLevel[]
+  time?: EduResourcesTime
 }
 
 // define props
@@ -30,10 +35,11 @@ const audience = computed(() => {
 })
 
 const subjects = computed(() => {
-  let combinedArray = [primarySubject]
+  let combinedArray = [primarySubject.subject]
   let output = undefined
   if (additionalSubjects) {
-    combinedArray = combinedArray.concat(additionalSubjects)
+    const filteredArray = additionalSubjects.map((item) => item.subject)
+    combinedArray = combinedArray.concat(filteredArray)
   }
   output = combinedArray.join(', ')
   return output
@@ -132,7 +138,7 @@ const themeVariant = computed(() => {
       </div>
     </div>
     <div
-      v-if="time"
+      v-if="time?.time"
       class="MetaPanelItem"
     >
       <div
@@ -153,7 +159,7 @@ const themeVariant = computed(() => {
           class="MetaPanelItem-content"
           :class="textColor"
         >
-          {{ time }}
+          {{ time.time }}
         </div>
       </div>
     </div>

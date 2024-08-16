@@ -10,9 +10,9 @@ export default {
 export const BaseStory = {
   name: 'MetaPanelItems',
   args: {
-    primarySubject: 'Math',
-    additionalSubjects: ['Science'],
-    time: '30mins - hr',
+    primarySubject: { subject: 'Math' },
+    additionalSubjects: [{ subject: 'Science' }],
+    time: { time: '30mins - hr' },
     gradeLevels: [
       { gradeLevel: 'All Ages' },
       { gradeLevel: 'K' },
