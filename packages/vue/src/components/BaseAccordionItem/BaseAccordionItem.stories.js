@@ -10,6 +10,6 @@ export const BaseStory = {
   name: 'BaseAccordionItem',
   args: {
     headingLevel: 'h3',
-    accordionItem: { title: 'Title for the accordion', body: BlockStreamfieldTruncatedData.body }
+    item: { title: 'Title for the accordion', body: BlockStreamfieldTruncatedData.body }
   }
 }

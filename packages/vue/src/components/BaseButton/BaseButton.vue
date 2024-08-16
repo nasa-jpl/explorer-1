@@ -11,6 +11,11 @@ export const variants: Variants = {
   dark: '-dark',
   social: '-social'
 }
+export const colors: Variants = {
+  primary: '-color-primary',
+  secondary: '-color-secondary',
+  action: '-color-action'
+}
 
 export default defineComponent({
   name: 'BaseButton',
@@ -20,6 +25,12 @@ export default defineComponent({
       required: false,
       default: 'primary',
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
+    },
+    color: {
+      type: String,
+      required: false,
+      default: 'primary',
+      validator: (prop: string): boolean => Object.keys(colors).includes(prop)
     },
     compact: {
       type: Boolean,

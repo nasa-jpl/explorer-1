@@ -2,17 +2,19 @@
 import { computed, reactive, ref } from 'vue'
 import { AccordionItemObject } from './../../interfaces.ts'
 import { uniqueId } from 'lodash'
-import IconClose from './../Icons/IconClose.vue'
+import IconPlus from './../Icons/IconPlus.vue'
 import BlockStreamfield from './../BlockStreamfield/BlockStreamfield.vue'
 
 export interface BaseAccordionItemProps {
   headingLevel?: string
   item: AccordionItemObject
+  backgroundClass?: string
 }
 
 // define props
 const props = withDefaults(defineProps<BaseAccordionItemProps>(), {
   headingLevel: 'h2',
+  backgroundClass: undefined,
   item(): AccordionItemObject {
     return {
       title: undefined,
@@ -48,33 +50,34 @@ const handleClick = () => {
 const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
 </script>
 <template>
-  <div class="BaseAccordionItem">
-    <div class="BlockAccordionHeader">
+  <div
+    class="BaseAccordionItem"
+    :class="{ '-open': !isHidden }"
+  >
+    <div class="BaseAccordionHeader">
       <slot name="header">
         <div
           v-if="headingLevel && item"
           class="border-b border-gray-light-mid"
         >
-          <component
-            :is="headingLevel"
-            class="text-body-lg"
-          >
+          <component :is="headingLevel">
             <button
               :id="headingId"
               :aria-expanded="ariaExpanded"
-              class="BlockAccordion-trigger group flex flex-nowrap justify-between items-center w-full p-4 xl:py-6 can-hover:hover:underline focus:outline-none focus:underline"
+              class="BaseAccordion-trigger group flex flex-nowrap justify-between items-center w-full can-hover:hover:underline text-body-lg"
               :aria-controls="panelId"
               @click="handleClick()"
             >
-              <span class="pointer-events-none text-left pr-4">
-                {{ item.title }}
-              </span>
-
+              <slot name="heading">
+                <div class="pointer-events-none text-left p-4 xl:py-6">
+                  {{ item.title }}
+                </div>
+              </slot>
               <span
-                class="BlockAccordion-icon pointer-events-none text-xs text-action flex-shrink-0 transform transition-transform"
-                :class="{ 'rotate-45': isHidden }"
+                class="BaseAccordion-icon pointer-events-none text-xs text-action flex-shrink-0 transform transition-transform"
+                :class="{ 'rotate-45': !isHidden }"
               >
-                <IconClose />
+                <IconPlus />
               </span>
             </button>
           </component>
@@ -83,21 +86,23 @@ const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
     </div>
     <div
       v-show="!isHidden"
-      class="BlockAccordionContent"
+      class="BaseAccordionContent"
     >
       <slot>
         <div
           :id="panelId"
           role="region"
           :aria-labelledby="headingId"
-          class="BlockAccordion-panel"
+          class="BaseAccordion-panel"
         >
-          <div class="px-4 pb-8">
-            <BlockStreamfield
-              :data="item.body"
-              variant="fluid"
-            />
-          </div>
+          <slot name="panelContents">
+            <div class="px-4 pb-8">
+              <BlockStreamfield
+                :data="item.body"
+                variant="fluid"
+              />
+            </div>
+          </slot>
         </div>
       </slot>
     </div>

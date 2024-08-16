@@ -199,3 +199,14 @@ export interface AccordionItemObject {
   title?: string
   body?: StreamfieldBlockData[]
 }
+
+export type MetaPanelTheme = 'primary' | 'secondary' | 'stars'
+
+export interface EduStandard {
+  type: string
+  code: string
+  domain: {
+    domain: string
+  }
+  definition: string
+}

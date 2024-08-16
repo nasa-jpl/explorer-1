@@ -7,10 +7,8 @@ export default {
   argTypes: {
     variant: {
       type: { name: 'string', required: false },
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary']
-      }
+      control: { type: 'select' },
+      options: ['primary', 'secondary']
     }
   },
   excludeStories: /.*Data$/
