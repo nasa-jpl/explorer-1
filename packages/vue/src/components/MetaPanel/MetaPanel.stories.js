@@ -6,7 +6,7 @@ export default {
   tags: ['!autodocs'],
   decorators: [
     () => ({
-      template: `<div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div><div id="storyDecorator"><story/></div></div>`
+      template: `<div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div><div id="storyDecorator"><story/></div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div></div>`
     })
   ],
   parameters: {
@@ -25,7 +25,9 @@ export default {
 export const BaseStory = {
   name: 'MetaPanel',
   args: {
-    dropdown: 'View Standards',
+    negativeTop: true,
+    negativeBottom: true,
+    button: 'View Standards',
     primarySubject: 'Math',
     additionalSubjects: ['Science'],
     time: '30mins - hr',

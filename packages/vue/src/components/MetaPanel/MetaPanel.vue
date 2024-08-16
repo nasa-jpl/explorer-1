@@ -8,26 +8,30 @@ import IconPlus from './../Icons/IconPlus.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 
 interface MetaPanelProps {
-  dropdown?: string
+  button?: string
   theme?: MetaPanelTheme
   primarySubject?: string
   additionalSubjects?: string[]
   gradeLevels?: any
   time?: string
   standards?: any[]
+  negativeTop?: boolean
+  negativeBottom?: boolean
 }
 
 // define props
 const props = withDefaults(defineProps<MetaPanelProps>(), {
-  dropdown: undefined,
+  button: undefined,
   theme: 'primary',
   primarySubject: undefined,
   additionalSubjects: undefined,
   gradeLevels: undefined,
   time: undefined,
-  standards: undefined
+  standards: undefined,
+  negativeTop: false,
+  negativeBottom: false
 })
-const { dropdown, theme, primarySubject, additionalSubjects, gradeLevels, time, standards } =
+const { button, theme, primarySubject, additionalSubjects, gradeLevels, time, standards } =
   reactive(props)
 
 const metaPanelOpen = ref(false)
@@ -38,7 +42,7 @@ const handleMetaPanel = () => {
 }
 
 const buttonText = computed(() => {
-  let text = dropdown
+  let text = button
   if (text) {
     if (metaPanelOpen.value) {
       text = text.replace('View', 'Hide')
@@ -103,7 +107,11 @@ const standardsIste = computed(() => {
 <template>
   <section
     aria-label="Metadata"
-    class="MetaPanel -mt-14 z-20 overflow-hidden"
+    class="MetaPanel z-20 relative overflow-hidden"
+    :class="{
+      '-mt-14': negativeTop,
+      '-mb-14': negativeBottom
+    }"
   >
     <div class="MixedBleedGrid pl-4 lg:pl-0">
       <div
@@ -121,7 +129,7 @@ const standardsIste = computed(() => {
             />
           </div>
           <div
-            v-if="dropdown"
+            v-if="button"
             class="ThemeVariantLight col-start-8 col-end-11 pl-4 lg:pl-10 pr-5 pt-4 pb-6 lg:py-10 lg:text-right"
           >
             <BaseButton
@@ -146,7 +154,7 @@ const standardsIste = computed(() => {
           </div>
         </div>
         <div
-          v-if="dropdown"
+          v-if="standards"
           v-show="metaPanelOpen"
           class="MetaPanel-panel bg-gray-light pb-3 lg:pb-6"
         >
