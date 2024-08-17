@@ -101,6 +101,7 @@ const computedClass = computed((): string => {
 })
 
 const sectionOrder = [
+  'top',
   'overview',
   'materials',
   'management',
@@ -109,9 +110,11 @@ const sectionOrder = [
   'discussion',
   'assessment',
   'extensions',
-  'techAddons'
+  'techAddons',
+  'bottom'
 ]
 
+// mimic HeadingBlock data shape for defined section headings
 const staticSectionHeadings = computed(() => {
   const result = sectionOrder.reduce((acc, section) => {
     acc[section] = stringAsHeadingBlockData(
@@ -123,27 +126,61 @@ const staticSectionHeadings = computed(() => {
   return result
 })
 
+const keyedCustomSections = computed(() => {
+  const result = data.customSections.reduce((acc, section) => {
+    const position = section.position
+    if (!acc[position]) {
+      acc[position] = []
+    }
+    acc[position].push(section.heading)
+    acc[position].push(...section.content)
+    return acc
+  }, {})
+  return result
+})
+
 const consolidatedBlocks = computed(() => {
+  // NavJumpMenu handles filtering for HeadingBlock, so we don't need to do that here
   const blocks = []
+  // include custom top blocks
+  if (keyedCustomSections.value['top']) {
+    blocks.push(...keyedCustomSections.value['top'])
+  }
+  // include predefined section blocks
   sectionOrder.forEach((section) => {
     if (data[section]) {
       blocks.push(staticSectionHeadings.value[section])
       if (section !== 'materials' && section !== 'procedures') {
         blocks.push(...data[section])
       } else if (section === 'procedures') {
-        // handle nested streamfields in procedures
+        // get blocks in nested procedures
         data.procedures.forEach((item) => {
           blocks.push(...item.procedure)
         })
       }
     }
+    // include custom "after_" blocks
+    if (keyedCustomSections.value[`after_${section}`]) {
+      blocks.push(...keyedCustomSections.value[`after_${section}`])
+    }
   })
+  // include custom bottom blocks
+  if (keyedCustomSections.value['bottom']) {
+    blocks.push(...keyedCustomSections.value['bottom'])
+  }
+  // include body blocks
   blocks.push(...data.body)
+
   return blocks
 })
 
+// organize data to render with PageEduLessonSection component
 const consolidatedSections = computed(() => {
   const sections = []
+  // include custom top section
+  if (keyedCustomSections.value['top']) {
+    sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['top'] })
+  }
   sectionOrder.forEach((section) => {
     if (data[section]) {
       sections.push({
@@ -154,7 +191,15 @@ const consolidatedSections = computed(() => {
         procedureSteps: section === 'procedures' ? data.proceduresStepsNumbering : false
       })
     }
+    // include custom "after_" sections
+    if (keyedCustomSections.value[`after_${section}`]) {
+      sections.push({ type: 'streamfield', blocks: keyedCustomSections.value[`after_${section}`] })
+    }
   })
+  // include custom bottom section
+  if (keyedCustomSections.value['bottom']) {
+    sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['bottom'] })
+  }
   return sections
 })
 </script>
@@ -271,7 +316,12 @@ const consolidatedSections = computed(() => {
       v-for="(value, key) in consolidatedSections"
       :key="key"
     >
+      <BlockStreamfield
+        v-if="value.type === 'streamfield'"
+        :data="value.blocks"
+      />
       <PageEduLessonSection
+        v-else
         :heading="value.heading"
         :blocks="value.blocks"
         :procedures="value.procedures"
