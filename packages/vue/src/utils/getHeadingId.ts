@@ -1,6 +1,5 @@
 import { camelCase } from 'lodash'
 
-export const getHeadingId = (heading: string, id?: string) => {
-  return 'anchor_' + camelCase(heading) + id ? '_' + camelCase(id) : ''
-  // return camelCase('anchor_' + heading)
+export const getHeadingId = (heading: string, blockId?: string) => {
+  return 'anchor_' + camelCase(heading) + (blockId ? '_' + camelCase(blockId) : '')
 }

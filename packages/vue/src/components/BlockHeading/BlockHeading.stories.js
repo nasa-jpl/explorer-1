@@ -11,7 +11,7 @@ export const BlockHeadingData = {
   heading: 'Heading Text',
   level: 'h2',
   size: 'h2',
-  id: `headingBlock_${uniqueId()}`
+  blockId: `${Math.random().toString(36).slice(2)}`
 }
 
 // stories

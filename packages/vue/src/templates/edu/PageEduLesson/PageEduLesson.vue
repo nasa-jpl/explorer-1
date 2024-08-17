@@ -68,8 +68,7 @@ const stringAsHeadingBlockData = (heading) => {
   return {
     blockType: 'HeadingBlock',
     heading: heading,
-    level: 'h2',
-    id: `lesson_heading_${uniqueId()}`
+    level: 'h2'
   }
 }
 
@@ -113,7 +112,7 @@ const sectionOrder = [
   'techAddons'
 ]
 
-const sectionHeadings = computed(() => {
+const staticSectionHeadings = computed(() => {
   const result = sectionOrder.reduce((acc, section) => {
     acc[section] = stringAsHeadingBlockData(
       data[`${section}Heading`],
@@ -124,11 +123,11 @@ const sectionHeadings = computed(() => {
   return result
 })
 
-const consolidateBlocks = (sections) => {
+const consolidatedBlocks = computed(() => {
   const blocks = []
-  sections.forEach((section) => {
+  sectionOrder.forEach((section) => {
     if (data[section]) {
-      blocks.push(sectionHeadings.value[section])
+      blocks.push(staticSectionHeadings.value[section])
       if (section !== 'materials' && section !== 'procedures') {
         blocks.push(...data[section])
       } else if (section === 'procedures') {
@@ -139,15 +138,16 @@ const consolidateBlocks = (sections) => {
       }
     }
   })
+  blocks.push(...data.body)
   return blocks
-}
+})
 
 const consolidatedSections = computed(() => {
   const sections = []
   sectionOrder.forEach((section) => {
     if (data[section]) {
       sections.push({
-        heading: sectionHeadings.value[section],
+        heading: staticSectionHeadings.value[section],
         blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
         text: section === 'materials' ? data[section] : undefined,
         procedures: section === 'procedures' ? data[section] : undefined,
@@ -156,10 +156,6 @@ const consolidatedSections = computed(() => {
     }
   })
   return sections
-})
-
-const consolidatedBlocks = computed(() => {
-  return consolidateBlocks(sectionOrder)
 })
 </script>
 <template>

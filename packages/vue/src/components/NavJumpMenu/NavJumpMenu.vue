@@ -81,7 +81,7 @@ const theJumpLinks = computed(() => {
     const links: BreadcrumbPathObject[] = filteredBlocks.map((l) => {
       return {
         // @ts-expect-error using parameter that was added to BlockData
-        path: '#' + getHeadingId(l.heading, l.index),
+        path: '#' + getHeadingId(l.heading, l.blockId),
         title: l.heading
       } as BreadcrumbPathObject
     })

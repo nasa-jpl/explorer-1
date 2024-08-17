@@ -28,8 +28,7 @@ const props = withDefaults(defineProps<PageEduLessonSectionProps>(), {
   procedures: undefined,
   procedureSteps: false,
   text: undefined,
-  image: undefined,
-  index: undefined
+  image: undefined
 })
 
 const { heading, blocks, image } = reactive(props)

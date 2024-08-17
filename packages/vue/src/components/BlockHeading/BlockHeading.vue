@@ -19,7 +19,7 @@ export interface BlockHeadingObject {
   heading?: string
   level?: string
   size?: string
-  id?: string
+  blockId?: string
 }
 
 export default defineComponent({
@@ -33,11 +33,6 @@ export default defineComponent({
       required: false,
       default: undefined
     },
-    // index: {
-    //   type: Number,
-    //   required: false,
-    //   default: undefined
-    // },
     generateId: {
       type: Boolean,
       default: false
@@ -46,7 +41,7 @@ export default defineComponent({
   computed: {
     getId() {
       return this.data && this.generateId
-        ? getHeadingId(this.data.heading, this.data.id)
+        ? getHeadingId(this.data.heading, this.data.blockId)
         : undefined
     }
   }
