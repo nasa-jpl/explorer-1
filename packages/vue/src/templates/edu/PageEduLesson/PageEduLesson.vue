@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
+import { uniqueId } from 'lodash'
 import type {
   ImageObject,
   PageEduResourcesObject,
@@ -63,12 +64,12 @@ defineExpose({
   PageEduLessonJumpMenu
 })
 
-const stringAsHeadingBlockData = (heading, index) => {
+const stringAsHeadingBlockData = (heading) => {
   return {
     blockType: 'HeadingBlock',
     heading: heading,
     level: 'h2',
-    index
+    id: `lesson_heading_${uniqueId()}`
   }
 }
 
@@ -100,47 +101,65 @@ const computedClass = computed((): string => {
   return ''
 })
 
-const overviewHeading = computed(() => {
-  return stringAsHeadingBlockData(data.overviewHeading || 'Overview', 0)
-})
-const materialsHeading = computed(() => {
-  return stringAsHeadingBlockData(data.materialsHeading || 'Materials', 1)
-})
-const managementHeading = computed(() => {
-  return stringAsHeadingBlockData(data.managementHeading || 'Management', 2)
-})
-const backgroundHeading = computed(() => {
-  return stringAsHeadingBlockData(data.backgroundHeading || 'Background', 3)
-})
-const proceduresHeading = computed(() => {
-  return stringAsHeadingBlockData(data.proceduresHeading || 'Procedures', 4)
-})
-const discussionHeading = computed(() => {
-  return stringAsHeadingBlockData(data.discussionHeading || 'Discussion', 5)
-})
-const assessmentHeading = computed(() => {
-  return stringAsHeadingBlockData(data.assessmentHeading || 'Assessment', 6)
-})
-const extensionsHeading = computed(() => {
-  return stringAsHeadingBlockData(data.extensionsHeading || 'Extensions', 7)
-})
-const techAddonsHeading = computed(() => {
-  return stringAsHeadingBlockData(data.techAddonsHeading || 'Tech Addons', 8)
+const sectionOrder = [
+  'overview',
+  'materials',
+  'management',
+  'background',
+  'procedures',
+  'discussion',
+  'assessment',
+  'extensions',
+  'techAddons'
+]
+
+const sectionHeadings = computed(() => {
+  const result = sectionOrder.reduce((acc, section) => {
+    acc[section] = stringAsHeadingBlockData(
+      data[`${section}Heading`],
+      section.charAt(0).toUpperCase() + section.slice(1)
+    )
+    return acc
+  }, {})
+  return result
 })
 
-// TODO get consistent index numbers if some sections are missing. hmmmmmm
-const headingBlocks = computed(() => {
-  const headings = []
-  if (data.overview) headings.push(overviewHeading.value)
-  if (data.materials) headings.push(materialsHeading.value)
-  if (data.management) headings.push(managementHeading.value)
-  if (data.background) headings.push(backgroundHeading.value)
-  if (data.procedures) headings.push(proceduresHeading.value)
-  if (data.discussion) headings.push(discussionHeading.value)
-  if (data.assessment) headings.push(assessmentHeading.value)
-  if (data.extensions) headings.push(extensionsHeading.value)
-  if (data.techAddons) headings.push(techAddonsHeading.value)
-  return headings
+const consolidateBlocks = (sections) => {
+  const blocks = []
+  sections.forEach((section) => {
+    if (data[section]) {
+      blocks.push(sectionHeadings.value[section])
+      if (section !== 'materials' && section !== 'procedures') {
+        blocks.push(...data[section])
+      } else if (section === 'procedures') {
+        // handle nested streamfields in procedures
+        data.procedures.forEach((item) => {
+          blocks.push(...item.procedure)
+        })
+      }
+    }
+  })
+  return blocks
+}
+
+const consolidatedSections = computed(() => {
+  const sections = []
+  sectionOrder.forEach((section) => {
+    if (data[section]) {
+      sections.push({
+        heading: sectionHeadings.value[section],
+        blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
+        text: section === 'materials' ? data[section] : undefined,
+        procedures: section === 'procedures' ? data[section] : undefined,
+        procedureSteps: section === 'procedures' ? data.proceduresStepsNumbering : false
+      })
+    }
+  })
+  return sections
+})
+
+const consolidatedBlocks = computed(() => {
+  return consolidateBlocks(sectionOrder)
 })
 </script>
 <template>
@@ -248,68 +267,23 @@ const headingBlocks = computed(() => {
     <NavJumpMenu
       ref="PageEduLessonJumpMenu"
       :title="data.title"
-      :blocks="headingBlocks"
+      :blocks="consolidatedBlocks"
       :enabled="true"
     />
 
-    <PageEduLessonSection
-      v-if="data.overview"
-      :index="1"
-      :heading="overviewHeading"
-      :blocks="data.overview"
-      :image="data.overviewImage"
-    />
-
-    <PageEduLessonSection
-      v-if="data.materials"
-      :heading="materialsHeading"
-      :text="data.materials"
-      :image="data.materialsImage"
-    />
-
-    <PageEduLessonSection
-      v-if="data.management"
-      :index="2"
-      :heading="managementHeading"
-      :blocks="data.management"
-    />
-
-    <PageEduLessonSection
-      v-if="data.background"
-      :heading="backgroundHeading"
-      :blocks="data.background"
-    />
-
-    <PageEduLessonSection
-      v-if="data.procedures"
-      :heading="proceduresHeading"
-      :procedures="data.procedures"
-      :procedure-steps="data.proceduresStepsNumbering"
-    />
-
-    <PageEduLessonSection
-      v-if="data.discussion"
-      :heading="discussionHeading"
-      :blocks="data.discussion"
-    />
-
-    <PageEduLessonSection
-      v-if="data.assessment"
-      :heading="assessmentHeading"
-      :blocks="data.assessment"
-    />
-
-    <PageEduLessonSection
-      v-if="data.extensions"
-      :heading="extensionsHeading"
-      :blocks="data.extensions"
-    />
-
-    <PageEduLessonSection
-      v-if="data.techAddons"
-      :heading="techAddonsHeading"
-      :blocks="data.techAddons"
-    />
+    <template
+      v-for="(value, key) in consolidatedSections"
+      :key="key"
+    >
+      <PageEduLessonSection
+        :heading="value.heading"
+        :blocks="value.blocks"
+        :procedures="value.procedures"
+        :procedure-steps="value.procedureSteps"
+        :text="value.text"
+        :image="value.image"
+      />
+    </template>
 
     <!-- streamfield blocks -->
     <BlockStreamfield :data="data.body" />

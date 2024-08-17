@@ -20,7 +20,6 @@ interface PageEduLessonSectionProps {
   procedureSteps?: boolean
   text?: string
   image?: ImageObject
-  index?: number
 }
 
 const props = withDefaults(defineProps<PageEduLessonSectionProps>(), {
@@ -50,7 +49,6 @@ const anchorId = computed(() => {
     >
       <BlockHeading
         :data="heading"
-        :index="heading.index"
         generate-id
       />
     </LayoutHelper>
@@ -70,8 +68,8 @@ const anchorId = computed(() => {
     />
     <template v-else-if="procedures?.length">
       <template
-        v-for="(item, procedure_index) in procedures"
-        :key="procedure_index"
+        v-for="(item, index) in procedures"
+        :key="index"
       >
         <LayoutHelper
           v-if="procedureSteps"
@@ -79,7 +77,7 @@ const anchorId = computed(() => {
           class="lg:mb-8 mb-5"
         >
           <BaseHeading level="h3">
-            {{ 'Section ' + (Number(procedure_index) + 1) }}
+            {{ 'Section ' + (Number(index) + 1) }}
           </BaseHeading>
         </LayoutHelper>
         <BlockStreamfield
