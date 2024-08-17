@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import { MetaPanelTheme } from './../../interfaces'
+import {
+  MetaPanelTheme,
+  EduResourcesGradeLevel,
+  EduStandard,
+  EduResourcesSubject,
+  EduResourcesTime
+} from './../../interfaces'
 import MetaPanelAccordion from './../MetaPanelAccordion/MetaPanelAccordion.vue'
 import MetaPanelItems from './../MetaPanelItems/MetaPanelItems.vue'
 import IconMinus from './../Icons/IconMinus.vue'
@@ -10,11 +16,11 @@ import BaseButton from './../BaseButton/BaseButton.vue'
 interface MetaPanelProps {
   button?: string
   theme?: MetaPanelTheme
-  primarySubject?: string
-  additionalSubjects?: string[]
-  gradeLevels?: any
-  time?: string
-  standards?: any[]
+  primarySubject?: EduResourcesSubject
+  additionalSubjects?: EduResourcesSubject[]
+  gradeLevels?: EduResourcesGradeLevel[]
+  time?: EduResourcesTime
+  standards?: EduStandard[]
   negativeTop?: boolean
   negativeBottom?: boolean
 }
@@ -38,7 +44,6 @@ const metaPanelOpen = ref(false)
 
 const handleMetaPanel = () => {
   metaPanelOpen.value = !metaPanelOpen.value
-  console.log('handle meta panel')
 }
 
 const buttonText = computed(() => {

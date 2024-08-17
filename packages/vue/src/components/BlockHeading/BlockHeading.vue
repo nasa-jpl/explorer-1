@@ -11,9 +11,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { getHeadingId } from '../../utils/getHeadingId'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
+
+export interface BlockHeadingObject {
+  heading?: string
+  level?: string
+  size?: string
+}
 
 export default defineComponent({
   name: 'BlockHeading',
@@ -22,8 +28,9 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
-      required: false
+      type: Object as PropType<BlockHeadingObject>,
+      required: false,
+      default: undefined
     },
     index: {
       type: Number,

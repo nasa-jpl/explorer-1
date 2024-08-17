@@ -1,6 +1,12 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed, reactive, ref } from 'vue'
+import type {
+  ImageObject,
+  PageEduResourcesObject,
+  StreamfieldBlockData
+} from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
+import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
@@ -12,57 +18,129 @@ import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsE
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
+import PageEduLessonSection from './PageEduLessonSection.vue'
+import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 
-export default defineComponent({
-  name: 'PageEduExplainerArticle',
-  components: {
-    HeroMedia,
-    BaseImagePlaceholder,
-    LayoutHelper,
-    DetailHeadline,
-    BlockImageStandard,
-    BlockIframeEmbed,
-    ShareButtonsEdu,
-    BlockStreamfield,
-    BlockImageCarousel,
-    BlockImageComparison,
-    BlockLinkCarousel,
-    BlockRelatedLinks
-  },
-  props: {
-    data: {
-      type: Object,
-      required: false,
-      default: undefined
-    }
-  },
-  computed: {
-    heroEmpty(): boolean {
-      return (this.data?.hero || []).length === 0
-    },
-    heroInline(): boolean {
-      if (!this.heroEmpty) {
-        if (this.data?.hero[0].blockType === 'VideoBlock') {
-          return false
-        } else if (
-          this.data?.heroPosition === 'inline' ||
-          this.data?.hero[0].blockType === 'CarouselBlock' ||
-          this.data?.hero[0].blockType === 'VideoEmbedBlock'
-        ) {
-          return true
-        }
-      }
+interface PageEduLessonObject extends PageEduResourcesObject {
+  overview: StreamfieldBlockData[]
+  overviewHeading: string
+  overviewImage: ImageObject
+  materials: string
+  materialsHeading: string
+  materialsImage: ImageObject
+  management: StreamfieldBlockData[]
+  managementHeading: string
+  background: StreamfieldBlockData[]
+  backgroundHeading: string
+  procedures: StreamfieldBlockData[]
+  proceduresHeading: string
+  proceduresStepsNumbering: boolean
+  discussion: StreamfieldBlockData[]
+  discussionHeading: string
+  assessment: StreamfieldBlockData[]
+  assessmentHeading: string
+  extensions: StreamfieldBlockData[]
+  extensionsHeading: string
+  techAddons: StreamfieldBlockData[]
+  techAddonsHeading: string
+  customSections: any
+  body: StreamfieldBlockData[]
+}
+interface PageEduLessonProps {
+  data?: PageEduLessonObject
+}
+
+const props = withDefaults(defineProps<PageEduLessonProps>(), {
+  data: undefined
+})
+
+const { data } = reactive(props)
+
+const PageEduLessonJumpMenu = ref()
+
+defineExpose({
+  PageEduLessonJumpMenu
+})
+
+const stringAsHeadingBlockData = (heading, index) => {
+  return {
+    blockType: 'HeadingBlock',
+    heading: heading,
+    level: 'h2',
+    index
+  }
+}
+
+const heroEmpty = computed((): boolean => {
+  return (data?.hero || []).length === 0
+})
+
+const heroInline = computed((): boolean => {
+  if (!heroEmpty.value) {
+    if (data?.hero[0].blockType === 'VideoBlock') {
       return false
-    },
-    computedClass(): string {
-      if (this.heroInline || this.heroEmpty) {
-        return 'pt-5 lg:pt-12'
-      } else if (!this.heroInline) {
-        return '-nav-offset'
-      }
-      return ''
+    } else if (
+      data?.heroPosition === 'inline' ||
+      data?.hero[0].blockType === 'CarouselBlock' ||
+      data?.hero[0].blockType === 'VideoEmbedBlock'
+    ) {
+      return true
     }
   }
+  return false
+})
+
+const computedClass = computed((): string => {
+  if (heroInline.value || heroEmpty) {
+    return 'pt-5 lg:pt-12'
+  } else if (!heroInline.value) {
+    return '-nav-offset'
+  }
+  return ''
+})
+
+const overviewHeading = computed(() => {
+  return stringAsHeadingBlockData(data.overviewHeading || 'Overview', 0)
+})
+const materialsHeading = computed(() => {
+  return stringAsHeadingBlockData(data.materialsHeading || 'Materials', 1)
+})
+const managementHeading = computed(() => {
+  return stringAsHeadingBlockData(data.managementHeading || 'Management', 2)
+})
+const backgroundHeading = computed(() => {
+  return stringAsHeadingBlockData(data.backgroundHeading || 'Background', 3)
+})
+const proceduresHeading = computed(() => {
+  return stringAsHeadingBlockData(data.proceduresHeading || 'Procedures', 4)
+})
+const discussionHeading = computed(() => {
+  return stringAsHeadingBlockData(data.discussionHeading || 'Discussion', 5)
+})
+const assessmentHeading = computed(() => {
+  return stringAsHeadingBlockData(data.assessmentHeading || 'Assessment', 6)
+})
+const extensionsHeading = computed(() => {
+  return stringAsHeadingBlockData(data.extensionsHeading || 'Extensions', 7)
+})
+const techAddonsHeading = computed(() => {
+  return stringAsHeadingBlockData(data.techAddonsHeading || 'Tech Addons', 8)
+})
+
+// TODO get consistent index numbers if some sections are missing. hmmmmmm
+const headingBlocks = computed(() => {
+  const headings = []
+  if (data.overview) headings.push(overviewHeading.value)
+  if (data.materials) headings.push(materialsHeading.value)
+  if (data.management) headings.push(managementHeading.value)
+  if (data.background) headings.push(backgroundHeading.value)
+  if (data.procedures) headings.push(proceduresHeading.value)
+  if (data.discussion) headings.push(discussionHeading.value)
+  if (data.assessment) headings.push(assessmentHeading.value)
+  if (data.extensions) headings.push(extensionsHeading.value)
+  if (data.techAddons) headings.push(techAddonsHeading.value)
+  return headings
 })
 </script>
 <template>
@@ -70,17 +148,49 @@ export default defineComponent({
     v-if="data"
     class="ThemeVariantLight"
     :class="computedClass"
-    itemscope
-    itemtype="http://schema.org/Article"
   >
-    <!-- schema.org -->
-    <meta
-      v-if="data.thumbnailImage && data.thumbnailImage.original"
-      itemprop="image"
-      :content="data.thumbnailImage.original"
+    <LayoutHelper
+      indent="col-2"
+      class="mb-10"
+    >
+      <DetailHeadline
+        :title="data.title"
+        label="Lesson"
+        pill
+      />
+      <ShareButtonsEdu
+        v-if="data?.url"
+        class="mt-4"
+        :url="data.url"
+        :title="data.title"
+        :image="data.thumbnailImage?.original"
+      />
+      <p
+        v-if="data.studentProject"
+        class="mt-8 font-bold text-body-lg"
+      >
+        Find out what’s involved for students:
+        <BaseLink
+          class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
+          :to="data.studentProject.urlPath"
+          variant="none"
+        >
+          View the Project Steps
+        </BaseLink>
+      </p>
+    </LayoutHelper>
+
+    <MetaPanel
+      button="View Standards"
+      :primary-subject="data.primarySubject"
+      :additional-subjects="data.additionalSubjects"
+      :time="data.time"
+      :grade-levels="data.gradeLevels"
+      :standards="data.standards"
+      negative-bottom
     />
 
-    <!-- hero image -->
+    <!-- hero media -->
     <HeroMedia
       v-if="
         !heroEmpty &&
@@ -96,36 +206,10 @@ export default defineComponent({
       :constrain="data.heroConstrain"
     />
 
-    <!-- news headline and author -->
-    <LayoutHelper
-      indent="col-2"
-      class="mb-10"
-    >
-      <DetailHeadline
-        :title="data.title"
-        :read-time="data.readTime"
-        :publication-date="data.publicationDate"
-        :publication-time="data.publicationTime"
-        :author="data.author"
-        label="Explainer Article"
-        pill-color="secondary"
-        schema
-        pill
-      />
-      <ShareButtonsEdu
-        v-if="data?.url"
-        class="mt-4"
-        :url="data.url"
-        :title="data.title"
-        :image="data.thumbnailImage?.original"
-      />
-    </LayoutHelper>
-
-    <!-- inline hero content -->
+    <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
       v-if="!heroEmpty && heroInline"
-      indent="col-2"
-      class="lg:mb-22 mt-10 mb-10"
+      class="lg:mb-22 mb-10"
     >
       <BlockImageStandard
         v-if="data.hero[0].blockType === 'HeroImageBlock'"
@@ -161,24 +245,74 @@ export default defineComponent({
       />
     </LayoutHelper>
 
-    <!-- summary and topper -->
-    <LayoutHelper
-      indent="col-3"
-      class="lg:mb-8 mb-5"
-    >
-      <p
-        class="text-body-lg font-semibold"
-        itemprop="abstract"
-      >
-        {{ data.summary }}
-      </p>
-    </LayoutHelper>
+    <NavJumpMenu
+      ref="PageEduLessonJumpMenu"
+      :title="data.title"
+      :blocks="headingBlocks"
+      :enabled="true"
+    />
+
+    <PageEduLessonSection
+      v-if="data.overview"
+      :index="1"
+      :heading="overviewHeading"
+      :blocks="data.overview"
+      :image="data.overviewImage"
+    />
+
+    <PageEduLessonSection
+      v-if="data.materials"
+      :heading="materialsHeading"
+      :text="data.materials"
+      :image="data.materialsImage"
+    />
+
+    <PageEduLessonSection
+      v-if="data.management"
+      :index="2"
+      :heading="managementHeading"
+      :blocks="data.management"
+    />
+
+    <PageEduLessonSection
+      v-if="data.background"
+      :heading="backgroundHeading"
+      :blocks="data.background"
+    />
+
+    <PageEduLessonSection
+      v-if="data.procedures"
+      :heading="proceduresHeading"
+      :procedures="data.procedures"
+      :procedure-steps="data.proceduresStepsNumbering"
+    />
+
+    <PageEduLessonSection
+      v-if="data.discussion"
+      :heading="discussionHeading"
+      :blocks="data.discussion"
+    />
+
+    <PageEduLessonSection
+      v-if="data.assessment"
+      :heading="assessmentHeading"
+      :blocks="data.assessment"
+    />
+
+    <PageEduLessonSection
+      v-if="data.extensions"
+      :heading="extensionsHeading"
+      :blocks="data.extensions"
+    />
+
+    <PageEduLessonSection
+      v-if="data.techAddons"
+      :heading="techAddonsHeading"
+      :blocks="data.techAddons"
+    />
 
     <!-- streamfield blocks -->
-    <BlockStreamfield
-      itemprop="articleBody"
-      :data="data.body"
-    />
+    <BlockStreamfield :data="data.body" />
 
     <!-- related links -->
     <LayoutHelper

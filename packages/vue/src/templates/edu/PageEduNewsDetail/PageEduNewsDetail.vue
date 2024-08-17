@@ -5,7 +5,7 @@ import type { StreamfieldBlockData } from './../../../interfaces'
 import type {
   AuthorObject,
   ImageObject,
-  PageResponseObject,
+  PageObject,
   RelatedLinkObject,
   Topic,
   ThumbnailObject
@@ -19,23 +19,14 @@ import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 
-interface PageEduNewsDetailObject extends PageResponseObject {
+interface PageEduNewsDetailObject extends PageObject {
   readTime: string
   url: string
   heroImage: ImageObject
   heroImageInline: ImageObject
-  thumbnailImage: ThumbnailObject
-  heroPosition: string
   heroConstrain: boolean
   heroImageCaption: string
   authors: AuthorObject[]
-  publicationDate: string
-  title: string
-  getTopicsForDisplay: Topic[]
-  summary: string
-  topper: string
-  relatedLinks: RelatedLinkObject[]
-  body: StreamfieldBlockData[]
   showJumpMenu: boolean
 }
 
