@@ -64,10 +64,10 @@ defineExpose({
   PageEduLessonJumpMenu
 })
 
-const stringAsHeadingBlockData = (heading) => {
+const stringAsHeadingBlockData = (heading, overrideText) => {
   return {
     blockType: 'HeadingBlock',
-    heading: heading,
+    heading: overrideText || heading,
     level: 'h2'
   }
 }
@@ -117,10 +117,9 @@ const sectionOrder = [
 // mimic HeadingBlock data shape for defined section headings
 const staticSectionHeadings = computed(() => {
   const result = sectionOrder.reduce((acc, section) => {
-    acc[section] = stringAsHeadingBlockData(
-      data[`${section}Heading`],
-      section.charAt(0).toUpperCase() + section.slice(1)
-    )
+    const headingText =
+      section === 'techAddons' ? 'Tech Add-ons' : section.charAt(0).toUpperCase() + section.slice(1)
+    acc[section] = stringAsHeadingBlockData(data[`${section}Heading`] || headingText)
     return acc
   }, {})
   return result
@@ -152,10 +151,12 @@ const consolidatedBlocks = computed(() => {
       blocks.push(staticSectionHeadings.value[section])
       if (section !== 'materials' && section !== 'procedures') {
         blocks.push(...data[section])
-      } else if (section === 'procedures') {
+      } else if (section === 'procedures' && data.procedures?.length) {
         // get blocks in nested procedures
         data.procedures.forEach((item) => {
-          blocks.push(...item.procedure)
+          if (item.procedure) {
+            blocks.push(...item.procedure)
+          }
         })
       }
     }

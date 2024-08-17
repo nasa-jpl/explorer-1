@@ -80,7 +80,7 @@ const anchorId = computed(() => {
           </BaseHeading>
         </LayoutHelper>
         <BlockStreamfield
-          v-if="item.procedure"
+          v-if="item?.procedure"
           :data="item.procedure"
         />
       </template>

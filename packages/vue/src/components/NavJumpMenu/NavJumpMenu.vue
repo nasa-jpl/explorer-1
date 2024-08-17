@@ -1,7 +1,6 @@
 <template>
   <NavSecondary
     v-if="enabled"
-    id="JumpMenuTop"
     ref="NavJumpMenuRef"
     class="NavJumpMenu -hide-until-threshold"
     :invert="invert"
@@ -95,11 +94,11 @@ const theBreadcrumbs = computed(() => {
   const rootItem = props.title
     ? {
         title: props.title,
-        path: '#JumpMenuTop'
+        path: '#siteTop'
       }
     : {
         title: 'Back to top',
-        path: '#JumpMenuTop'
+        path: '#siteTop'
       }
   const jumpMenu: BreadcrumbPathObject = {
     title: 'Jump to…',
