@@ -1,5 +1,4 @@
 import BlockHeading from './BlockHeading.vue'
-import { uniqueId } from 'lodash'
 export default {
   title: 'Components/Blocks/BlockHeading',
   component: BlockHeading,

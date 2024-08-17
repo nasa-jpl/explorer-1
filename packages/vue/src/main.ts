@@ -6,6 +6,7 @@ import filters from './utils/filters'
 // @ts-ignore
 import vClickOutside from 'click-outside-vue3'
 import VueCompareImage from 'vue3-compare-image'
+import { BindOncePlugin } from 'vue-bind-once'
 import './assets/scss/styles-with-fonts.scss'
 import App from './App.vue'
 
@@ -23,6 +24,7 @@ app.use(pinia)
 app.use(router)
 app.use(vClickOutside)
 app.use(VueCompareImage)
+app.use(BindOncePlugin)
 
 // filters
 app.config.globalProperties.$filters = filters

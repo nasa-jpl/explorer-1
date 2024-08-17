@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import { uniqueId } from 'lodash'
 import type {
   ImageObject,
   PageEduResourcesObject,
@@ -240,7 +239,6 @@ const consolidatedSections = computed(() => {
         </BaseLink>
       </p>
     </LayoutHelper>
-
     <MetaPanel
       button="View Standards"
       :primary-subject="data.primarySubject"

@@ -62,10 +62,9 @@ const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
         >
           <component :is="headingLevel">
             <button
-              :id="headingId"
+              v-bind-once="{ id: headingId, 'aria-controls': panelId }"
               :aria-expanded="ariaExpanded"
               class="BaseAccordion-trigger group flex flex-nowrap justify-between items-center w-full can-hover:hover:underline text-body-lg"
-              :aria-controls="panelId"
               @click="handleClick()"
             >
               <slot name="heading">
@@ -90,9 +89,8 @@ const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
     >
       <slot>
         <div
-          :id="panelId"
+          v-bind-once="{ id: panelId, 'aria-labelledby': headingId }"
           role="region"
-          :aria-labelledby="headingId"
           class="BaseAccordion-panel"
         >
           <slot name="panelContents">
