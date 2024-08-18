@@ -120,10 +120,10 @@ const standardsIste = computed(() => {
   >
     <div class="MixedBleedGrid pl-4 lg:pl-0">
       <div
-        class="col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid"
+        class="col-start-container lg:col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid"
         :class="backgroundClass"
       >
-        <div class="is-this-needed col-start-indent-col-2 col-end-container">
+        <div class="is-this-needed col-start-container lg:col-start-indent-col-2 col-end-container">
           <div class="MetaPanel-heading lg:grid grid-cols-12 col-end-container container">
             <div class="col-start-1 col-end-10 xl:col-end-9 pl-4 lg:pl-10 pr-2 py-6 lg:py-10">
               <MetaPanelItems
@@ -163,10 +163,10 @@ const standardsIste = computed(() => {
         <div
           v-if="standards"
           v-show="metaPanelOpen"
-          class="MetaPanel-panel col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid bg-gray-light pb-3 lg:pb-6"
+          class="MetaPanel-panel col-start-container lg:col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid bg-gray-light pb-3 lg:pb-6"
         >
           <div
-            class="container col-start-indent-col-2 col-end-container px-8 lg:px-[3rem] xl:px-[5.8rem]"
+            class="container col-start-container lg:col-start-indent-col-2 col-end-container px-8 lg:px-[3rem] xl:px-[5.8rem]"
           >
             <div
               class="pt-6 lg:pt-7"

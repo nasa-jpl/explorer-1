@@ -205,10 +205,12 @@ watch(
     }
     &.-is-sticky-offset {
       &.-force-show-jump-menu-offset {
-        @apply opacity-100 transition-none #{!important};
+        @apply opacity-100  #{!important};
+        @apply transition-none #{!important};
       }
       &.-force-show-hide-menu-offset {
-        @apply opacity-0 transition-none #{!important};
+        @apply opacity-0 #{!important};
+        @apply transition-none #{!important};
       }
     }
   }
