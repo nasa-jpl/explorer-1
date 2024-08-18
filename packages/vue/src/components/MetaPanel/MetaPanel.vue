@@ -120,50 +120,54 @@ const standardsIste = computed(() => {
   >
     <div class="MixedBleedGrid pl-4 lg:pl-0">
       <div
-        class="col-start-indent-col-2 col-end-bleed"
+        class="col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid"
         :class="backgroundClass"
       >
-        <div class="MetaPanel-heading lg:grid grid-cols-10 col-end-container container">
-          <div class="col-start-1 col-end-8 xl:col-end-7 pl-4 lg:pl-10 pr-2 py-6 lg:py-10">
-            <MetaPanelItems
-              :theme="theme"
-              :primary-subject="primarySubject"
-              :additional-subjects="additionalSubjects"
-              :grade-levels="gradeLevels"
-              :time="time"
-            />
-          </div>
-          <div
-            v-if="button"
-            class="ThemeVariantLight col-start-8 col-end-11 pl-4 lg:pl-10 pr-5 pt-4 pb-6 lg:py-10 lg:text-right"
-          >
-            <BaseButton
-              variant="secondary"
-              class="MetaPanel-button"
-              :aria-expanded="metaPanelOpen"
-              compact
-              @click="handleMetaPanel"
+        <div class="is-this-needed col-start-indent-col-2 col-end-container">
+          <div class="MetaPanel-heading lg:grid grid-cols-12 col-end-container container">
+            <div class="col-start-1 col-end-10 xl:col-end-9 pl-4 lg:pl-10 pr-2 py-6 lg:py-10">
+              <MetaPanelItems
+                :theme="theme"
+                :primary-subject="primarySubject"
+                :additional-subjects="additionalSubjects"
+                :grade-levels="gradeLevels"
+                :time="time"
+              />
+            </div>
+            <div
+              v-if="button"
+              class="ThemeVariantLight col-start-10 col-end-13 pl-4 pt-4 pb-6 lg:py-10 lg:text-right"
             >
-              {{ buttonText }}
-              <template #icon>
-                <IconPlus
-                  v-if="!metaPanelOpen"
-                  class="text-xs ml-2"
-                />
-                <IconMinus
-                  v-else
-                  class="text-xs ml-2"
-                />
-              </template>
-            </BaseButton>
+              <BaseButton
+                variant="secondary"
+                class="MetaPanel-button"
+                :aria-expanded="metaPanelOpen"
+                compact
+                @click="handleMetaPanel"
+              >
+                {{ buttonText }}
+                <template #icon>
+                  <IconPlus
+                    v-if="!metaPanelOpen"
+                    class="text-xs ml-2"
+                  />
+                  <IconMinus
+                    v-else
+                    class="text-xs ml-2"
+                  />
+                </template>
+              </BaseButton>
+            </div>
           </div>
         </div>
         <div
           v-if="standards"
           v-show="metaPanelOpen"
-          class="MetaPanel-panel bg-gray-light pb-3 lg:pb-6"
+          class="MetaPanel-panel col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid bg-gray-light pb-3 lg:pb-6"
         >
-          <div class="container px-8 lg:px-[5.8rem]">
+          <div
+            class="container col-start-indent-col-2 col-end-container px-8 lg:px-[3rem] xl:px-[5.8rem]"
+          >
             <div
               class="pt-6 lg:pt-7"
               :class="borderClass"

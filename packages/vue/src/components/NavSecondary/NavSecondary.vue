@@ -83,7 +83,10 @@ export default defineComponent({
   },
   data() {
     return {
-      isSticky: false
+      isSticky: false,
+      stickyElement: undefined,
+      observer: undefined,
+      observerOffset: undefined
     }
   },
   computed: {
@@ -119,6 +122,7 @@ export default defineComponent({
     ) {
       // intersection observer not supported
     } else if (this.enabled) {
+      this.initIntersectionObservers()
       this.checkSticky()
     }
   },
@@ -129,10 +133,9 @@ export default defineComponent({
       }
       return false
     },
-    checkSticky() {
-      const stickyElement = this.$refs.NavSecondary as HTMLElement
-      // we need both observers for when the global nav is/isn't showing
-      const observer = new IntersectionObserver(
+    initIntersectionObservers() {
+      this.stickyElement = this.$refs.NavSecondary as HTMLElement
+      this.observer = new IntersectionObserver(
         ([e]) => {
           e.target.classList.toggle('-is-sticky', e.intersectionRatio < 1)
         },
@@ -140,18 +143,19 @@ export default defineComponent({
           threshold: [1]
         }
       )
-      const observerOffset = new IntersectionObserver(
+      this.observerOffset = new IntersectionObserver(
         ([e]) => {
           e.target.classList.toggle('-is-sticky-offset', e.intersectionRatio < 1)
         },
         {
           threshold: [1],
-          // would prefer to use rems but intersection observer only works with % or px
-          rootMargin: '-113px 0px 0px 0px'
+          rootMargin: '-113px 0px 0px 0px' // www breadcrumbs
         }
       )
-      observer.observe(stickyElement)
-      observerOffset.observe(stickyElement)
+    },
+    checkSticky() {
+      this.observer.observe(this.stickyElement)
+      this.observerOffset.observe(this.stickyElement)
     }
   }
 })

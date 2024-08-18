@@ -11,6 +11,7 @@ import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/Bas
 import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BlockVideo from './../../../components/BlockVideo/BlockVideo.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
@@ -210,7 +211,7 @@ const consolidatedSections = computed(() => {
     :class="computedClass"
   >
     <LayoutHelper
-      indent="col-2"
+      indent="col-3"
       class="mb-10"
     >
       <DetailHeadline
@@ -247,6 +248,7 @@ const consolidatedSections = computed(() => {
       :grade-levels="data.gradeLevels"
       :standards="data.standards"
       negative-bottom
+      theme="stars"
     />
 
     <!-- hero media -->
@@ -310,44 +312,45 @@ const consolidatedSections = computed(() => {
       :blocks="consolidatedBlocks"
       :enabled="true"
     />
+    <div id="NavJumpMenuFrame">
+      <template
+        v-for="(value, key) in consolidatedSections"
+        :key="key"
+      >
+        <BlockStreamfield
+          v-if="value.type === 'streamfield'"
+          :data="value.blocks"
+        />
+        <PageEduLessonSection
+          v-else
+          :heading="value.heading"
+          :blocks="value.blocks"
+          :procedures="value.procedures"
+          :procedure-steps="value.procedureSteps"
+          :text="value.text"
+          :image="value.image"
+        />
+      </template>
 
-    <template
-      v-for="(value, key) in consolidatedSections"
-      :key="key"
-    >
-      <BlockStreamfield
-        v-if="value.type === 'streamfield'"
-        :data="value.blocks"
+      <!-- streamfield blocks -->
+      <BlockStreamfield :data="data.body" />
+
+      <!-- related links -->
+      <LayoutHelper
+        v-if="data.relatedLinks && data.relatedLinks.length"
+        indent="col-3"
+        class="lg:my-18 my-10"
+      >
+        <BlockRelatedLinks :data="data.relatedLinks[0]" />
+      </LayoutHelper>
+
+      <!-- related content -->
+      <BlockLinkCarousel
+        item-type="cards"
+        class="lg:my-24 my-12 print:px-4"
+        :heading="data.relatedContentHeading"
+        :items="data.relatedContent"
       />
-      <PageEduLessonSection
-        v-else
-        :heading="value.heading"
-        :blocks="value.blocks"
-        :procedures="value.procedures"
-        :procedure-steps="value.procedureSteps"
-        :text="value.text"
-        :image="value.image"
-      />
-    </template>
-
-    <!-- streamfield blocks -->
-    <BlockStreamfield :data="data.body" />
-
-    <!-- related links -->
-    <LayoutHelper
-      v-if="data.relatedLinks && data.relatedLinks.length"
-      indent="col-3"
-      class="lg:my-18 my-10"
-    >
-      <BlockRelatedLinks :data="data.relatedLinks[0]" />
-    </LayoutHelper>
-
-    <!-- related content -->
-    <BlockLinkCarousel
-      item-type="cards"
-      class="lg:my-24 my-12 print:px-4"
-      :heading="data.relatedContentHeading"
-      :items="data.relatedContent"
-    />
+    </div>
   </div>
 </template>
