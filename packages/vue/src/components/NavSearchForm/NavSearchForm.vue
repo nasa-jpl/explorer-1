@@ -1,3 +1,29 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import SearchInput from './../SearchInput/SearchInput.vue'
+const router = useRouter()
+
+interface NavSearchFormProps {
+  mobile?: boolean
+}
+const props = withDefaults(defineProps<NavSearchFormProps>(), {
+  mobile: false
+})
+const emit = defineEmits(['clearSearch', 'submitForm'])
+
+const searchQuery = ref()
+
+const clearSearch = () => {
+  searchQuery.value = undefined
+  emit('clearSearch')
+}
+const submitSearch = () => {
+  emit('submitForm')
+  console.log(searchQuery.value)
+  router.push({ path: '/search', query: searchQuery.value })
+}
+</script>
 <template>
   <form
     class="NavSearchForm"
@@ -6,11 +32,11 @@
     <SearchInput
       v-model="searchQuery"
       placeholder="Search JPL"
-      :underlined-input="!mobile"
+      :underlined-input="!props.mobile"
       :underlined-input-value="searchQuery"
-      :auto-focus="!mobile"
-      :inline="!mobile"
-      :default-colors="mobile"
+      :auto-focus="!props.mobile"
+      :inline="!props.mobile"
+      :default-colors="props.mobile"
       @esc="clearSearch()"
     />
     <button
@@ -22,43 +48,6 @@
     </button>
   </form>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
-import SearchInput from './../SearchInput/SearchInput.vue'
-
-export default defineComponent({
-  name: 'NavSearchForm',
-  components: {
-    SearchInput
-  },
-  props: {
-    mobile: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {
-      searchQuery: undefined
-    }
-  },
-  methods: {
-    clearSearch() {
-      this.searchQuery = undefined
-      this.$emit('clearSearch')
-    },
-    submitSearch() {
-      this.$emit('submitForm')
-      if (this.$router) {
-        this.$router.push({
-          name: 'search',
-          query: { query: this.searchQuery }
-        })
-      }
-    }
-  }
-})
-</script>
 <style lang="scss">
 .NavSearchForm {
   ::placeholder {
