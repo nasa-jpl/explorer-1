@@ -3,10 +3,10 @@ import { ref, watch } from 'vue'
 
 interface BlockGistProps {
   data: {
-    blockType: string
-    caption: string
-    id: string
-    url: string
+    blockType?: string
+    caption?: string
+    id?: string
+    url?: string
   }
 }
 
@@ -42,57 +42,81 @@ watch(
       />
     </template>
     <template v-else>
+      <div
+        id="iframe-description"
+        class="sr-only"
+      >
+        This iframe displays a code snippet from GitHub Gist.
+      </div>
       <iframe
         :src="gistUrl"
         width="100%"
         class="min-h-[500px]"
         frameborder="0"
+        title="Code snippet display"
+        aria-label="Code snippet display iframe"
+        aria-describedby="iframe-description"
+        aria-hidden="false"
       ></iframe>
-      <div
-        class="gist-caption"
-        v-html="
-          `${props.data.caption} <a href='${props.data.url}' target='_blank' class='underline text-action can-hover:hover:text-action-dark cursor-pointer'>View on GitHub</a>`
-        "
-      ></div>
+      <div class="gist-caption">
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <span v-html="props.data.caption"></span>
+        <a
+          :href="props.data.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="View on GitHub"
+        >
+          {{ 'View on GitHub' }}
+        </a>
+      </div>
     </template>
   </div>
 </template>
 
 <style scoped lang="scss">
+.BlockGist {
+  margin: 1rem 0 0.5rem;
+
+  iframe {
+    @apply border border-gray-light-mid rounded-none pr-2;
+  }
+
+  .gist-caption {
+    @apply text-sm font-medium m-1 flex-wrap;
+
+    span {
+      p {
+        @apply text-gray-mid;
+      }
+    }
+
+    a {
+      @apply underline text-action can-hover:hover:text-action-dark cursor-pointer;
+      white-space: nowrap; /* Prevents the link from wrapping onto a new line */
+    }
+  }
+}
 body.ThemeVariantLight {
   .BlockGist {
-    margin: 1rem 0;
-
     iframe {
-      @apply border border-gray-light-mid rounded-lg;
+      @apply border-gray-light-mid;
     }
 
     .gist-caption {
-      @apply text-sm font-medium text-gray-mid-dark m-1;
-
-      a {
-        @apply underline text-action can-hover:hover:text-action-dark cursor-pointer;
-        white-space: nowrap; /* Prevents the link from wrapping onto a new line */
-      }
+      @apply text-gray-mid-dark;
     }
   }
 }
 
 body.ThemeVariantDark {
   .BlockGist {
-    margin: 1rem 0;
-
     iframe {
-      @apply border border-gray-dark rounded-lg bg-gray-light p-2;
+      @apply border-gray-mid-dark bg-gray-light;
     }
 
     .gist-caption {
-      @apply text-sm font-medium text-gray-light-mid m-1;
-
-      a {
-        @apply underline text-action can-hover:hover:text-action-dark cursor-pointer;
-        white-space: nowrap; /* Prevents the link from wrapping onto a new line */
-      }
+      @apply text-gray-light-mid;
     }
   }
 }
