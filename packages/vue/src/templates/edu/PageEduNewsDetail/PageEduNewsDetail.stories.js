@@ -56,6 +56,7 @@ export const BaseStory = {
       heroPosition: 'full_bleed',
       heroImage: HeroMediaData.image,
       heroImageInline: HeroMediaData.imageInline,
+      showJumpMenu: true,
       ...BlockStreamfieldData
     }
   }

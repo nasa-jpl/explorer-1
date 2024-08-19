@@ -79,7 +79,7 @@ defineExpose({
       ref="PageEduNewsDetailJumpMenu"
       :title="data.title"
       :blocks="data.body"
-      :enabled="true"
+      :enabled="data.showJumpMenu"
     />
 
     <!-- schema.org -->
