@@ -73,7 +73,6 @@ watch(
       <iframe
         :src="gistUrl"
         width="100%"
-        class="min-h-auto lg:min-h-[500px]"
         frameborder="0"
         title="Code snippet display"
         aria-label="Code snippet display iframe"
@@ -105,7 +104,7 @@ watch(
   }
 
   iframe {
-    @apply border border-gray-light-mid border-t-8 rounded-none pl-0.5;
+    @apply min-h-fit-content border border-gray-light-mid border-t-8 rounded-none pl-0.5;
   }
 
   .gist-caption {
