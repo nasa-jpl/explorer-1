@@ -93,11 +93,13 @@ const stringAsHeadingBlockData = (
 }
 
 const heroEmpty = computed((): boolean => {
-  return !data?.hero?.length
+  return data?.hero?.length === 0
 })
 
 const heroInline = computed((): boolean => {
+  // heroes with interactive elements have special handling
   if (!heroEmpty.value && data?.hero) {
+    // excludes VideoBlock as this will autoplay
     if (data?.hero[0].blockType === 'VideoBlock') {
       return false
     } else if (
@@ -296,13 +298,13 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     <MetaPanel
       button="View Standards"
       theme="primary"
-      :class="{ 'mb-4 lg:mb-10': data?.hero?.length === 0 }"
+      :class="{ 'mb-10 lg:mb-14': heroInline || data?.hero?.length === 0 }"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :time="data.time"
       :grade-levels="data.gradeLevels"
       :standards="data.standards"
-      :negative-bottom="data?.hero?.length !== 0"
+      :negative-bottom="heroInline || data?.hero?.length !== 0"
     />
 
     <!-- hero media -->
