@@ -21,7 +21,7 @@ import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 import BlockLinkTile from './../BlockLinkTile/BlockLinkTile.vue'
 
 interface Variants {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const itemTypes: Variants = {

@@ -1,15 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, defineExpose } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
-import type { StreamfieldBlockData } from './../../../components/BlockStreamfield/BlockStreamfield.vue'
-import type {
-  AuthorObject,
-  ImageObject,
-  PageResponseObject,
-  RelatedLinkObject,
-  Topic,
-  ThumbnailObject
-} from './../../../interfaces'
+import type { AuthorObject, ImageObject, PageObject } from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
@@ -19,23 +11,14 @@ import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 
-interface PageEduNewsDetailObject extends PageResponseObject {
+interface PageEduNewsDetailObject extends PageObject {
   readTime: string
   url: string
   heroImage: ImageObject
   heroImageInline: ImageObject
-  thumbnailImage: ThumbnailObject
-  heroPosition: string
   heroConstrain: boolean
   heroImageCaption: string
   authors: AuthorObject[]
-  publicationDate: string
-  title: string
-  getTopicsForDisplay: Topic[]
-  summary: string
-  topper: string
-  relatedLinks: RelatedLinkObject[]
-  body: StreamfieldBlockData[]
   showJumpMenu: boolean
 }
 
@@ -69,7 +52,7 @@ const computedClass = computed(() => {
 })
 
 const dateTimeArray = computed(() => {
-  return props.data.publicationDate.split(' ')
+  return props.data.publicationDate ? props.data.publicationDate.split(' ') : undefined
 })
 
 defineExpose({
@@ -88,7 +71,7 @@ defineExpose({
       ref="PageEduNewsDetailJumpMenu"
       :title="data.title"
       :blocks="data.body"
-      :enabled="true"
+      :enabled="data.showJumpMenu"
     />
 
     <!-- schema.org -->

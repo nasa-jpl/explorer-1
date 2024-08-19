@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 
 interface AspectRatios {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const aspectRatios: AspectRatios = {
