@@ -17,6 +17,7 @@ import PageEduLesson from './PageEduLesson.vue'
 export default {
   title: 'Templates/EDU/PageEduLesson',
   component: PageEduLesson,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
