@@ -122,7 +122,7 @@ const initObserver = () => {
       // console.log('bounding rect top', e.boundingClientRect.top)
       console.log('reg-intersecting?', e.isIntersecting)
       console.log('reg:', e.intersectionRatio)
-      e.target.classList.toggle('-force-hide-jump-menu', e.intersectionRatio === 1)
+      e.target.classList.toggle('-force-hide-jump-menu', e.intersectionRatio === 0)
     },
     {
       threshold: [0]
@@ -149,12 +149,12 @@ const initObserver = () => {
       // } else {
       //   e.target.classList.remove('-TESTTEST')
       // }
-      // e.target.classList.toggle('-force-show-jump-menu-offset', e.intersectionRatio === 1)
+      e.target.classList.toggle('-force-show-jump-menu-offset', e.intersectionRatio === 0)
       // e.target.classList.toggle('-force-hide-jump-menu-offset', e.intersectionRatio === 0)
     },
     {
-      threshold: [1],
-      rootMargin: '0px 0px 0px 0px'
+      threshold: [0],
+      rootMargin: '-70px 0px 0px 0px'
     }
   )
   console.log(observerOffset.value)
@@ -200,17 +200,17 @@ watch(
     &.-is-sticky-offset {
       &.-force-hide-jump-menu {
         @apply opacity-0 #{!important};
-        @apply transition-none #{!important};
+        // @apply transition-none #{!important};
       }
     }
     &.-is-sticky-offset {
       &.-force-show-jump-menu-offset {
         @apply opacity-100  #{!important};
-        @apply transition-none #{!important};
+        // @apply transition-none #{!important};
       }
       &.-force-show-hide-menu-offset {
         @apply opacity-0 #{!important};
-        @apply transition-none #{!important};
+        // @apply transition-none #{!important};
       }
     }
   }
