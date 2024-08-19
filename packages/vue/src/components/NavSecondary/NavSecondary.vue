@@ -122,8 +122,8 @@ export default defineComponent({
     ) {
       // intersection observer not supported
     } else if (this.enabled) {
-      // this.initIntersectionObservers()
-      // this.checkSticky()
+      this.initIntersectionObservers()
+      this.checkSticky()
     }
   },
   methods: {
@@ -137,26 +137,25 @@ export default defineComponent({
       this.stickyElement = this.$refs.NavSecondary as HTMLElement
       this.observer = new IntersectionObserver(
         ([e]) => {
-          e.target.classList.toggle('-is-sticky', e.intersectionRatio < 1)
+          e.target.classList.toggle('-is-sticky', e.intersectionRatio === 0)
         },
         {
-          threshold: [1]
+          threshold: [0]
         }
       )
       this.observerOffset = new IntersectionObserver(
         ([e]) => {
-          e.target.classList.toggle('-is-sticky-offset', e.intersectionRatio < 1)
+          e.target.classList.toggle('-is-sticky-offset', e.intersectionRatio === 0)
         },
         {
-          threshold: [1],
-          // rootMargin: '-113px 0px 0px 0px' // www breadcrumbs
-          rootMargin: '0px 0px 0px 0px' // www breadcrumbs
+          threshold: [0],
+          rootMargin: this.themeStore.isEdu ? '-73px 0px 0px 0px' : '-113px 0px 0px 0px'
         }
       )
     },
     checkSticky() {
-      // this.observer.observe(this.stickyElement)
-      // this.observerOffset.observe(this.stickyElement)
+      this.observer.observe(this.stickyElement)
+      this.observerOffset.observe(this.stickyElement)
     }
   }
 })

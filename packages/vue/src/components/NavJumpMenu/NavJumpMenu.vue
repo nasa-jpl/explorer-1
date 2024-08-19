@@ -63,9 +63,6 @@ const props = withDefaults(defineProps<NavJumpMenuProps>(), {
 })
 
 const NavJumpMenuRef = ref()
-const observer = ref()
-const observerOffset = ref()
-const observeMe = ref()
 
 const theJumpLinks = computed(() => {
   if (props.jumpLinks) {
@@ -115,65 +112,11 @@ const theBreadcrumbs = computed(() => {
   return breadcrumb as BreadcrumbPathObject[] | undefined
 })
 
-const initObserver = () => {
-  observeMe.value = document.getElementById('NavJumpMenu')
-  observer.value = new IntersectionObserver(
-    ([e]) => {
-      // console.log('bounding rect top', e.boundingClientRect.top)
-      console.log('reg-intersecting?', e.isIntersecting)
-      console.log('reg:', e.intersectionRatio)
-      // e.target.classList.toggle('-force-hide-jump-menu', e.intersectionRatio === 0)
-      e.target.classList.toggle('-is-sticky', e.intersectionRatio === 0)
-    },
-    {
-      threshold: [0]
-    }
-  )
-  console.log(observer.value)
-  observerOffset.value = new IntersectionObserver(
-    ([e]) => {
-      // console.log('offset: bounding rect top', e.boundingClientRect.top)
-      console.log('offset-intersecting?', e.isIntersecting)
-      console.log('offset:', e.intersectionRatio)
-      // if (e.isIntersecting) {
-      //   e.target.classList.remove('-force-hide-jump-menu-offset')
-      // } else {
-      //   e.target.classList.add('-force-hide-jump-menu-offset')
-      // }
-      // if (e.boundingClientRect.top < 0) {
-      //   //if (e.isIntersecting) {
-      //   // scrolling up
-      //   e.target.classList.add('-TESTTEST')
-      //   //} else {
-      //   // scrolling down
-      //   //}
-      // } else {
-      //   e.target.classList.remove('-TESTTEST')
-      // }
-      // e.target.classList.toggle('-force-show-jump-menu-offset', e.intersectionRatio === 0)
-      e.target.classList.toggle('-is-sticky-offset', e.intersectionRatio === 0)
-    },
-    {
-      threshold: [0],
-      rootMargin: '-73px 0px 0px 0px'
-    }
-  )
-  console.log(observerOffset.value)
-}
-
 defineExpose({
   NavJumpMenuRef
 })
 onMounted(() => {
   mixinUpdateSecondary(theBreadcrumbs.value, true)
-  initObserver()
-  // const observeMe = document.getElementById('NavSecondary')
-  // if (observeMe) {
-  // if (NavJumpMenuRef.value?.refs?.NavSecondary) {
-  observer.value.observe(observeMe.value)
-  observerOffset.value.observe(observeMe.value)
-  // }
-  // }
 })
 
 const route = useRoute()
@@ -190,29 +133,10 @@ watch(
 <style lang="scss">
 .NavJumpMenu {
   &.-hide-until-threshold {
-    // @apply opacity-0 h-0 transition-none overflow-visible pointer-events-none;
-    @apply opacity-0 h-0 transition-all overflow-visible pointer-events-none;
+    @apply opacity-0 h-0 transition-none overflow-visible pointer-events-none;
     &.-is-sticky,
     &.-is-sticky-offset {
-      // @apply opacity-100 transition-opacity pointer-events-auto;
       @apply opacity-100 transition-all pointer-events-auto;
-    }
-    &.-is-sticky,
-    &.-is-sticky-offset {
-      &.-force-hide-jump-menu {
-        @apply opacity-0 #{!important};
-        // @apply transition-none #{!important};
-      }
-    }
-    &.-is-sticky-offset {
-      &.-force-show-jump-menu-offset {
-        @apply opacity-100  #{!important};
-        // @apply transition-none #{!important};
-      }
-      &.-force-show-hide-menu-offset {
-        @apply opacity-0 #{!important};
-        // @apply transition-none #{!important};
-      }
     }
   }
 }
