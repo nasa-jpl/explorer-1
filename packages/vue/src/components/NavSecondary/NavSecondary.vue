@@ -122,8 +122,8 @@ export default defineComponent({
     ) {
       // intersection observer not supported
     } else if (this.enabled) {
-      this.initIntersectionObservers()
-      this.checkSticky()
+      // this.initIntersectionObservers()
+      // this.checkSticky()
     }
   },
   methods: {
@@ -149,13 +149,14 @@ export default defineComponent({
         },
         {
           threshold: [1],
-          rootMargin: '-113px 0px 0px 0px' // www breadcrumbs
+          // rootMargin: '-113px 0px 0px 0px' // www breadcrumbs
+          rootMargin: '0px 0px 0px 0px' // www breadcrumbs
         }
       )
     },
     checkSticky() {
-      this.observer.observe(this.stickyElement)
-      this.observerOffset.observe(this.stickyElement)
+      // this.observer.observe(this.stickyElement)
+      // this.observerOffset.observe(this.stickyElement)
     }
   }
 })
