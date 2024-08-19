@@ -113,7 +113,7 @@ const MixinCarouselOptions = swiperOptions.MixinCarousel
 Swiper.use([Navigation, A11y])
 
 interface Variants {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const variants: Variants = {
@@ -122,7 +122,7 @@ export const variants: Variants = {
 }
 
 interface Indents {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const indents: Indents = {

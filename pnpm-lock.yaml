@@ -168,6 +168,9 @@ importers:
       vue:
         specifier: ^3.2.47
         version: 3.4.27(typescript@5.4.5)
+      vue-bind-once:
+        specifier: ^0.2.1
+        version: 0.2.1(vue@3.4.27(typescript@5.4.5))
       vue3-compare-image:
         specifier: ^1.2.5
         version: 1.2.5(vue@3.4.27(typescript@5.4.5))
@@ -533,6 +536,9 @@ importers:
       vue:
         specifier: ^3.4.21
         version: 3.4.27(typescript@5.4.5)
+      vue-bind-once:
+        specifier: ^0.2.1
+        version: 0.2.1(vue@3.4.27(typescript@5.4.5))
       vue-observe-visibility:
         specifier: ^1.0.0
         version: 1.0.0
@@ -8938,6 +8944,11 @@ packages:
 
   vscode-uri@3.0.8:
     resolution: {integrity: sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==}
+
+  vue-bind-once@0.2.1:
+    resolution: {integrity: sha512-17toDsxK7hc8folglp6TYtybi/Q0FVJal6plFeMeofWd2nOl4axHg9ckR/5ORNCj+GyjMAWh/OD10MvT6AXbHA==}
+    peerDependencies:
+      vue: ^3
 
   vue-bundle-renderer@2.1.0:
     resolution: {integrity: sha512-uZ+5ZJdZ/b43gMblWtcpikY6spJd0nERaM/1RtgioXNfWFbjKlUwrS8HlrddN6T2xtptmOouWclxLUkpgcVX3Q==}
@@ -19726,6 +19737,11 @@ snapshots:
       vscode-languageserver-protocol: 3.16.0
 
   vscode-uri@3.0.8: {}
+
+  vue-bind-once@0.2.1(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      scule: 1.3.0
+      vue: 3.4.27(typescript@5.4.5)
 
   vue-bundle-renderer@2.1.0:
     dependencies:

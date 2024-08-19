@@ -1,5 +1,5 @@
 import { camelCase } from 'lodash'
-
-export const getHeadingId = (heading: string, index?: number) => {
-  return camelCase(heading + (index ? index : ''))
+import { type HeadingLevel } from '../components/BaseHeading/BaseHeading.vue'
+export const getHeadingId = (heading: HeadingLevel, blockId?: string) => {
+  return 'anchor_' + camelCase(heading) + (blockId ? '_' + camelCase(blockId) : '')
 }

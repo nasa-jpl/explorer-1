@@ -53,6 +53,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import MixinVideoBg from './../MixinVideoBg/MixinVideoBg.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import IconInfo from './../Icons/IconInfo.vue'
@@ -105,6 +107,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
     theImageCaption(): string | undefined {
       if (this.image && this.caption && this.caption.length > 2 && this.displayCaption) {
         return this.caption
@@ -149,7 +152,13 @@ export default defineComponent({
     },
     hasCaptionArea(): string | boolean {
       if (this.theImageData) {
-        return this.theImageCaption || this.image?.credit || this.image?.detailUrl
+        if (this.themeStore.isEdu) {
+          // For EDU, only show the caption area if there is a caption
+          return this.theImageCaption ? this.theImageCaption : false
+        } else {
+          // For others, show the caption area if there is also a credit or detail URL
+          return this.theImageCaption || this.image?.credit || this.image?.detailUrl
+        }
       } else if (this.customCaption) {
         return true
       }
