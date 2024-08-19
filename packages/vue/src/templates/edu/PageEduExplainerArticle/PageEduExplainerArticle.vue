@@ -5,6 +5,7 @@ import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/Bas
 import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BlockVideo from './../../../components/BlockVideo/BlockVideo.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
@@ -12,6 +13,7 @@ import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsE
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
+import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 
 export default defineComponent({
   name: 'PageEduExplainerArticle',
@@ -27,7 +29,9 @@ export default defineComponent({
     BlockImageCarousel,
     BlockImageComparison,
     BlockLinkCarousel,
-    BlockRelatedLinks
+    BlockRelatedLinks,
+    BlockVideo,
+    NavJumpMenu
   },
   props: {
     data: {
@@ -121,6 +125,11 @@ export default defineComponent({
       />
     </LayoutHelper>
 
+    <NavJumpMenu
+      :title="data.title"
+      :blocks="data.body"
+      :enabled="data.showJumpMenu"
+    />
     <!-- inline hero content -->
     <LayoutHelper
       v-if="!heroEmpty && heroInline"

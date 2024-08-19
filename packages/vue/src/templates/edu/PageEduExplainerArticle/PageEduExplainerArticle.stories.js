@@ -47,6 +47,7 @@ export const BaseStory = {
           blockType: 'HeroImageBlock'
         }
       ],
+      showJumpMenu: true,
       ...BlockStreamfieldTruncatedData,
       publicationDate: '2024-07-09',
       summary: 'Summary of resource article',

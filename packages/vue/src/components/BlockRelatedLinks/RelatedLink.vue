@@ -24,7 +24,7 @@ import IconDownload from './../Icons/IconDownload.vue'
 import IconExternal from './../Icons/IconExternal.vue'
 
 interface Variants {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const variants: Variants = {

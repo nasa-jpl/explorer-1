@@ -15,6 +15,31 @@ export interface BlockData {
   level?: string
   items?: any[]
 }
+export interface StreamfieldBlockData extends BlockData {
+  blockId?: string
+  id?: string
+  fullBleed?: boolean
+  heading?: string
+  galleryTitle?: string
+  galleryDescription?: string
+  coverImage?: ImageObject
+  gallerySlides?: ImageObject[]
+  blocks?: object[]
+  value?: string
+  customLabel?: string
+  introduction?: string
+  teaserPage?: object | string[]
+  image?: ImageObject
+  buttonText?: string
+  fullWidthImage?: boolean
+  video?: any
+  embed?: any
+  displayCaption?: boolean
+  caption?: string
+  credit?: string
+  imageInline?: ImageObject
+}
+
 export interface ImageSrcObject {
   url: string
   width: number
@@ -125,17 +150,14 @@ export interface RelatedLinkObject extends LinkObject {
   document: { url: string } | null
   text: string | null
 }
-
-export interface PageResponseObject {
-  __typename: string
-  contentType: string
-  breadcrumb?: string
-  url?: string
+export interface BlockRelatedLinksObject extends BlockData {
+  heading: string
+  links: RelatedLinkObject[]
 }
 
 export interface PageResponse {
   __typename: string
-  page: PageResponseObject
+  page: PageObject
 }
 
 export interface HeaderResponse {
@@ -152,7 +174,7 @@ export interface FooterResponse {
 export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
 
 export interface Attributes {
-  [name: string]: string
+  [key: string]: string
 }
 
 export interface AuthorObject {
@@ -176,4 +198,65 @@ export interface PillDictionaryInterface {
 }
 export interface DictionaryInterface {
   [key: string]: string
+}
+export interface AccordionItemObject {
+  title?: string
+  body?: StreamfieldBlockData[]
+}
+
+export type MetaPanelTheme = 'primary' | 'secondary' | 'stars'
+
+export interface PageObject {
+  __typename: string
+  contentType: string
+  breadcrumb?: string
+  slug: string
+  url: string
+  title: string
+  getTopicsForDisplay?: Topic[]
+  label?: string
+  summary?: string
+  topper?: string
+  seoTitle?: string
+  searchDescription?: string
+  heroPosition?: 'full_bleed' | 'inline'
+  heroConstrain?: boolean
+  publicationDate?: string
+  body?: StreamfieldBlockData[]
+  thumbnailImage?: ThumbnailObject
+  relatedLinks?: BlockRelatedLinksObject[]
+  relatedContentHeading: string
+  relatedContent?: any
+}
+
+export interface EduResourcesSubject {
+  subject: string
+}
+export interface EduResourcesGradeLevel {
+  gradeLevel: string
+}
+
+export interface EduResourcesTime {
+  time: string
+}
+export interface EduResourceStandard {
+  type: string
+  code: string
+  domain: {
+    domain: string
+  }
+  definition: string
+}
+
+export interface EduResourceStandardItem {
+  standard: EduResourceStandard
+}
+
+export interface PageEduResourcesObject extends PageObject {
+  hero?: StreamfieldBlockData[]
+  primarySubject?: EduResourcesSubject
+  additionalSubjects?: EduResourcesSubject[]
+  gradeLevels?: EduResourcesGradeLevel[]
+  time?: EduResourcesTime
+  standards: EduResourceStandardItem[]
 }

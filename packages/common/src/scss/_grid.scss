@@ -6,27 +6,27 @@
 
   .MixedBleedGrid {
     @screen sm {
-      grid-template-columns: [bleed-start] auto [container-start] 53.33px [indent-col-2] 53.33px [indent-col-3] 533.33px [container-end] auto [bleed-end];
+      grid-template-columns: [bleed-start] 1fr [container-start] 53.33px [indent-col-2] 53.33px [indent-col-3] 533.33px [container-end] 1fr [bleed-end];
       @apply grid gap-0;
     }
 
     @screen md {
-      grid-template-columns: [bleed-start] auto [container-start] 64px [indent-col-2] 64px [indent-col-3] 640px [container-end] auto [bleed-end];
+      grid-template-columns: [bleed-start] 1fr [container-start] 64px [indent-col-2] 64px [indent-col-3] 640px [container-end] 1fr [bleed-end];
       @apply grid;
     }
 
     @screen lg {
-      grid-template-columns: [bleed-start] auto [container-start] 85.33px [indent-col-2] 85.33px [indent-col-3] 853.33px [container-end] auto [bleed-end];
+      grid-template-columns: [bleed-start] 1fr [container-start] 85.33px [indent-col-2] 85.33px [indent-col-3] 853.33px [container-end] 1fr [bleed-end];
       @apply grid;
     }
 
     @screen xl {
-      grid-template-columns: [bleed-start] auto [container-start] 108px [indent-col-2] 108px [indent-col-3] 1088px [container-end] auto [bleed-end];
+      grid-template-columns: [bleed-start] 1fr [container-start] 108px [indent-col-2] 108px [indent-col-3] 1088px [container-end] 1fr [bleed-end];
       @apply grid;
     }
 
     @screen 2xl {
-      grid-template-columns: [bleed-start] auto [container-start] 110px [indent-col-2] 110px [indent-col-3] 1100px [container-end] auto [bleed-end];
+      grid-template-columns: [bleed-start] 1fr [container-start] 110px [indent-col-2] 110px [indent-col-3] 1100px [container-end] 1fr [bleed-end];
       @apply grid;
     }
 
@@ -40,6 +40,10 @@
 
     .col-start-container {
       grid-column-start: container-start;
+    }
+
+    .col-start-indent-col-1 {
+      grid-column-start: indent-col-1;
     }
 
     .col-start-indent-col-2 {
