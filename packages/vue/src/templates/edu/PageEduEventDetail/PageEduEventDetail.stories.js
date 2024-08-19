@@ -62,7 +62,6 @@ const PageEduEventDetailData = {
     detailUrl: null
   },
   heroConstrain: false,
-  heroPosition: 'inline',
   thumbnailImage: {
     alt: '',
     original: 'https://picsum.photos/512/288'
@@ -134,6 +133,19 @@ export const BaseStory = {
   args: { data: PageEduEventDetailData }
 }
 
+export const NoTimes = {
+  args: {
+    data: {
+      ...PageEduEventDetailData,
+      endDate: '2024-08-10',
+      endDatetime: '2024-08-10T23:59:59.999999-07:00',
+      endTime: null,
+      startDate: '2024-08-08',
+      startDatetime: null,
+      startTime: null
+    }
+  }
+}
 export const CustomDate = {
   args: {
     data: {
