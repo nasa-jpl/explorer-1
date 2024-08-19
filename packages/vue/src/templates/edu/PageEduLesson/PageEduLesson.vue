@@ -81,9 +81,10 @@ const heroInline = computed((): boolean => {
     if (data?.hero[0].blockType === 'VideoBlock') {
       return false
     } else if (
-      data?.heroPosition === 'inline' ||
       data?.hero[0].blockType === 'CarouselBlock' ||
-      data?.hero[0].blockType === 'VideoEmbedBlock'
+      data?.hero[0].blockType === 'IframeEmbedBlock' ||
+      data?.hero[0].blockType === 'VideoEmbedBlock' ||
+      data?.hero[0].blockType === 'ImageComparisonBlock'
     ) {
       return true
     }
@@ -233,8 +234,8 @@ const consolidatedSections = computed(() => {
         Find out what’s involved for students:
         <BaseLink
           class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
-          :to="data.studentProject.urlPath"
           variant="none"
+          :to="data.studentProject.urlPath"
         >
           View the Project Steps
         </BaseLink>
@@ -242,13 +243,13 @@ const consolidatedSections = computed(() => {
     </LayoutHelper>
     <MetaPanel
       button="View Standards"
+      theme="stars"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :time="data.time"
       :grade-levels="data.gradeLevels"
       :standards="data.standards"
       negative-bottom
-      theme="stars"
     />
 
     <!-- hero media -->
