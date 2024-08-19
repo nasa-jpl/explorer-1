@@ -264,7 +264,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     :class="computedClass"
   >
     <LayoutHelper
-      indent="col-3"
+      indent="col-2"
       class="mb-10"
     >
       <DetailHeadline
@@ -295,7 +295,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     </LayoutHelper>
     <MetaPanel
       button="View Standards"
-      theme="stars"
+      theme="primary"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :time="data.time"
