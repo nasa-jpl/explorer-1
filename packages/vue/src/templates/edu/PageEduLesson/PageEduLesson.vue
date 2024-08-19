@@ -296,12 +296,13 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     <MetaPanel
       button="View Standards"
       theme="primary"
+      :class="{ 'mb-4 lg:mb-10': data?.hero?.length === 0 }"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :time="data.time"
       :grade-levels="data.gradeLevels"
       :standards="data.standards"
-      negative-bottom
+      :negative-bottom="data?.hero?.length !== 0"
     />
 
     <!-- hero media -->
@@ -366,45 +367,44 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       :blocks="consolidatedBlocks"
       :enabled="true"
     />
-    <div id="NavJumpMenuFrame">
-      <template
-        v-for="(value, _key) in consolidatedSections"
-        :key="_key"
-      >
-        <BlockStreamfield
-          v-if="value.type === 'streamfield'"
-          :data="value.blocks"
-        />
-        <PageEduLessonSection
-          v-else
-          :heading="value.heading"
-          :blocks="value.blocks"
-          :procedures="value.procedures"
-          :procedure-steps="value.procedureSteps"
-          :text="value.text"
-          :image="value.image"
-        />
-      </template>
 
-      <!-- streamfield blocks -->
-      <BlockStreamfield :data="data.body" />
-
-      <!-- related links -->
-      <LayoutHelper
-        v-if="data.relatedLinks && data.relatedLinks.length"
-        indent="col-3"
-        class="lg:my-18 my-10"
-      >
-        <BlockRelatedLinks :data="data.relatedLinks[0]" />
-      </LayoutHelper>
-
-      <!-- related content -->
-      <BlockLinkCarousel
-        item-type="cards"
-        class="lg:my-24 my-12 print:px-4"
-        :heading="data.relatedContentHeading"
-        :items="data.relatedContent"
+    <template
+      v-for="(value, _key) in consolidatedSections"
+      :key="_key"
+    >
+      <BlockStreamfield
+        v-if="value.type === 'streamfield'"
+        :data="value.blocks"
       />
-    </div>
+      <PageEduLessonSection
+        v-else
+        :heading="value.heading"
+        :blocks="value.blocks"
+        :procedures="value.procedures"
+        :procedure-steps="value.procedureSteps"
+        :text="value.text"
+        :image="value.image"
+      />
+    </template>
+
+    <!-- streamfield blocks -->
+    <BlockStreamfield :data="data.body" />
+
+    <!-- related links -->
+    <LayoutHelper
+      v-if="data.relatedLinks && data.relatedLinks.length"
+      indent="col-3"
+      class="lg:my-18 my-10"
+    >
+      <BlockRelatedLinks :data="data.relatedLinks[0]" />
+    </LayoutHelper>
+
+    <!-- related content -->
+    <BlockLinkCarousel
+      item-type="cards"
+      class="lg:my-24 my-12 print:px-4"
+      :heading="data.relatedContentHeading"
+      :items="data.relatedContent"
+    />
   </div>
 </template>
