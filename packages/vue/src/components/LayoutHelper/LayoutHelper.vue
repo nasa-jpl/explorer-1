@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 
 interface Indents {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const indents: Indents = {

@@ -1,7 +1,7 @@
 <template>
   <NavSecondary
     v-if="enabled"
-    id="JumpMenuTop"
+    id="NavJumpMenu"
     ref="NavJumpMenuRef"
     class="NavJumpMenu -hide-until-threshold"
     :invert="invert"
@@ -78,11 +78,11 @@ const theJumpLinks = computed(() => {
       return b.blockType === 'HeadingBlock' && b.level === props.headingLevel
     })
     // map to the correct data shape
-    const links: BreadcrumbPathObject[] = filteredBlocks.map((l) => {
+    const links: BreadcrumbPathObject[] = filteredBlocks.map((h) => {
       return {
         // @ts-expect-error using parameter that was added to BlockData
-        path: '#' + getHeadingId(l.heading, l.index),
-        title: l.heading
+        path: '#' + getHeadingId(h.heading, h.blockId),
+        title: h.heading
       } as BreadcrumbPathObject
     })
     return links
@@ -95,11 +95,11 @@ const theBreadcrumbs = computed(() => {
   const rootItem = props.title
     ? {
         title: props.title,
-        path: '#JumpMenuTop'
+        path: '#siteTop'
       }
     : {
         title: 'Back to top',
-        path: '#JumpMenuTop'
+        path: '#siteTop'
       }
   const jumpMenu: BreadcrumbPathObject = {
     title: 'Jump to…',
@@ -111,12 +111,14 @@ const theBreadcrumbs = computed(() => {
   }
   return breadcrumb as BreadcrumbPathObject[] | undefined
 })
+
 defineExpose({
   NavJumpMenuRef
 })
 onMounted(() => {
   mixinUpdateSecondary(theBreadcrumbs.value, true)
 })
+
 const route = useRoute()
 
 // repopulate the store with the jump links since the store is cleared on route changes
@@ -131,10 +133,10 @@ watch(
 <style lang="scss">
 .NavJumpMenu {
   &.-hide-until-threshold {
-    @apply opacity-0 h-0 transition-none overflow-visible;
+    @apply opacity-0 h-0 transition-none overflow-visible pointer-events-none;
     &.-is-sticky,
     &.-is-sticky-offset {
-      @apply opacity-100 transition-opacity;
+      @apply opacity-100 transition-all pointer-events-auto;
     }
   }
 }

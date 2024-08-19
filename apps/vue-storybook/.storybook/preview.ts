@@ -6,6 +6,7 @@ import { createRouter, createWebHashHistory, type RouterOptions } from 'vue-rout
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import vClickOutside from 'click-outside-vue3'
 import VueCompareImage from 'vue3-compare-image'
+import { BindOncePlugin } from 'vue-bind-once'
 import { createPinia } from 'pinia'
 import filters from '@explorer-1/vue/src/utils/filters'
 import '@explorer-1/common/src/scss/styles-with-fonts.scss'
@@ -38,6 +39,7 @@ setup((app, _context) => {
   app.use(router)
   app.use(vClickOutside)
   app.use(VueCompareImage)
+  app.use(BindOncePlugin)
   app.component('Swiper', Swiper)
   app.component('SwiperSlide', SwiperSlide)
   app.config.globalProperties.$filters = filters
