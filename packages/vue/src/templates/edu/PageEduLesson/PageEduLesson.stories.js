@@ -17,6 +17,7 @@ import PageEduLesson from './PageEduLesson.vue'
 export default {
   title: 'Templates/EDU/PageEduLesson',
   component: PageEduLesson,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
@@ -55,7 +56,6 @@ export const BaseStory = {
         }
       ],
       heroConstrain: true,
-      heroPosition: 'full_bleed',
 
       studentProject: {
         title: 'Student Project',
@@ -207,14 +207,6 @@ export const BaseStory = {
     }
   }
 }
-export const InlineHero = {
-  args: {
-    data: {
-      ...BaseStory.args.data,
-      heroPosition: 'inline'
-    }
-  }
-}
 
 export const HeroCarousel = {
   args: {
@@ -229,7 +221,6 @@ export const HeroImageComparison = {
   args: {
     data: {
       ...BaseStory.args.data,
-      heroPosition: 'inline',
       hero: [
         {
           ...BlockImageComparisonData
@@ -259,7 +250,6 @@ export const HeroVideoEmbed = {
   args: {
     data: {
       ...BaseStory.args.data,
-      heroPosition: 'inline',
       hero: [
         {
           ...BlockVideoEmbedData.data,
@@ -277,7 +267,6 @@ export const HeroIframeEmbed = {
   args: {
     data: {
       ...BaseStory.args.data,
-      heroPosition: 'inline',
       hero: [
         {
           ...BlockIframeEmbedData
