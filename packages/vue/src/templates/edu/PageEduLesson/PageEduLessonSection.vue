@@ -15,9 +15,7 @@ export interface PageEduLessonSectionProps {
   heading: BlockHeadingObject
   blocks?: StreamfieldBlockData[]
   procedures?: {
-    procedure: {
-      blocks: StreamfieldBlockData[]
-    }
+    blocks: StreamfieldBlockData[]
   }[]
   procedureSteps?: boolean
   text?: string
@@ -82,8 +80,8 @@ const anchorId = computed(() => {
           </BaseHeading>
         </LayoutHelper>
         <BlockStreamfield
-          v-if="item?.procedure?.blocks"
-          :data="item.procedure.blocks"
+          v-if="item?.blocks"
+          :data="item.blocks"
         />
       </template>
     </template>
