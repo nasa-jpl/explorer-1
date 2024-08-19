@@ -28,8 +28,8 @@ export const BaseStory = {
     negativeTop: true,
     negativeBottom: true,
     button: 'View Standards',
-    primarySubject: 'Math',
-    additionalSubjects: ['Science'],
+    primarySubject: { subject: 'Math' },
+    additionalSubjects: [{ subject: 'Science' }],
     time: '30mins - hr',
     gradeLevels: [
       { gradeLevel: 'All Ages' },
@@ -46,7 +46,7 @@ export const BaseStory = {
         standard: {
           code: 'CCRA.R.1',
           definition:
-            'Read closely to determine what the text says explicitly and to make logical inferences from it; cite specific textual evidence when writing or speaking to support conclusions drawn from the text.',
+            'Read closely to determine what the text says explicitly and to make logical inferences from it; cite specific textual evidence when writing or speaking to support conclusions drawn from the text. Test<sub>render</sub> and test<sup>render</sup>. ',
           domain: {
             domain: 'College and Career Readiness Anchor Standards for Reading'
           },
