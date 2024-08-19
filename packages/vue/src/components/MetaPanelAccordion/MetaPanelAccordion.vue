@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import type { EduStandard } from './../../interfaces'
+import type { AccordionItemObject, EduResourceStandardItem } from './../../interfaces'
 import BaseAccordionItem from './../BaseAccordionItem/BaseAccordionItem.vue'
-import BlockText from './../BlockText/BlockText.vue'
 
 interface MetaPanelAccordionProps {
-  standards?: EduStandard[]
+  standards?: EduResourceStandardItem[]
 }
 const props = withDefaults(defineProps<MetaPanelAccordionProps>(), {
   standards: undefined
@@ -20,7 +19,7 @@ const { standards } = reactive(props)
       :key="index"
       heading-level="h3"
       class="mb-2 bg-white"
-      :item="item.standard"
+      :item="item.standard as AccordionItemObject"
     >
       <template #heading>
         <div class="w-full text-left pr-5">

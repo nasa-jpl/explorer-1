@@ -16,21 +16,28 @@ export interface BlockData {
   items?: any[]
 }
 export interface StreamfieldBlockData extends BlockData {
-  id: string
-  fullBleed: boolean
-  heading: string
-  galleryTitle: string
-  galleryDescription: string
-  coverImage: ImageObject
-  gallerySlides: ImageObject[]
-  blocks: object[]
-  value: string
-  customLabel: string
-  introduction: string
-  teaserPage: object | string[]
-  image: ImageObject
-  buttonText: string
-  fullWidthImage: boolean
+  blockId?: string
+  id?: string
+  fullBleed?: boolean
+  heading?: string
+  galleryTitle?: string
+  galleryDescription?: string
+  coverImage?: ImageObject
+  gallerySlides?: ImageObject[]
+  blocks?: object[]
+  value?: string
+  customLabel?: string
+  introduction?: string
+  teaserPage?: object | string[]
+  image?: ImageObject
+  buttonText?: string
+  fullWidthImage?: boolean
+  video?: any
+  embed?: any
+  displayCaption?: boolean
+  caption?: string
+  credit?: string
+  imageInline?: ImageObject
 }
 
 export interface ImageSrcObject {
@@ -167,7 +174,7 @@ export interface FooterResponse {
 export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
 
 export interface Attributes {
-  [name: string]: string
+  [key: string]: string
 }
 
 export interface AuthorObject {
@@ -199,15 +206,6 @@ export interface AccordionItemObject {
 
 export type MetaPanelTheme = 'primary' | 'secondary' | 'stars'
 
-export interface EduStandard {
-  type: string
-  code: string
-  domain: {
-    domain: string
-  }
-  definition: string
-}
-
 export interface PageObject {
   __typename: string
   contentType: string
@@ -226,7 +224,8 @@ export interface PageObject {
   publicationDate?: string
   body?: StreamfieldBlockData[]
   thumbnailImage?: ThumbnailObject
-  relatedLinks?: BlockRelatedLinksObject
+  relatedLinks?: BlockRelatedLinksObject[]
+  relatedContentHeading: string
   relatedContent?: any
 }
 
@@ -241,18 +240,23 @@ export interface EduResourcesTime {
   time: string
 }
 export interface EduResourceStandard {
+  type: string
   code: string
-  definition: string
   domain: {
     domain: string
   }
-  type: string
+  definition: string
 }
+
+export interface EduResourceStandardItem {
+  standard: EduResourceStandard
+}
+
 export interface PageEduResourcesObject extends PageObject {
   hero?: StreamfieldBlockData[]
   primarySubject?: EduResourcesSubject
   additionalSubjects?: EduResourcesSubject[]
   gradeLevels?: EduResourcesGradeLevel[]
   time?: EduResourcesTime
-  standards: EduResourceStandard[]
+  standards: EduResourceStandardItem[]
 }

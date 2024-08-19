@@ -12,12 +12,15 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
+import { type HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 import { getHeadingId } from '../../utils/getHeadingId'
+
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
 export interface BlockHeadingObject {
-  heading?: string
-  level?: string
+  blockType?: string
+  heading: HeadingLevel
+  level?: HeadingLevel
   size?: string
   blockId?: string
 }

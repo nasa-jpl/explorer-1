@@ -81,7 +81,12 @@ export default defineComponent({
       default: false
     }
   },
-  data() {
+  data(): {
+    isSticky: boolean
+    stickyElement?: HTMLElement
+    observer?: IntersectionObserver
+    observerOffset?: IntersectionObserver
+  } {
     return {
       isSticky: false,
       stickyElement: undefined,
@@ -154,8 +159,10 @@ export default defineComponent({
       )
     },
     checkSticky() {
-      this.observer.observe(this.stickyElement)
-      this.observerOffset.observe(this.stickyElement)
+      if (this.stickyElement) {
+        if (this.observer) this.observer.observe(this.stickyElement)
+        if (this.observerOffset) this.observerOffset.observe(this.stickyElement)
+      }
     }
   }
 })

@@ -154,7 +154,7 @@ export default defineComponent({
       if (this.theImageData) {
         if (this.themeStore.isEdu) {
           // For EDU, only show the caption area if there is a caption
-          return this.theImageCaption
+          return this.theImageCaption ? this.theImageCaption : false
         } else {
           // For others, show the caption area if there is also a credit or detail URL
           return this.theImageCaption || this.image?.credit || this.image?.detailUrl

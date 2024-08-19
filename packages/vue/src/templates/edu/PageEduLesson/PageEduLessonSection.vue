@@ -11,11 +11,13 @@ import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 
-interface PageEduLessonSectionProps {
+export interface PageEduLessonSectionProps {
   heading: BlockHeadingObject
   blocks?: StreamfieldBlockData[]
   procedures?: {
-    procedure: StreamfieldBlockData[]
+    procedure: {
+      blocks: StreamfieldBlockData[]
+    }
   }[]
   procedureSteps?: boolean
   text?: string
@@ -80,8 +82,8 @@ const anchorId = computed(() => {
           </BaseHeading>
         </LayoutHelper>
         <BlockStreamfield
-          v-if="item?.procedure"
-          :data="item.procedure"
+          v-if="item?.procedure?.blocks"
+          :data="item.procedure.blocks"
         />
       </template>
     </template>

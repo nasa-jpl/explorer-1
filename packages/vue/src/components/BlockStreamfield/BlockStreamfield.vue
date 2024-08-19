@@ -12,7 +12,7 @@
         class="mb-5"
       >
         <BlockHeading
-          :data="block"
+          :data="block as BlockHeadingObject"
           :index="index"
           generate-id
         />
@@ -216,7 +216,7 @@ import type { StreamfieldBlockData } from '../../interfaces'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BlockCardGrid from './../BlockCardGrid/BlockCardGrid.vue'
 import BlockCta from './../BlockCta/BlockCta.vue'
-import BlockHeading from './../BlockHeading/BlockHeading.vue'
+import BlockHeading, { BlockHeadingObject } from './../BlockHeading/BlockHeading.vue'
 import BlockImage from './../BlockImage/BlockImage.vue'
 import BlockImageCarousel from './../BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageComparison from './../BlockImageComparison/BlockImageComparison.vue'
@@ -239,7 +239,7 @@ import BlockVideoEmbed, {
 } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockAnchor from './../BlockAnchor/BlockAnchor.vue'
 interface Variants {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const variants: Variants = {

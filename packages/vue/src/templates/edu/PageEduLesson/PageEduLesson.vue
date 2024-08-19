@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import type {
+  BlockData,
   ImageObject,
   PageEduResourcesObject,
   StreamfieldBlockData
@@ -8,6 +9,7 @@ import type {
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
 import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import type { BlockHeadingObject } from '../../../components/BlockHeading/BlockHeading.vue'
 import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
@@ -20,10 +22,26 @@ import BlockStreamfield from './../../../components/BlockStreamfield/BlockStream
 import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
-import PageEduLessonSection from './PageEduLessonSection.vue'
+import PageEduLessonSection, { type PageEduLessonSectionProps } from './PageEduLessonSection.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
+import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
+
+interface EduLessonSectionObject extends PageEduLessonSectionProps {
+  type?: 'streamfield'
+}
+interface EduLessonProcedureBlocks {
+  blocks: StreamfieldBlockData[]
+}
+interface EduLessonProcedure {
+  procedure: EduLessonProcedureBlocks
+}
 
 interface PageEduLessonObject extends PageEduResourcesObject {
+  [key: string]: any
+  studentProject: {
+    title: string
+    urlPath: string
+  }
   overview: StreamfieldBlockData[]
   overviewHeading: string
   overviewImage: ImageObject
@@ -34,7 +52,7 @@ interface PageEduLessonObject extends PageEduResourcesObject {
   managementHeading: string
   background: StreamfieldBlockData[]
   backgroundHeading: string
-  procedures: StreamfieldBlockData[]
+  procedures: EduLessonProcedure[]
   proceduresHeading: string
   proceduresStepsNumbering: boolean
   discussion: StreamfieldBlockData[]
@@ -46,7 +64,6 @@ interface PageEduLessonObject extends PageEduResourcesObject {
   techAddons: StreamfieldBlockData[]
   techAddonsHeading: string
   customSections: any
-  body: StreamfieldBlockData[]
 }
 interface PageEduLessonProps {
   data?: PageEduLessonObject
@@ -64,20 +81,23 @@ defineExpose({
   PageEduLessonJumpMenu
 })
 
-const stringAsHeadingBlockData = (heading, overrideText) => {
+const stringAsHeadingBlockData = (
+  heading: HeadingLevel,
+  overrideText?: string
+): BlockHeadingObject => {
   return {
     blockType: 'HeadingBlock',
-    heading: overrideText || heading,
+    heading: (overrideText || heading) as HeadingLevel,
     level: 'h2'
   }
 }
 
 const heroEmpty = computed((): boolean => {
-  return (data?.hero || []).length === 0
+  return !data?.hero?.length
 })
 
 const heroInline = computed((): boolean => {
-  if (!heroEmpty.value) {
+  if (!heroEmpty.value && data?.hero) {
     if (data?.hero[0].blockType === 'VideoBlock') {
       return false
     } else if (
@@ -116,77 +136,109 @@ const sectionOrder = [
 ]
 
 // mimic HeadingBlock data shape for defined section headings
-const staticSectionHeadings = computed(() => {
-  const result = sectionOrder.reduce((acc, section) => {
-    const headingText =
-      section === 'techAddons' ? 'Tech Add-ons' : section.charAt(0).toUpperCase() + section.slice(1)
-    acc[section] = stringAsHeadingBlockData(data[`${section}Heading`] || headingText)
-    return acc
-  }, {})
-  return result
+const staticSectionHeadings = computed((): { [key: string]: BlockHeadingObject } | undefined => {
+  if (data) {
+    const result = sectionOrder.reduce<Record<string, BlockHeadingObject>>((acc, section) => {
+      const headingText =
+        section === 'techAddons'
+          ? 'Tech Add-ons'
+          : section.charAt(0).toUpperCase() + section.slice(1)
+      acc[section] = stringAsHeadingBlockData(
+        (data[`${section}Heading`] as HeadingLevel) || headingText
+      )
+      return acc
+    }, {})
+    return result
+  }
+  return undefined
 })
 
-const keyedCustomSections = computed(() => {
-  const result = data.customSections.reduce((acc, section) => {
-    const position = section.position
-    if (!acc[position]) {
-      acc[position] = []
+const keyedCustomSections = computed(
+  ():
+    | {
+        [key: string]: StreamfieldBlockData[]
+      }
+    | undefined => {
+    if (data) {
+      const result = data.customSections.reduce(
+        (
+          acc: { [key: string]: StreamfieldBlockData[] },
+          section: {
+            heading: StreamfieldBlockData
+            content: StreamfieldBlockData[]
+            position: string
+          }
+        ) => {
+          const position = section.position
+          if (!acc[position]) {
+            acc[position] = []
+          }
+          acc[position].push(section.heading)
+          acc[position].push(...section.content)
+          return acc
+        },
+        {}
+      )
+      return result
     }
-    acc[position].push(section.heading)
-    acc[position].push(...section.content)
-    return acc
-  }, {})
-  return result
-})
+    return undefined
+  }
+)
 
 const consolidatedBlocks = computed(() => {
   // NavJumpMenu handles filtering for HeadingBlock, so we don't need to do that here
   const blocks = []
   // include custom top blocks
-  if (keyedCustomSections.value['top']) {
+  if (keyedCustomSections.value && keyedCustomSections.value['top']) {
     blocks.push(...keyedCustomSections.value['top'])
   }
   // include predefined section blocks
   sectionOrder.forEach((section) => {
-    if (data[section]) {
-      blocks.push(staticSectionHeadings.value[section])
+    if (data && data[section]) {
+      if (staticSectionHeadings.value && staticSectionHeadings.value[section]) {
+        blocks.push(staticSectionHeadings.value[section])
+      }
       if (section !== 'materials' && section !== 'procedures') {
         blocks.push(...data[section])
       } else if (section === 'procedures' && data.procedures?.length) {
         // get blocks in nested procedures
         data.procedures.forEach((item) => {
-          if (item.procedure) {
-            blocks.push(...item.procedure)
+          if (item.procedure?.blocks?.length) {
+            blocks.push(...item.procedure.blocks)
           }
         })
       }
     }
     // include custom "after_" blocks
-    if (keyedCustomSections.value[`after_${section}`]) {
+    if (keyedCustomSections.value && keyedCustomSections.value[`after_${section}`]) {
       blocks.push(...keyedCustomSections.value[`after_${section}`])
     }
   })
   // include custom bottom blocks
-  if (keyedCustomSections.value['bottom']) {
+  if (keyedCustomSections.value && keyedCustomSections.value['bottom']) {
     blocks.push(...keyedCustomSections.value['bottom'])
   }
   // include body blocks
-  blocks.push(...data.body)
+  if (data?.body?.length) {
+    blocks.push(...data.body)
+  }
 
   return blocks
 })
 
 // organize data to render with PageEduLessonSection component
-const consolidatedSections = computed(() => {
+const consolidatedSections = computed((): EduLessonSectionObject[] => {
   const sections = []
   // include custom top section
-  if (keyedCustomSections.value['top']) {
+  if (keyedCustomSections.value && keyedCustomSections.value['top']) {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['top'] })
   }
   sectionOrder.forEach((section) => {
-    if (data[section]) {
+    if (data && data[section]) {
       sections.push({
-        heading: staticSectionHeadings.value[section],
+        heading: staticSectionHeadings.value
+          ? (staticSectionHeadings.value[section] as BlockData)
+          : undefined,
         blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
         text: section === 'materials' ? data[section] : undefined,
         procedures: section === 'procedures' ? data[section] : undefined,
@@ -194,15 +246,15 @@ const consolidatedSections = computed(() => {
       })
     }
     // include custom "after_" sections
-    if (keyedCustomSections.value[`after_${section}`]) {
+    if (keyedCustomSections.value && keyedCustomSections.value[`after_${section}`]) {
       sections.push({ type: 'streamfield', blocks: keyedCustomSections.value[`after_${section}`] })
     }
   })
   // include custom bottom section
-  if (keyedCustomSections.value['bottom']) {
+  if (keyedCustomSections.value && keyedCustomSections.value['bottom']) {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['bottom'] })
   }
-  return sections
+  return sections as EduLessonSectionObject[]
 })
 </script>
 <template>
@@ -257,6 +309,7 @@ const consolidatedSections = computed(() => {
       v-if="
         !heroEmpty &&
         !heroInline &&
+        data?.hero?.length &&
         (data.hero[0].blockType === 'HeroImageBlock' || data.hero[0].blockType === 'VideoBlock')
       "
       class="md:mb-12 lg:mb-18 mb-10"
@@ -270,7 +323,7 @@ const consolidatedSections = computed(() => {
 
     <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
-      v-if="!heroEmpty && heroInline"
+      v-if="!heroEmpty && heroInline && data.hero?.length"
       class="lg:mb-22 mb-10"
     >
       <BlockImageStandard
@@ -299,7 +352,7 @@ const consolidatedSections = computed(() => {
         aspect-ratio="16:9"
         dark-mode
       >
-        <div v-html="data.hero[0].embed.embed"></div>
+        <div v-html="data.hero[0].embed?.embed"></div>
       </BaseImagePlaceholder>
       <BlockImageComparison
         v-else-if="data.hero[0].blockType === 'ImageComparisonBlock'"
@@ -315,8 +368,8 @@ const consolidatedSections = computed(() => {
     />
     <div id="NavJumpMenuFrame">
       <template
-        v-for="(value, key) in consolidatedSections"
-        :key="key"
+        v-for="(value, _key) in consolidatedSections"
+        :key="_key"
       >
         <BlockStreamfield
           v-if="value.type === 'streamfield'"

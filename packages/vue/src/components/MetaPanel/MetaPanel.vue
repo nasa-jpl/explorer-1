@@ -3,7 +3,7 @@ import { computed, reactive, ref } from 'vue'
 import {
   MetaPanelTheme,
   EduResourcesGradeLevel,
-  EduStandard,
+  EduResourceStandardItem,
   EduResourcesSubject,
   EduResourcesTime
 } from './../../interfaces'
@@ -20,7 +20,7 @@ interface MetaPanelProps {
   additionalSubjects?: EduResourcesSubject[]
   gradeLevels?: EduResourcesGradeLevel[]
   time?: EduResourcesTime
-  standards?: EduStandard[]
+  standards?: EduResourceStandardItem[]
   negativeTop?: boolean
   negativeBottom?: boolean
 }
@@ -78,9 +78,12 @@ const borderClass = computed(() => {
   return classes
 })
 
-const sortedStandards = computed(() => {
+interface SortedStandards {
+  [key: string]: EduResourceStandardItem[]
+}
+const sortedStandards = computed((): SortedStandards | undefined => {
   if (standards) {
-    const sorted = standards.reduce((acc, item) => {
+    const sorted = standards.reduce<SortedStandards>((acc, item) => {
       const type = item.standard.type
       // Initialize array for type if it doesn't exist
       if (!acc[type]) {

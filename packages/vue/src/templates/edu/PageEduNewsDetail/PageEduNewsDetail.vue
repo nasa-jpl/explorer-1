@@ -1,15 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, defineExpose } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
-import type { StreamfieldBlockData } from './../../../interfaces'
-import type {
-  AuthorObject,
-  ImageObject,
-  PageObject,
-  RelatedLinkObject,
-  Topic,
-  ThumbnailObject
-} from './../../../interfaces'
+import type { AuthorObject, ImageObject, PageObject } from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
@@ -60,7 +52,7 @@ const computedClass = computed(() => {
 })
 
 const dateTimeArray = computed(() => {
-  return props.data.publicationDate.split(' ')
+  return props.data.publicationDate ? props.data.publicationDate.split(' ') : undefined
 })
 
 defineExpose({

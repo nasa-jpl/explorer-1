@@ -4,7 +4,7 @@ import { eventBus } from './../../utils/eventBus'
 import MixinAnimationCaret from './../MixinAnimationCaret/MixinAnimationCaret.vue'
 
 interface Variants {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const variants: Variants = {

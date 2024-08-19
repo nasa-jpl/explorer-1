@@ -5,7 +5,7 @@ import type { PropType } from 'vue'
 export type ImageLoader = 'lazy' | 'eager' | undefined
 
 interface ObjectFitClasses {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const objectFitClasses: ObjectFitClasses = {

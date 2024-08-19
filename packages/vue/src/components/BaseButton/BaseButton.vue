@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 
 interface Variants {
-  [name: string]: string
+  [key: string]: string
 }
 
 export const variants: Variants = {
