@@ -33,7 +33,7 @@ const { standards } = reactive(props)
       </template>
       <template #panelContents>
         <div class="pl-3 pb-3 pr-8 text-sm text-gray-dark">
-          <p>{{ item.standard.definition }}</p>
+          <p v-html="item.standard.definition"></p>
         </div>
       </template>
     </BaseAccordionItem>
