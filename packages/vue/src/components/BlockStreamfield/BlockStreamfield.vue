@@ -167,6 +167,15 @@
       </LayoutHelper>
 
       <LayoutHelper
+        v-else-if="block.blockType == 'GitHubGistBlock'"
+        :key="`GitHubGistBlock${index}`"
+        indent="col-2"
+        class="lg:mb-18 mb-10"
+      >
+        <BlockGist :data="block" />
+      </LayoutHelper>
+
+      <LayoutHelper
         v-else-if="block.blockType == 'TableBlock'"
         :key="`tableBlock${index}`"
         indent="col-3"
@@ -233,6 +242,7 @@ import BlockTeaser from './../BlockTeaser/BlockTeaser.vue'
 import BlockText from './../BlockText/BlockText.vue'
 import BlockTwitterEmbed from './../BlockTwitterEmbed/BlockTwitterEmbed.vue'
 import BlockIframeEmbed from './../BlockIframeEmbed/BlockIframeEmbed.vue'
+import BlockGist from './../BlockGist/BlockGist.vue'
 import BlockVideo from './../BlockVideo/BlockVideo.vue'
 import BlockVideoEmbed, {
   type BlockData as VideoBlockEmbedData
@@ -268,6 +278,7 @@ export default defineComponent({
     BlockText,
     BlockTwitterEmbed,
     BlockIframeEmbed,
+    BlockGist,
     BlockVideo,
     BlockVideoEmbed,
     BlockAnchor
@@ -279,6 +290,7 @@ export default defineComponent({
       default: 'default',
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
+    // eslint-disable-next-line vue/require-default-prop
     data: {
       type: Array as PropType<StreamfieldBlockData[]>,
       required: false
