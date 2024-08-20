@@ -152,6 +152,31 @@ export const EventItemWithChip = {
     }
   }
 }
+export const EduLesson = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    ...BlockLinkCardData,
+    data: {
+      page: {
+        __typename: 'EDULessonPage',
+        ...BlockLinkCardData.data,
+        primarySubject: {
+          subject: 'Math'
+        },
+        gradeLevels: [
+          { gradeLevel: 'K' },
+          { gradeLevel: '1' },
+          { gradeLevel: '2' },
+          { gradeLevel: '8' }
+        ]
+      }
+    }
+  }
+}
 export const EduExplainerArticle = {
   decorators: [
     () => ({
