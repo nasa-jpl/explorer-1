@@ -3,10 +3,17 @@ import type { DictionaryInterface, PillDictionaryInterface } from './interfaces'
 export const eduMetadataDictionary: PillDictionaryInterface = {
   EDUExplainerArticlePage: {
     label: 'Explainer Article',
-    variant: 'secondary'
+    variant: 'secondary',
+    type: 'resource'
+  },
+  EDULessonPage: {
+    label: 'Lesson',
+    variant: 'primary',
+    type: 'resource'
   },
   EDUEventPage: {
-    variant: 'primary'
+    variant: 'primary',
+    type: 'event'
   }
 }
 
@@ -16,5 +23,6 @@ export const searchContentTypeToPageType: DictionaryInterface = {
   events_eventpage: 'EventPage',
   missions_mission: 'Mission',
   eduevents_edueventpage: 'EDUEventPage',
-  eduresources_eduexplainerarticlepage: 'EDUExplainerArticlePage'
+  eduresources_eduexplainerarticlepage: 'EDUExplainerArticlePage',
+  eduresources_edulessonpage: 'EDULessonPage'
 }

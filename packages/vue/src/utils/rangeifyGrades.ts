@@ -63,7 +63,7 @@ export const rangeifyGrades = (gradeLevels: GradeLevelsObject[]) => {
     const filteredGrades = rangeify(gradesArray.filter(Number.isFinite))
     let preparedGrades: string = ''
     if (filteredGrades?.length) {
-      const gradeString = filteredGrades.length > 1 ? 'Grades: ' : 'Grade: '
+      const gradeString = 'Grades: '
       preparedGrades = filteredGrades
         .map((grade, index) => (index === 0 ? gradeString + grade : grade))
         .join(', ')

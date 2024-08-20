@@ -103,6 +103,9 @@ export interface FormOption {
 export interface Card {
   __typename?: string
   type?: string
+  parent?: {
+    title: string
+  }
   url?: string
   externalLink?: string
   page?: Card | EventCardObject | EduResourceCardObject
@@ -192,6 +195,7 @@ export type MetadataType = 'event' | 'resource'
 export interface LabelObject {
   label?: string
   variant: string
+  type?: MetadataType
 }
 export interface PillDictionaryInterface {
   [EDUExplainerArticlePage: string]: LabelObject

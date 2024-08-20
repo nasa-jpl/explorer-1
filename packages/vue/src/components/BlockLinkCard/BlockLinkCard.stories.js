@@ -129,6 +129,29 @@ export const EventItem = {
     }
   }
 }
+export const EventItemWithChip = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    ...BlockLinkCardData,
+    showCalendarChip: true,
+    data: {
+      page: {
+        ...BlockLinkCardData.data,
+        __typename: 'EDUEventPage',
+        startDate: '2021-11-11',
+        startDatetime: '2021-11-11T00:00:00-08:00',
+        endDatetime: '2021-11-11T23:59:59.999999-08:00',
+        endDate: '2021-11-11',
+        ongoing: false,
+        eventType: 'Workshop'
+      }
+    }
+  }
+}
 export const EduExplainerArticle = {
   decorators: [
     () => ({
