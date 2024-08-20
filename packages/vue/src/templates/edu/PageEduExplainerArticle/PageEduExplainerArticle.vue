@@ -5,6 +5,7 @@ import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/Bas
 import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockVideo from './../../../components/BlockVideo/BlockVideo.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
@@ -30,6 +31,7 @@ export default defineComponent({
     BlockImageComparison,
     BlockLinkCarousel,
     BlockRelatedLinks,
+    BlockText,
     BlockVideo,
     NavJumpMenu
   },
@@ -170,17 +172,16 @@ export default defineComponent({
       />
     </LayoutHelper>
 
-    <!-- summary and topper -->
     <LayoutHelper
+      v-if="data.topper"
       indent="col-3"
       class="lg:mb-8 mb-5"
     >
-      <p
-        class="text-body-lg font-semibold"
-        itemprop="abstract"
-      >
-        {{ data.summary }}
-      </p>
+      <BlockText
+        v-if="data.topper"
+        class="lg:mb-8 mb-5 px-4 lg:px-0"
+        :text="data.topper"
+      />
     </LayoutHelper>
 
     <!-- streamfield blocks -->

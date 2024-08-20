@@ -169,7 +169,7 @@
       <LayoutHelper
         v-else-if="block.blockType == 'GitHubGistBlock'"
         :key="`GitHubGistBlock${index}`"
-        indent="col-2"
+        indent="col-3"
         class="lg:mb-18 mb-10"
       >
         <BlockGist :data="block" />
@@ -199,14 +199,13 @@
         :data="block"
       />
 
-      <LayoutHelper
+      <div
         v-else-if="block.blockType == 'ListBlock' && block.field === 'card_grid'"
-        :key="`gridBlock${index}`"
-        indent="col-1"
+        :key="`cardGridBlock${index}`"
         class="lg:mb-18 mb-10"
       >
         <BlockCardGrid :cards="block.items" />
-      </LayoutHelper>
+      </div>
 
       <div
         v-else

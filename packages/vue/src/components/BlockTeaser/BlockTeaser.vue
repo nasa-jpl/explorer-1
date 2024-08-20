@@ -115,16 +115,14 @@ export default defineComponent({
      * Fall back to the linked page’s label, if there is one.
      */
     theLabel(): string {
-      return (
-        this.customLabel || this.label || (this.theTeaserPage && this.theTeaserPage.label) || ''
-      )
+      return this.customLabel || this.label || this.theTeaserPage?.label || ''
     },
 
     /**
      * Fall back to the linked page’s title, if there is one.
      */
     theHeading(): string {
-      return this.heading || (this.theTeaserPage && this.theTeaserPage.title) || ''
+      return this.heading || this.theTeaserPage?.title || ''
     },
 
     /**
@@ -146,25 +144,30 @@ export default defineComponent({
     },
     // necessary as the streamfield teaser block passes an array of blocks
     // this is necessary to retrieve the label from the teaser pages
-    theTeaserPage(): teaserPageObject | null {
-      if (this.teaserPage && typeof this.teaserPage === 'object') {
+    theTeaserPage(): teaserPageObject | undefined {
+      if (this.teaserPageBlock) {
+        return this.teaserPageBlock
+      } else if (this.teaserPage && typeof this.teaserPage === 'object') {
         return this.teaserPage as teaserPageObject
-      } else if (this.teaserPage && Object.keys(this.teaserPage).length) {
-        const parsedTeaserPage = this.getTeaserPageBlock()
-        if (parsedTeaserPage) {
-          return parsedTeaserPage[0].page
+      }
+      return undefined
+    },
+    teaserPageBlock(): teaserPageObject | undefined {
+      if (Array.isArray(this.teaserPage) && this.teaserPage?.length) {
+        const filteredBlocks = this.teaserPage.filter(
+          (block: teaserPageBlock) => block.blockType === 'PageChooserBlock'
+        )
+        if (filteredBlocks?.length) {
+          return filteredBlocks[0].page
         }
       }
-      return null
+      return undefined
     }
   },
   methods: {
-    getTeaserPageBlock(): teaserPageBlock[] | null {
-      if (this.teaserPage && this.teaserPage.length) {
-        const theBlocks = this.teaserPage
-        return theBlocks.filter((block: teaserPageBlock) => block.blockType === 'PageChooserBlock')
-      }
-      return null
+    getTeaserPageBlock(page: any[]): teaserPageBlock[] | null {
+      const theBlocks = page
+      return theBlocks.filter((block: teaserPageBlock) => block.blockType === 'PageChooserBlock')
     }
   }
 })

@@ -13,6 +13,7 @@ import PageEduExplainerArticle from './PageEduExplainerArticle.vue'
 export default {
   title: 'Templates/EDU/PageEduExplainerArticle',
   component: PageEduExplainerArticle,
+  tags: ['!autodocs'],
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
@@ -28,6 +29,7 @@ export default {
 }
 
 export const BaseStory = {
+  name: 'PageEduExplainerArticle',
   args: {
     data: {
       __typename: 'EDUExplainerArticlePage',
@@ -50,7 +52,7 @@ export const BaseStory = {
       showJumpMenu: true,
       ...BlockStreamfieldTruncatedData,
       publicationDate: '2024-07-09',
-      summary: 'Summary of resource article',
+      topper: 'Topper of resource article',
       getTopicsForDisplay: [
         {
           __typename: 'TopicPage',
