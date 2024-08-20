@@ -20,6 +20,7 @@ import BlockStreamfield, { variants } from './BlockStreamfield.vue'
 export default {
   title: 'Components/Blocks/BlockStreamfield',
   component: BlockStreamfield,
+  tags: ['!autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },
@@ -89,6 +90,12 @@ export const BlockStreamfieldData = {
       blockType: 'HeadingBlock',
       heading: 'Heading 3',
       level: 'h3'
+    },
+    {
+      blockType: 'GitHubGistBlock',
+      caption: '<p>Caption for gist block</p>',
+      id: 'cefc8e20-2833-4d0b-a4d6-7f469d5dbd02',
+      url: 'https://gist.github.com/nasajpledu/acb1a3f04895a9905570b267193d42ac'
     },
     {
       blockType: 'RichTextBlock',

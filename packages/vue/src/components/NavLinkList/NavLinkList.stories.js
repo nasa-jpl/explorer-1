@@ -18,7 +18,7 @@ export default {
 
 export const MenuLinkColumnWithHeaderData = {
   blockType: 'MenuLinkColumnWithHeader',
-  heading: 'The Heading',
+  heading: 'Online Resources',
   headingPage: {
     url: '/solar-system/'
   },
