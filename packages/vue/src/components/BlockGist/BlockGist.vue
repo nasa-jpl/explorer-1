@@ -79,7 +79,6 @@ watch(
           ref="frame"
           :src="gistUrl"
           :class="{ loaded }"
-          class="md:min-h-[313px] lg:min-h-[613px]"
           width="100%"
           frameborder="0"
           title="Code snippet display"
@@ -106,8 +105,6 @@ watch(
 
 <style scoped lang="scss">
 .BlockGist {
-  margin: 2rem 0;
-
   .GitHubIcon {
     @apply h-5 pb-0.5 flex flex-row items-baseline flex-grow-0;
   }
