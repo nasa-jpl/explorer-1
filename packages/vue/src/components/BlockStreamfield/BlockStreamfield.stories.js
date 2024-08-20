@@ -1,3 +1,4 @@
+import { BlockAccordionData } from './../BlockAccordion/BlockAccordion.stories'
 import { BlockCardGridData } from './../BlockCardGrid/BlockCardGrid.stories'
 import { BlockCtaData } from './../BlockCta/BlockCta.stories'
 import { BlockHeadingData } from './../BlockHeading/BlockHeading.stories'
@@ -85,6 +86,7 @@ export const BlockStreamfieldData = {
       heading: 'Heading 2',
       level: 'h2'
     },
+    BlockAccordionData,
     {
       blockType: 'HeadingBlock',
       heading: 'Heading 3',

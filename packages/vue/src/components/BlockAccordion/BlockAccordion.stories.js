@@ -1,66 +1,73 @@
 import BlockAccordion from './BlockAccordion.vue'
-import { BlockStreamfieldTruncatedData } from '../BlockStreamfield/BlockStreamfield.stories'
+import { BlockImageData } from './../BlockImage/BlockImage.stories'
 
 export default {
   title: 'Components/Blocks/BlockAccordion',
-  component: BlockAccordion
+  component: BlockAccordion,
+  excludeStories: /.*Data$/
 }
 
-// stories
-// export const BaseStory = {
-//   name: 'BlockAccordion',
-//   args: {
-//     headingLevel: 'h5',
-//     items: [
-//       {
-//         title: 'Title for the accordion',
-//         body: BlockStreamfieldTruncatedData.body
-//       },
-//       {
-//         title: 'Another',
-//         body: BlockStreamfieldTruncatedData.body
-//       },
-//       {
-//         title: 'Yet another',
-//         body: BlockStreamfieldTruncatedData.body
-//       }
-//     ]
-//   }
-// }
+const AccordionItemStreamfieldData = [
+  {
+    blockType: 'RichTextBlock',
+    value:
+      '<p>Lorem ipsum <a href="/missions/test-mission/">dolor</a> sit amet, consectetur adipiscing elit. Quisque vitae justo quis justo malesuada molestie. Cras sed tincidunt dui.</p>\n'
+  },
+  BlockImageData,
+  {
+    blockType: 'RichTextBlock',
+    value:
+      '<p>Integer imperdiet blandit neque vitae euismod. Nulla aliquet lacus nibh,  vel tincidunt urna efficitur non. In et eros vitae ex posuere maximus  quis eget urna. Suspendisse fringilla posuere velit sit amet posuere.  Morbi malesuada bibendum vehicula. Donec faucibus ut erat ut mattis.  Suspendisse ornare, quam at placerat cursus, dolor mi lacinia nunc, eget  maximus augue nulla in dolor.</p>\n'
+  }
+]
+
+export const BlockAccordionData = {
+  blockType: 'AccordionBlock',
+  accordionItemsHeadingLevel: '3',
+  accordionItems: [
+    {
+      blockType: 'AccordionItemBlock',
+      blocks: [
+        {
+          blockType: 'CharBlock',
+          value: 'First Accordion Item'
+        },
+        {
+          blockType: 'AccordionBodyStreamfieldBlock',
+          blocks: AccordionItemStreamfieldData
+        }
+      ]
+    },
+    {
+      blockType: 'AccordionItemBlock',
+      blocks: [
+        {
+          blockType: 'CharBlock',
+          value: 'Second Accordion Item'
+        },
+        {
+          blockType: 'AccordionBodyStreamfieldBlock',
+          blocks: AccordionItemStreamfieldData
+        }
+      ]
+    },
+    {
+      blockType: 'AccordionItemBlock',
+      blocks: [
+        {
+          blockType: 'CharBlock',
+          value: 'Third Accordion Item'
+        },
+        {
+          blockType: 'AccordionBodyStreamfieldBlock',
+          blocks: AccordionItemStreamfieldData
+        }
+      ]
+    }
+  ]
+}
 // stories
 export const BaseStory = {
   name: 'BlockAccordion',
-  args: {
-    blockType: 'AccordionBlock',
-    id: 'adfef404-6eae-4938-a407-d09f37c54b0d',
-    accordionItemsHeadingLevel: '3',
-    accordionItems: [
-      {
-        blockType: 'AccordionItemBlock',
-        blocks: [
-          {
-            blockType: 'CharBlock',
-            value: 'First Accordion Item'
-          },
-          {
-            blockType: 'AccordionBodyStreamfieldBlock',
-            blocks: BlockStreamfieldTruncatedData.body
-          }
-        ]
-      },
-      {
-        blockType: 'AccordionItemBlock',
-        blocks: [
-          {
-            blockType: 'CharBlock',
-            value: 'Second Accordion Item'
-          },
-          {
-            blockType: 'AccordionBodyStreamfieldBlock',
-            blocks: BlockStreamfieldTruncatedData.body
-          }
-        ]
-      }
-    ]
-  }
+  args: { data: BlockAccordionData }
 }

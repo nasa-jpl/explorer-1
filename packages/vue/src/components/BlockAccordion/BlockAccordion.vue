@@ -7,10 +7,6 @@ interface AccordionItemCharBlock {
   blockType: 'CharBlock'
   value: string
 }
-interface AccordionItemBlock {
-  blockType: 'AccordionItemBlock'
-  blocks: (AccordionBodyStreamfieldBlock | AccordionItemCharBlock)[]
-}
 interface RichTextBlock {
   blockType: 'RichTextBlock'
   text: string
@@ -20,27 +16,32 @@ interface AccordionBodyStreamfieldBlock {
   blockType: 'AccordionBodyStreamfieldBlock'
   blocks: (ImageBlock | RichTextBlock)[]
 }
-
-interface BlockAccordionProps {
+interface AccordionItemBlock {
+  blockType: 'AccordionItemBlock'
+  blocks: (AccordionBodyStreamfieldBlock | AccordionItemCharBlock)[]
+}
+export interface AccordionBlockObject {
   accordionItemsHeadingLevel: string
   accordionItems: AccordionItemBlock[]
+}
+interface BlockAccordionProps {
+  data: AccordionBlockObject
 }
 
 // define props
 const props = withDefaults(defineProps<BlockAccordionProps>(), {
-  accordionItemsHeadingLevel: 'h2',
-  accordionItems: undefined
+  data: undefined
 })
 
-const { accordionItemsHeadingLevel, accordionItems } = reactive(props)
+const { data } = reactive(props)
 
 const headingLevel = computed(() => {
-  return `h${accordionItemsHeadingLevel}`
+  return data ? `h${data?.accordionItemsHeadingLevel}` : undefined
 })
 
 const remappedAccordionItems = computed((): AccordionItemObject[] | undefined => {
-  if (accordionItems) {
-    const remappedItems = accordionItems.map((item) => {
+  if (data?.accordionItems) {
+    const remappedItems = data.accordionItems.map((item) => {
       let title = ''
       let body: (ImageBlock | RichTextBlock)[] = []
 
@@ -63,13 +64,11 @@ const remappedAccordionItems = computed((): AccordionItemObject[] | undefined =>
 </script>
 <template>
   <div class="BlockAccordion">
-    <slot>
-      <BaseAccordionItem
-        v-for="(item, index) in remappedAccordionItems"
-        :key="index"
-        :heading-level="headingLevel"
-        :item="item"
-      />
-    </slot>
+    <BaseAccordionItem
+      v-for="(item, index) in remappedAccordionItems"
+      :key="index"
+      :heading-level="headingLevel"
+      :item="item"
+    />
   </div>
 </template>
