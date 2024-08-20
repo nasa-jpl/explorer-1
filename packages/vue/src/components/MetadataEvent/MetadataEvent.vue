@@ -13,13 +13,17 @@ interface MetadataEventProps {
   event: EventCardObject
   compact?: boolean
   allowBreak?: boolean
+  showLocation?: boolean
+  showTime?: boolean
 }
 
 // define props
 const props = withDefaults(defineProps<MetadataEventProps>(), {
   event: undefined,
   compact: false,
-  allowBreak: false
+  allowBreak: false,
+  showLocation: true,
+  showTime: true
 })
 
 const startDatetimeForFormatting = computed(() => {
@@ -71,60 +75,62 @@ const locationName = computed(() => {
       }}</span>
     </div>
     <div
-      v-show="displayTime"
+      v-show="displayTime && showTime"
       class="MetadataEventItem"
     >
       <IconTime class="MetadataEventIcon text-[1.15em]" />
       <span>{{ displayTime }}</span>
     </div>
     <!--Virtual location -->
-    <div
-      v-if="props.event.isVirtualEvent && props.event.locationLink && !props.compact"
-      itemprop="location"
-      itemscope
-      itemtype="https://schema.org/VirtualLocation"
-      class="MetadataEventItem"
-    >
-      <link
-        itemprop="url"
-        :href="props.event.locationLink"
-      />
-      <meta
-        itemprop="name"
-        :content="locationName"
-      />
-      <IconLocation class="MetadataEventIcon text-[1.1em]" />
-      <BaseLink
-        variant="none"
-        class="text-action"
-        :href="props.event.locationLink"
-        external-target-blank
-      >
-        {{ locationName }}
-      </BaseLink>
-    </div>
-    <!-- Normal location -->
-    <div
-      v-else-if="locationName"
-      class="MetadataEventItem"
-    >
-      <meta
-        v-if="!props.compact"
+    <template v-if="showLocation">
+      <div
+        v-if="props.event.isVirtualEvent && props.event.locationLink && !props.compact"
         itemprop="location"
-        :content="locationName"
-      />
-      <IconLocation class="MetadataEventIcon text-[1.2em]" />
-      <BaseLink
-        v-if="props.event.locationLink && !props.compact"
-        variant="none"
-        class="text-action"
-        :href="props.event.locationLink"
-        external-target-blank
+        itemscope
+        itemtype="https://schema.org/VirtualLocation"
+        class="MetadataEventItem"
       >
-        {{ locationName }}
-      </BaseLink>
-      <span v-else>{{ locationName }}</span>
-    </div>
+        <link
+          itemprop="url"
+          :href="props.event.locationLink"
+        />
+        <meta
+          itemprop="name"
+          :content="locationName"
+        />
+        <IconLocation class="MetadataEventIcon text-[1.1em]" />
+        <BaseLink
+          variant="none"
+          class="text-action"
+          :href="props.event.locationLink"
+          external-target-blank
+        >
+          {{ locationName }}
+        </BaseLink>
+      </div>
+      <!-- Normal location -->
+      <div
+        v-else-if="locationName"
+        class="MetadataEventItem"
+      >
+        <meta
+          v-if="!props.compact"
+          itemprop="location"
+          :content="locationName"
+        />
+        <IconLocation class="MetadataEventIcon text-[1.2em]" />
+        <BaseLink
+          v-if="props.event.locationLink && !props.compact"
+          variant="none"
+          class="text-action"
+          :href="props.event.locationLink"
+          external-target-blank
+        >
+          {{ locationName }}
+        </BaseLink>
+        <span v-else>{{ locationName }}</span>
+      </div>
+    </template>
   </div>
 </template>
 <style lang="scss">

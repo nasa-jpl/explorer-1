@@ -129,6 +129,54 @@ export const EventItem = {
     }
   }
 }
+export const EventItemWithChip = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    ...BlockLinkCardData,
+    showCalendarChip: true,
+    data: {
+      page: {
+        ...BlockLinkCardData.data,
+        __typename: 'EDUEventPage',
+        startDate: '2021-11-11',
+        startDatetime: '2021-11-11T00:00:00-08:00',
+        endDatetime: '2021-11-11T23:59:59.999999-08:00',
+        endDate: '2021-11-11',
+        ongoing: false,
+        eventType: 'Workshop'
+      }
+    }
+  }
+}
+export const EduLesson = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    ...BlockLinkCardData,
+    data: {
+      page: {
+        __typename: 'EDULessonPage',
+        ...BlockLinkCardData.data,
+        primarySubject: {
+          subject: 'Math'
+        },
+        gradeLevels: [
+          { gradeLevel: 'K' },
+          { gradeLevel: '1' },
+          { gradeLevel: '2' },
+          { gradeLevel: '8' }
+        ]
+      }
+    }
+  }
+}
 export const EduExplainerArticle = {
   decorators: [
     () => ({
