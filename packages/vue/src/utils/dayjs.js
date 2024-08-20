@@ -8,6 +8,8 @@ import advancedFormat from 'dayjs/plugin/advancedFormat.js'
 // see https://github.com/iamkun/dayjs/tree/dev/src/locale
 import 'dayjs/locale/en-gb.js'
 
+dayjs.extend(timezone)
+dayjs.extend(advancedFormat)
 dayjs.extend(localizedFormat)
 dayjs.extend(updateLocale)
 dayjs.updateLocale('en', {
@@ -26,7 +28,5 @@ dayjs.updateLocale('en', {
     'Dec.'
   ]
 })
-dayjs.extend(timezone)
-dayjs.extend(advancedFormat)
 
 export default dayjs

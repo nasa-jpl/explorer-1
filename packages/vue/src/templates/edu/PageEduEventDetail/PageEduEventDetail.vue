@@ -1,10 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="PageEduEventDetail ThemeVariantLight"
-    :class="{
-      'pt-5 lg:pt-12': heroIsInline
-    }"
+    class="PageEduEventDetail ThemeVariantLight pt-5 lg:pt-12"
     itemscope
     itemtype="http://schema.org/Event"
   >
@@ -28,23 +25,6 @@
       itemprop="description"
       :content="data.summary || data.body"
     />
-    <div
-      v-if="!heroIsInline"
-      class="relative max-w-screen-3xl mx-auto -mt-1"
-    >
-      <!-- hero image -->
-      <HeroMedia
-        class="md:mb-12 lg:mb-18 mb-10"
-        :image="data.eventImage"
-        :constrain="data.heroConstrain"
-      />
-      <CalendarChip
-        v-if="startDatetimeForFormatting"
-        :start-date="startDatetimeForFormatting"
-        :end-date="data.endDatetime"
-        :ongoing="data.ongoing"
-      />
-    </div>
     <LayoutHelper
       indent="col-2"
       class="mb-6 lg:mb-12"
@@ -83,7 +63,7 @@
 
     <LayoutHelper indent="col-2">
       <EventDetailHero
-        v-if="heroIsInline"
+        v-if="data?.eventImage"
         :image="data.eventImage"
         :start-date="startDatetimeForFormatting"
         :end-date="data.endDate"
@@ -121,7 +101,8 @@
             <!-- Todo IF VIRTUAL EVENT passes url as string to location prop -->
             <!-- location= location name and link -->
             <CalendarButton
-              v-if="data.startDatetime"
+              v-if="(data.startDatetime || data.endDatetime) && !data.ongoing"
+              :start-date="data.startDate"
               :start-datetime="data.startDatetime"
               :end-datetime="data.endDatetime ? data.endDatetime : null"
               :title="data.title ? data.title : null"
@@ -281,7 +262,6 @@ import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import BasePill from './../../../components/BasePill/BasePill.vue'
 import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 import EventDetailHero from './../../../components/EventDetailHero/EventDetailHero.vue'
-import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
 import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import BaseButton from './../../../components/BaseButton/BaseButton.vue'
 import CalendarButton from './../../../components/CalendarButton/CalendarButton.vue'
@@ -291,7 +271,6 @@ import BaseImage from './../../../components/BaseImage/BaseImage.vue'
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
-import CalendarChip from './../../../components/CalendarChip/CalendarChip.vue'
 import MetadataEvent from './../../../components/MetadataEvent/MetadataEvent.vue'
 
 // @ts-ignore
@@ -305,7 +284,6 @@ export default defineComponent({
     BasePill,
     ShareButtonsEdu,
     EventDetailHero,
-    HeroMedia,
     BaseLink,
     BaseButton,
     CalendarButton,
@@ -315,7 +293,6 @@ export default defineComponent({
     BlockRelatedLinks,
     BlockLinkCarousel,
     BlockText,
-    CalendarChip,
     MetadataEvent
   },
   props: {
@@ -333,9 +310,6 @@ export default defineComponent({
   computed: {
     startDatetimeForFormatting(): string {
       return this.data?.startDatetime || this.data?.startDate
-    },
-    heroIsInline(): boolean {
-      return this.data?.heroPosition === 'inline'
     },
     relatedEvents(): EventCardObject[] {
       // mimic the data shape of a PageChooserBlock array

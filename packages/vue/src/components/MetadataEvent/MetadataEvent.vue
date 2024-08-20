@@ -39,7 +39,7 @@ const formattedEventDates = computed((): string | undefined => {
     : undefined
 })
 const displayTime = computed((): string => {
-  if (!props.event.customDate) {
+  if (!props.event.customDate && props.event.startTime && props.event.endTime) {
     const time =
       props.event && startDatetimeForFormatting.value
         ? mixinFormatEventTimeInHoursAndMinutes(
