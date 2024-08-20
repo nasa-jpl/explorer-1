@@ -28,6 +28,7 @@
       <div v-else></div>
       <CalendarChip
         v-if="
+          showCalendarChip &&
           themeStore.isEdu &&
           ((theItem as EventCardObject).startDate || (theItem as EventCardObject).ongoing)
         "
@@ -41,7 +42,7 @@
       class="BlockLinkCard__CardContent transition-translate can-hover:group-hover:delay-200 duration-200 ease-in transform ThemeVariantLight"
       :class="contentClasses"
     >
-      <template v-if="metadataType && metadataAttrs">
+      <template v-if="metadataAttrs">
         <BasePill
           :class="{ 'mb-2': !large, 'mb-4': large }"
           size="sm"
@@ -49,6 +50,20 @@
         >
           {{ (theItem as EventCardObject).eventType }}
         </BasePill>
+      </template>
+      <template
+        v-else-if="themeStore.isEdu && theItem.parent?.title && theItem.parent?.title !== 'EDU'"
+      >
+        <div class="flex flex-wrap">
+          <p
+            class="text-subtitle"
+            :class="small ? 'mb-2' : 'mb-4'"
+          >
+            <span class="edu:text-primary ThemeVariantLight">
+              {{ (theItem as Card).parent?.title }}
+            </span>
+          </p>
+        </div>
       </template>
       <template v-else>
         <div class="flex flex-wrap">
@@ -96,18 +111,20 @@
         {{ theItem.summary }}
       </p>
       <div
-        v-if="metadataType && metadataAttrs"
+        v-if="metadataAttrs"
         :class="{ 'mt-4': large, 'mt-2 mb-1': medium, 'mt-1 mb-0': small }"
       >
         <MetadataEvent
           v-if="metadataType === 'EDUEventPage'"
           :event="theItem"
+          :show-time="false"
+          :show-location="false"
           compact
         />
         <MetadataEduResource
-          v-else-if="metadataType === 'EDUExplainerArticlePage'"
+          v-else-if="metadataAttrs.type === 'resource'"
           :resource="theItem as EduResourceCardObject"
-          :variant="eduMetadataDictionaryComputed[metadataType].variant"
+          :variant="metadataAttrs.variant"
           compact
         />
       </div>
@@ -115,11 +132,7 @@
     <div
       v-if="!large"
       class="BlockLinkCard__CardArrow ThemeVariantLight can-hover:block can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
-      :class="
-        metadataType && metadataAttrs
-          ? `text-${eduMetadataDictionaryComputed[metadataType].variant}`
-          : 'text-primary'
-      "
+      :class="metadataAttrs ? `text-${metadataAttrs.variant}` : 'text-primary'"
     >
       <IconArrow />
     </div>
@@ -234,6 +247,10 @@ export default defineComponent({
       type: (String as PropType<HeadingLevel>) || null,
       required: false,
       default: undefined
+    },
+    showCalendarChip: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -257,9 +274,6 @@ export default defineComponent({
         classes = 'sm:pl-8 sm:w-2/3'
       }
       return classes
-    },
-    eduMetadataDictionaryComputed() {
-      return eduMetadataDictionary
     },
     // to allow for various data shapes and sources
     // use-case: content pages provide this.data.page with non-page siblings (i.e. external link cards)
@@ -304,12 +318,14 @@ export default defineComponent({
       return undefined
     },
     metadataType() {
+      // checks that this is a valid metadata type
       const validContentTypes = Object.keys(eduMetadataDictionary)
       return this.data?.page?.__typename && validContentTypes.includes(this.data?.page?.__typename)
         ? this.data?.page?.__typename
         : undefined
     },
     metadataAttrs() {
+      // retrieves attributes for that metadata type
       if (this.metadataType) {
         return eduMetadataDictionary[this.metadataType]
       }

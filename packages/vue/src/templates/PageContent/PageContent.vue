@@ -43,6 +43,11 @@ export default defineComponent({
   },
   computed: {
     ...mapStores(useThemeStore),
+    displayLabel() {
+      return this.themeStore.isEdu && this.data?.parent?.title && this.data?.parent?.title !== 'EDU'
+        ? this.data?.parent?.title
+        : this.data?.displayLabel
+    },
     heroInline() {
       if (this.data?.heroPosition === 'inline') {
         return true
@@ -94,7 +99,7 @@ export default defineComponent({
     >
       <DetailHeadline
         :title="data.title"
-        :label="data.displayLabel"
+        :label="displayLabel"
         :class="{ 'sr-only': hideH1 }"
       />
       <ShareButtonsEdu

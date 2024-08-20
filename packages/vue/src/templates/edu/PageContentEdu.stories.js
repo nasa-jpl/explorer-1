@@ -28,6 +28,6 @@ export default {
 export const BaseStory = {
   name: 'PageContent',
   args: {
-    data: ContentPageData
+    data: { ...ContentPageData, displayLabel: undefined, parent: { title: 'Parent Page' } }
   }
 }
