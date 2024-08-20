@@ -32,7 +32,7 @@
             <BaseLink
               variant="none"
               href="https://www.nasa.gov/learning-resources/"
-              class="text-subtitle text-blue edu:text-white mb-3"
+              class="text-subtitle text-blue edu:text-white sm:mb-3 xl:col-span-2 md:col-span-3 col-span-4 mb-8"
               link-class="flex flex-wrap-none overflow-visible whitespace-nowrap items-center"
               external-target-blank
             >

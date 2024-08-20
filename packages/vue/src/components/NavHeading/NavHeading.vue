@@ -15,7 +15,7 @@
     </template>
     <template v-else-if="data.heading">
       <div class="text-subtitle text-jpl-blue-lighter edu:text-primary-lighter inline-block mb-4">
-        <span class="p-2">{{ data.heading }}</span>
+        <span class="px-2 block">{{ data.heading }}</span>
       </div>
     </template>
   </div>
