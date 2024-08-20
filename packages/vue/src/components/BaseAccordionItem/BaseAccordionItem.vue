@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import { AccordionItemObject } from './../../interfaces.ts'
+import type { AccordionItemObject } from './../../interfaces.ts'
 import { uniqueId } from 'lodash'
 import IconPlus from './../Icons/IconPlus.vue'
 import BlockStreamfield from './../BlockStreamfield/BlockStreamfield.vue'
