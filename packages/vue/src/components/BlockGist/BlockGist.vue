@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import GitHub404 from './GitHub404.vue'
 interface BlockGistProps {
   data: {
@@ -46,7 +47,7 @@ watch(
       <GitHub404 />
     </template>
     <template v-else-if="gistUrl">
-      <div class="z-50 relative">
+      <div class="relative">
         <div
           id="iframe-description"
           class="sr-only"
@@ -86,17 +87,15 @@ watch(
           aria-describedby="iframe-description"
           aria-hidden="false"
         ></iframe>
-        <div class="gist-caption">
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <span v-html="props.data.caption"></span>
-          <nuxt-link
-            :to="props.data.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="View on GitHub"
-          >
-            {{ 'View on GitHub' }}
-          </nuxt-link>
+        <div
+          v-if="data.caption"
+          class="py-4"
+        >
+          <BaseImageCaption
+            :data="data"
+            :custom-link="props.data.url"
+            custom-link-text="View on GitHub"
+          />
         </div>
       </div>
     </template>
@@ -112,30 +111,11 @@ watch(
   iframe {
     @apply border border-gray-light-mid border-t-8 rounded-none;
   }
-
-  .gist-caption {
-    @apply text-sm font-medium m-1 flex-wrap;
-
-    span {
-      p {
-        @apply text-gray-mid;
-      }
-    }
-
-    a {
-      @apply underline text-action can-hover:hover:text-action-dark cursor-pointer;
-      white-space: nowrap; /* Prevents the link from wrapping onto a new line */
-    }
-  }
 }
 body.ThemeVariantLight {
   .BlockGist {
     iframe {
       @apply border-gray-light-mid;
-    }
-
-    .gist-caption {
-      @apply text-gray-mid-dark;
     }
   }
 }
@@ -144,10 +124,6 @@ body.ThemeVariantDark {
   .BlockGist {
     iframe {
       @apply border-gray-mid-dark bg-gray-light;
-    }
-
-    .gist-caption {
-      @apply text-gray-light-mid;
     }
   }
 }

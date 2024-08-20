@@ -14,6 +14,14 @@ export default defineComponent({
       type: Object as PropType<Partial<ImageObject>>,
       required: true,
       default: undefined
+    },
+    customLink: {
+      type: String,
+      default: undefined
+    },
+    customLinkText: {
+      type: String,
+      default: 'Custom Link'
     }
   }
 })
@@ -42,6 +50,14 @@ export default defineComponent({
       :to="data.detailUrl"
     >
       Full Image Details
+    </BaseLink>
+    <BaseLink
+      v-else-if="customLink"
+      class="inline-block"
+      variant="default"
+      :to="customLink"
+    >
+      {{ customLinkText }}
     </BaseLink>
   </div>
 </template>
