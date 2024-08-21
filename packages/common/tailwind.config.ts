@@ -62,7 +62,18 @@ const defaultTheme: Partial<CustomThemeConfig> = {
   colors: themeColors,
   fontFamily: {
     primary: ['Metropolis', ...fallbackFontStack],
-    secondary: ['Archivo Narrow', 'Metropolis', ...fallbackFontStack]
+    secondary: ['Archivo Narrow', 'Metropolis', ...fallbackFontStack],
+    serif: ['ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+    mono: [
+      'ui-monospace',
+      'SFMono-Regular',
+      'Menlo',
+      'Monaco',
+      'Consolas',
+      'Liberation Mono',
+      'Courier New',
+      'monospace'
+    ]
   },
   fontWeight: {
     // Commenting out anything Tailwind provides by default but we don’t use for this project.

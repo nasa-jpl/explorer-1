@@ -266,6 +266,11 @@
     }
   }
 
+  .math-text {
+    @apply font-serif;
+    @apply italic;
+  }
+
   // text readability class
   // use this in areas where text is overlaying an image
   // managed separately for the navigation since we can't @apply these classes there
