@@ -1,32 +1,113 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-import { AccordionItemObject } from '../../interfaces'
+import { computed, reactive } from 'vue'
+import type { AccordionItemObject, ImageBlock, ImageObject } from '../../interfaces'
 import BaseAccordionItem from './../BaseAccordionItem/BaseAccordionItem.vue'
+import BlockImageStandard from './../BlockImage/BlockImageStandard.vue'
+import BlockText from './../BlockText/BlockText.vue'
 
+interface AccordionItemCharBlock {
+  blockType: 'CharBlock'
+  value: string
+}
+interface RichTextBlock {
+  blockType: 'RichTextBlock'
+  text: string
+  variant: string
+}
+interface AccordionBodyStreamfieldBlock {
+  blockType: 'AccordionBodyStreamfieldBlock'
+  blocks: (ImageBlock | RichTextBlock)[]
+}
+interface AccordionItemBlock {
+  blockType: 'AccordionItemBlock'
+  blocks: (AccordionBodyStreamfieldBlock | AccordionItemCharBlock)[]
+}
+export interface AccordionBlockObject {
+  accordionItemsHeadingLevel: string
+  accordionItems: AccordionItemBlock[]
+}
 interface BlockAccordionProps {
-  autoClose?: boolean
-  headingLevel?: string
-  items?: AccordionItemObject[]
+  data: AccordionBlockObject
 }
 
 // define props
 const props = withDefaults(defineProps<BlockAccordionProps>(), {
-  autoClose: false,
-  headingLevel: 'h2',
-  items: undefined
+  data: undefined
 })
 
-const { headingLevel, items } = reactive(props)
+const { data } = reactive(props)
+
+const headingLevel = computed(() => {
+  return data ? `h${data?.accordionItemsHeadingLevel}` : undefined
+})
+
+const remappedAccordionItems = computed((): AccordionItemObject[] | undefined => {
+  if (data?.accordionItems) {
+    const remappedItems = data.accordionItems.map((item) => {
+      let title = ''
+      let body: (ImageBlock | RichTextBlock)[] = []
+
+      item.blocks.forEach((block) => {
+        if (block.blockType === 'CharBlock') {
+          title = (block as AccordionItemCharBlock).value || ''
+        } else if (block.blockType === 'AccordionBodyStreamfieldBlock') {
+          body = (block as AccordionBodyStreamfieldBlock).blocks || []
+        }
+      })
+      return {
+        title,
+        body
+      }
+    })
+    return remappedItems
+  }
+  return undefined
+})
 </script>
 <template>
-  <div class="BlockAccordion">
-    <slot>
-      <BaseAccordionItem
-        v-for="(item, index) in items"
-        :key="index"
-        :heading-level="headingLevel"
-        :item="item"
-      />
-    </slot>
+  <div class="BlockAccordion border-t border-gray-light-mid">
+    <BaseAccordionItem
+      v-for="(item, index) in remappedAccordionItems"
+      :key="index"
+      :heading-level="headingLevel"
+      :item="item"
+    >
+      <template #panelContents>
+        <div
+          v-if="item.body"
+          class="px-4 pb-8"
+        >
+          <div
+            v-for="(block, block_index) in item.body"
+            :key="block_index"
+            :class="{ 'mb-5': Number(block_index) + 1 != item.body.length }"
+          >
+            <template v-if="block.blockType === 'ImageBlock'">
+              <BlockImageStandard
+                class="AccordionItemImage"
+                :data="block.image as ImageObject"
+                :caption="block.caption"
+                :display-bacpotion="block.displayCaption"
+              />
+            </template>
+            <template v-else-if="block.blockType === 'RichTextBlock'">
+              <BlockText
+                :text="block.value"
+                variant="medium"
+              />
+            </template>
+          </div>
+        </div>
+      </template>
+    </BaseAccordionItem>
   </div>
 </template>
+<style lang="scss">
+.BlockAccordion {
+  .AccordionItemImage {
+    div.p-4 {
+      @apply px-0 #{!important};
+    }
+  }
+}
+</style>
