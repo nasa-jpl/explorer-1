@@ -72,6 +72,7 @@ defineExpose({
       :title="data.title"
       :blocks="data.body"
       :enabled="data.showJumpMenu"
+      dropdown-text="In this news article"
     />
 
     <!-- schema.org -->
