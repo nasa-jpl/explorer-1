@@ -78,6 +78,8 @@ export const TextStyles = {
   <code>.text-body-xs</code>
   <p class="mt-8"><mark>Highlighted text</mark></p>
   <code>mark</code>
+  <p class="mt-8"><span class="math-text">This is math text. a<sup>2</sup> + a<sub>b</sub> = c</span></p>
+  <code>.math-text</code>
 </div>`
   })
 }
