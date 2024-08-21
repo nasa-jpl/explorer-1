@@ -4,6 +4,7 @@ import { BlockImageData } from './../BlockImage/BlockImage.stories'
 export default {
   title: 'Components/Blocks/BlockAccordion',
   component: BlockAccordion,
+  tags: ['!autodocs'],
   excludeStories: /.*Data$/
 }
 
