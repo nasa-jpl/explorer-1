@@ -216,6 +216,15 @@
       </div>
 
       <LayoutHelper
+        v-else-if="block.blockType === 'LinkCardListBlock' && block.blocks?.length"
+        :key="`linkCardListBlock${index}`"
+        indent="col-3"
+        class="lg:mb-18 mb-10"
+      >
+        <BlockLinkCardList :items="block.blocks" />
+      </LayoutHelper>
+
+      <LayoutHelper
         v-else-if="block.blockType == 'AccordionBlock'"
         :key="`accordionBlock${index}`"
         indent="col-3"
@@ -239,6 +248,8 @@ import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { StreamfieldBlockData } from '../../interfaces'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
+import BlockAnchor from './../BlockAnchor/BlockAnchor.vue'
+import BlockAccordion, { type AccordionBlockObject } from './../BlockAccordion/BlockAccordion.vue'
 import BlockCardGrid from './../BlockCardGrid/BlockCardGrid.vue'
 import BlockCta from './../BlockCta/BlockCta.vue'
 import BlockHeading, { BlockHeadingObject } from './../BlockHeading/BlockHeading.vue'
@@ -248,6 +259,8 @@ import BlockImageComparison from './../BlockImageComparison/BlockImageComparison
 import BlockImageGallery from './../BlockImageGallery/BlockImageGallery.vue'
 import BlockInlineImage from './../BlockInlineImage/BlockInlineImage.vue'
 import BlockKeyPoints from './../BlockKeyPoints/BlockKeyPoints.vue'
+import BlockLinkCardList from './../BlockLinkCardList/BlockLinkCardList.vue'
+import BlockLinkCarousel from './../BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockListCards from './../BlockListCards/BlockListCards.vue'
 import BlockQuote, { type BlockQuoteAttributes } from './../BlockQuote/BlockQuote.vue'
 import BlockRelatedLinks, {
@@ -263,10 +276,6 @@ import BlockVideo from './../BlockVideo/BlockVideo.vue'
 import BlockVideoEmbed, {
   type BlockData as VideoBlockEmbedData
 } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
-import BlockAnchor from './../BlockAnchor/BlockAnchor.vue'
-import BlockAccordion from './../BlockAccordion/BlockAccordion.vue'
-import { type AccordionBlockObject } from './../BlockAccordion/BlockAccordion.vue'
-import BlockLinkCarousel from './../BlockLinkCarousel/BlockLinkCarousel.vue'
 
 interface Variants {
   [key: string]: string
@@ -281,6 +290,8 @@ export default defineComponent({
   name: 'BlockStreamfield',
   components: {
     LayoutHelper,
+    BlockAnchor,
+    BlockAccordion,
     BlockCardGrid,
     BlockCta,
     BlockHeading,
@@ -290,6 +301,8 @@ export default defineComponent({
     BlockImageGallery,
     BlockInlineImage,
     BlockKeyPoints,
+    BlockLinkCardList,
+    BlockLinkCarousel,
     BlockListCards,
     BlockQuote,
     BlockRelatedLinks,
@@ -300,10 +313,7 @@ export default defineComponent({
     BlockIframeEmbed,
     BlockGist,
     BlockVideo,
-    BlockVideoEmbed,
-    BlockAnchor,
-    BlockAccordion,
-    BlockLinkCarousel
+    BlockVideoEmbed
   },
   props: {
     variant: {
