@@ -207,6 +207,14 @@
         <BlockCardGrid :cards="block.items" />
       </div>
 
+      <div
+        v-else-if="block.blockType === 'LinkCarouselBlock' && block.blocks?.length"
+        :key="`linkCarouselBlock${index}`"
+        class="lg:mb-18 mb-10"
+      >
+        <BlockLinkCarousel :items="block.blocks" />
+      </div>
+
       <LayoutHelper
         v-else-if="block.blockType == 'AccordionBlock'"
         :key="`accordionBlock${index}`"
@@ -258,6 +266,7 @@ import BlockVideoEmbed, {
 import BlockAnchor from './../BlockAnchor/BlockAnchor.vue'
 import BlockAccordion from './../BlockAccordion/BlockAccordion.vue'
 import { type AccordionBlockObject } from './../BlockAccordion/BlockAccordion.vue'
+import BlockLinkCarousel from './../BlockLinkCarousel/BlockLinkCarousel.vue'
 
 interface Variants {
   [key: string]: string
@@ -293,7 +302,8 @@ export default defineComponent({
     BlockVideo,
     BlockVideoEmbed,
     BlockAnchor,
-    BlockAccordion
+    BlockAccordion,
+    BlockLinkCarousel
   },
   props: {
     variant: {
