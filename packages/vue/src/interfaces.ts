@@ -140,6 +140,7 @@ export interface GradeLevelsObject {
 export interface EduResourceCardObject extends Card {
   primarySubject: PrimarySubjectObject
   gradeLevels: GradeLevelsObject[]
+  time: EduResourcesTime
 }
 
 export interface LinkObject {

@@ -50,7 +50,10 @@ export const MultipleGradeLevels = {
         { gradeLevel: '6' },
         { gradeLevel: '7' },
         { gradeLevel: '8' }
-      ]
+      ],
+      time: {
+        time: 'Under 30 mins'
+      }
     },
     variant: 'secondary'
   }
