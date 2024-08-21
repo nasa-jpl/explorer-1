@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { EduResourceCardObject } from './../../interfaces.ts'
 import IconSubject from './../Icons/IconSubject.vue'
 import IconProfile from './../Icons/IconProfile.vue'
-// import IconTime from './../Icons/IconTime.vue'
+import IconTime from './../Icons/IconTime.vue'
 import {} from './../../utils/mixins'
 import { rangeifyGrades } from './../../utils/rangeifyGrades'
 
@@ -28,6 +28,9 @@ const primarySubject = computed(() => {
 })
 const audience = computed(() => {
   return rangeifyGrades(props.resource?.gradeLevels)
+})
+const time = computed(() => {
+  return props.resource?.time?.time
 })
 </script>
 <template>
@@ -56,6 +59,16 @@ const audience = computed(() => {
         :class="iconClass"
       />
       <span>{{ audience }}</span>
+    </div>
+    <div
+      v-if="time"
+      class="MetadataEduResourceItem"
+    >
+      <IconTime
+        class="MetadataEduResourceIcon text-[1.15em]"
+        :class="iconClass"
+      />
+      <span>{{ time }}</span>
     </div>
   </div>
 </template>
