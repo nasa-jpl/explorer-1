@@ -3,7 +3,6 @@ import { computed, reactive, ref } from 'vue'
 import type { AccordionItemObject } from './../../interfaces.ts'
 import { uniqueId } from 'lodash'
 import IconPlus from './../Icons/IconPlus.vue'
-import BlockStreamfield from './../BlockStreamfield/BlockStreamfield.vue'
 
 export interface BaseAccordionItemProps {
   headingLevel?: string
