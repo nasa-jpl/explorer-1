@@ -368,6 +368,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       :title="data.title"
       :blocks="consolidatedBlocks"
       :enabled="true"
+      dropdown-text="In this lesson"
     />
 
     <template

@@ -50,11 +50,13 @@ export default defineComponent({
       return false
     },
     baseLinkClasses(index: number | undefined) {
-      let rootClasses = 'mr-auto font-semibold secondary-root'
+      let rootClasses = 'mr-auto secondary-root'
       rootClasses = this.invert
-        ? `${rootClasses} text-white -invert`
-        : `${rootClasses} text-primary`
-      const regularClasses = this.invert ? 'text-white -invert' : 'text-gray-dark'
+        ? `${rootClasses} text-white font-bold -invert`
+        : `${rootClasses} text-primary font-semibold`
+      const regularClasses = this.invert
+        ? 'text-white -invert font-semibold'
+        : 'text-gray-dark font-medium'
       return index === 0 ? rootClasses : regularClasses
     },
     spanClasses(index: number | undefined) {

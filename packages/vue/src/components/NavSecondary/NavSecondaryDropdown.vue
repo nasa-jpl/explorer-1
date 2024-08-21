@@ -9,7 +9,7 @@
     <NavDropdownToggle
       :aria-expanded="dropdownVisible ? true : false"
       :path="item.path"
-      class="font-medium border-t-2 border-transparent block px-3 py-2"
+      class="-t-2 border-transparent block px-3 py-2"
       :class="dropdownToggleClasses(index)"
       :invert="invert"
       @toggle-clicked="toggleDropdown()"
@@ -69,7 +69,6 @@ export default defineComponent({
       type: Object,
       required: true
     },
-
     invert: {
       type: Boolean,
       required: false,
@@ -121,13 +120,13 @@ export default defineComponent({
     dropdownToggleClasses(index: number) {
       return this.invert
         ? {
-            'mr-auto text-white font-semibold secondary-root': index === 0,
-            'text-white': index !== 0,
+            'mr-auto text-white font-bold secondary-root': index === 0,
+            'text-white font-semibold !pt-[.6rem]': index !== 0,
             '-open': this.dropdownVisible
           }
         : {
             'mr-auto text-primary font-semibold secondary-root': index === 0,
-            'text-gray-dark': index !== 0,
+            'text-gray-dark font-medium !pt-[.6rem]': index !== 0,
             '-open': this.dropdownVisible
           }
     },
