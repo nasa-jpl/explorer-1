@@ -207,6 +207,15 @@
         <BlockCardGrid :cards="block.items" />
       </div>
 
+      <LayoutHelper
+        v-else-if="block.blockType == 'AccordionBlock'"
+        :key="`accordionBlock${index}`"
+        indent="col-3"
+        class="lg:mb-18 mb-10"
+      >
+        <BlockAccordion :data="block as unknown as AccordionBlockObject" />
+      </LayoutHelper>
+
       <div
         v-else
         :key="index"
@@ -247,6 +256,9 @@ import BlockVideoEmbed, {
   type BlockData as VideoBlockEmbedData
 } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockAnchor from './../BlockAnchor/BlockAnchor.vue'
+import BlockAccordion from './../BlockAccordion/BlockAccordion.vue'
+import { type AccordionBlockObject } from './../BlockAccordion/BlockAccordion.vue'
+
 interface Variants {
   [key: string]: string
 }
@@ -280,7 +292,8 @@ export default defineComponent({
     BlockGist,
     BlockVideo,
     BlockVideoEmbed,
-    BlockAnchor
+    BlockAnchor,
+    BlockAccordion
   },
   props: {
     variant: {
