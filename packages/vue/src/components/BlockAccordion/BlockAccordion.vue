@@ -65,7 +65,7 @@ const remappedAccordionItems = computed((): AccordionItemObject[] | undefined =>
 })
 </script>
 <template>
-  <div class="BlockAccordion">
+  <div class="BlockAccordion border-t border-gray-light-mid">
     <BaseAccordionItem
       v-for="(item, index) in remappedAccordionItems"
       :key="index"
@@ -75,7 +75,7 @@ const remappedAccordionItems = computed((): AccordionItemObject[] | undefined =>
       <template #panelContents>
         <div
           v-if="item.body"
-          class="p-4"
+          class="px-4 pb-8"
         >
           <div
             v-for="(block, block_index) in item.body"
@@ -84,6 +84,7 @@ const remappedAccordionItems = computed((): AccordionItemObject[] | undefined =>
           >
             <template v-if="block.blockType === 'ImageBlock'">
               <BlockImageStandard
+                class="AccordionItemImage"
                 :data="block.image as ImageObject"
                 :caption="block.caption"
                 :display-bacpotion="block.displayCaption"
@@ -101,3 +102,12 @@ const remappedAccordionItems = computed((): AccordionItemObject[] | undefined =>
     </BaseAccordionItem>
   </div>
 </template>
+<style lang="scss">
+.BlockAccordion {
+  .AccordionItemImage {
+    div.p-4 {
+      @apply px-0 #{!important};
+    }
+  }
+}
+</style>

@@ -58,9 +58,12 @@ const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
       <slot name="header">
         <div
           v-if="headingLevel && item"
-          class="border-b border-gray-light-mid"
+          :class="{ 'border-b border-gray-light-mid': isHidden }"
         >
-          <component :is="headingLevel">
+          <component
+            :is="headingLevel"
+            class="!font-medium"
+          >
             <button
               v-bind-once="{ id: headingId, 'aria-controls': panelId }"
               :aria-expanded="ariaExpanded"
@@ -91,12 +94,10 @@ const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
         <div
           v-bind-once="{ id: panelId, 'aria-labelledby': headingId }"
           role="region"
-          class="BaseAccordion-panel"
+          class="BaseAccordion-panel border-b border-gray-light-mid"
         >
           <slot name="panelContents">
-            <div class="px-4 pb-8">
-              <pre>{{ item.body }}</pre>
-            </div>
+            <pre>{{ item.body }}</pre>
           </slot>
         </div>
       </slot>
