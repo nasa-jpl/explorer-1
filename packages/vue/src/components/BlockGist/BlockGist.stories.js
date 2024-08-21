@@ -8,10 +8,9 @@ export default {
 
 export const BlockGistData = {
   blockType: 'GitHubGistBlock',
-  caption:
-    '<p data-block-key="a7ves">The count of contributions (summary of Pull Requests, opened issues and commits) to public repos at GitHub.com from Wed, 21 Sep 2022 till Thu, 21 Sep 2023.</p>',
+  caption: '<p>Caption for gist block</p>',
   id: 'cefc8e20-2833-4d0b-a4d6-7f469d5dbd02',
-  url: 'https://gist.github.com/paulmillr/2657075'
+  url: 'https://gist.github.com/nasajpledu/acb1a3f04895a9905570b267193d42ac'
 }
 
 // stories

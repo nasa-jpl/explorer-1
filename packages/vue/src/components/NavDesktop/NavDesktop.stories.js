@@ -120,14 +120,10 @@ export const NavDesktopData = {
           title: 'Missions'
         },
         {
-          ...MenuLinkColumnWithHeaderData,
-          heading: null,
-          headingPage: null
+          ...MenuLinkColumnWithHeaderData
         },
         {
-          ...MenuLinkColumnWithHeaderData,
-          heading: null,
-          headingPage: null
+          ...MenuLinkColumnWithHeaderData
         }
       ]
     },
