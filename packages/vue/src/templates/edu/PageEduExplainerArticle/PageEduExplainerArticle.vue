@@ -131,6 +131,7 @@ export default defineComponent({
       :title="data.title"
       :blocks="data.body"
       :enabled="data.showJumpMenu"
+      dropdown-text="In this article"
     />
     <!-- inline hero content -->
     <LayoutHelper

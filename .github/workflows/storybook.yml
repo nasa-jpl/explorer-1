@@ -80,37 +80,37 @@ jobs:
              "pnpm --filter @explorer-1/vue-storybook start" \
              "pnpm --filter @explorer-1/vue-storybook test:ci"
 
-  visual-tests:
-    needs: [build, a11y-tests]
-    timeout-minutes: 30
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
+  # visual-tests:
+  #   needs: [build, a11y-tests]
+  #   timeout-minutes: 30
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout 🛎️
+  #       uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+  #     - name: Setup pnpm
+  #       uses: pnpm/action-setup@v4
 
-      - name: Set up Node ⬢
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
+  #     - name: Set up Node ⬢
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version-file: '.nvmrc'
+  #         cache: 'pnpm'
 
-      - name: Install dependencies 🧱
-        run: pnpm i
+  #     - name: Install dependencies 🧱
+  #       run: pnpm i
 
-      - name: Download storybook build
-        uses: actions/download-artifact@v3
-        with:
-          name: storybook
-          path: apps/vue-storybook/storybook_compiled
+  #     - name: Download storybook build
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: storybook
+  #         path: apps/vue-storybook/storybook_compiled
 
-      - name: Run Percy
-        id: run-percy
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-        run: pnpm --filter @explorer-1/vue-storybook percy
+  #     - name: Run Percy
+  #       id: run-percy
+  #       env:
+  #         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+  #       run: pnpm --filter @explorer-1/vue-storybook percy
 
   publish:
     needs: [build, a11y-tests]

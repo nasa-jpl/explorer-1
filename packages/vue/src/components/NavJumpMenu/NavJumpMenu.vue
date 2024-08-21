@@ -50,6 +50,7 @@ interface NavJumpMenuProps {
   headingLevel?: string
   invert?: boolean
   enabled?: boolean
+  dropdownText?: string
 }
 
 const props = withDefaults(defineProps<NavJumpMenuProps>(), {
@@ -59,7 +60,8 @@ const props = withDefaults(defineProps<NavJumpMenuProps>(), {
   headingLevel: 'h2',
   enabled: true,
   invert: true,
-  hidden: false
+  hidden: false,
+  dropdownText: 'Jump to…'
 })
 
 const NavJumpMenuRef = ref()
@@ -102,7 +104,7 @@ const theBreadcrumbs = computed(() => {
         path: '#siteTop'
       }
   const jumpMenu: BreadcrumbPathObject = {
-    title: 'Jump to…',
+    title: props.dropdownText,
     path: '#',
     children: theJumpLinks.value as BreadcrumbPathObject[]
   }
@@ -137,6 +139,16 @@ watch(
     &.-is-sticky,
     &.-is-sticky-offset {
       @apply opacity-100 transition-all pointer-events-auto;
+    }
+  }
+  .NavSecondaryLink.secondary-root {
+    span {
+      @apply border-primary #{!important};
+    }
+    &.-invert {
+      span {
+        @apply border-white #{!important};
+      }
     }
   }
 }
