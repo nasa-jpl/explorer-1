@@ -95,10 +95,7 @@ const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
         >
           <slot name="panelContents">
             <div class="px-4 pb-8">
-              <BlockStreamfield
-                :data="item.body"
-                variant="fluid"
-              />
+              <pre>{{ item.body }}</pre>
             </div>
           </slot>
         </div>

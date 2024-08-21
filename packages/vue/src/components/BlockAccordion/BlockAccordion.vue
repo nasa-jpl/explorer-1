@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import type { AccordionItemObject, ImageBlock } from '../../interfaces'
+import type { AccordionItemObject, ImageBlock, ImageObject } from '../../interfaces'
 import BaseAccordionItem from './../BaseAccordionItem/BaseAccordionItem.vue'
+import BlockImageStandard from './../BlockImage/BlockImageStandard.vue'
+import BlockText from './../BlockText/BlockText.vue'
 
 interface AccordionItemCharBlock {
   blockType: 'CharBlock'
@@ -69,6 +71,33 @@ const remappedAccordionItems = computed((): AccordionItemObject[] | undefined =>
       :key="index"
       :heading-level="headingLevel"
       :item="item"
-    />
+    >
+      <template #panelContents>
+        <div
+          v-if="item.body"
+          class="p-4"
+        >
+          <div
+            v-for="(block, block_index) in item.body"
+            :key="block_index"
+            :class="{ 'mb-5': Number(block_index) + 1 != item.body.length }"
+          >
+            <template v-if="block.blockType === 'ImageBlock'">
+              <BlockImageStandard
+                :data="block.image as ImageObject"
+                :caption="block.caption"
+                :display-bacpotion="block.displayCaption"
+              />
+            </template>
+            <template v-else-if="block.blockType === 'RichTextBlock'">
+              <BlockText
+                :text="block.value"
+                variant="medium"
+              />
+            </template>
+          </div>
+        </div>
+      </template>
+    </BaseAccordionItem>
   </div>
 </template>

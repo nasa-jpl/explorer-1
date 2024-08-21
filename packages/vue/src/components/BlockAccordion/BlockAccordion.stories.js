@@ -13,7 +13,7 @@ const AccordionItemStreamfieldData = [
     value:
       '<p>Lorem ipsum <a href="/missions/test-mission/">dolor</a> sit amet, consectetur adipiscing elit. Quisque vitae justo quis justo malesuada molestie. Cras sed tincidunt dui.</p>\n'
   },
-  BlockImageData,
+  { ...BlockImageData, blockType: 'ImageBlock' },
   {
     blockType: 'RichTextBlock',
     value:
