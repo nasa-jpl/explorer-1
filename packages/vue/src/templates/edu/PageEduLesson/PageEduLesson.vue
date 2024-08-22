@@ -114,15 +114,6 @@ const heroInline = computed((): boolean => {
   return false
 })
 
-const computedClass = computed((): string => {
-  if (heroInline.value || heroEmpty) {
-    return 'pt-5 lg:pt-12'
-  } else if (!heroInline.value) {
-    return '-nav-offset'
-  }
-  return ''
-})
-
 const sectionOrder = [
   'top',
   'overview',
@@ -262,8 +253,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
 <template>
   <div
     v-if="data"
-    class="ThemeVariantLight"
-    :class="computedClass"
+    class="ThemeVariantLight pt-5 lg:pt-12"
   >
     <LayoutHelper
       indent="col-2"
@@ -409,5 +399,19 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       :heading="data.relatedContentHeading"
       :items="data.relatedContent"
     />
+
+    <LayoutHelper
+      v-if="data.lastPublishedAt"
+      indent="col-3"
+      class="lg:my-18 my-10"
+    >
+      <p class="border-t border-gray-light-mid pt-8">
+        <strong>Lesson Last Updated:</strong>
+        {{
+          // @ts-ignore
+          $filters.displayDate(data.lastPublishedAt)
+        }}
+      </p>
+    </LayoutHelper>
   </div>
 </template>
