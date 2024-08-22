@@ -151,6 +151,7 @@ defineExpose({
       itemprop="articleBody"
       :data="data.body"
     />
+
     <div class="bg-stars bg-primary-darker">
       <div class="py-10 text-center text-white">
         <strong>Related News goes here</strong>

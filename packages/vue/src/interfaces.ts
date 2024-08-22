@@ -214,11 +214,13 @@ export type MetaPanelTheme = 'primary' | 'secondary' | 'stars'
 export interface PageObject {
   __typename: string
   contentType: string
+  lastPublishedAt?: string
   breadcrumb?: string
   slug: string
   url: string
   title: string
   getTopicsForDisplay?: Topic[]
+  showJumpMenu?: boolean
   label?: string
   summary?: string
   topper?: string
