@@ -219,6 +219,7 @@ export interface PageObject {
   url: string
   title: string
   getTopicsForDisplay?: Topic[]
+  showJumpMenu?: boolean
   label?: string
   summary?: string
   topper?: string
