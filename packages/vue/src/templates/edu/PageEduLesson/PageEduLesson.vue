@@ -399,5 +399,19 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       :heading="data.relatedContentHeading"
       :items="data.relatedContent"
     />
+
+    <LayoutHelper
+      v-if="data.lastPublishedAt"
+      indent="col-3"
+      class="lg:my-18 my-10"
+    >
+      <p class="border-t border-gray-light-mid pt-8">
+        <strong>Lesson Last Updated:</strong>
+        {{
+          // @ts-ignore
+          $filters.displayDate(data.lastPublishedAt)
+        }}
+      </p>
+    </LayoutHelper>
   </div>
 </template>

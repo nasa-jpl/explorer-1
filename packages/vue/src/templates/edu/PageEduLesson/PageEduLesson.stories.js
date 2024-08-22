@@ -44,6 +44,7 @@ export const BaseStory = {
       seoTitle: 'Test Lesson',
       slug: 'test-lesson',
       publicationDate: '2024-08-16',
+      lastPublishedAt: '2024-08-22T02:33:13.507206+00:00',
       thumbnailImage: {
         __typename: 'CustomImage',
         original: 'http://127.0.0.1:9000/media/original_images/imagessirtfsirtf-090303-16.jpg',

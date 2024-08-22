@@ -37,6 +37,7 @@ export const BaseStory = {
     data: {
       __typename: 'EDUTeachableMomentPage',
       title: 'A Teachable Moment',
+      lastPublishedAt: '2024-08-22T02:33:13.507206+00:00',
       url: 'http://localhost:3000/edu/resources/teachable-moment',
       pageType: 'EDUTeachableMomentPage',
       contentType: 'edu_resources.EDUTeachableMomentPage',

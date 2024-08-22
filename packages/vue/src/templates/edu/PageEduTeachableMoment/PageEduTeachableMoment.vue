@@ -188,7 +188,21 @@ const computedClass = computed((): string => {
       :heading="data.relatedContentHeading"
       :items="data.relatedContent"
     />
-    <!-- related content -->
+
+    <LayoutHelper
+      v-if="data.lastPublishedAt"
+      indent="col-3"
+      class="lg:my-18 my-10"
+    >
+      <p class="border-t border-gray-light-mid pt-8">
+        <strong>Teachable Moment Last Updated:</strong>
+        {{
+          // @ts-ignore
+          $filters.displayDate(data.lastPublishedAt)
+        }}
+      </p>
+    </LayoutHelper>
+    <!-- explore more -->
     <div
       v-if="data.relatedContent?.length"
       class="bg-stars bg-primary-darker pt-14 pb-20 ThemeVariantDark text-white"
