@@ -185,6 +185,15 @@
       </LayoutHelper>
 
       <LayoutHelper
+        v-else-if="block.blockType == 'RichTableBlock'"
+        :key="`richTableBlock${index}`"
+        indent="col-3"
+        class="lg:mb-18 mb-10"
+      >
+        <BlockRichTable :data="block" />
+      </LayoutHelper>
+
+      <LayoutHelper
         v-else-if="block.blockType == 'RelatedLinksBlock'"
         :key="`relatedLinksBlock${index}`"
         indent="col-3"
@@ -267,6 +276,7 @@ import BlockRelatedLinks, {
   type BlockRelatedLinksObject
 } from './../BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockTable from './../BlockTable/BlockTable.vue'
+import BlockRichTable from './../BlockRichTable/BlockRichTable.vue'
 import BlockTeaser from './../BlockTeaser/BlockTeaser.vue'
 import BlockText from './../BlockText/BlockText.vue'
 import BlockTwitterEmbed from './../BlockTwitterEmbed/BlockTwitterEmbed.vue'
@@ -307,6 +317,7 @@ export default defineComponent({
     BlockQuote,
     BlockRelatedLinks,
     BlockTable,
+    BlockRichTable,
     BlockTeaser,
     BlockText,
     BlockTwitterEmbed,
