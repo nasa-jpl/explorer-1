@@ -1,15 +1,8 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import type {
-  BlockData,
-  ImageObject,
-  PageEduResourcesObject,
-  StreamfieldBlockData
-} from './../../../interfaces'
+import type { PageEduResourcesObject } from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
-import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import type { BlockHeadingObject } from '../../../components/BlockHeading/BlockHeading.vue'
 import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
@@ -21,9 +14,7 @@ import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsE
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
-import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
-import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
 
 interface PageEduTeachableMomentProps {
   data?: PageEduResourcesObject
