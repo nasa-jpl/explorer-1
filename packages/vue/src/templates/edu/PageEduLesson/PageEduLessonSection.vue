@@ -40,6 +40,7 @@ const anchorId = computed(() => {
 <template>
   <section
     :id="anchorId"
+    class="PageEduLessonSection"
     :aria-label="heading.heading"
   >
     <LayoutHelper
@@ -79,10 +80,12 @@ const anchorId = computed(() => {
             {{ 'Section ' + (Number(index) + 1) }}
           </BaseHeading>
         </LayoutHelper>
-        <BlockStreamfield
-          v-if="item?.blocks"
-          :data="item.blocks"
-        />
+        <div class="PageEduProcedureSection">
+          <BlockStreamfield
+            v-if="item?.blocks"
+            :data="item.blocks"
+          />
+        </div>
       </template>
     </template>
     <LayoutHelper
@@ -94,3 +97,27 @@ const anchorId = computed(() => {
     </LayoutHelper>
   </section>
 </template>
+<style lang="scss">
+.PageEduProcedureSection {
+  counter-reset: listitem;
+  .BlockText ol {
+    list-style-type: none;
+    counter-reset: nestedlistitem;
+    > li {
+      counter-increment: listitem;
+      &::marker {
+        content: counter(listitem) '. ';
+      }
+    }
+    ol {
+      list-style-type: none;
+      > li {
+        counter-increment: nestedlistitem;
+        &::marker {
+          content: counter(nestedlistitem) '. ';
+        }
+      }
+    }
+  }
+}
+</style>
