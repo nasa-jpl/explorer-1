@@ -11,6 +11,11 @@ export const eduMetadataDictionary: PillDictionaryInterface = {
     variant: 'primary',
     type: 'resource'
   },
+  EDUTeachableMomentPage: {
+    label: 'Teachable Moment',
+    variant: 'primary',
+    type: 'resource'
+  },
   EDUEventPage: {
     variant: 'primary',
     type: 'event'
@@ -24,5 +29,6 @@ export const searchContentTypeToPageType: DictionaryInterface = {
   missions_mission: 'Mission',
   eduevents_edueventpage: 'EDUEventPage',
   eduresources_eduexplainerarticlepage: 'EDUExplainerArticlePage',
-  eduresources_edulessonpage: 'EDULessonPage'
+  eduresources_edulessonpage: 'EDULessonPage',
+  eduresources_eduteachablemomentpage: 'EDUTeachableMomentPage'
 }
