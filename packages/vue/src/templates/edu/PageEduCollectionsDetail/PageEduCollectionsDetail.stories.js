@@ -51,7 +51,8 @@ export const BaseStory = {
         },
         screenSm: {
           url: 'https://picsum.photos/id/247/640/900'
-        }
+        },
+        alt: 'The alt text'
       },
       heroImageCaption: '<p>Lorem ipsum dolor sit amet</p>',
       heroConstrain: true,
