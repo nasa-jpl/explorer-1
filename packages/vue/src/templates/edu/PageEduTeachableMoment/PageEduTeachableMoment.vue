@@ -2,19 +2,15 @@
 import { computed, reactive, ref } from 'vue'
 import type { PageEduResourcesObject } from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
-import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
-import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
-import BlockVideo from './../../../components/BlockVideo/BlockVideo.vue'
+import BlockText from './../../../components/BlockText/BlockText.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
-import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
-import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
+import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 
 interface PageEduTeachableMomentProps {
   data?: PageEduResourcesObject
@@ -112,42 +108,13 @@ const computedClass = computed((): string => {
       />
     </LayoutHelper>
 
-    <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
       v-if="!heroEmpty && heroInline && data.hero?.length"
       class="lg:mb-22 mb-10"
     >
-      <BlockImageStandard
-        v-if="data.hero[0].blockType === 'HeroImageBlock'"
-        :data="data.hero[0].imageInline"
-        :display-caption="data.hero[0].displayCaption"
-        :caption="data.hero[0].caption"
+      <HeroInlineMedia
+        :hero-blocks="data.hero"
         :constrain="data.heroConstrain"
-      />
-      <BlockImageCarousel
-        v-else-if="data.hero[0].blockType === 'CarouselBlock'"
-        :items="data.hero[0].blocks"
-        :block-id="data.hero[0].id"
-      />
-      <BlockIframeEmbed
-        v-else-if="data.hero[0].blockType === 'IframeEmbedBlock'"
-        :data="data.hero[0]"
-      />
-      <BlockVideo
-        v-else-if="data.hero[0].blockType === 'VideoBlock'"
-        :data="data.hero[0]"
-        autoplay
-      />
-      <BaseImagePlaceholder
-        v-else-if="data.hero[0].blockType === 'VideoEmbedBlock'"
-        aspect-ratio="16:9"
-        dark-mode
-      >
-        <div v-html="data.hero[0].embed?.embed"></div>
-      </BaseImagePlaceholder>
-      <BlockImageComparison
-        v-else-if="data.hero[0].blockType === 'ImageComparisonBlock'"
-        :data="data.hero[0]"
       />
     </LayoutHelper>
 
@@ -162,11 +129,6 @@ const computedClass = computed((): string => {
         :text="data.topper"
       />
     </LayoutHelper>
-    <!-- streamfield blocks -->
-    <BlockStreamfield
-      itemprop="articleBody"
-      :data="data.body"
-    />
 
     <!-- streamfield blocks -->
     <BlockStreamfield :data="data.body" />

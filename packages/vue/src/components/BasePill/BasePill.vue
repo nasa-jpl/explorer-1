@@ -6,6 +6,7 @@ import { eduMetadataDictionary } from './../../constants'
 // using borders to vertically center wonky font face
 const variantMap: Attributes = {
   primary: 'bg-primary border-primary',
+  'primary-inverted': 'bg-gray-light-mid !text-primary-darker border-gray-light-mid',
   secondary: 'bg-secondary border-secondary',
   action: 'bg-action border-action'
 }
@@ -20,13 +21,15 @@ interface BasePillProps {
   variant?: string
   size?: string
   contentType?: string
+  invert?: boolean
 }
 
 // define props
 const props = withDefaults(defineProps<BasePillProps>(), {
   variant: 'primary',
   size: 'md',
-  contentType: undefined
+  contentType: undefined,
+  invert: false
 })
 
 const metadataType = computed(() => {
