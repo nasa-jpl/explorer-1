@@ -31,15 +31,30 @@
             :class="{ 'pt-10': hasOverlay }"
           >
             <div
-              v-if="eyebrow"
-              class="lg:mb-6 font-secondary mb-4 text-base font-semibold tracking-wider no-underline uppercase"
+              v-if="customPill || customPillType || label"
+              class="lg:mb-6 mb-4"
             >
-              {{ eyebrow }}
-              <span class="sr-only">.</span>
+              <BasePill
+                v-if="customPill || customPillType"
+                variant="primary"
+                size="lg"
+                class="mr-3"
+                :content-type="customPillType"
+              >
+                {{ customPill }}
+              </BasePill>
+              <div
+                v-else-if="label"
+                class="font-secondary text-base font-semibold tracking-wider no-underline uppercase"
+              >
+                {{ label }}
+                <span class="sr-only">.</span>
+              </div>
             </div>
             <h1
               v-if="title"
-              class="lg:w-3/4 xl:w-3/5 xl:text-10xl lg:text-9xl md:text-8xl text-7xl lg:tracking-tightest lg:leading-tighter mb-5 font-bold leading-tight uppercase"
+              class="lg:w-3/4 xl:w-3/5 xl:text-10xl lg:text-9xl md:text-8xl text-7xl lg:tracking-tightest lg:leading-tighter mb-5 font-bold leading-tight"
+              :class="{ uppercase: !themeStore.isEdu }"
             >
               {{ title }}
             </h1>
@@ -58,30 +73,54 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mixinTransparentHeader } from './../../utils/mixins'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
+import BasePill from './../BasePill/BasePill.vue'
+
 export default defineComponent({
   name: 'HeroLarge',
+  components: {
+    BasePill
+  },
   props: {
-    eyebrow: {
+    label: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
+    },
+    customPill: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    customPillType: {
+      type: String,
+      required: false,
+      default: undefined
     },
     title: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     summary: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
     // If secondary nav is also on this page, will add more space above hero text
     hasOverlay: {
       type: Boolean,
       default: false
     }
+  },
+  computed: {
+    ...mapStores(useThemeStore)
   },
   mounted() {
     mixinTransparentHeader()
