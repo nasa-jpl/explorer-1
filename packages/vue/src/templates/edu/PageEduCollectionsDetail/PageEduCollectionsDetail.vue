@@ -33,16 +33,12 @@ defineExpose({
   PageEduCollectionsDetailJumpMenu
 })
 
-const heroEmpty = computed((): boolean => {
-  return data?.hero?.length === 0
-})
-
 const heroInline = computed((): boolean => {
   return data?.heroPosition === 'inline'
 })
 
 const computedClass = computed((): string => {
-  if (heroInline.value) {
+  if (heroInline.value || !data?.heroImage) {
     return 'pt-5 lg:pt-12'
   } else if (!heroInline.value) {
     return '-nav-offset'
@@ -58,7 +54,7 @@ const computedClass = computed((): string => {
   >
     <!-- hero large -->
     <HeroLarge
-      v-if="!heroInline"
+      v-if="!heroInline && data.heroImage"
       :title="data.title"
       :image="data.heroImage"
       :summary="'Test test test lorem ipsum dolor sit amet yep.'"
@@ -75,7 +71,7 @@ const computedClass = computed((): string => {
     />
 
     <LayoutHelper
-      v-if="heroInline"
+      v-if="heroInline || !data.heroImage"
       indent="col-2"
       class="mb-10"
     >
@@ -99,7 +95,7 @@ const computedClass = computed((): string => {
 
     <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
-      v-if="!heroEmpty && heroInline"
+      v-if="data.heroImage && heroInline"
       class="lg:mb-22 mb-10"
     >
       <BlockImageStandard
