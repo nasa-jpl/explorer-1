@@ -196,6 +196,7 @@ export type MetadataType = 'event' | 'resource'
 export interface LabelObject {
   label?: string
   variant: string
+  icons?: string
   type?: MetadataType
 }
 export interface PillDictionaryInterface {

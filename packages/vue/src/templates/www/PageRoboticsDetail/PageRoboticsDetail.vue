@@ -4,7 +4,7 @@
     class="-nav-offset"
   >
     <HeroLarge
-      eyebrow="Robotics at JPL"
+      label="Robotics at JPL"
       :title="data.title"
       :summary="data.description"
       :image="data.listingPageHeroImage"

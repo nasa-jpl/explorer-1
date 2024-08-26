@@ -13,7 +13,7 @@ import IconTime from './../Icons/IconTime.vue'
 
 interface MetaPanelProps {
   theme?: MetaPanelTheme
-  primarySubject: EduResourcesSubject
+  primarySubject?: EduResourcesSubject
   additionalSubjects?: EduResourcesSubject[]
   gradeLevels?: EduResourcesGradeLevel[]
   time?: EduResourcesTime
@@ -35,14 +35,17 @@ const audience = computed(() => {
 })
 
 const subjects = computed(() => {
-  let combinedArray = [primarySubject.subject]
-  let output = undefined
-  if (additionalSubjects) {
-    const filteredArray = additionalSubjects.map((item) => item.subject)
-    combinedArray = combinedArray.concat(filteredArray)
+  if (primarySubject?.subject) {
+    let combinedArray = [primarySubject.subject]
+    let output = undefined
+    if (additionalSubjects) {
+      const filteredArray = additionalSubjects.map((item) => item.subject)
+      combinedArray = combinedArray.concat(filteredArray)
+    }
+    output = combinedArray.join(', ')
+    return output
   }
-  output = combinedArray.join(', ')
-  return output
+  return undefined
 })
 
 const iconColor = computed(() => {

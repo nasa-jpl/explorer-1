@@ -6,7 +6,7 @@
     <div class="lg:mb-24 mb-12">
       <HeroLarge
         class="relative z-10"
-        :eyebrow="data.parentDisplayTitle"
+        :label="data.parentDisplayTitle"
         :title="data.displayTitle"
         :summary="data.strapline"
         :image="data.listingPageHeroImage"
