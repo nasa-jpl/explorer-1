@@ -24,6 +24,8 @@ import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelate
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
 import PageEduLessonSection, { type PageEduLessonSectionProps } from './PageEduLessonSection.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
+import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
+
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
 
 interface EduLessonSectionObject extends PageEduLessonSectionProps {
@@ -319,37 +321,9 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       v-if="!heroEmpty && heroInline && data.hero?.length"
       class="lg:mb-22 mb-10"
     >
-      <BlockImageStandard
-        v-if="data.hero[0].blockType === 'HeroImageBlock'"
-        :data="data.hero[0].imageInline"
-        :display-caption="data.hero[0].displayCaption"
-        :caption="data.hero[0].caption"
+      <HeroInlineMedia
+        :hero-blocks="data.hero"
         :constrain="data.heroConstrain"
-      />
-      <BlockImageCarousel
-        v-else-if="data.hero[0].blockType === 'CarouselBlock'"
-        :items="data.hero[0].blocks"
-        :block-id="data.hero[0].id"
-      />
-      <BlockIframeEmbed
-        v-else-if="data.hero[0].blockType === 'IframeEmbedBlock'"
-        :data="data.hero[0]"
-      />
-      <BlockVideo
-        v-else-if="data.hero[0].blockType === 'VideoBlock'"
-        :data="data.hero[0]"
-        autoplay
-      />
-      <BaseImagePlaceholder
-        v-else-if="data.hero[0].blockType === 'VideoEmbedBlock'"
-        aspect-ratio="16:9"
-        dark-mode
-      >
-        <div v-html="data.hero[0].embed?.embed"></div>
-      </BaseImagePlaceholder>
-      <BlockImageComparison
-        v-else-if="data.hero[0].blockType === 'ImageComparisonBlock'"
-        :data="data.hero[0]"
       />
     </LayoutHelper>
 

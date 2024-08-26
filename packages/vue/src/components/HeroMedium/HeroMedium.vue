@@ -52,7 +52,7 @@
           class="lg:w-1/2 xl:w-5/12 block"
         >
           <div
-            v-if="customPill || customLabel || feature.label"
+            v-if="customPill || customPillType || customLabel || feature.label"
             class="flex items-center lg:mb-3 mb-2"
           >
             <BasePill

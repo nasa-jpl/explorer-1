@@ -108,7 +108,6 @@ const computedClass = computed((): string => {
       />
     </LayoutHelper>
 
-    <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
       v-if="!heroEmpty && heroInline && data.hero?.length"
       class="lg:mb-22 mb-10"

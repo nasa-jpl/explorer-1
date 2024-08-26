@@ -27,6 +27,7 @@ const heroInline = computed(() => {
     if (heroBlocks[0].blockType === 'VideoBlock') {
       return false
     } else if (
+      heroBlocks[0].blockType === 'HeroImageBlock' ||
       heroBlocks[0].blockType === 'CarouselBlock' ||
       heroBlocks[0].blockType === 'IframeEmbedBlock' ||
       heroBlocks[0].blockType === 'VideoEmbedBlock' ||
