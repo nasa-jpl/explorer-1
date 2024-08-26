@@ -92,11 +92,10 @@ export const Inline = {
   }
 }
 
-export const NoMetalPanel = {
+export const NoMetaPanel = {
   args: {
     data: {
       ...BaseStory.args.data,
-      heroPosition: 'inline',
       showMetaPanel: false
     }
   }
