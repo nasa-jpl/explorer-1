@@ -81,16 +81,11 @@ export default defineComponent({
       let recurrence = undefined
       if ((this.isAllDay && this.endDatetime) || (this.startDate && this.endDatetime)) {
         // Calculate how many full days
-        console.log(this.isAllDay, this.endDatetime, this.startDate, this.endDatetime)
-        // console.log(this.startDate ? dayjs(this.startDate).tz('America/Los_Angeles') : undefined)
         const startDateDayjs = this.startDatetime
           ? dayjs(this.startDatetime)
           : dayjs(this.startDate).tz('America/Los_Angeles')
         const endDateDayjs = dayjs(this.endDatetime)
         const difference = endDateDayjs.diff(startDateDayjs, 'day') + 1
-        console.log(startDateDayjs.format())
-        console.log(endDateDayjs.format())
-        console.log(difference)
         recurrence = { frequency: 'DAILY', interval: 1, count: difference }
       }
 
