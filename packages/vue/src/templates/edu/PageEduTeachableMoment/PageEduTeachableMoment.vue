@@ -144,7 +144,7 @@ const computedClass = computed((): string => {
     </LayoutHelper>
 
     <LayoutHelper
-      v-if="data.authors"
+      v-if="data.authors?.length"
       indent="col-3"
     >
       <AboutTheAuthor :authors="data.authors" />

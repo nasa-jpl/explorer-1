@@ -370,7 +370,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     />
 
     <LayoutHelper
-      v-if="data.authors"
+      v-if="data.authors?.length"
       indent="col-3"
     >
       <AboutTheAuthor :authors="data.authors" />

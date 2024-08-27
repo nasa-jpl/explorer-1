@@ -154,7 +154,7 @@ defineExpose({
     />
 
     <LayoutHelper
-      v-if="data.authors"
+      v-if="data.authors?.length"
       indent="col-3"
       class="mb-10 lg:mb-22"
     >
