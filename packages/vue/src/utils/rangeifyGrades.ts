@@ -47,7 +47,7 @@ const rangeify = (a: number[]): string[] => {
   return res
 }
 
-export const rangeifyGrades = (gradeLevels: GradeLevelsObject[]) => {
+export const rangeifyGrades = (gradeLevels: GradeLevelsObject[], showLabel: boolean = true) => {
   if (gradeLevels) {
     const allAgesArray = gradeLevels.map((item) => {
       if (item.gradeLevel === 'All Ages') return item.gradeLevel
@@ -65,7 +65,7 @@ export const rangeifyGrades = (gradeLevels: GradeLevelsObject[]) => {
     if (filteredGrades?.length) {
       const gradeString = filteredGrades.length > 0 ? 'Grades ' : 'Grade '
       preparedGrades = filteredGrades
-        .map((grade, index) => (index === 0 ? gradeString + grade : grade))
+        .map((grade, index) => (index === 0 && showLabel ? gradeString + grade : grade))
         .join(', ')
     }
 
