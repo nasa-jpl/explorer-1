@@ -326,7 +326,6 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       ref="PageEduLessonJumpMenu"
       :title="data.title"
       :blocks="consolidatedBlocks"
-      :enabled="true"
       dropdown-text="In this lesson"
     />
 

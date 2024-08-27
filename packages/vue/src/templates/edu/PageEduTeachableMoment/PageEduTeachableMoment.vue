@@ -67,10 +67,10 @@ const computedClass = computed((): string => {
     :class="computedClass"
   >
     <NavJumpMenu
+      v-if="data.showJumpMenu"
       ref="PageEduTeachableMomentJumpMenu"
       :title="data.title"
       :blocks="data.body"
-      :enabled="data.showJumpMenu"
       dropdown-text="In this Teachable Moment"
     />
 
@@ -97,6 +97,7 @@ const computedClass = computed((): string => {
     >
       <DetailHeadline
         :title="data.title"
+        :read-time="data.readTime"
         label="Teachable Moment"
         pill
       />
