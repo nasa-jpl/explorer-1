@@ -61,7 +61,7 @@ const time = computed(() => {
       <span>{{ audience }}</span>
     </div>
     <div
-      v-if="time"
+      v-if="time && !compact"
       class="MetadataEduResourceItem"
     >
       <IconTime

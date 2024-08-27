@@ -218,7 +218,7 @@
       <LayoutHelper
         v-else-if="block.blockType === 'LinkCardListBlock' && block.blocks?.length"
         :key="`linkCardListBlock${index}`"
-        indent="col-3"
+        indent="col-2"
         class="lg:mb-18 mb-10"
       >
         <BlockLinkCardList :items="block.blocks" />
