@@ -4,10 +4,10 @@ import { BlockImageCarouselData } from './../../../components/BlockImageCarousel
 import { BlockImageComparisonData } from './../../../components/BlockImageComparison/BlockImageComparison.stories'
 import { BaseVideoData } from './../../../components/BaseVideo/BaseVideo.stories'
 import { BlockVideoEmbedData } from './../../../components/BlockVideoEmbed/BlockVideoEmbed.stories'
-
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
 import { BlockStreamfieldTruncatedData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
+import { AboutTheAuthorData } from './../../../components/AboutTheAuthor/AboutTheAuthor.stories'
 import PageEduExplainerArticle from './PageEduExplainerArticle.vue'
 
 export default {
@@ -41,6 +41,8 @@ export const BaseStory = {
       url: 'http://localhost:3000/edu/resources/test-resource',
       title: 'Test Resource',
       readTime: '6 min read',
+      lastPublishedAt: '2024-08-22T02:33:13.507206+00:00',
+      authors: AboutTheAuthorData,
       heroConstrain: true,
       heroPosition: 'full_bleed',
       hero: [
