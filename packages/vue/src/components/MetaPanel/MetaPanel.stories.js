@@ -30,7 +30,7 @@ export const BaseStory = {
     button: 'View Standards',
     primarySubject: { subject: 'Math' },
     additionalSubjects: [{ subject: 'Science' }],
-    time: '30mins - hr',
+    time: { time: '30mins - hr' },
     gradeLevels: [
       { gradeLevel: 'All Ages' },
       { gradeLevel: 'K' },
