@@ -11,6 +11,7 @@ import BlockStreamfield from './../../../components/BlockStreamfield/BlockStream
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
+import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 
 interface PageEduTeachableMomentProps {
   data?: PageEduResourcesObject
@@ -142,14 +143,12 @@ const computedClass = computed((): string => {
       <BlockRelatedLinks :data="data.relatedLinks[0]" />
     </LayoutHelper>
 
-    <!-- related content -->
-    <BlockLinkCarousel
-      v-if="data.relatedContent?.length"
-      item-type="cards"
-      class="lg:my-24 my-12 print:px-4"
-      :heading="data.relatedContentHeading"
-      :items="data.relatedContent"
-    />
+    <LayoutHelper
+      v-if="data.authors"
+      indent="col-3"
+    >
+      <AboutTheAuthor :authors="data.authors" />
+    </LayoutHelper>
 
     <LayoutHelper
       v-if="data.lastPublishedAt"

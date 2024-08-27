@@ -140,7 +140,7 @@ export default defineComponent({
       default: undefined
     },
     author: {
-      type: Object as PropType<AuthorObject | AuthorObject[]>,
+      type: Object as PropType<AuthorObject | { author: AuthorObject }[]>,
       required: false,
       default: undefined
     },
@@ -208,11 +208,10 @@ export default defineComponent({
       const returnDate = new Date(this.publicationDate + ' ' + currentTime)
       return returnDate.toISOString()
     },
-    authors(): { name: string; organization: string }[] | undefined {
+    authors(): AuthorObject[] | undefined {
       let authors: AuthorObject[] | undefined = undefined
       if (this.author && this.author.constructor === Array) {
         authors = []
-        // @ts-expect-error we know it's an array at this point
         this.author.forEach((author: { author: AuthorObject }) => {
           // @ts-expect-error authors array is defined above
           authors.push(author.author)

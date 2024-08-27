@@ -1,5 +1,7 @@
 import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories'
 import { BlockStreamfieldData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
+import { AboutTheAuthorData } from './../../../components/AboutTheAuthor/AboutTheAuthor.stories'
+
 import PageEduNewsDetail from './PageEduNewsDetail.vue'
 
 export default {
@@ -33,14 +35,7 @@ export const BaseStory = {
       title: "NASA's Ingenuity Mars Helicopter Recharges Its Batteries in Flight",
       publicationDate: '2024-06-20 20:36:49.657301+00:00',
       readTime: '5 min read',
-      authors: [
-        {
-          author: {
-            name: 'Author Name',
-            organization: 'Organization Name'
-          }
-        }
-      ],
+      authors: AboutTheAuthorData,
       getTopicsForDisplay: [
         {
           title: 'Mars',

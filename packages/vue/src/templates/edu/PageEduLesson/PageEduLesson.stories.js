@@ -13,6 +13,7 @@ import {
   BlockStreamfieldMinimalData
 } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageEduLesson from './PageEduLesson.vue'
+import { AboutTheAuthorData } from './../../../components/AboutTheAuthor/AboutTheAuthor.stories'
 
 export default {
   title: 'Templates/EDU/PageEduLesson',
@@ -50,6 +51,7 @@ export const BaseStory = {
         original: 'http://127.0.0.1:9000/media/original_images/imagessirtfsirtf-090303-16.jpg',
         alt: ''
       },
+      authors: AboutTheAuthorData,
       hero: [
         {
           ...HeroMediaData,
