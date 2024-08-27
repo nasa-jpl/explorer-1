@@ -183,7 +183,10 @@ export interface Attributes {
 
 export interface AuthorObject {
   name: string
-  organization: string
+  organization?: string
+  image?: ImageObject
+  jobTitle?: string
+  biography?: string
 }
 
 export interface Topic {
@@ -262,6 +265,7 @@ export interface EduResourceStandardItem {
 
 export interface PageEduResourcesObject extends PageObject {
   hero?: StreamfieldBlockData[]
+  authors?: { author: AuthorObject }[]
   primarySubject?: EduResourcesSubject
   additionalSubjects?: EduResourcesSubject[]
   gradeLevels?: EduResourcesGradeLevel[]

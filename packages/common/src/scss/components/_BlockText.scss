@@ -94,4 +94,72 @@
       }
     }
   }
+  &.-small {
+    p {
+      @apply mb-2;
+
+      @screen lg {
+        @apply mb-2;
+      }
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mt-4 mb-2;
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    hr {
+      @apply border-gray-light-mid border-t my-2;
+
+      @screen lg {
+        @apply my-4;
+      }
+
+      + h1,
+      + h2,
+      + h3,
+      + h4,
+      + h5,
+      + h6 {
+        @apply mt-2;
+      }
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    ol,
+    ul {
+      @apply mb-2;
+
+      @screen lg {
+        @apply mb-2;
+      }
+
+      &:last-child {
+        @apply mb-0;
+      }
+
+      li {
+        @apply my-1;
+
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+    }
+  }
 }

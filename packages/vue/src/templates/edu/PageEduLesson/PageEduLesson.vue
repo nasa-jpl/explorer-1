@@ -19,6 +19,7 @@ import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
 import PageEduLessonSection, { type PageEduLessonSectionProps } from './PageEduLessonSection.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
+import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
 
@@ -364,9 +365,16 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     <BlockLinkCarousel
       item-type="cards"
       class="lg:my-24 my-12 print:px-4"
-      :heading="data.relatedContentHeading"
+      :heading="data.relatedContentHeading || 'Related Lessons & Projects'"
       :items="data.relatedContent"
     />
+
+    <LayoutHelper
+      v-if="data.authors?.length"
+      indent="col-3"
+    >
+      <AboutTheAuthor :authors="data.authors" />
+    </LayoutHelper>
 
     <LayoutHelper
       v-if="data.lastPublishedAt"

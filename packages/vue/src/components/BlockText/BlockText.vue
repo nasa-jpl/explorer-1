@@ -13,9 +13,9 @@ interface Variants {
 }
 
 export const variants: Variants = {
-  small: 'text-body-sm',
-  medium: 'text-body-md',
-  large: 'text-body-lg'
+  small: 'text-body-sm -small',
+  medium: 'text-body-md -medium',
+  large: 'text-body-lg -large'
 }
 
 export default defineComponent({
