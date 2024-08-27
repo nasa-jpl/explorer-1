@@ -93,7 +93,6 @@ export default defineComponent({
         title: this.title ? this.title : undefined,
         location: this.location ? this.location : undefined,
         description: this.icsDescription,
-        // start: new Date(dayjs(this.startDate).tz('America/Los_Angeles')),
         start: this.startDatetime
           ? // @ts-ignore
             new Date(dayjs(this.startDatetime))
