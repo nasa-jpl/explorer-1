@@ -10,10 +10,12 @@ import BlockStreamfield from './../../../components/BlockStreamfield/BlockStream
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
+import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 
 export default defineComponent({
   name: 'PageEduExplainerArticle',
   components: {
+    AboutTheAuthor,
     HeroMedia,
     HeroInlineMedia,
     LayoutHelper,
@@ -170,5 +172,26 @@ export default defineComponent({
       :heading="data.relatedContentHeading"
       :items="data.relatedContent"
     />
+
+    <LayoutHelper
+      v-if="data.authors?.length"
+      indent="col-3"
+    >
+      <AboutTheAuthor :authors="data.authors" />
+    </LayoutHelper>
+
+    <LayoutHelper
+      v-if="data.lastPublishedAt"
+      indent="col-3"
+      class="lg:my-18 my-10"
+    >
+      <p class="border-t border-gray-light-mid pt-8">
+        <strong>Explainer Article Last Updated:</strong>
+        {{
+          // @ts-ignore
+          $filters.displayDate(data.lastPublishedAt)
+        }}
+      </p>
+    </LayoutHelper>
   </div>
 </template>
