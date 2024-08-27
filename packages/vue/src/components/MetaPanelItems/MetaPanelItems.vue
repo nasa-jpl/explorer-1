@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<MetaPanelProps>(), {
 const { theme, primarySubject, additionalSubjects, gradeLevels, time } = reactive(props)
 
 const audience = computed(() => {
-  return gradeLevels ? rangeifyGrades(gradeLevels) : undefined
+  return gradeLevels ? rangeifyGrades(gradeLevels, false) : undefined
 })
 
 const subjects = computed(() => {
@@ -85,11 +85,11 @@ const themeVariant = computed(() => {
 
 <template>
   <div
-    class="MetaPanelItems md:flex gap-10"
-    :class="{ 'justify-between': subjects && audience && time }"
+    class="MetaPanelItems md:flex gap-10 pr-5 sm:pr-10 lg:pr-20"
+    :class="{ 'justify-between': subjects && audience && time?.time }"
   >
     <div
-      v-if="subjects"
+      v-if="primarySubject?.subject"
       class="MetaPanelItem"
     >
       <div
@@ -103,14 +103,13 @@ const themeVariant = computed(() => {
           class="MetaPanelItem-heading"
           :class="`${themeVariant} ${headingColor}`"
         >
-          Subjects
-          <span class="sr-only">.</span>
+          Subject
         </div>
         <div
           class="MetaPanelItem-content"
           :class="textColor"
         >
-          {{ subjects }}
+          {{ primarySubject.subject }}
         </div>
       </div>
     </div>
@@ -130,7 +129,6 @@ const themeVariant = computed(() => {
           :class="`${themeVariant} ${headingColor}`"
         >
           Grade Levels
-          <span class="sr-only">.</span>
         </div>
         <div
           class="MetaPanelItem-content"
@@ -156,7 +154,6 @@ const themeVariant = computed(() => {
           :class="`${themeVariant} ${headingColor}`"
         >
           Time Required
-          <span class="sr-only">.</span>
         </div>
         <div
           class="MetaPanelItem-content"

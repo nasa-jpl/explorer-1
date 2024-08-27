@@ -102,7 +102,7 @@ const standardsEla = computed(() => {
   return sortedStandards.value ? sortedStandards.value['ccss_english_language_arts'] : undefined
 })
 const standardsMath = computed(() => {
-  return sortedStandards.value ? sortedStandards.value['ccss_math'] : undefined
+  return sortedStandards.value ? sortedStandards.value['ccss_maths'] : undefined
 })
 const standardsNgss = computed(() => {
   return sortedStandards.value ? sortedStandards.value['ngss'] : undefined
@@ -128,7 +128,7 @@ const standardsIste = computed(() => {
       >
         <div class="col-start-container lg:col-start-indent-col-2 col-end-container">
           <div class="MetaPanel-heading lg:grid grid-cols-12 col-end-container container">
-            <div class="col-start-1 col-end-10 xl:col-end-9 pl-4 lg:pl-10 pr-2 py-6 lg:py-10">
+            <div class="col-start-1 col-end-10 xl:col-end-9 pl-4 lg:pl-10 pr-6 py-6 lg:py-10">
               <MetaPanelItems
                 :theme="theme"
                 :primary-subject="primarySubject"
@@ -139,7 +139,7 @@ const standardsIste = computed(() => {
             </div>
             <div
               v-if="button"
-              class="ThemeVariantLight col-start-10 col-end-13 pl-4 pt-4 pb-6 lg:py-10 lg:text-right"
+              class="ThemeVariantLight col-start-10 col-end-13 pl-4 lg:pl-0 pt-4 pb-6 lg:pr-4 xl:pr-10 2xl:pr-0 lg:py-10 lg:text-right"
             >
               <BaseButton
                 variant="secondary"
