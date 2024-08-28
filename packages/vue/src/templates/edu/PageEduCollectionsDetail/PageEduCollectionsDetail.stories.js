@@ -54,6 +54,7 @@ export const BaseStory = {
         },
         alt: 'The alt text'
       },
+      heroSummary: 'Lorem ipsum dolor sit amet consectatur adipscing.',
       heroImageCaption: '<p>Lorem ipsum dolor sit amet</p>',
       heroConstrain: true,
       heroPosition: 'full_bleed',
