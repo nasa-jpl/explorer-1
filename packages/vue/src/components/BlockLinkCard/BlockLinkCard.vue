@@ -271,7 +271,7 @@ export default defineComponent({
       } else if (this.medium) {
         classes = 'can-hover:group-hover:-translate-y-3 edu:can-hover:group-hover:-translate-y-2'
       } else if (this.large) {
-        classes = 'sm:pl-8 sm:w-2/3'
+        classes = 'sm:pl-8 sm:w-2/3 lg:pt-2'
       }
       return classes
     },
