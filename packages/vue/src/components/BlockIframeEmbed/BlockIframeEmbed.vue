@@ -20,7 +20,7 @@
         v-if="data.url"
         class="print:border print:border-gray-dark"
         aspect-ratio="16:9"
-        dark-mode
+        :dark-mode="!themeStore.isEdu"
       >
         <div>
           <iframe
@@ -48,6 +48,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 
@@ -81,6 +83,9 @@ export default defineComponent({
         this.lazyNative = false
       }
     }
+  },
+  computed: {
+    ...mapStores(useThemeStore)
   }
 })
 </script>
