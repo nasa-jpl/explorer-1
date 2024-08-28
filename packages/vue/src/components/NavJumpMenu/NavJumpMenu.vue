@@ -5,6 +5,7 @@
     ref="NavJumpMenuRef"
     class="NavJumpMenu -hide-until-threshold"
     :invert="invert"
+    jump-menu
   >
     <template v-for="(item, index) in theBreadcrumbs">
       <template v-if="item.children && item.children.length > 0">

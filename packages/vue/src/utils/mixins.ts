@@ -160,7 +160,7 @@ export const mixinIsActivePath = (itemPath: string): Boolean => {
       // special treatment since EDU combines News & Events in the main nav
       return path.startsWith('/edu/news')
     } else {
-      return currentPath.startsWith(path)
+      return currentPath.startsWith(ancestorPath)
     }
   }
   return false

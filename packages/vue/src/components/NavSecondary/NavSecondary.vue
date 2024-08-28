@@ -79,6 +79,10 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false
+    },
+    jumpMenu: {
+      type: Boolean,
+      default: false
     }
   },
   data(): {
@@ -101,9 +105,12 @@ export default defineComponent({
       if (this.breadcrumb) {
         // we also want to update the store to override secondary nav
         mixinUpdateSecondary(JSON.parse(this.breadcrumb))
+
         return JSON.parse(this.breadcrumb)
       } else if (this.headerStore) {
-        return this.headerStore.globalChildren
+        if (!this.jumpMenu) {
+          return this.headerStore.globalChildren
+        }
       }
       return undefined
     },
@@ -117,7 +124,9 @@ export default defineComponent({
   mounted() {
     if (this.enabled) {
       // if there is a secondary nav displayed, then don't highlight the primary active item
-      mixinHighlightPrimary(false)
+      if (!this.jumpMenu) {
+        mixinHighlightPrimary(false)
+      }
     }
 
     if (
