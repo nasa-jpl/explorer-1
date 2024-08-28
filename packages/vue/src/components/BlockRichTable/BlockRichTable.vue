@@ -1,6 +1,8 @@
 <script lang="ts">
+// eslint-disable vue/no-v-html
 // @ts-nocheck
 import { defineComponent, computed } from 'vue'
+import BlockImage from './../BlockImage/BlockImage.vue'
 
 export default defineComponent({
   name: 'BlockRichTable',
@@ -42,19 +44,17 @@ export default defineComponent({
     v-if="table"
     class="BlockRichTable"
   >
-    <div class="overflow-x-auto scrolling-touch">
-      <table class="border-gray-light-mid w-full border-t border-b border-collapse table-auto">
-        <caption class="text-center font-bold my-4">
-          {{
-            table.tableCaption
-          }}
-        </caption>
+    <div class="overflow-x-auto scrolling-touch max-w-screen-3xl mx-auto">
+      <table
+        class="min-w-full border-gray-light-mid w-full border-t border-b border-collapse table-auto"
+      >
         <thead>
           <tr>
             <th
               v-for="(headCell, headIndex) in table.tableContent.tableHead[0]"
               :key="headIndex"
-              class="bg-jpl-blue-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b"
+              scope="col"
+              class="min-w-72 sm:min-w-80 bg-jpl-blue-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b"
             >
               {{ headCell.text }}
             </th>
@@ -68,29 +68,43 @@ export default defineComponent({
             <td
               v-for="(cell, cellIndex) in row"
               :key="cellIndex"
-              class="bg-white text-gray-dark border-gray-light-mid lg:p-5 p-3 border-b"
+              class="min-w-72 sm:min-w-80 bg-white text-gray-dark border-gray-light-mid p-0"
             >
-              <!-- Render content based on the block type -->
               <template v-if="cell.blockType === 'CharBlock'">
-                {{ cell.value }}
+                <p class="text-sm text-left my-2 px-3 lg:px-5">
+                  {{ cell.value }}
+                </p>
               </template>
               <template v-else-if="cell.blockType === 'RichTextBlock'">
-                <div v-html="cell.value"></div>
+                <div class="text-xs text-left my-2 px-3 lg:px-5">{{ cell.value }}</div>
               </template>
               <template v-else-if="cell.blockType === 'ImageBlock'">
+                <BlockImage
+                  :data="cell.value"
+                  :full-bleed="true"
+                ></BlockImage>
                 <figure>
                   <img
                     :src="cell.image.url"
                     :alt="cell.image.caption"
                     class="w-full h-auto"
                   />
-                  <figcaption class="text-xs text-center mt-2">{{ cell.image.caption }}</figcaption>
+                  <figcaption class="text-xs text-left my-2 px-3 lg:px-5">
+                    {{ cell.image.caption }}
+                  </figcaption>
                 </figure>
               </template>
             </td>
           </tr>
         </tbody>
       </table>
+      <div class="flex w-full">
+        <caption class="text-center font-bold my-2 px-3 lg:px-5">
+          {{
+            table.tableCaption
+          }}
+        </caption>
+      </div>
     </div>
   </div>
 </template>

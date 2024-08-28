@@ -15,33 +15,41 @@ export const BlockRichTableData = {
             "blockType": "RichTableBlock",
             "tableCaption": "table caption",
             "tableContent": {
+            "tableHead": [
+                [
+                  {
+                    "text": "1. Learn why we study geology on Earth and other planets"
+                  },
+                  {
+                    "text": "1. Learn why we study geology on Earth and other planets"
+                  }
+                ]
+              ],
               "tableBody": [
-                [
-                  {
-                    "blockType": "CharBlock",
-                    "value": "plain text render"
-                  }
-                ],
-                [
-                  {
-                    "blockType": "RichTextBlock",
-                    "value": "<p><b>richtext</b> <i>render</i></p>"
-                  }
-                ],
                 [
                   {
                     "blockType": "ImageBlock",
                     "image": {
-                      "caption": "These JPL interns worked on the development and testing of the hardware and software for CADRE, NASA’s upcoming lunar technology demonstration.",
-                      "url": "https://placekitten.com/400/300"
+                      "caption": "NASA astronaut Kate Rubins uses a hand lens to observe the minerals present in a rock while taking part in the European Space Agency's PANGAEA geology training. Image credit: ESA–A. Romeo",
+                      "url": "https://imagecache.jpl.nasa.gov/images/edu/activities/ediblerocks_learn_main-640x350.jpg"
+                    }
+                  },
+                  {
+                    "blockType": "ImageBlock",
+                    "image": {
+                      "caption": "NASA astronaut Kate Rubins uses a hand lens to observe the minerals present in a rock while taking part in the European Space Agency's PANGAEA geology training. Image credit: ESA–A. Romeo",
+                      "url": "https://imagecache.jpl.nasa.gov/images/edu/activities/ediblerocks_learn_main-640x350.jpg"
                     }
                   }
-                ]
-              ],
-              "tableHead": [
+                ],
                 [
                   {
-                    "text": "Column Heading Text"
+                    "blockType": "CharBlock",
+                    "value": "Geologists are scientists who study a planet's solid features, like soil, rocks, and minerals. There are all kinds of rocks and minerals that make up our planet – as well as the Moon, Mars, and other rocky worlds. By studying these features, we can learn more about how rocky worlds form and change over time."
+                  },
+                  {
+                    "blockType": "CharBlock",
+                    "value": "Geologists are scientists who study a planet's solid features, like soil, rocks, and minerals. There are all kinds of rocks and minerals that make up our planet – as well as the Moon, Mars, and other rocky worlds. By studying these features, we can learn more about how rocky worlds form and change over time."
                   }
                 ]
               ]

@@ -22,10 +22,6 @@
     @apply table-row bg-white border-t border-gray-light-mid;
   }
 
-  td {
-    @apply p-3 lg:p-5;
-  }
-
   .rich_text,
   .link {
     @extend .BlockText;
