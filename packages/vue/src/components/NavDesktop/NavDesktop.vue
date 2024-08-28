@@ -246,14 +246,17 @@ export default defineComponent({
     // to determine active class on menu links and 'more' menu links
     checkActive(item: LinkObject) {
       const urlKey = this.getUrlKey(item)
-      if (urlKey && this.breadcrumb && this.breadcrumb.menu_links) {
+      if (urlKey && this.breadcrumb?.menu_links) {
         // key into the breadcrumbs for each section
-        const objArray = this.breadcrumb.menu_links[urlKey]
+        const sectionLinks = this.breadcrumb.menu_links[urlKey]
         // check if any of the paths contained in the array are active
-        const isActive = objArray.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
+        const isActive = sectionLinks.some((link: BreadcrumbPathObject) =>
+          mixinIsActivePath(link.path)
+        )
         if (isActive) {
-          mixinUpdateGlobalChildren(this.breadcrumb.menu_links[urlKey])
+          mixinUpdateGlobalChildren(sectionLinks)
         }
+        console.log(isActive)
         return isActive
       }
       return false
