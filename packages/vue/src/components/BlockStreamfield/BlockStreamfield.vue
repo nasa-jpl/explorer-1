@@ -202,9 +202,11 @@
       <div
         v-else-if="block.blockType == 'ListBlock' && block.field === 'card_grid'"
         :key="`cardGridBlock${index}`"
-        class="lg:mb-18 mb-10"
+        class="LayoutHelper md:BaseGrid md:container md:mx-auto lg:mb-18 mb-10"
       >
-        <BlockCardGrid :cards="block.items" />
+        <div class="lg:col-start-2 lg:col-end-12 md:col-span-full md:px-4 px-0 relative">
+          <BlockCardGrid :cards="block.items" />
+        </div>
       </div>
 
       <div
@@ -218,7 +220,7 @@
       <LayoutHelper
         v-else-if="block.blockType === 'LinkCardListBlock' && block.blocks?.length"
         :key="`linkCardListBlock${index}`"
-        indent="col-3"
+        indent="col-2"
         class="lg:mb-18 mb-10"
       >
         <BlockLinkCardList :items="block.blocks" />

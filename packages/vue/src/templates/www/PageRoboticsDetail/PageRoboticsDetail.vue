@@ -38,7 +38,7 @@
       <!-- facts -->
       <BlockCardGrid
         v-if="data.facts"
-        class="3xl:col-end-13 xl:col-end-11 md:px-4 lg:px-0 relative col-start-2 col-end-13 px-0 mt-12"
+        class="3xl:col-end-13 xl:col-end-11 md:px-4 lg:px-0 relative sm:col-start-2 sm:col-end-13 px-0 mt-12"
         :cards="data.facts"
       />
     </div>

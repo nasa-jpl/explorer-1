@@ -61,7 +61,7 @@ const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
         >
           <component
             :is="headingLevel"
-            class="!font-medium"
+            class="!font-normal !tracking-normal"
           >
             <button
               v-bind-once="{ id: headingId, 'aria-controls': panelId }"
