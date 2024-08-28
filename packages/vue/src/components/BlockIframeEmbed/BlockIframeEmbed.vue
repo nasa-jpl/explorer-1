@@ -20,6 +20,7 @@
         v-if="data.url"
         class="print:border print:border-gray-dark"
         aspect-ratio="16:9"
+        no-logo
         :dark-mode="!themeStore.isEdu"
       >
         <div>
