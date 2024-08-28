@@ -73,15 +73,6 @@ const anchorId = computed(() => {
         v-for="(section, index) in procedures"
         :key="index"
       >
-        <!-- <LayoutHelper
-          v-if="procedureSteps"
-          indent="col-3"
-          class="lg:mb-8 mb-5"
-        >
-          <BaseHeading level="h3">
-            {{ 'Section ' + (Number(index) + 1) }}
-          </BaseHeading>
-        </LayoutHelper> -->
         <div class="PageEduProcedureSection">
           <LayoutHelper
             v-if="section.sectionHeading"
@@ -156,14 +147,11 @@ const anchorId = computed(() => {
     > li {
       @apply relative w-full;
       counter-increment: step;
-      // &::marker {
-      //   content: counter(step) '. ';
-      // }
       &::before {
         @apply relative block w-[45rem] mx-auto h-0 pl-3;
         content: counter(step) '. ';
         // mimicking .text-body-lg
-        font-size: pxToRem(18); // Based on Tailwind's text-lg
+        font-size: pxToRem(18);
         line-height: 1.6667;
       }
 
@@ -191,32 +179,7 @@ const anchorId = computed(() => {
           font-size: pxToRem(22);
         }
       }
-
-      // &::after {
-      //   @apply absolute container m-auto;
-      //   content: counter(step) '. ';
-      // }
     }
   }
-  // counter-reset: listitem;
-  // .BlockText ol {
-  //   list-style-type: none;
-  //   counter-reset: nestedlistitem;
-  //   > li {
-  //     counter-increment: listitem;
-  //     &::marker {
-  //       content: counter(listitem) '. ';
-  //     }
-  //   }
-  //   ol {
-  //     list-style-type: none;
-  //     > li {
-  //       counter-increment: nestedlistitem;
-  //       &::marker {
-  //         content: counter(nestedlistitem) '. ';
-  //       }
-  //     }
-  //   }
-  // }
 }
 </style>

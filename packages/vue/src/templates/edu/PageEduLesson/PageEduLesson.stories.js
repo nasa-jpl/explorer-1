@@ -212,12 +212,6 @@ export const BaseStory = {
               blocks: BlockStreamfieldMinimalData.body
             }
           ]
-        },
-        {
-          blocks: BlockStreamfieldMinimalData.body
-        },
-        {
-          blocks: BlockStreamfieldMinimalData.body
         }
       ],
       proceduresHeading: 'Procedures heading',
