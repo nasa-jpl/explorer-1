@@ -70,8 +70,8 @@ const anchorId = computed(() => {
     />
     <template v-else-if="procedures?.length">
       <template
-        v-for="(section, index) in procedures"
-        :key="index"
+        v-for="(section, _index) in procedures"
+        :key="_index"
       >
         <div class="PageEduProcedureSection">
           <LayoutHelper
@@ -90,8 +90,8 @@ const anchorId = computed(() => {
             <template v-if="section.stepsNumbering">
               <ol class="PageEduProcedureSectionSingleStep">
                 <template
-                  v-for="(step, step_index) of section.steps"
-                  :key="step_index"
+                  v-for="(step, _step_index) of section.steps"
+                  :key="_step_index"
                 >
                   <li v-if="step.blocks?.length">
                     <BlockStreamfield
@@ -104,8 +104,8 @@ const anchorId = computed(() => {
             </template>
             <template v-else>
               <template
-                v-for="(step, step_index) of section.steps"
-                :key="step_index"
+                v-for="(step, _step_index) of section.steps"
+                :key="_step_index"
               >
                 <BlockStreamfield
                   v-if="step.blocks?.length"
