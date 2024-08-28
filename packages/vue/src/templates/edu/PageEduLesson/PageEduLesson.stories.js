@@ -169,7 +169,49 @@ export const BaseStory = {
 
       procedures: [
         {
-          blocks: BlockStreamfieldMinimalData.body
+          sectionHeading: 'Section Heading 1',
+          stepsNumbering: true,
+          steps: [
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
+        },
+        {
+          // sectionHeading: 'Section Heading 2',
+          stepsNumbering: true,
+          steps: [
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
+        },
+        {
+          sectionHeading: 'Section Heading 3',
+          stepsNumbering: true,
+          steps: [
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
         },
         {
           blocks: BlockStreamfieldMinimalData.body
@@ -179,7 +221,6 @@ export const BaseStory = {
         }
       ],
       proceduresHeading: 'Procedures heading',
-      proceduresStepsNumbering: true,
 
       discussion: BlockStreamfieldMinimalData.body,
       discussionHeading: 'Discussion heading',

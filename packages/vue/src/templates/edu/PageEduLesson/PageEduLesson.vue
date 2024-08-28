@@ -342,7 +342,6 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         :heading="value.heading"
         :blocks="value.blocks"
         :procedures="value.procedures"
-        :procedure-steps="value.procedureSteps"
         :text="value.text"
         :image="value.image"
       />

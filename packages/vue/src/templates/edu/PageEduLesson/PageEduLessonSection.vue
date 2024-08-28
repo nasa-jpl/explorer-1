@@ -15,9 +15,12 @@ export interface PageEduLessonSectionProps {
   heading: BlockHeadingObject
   blocks?: StreamfieldBlockData[]
   procedures?: {
-    blocks: StreamfieldBlockData[]
+    sectionHeading: string
+    stepsNumbering: boolean
+    steps: {
+      blocks: StreamfieldBlockData[]
+    }[]
   }[]
-  procedureSteps?: boolean
   text?: string
   image?: ImageObject
 }
@@ -26,7 +29,6 @@ const props = withDefaults(defineProps<PageEduLessonSectionProps>(), {
   heading: undefined,
   blocks: undefined,
   procedures: undefined,
-  procedureSteps: false,
   text: undefined,
   image: undefined
 })
@@ -68,10 +70,10 @@ const anchorId = computed(() => {
     />
     <template v-else-if="procedures?.length">
       <template
-        v-for="(item, index) in procedures"
+        v-for="(section, index) in procedures"
         :key="index"
       >
-        <LayoutHelper
+        <!-- <LayoutHelper
           v-if="procedureSteps"
           indent="col-3"
           class="lg:mb-8 mb-5"
@@ -79,12 +81,49 @@ const anchorId = computed(() => {
           <BaseHeading level="h3">
             {{ 'Section ' + (Number(index) + 1) }}
           </BaseHeading>
-        </LayoutHelper>
+        </LayoutHelper> -->
         <div class="PageEduProcedureSection">
-          <BlockStreamfield
-            v-if="item?.blocks"
-            :data="item.blocks"
-          />
+          <LayoutHelper
+            v-if="section.sectionHeading"
+            indent="col-3"
+            class="lg:mb-8 mb-5"
+          >
+            <BaseHeading level="h3">
+              {{ section.sectionHeading }}
+            </BaseHeading>
+          </LayoutHelper>
+          <div
+            v-if="section.steps?.length"
+            class="PageEduProcedureSectionSteps"
+          >
+            <template v-if="section.stepsNumbering">
+              <ol class="PageEduProcedureSectionSingleStep">
+                <template
+                  v-for="(step, step_index) of section.steps"
+                  :key="step_index"
+                >
+                  <li v-if="step.blocks?.length">
+                    <BlockStreamfield
+                      v-if="step?.blocks"
+                      :data="step.blocks"
+                    />
+                  </li>
+                </template>
+              </ol>
+            </template>
+            <template v-else>
+              <template
+                v-for="(step, step_index) of section.steps"
+                :key="step_index"
+              >
+                <BlockStreamfield
+                  v-if="step.blocks?.length"
+                  class="PageEduProcedureSectionSingleStep"
+                  :data="step.blocks"
+                />
+              </template>
+            </template>
+          </div>
         </div>
       </template>
     </template>
@@ -98,26 +137,86 @@ const anchorId = computed(() => {
   </section>
 </template>
 <style lang="scss">
+@use 'sass:math';
+@function pxToRem($pxValue) {
+  // Assumes font-size for body element is a constant 16px
+  @return math.div($pxValue, 16) * 1rem;
+}
 .PageEduProcedureSection {
-  counter-reset: listitem;
-  .BlockText ol {
-    list-style-type: none;
-    counter-reset: nestedlistitem;
-    > li {
-      counter-increment: listitem;
-      &::marker {
-        content: counter(listitem) '. ';
-      }
-    }
-    ol {
-      list-style-type: none;
-      > li {
-        counter-increment: nestedlistitem;
-        &::marker {
-          content: counter(nestedlistitem) '. ';
-        }
-      }
+  .PageEduProcedureSectionSteps {
+    counter-reset: step;
+  }
+  .PageEduProcedureSectionSingleStep {
+    li:not(:last-of-type) .BlockStreamfield {
+      @apply -mb-5 lg:-mb-10;
     }
   }
+  ol.PageEduProcedureSectionSingleStep {
+    @apply list-none;
+    > li {
+      @apply relative w-full;
+      counter-increment: step;
+      // &::marker {
+      //   content: counter(step) '. ';
+      // }
+      &::before {
+        @apply relative block w-[45rem] mx-auto h-0 pl-3;
+        content: counter(step) '. ';
+        // mimicking .text-body-lg
+        font-size: pxToRem(18); // Based on Tailwind's text-lg
+        line-height: 1.6667;
+      }
+
+      @screen sm {
+        &::before {
+          @apply w-[47rem];
+          font-size: pxToRem(19);
+        }
+      }
+      @screen md {
+        &::before {
+          @apply w-[50rem];
+          font-size: pxToRem(20);
+        }
+      }
+      @screen lg {
+        &::before {
+          @apply w-[47rem] pl-0;
+          font-size: pxToRem(21);
+        }
+      }
+      @screen xl {
+        &::before {
+          @apply w-[59rem];
+          font-size: pxToRem(22);
+        }
+      }
+
+      // &::after {
+      //   @apply absolute container m-auto;
+      //   content: counter(step) '. ';
+      // }
+    }
+  }
+  // counter-reset: listitem;
+  // .BlockText ol {
+  //   list-style-type: none;
+  //   counter-reset: nestedlistitem;
+  //   > li {
+  //     counter-increment: listitem;
+  //     &::marker {
+  //       content: counter(listitem) '. ';
+  //     }
+  //   }
+  //   ol {
+  //     list-style-type: none;
+  //     > li {
+  //       counter-increment: nestedlistitem;
+  //       &::marker {
+  //         content: counter(nestedlistitem) '. ';
+  //       }
+  //     }
+  //   }
+  // }
 }
 </style>
