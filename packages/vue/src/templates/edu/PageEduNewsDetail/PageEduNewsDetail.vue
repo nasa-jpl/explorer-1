@@ -69,10 +69,10 @@ defineExpose({
     itemtype="http://schema.org/Article"
   >
     <NavJumpMenu
+      v-if="data.showJumpMenu"
       ref="PageEduNewsDetailJumpMenu"
       :title="data.title"
       :blocks="data.body"
-      :enabled="data.showJumpMenu"
       dropdown-text="In this news article"
     />
 

@@ -42,6 +42,7 @@ export const BaseStory = {
       url: 'http://localhost:3000/edu/resources/teachable-moment',
       pageType: 'EDUTeachableMomentPage',
       contentType: 'edu_resources.EDUTeachableMomentPage',
+      readTime: '5 min read',
       showJumpMenu: true,
       thumbnailImage: {
         __typename: 'CustomImage',
