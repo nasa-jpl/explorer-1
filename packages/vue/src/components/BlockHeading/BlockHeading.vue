@@ -55,7 +55,7 @@ export default defineComponent({
   &:target {
     @apply scroll-mt-14;
     @screen lg {
-      @apply scroll-mt-20;
+      @apply scroll-mt-[8rem];
     }
   }
 }
