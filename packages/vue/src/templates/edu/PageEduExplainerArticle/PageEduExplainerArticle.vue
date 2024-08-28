@@ -120,9 +120,9 @@ export default defineComponent({
     </LayoutHelper>
 
     <NavJumpMenu
+      v-if="data.showJumpMenu"
       :title="data.title"
       :blocks="data.body"
-      :enabled="data.showJumpMenu"
       dropdown-text="In this article"
     />
     <!-- inline hero content -->

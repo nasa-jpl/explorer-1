@@ -28,7 +28,7 @@ const headingString = computed(() => {
 </script>
 <template>
   <div class="AboutTheAuthor">
-    <h3 class="text-h4 sm:ml-[130px] pl-10 mb-6">
+    <h3 class="text-h4 sm:ml-[130px] sm:pl-10 mb-6">
       {{ headingString }}
     </h3>
     <template

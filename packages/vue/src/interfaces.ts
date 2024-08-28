@@ -223,6 +223,7 @@ export interface PageObject {
   slug: string
   url: string
   title: string
+  readTime?: string
   getTopicsForDisplay?: Topic[]
   showJumpMenu?: boolean
   label?: string

@@ -63,10 +63,10 @@ const computedClass = computed((): string => {
     />
 
     <NavJumpMenu
+      v-if="data.showJumpMenu"
       ref="PageEduCollectionsDetailJumpMenu"
       :title="data.title"
       :blocks="data.body"
-      :enabled="data.showJumpMenu"
       dropdown-text="In this collection"
     />
 
