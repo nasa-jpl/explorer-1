@@ -200,7 +200,7 @@ export const BaseStory = {
         },
         {
           sectionHeading: 'Section Heading 3',
-          stepsNumbering: true,
+          stepsNumbering: false,
           steps: [
             {
               blocks: BlockStreamfieldMinimalData.body
