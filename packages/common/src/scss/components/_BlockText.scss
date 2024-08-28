@@ -76,6 +76,15 @@
 
   ol {
     @apply pl-12 list-decimal;
+    ol {
+      list-style-type: lower-alpha;
+      ol {
+        list-style-type: lower-roman;
+        ol {
+          list-style-type: decimal;
+        }
+      }
+    }
   }
 
   ul {

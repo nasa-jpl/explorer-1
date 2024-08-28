@@ -164,7 +164,14 @@ export const BaseStory = {
       management: BlockStreamfieldMinimalData.body,
       managementHeading: 'Management stuff',
 
-      background: BlockStreamfieldMinimalData.body,
+      background: [
+        ...BlockStreamfieldMinimalData.body,
+        {
+          blockType: 'RichTextBlock',
+          value:
+            '<ol><li data-block-key="wv2pw">A list<ol><li data-block-key="mc91">A nested list should be a.<ol><li data-block-key="3p0pb">Another nested should be i.<ol><li data-block-key="22afo">Another is a number again.</li></ol></li></ol></li></ol></li></ol>'
+        }
+      ],
       backgroundHeading: 'Background heading',
 
       procedures: [
@@ -173,7 +180,15 @@ export const BaseStory = {
           stepsNumbering: true,
           steps: [
             {
-              blocks: BlockStreamfieldMinimalData.body
+              blocks: [
+                ...BlockStreamfieldMinimalData.body,
+
+                {
+                  blockType: 'RichTextBlock',
+                  value:
+                    '<ol><li data-block-key="wv2pw">A list<ol><li data-block-key="mc91">A nested list should be a.<ol><li data-block-key="3p0pb">Another nested should be i.<ol><li data-block-key="22afo">Another is a number again.</li></ol></li></ol></li></ol></li></ol>'
+                }
+              ]
             },
             {
               blocks: BlockStreamfieldMinimalData.body

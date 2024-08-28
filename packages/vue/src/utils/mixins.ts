@@ -148,19 +148,21 @@ export const mixinHighlightPrimary = (value: boolean) => {
       Useful for dropdown toggles.
     */
 export const mixinIsActivePath = (itemPath: string): Boolean => {
-  const route = useRoute()
-  const currentPath = route ? route.path : false
-  const path = itemPath.startsWith('http') ? itemPath.replace(/^.*\/\/[^/]+/, '') : itemPath
-  const ancestorPath = path ? (path.endsWith('/') ? path : path + '/') : false
+  if (itemPath) {
+    const route = useRoute()
+    const currentPath = route ? route.path : false
+    const path = itemPath.startsWith('http') ? itemPath.replace(/^.*\/\/[^/]+/, '') : itemPath
+    const ancestorPath = path ? (path.endsWith('/') ? path : path + '/') : false
 
-  if (currentPath && path && ancestorPath) {
-    if (currentPath === path) {
-      return true
-    } else if (currentPath.startsWith('/edu/events')) {
-      // special treatment since EDU combines News & Events in the main nav
-      return path.startsWith('/edu/news')
-    } else {
-      return currentPath.startsWith(ancestorPath)
+    if (currentPath && path && ancestorPath) {
+      if (currentPath === path) {
+        return true
+      } else if (currentPath.startsWith('/edu/events')) {
+        // special treatment since EDU combines News & Events in the main nav
+        return path.startsWith('/edu/news')
+      } else {
+        return currentPath.startsWith(ancestorPath)
+      }
     }
   }
   return false
