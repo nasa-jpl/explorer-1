@@ -10,12 +10,13 @@ import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelate
 import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
+import ShareButtonsEdu from '../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 
 interface PageEduCollectionsDetail extends PageEduResourcesObject {
   heroImage: ImageObject
   heroImageCaption: string
   showMetaPanel: boolean
-  heroSubtitle: string
+  heroSummary: string
 }
 interface PageEduCollectionsDetailProps {
   data?: PageEduCollectionsDetail
@@ -57,9 +58,9 @@ const computedClass = computed((): string => {
       v-if="!heroInline && data.heroImage"
       :title="data.title"
       :image="data.heroImage"
-      :summary="'Test test test lorem ipsum dolor sit amet yep.'"
+      :summary="data.heroSummary"
       :custom-pill-type="data.__typename"
-      :class="!data.showMetaPanel ? 'mb-10 lg:mb-22' : ''"
+      :class="!data.showMetaPanel ? 'mb-10' : ''"
     />
 
     <NavJumpMenu
@@ -81,11 +82,18 @@ const computedClass = computed((): string => {
         pill
         pill-color="primary-inverted"
       />
+
+      <ShareButtonsEdu
+        class="mt-4"
+        :title="data.title"
+        :url="data.url"
+      />
     </LayoutHelper>
+
     <MetaPanel
       v-if="data.showMetaPanel"
       theme="primary"
-      :class="{ 'mb-10 lg:mb-14': true }"
+      :class="{ 'mb-10 lg:mb-12': true }"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :grade-levels="data.gradeLevels"
@@ -96,13 +104,26 @@ const computedClass = computed((): string => {
     <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
       v-if="data.heroImage && heroInline"
-      class="lg:mb-22 mb-10"
+      class="mb-10 lg:mb-18"
     >
       <BlockImageStandard
         :data="data.heroImage"
         :display-caption="data.heroImageCaption ? true : false"
         :caption="data.heroImageCaption"
         :constrain="data.heroConstrain"
+      />
+    </LayoutHelper>
+
+    <LayoutHelper
+      v-if="!heroInline"
+      indent="col-2"
+      class="mb-6 lg:mb-12"
+      :class="{ '-mt-4': data.showMetaPanel }"
+    >
+      <ShareButtonsEdu
+        class="mt-4"
+        :title="data.title"
+        :url="data.url"
       />
     </LayoutHelper>
 
