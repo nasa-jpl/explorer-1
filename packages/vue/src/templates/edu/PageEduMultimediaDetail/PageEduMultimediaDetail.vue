@@ -33,6 +33,7 @@ interface PageEduMultimediaObject extends PageEduResourcesObject {
     media: any[]
   }[]
   credit?: string
+  transcript?: string
 }
 
 interface PageEduMultimediaDetailProps {
@@ -49,32 +50,38 @@ const typeMapping: {
     type: string
     label: string
     schema: string
+    relatedContentHeading: string
   }
 } = {
   EDUImageDetailPage: {
     type: 'image',
     label: 'image',
-    schema: 'http://schema.org/ImageObject'
+    schema: 'http://schema.org/ImageObject',
+    relatedContentHeading: 'Related Images & Galleries'
   },
   EDUInfographicDetailPage: {
     type: 'image',
     label: 'infographic',
-    schema: 'http://schema.org/ImageObject'
+    schema: 'http://schema.org/ImageObject',
+    relatedContentHeading: 'Related Images & Galleries'
   },
   EDUVideoDetailPage: {
     type: 'video',
     label: 'video',
-    schema: 'http://schema.org/VideoObject'
+    schema: 'http://schema.org/VideoObject',
+    relatedContentHeading: 'Related Videos'
   },
   EDUGalleryDetailPage: {
     type: 'gallery',
     label: 'gallery',
-    schema: 'http://schema.org/ImageGallery'
+    schema: 'http://schema.org/ImageGallery',
+    relatedContentHeading: ''
   },
   EDUDocumentDetailPage: {
     type: 'document',
     label: 'document',
-    schema: 'http://schema.org/DigitalDocument'
+    schema: 'http://schema.org/DigitalDocument',
+    relatedContentHeading: 'Related Documents'
   }
 }
 const mediaType = computed(() => {
@@ -143,6 +150,15 @@ const creditText = computed(() => {
     default:
       return undefined
   }
+})
+
+const relatedContentHeading = computed(() => {
+  const type = data.__typename
+  let text = data.relatedContentHeading
+  if (type && !text) {
+    text = typeMapping[type]?.relatedContentHeading
+  }
+  return text
 })
 
 const { data } = reactive(props)
@@ -301,13 +317,34 @@ const { data } = reactive(props)
     <LayoutHelper indent="col-2">
       <div class="lg:grid grid-cols-12">
         <div
-          v-if="data.body?.length"
+          v-if="data.body?.length || data.transcript"
           class="col-span-8"
         >
           <BlockStreamfield
+            v-if="data.body?.length"
             variant="fluid"
             :data="data.body"
           />
+          <hr
+            v-if="data.body?.length && data.transcript"
+            class="border-gray-light-mid lg:mb-8 mb-5"
+          />
+          <div
+            v-if="data.transcript"
+            class="lg:mb-22 mb-10"
+          >
+            <BaseHeading
+              level="h2"
+              class="mb-5"
+              >Transcript</BaseHeading
+            >
+            <BlockText
+              :text="data.transcript"
+              variant="medium"
+              class="audio-transcript"
+              itemprop="transcript"
+            />
+          </div>
         </div>
         <aside class="col-start-10 col-end-13">
           <div class="lg:pt-0 pt-8 mb-12">
@@ -351,7 +388,7 @@ const { data } = reactive(props)
     <BlockLinkCarousel
       item-type="cards"
       class="lg:my-24 my-12 print:px-4"
-      :heading="data.relatedContentHeading || 'Related Lessons & Projects'"
+      :heading="relatedContentHeading"
       :items="data.relatedContent"
     />
 
@@ -376,7 +413,7 @@ const { data } = reactive(props)
       </p>
     </LayoutHelper>
     <!-- Explore More -->
-    <div
+    <!-- <div
       v-if="data.relatedContent?.length"
       class="bg-stars bg-[#15003B] lg:py-24 lg:mt-24 py-12 mt-12 print:px-4"
     >
@@ -386,7 +423,7 @@ const { data } = reactive(props)
         heading="Explore More"
         :items="data.relatedContent"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 <style lang="scss">

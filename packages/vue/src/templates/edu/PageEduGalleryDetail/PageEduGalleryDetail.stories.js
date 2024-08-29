@@ -6,11 +6,11 @@ import { BlockImageData } from './../../../components/BlockImage/BlockImage.stor
 import { BlockVideoData } from './../../../components/BlockVideo/BlockVideo.stories'
 import { BlockVideoEmbedData } from './../../../components/BlockVideoEmbed/BlockVideoEmbed.stories'
 import { BlockImageComparisonData } from './../../../components/BlockImageComparison/BlockImageComparison.stories'
-import PageEduMultimediaDetail from './PageEduMultimediaDetail.vue'
+import PageEduGalleryDetail from './PageEduGalleryDetail.vue'
 
 export default {
-  title: 'Templates/EDU/PageEduMultimediaDetail',
-  component: PageEduMultimediaDetail,
+  title: 'Templates/EDU/PageEduGalleryDetail',
+  component: PageEduGalleryDetail,
   tags: ['!autodocs'],
   parameters: {
     html: {
@@ -21,10 +21,10 @@ export default {
   excludeStories: /.*Data$/
 }
 
-const PageEduMultimediaDetailData = {
-  title: 'Media Item',
-  slug: 'media-item',
-  url: '/resources/media/media-item',
+const PageEduGalleryDetailData = {
+  title: 'Gallery Detail',
+  slug: 'gallery-item',
+  url: '/resources/gallery/gallery-item',
   lastPublishedAt: '2024-08-22T02:33:13.507206+00:00',
   thumbnailImage: {
     alt: '',
@@ -64,113 +64,43 @@ const PageEduMultimediaDetailData = {
 }
 // stories
 export const BaseStory = {
-  name: 'Image',
-  args: {
-    data: {
-      __typename: 'EDUImageDetailPage',
-      ...PageEduMultimediaDetailData,
-      imageAsHero: BlockImageData.image,
-      heroImageCaption: 'This is the hero image caption'
-    }
-  }
-}
-
-export const Infographic = {
-  args: {
-    data: {
-      __typename: 'EDUInfographicDetailPage',
-      ...PageEduMultimediaDetailData,
-      imageAsHero: BlockImageData.image,
-      heroImageCaption: 'This is the hero image caption for the infographic'
-    }
-  }
-}
-
-export const Video = {
-  args: {
-    data: {
-      __typename: 'EDUVideoDetailPage',
-      ...PageEduMultimediaDetailData,
-      video: [BlockVideoData.block],
-      transcript: `<p>Preparing to Land Perseverance</p>
-      <p>The following tests, conducted from 2017-2020, helped prepare NASA's Perseverance rover for its landing on Mars.</p>
-      <p>[music]</p>
-      <p>Centrifuge Spin Test</p>`
-    }
-  }
-}
-
-export const VideoEmbed = {
-  args: {
-    data: {
-      __typename: 'EDUVideoDetailPage',
-      ...PageEduMultimediaDetailData,
-      video: [BlockVideoEmbedData.data],
-      transcript: `<p>Preparing to Land Perseverance</p>
-      <p>The following tests, conducted from 2017-2020, helped prepare NASA's Perseverance rover for its landing on Mars.</p>
-      <p>[music]</p>
-      <p>Centrifuge Spin Test</p>
-      <p>Santa Clarita, CA June 2019</p>
-      <p>[music]</p>
-      <p>Parachute Firing Test</p>
-      <p>Moses Lake, WA May 2019</p>
-      <p>[music]</p>
-      <p>[mortar firing]</p>
-      <p>[mortar firing]</p>
-      <p>[clapping]</p>`
-    }
-  }
-}
-
-export const Document = {
-  args: {
-    data: {
-      __typename: 'EDUDocumentDetailPage',
-      ...PageEduMultimediaDetailData,
-      heroImage: {
-        ...BlockImageData.image
-      },
-      heroImageCaption: 'This is the hero image caption for the document',
-      document: {
-        url: 'https://jpl.nasa.gov'
-      },
-      credit: '<p>Document credit attribution</p>'
-    }
-  }
-}
-
-export const Gallery = {
+  name: 'PageEduGalleryDetail',
   args: {
     data: {
       __typename: 'EDUGalleryDetailPage',
-      ...PageEduMultimediaDetailData,
+      ...PageEduGalleryDetailData,
+      showJumpMenu: true,
+      overview: '<p data-block-key="f2dwn">Overview about the gallery.</p>',
       galleryItems: [
         {
+          blockId: `${Math.random().toString(36).slice(2)}`,
           heading: 'Gallery Item Heading',
           description:
             '<p data-block-key="53wg6">Description that is <strong>rich text</strong>.</p>',
-          media: [BlockImageData.image]
+          media: [{ ...BlockImageData, blockType: 'ImageBlock' }]
         },
         {
+          blockId: `${Math.random().toString(36).slice(2)}`,
           heading: 'Gallery Item Heading',
           description:
             '<p data-block-key="53wg6">Description that is <strong>rich text</strong>.</p>',
           media: [BlockImageComparisonData]
         },
         {
+          blockId: `${Math.random().toString(36).slice(2)}`,
           heading: 'Gallery Item Heading',
           description:
             '<p data-block-key="53wg6">Description that is <strong>rich text</strong>.</p>',
           media: [BlockVideoData.block]
         },
         {
+          blockId: `${Math.random().toString(36).slice(2)}`,
           heading: 'Gallery Item Heading',
           description:
             '<p data-block-key="53wg6">Description that is <strong>rich text</strong>.</p>',
           media: [BlockVideoEmbedData.data]
         }
-      ],
-      showJumpMenu: true
+      ]
     }
   }
 }
