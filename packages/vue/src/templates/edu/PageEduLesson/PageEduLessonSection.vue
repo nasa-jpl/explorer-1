@@ -148,7 +148,7 @@ const anchorId = computed(() => {
       @apply relative w-full;
       counter-increment: step;
       &::before {
-        @apply relative block w-[45rem] mx-auto h-0 pl-3;
+        @apply relative block w-[45rem] mx-auto h-0 pl-1;
         content: counter(step) '. ';
         // mimicking .text-body-lg
         font-size: pxToRem(18);
@@ -163,13 +163,13 @@ const anchorId = computed(() => {
       }
       @screen md {
         &::before {
-          @apply w-[50rem];
+          @apply w-[51.5rem];
           font-size: pxToRem(20);
         }
       }
       @screen lg {
         &::before {
-          @apply w-[47rem] pl-0;
+          @apply w-[46rem] pl-0;
           font-size: pxToRem(21);
         }
       }
@@ -177,6 +177,11 @@ const anchorId = computed(() => {
         &::before {
           @apply w-[59rem];
           font-size: pxToRem(22);
+        }
+      }
+      @screen 2xl {
+        &::before {
+          // @apply w-[58.5rem];
         }
       }
     }
