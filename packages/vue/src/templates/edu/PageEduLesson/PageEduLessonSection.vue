@@ -139,7 +139,7 @@ const anchorId = computed(() => {
   }
   .PageEduProcedureSectionSingleStep {
     li:not(:last-of-type) .BlockStreamfield {
-      @apply -mb-5 lg:-mb-10;
+      @apply -mb-5;
     }
   }
   ol.PageEduProcedureSectionSingleStep {
