@@ -5,7 +5,7 @@ import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
 import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
-import BaseVideo from './../../../components/BaseVideo/BaseVideo.vue'
+import BlockVideo from './../../../components/BlockVideo/BlockVideo.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import BlockVideoEmbed from './../../../components/BlockVideoEmbed/BlockVideoEmbed.vue'
 import BaseButton from './../../../components/BaseButton/BaseButton.vue'
@@ -143,7 +143,7 @@ const creditText = computed(() => {
     case 'image':
       return heroImage.value?.credit
     case 'video':
-      return videoBlock.value?.caption
+      return videoBlock.value?.credit
     case 'document':
       return data.credit
     default:
@@ -263,8 +263,8 @@ const { data } = reactive(props)
       />
       <template v-if="videoBlock.blockType === 'VideoBlock' && videoBlock.video">
         <div class="max-w-screen-2xl lg:mb-24 mx-auto mt-10 mb-8">
-          <BaseVideo
-            :data="videoBlock.video"
+          <BlockVideo
+            :data="videoBlock"
             schema
           />
         </div>
@@ -297,7 +297,6 @@ const { data } = reactive(props)
       />
 
       <div class="max-w-screen-3xl lg:mb-24 mx-auto mt-10 mb-8">
-        <!-- inline hero content -->
         <LayoutHelper
           v-if="heroImage"
           indent="col-2"
@@ -310,8 +309,6 @@ const { data } = reactive(props)
         </LayoutHelper>
       </div>
     </template>
-
-    <!-- !Gallery body -->
 
     <LayoutHelper indent="col-2">
       <div class="lg:grid grid-cols-12">
@@ -429,6 +426,15 @@ const { data } = reactive(props)
 .PageEduMultimediaDetail {
   .bg-stars .MixinCarousel__Heading {
     @apply text-white;
+  }
+  .BlockVideo,
+  .BlockVideoEmbed {
+    .BaseImageCaption {
+      @apply px-4 sm:px-5;
+      @screen 3xl {
+        @apply px-0;
+      }
+    }
   }
 }
 </style>
