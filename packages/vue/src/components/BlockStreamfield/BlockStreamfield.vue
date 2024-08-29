@@ -361,6 +361,9 @@ export default defineComponent({
       &.container {
         @apply px-0;
       }
+      > div.lg\:px-0.px-4 {
+        @apply px-0;
+      }
     }
 
     .BlockInlineImage {

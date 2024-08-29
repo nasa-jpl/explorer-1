@@ -181,7 +181,21 @@ export const BaseStory = {
           steps: [
             {
               blocks: [
+                // {
+                //   blockType: 'HeadingBlock',
+                //   heading: 'Heading Text',
+                //   level: 'h3',
+                //   size: 'h3',
+                //   blockId: `${Math.random().toString(36).slice(2)}`
+                // },
                 ...BlockStreamfieldMinimalData.body,
+                {
+                  blockType: 'HeadingBlock',
+                  heading: 'Heading Text',
+                  level: 'h3',
+                  size: 'h3',
+                  blockId: `${Math.random().toString(36).slice(2)}`
+                },
 
                 {
                   blockType: 'RichTextBlock',
