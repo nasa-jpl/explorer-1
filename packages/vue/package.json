@@ -1,6 +1,6 @@
 {
   "name": "@explorer-1/vue",
-  "version": "0.2.30",
+  "version": "0.2.33",
   "private": false,
   "publishConfig": {
     "access": "public"

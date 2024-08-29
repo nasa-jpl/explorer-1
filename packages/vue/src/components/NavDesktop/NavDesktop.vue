@@ -256,7 +256,6 @@ export default defineComponent({
         if (isActive) {
           mixinUpdateGlobalChildren(sectionLinks)
         }
-        console.log(isActive)
         return isActive
       }
       return false
