@@ -121,12 +121,12 @@ export default defineComponent({
       return this.invert
         ? {
             'mr-auto text-white font-bold secondary-root': index === 0,
-            'text-white font-semibold !pt-[.6rem]': index !== 0,
+            'text-white font-semibold mt-[.2rem]': index !== 0,
             '-open': this.dropdownVisible
           }
         : {
             'mr-auto text-primary font-semibold secondary-root': index === 0,
-            'text-gray-dark font-medium !pt-[.6rem]': index !== 0,
+            'text-gray-dark font-medium mt-[.2rem]': index !== 0,
             '-open': this.dropdownVisible
           }
     },
