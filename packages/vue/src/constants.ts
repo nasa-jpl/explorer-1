@@ -1,6 +1,11 @@
 import type { DictionaryInterface, PillDictionaryInterface } from './interfaces'
 
 export const eduMetadataDictionary: PillDictionaryInterface = {
+  EDUEventPage: {
+    variant: 'primary',
+    icons: 'primary',
+    type: 'event'
+  },
   EDUCollectionsDetailPage: {
     label: 'Collection',
     variant: 'primary-inverted',
@@ -25,10 +30,41 @@ export const eduMetadataDictionary: PillDictionaryInterface = {
     icons: 'primary',
     type: 'resource'
   },
-  EDUEventPage: {
+  EDUStudentProjectPage: {
+    label: 'Student Project',
+    variant: 'secondary',
+    icons: 'secondary',
+    type: 'resource'
+  },
+  EDUImageDetailPage: {
+    label: 'Image',
     variant: 'primary',
     icons: 'primary',
-    type: 'event'
+    type: 'resource'
+  },
+  EDUInfographicDetailPage: {
+    label: 'Infographic',
+    variant: 'primary',
+    icons: 'primary',
+    type: 'resource'
+  },
+  EDUDocumentDetailPage: {
+    label: 'Document',
+    variant: 'primary',
+    icons: 'primary',
+    type: 'resource'
+  },
+  EDUVideoDetailPage: {
+    label: 'Video',
+    variant: 'primary',
+    icons: 'primary',
+    type: 'resource'
+  },
+  EDUGalleryDetailPage: {
+    label: 'Gallery',
+    variant: 'secondary',
+    icons: 'secondary',
+    type: 'resource'
   }
 }
 
