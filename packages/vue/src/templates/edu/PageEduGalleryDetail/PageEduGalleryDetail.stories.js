@@ -70,7 +70,7 @@ export const BaseStory = {
       __typename: 'EDUGalleryDetailPage',
       ...PageEduGalleryDetailData,
       showJumpMenu: true,
-      overview: '<p data-block-key="f2dwn">Overview about the gallery.</p>',
+      overviewString: '<p data-block-key="f2dwn">Overview about the gallery.</p>',
       galleryItems: [
         {
           blockId: `${Math.random().toString(36).slice(2)}`,

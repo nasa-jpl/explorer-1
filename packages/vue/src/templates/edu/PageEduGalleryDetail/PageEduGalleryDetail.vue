@@ -20,7 +20,7 @@ import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 import { getHeadingId } from '../../../utils/getHeadingId'
 interface PageEduGalleryObject extends PageEduResourcesObject {
-  overview?: string
+  overviewString?: string
   galleryItems?: {
     blockId: string
     heading?: string
@@ -86,8 +86,8 @@ const { data } = reactive(props)
         :image="data.thumbnailImage?.original"
       />
       <BlockText
-        v-if="data.overview"
-        :text="data.overview"
+        v-if="data.overviewString"
+        :text="data.overviewString"
         class="lg:mt-8 mt-5"
       />
     </LayoutHelper>
@@ -102,6 +102,7 @@ const { data } = reactive(props)
       v-for="(item, index) in data.galleryItems"
       :id="headingIdGetter(item.blockId)"
       :key="index"
+      class="PageEduGalleryDetailItem"
     >
       <template v-if="item.media?.length">
         <template
@@ -224,6 +225,14 @@ const { data } = reactive(props)
   }
   .MixinFancybox + .p-4 {
     @apply px-0;
+  }
+  .PageEduGalleryDetailItem {
+    &:target {
+      @apply scroll-mt-14;
+      @screen lg {
+        @apply scroll-mt-[8rem];
+      }
+    }
   }
 }
 </style>
