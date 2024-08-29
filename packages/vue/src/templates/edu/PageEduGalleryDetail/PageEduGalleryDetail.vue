@@ -115,7 +115,11 @@ const { data } = reactive(props)
               indent="col-2"
               class="mb-5 lg:mb-10"
             >
-              <BlockImageStandard :data="block.image" />
+              <BlockImageStandard
+                :data="block.image"
+                :caption="block.caption"
+                :display-caption="block.displayCaption"
+              />
             </LayoutHelper>
           </template>
           <template v-else-if="block.blockType === 'ImageComparisonBlock'">
