@@ -164,22 +164,72 @@ export const BaseStory = {
       management: BlockStreamfieldMinimalData.body,
       managementHeading: 'Management stuff',
 
-      background: BlockStreamfieldMinimalData.body,
+      background: [
+        ...BlockStreamfieldMinimalData.body,
+        {
+          blockType: 'RichTextBlock',
+          value:
+            '<ol><li data-block-key="wv2pw">A list<ol><li data-block-key="mc91">A nested list should be a.<ol><li data-block-key="3p0pb">Another nested should be i.<ol><li data-block-key="22afo">Another is a number again.</li></ol></li></ol></li></ol></li></ol>'
+        }
+      ],
       backgroundHeading: 'Background heading',
 
       procedures: [
         {
-          blocks: BlockStreamfieldMinimalData.body
+          sectionHeading: 'Section Heading 1',
+          stepsNumbering: true,
+          steps: [
+            {
+              blocks: [
+                ...BlockStreamfieldMinimalData.body,
+
+                {
+                  blockType: 'RichTextBlock',
+                  value:
+                    '<ol><li data-block-key="wv2pw">A list<ol><li data-block-key="mc91">A nested list should be a.<ol><li data-block-key="3p0pb">Another nested should be i.<ol><li data-block-key="22afo">Another is a number again.</li></ol></li></ol></li></ol></li></ol>'
+                }
+              ]
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
         },
         {
-          blocks: BlockStreamfieldMinimalData.body
+          // sectionHeading: 'Section Heading 2',
+          stepsNumbering: true,
+          steps: [
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
         },
         {
-          blocks: BlockStreamfieldMinimalData.body
+          sectionHeading: 'Section Heading 3',
+          stepsNumbering: false,
+          steps: [
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
         }
       ],
       proceduresHeading: 'Procedures heading',
-      proceduresStepsNumbering: true,
 
       discussion: BlockStreamfieldMinimalData.body,
       discussionHeading: 'Discussion heading',

@@ -231,8 +231,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
           : undefined,
         blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
         text: section === 'materials' ? data[section] : undefined,
-        procedures: section === 'procedures' ? data[section] : undefined,
-        procedureSteps: section === 'procedures' ? data.proceduresStepsNumbering : false
+        procedures: section === 'procedures' ? data[section] : undefined
       })
     }
     // include custom "after_" sections
@@ -333,19 +332,20 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       v-for="(value, _key) in consolidatedSections"
       :key="_key"
     >
-      <BlockStreamfield
-        v-if="value.type === 'streamfield'"
-        :data="value.blocks"
-      />
-      <PageEduLessonSection
-        v-else
-        :heading="value.heading"
-        :blocks="value.blocks"
-        :procedures="value.procedures"
-        :procedure-steps="value.procedureSteps"
-        :text="value.text"
-        :image="value.image"
-      />
+      <template v-if="value.blocks?.length || value.procedures?.length">
+        <BlockStreamfield
+          v-if="value.type === 'streamfield'"
+          :data="value.blocks"
+        />
+        <PageEduLessonSection
+          v-else
+          :heading="value.heading"
+          :blocks="value.blocks"
+          :procedures="value.procedures"
+          :text="value.text"
+          :image="value.image"
+        />
+      </template>
     </template>
 
     <!-- streamfield blocks -->
