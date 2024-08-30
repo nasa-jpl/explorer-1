@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<BlockLinkCardListProps>(), {
       :class="{ 'pt-3': index !== 0 }"
       :data="item"
       size="lg"
+      show-calendar-chip
     />
   </div>
 </template>

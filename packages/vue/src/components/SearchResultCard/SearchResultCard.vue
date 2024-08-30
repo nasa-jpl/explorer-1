@@ -20,10 +20,13 @@
           startDate,
           endTime,
           endDate,
+          customDate,
           location,
-          eventType: eventType
+          eventType: eventType,
+          ongoing
         }
       }"
+      show-calendar-chip
     />
     <EventCard
       v-else-if="isEvents"
@@ -320,6 +323,11 @@ export default defineComponent({
       required: false,
       default: undefined
     },
+    customDate: {
+      type: String,
+      required: false,
+      default: undefined
+    },
     location: {
       type: String,
       required: false,
@@ -328,6 +336,10 @@ export default defineComponent({
     pageContentType: {
       type: String,
       default: undefined
+    },
+    ongoing: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

@@ -40,9 +40,8 @@
                 size="lg"
                 class="mr-3"
                 :content-type="customPillType"
-              >
-                {{ customPill }}
-              </BasePill>
+                :text="customPill"
+              />
               <div
                 v-else-if="label"
                 class="font-secondary text-base font-semibold tracking-wider no-underline uppercase"
