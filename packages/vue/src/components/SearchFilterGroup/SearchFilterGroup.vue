@@ -63,6 +63,8 @@
 <script lang="ts">
 // @ts-nocheck
 import isEqual from 'lodash/isEqual.js'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import { lookupContentType } from './../../utils/lookupContentType'
 
 export default {
@@ -99,6 +101,7 @@ export default {
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
     // to sync both ways parent <--> child
     // ensures accurate filter visual state when using URL query strings
     filterByHandler: {
@@ -156,7 +159,10 @@ export default {
       }
     },
     prettyFilterNames(key) {
-      const name = lookupContentType(key, 'model', 'label')
+      let name = lookupContentType(key, 'model', 'label')
+      if (this.themeStore.isEdu && name) {
+        name = name.replace('EDU ', '')
+      }
       return name ? name : key
     }
   }

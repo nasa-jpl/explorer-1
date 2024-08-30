@@ -162,63 +162,67 @@ export const contentTypes: contentTypeObject[] = [
   },
   {
     model: 'edu_information_pages.EDUContentPage',
-    label: 'Information Pages'
+    label: 'EDU Information Pages'
   },
   {
     model: 'edu_news.EDUNewsIndexPage',
-    label: 'News Index'
+    label: 'EDU News Index'
   },
   {
     model: 'edu_events.EDUEventsIndexPage',
-    label: 'Events Index'
+    label: 'EDU Events Index'
   },
   {
     model: 'edu_events.EDUEventPage',
-    label: 'Events'
+    label: 'EDU Events'
   },
   {
     model: 'edu_news.EDUNewsPage',
-    label: 'News'
+    label: 'EDU News'
   },
   {
     model: 'edu_resources.EDUExplainerArticlePage',
-    label: 'Explainer Articles'
+    label: 'EDU Explainer Articles'
   },
   {
     model: 'edu_resources.EDUResourceLibraryIndexPage',
-    label: 'Resource Library Index'
+    label: 'EDU Resource Library Index'
   },
   {
     model: 'edu_resources.EDULessonPage',
-    label: 'Lesson Plans'
+    label: 'EDU Lesson Plans'
+  },
+  {
+    model: 'edu_resources.EDUStudentProjectPage',
+    label: 'EDU Student Projects'
   },
   {
     model: 'edu_resources.EDUTeachableMomentPage',
-    label: 'Teachable Moments'
+    label: 'EDU Teachable Moments'
   },
   {
     model: 'edu_resources.EDUCollectionsDetailPage',
-    label: 'Collections'
+    label: 'EDU Collections'
   },
   {
     model: 'edu_resources.EDUGalleryDetailPage',
-    label: 'Galleries'
+    label: 'EDU Galleries'
   },
   {
     model: 'edu_resources.EDUImageDetailPage',
-    label: 'Images'
+    label: 'EDU Images'
   },
   {
     model: 'edu_resources.EDUInfographicDetailPage',
-    label: 'Infographics'
+    label: 'EDU Infographics'
   },
   {
     model: 'edu_resources.EDUDocumentDetailPage',
-    label: 'Documents'
+    label: 'EDU Documents'
   },
   {
     model: 'edu_resources.EDUVideoDetailPage',
-    label: 'Videos'
+    label: 'EDU Videos'
   }
 ]
 
