@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.2.37",
+  "version": "3.2.38",
   "type": "module",
   "description": "Monorepo for JPL's design system, Explorer 1",
   "keywords": [
