@@ -6,9 +6,7 @@
       size="lg"
       :data="{
         page: {
-          __typename: pageContentType
-            ? (searchContentTypeToPageType[pageContentType] as string)
-            : undefined,
+          __typename: pageContentType ? getInterfaceFromEskey(pageContentType) : undefined,
           url,
           type,
           label: topic,
@@ -221,7 +219,7 @@ import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import EventCard from './../EventCard/EventCard.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
-import { searchContentTypeToPageType } from './../../constants'
+import { lookupContentType } from '../../utils/lookupContentType'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -343,9 +341,11 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapStores(useThemeStore),
-    searchContentTypeToPageType() {
-      return searchContentTypeToPageType
+    ...mapStores(useThemeStore)
+  },
+  methods: {
+    getInterfaceFromEskey(key: string) {
+      return lookupContentType(key, 'eskey', 'interface')
     }
   }
 })
