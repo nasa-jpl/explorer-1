@@ -47,9 +47,8 @@
           :class="{ 'mb-2': !large, 'mb-4': large }"
           size="sm"
           :content-type="metadataType"
-        >
-          {{ (theItem as EventCardObject).eventType }}
-        </BasePill>
+          :text="(theItem as EventCardObject).eventType"
+        />
       </template>
       <template
         v-else-if="themeStore.isEdu && theItem.parent?.title && theItem.parent?.title !== 'EDU'"
@@ -117,7 +116,7 @@
         <MetadataEvent
           v-if="metadataType === 'EDUEventPage'"
           :event="theItem"
-          :show-time="false"
+          :show-time="large"
           :show-location="false"
           compact
         />

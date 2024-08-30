@@ -18,6 +18,7 @@ const sizeMap: Attributes = {
 }
 
 interface BasePillProps {
+  text?: string
   variant?: string
   size?: string
   contentType?: string
@@ -44,14 +45,16 @@ const metadataAttrs = computed(() => {
   }
   return { variant: undefined, label: undefined }
 })
+const theText = computed(() => {
+  return props.text || metadataAttrs.value.label
+})
 </script>
 <template>
   <p
     :class="`${variantMap[metadataAttrs.variant || props.variant]} ${sizeMap[props.size]}`"
     class="ThemeVariantLight text-contrast-none inline-block text-white font-bold edu:font-extrabold rounded-full leading-tight m-0 uppercase print:border-none print:px-0"
   >
-    <template v-if="metadataAttrs.label"> {{ metadataAttrs.label }} </template>
-    <template v-else> <slot /></template>
+    {{ theText }}
     <span class="sr-only">.</span>
   </p>
 </template>

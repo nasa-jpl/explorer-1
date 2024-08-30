@@ -61,9 +61,8 @@
               size="sm"
               class="mr-3"
               :content-type="customPillType"
-            >
-              {{ customPill }}
-            </BasePill>
+              :text="customPill"
+            />
             <p
               v-if="customLabel || feature.label"
               class="text-subtitle"
