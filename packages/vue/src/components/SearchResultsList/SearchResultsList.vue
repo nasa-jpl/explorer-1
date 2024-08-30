@@ -23,10 +23,13 @@
           :topic="page.topic"
           :image="page.image"
           :date="page.date"
+          :custom-date="page.customDate"
           :start-date="page.startDate"
           :end-date="page.endDate"
           :start-time="page.startTime"
           :end-time="page.endTime"
+          :event-type="page.eventType"
+          :ongoing="page.ongoing"
           :location="page.location"
           :title="page.title"
           :summary="page.summary"
@@ -57,6 +60,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { ElasticSearchPage } from '../../interfaces'
+
 // @ts-ignore
 import dayjs from 'dayjs'
 import SearchResultCard from './../SearchResultCard/SearchResultCard.vue'
@@ -131,6 +135,8 @@ export default defineComponent({
               const pageType = page._source[handle + '__label']
               if (handle === 'events_eventpage') {
                 date = 'Event date: ' + parseDate(page._source[handle + '__start_datetime'])
+              } else if (handle === 'edu_events_edueventpage') {
+                date = null
               } else if (handle === 'missions_mission') {
                 date = page._source.display_date_filter
                   ? 'Launch date: ' + page._source.display_date_filter
@@ -155,13 +161,37 @@ export default defineComponent({
               page.topic = topic
               // properties for event's page
               page.location =
-                handle === 'events_eventpage' ? page._source[handle + '__location'] : null
+                handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
+                  ? page._source[handle + '__location'] | page._source[handle + '__location_name']
+                  : null
               page.startDate =
-                handle === 'events_eventpage' ? page._source[handle + '__start_datetime'] : null
+                handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
+                  ? page._source[handle + '__start_datetime']
+                  : null
               page.endDate =
-                handle === 'events_eventpage' ? page._source[handle + '__end_datetime'] : null
+                handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
+                  ? page._source[handle + '__end_datetime']
+                  : null
               page.startTime =
-                handle === 'events_eventpage' ? page._source[handle + '__start_time_string'] : null
+                handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
+                  ? page._source[handle + '__start_time_string']
+                  : null
+              page.endTime =
+                handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
+                  ? page._source[handle + '__end_time_string']
+                  : null
+              page.eventType =
+                handle === 'edu_events_edueventpage'
+                  ? page._source.edu_events_edueventpage__event_type_label_filter
+                  : undefined
+              page.customDate =
+                handle === 'edu_events_edueventpage'
+                  ? page._source.edu_events_edueventpage__custom_date
+                  : undefined
+              page.ongoing =
+                handle === 'edu_events_edueventpage'
+                  ? page._source.edu_events_edueventpage__ongoing
+                  : undefined
               // properties that are different for profiles page
               page.summary =
                 handle === 'profiles_profilepage'

@@ -9,9 +9,8 @@
           :variant="pillColor"
           size="lg"
           class="mr-3"
-        >
-          {{ pillLabel }}
-        </BasePill>
+          :text="pillLabel"
+        />
       </template>
       <template v-else>
         <div

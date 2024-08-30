@@ -79,16 +79,19 @@ export interface ElasticSearchPage {
   content_type: string
   url: string
   type: string
-  topic: string
-  image: string | any
-  date: string
-  startDate: string
-  endDate: string
-  startTime: string
-  endTime: string
-  location: string
+  topic?: string
+  image?: string | any
+  date?: string
+  startDate?: string
+  endDate?: string
+  customDate?: string
+  startTime?: string
+  endTime?: string
+  location?: string
   title: string
-  summary: string
+  summary?: string
+  eventType?: string
+  ongoing?: boolean
 }
 
 export interface FormOption {
