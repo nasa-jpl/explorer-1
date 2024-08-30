@@ -98,7 +98,7 @@ import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 import BlockLinkTile from './../BlockLinkTile/BlockLinkTile.vue'
 import CalendarChip from './../CalendarChip/CalendarChip.vue'
-import { searchContentTypeToPageType } from './../../constants'
+import { lookupContentType } from '../../utils/lookupContentType'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -177,12 +177,9 @@ export default defineComponent({
   },
   computed: {
     ...mapStores(useThemeStore),
-    searchContentTypeToPageType() {
-      return searchContentTypeToPageType
-    },
     typename() {
       return this.pageContentType
-        ? (this.searchContentTypeToPageType[this.pageContentType] as string)
+        ? lookupContentType(this.pageContentType, 'eskey', 'interface')
         : undefined
     }
   }

@@ -10,6 +10,7 @@
     class="border-gray-light-mid col-span-3 pb-4 mb-4 border-b"
   >
     <!-- bucket key param -->
+    {{ contentAliases }}
     <legend class="md:mb-3 text-body-md mb-2 font-bold leading-normal tracking-wide">
       {{ groupTitle }}
     </legend>
@@ -63,6 +64,8 @@
 <script lang="ts">
 // @ts-nocheck
 import isEqual from 'lodash/isEqual.js'
+import { lookupContentType } from './../../utils/lookupContentType'
+
 export default {
   name: 'SearchFilterGroup',
   props: {
@@ -154,67 +157,8 @@ export default {
       }
     },
     prettyFilterNames(key) {
-      if (key === 'news.News') {
-        return 'News & Features'
-      }
-      if (key === 'home.HomePage') {
-        return 'Homepage'
-      }
-      if (key === 'missions.Mission') {
-        return 'Missions'
-      }
-      if (key === 'events.EventPage') {
-        return 'Events'
-      }
-      if (key === 'image_detail.ImageDetailPage') {
-        return 'Images'
-      }
-      if (key === 'audio_detail.AudioIndexPage') {
-        return 'Audio Index'
-      }
-      if (key === 'audio_detail.AudioDetailPage') {
-        return 'Audio'
-      }
-      if (key === 'infographics.InfographicsDetailPage') {
-        return 'Infographics'
-      }
-      if (key === 'image_detail.CuratedGalleryPage') {
-        return 'Curated Gallery'
-      }
-      if (key === 'topics.TopicPage') {
-        return 'Topics'
-      }
-      if (key === 'asteroid_watch.AsteroidWatchIndexPage') {
-        return 'Asteroid Watch Index'
-      }
-      if (key === 'asteroid_watch.AsteroidWatchContentPage') {
-        return 'Asteroid Watch'
-      }
-      if (key === 'missions.MissionsIndexPage') {
-        return 'Missions Index'
-      }
-      if (key === 'information_pages.ContentPage') {
-        return 'Information pages'
-      }
-      if (key === 'robotics.RobotPage') {
-        return 'Robots'
-      }
-      if (key === 'video_detail.VideoDetailPage') {
-        return 'Video'
-      }
-      if (key === 'podcasts.PodcastPage') {
-        return 'Podcasts'
-      }
-      if (key === 'go_pages.GoHomePage') {
-        return 'Go Sites'
-      }
-      if (key === 'press_kits.PressKitHomePage') {
-        return 'Press Kits'
-      }
-      if (key === 'profiles.ProfilePage') {
-        return 'People'
-      }
-      return key
+      const name = lookupContentType(key, 'model', 'label')
+      return name ? name : key
     }
   }
 }

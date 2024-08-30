@@ -1,4 +1,4 @@
-import type { DictionaryInterface, PillDictionaryInterface } from './interfaces'
+import type { PillDictionaryInterface } from './interfaces'
 
 export const eduMetadataDictionary: PillDictionaryInterface = {
   EDUEventPage: {
@@ -69,14 +69,184 @@ export const eduMetadataDictionary: PillDictionaryInterface = {
   }
 }
 
-// TODO: finish this
-export const searchContentTypeToPageType: DictionaryInterface = {
-  news_news: 'News',
-  events_eventpage: 'EventPage',
-  missions_mission: 'Mission',
-  edu_events_edueventpage: 'EDUEventPage',
-  edu_resources_educollectionsdetailpage: 'EDUCollectionsDetailPage',
-  edu_resources_eduexplainerarticlepage: 'EDUExplainerArticlePage',
-  edu_resources_edulessonpage: 'EDULessonPage',
-  edu_resources_eduteachablemomentpage: 'EDUTeachableMomentPage'
+interface contentTypeObject {
+  model: string
+  label: string
 }
+
+export const contentTypes: contentTypeObject[] = [
+  {
+    model: 'news.News',
+    label: 'News & Features'
+  },
+  {
+    model: 'home.HomePage',
+    label: 'Homepage'
+  },
+  {
+    model: 'missions.Mission',
+    label: 'Missions'
+  },
+  {
+    model: 'events.EventPage',
+    label: 'Events'
+  },
+  {
+    model: 'image_detail.ImageDetailPage',
+    label: 'Images'
+  },
+  {
+    model: 'audio_detail.AudioIndexPage',
+    label: 'Audio Index'
+  },
+  {
+    model: 'audio_detail.AudioDetailPage',
+    label: 'Audio'
+  },
+  {
+    model: 'infographics.InfographicsDetailPage',
+    label: 'Infographics'
+  },
+  {
+    model: 'image_detail.CuratedGalleryPage',
+    label: 'Curated Gallery'
+  },
+  {
+    model: 'topics.TopicPage',
+    label: 'Topics'
+  },
+  {
+    model: 'asteroid_watch.AsteroidWatchIndexPage',
+    label: 'Asteroid Watch Index'
+  },
+  {
+    model: 'asteroid_watch.AsteroidWatchContentPage',
+    label: 'Asteroid Watch'
+  },
+  {
+    model: 'missions.MissionsIndexPage',
+    label: 'Missions Index'
+  },
+  {
+    model: 'information_pages.ContentPage',
+    label: 'Information pages'
+  },
+  {
+    model: 'robotics.RobotPage',
+    label: 'Robots'
+  },
+  {
+    model: 'video_detail.VideoDetailPage',
+    label: 'Video'
+  },
+  {
+    model: 'podcasts.PodcastPage',
+    label: 'Podcasts'
+  },
+  {
+    model: 'go_pages.GoHomePage',
+    label: 'Go Sites'
+  },
+  {
+    model: 'press_kits.PressKitHomePage',
+    label: 'Press Kits'
+  },
+  {
+    model: 'profiles.ProfilePage',
+    label: 'People'
+  },
+  // EDU content types
+  {
+    model: 'edu_home.EDUHomePage',
+    label: 'Education Homepage'
+  },
+  {
+    model: 'edu_information_pages.EDUContentPage',
+    label: 'Information Pages'
+  },
+  {
+    model: 'edu_news.EDUNewsIndexPage',
+    label: 'News Index'
+  },
+  {
+    model: 'edu_events.EDUEventsIndexPage',
+    label: 'Events Index'
+  },
+  {
+    model: 'edu_events.EDUEventPage',
+    label: 'Events'
+  },
+  {
+    model: 'edu_news.EDUNewsPage',
+    label: 'News'
+  },
+  {
+    model: 'edu_resources.EDUExplainerArticlePage',
+    label: 'Explainer Articles'
+  },
+  {
+    model: 'edu_resources.EDUResourceLibraryIndexPage',
+    label: 'Resource Library Index'
+  },
+  {
+    model: 'edu_resources.EDULessonPage',
+    label: 'Lesson Plans'
+  },
+  {
+    model: 'edu_resources.EDUTeachableMomentPage',
+    label: 'Teachable Moments'
+  },
+  {
+    model: 'edu_resources.EDUCollectionsDetailPage',
+    label: 'Collections'
+  },
+  {
+    model: 'edu_resources.EDUGalleryDetailPage',
+    label: 'Galleries'
+  },
+  {
+    model: 'edu_resources.EDUImageDetailPage',
+    label: 'Images'
+  },
+  {
+    model: 'edu_resources.EDUInfographicDetailPage',
+    label: 'Infographics'
+  },
+  {
+    model: 'edu_resources.EDUDocumentDetailPage',
+    label: 'Documents'
+  },
+  {
+    model: 'edu_resources.EDUVideoDetailPage',
+    label: 'Videos'
+  }
+]
+
+interface contentAliasObject extends contentTypeObject {
+  interface?: string
+  eskey?: string
+}
+const getContentAliases = (): contentAliasObject[] => {
+  const getInterface = (contentType: contentTypeObject) => {
+    const model = contentType.model
+    return model ? model.split('.').pop() : undefined
+  }
+  const getEskey = (contentType: contentTypeObject) => {
+    const model = contentType.model
+    return model ? model.toLowerCase().replace('.', '_') : undefined
+  }
+
+  let entries: contentAliasObject[] = []
+
+  contentTypes.forEach((contentType) => {
+    const entry: contentAliasObject = {
+      ...contentType,
+      interface: getInterface(contentType),
+      eskey: getEskey(contentType)
+    }
+    entries.push(entry)
+  })
+  return entries
+}
+
+export const contentAliases = getContentAliases()
