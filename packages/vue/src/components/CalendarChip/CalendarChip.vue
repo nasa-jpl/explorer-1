@@ -33,8 +33,11 @@ const splitDate = computed(() => {
       <div class="text-subtitle">Ongoing</div>
     </template>
     <template v-else-if="themeStore.isEdu && splitDate">
-      <div class="font-extrabold text-6xl leading-tight tracking-wider uppercase">
-        {{ splitDate.month }}
+      <div
+        v-if="splitDate.month"
+        class="font-extrabold text-6xl leading-tight tracking-wider uppercase"
+      >
+        {{ splitDate.month.substring(0, 3) }}
       </div>
       <div class="text-subtitle">
         {{ splitDate.year }}

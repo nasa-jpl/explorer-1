@@ -5,13 +5,13 @@
     :to="theItem.url ? theItem.url : undefined"
     :href="theItem.externalLink ? theItem.externalLink : undefined"
     class="BlockLinkCard group"
-    :link-class="`block ${small ? 'pb-3' : 'pb-5'} ${large ? 'sm:flex flex-row' : ''}`"
+    :link-class="`block ${small ? 'pb-3' : 'pb-5'} ${large ? 'sm:flex flex-row border-b border-gray-light-mid pb-5 mb-5' : ''}`"
     external-target-blank
   >
     <BaseImagePlaceholder
       :aspect-ratio="large ? '3:2' : '16:9'"
-      class="bg-gray-dark relative mb-6 edu:lg:mb-8 overflow-hidden"
-      :class="{ 'lg:mb-10': medium, 'sm:w-1/3': large }"
+      class="bg-gray-dark h-full relative overflow-hidden mb-6"
+      :class="{ 'lg:mb-10': medium, 'sm:w-1/3 lg:mb-0': large }"
       dark-mode
       no-logo
     >
@@ -97,7 +97,7 @@
         {{ theItem.title }}
       </component>
       <p
-        v-if="theItem.date"
+        v-if="theItem.date && !themeStore.isEdu"
         class="text-gray-mid-dark mt-2"
         :class="{ 'mt-2': !large, 'mt-4': large }"
       >
@@ -106,8 +106,18 @@
       <p
         v-if="large && theItem.summary"
         class="mt-4 text-gray-mid-dark"
+        :class="{
+          'line-clamp-2 sm:line-clamp-1 lg:line-clamp-2 xl:line-clamp-3': themeStore.isEdu
+        }"
       >
         {{ theItem.summary }}
+      </p>
+      <p
+        v-if="theItem.date && themeStore.isEdu"
+        class="text-gray-mid-dark mt-2"
+        :class="{ 'mt-2': !large, 'mt-4': large }"
+      >
+        {{ theItem.date }}
       </p>
       <div
         v-if="metadataAttrs"
@@ -117,7 +127,6 @@
           v-if="metadataType === 'EDUEventPage'"
           :event="theItem"
           :show-time="large"
-          :show-location="false"
           compact
         />
         <MetadataEduResource
