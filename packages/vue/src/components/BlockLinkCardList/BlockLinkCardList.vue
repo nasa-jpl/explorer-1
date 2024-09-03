@@ -16,8 +16,6 @@ const props = withDefaults(defineProps<BlockLinkCardListProps>(), {
     <BlockLinkCard
       v-for="(item, index) in props.items"
       :key="index"
-      class="border-b border-gray-light-mid mb-5"
-      :class="{ 'pt-3': index !== 0 }"
       :data="item"
       size="lg"
       show-calendar-chip

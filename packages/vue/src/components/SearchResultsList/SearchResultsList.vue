@@ -45,10 +45,14 @@
           :topic="page.topic"
           :image="page.image"
           :date="page.date"
+          :custom-date="page.customDate"
           :start-date="page.startDate"
           :end-date="page.endDate"
           :start-time="page.startTime"
           :end-time="page.endTime"
+          :event-type="page.eventType"
+          :ongoing="page.ongoing"
+          :location="page.location"
           :title="page.title"
           heading-level="h2"
         />
@@ -126,6 +130,7 @@ export default defineComponent({
                   : page._source[handle + '__image']
               // date field is different for mission and event detail pages
               let date
+              let location
               let topic =
                 handle === 'missions_mission'
                   ? page._source[handle + '__status_filter']
@@ -137,6 +142,7 @@ export default defineComponent({
                 date = 'Event date: ' + parseDate(page._source[handle + '__start_datetime'])
               } else if (handle === 'edu_events_edueventpage') {
                 date = null
+                location = page._source[handle + '__location_filter']
               } else if (handle === 'missions_mission') {
                 date = page._source.display_date_filter
                   ? 'Launch date: ' + page._source.display_date_filter
@@ -161,9 +167,7 @@ export default defineComponent({
               page.topic = topic
               // properties for event's page
               page.location =
-                handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
-                  ? page._source[handle + '__location'] | page._source[handle + '__location_name']
-                  : null
+                handle === 'events_eventpage' ? page._source[handle + '__location'] : location
               page.startDate =
                 handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
                   ? page._source[handle + '__start_datetime']
