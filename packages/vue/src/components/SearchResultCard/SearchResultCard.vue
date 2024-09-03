@@ -20,7 +20,7 @@
           endDate,
           customDate,
           location,
-          eventType: eventType,
+          eventType,
           ongoing
         }
       }"

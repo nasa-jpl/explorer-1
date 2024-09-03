@@ -15,12 +15,15 @@
           startDate,
           endTime,
           endDate,
+          customDate,
           location,
-          eventType: eventType
+          eventType,
+          ongoing
         }
       }"
       :heading-level="headingLevel"
       size="sm"
+      show-calendar-chip
     />
     <BlockLinkCard
       v-else-if="typename === 'News'"
@@ -147,6 +150,11 @@ export default defineComponent({
     endDate: {
       type: String,
       required: false
+    },
+    customDate: {
+      type: String,
+      required: false,
+      default: undefined
     },
     startTime: {
       type: String,
