@@ -92,6 +92,9 @@ export interface ElasticSearchPage {
   summary?: string
   eventType?: string
   ongoing?: boolean
+  primarySubject?: string
+  gradeLevels: string
+  time: string
 }
 
 export interface FormOption {

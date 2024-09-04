@@ -300,7 +300,7 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .NavDesktopEdu {
-  @apply border-b border-transparent;
+  @apply border-none;
 
   > .header-bg {
     @apply bg-gradient-to-r from-black to-primary bg-transparent to-90%;
