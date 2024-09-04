@@ -280,9 +280,11 @@ export default defineComponent({
         // key into the breadcrumbs for each section
         const objArray = this.breadcrumb.menu_links[urlKey]
         // check if any of the paths contained in the array are active
-        return objArray.some((el: BreadcrumbPathObject) => {
-          return mixinIsActivePath(el.path)
-        })
+        return objArray?.length
+          ? objArray.some((el: BreadcrumbPathObject) => {
+              return mixinIsActivePath(el.path)
+            })
+          : undefined
       }
       return false
     }

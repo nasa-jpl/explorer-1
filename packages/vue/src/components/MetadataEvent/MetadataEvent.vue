@@ -52,8 +52,24 @@ const displayTime = computed((): string => {
   }
   return ''
 })
-const locationName = computed(() => {
-  return props.event?.locationName || props.event?.location
+const location = computed(() => {
+  if (props.event?.location) {
+    return props.event?.location
+  } else if (props.compact) {
+    let text = 'Hybrid'
+    let virtual = props.event.isVirtualEvent
+    let inPerson = props.event.isInPersonEvent
+    if (props.event?.isVirtualEvent && props) {
+      if (virtual && !inPerson) {
+        text = 'Online'
+      } else if (!virtual && inPerson) {
+        text = 'In-person'
+      }
+    }
+    return text
+  } else {
+    return props.event?.locationName
+  }
 })
 </script>
 <template>
@@ -96,7 +112,7 @@ const locationName = computed(() => {
         />
         <meta
           itemprop="name"
-          :content="locationName"
+          :content="location"
         />
         <IconLocation class="MetadataEventIcon text-[1.1em]" />
         <BaseLink
@@ -105,18 +121,18 @@ const locationName = computed(() => {
           :href="props.event.locationLink"
           external-target-blank
         >
-          {{ locationName }}
+          {{ location }}
         </BaseLink>
       </div>
       <!-- Normal location -->
       <div
-        v-else-if="locationName"
+        v-else-if="location"
         class="MetadataEventItem"
       >
         <meta
           v-if="!props.compact"
           itemprop="location"
-          :content="locationName"
+          :content="location"
         />
         <IconLocation class="MetadataEventIcon text-[1.2em]" />
         <BaseLink
@@ -126,9 +142,9 @@ const locationName = computed(() => {
           :href="props.event.locationLink"
           external-target-blank
         >
-          {{ locationName }}
+          {{ location }}
         </BaseLink>
-        <span v-else>{{ locationName }}</span>
+        <span v-else>{{ location }}</span>
       </div>
     </template>
   </div>

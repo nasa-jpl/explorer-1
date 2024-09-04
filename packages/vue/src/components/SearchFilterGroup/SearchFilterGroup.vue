@@ -13,32 +13,34 @@
     <legend class="md:mb-3 text-body-md mb-2 font-bold leading-normal tracking-wide">
       {{ groupTitle }}
     </legend>
-    <div
-      v-for="(bucket, index) in buckets"
-      :key="bucket.key"
-      ref="buckets"
-      class="form-group form-check"
-    >
-      <!-- correct for zero based index -->
+    <div class="buckets">
       <div
-        v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
-        class="flex my-2"
+        v-for="(bucket, index) in buckets"
+        :key="bucket.key"
+        ref="buckets"
+        class="form-group form-check"
       >
-        <input
-          :id="bucket.key_as_string ? generateId(bucket.key_as_string) : generateId(bucket.key)"
-          v-model="filterByHandler"
-          type="checkbox"
-          :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
-          class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
-        />
-        <!-- 'key_as_string' exists for dates to have a human readable version -->
-        <label
-          :for="bucket.key_as_string ? generateId(bucket.key_as_string) : generateId(bucket.key)"
-          class="form-check-label pl-2 tracking-normal align-middle"
+        <!-- correct for zero based index -->
+        <div
+          v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
+          class="flex my-2"
         >
-          {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
-          <span class="text-gray-mid-dark"> ({{ bucket.doc_count.toLocaleString() }}) </span>
-        </label>
+          <input
+            :id="bucket.key_as_string ? generateId(bucket.key_as_string) : generateId(bucket.key)"
+            v-model="filterByHandler"
+            type="checkbox"
+            :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
+            class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
+          />
+          <!-- 'key_as_string' exists for dates to have a human readable version -->
+          <label
+            :for="bucket.key_as_string ? generateId(bucket.key_as_string) : generateId(bucket.key)"
+            class="form-check-label pl-2 tracking-normal align-middle"
+          >
+            {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
+            <span class="text-gray-mid-dark"> ({{ bucket.doc_count.toLocaleString() }}) </span>
+          </label>
+        </div>
       </div>
     </div>
     <!--
@@ -49,7 +51,7 @@
 
     <div v-show="truncateFilters && bucketsLength > checkbox.initialLimit">
       <button
-        class="can-hover:hover:underline text-primary mt-2"
+        class="can-hover:hover:underline text-action mt-2"
         :aria-expanded="!checkbox.showMore ? 'true' : 'false'"
         aria-haspopup="true"
         :aria-controls="`filterGroup_${groupKey}`"

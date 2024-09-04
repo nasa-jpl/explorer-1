@@ -133,6 +133,7 @@
           v-else-if="metadataAttrs.type === 'resource'"
           :resource="theItem as EduResourceCardObject"
           :variant="metadataAttrs.icons"
+          :show-time="true"
           compact
         />
       </div>

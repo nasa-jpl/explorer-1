@@ -21,7 +21,10 @@
           customDate,
           location,
           eventType,
-          ongoing
+          ongoing,
+          primarySubject,
+          gradeLevels,
+          time
         }
       }"
       show-calendar-chip
@@ -211,6 +214,7 @@
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
+import type { PrimarySubjectObject, GradeLevelsObject, EduResourcesTime } from './../../interfaces'
 import { useThemeStore } from '../../store/theme'
 import PodcastEpisodeCard from './../PodcastEpisodeCard/PodcastEpisodeCard.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
@@ -338,6 +342,18 @@ export default defineComponent({
     ongoing: {
       type: Boolean,
       default: false
+    },
+    primarySubject: {
+      type: Object as PropType<PrimarySubjectObject>,
+      default: undefined
+    },
+    gradeLevels: {
+      type: Array as PropType<GradeLevelsObject[]>,
+      default: undefined
+    },
+    time: {
+      type: Object as PropType<EduResourcesTime>,
+      default: undefined
     }
   },
   computed: {
