@@ -60,17 +60,6 @@ const jumpMenuHeadings = computed((): BreadcrumbPathObject[] => {
   return itemHeadings
 })
 
-const galleryItems = computed(() => {
-  const items = data.galleryItems
-  if (items) {
-    items.forEach((item) => {
-      if (item.externalLink) {
-        // something ?
-      }
-    })
-  }
-  return items
-})
 const { data } = reactive(props)
 </script>
 <template>
