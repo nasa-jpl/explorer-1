@@ -11,12 +11,14 @@ interface MetadataEduResourceProps {
   resource: EduResourceCardObject
   compact?: boolean
   variant?: string
+  showTime: boolean
 }
 
 // define props
 const props = withDefaults(defineProps<MetadataEduResourceProps>(), {
   resource: undefined,
   compact: false,
+  showTime: false,
   variant: 'primary'
 })
 
@@ -30,7 +32,11 @@ const audience = computed(() => {
   return rangeifyGrades(props.resource?.gradeLevels)
 })
 const time = computed(() => {
-  return props.resource?.time?.time
+  let time = props.resource?.time?.time
+  if (time && props.compact) {
+    time = time.replace('Under ', '<')
+  }
+  return time
 })
 </script>
 <template>
@@ -61,7 +67,7 @@ const time = computed(() => {
       <span>{{ audience }}</span>
     </div>
     <div
-      v-if="time && !compact"
+      v-if="time && showTime"
       class="MetadataEduResourceItem"
     >
       <IconTime

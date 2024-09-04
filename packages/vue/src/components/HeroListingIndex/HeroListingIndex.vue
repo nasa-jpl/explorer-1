@@ -1,20 +1,18 @@
 <template>
   <div
     v-if="pageData"
-    class="max-w-screen-3xl mx-auto"
-    :class="{ '-nav-offset': pageData.featured }"
+    class="HeroListingIndex max-w-screen-3xl mx-auto"
+    :class="{ '-nav-offset': pageData }"
   >
     <HeroMedium
-      v-if="pageData.featured"
+      v-if="pageData"
       class="md:mb-12 lg:mb-18 mb-10"
       :custom-pill="themeStore.theme === 'ThemeEdu' && customLabel ? customLabel : undefined"
       :custom-pill-type="
-        themeStore.theme === 'ThemeEdu' && pageData.featured?.__typename
-          ? pageData.featured.__typename
-          : undefined
+        themeStore.theme === 'ThemeEdu' && pageData.__typename ? pageData.__typename : undefined
       "
-      :custom-label="themeStore.theme === 'ThemeEdu' ? pageData.featured.topicLabel : customLabel"
-      :feature="pageData.featured"
+      :custom-label="themeStore.theme === 'ThemeEdu' ? pageData.topicLabel : customLabel"
+      :feature="pageData"
       :custom-video="customVideo"
       :custom-image="customImage"
       :cta="cta"
@@ -54,17 +52,17 @@ export default defineComponent({
     ...mapStores(useThemeStore),
     // parses a hero streamfield block for a video (newsDetailPage model)
     customVideo(): object | undefined {
-      if (this.pageData && this.pageData.featured?.heroBlocks?.length > 0) {
-        if (this.pageData.featured.heroBlocks[0].blockType === 'VideoBlock') {
-          return this.pageData.featured.heroBlocks[0].video
+      if (this.pageData && this.pageData?.heroBlocks?.length > 0) {
+        if (this.pageData.heroBlocks[0].blockType === 'VideoBlock') {
+          return this.pageData.heroBlocks[0].video
         }
       }
       return undefined
     },
     customImage(): object | undefined {
       // parse hero streamfield block for the first usable image (newsDetailPage model)
-      if (this.pageData && this.pageData.featured?.heroBlocks?.length > 0) {
-        const block = this.pageData.featured.heroBlocks[0]
+      if (this.pageData?.heroBlocks?.length > 0) {
+        const block = this.pageData?.heroBlocks[0]
         if (block.blockType === 'ImageChooserBlock' || block.blockType === 'HeroImageBlock') {
           return block.listingPageHeroImage
         } else if (block.blockType === 'CarouselBlock') {
@@ -75,8 +73,8 @@ export default defineComponent({
         }
       }
       // else use heroImage
-      else if (this.pageData?.featured?.listingPageHeroImage) {
-        return this.pageData.featured.listingPageHeroImage
+      else if (this.pageData?.listingPageHeroImage) {
+        return this.pageData.listingPageHeroImage
       }
       return undefined
     }

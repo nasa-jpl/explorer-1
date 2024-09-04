@@ -31,6 +31,9 @@
           :event-type="page.eventType"
           :ongoing="page.ongoing"
           :location="page.location"
+          :primary-subject="page.primarySubject as unknown as PrimarySubjectObject"
+          :grade-levels="page.gradeLevels as unknown as GradeLevelsObject[]"
+          :time="page.time as unknown as EduResourcesTime"
           :title="page.title"
           :summary="page.summary"
           :featured="featureFirstResult ? index === 0 && currentPage === 1 : false"
@@ -53,6 +56,9 @@
           :event-type="page.eventType"
           :ongoing="page.ongoing"
           :location="page.location"
+          :primary-subject="page.primarySubject as unknown as PrimarySubjectObject"
+          :grade-levels="page.gradeLevels as unknown as GradeLevelsObject[]"
+          :time="page.time as unknown as EduResourcesTime"
           :title="page.title"
           heading-level="h2"
         />
@@ -64,7 +70,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { ElasticSearchPage } from '../../interfaces'
-
+import type { PrimarySubjectObject, GradeLevelsObject, EduResourcesTime } from './../../interfaces'
 // @ts-ignore
 import dayjs from 'dayjs'
 import SearchResultCard from './../SearchResultCard/SearchResultCard.vue'
@@ -131,6 +137,9 @@ export default defineComponent({
               // date field is different for mission and event detail pages
               let date
               let location
+              let primarySubject
+              let gradeLevels
+              let time
               let topic =
                 handle === 'missions_mission'
                   ? page._source[handle + '__status_filter']
@@ -152,6 +161,17 @@ export default defineComponent({
               } else if (handle === 'profiles_profilepage') {
                 topic = page._source[handle + '__go_site_name']
                 date = null
+              } else if (handle.startsWith('edu_resources')) {
+                date = null
+                primarySubject = page._source[handle + '__primary_subject'] as PrimarySubjectObject
+                if (page._source[handle + '__grade_levels']) {
+                  gradeLevels = [] as GradeLevelsObject[]
+                  // @ts-expect-error
+                  page._source[handle + '__grade_levels'].forEach((level) => {
+                    gradeLevels.push({ gradeLevel: level.grade_level })
+                  })
+                }
+                time = { time: page._source.activity_time_label_filter } as EduResourcesTime
               } else {
                 date =
                   typeof page._source.publication_date_filter !== 'undefined'
@@ -196,6 +216,10 @@ export default defineComponent({
                 handle === 'edu_events_edueventpage'
                   ? page._source.edu_events_edueventpage__ongoing
                   : undefined
+              // edu resources
+              page.gradeLevels = gradeLevels
+              page.time = time
+              page.primarySubject = primarySubject
               // properties that are different for profiles page
               page.summary =
                 handle === 'profiles_profilepage'

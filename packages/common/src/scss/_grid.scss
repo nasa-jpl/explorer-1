@@ -92,10 +92,10 @@
       }
     }
 
-    // for use on pages with flush-top hero sections
+    // for use on pages with flush-top hero sections // doesn't apply to EDU
     .-nav-offset {
       @screen lg {
-        @apply -mt-1; // get rid of the barely visible white line
+        @apply mt-0; // get rid of the barely visible white line
       }
     }
   }

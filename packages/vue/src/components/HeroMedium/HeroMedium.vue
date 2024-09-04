@@ -74,7 +74,7 @@
           <p class="text-h3 font-semibold mb-0">
             <span class="mr-2">{{ feature.title }}</span>
             <span
-              class="text-jpl-red-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-4xl transition-all duration-200 ease-in"
+              class="text-action-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-4xl transition-all duration-200 ease-in"
             >
               <IconArrow class="inline" />
             </span>
