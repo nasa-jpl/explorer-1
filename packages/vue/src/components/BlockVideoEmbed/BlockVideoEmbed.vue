@@ -10,10 +10,14 @@
       <div v-html="data.embed.embed"></div>
     </BaseImagePlaceholder>
     <div
-      v-if="data.caption"
+      v-if="data.caption || customDetailUrl"
       class="lg:px-0 p-4 print:pl-0"
     >
-      <BaseImageCaption :data="data" />
+      <BaseImageCaption
+        :data="data"
+        :custom-link="customDetailUrl"
+        custom-link-text="Full Video Details"
+      />
     </div>
   </div>
 </template>
@@ -44,6 +48,10 @@ export default defineComponent({
     data: {
       type: Object as PropType<Partial<BlockData>>,
       required: false,
+      default: undefined
+    },
+    customDetailUrl: {
+      type: String,
       default: undefined
     }
   },

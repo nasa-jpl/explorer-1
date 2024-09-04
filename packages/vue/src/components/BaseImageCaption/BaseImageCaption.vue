@@ -31,7 +31,10 @@ export default defineComponent({
     v-if="data"
     class="BaseImageCaption text-body-sm"
   >
-    <div class="inline mr-2">
+    <div
+      v-if="data.caption || data.credit"
+      class="inline mr-2"
+    >
       <div
         class="the-caption-text inline"
         v-html="data.caption"
@@ -44,20 +47,20 @@ export default defineComponent({
       </span>
     </div>
     <BaseLink
-      v-if="data.detailUrl"
-      class="inline-block"
-      variant="default"
-      :to="data.detailUrl"
-    >
-      Full Image Details
-    </BaseLink>
-    <BaseLink
-      v-else-if="customLink"
+      v-if="customLink"
       class="inline-block"
       variant="default"
       :to="customLink"
     >
       {{ customLinkText }}
+    </BaseLink>
+    <BaseLink
+      v-else-if="data.detailUrl"
+      class="inline-block"
+      variant="default"
+      :to="data.detailUrl"
+    >
+      Full Image Details
     </BaseLink>
   </div>
 </template>
