@@ -1,5 +1,11 @@
 <template>
   <div v-if="hasData">
+    <meta
+      v-if="schema"
+      itemprop="datePublished"
+      :content="pubDatetime"
+    />
+
     <div
       v-if="hasEyebrow"
       class="flex flex-wrap items-center mb-3"
@@ -100,12 +106,7 @@
         <span :itemprop="schema ? 'name' : undefined"> Jet Propulsion Laboratory </span>
         <span :itemprop="schema ? 'url' : undefined"> https://www.jpl.nasa.gov/ </span>
       </span>
-      <span v-if="publicationDate">
-        <meta
-          v-if="schema"
-          itemprop="datePublished"
-          :content="pubDatetime"
-        />
+      <span v-if="publicationDate && !hideDate">
         {{
           // @ts-ignore
           $filters.displayDate(publicationDate)
@@ -184,6 +185,10 @@ export default defineComponent({
       validator: (prop: string): boolean => pillColorVariants.includes(prop)
     },
     schema: {
+      type: Boolean,
+      default: false
+    },
+    hideDate: {
       type: Boolean,
       default: false
     }
