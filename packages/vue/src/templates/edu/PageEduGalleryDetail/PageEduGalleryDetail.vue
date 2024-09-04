@@ -113,8 +113,8 @@ const { data } = reactive(props)
         class="PageEduGalleryDetailItem__media mb-5 lg:mb-12"
       >
         <template
-          v-for="(block, media_index) in item.media"
-          :key="media_index"
+          v-for="(block, _media_index) in item.media"
+          :key="_media_index"
         >
           <template v-if="block.blockType === 'ImageBlock'">
             <LayoutHelper
