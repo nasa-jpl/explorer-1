@@ -209,7 +209,11 @@ export default defineComponent({
   },
   created() {
     const sortByParam = this.$route?.query.sortBy
-    if (sortByParam && sortByOptions.some((option) => option.value === sortByParam)) {
+    if (
+      sortByParam &&
+      sortByOptions &&
+      sortByOptions.some((option) => option.value === sortByParam)
+    ) {
       this.sortBy = sortByParam as SortBy
     }
 

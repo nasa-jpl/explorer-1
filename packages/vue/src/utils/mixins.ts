@@ -194,12 +194,14 @@ export const mixinIsActivePath = (itemPath: string): Boolean => {
     */
 export const mixinGetSrcSet = (srcSetObject: Partial<ImageObject>): string => {
   let srcSet = ''
-  const valid = Object.keys(srcSetObject).some(function (key) {
-    if (key.startsWith('screen')) {
-      return true
-    }
-    return false
-  })
+  const valid = Object.keys(srcSetObject)?.length
+    ? Object.keys(srcSetObject).some(function (key) {
+        if (key.startsWith('screen')) {
+          return true
+        }
+        return false
+      })
+    : false
   if (valid) {
     const srcSetArray: string[] = []
     for (const [key, value] of Object.entries(srcSetObject)) {
