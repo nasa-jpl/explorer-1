@@ -20,6 +20,7 @@ export const MetadataEventData = {
     endTime: '22:00:00',
     ongoing: false,
     isVirtualEvent: false,
+    isInPersonEvent: true,
     locationName: 'Webcast',
     locationLink: 'https://www.nasa.gov',
     customDate: undefined

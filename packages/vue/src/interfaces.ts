@@ -132,6 +132,7 @@ export interface EventCardObject extends Card {
   eventType?: string
   ongoing?: boolean
   isVirtualEvent?: boolean
+  isInPersonEvent?: boolean
   locationName?: string
   location?: string
   locationLink?: string
