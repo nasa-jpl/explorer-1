@@ -18,7 +18,7 @@
   </component>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, resolveComponent } from 'vue'
 import IconArrow from './../Icons/IconArrow.vue'
 import IconDownload from './../Icons/IconDownload.vue'
 import IconExternal from './../Icons/IconExternal.vue'
@@ -59,7 +59,7 @@ export default defineComponent({
   computed: {
     tag() {
       if (this.to) {
-        return 'nuxt-link'
+        return resolveComponent('NuxtLink')
       } else {
         return 'a'
       }
