@@ -16,6 +16,7 @@ import BlockVideoEmbed from './../../../components/BlockVideoEmbed/BlockVideoEmb
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
+import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 import { getHeadingId } from '../../../utils/getHeadingId'
@@ -25,6 +26,7 @@ interface PageEduGalleryObject extends PageEduResourcesObject {
     blockId: string
     heading?: string
     description?: string
+    externalLink?: string
     media: StreamfieldBlockData[]
   }[]
 }
@@ -57,6 +59,7 @@ const jumpMenuHeadings = computed((): BreadcrumbPathObject[] => {
   }
   return itemHeadings
 })
+
 const { data } = reactive(props)
 </script>
 <template>
@@ -77,6 +80,7 @@ const { data } = reactive(props)
         :publication-date="data.publicationDate"
         schema
         pill
+        hide-date
       />
       <ShareButtonsEdu
         v-if="data?.url"
@@ -104,7 +108,10 @@ const { data } = reactive(props)
       :key="index"
       class="PageEduGalleryDetailItem"
     >
-      <template v-if="item.media?.length">
+      <div
+        v-if="item.media?.length"
+        class="PageEduGalleryDetailItem__media mb-5 lg:mb-12"
+      >
         <template
           v-for="(block, _media_index) in item.media"
           :key="_media_index"
@@ -113,41 +120,41 @@ const { data } = reactive(props)
             <LayoutHelper
               v-if="block.image"
               indent="col-2"
-              class="mb-5 lg:mb-10"
             >
               <BlockImageStandard
                 :data="block.image"
                 :caption="block.caption"
                 :display-caption="block.displayCaption"
+                :custom-detail-url="item.externalLink"
               />
             </LayoutHelper>
           </template>
           <template v-else-if="block.blockType === 'ImageComparisonBlock'">
-            <LayoutHelper
-              indent="col-2"
-              class="mb-5 lg:mb-10"
-            >
-              <BlockImageComparison :data="block" />
+            <LayoutHelper indent="col-2">
+              <BlockImageComparison
+                :data="block"
+                :custom-detail-url="item.externalLink"
+              />
             </LayoutHelper>
           </template>
           <template v-else-if="block.blockType === 'VideoBlock'">
-            <LayoutHelper
-              indent="col-2"
-              class="mb-5 lg:mb-10"
-            >
-              <BlockVideo :data="block" />
+            <LayoutHelper indent="col-2">
+              <BlockVideo
+                :data="block"
+                :custom-detail-url="item.externalLink"
+              />
             </LayoutHelper>
           </template>
           <template v-else-if="block.blockType === 'VideoEmbedBlock'">
-            <LayoutHelper
-              indent="col-2"
-              class="mb-5 lg:mb-10"
-            >
-              <BlockVideoEmbed :data="block" />
+            <LayoutHelper indent="col-2">
+              <BlockVideoEmbed
+                :data="block"
+                :custom-detail-url="item.externalLink"
+              />
             </LayoutHelper>
           </template>
         </template>
-      </template>
+      </div>
       <LayoutHelper
         v-if="item.heading || item.description"
         indent="col-3"
@@ -164,11 +171,22 @@ const { data } = reactive(props)
         />
       </LayoutHelper>
       <LayoutHelper
+        v-if="index + 1 !== data.galleryItems?.length"
         indent="col-2"
         class="pt-10 lg:pt-18 mb-10 lg:mb-18"
       >
         <hr class="border-t-0 border-b border-gray-light-mid" />
       </LayoutHelper>
+    </div>
+
+    <div
+      v-if="data.body?.length"
+      class="my-10 lg:my-18"
+    >
+      <BlockStreamfield
+        v-if="data.body?.length"
+        :data="data.body"
+      />
     </div>
 
     <!-- related links -->
