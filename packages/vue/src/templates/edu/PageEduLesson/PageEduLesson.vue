@@ -130,13 +130,16 @@ const sectionOrder = [
 const staticSectionHeadings = computed((): { [key: string]: BlockHeadingObject } | undefined => {
   if (data) {
     const result = sectionOrder.reduce<Record<string, BlockHeadingObject>>((acc, section) => {
-      const headingText =
-        section === 'techAddons'
-          ? 'Tech Add-ons'
-          : section.charAt(0).toUpperCase() + section.slice(1)
-      acc[section] = stringAsHeadingBlockData(
-        (data[`${section}Heading`] as HeadingLevel) || headingText
-      )
+      // only include the heading if the section has content
+      if (data[section]?.length) {
+        const headingText =
+          section === 'techAddons'
+            ? 'Tech Add-ons'
+            : section.charAt(0).toUpperCase() + section.slice(1)
+        acc[section] = stringAsHeadingBlockData(
+          (data[`${section}Heading`] as HeadingLevel) || headingText
+        )
+      }
       return acc
     }, {})
     return result
@@ -243,7 +246,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['bottom'] })
   }
   const filteredSections = sections.filter(
-    (item) => item.text !== undefined || item.blocks !== undefined || item.procedures !== undefined
+    (item) => item.text || item.blocks?.length || item.procedures?.length
   )
 
   return filteredSections
@@ -335,20 +338,18 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       v-for="(value, _key) in consolidatedSections"
       :key="_key"
     >
-      <template v-if="value.blocks?.length || value.procedures?.length || value.text?.length">
-        <BlockStreamfield
-          v-if="value.type === 'streamfield'"
-          :data="value.blocks"
-        />
-        <PageEduLessonSection
-          v-else
-          :heading="value.heading"
-          :blocks="value.blocks"
-          :procedures="value.procedures"
-          :text="value.text"
-          :image="value.image"
-        />
-      </template>
+      <BlockStreamfield
+        v-if="value.type === 'streamfield'"
+        :data="value.blocks"
+      />
+      <PageEduLessonSection
+        v-else
+        :heading="value.heading"
+        :blocks="value.blocks"
+        :procedures="value.procedures"
+        :text="value.text"
+        :image="value.image"
+      />
     </template>
 
     <!-- streamfield blocks -->
