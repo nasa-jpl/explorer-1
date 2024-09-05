@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, resolveComponent } from 'vue'
 
 interface Variants {
   [key: string]: string
@@ -54,11 +54,11 @@ export default defineComponent({
   },
   emits: ['click'],
   computed: {
-    tag(): string {
+    tag() {
       if (this.disabled) {
         return 'button'
       } else if (this.to) {
-        return 'nuxt-link'
+        return resolveComponent('NuxtLink')
       } else if (this.href) {
         return 'a'
       } else {
