@@ -332,7 +332,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       v-for="(value, _key) in consolidatedSections"
       :key="_key"
     >
-      <template v-if="value.blocks?.length || value.procedures?.length">
+      <template v-if="value.blocks?.length || value.procedures?.length || value.text?.length">
         <BlockStreamfield
           v-if="value.type === 'streamfield'"
           :data="value.blocks"
