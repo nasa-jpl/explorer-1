@@ -5,6 +5,7 @@ import type { ImageObject, StreamfieldBlockData } from './../../../interfaces'
 import BlockHeading, {
   type BlockHeadingObject
 } from './../../../components/BlockHeading/BlockHeading.vue'
+import type { EduLessonProcedure } from './PageEduLesson.vue'
 import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
@@ -12,15 +13,9 @@ import BlockImageStandard from './../../../components/BlockImage/BlockImageStand
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 
 export interface PageEduLessonSectionProps {
-  heading: BlockHeadingObject
+  heading?: BlockHeadingObject
   blocks?: StreamfieldBlockData[]
-  procedures?: {
-    sectionHeading: string
-    stepsNumbering: boolean
-    steps: {
-      blocks: StreamfieldBlockData[]
-    }[]
-  }[]
+  procedures?: EduLessonProcedure[]
   text?: string
   image?: ImageObject
 }
@@ -36,14 +31,14 @@ const props = withDefaults(defineProps<PageEduLessonSectionProps>(), {
 const { heading, blocks, image } = reactive(props)
 
 const anchorId = computed(() => {
-  return 'lesson_' + camelCase(heading.heading)
+  return 'lesson_' + camelCase(heading?.heading)
 })
 </script>
 <template>
   <section
     :id="anchorId"
     class="PageEduLessonSection"
-    :aria-label="heading.heading"
+    :aria-label="heading?.heading"
   >
     <LayoutHelper
       indent="col-3"

@@ -20,6 +20,11 @@ export default (app) => {
       '<a href="#" @click.prevent="log()" :class="this.class" v-bind="$attrs"><slot></slot></a>'
   })
 
+  // Nuxt ClientOnly
+  app.component('ClientOnly', {
+    template: '<slot></slot>'
+  })
+
   // use static dsn widget instead of fetch
   app.component('FetchDsnWidget', DsnWidget)
 }
