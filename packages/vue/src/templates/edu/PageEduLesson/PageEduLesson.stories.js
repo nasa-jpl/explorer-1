@@ -152,7 +152,7 @@ export const BaseStory = {
         }
       ],
 
-      overview: BlockStreamfieldMinimalData.body,
+      overview: [],
       overviewHeading: 'Custom Overview heading',
       overviewImage: BlockImageData.image,
 
