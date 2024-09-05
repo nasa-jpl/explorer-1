@@ -1,6 +1,6 @@
 <template>
   <div v-if="data">
-    <client-only>
+    <ClientOnly>
       <VueCompareImage
         v-if="theBeforeImageSrc && theAfterImageSrc"
         class="h-full animate-fadeIn"
@@ -9,7 +9,7 @@
         :right-image="theAfterImageSrc.url"
         right-image-alt="Right image"
       />
-    </client-only>
+    </ClientOnly>
     <div
       v-if="data.caption || customDetailUrl"
       class="lg:px-0 p-4 pb-0 print:pl-0"
