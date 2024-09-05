@@ -47,7 +47,8 @@
           'my-6 lg:mt-0 lg:mb-10': compact
         }"
       >
-        <nuxt-link
+        <BaseLink
+          variant="none"
           :to="feature.url"
           class="lg:w-1/2 xl:w-5/12 block"
         >
@@ -79,7 +80,7 @@
               <IconArrow class="inline" />
             </span>
           </p>
-        </nuxt-link>
+        </BaseLink>
         <BaseLink
           :to="feature.url"
           class="lg:block hidden"

@@ -10,9 +10,9 @@
       link-class="max-w-screen-3xl block w-full mx-auto"
     >
       <div
+        v-bind-once="{ style: 'background-image: url(' + randomizeImage + ');' }"
         role="presentation"
         :class="'SwimlaneCTA lg:block hidden' + computedClass"
-        :style="'background-image: url(' + randomizeImage + ');'"
       >
         <div class="absolute inset-0 z-10 bg-black bg-opacity-25"></div>
         <div
@@ -61,9 +61,9 @@
         </div>
       </div>
       <div
+        v-bind-once="{ style: 'background-image: url(' + randomizeImageSmall + ');' }"
         role="presentation"
         :class="'SwimlaneCTA lg:hidden block' + computedClass"
-        :style="'background-image: url(' + randomizeImageSmall + ');'"
       >
         <div
           class="lg:flex-row lg:pr-12 lg:py-5 flex flex-col justify-center w-full px-5 py-6 bg-black bg-opacity-25"

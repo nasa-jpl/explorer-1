@@ -150,13 +150,6 @@
         <BlockImageComparison :data="block" />
       </LayoutHelper>
 
-      <BlockTwitterEmbed
-        v-else-if="block.blockType == 'TwitterEmbedBlock'"
-        :key="`twitterEmbedBlock${index}`"
-        class="lg:mb-18 mb-10"
-        :data="block"
-      />
-
       <LayoutHelper
         v-else-if="block.blockType == 'IframeEmbedBlock'"
         :key="`iframeEmbedBlock${index}`"
@@ -271,7 +264,6 @@ import BlockRelatedLinks, {
 import BlockTable from './../BlockTable/BlockTable.vue'
 import BlockTeaser from './../BlockTeaser/BlockTeaser.vue'
 import BlockText from './../BlockText/BlockText.vue'
-import BlockTwitterEmbed from './../BlockTwitterEmbed/BlockTwitterEmbed.vue'
 import BlockIframeEmbed from './../BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockGist from './../BlockGist/BlockGist.vue'
 import BlockVideo from './../BlockVideo/BlockVideo.vue'
@@ -311,7 +303,6 @@ export default defineComponent({
     BlockTable,
     BlockTeaser,
     BlockText,
-    BlockTwitterEmbed,
     BlockIframeEmbed,
     BlockGist,
     BlockVideo,
