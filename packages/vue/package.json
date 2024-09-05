@@ -40,7 +40,8 @@
     "vue": "^3.4.21",
     "vue-bind-once": "^0.2.1",
     "vue-observe-visibility": "^1.0.0",
-    "vue3-compare-image": "^1.2.5"
+    "vue3-compare-image": "^1.2.5",
+    "vue3-observe-visibility": "^1.0.1"
   },
   "devDependencies": {
     "@explorer-1/prettier-config": "workspace:*",
