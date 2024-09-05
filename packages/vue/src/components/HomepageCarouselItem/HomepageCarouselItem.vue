@@ -66,7 +66,7 @@
             <span class="sr-only">.</span>
           </p>
           <component
-            :is="item.externalLink || (item.page && item.page.url) ? 'BaseLink' : 'div'"
+            :is="tag"
             variant="none"
             link-class="block"
             :href="item.externalLink ? item.externalLink : null"
@@ -98,7 +98,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, resolveComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { ImageObject } from '../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
@@ -128,7 +128,16 @@ export default defineComponent({
   props: {
     item: {
       type: Object as PropType<Slide>,
-      required: false
+      default: undefined
+    }
+  },
+  computed: {
+    tag() {
+      if (this.item?.externalLink || (this.item?.page && this.item?.page.url)) {
+        return resolveComponent('BaseLink')
+      } else {
+        return 'div'
+      }
     }
   }
 })

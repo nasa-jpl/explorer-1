@@ -75,6 +75,14 @@ export default defineComponent({
       }
       return undefined
     },
+    computedTo() {
+      let toValue = this.to
+      // filter out unnecessary `/home/` prefix from wagtail default site urlPaths
+      if (toValue && typeof toValue === 'string' && toValue.startsWith('/home/')) {
+        toValue = toValue.replace('/home/', '/')
+      }
+      return toValue
+    },
     variantClass(): string {
       let classes = variants[this.variant]
       if (!this.$slots.default && this.$slots.icon) {
@@ -99,7 +107,7 @@ export default defineComponent({
     :aria-label="ariaLabel"
     :disabled="disabled"
     :href="theHref"
-    :to="to ? to : undefined"
+    :to="computedTo ? computedTo : undefined"
     @click="$emit('click')"
   >
     <span class="label block">

@@ -1,6 +1,7 @@
 <template>
-  <nuxt-link
+  <BaseLink
     v-if="data"
+    variant="none"
     :to="data.url"
     class="TopicDetailMissionCarouselItem ThemeVariantLight group block cursor-pointer"
   >
@@ -59,7 +60,7 @@
         />
       </div>
     </div>
-  </nuxt-link>
+  </BaseLink>
 </template>
 
 <script lang="ts">
@@ -69,6 +70,7 @@ import type { ClockType } from '../MissionDetailStats/MissionDetailStats.vue'
 import type { PropType } from 'vue'
 import type { ImageObject } from '../../interfaces'
 import MissionDetailStatsMicro from './../MissionDetailStats/MissionDetailStatsMicro.vue'
+import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 
@@ -87,7 +89,8 @@ export default defineComponent({
   components: {
     MissionDetailStatsMicro,
     BaseImage,
-    BaseImagePlaceholder
+    BaseImagePlaceholder,
+    BaseLink
   },
   props: {
     data: {

@@ -20,7 +20,7 @@ const clearSearch = () => {
 }
 const submitSearch = () => {
   emit('submitForm')
-  router.push({ path: '/search', query: searchQuery.value })
+  router.push({ path: '/search', query: { query: searchQuery.value } })
 }
 </script>
 <template>
