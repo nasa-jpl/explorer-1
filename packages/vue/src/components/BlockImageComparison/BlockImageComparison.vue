@@ -1,13 +1,15 @@
 <template>
   <div v-if="data">
-    <VueCompareImage
-      v-if="theBeforeImageSrc && theAfterImageSrc"
-      class="h-full animate-fadeIn"
-      :left-image="theBeforeImageSrc.url"
-      left-image-alt="Left image"
-      :right-image="theAfterImageSrc.url"
-      right-image-alt="Right image"
-    />
+    <client-only>
+      <VueCompareImage
+        v-if="theBeforeImageSrc && theAfterImageSrc"
+        class="h-full animate-fadeIn"
+        :left-image="theBeforeImageSrc.url"
+        left-image-alt="Left image"
+        :right-image="theAfterImageSrc.url"
+        right-image-alt="Right image"
+      />
+    </client-only>
     <div
       v-if="data.caption || customDetailUrl"
       class="lg:px-0 p-4 pb-0 print:pl-0"

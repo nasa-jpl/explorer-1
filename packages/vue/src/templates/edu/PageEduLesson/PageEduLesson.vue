@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import type {
-  BlockData,
   ImageObject,
   PageEduResourcesObject,
   StreamfieldBlockData
@@ -24,12 +23,12 @@ import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
 
 interface EduLessonSectionObject extends PageEduLessonSectionProps {
-  type?: 'streamfield'
+  type?: string
 }
 interface EduLessonProcedureBlocks {
   blocks: StreamfieldBlockData[]
 }
-interface EduLessonProcedure {
+export interface EduLessonProcedure {
   procedure: EduLessonProcedureBlocks
 }
 
@@ -218,7 +217,7 @@ const consolidatedBlocks = computed(() => {
 
 // organize data to render with PageEduLessonSection component
 const consolidatedSections = computed((): EduLessonSectionObject[] => {
-  const sections = []
+  const sections: EduLessonSectionObject[] = []
   // include custom top section
   if (keyedCustomSections.value && keyedCustomSections.value['top']) {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['top'] })
@@ -226,9 +225,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
   sectionOrder.forEach((section) => {
     if (data && data[section]) {
       sections.push({
-        heading: staticSectionHeadings.value
-          ? (staticSectionHeadings.value[section] as BlockData)
-          : undefined,
+        heading: staticSectionHeadings.value ? staticSectionHeadings.value[section] : undefined,
         blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
         text: section === 'materials' ? data[section] : undefined,
         procedures: section === 'procedures' ? data[section] : undefined
@@ -243,7 +240,11 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
   if (keyedCustomSections.value && keyedCustomSections.value['bottom']) {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['bottom'] })
   }
-  return sections as EduLessonSectionObject[]
+  const filteredSections = sections.filter(
+    (item) => item.text !== undefined || item.blocks !== undefined || item.procedures !== undefined
+  )
+
+  return filteredSections
 })
 </script>
 <template>
