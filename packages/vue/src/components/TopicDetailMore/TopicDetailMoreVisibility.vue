@@ -13,13 +13,9 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ObserveVisibility } from 'vue-observe-visibility'
 
 export default defineComponent({
   name: 'TopicDetailMoreVisibility',
-  directives: {
-    ObserveVisibility
-  },
   data() {
     return {
       isVisible: false,

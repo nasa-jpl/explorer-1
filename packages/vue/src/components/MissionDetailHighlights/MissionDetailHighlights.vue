@@ -169,7 +169,6 @@ import type { DebouncedFunc } from 'lodash'
 import type { Slide } from './MissionDetailHighlightsCarouselItem.vue'
 // @ts-ignore
 import anime from 'animejs'
-import { ObserveVisibility } from 'vue-observe-visibility'
 import MissionDetailHighlightsCarousel from './MissionDetailHighlightsCarousel.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
@@ -178,9 +177,6 @@ export default defineComponent({
   components: {
     BaseHeading,
     MissionDetailHighlightsCarousel
-  },
-  directives: {
-    ObserveVisibility
   },
   props: {
     missionTitle: {
