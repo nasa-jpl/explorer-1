@@ -8,12 +8,12 @@
     >
       {{ data.heading }}
     </BaseHeading>
-    <ul
-      v-for="(link, index) in data.links"
-      :key="index"
-      class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 mb-2 print:list-disc print:ml-4"
-    >
-      <li>
+    <ul class="sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-2/3 print:list-disc print:ml-4">
+      <li
+        v-for="(link, index) in data.links"
+        :key="index"
+        class="mb-2"
+      >
         <template v-if="link.externalLink">
           <RelatedLink
             variant="external"
