@@ -31,14 +31,14 @@ const props = withDefaults(defineProps<PageEduLessonSectionProps>(), {
 const { heading, blocks, image } = reactive(props)
 
 const anchorId = computed(() => {
-  return 'lesson_' + camelCase(heading.heading)
+  return 'lesson_' + camelCase(heading?.heading)
 })
 </script>
 <template>
   <section
     :id="anchorId"
     class="PageEduLessonSection"
-    :aria-label="heading.heading"
+    :aria-label="heading?.heading"
   >
     <LayoutHelper
       indent="col-3"

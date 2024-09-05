@@ -29,7 +29,9 @@ interface EduLessonProcedureBlocks {
   blocks: StreamfieldBlockData[]
 }
 export interface EduLessonProcedure {
-  procedure: EduLessonProcedureBlocks
+  sectionHeading?: string
+  steps?: EduLessonProcedureBlocks[]
+  stepsNumbering?: boolean
 }
 
 interface PageEduLessonObject extends PageEduResourcesObject {
@@ -192,8 +194,8 @@ const consolidatedBlocks = computed(() => {
       } else if (section === 'procedures' && data.procedures?.length) {
         // get blocks in nested procedures
         data.procedures.forEach((item) => {
-          if (item.procedure?.blocks?.length) {
-            blocks.push(...item.procedure.blocks)
+          if (item.steps?.length) {
+            blocks.push(...item.steps)
           }
         })
       }
