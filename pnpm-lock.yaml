@@ -174,6 +174,9 @@ importers:
       vue3-compare-image:
         specifier: ^1.2.5
         version: 1.2.5(vue@3.4.27(typescript@5.4.5))
+      vue3-observe-visibility:
+        specifier: ^1.0.1
+        version: 1.0.1(vue@3.4.27(typescript@5.4.5))
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^1
@@ -545,6 +548,9 @@ importers:
       vue3-compare-image:
         specifier: ^1.2.5
         version: 1.2.5(vue@3.4.27(typescript@5.4.5))
+      vue3-observe-visibility:
+        specifier: ^1.0.1
+        version: 1.0.1(vue@3.4.27(typescript@5.4.5))
     devDependencies:
       '@explorer-1/prettier-config':
         specifier: workspace:*
@@ -8964,8 +8970,8 @@ packages:
   vue-component-type-helpers@2.0.21:
     resolution: {integrity: sha512-3NaicyZ7N4B6cft4bfb7dOnPbE9CjLcx+6wZWAg5zwszfO4qXRh+U52dN5r5ZZfc6iMaxKCEcoH9CmxxoFZHLg==}
 
-  vue-component-type-helpers@2.0.29:
-    resolution: {integrity: sha512-58i+ZhUAUpwQ+9h5Hck0D+jr1qbYl4voRt5KffBx8qzELViQ4XdT/Tuo+mzq8u63teAG8K0lLaOiL5ofqW38rg==}
+  vue-component-type-helpers@2.1.6:
+    resolution: {integrity: sha512-ng11B8B/ZADUMMOsRbqv0arc442q7lifSubD0v8oDXIFoMg/mXwAPUunrroIDkY+mcD0dHKccdaznSVp8EoX3w==}
 
   vue-demi@0.14.8:
     resolution: {integrity: sha512-Uuqnk9YE9SsWeReYqK2alDI5YzciATE0r2SkA6iMAtuXvNTMNACJLJEXNXaEy94ECuBe4Sk6RzRU80kjdbIo1Q==}
@@ -9039,6 +9045,11 @@ packages:
     resolution: {integrity: sha512-E20sBmHDE3eAPOiBeiOgK1BEc+ieXdOdfjw7TaiaDweIOIuisXsM/Lwrw3UdifXImyZ3/+IdwF2ktdbcX35z9A==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue3-observe-visibility@1.0.1:
+    resolution: {integrity: sha512-/PL1xopQvQwWVD41hr2gwAGBEPcTCLYz6j5cdbvvLWOvalv2YE29+VJudsotF9ivredlfsRzFOWb63etvcGQQw==}
+    peerDependencies:
+      vue: ^3.x.x
 
   vue@3.4.27:
     resolution: {integrity: sha512-8s/56uK6r01r1icG/aEOHqyMVxd1bkYcSe9j8HcKtr/xTOFWvnzIVTehNW+5Yt89f+DLBe4A569pnZLS5HzAMA==}
@@ -12119,7 +12130,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.4.27(typescript@5.4.5)
-      vue-component-type-helpers: 2.0.29
+      vue-component-type-helpers: 2.1.6
 
   '@stylistic/eslint-plugin-js@2.1.0(eslint@9.4.0)':
     dependencies:
@@ -19758,7 +19769,7 @@ snapshots:
 
   vue-component-type-helpers@2.0.21: {}
 
-  vue-component-type-helpers@2.0.29: {}
+  vue-component-type-helpers@2.1.6: {}
 
   vue-demi@0.14.8(vue@3.4.27(typescript@5.4.5)):
     dependencies:
@@ -19841,6 +19852,10 @@ snapshots:
       vue-resize: 2.0.0-alpha.1(vue@3.4.27(typescript@5.4.5))
 
   vue3-compare-image@1.2.5(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      vue: 3.4.27(typescript@5.4.5)
+
+  vue3-observe-visibility@1.0.1(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       vue: 3.4.27(typescript@5.4.5)
 
