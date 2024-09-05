@@ -1,4 +1,3 @@
-import { BlockKeyPointsData } from './../../../components/BlockKeyPoints/BlockKeyPoints.stories'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
 import { EventsBlockLinkCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories'
 import { AboutTheAuthorData } from './../../../components/AboutTheAuthor/AboutTheAuthor.stories'
@@ -33,6 +32,12 @@ const PageEduGalleryDetailData = {
   authors: AboutTheAuthorData,
 
   body: [
+    {
+      blockType: 'HeadingBlock',
+      heading: 'Gallery Body',
+      level: 'h2',
+      size: 'h2'
+    },
     {
       blockType: 'RichTextBlock',
       value:
@@ -75,6 +80,7 @@ export const BaseStory = {
         {
           blockId: `${Math.random().toString(36).slice(2)}`,
           heading: 'Gallery Item Heading',
+          externalLink: 'https://nasa.gov',
           description:
             '<p data-block-key="53wg6">Description that is <strong>rich text</strong>.</p>',
           media: [{ ...BlockImageData, blockType: 'ImageBlock' }]
@@ -82,22 +88,25 @@ export const BaseStory = {
         {
           blockId: `${Math.random().toString(36).slice(2)}`,
           heading: 'Gallery Item Heading',
+          externalLink: 'https://nasa.gov',
           description:
-            '<p data-block-key="53wg6">Description that is <strong>rich text</strong>.</p>',
+            '<p data-block-key="5f55p">Description with richtext images.</p><img alt="Perseverance Looks Back at &amp;#x27;Bright Angel&amp;#x27;" class="richtext-image full-width" height="600" src="https://picsum.photos/800/600" width="800"><p data-block-key="89jcq">More text and an image that&#x27;s full width (above)</p><p data-block-key="6jsp"></p><img alt="Carbon Mapper Coalition&amp;#x27;s Tanager Satellite" class="richtext-image right" height="263" src="https://picsum.photos/500/263" width="500"><p data-block-key="4409g">More text and an image that&#x27;s right-aligned. Morbi mollis magna erat, a tristique libero laoreet ut. Curabitur sit amet arcu laoreet, aliquet nibh at, dictum sapien. Duis a tempus nibh. Phasellus porta felis id diam fringilla tincidunt. Curabitur eget gravida leo. Vestibulum sapien nibh, pharetra eget ornare eu, tristique at purus.</p><p data-block-key="bid36"></p><img alt="Lecture Brings Galileo&amp;#x27;s Travels into Final Focus" class="richtext-image left" height="273" src="https://picsum.photos/500/273" width="500"><p data-block-key="1f4rd">More text and an image that&#x27;s left-aligned. Morbi mollis magna erat, a tristique libero laoreet ut. Curabitur sit amet arcu laoreet, aliquet nibh at, dictum sapien. Duis a tempus nibh. Phasellus porta felis id diam fringilla tincidunt. Curabitur eget gravida leo. Vestibulum sapien nibh, pharetra eget ornare eu, tristique at purus. Duis id risus sit amet est maximus placerat a quis sem. Donec lacus sem, cursus at quam sit amet, consequat vestibulum nulla. </p>',
           media: [BlockImageComparisonData]
         },
         {
           blockId: `${Math.random().toString(36).slice(2)}`,
           heading: 'Gallery Item Heading',
+          externalLink: 'https://nasa.gov',
           description:
-            '<p data-block-key="53wg6">Description that is <strong>rich text</strong>.</p>',
+            '<p data-block-key="5f55p">Description with a richtext embedded video below it.</p><div>\n    <iframe width="200" height="113" src="https://www.youtube.com/embed/C5aC-U9jHDE?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="How Do We Know Where Faraway Spacecraft Are?"></iframe>\n</div>\n<p data-block-key="4t2tv">More text below the embedded video.</p>',
           media: [BlockVideoData.block]
         },
         {
           blockId: `${Math.random().toString(36).slice(2)}`,
           heading: 'Gallery Item Heading',
+          externalLink: 'https://nasa.gov',
           description:
-            '<p data-block-key="53wg6">Description that is <strong>rich text</strong>.</p>',
+            '<p data-block-key="5f55p">Description with richtext images.</p><img alt="Perseverance Looks Back at &amp;#x27;Bright Angel&amp;#x27;" class="richtext-image full-width" height="600" src="https://picsum.photos/800/600" width="800"><p data-block-key="89jcq">More text and another image that&#x27;s full width (above)</p><p data-block-key="6jsp"></p><img alt="Carbon Mapper Coalition&amp;#x27;s Tanager Satellite" class="richtext-image right" height="263" src="https://picsum.photos/500/263" width="500"><p data-block-key="4409g">Short text in-between two floating images.</p><p data-block-key="bid36"></p><img alt="Lecture Brings Galileo&amp;#x27;s Travels into Final Focus" class="richtext-image left" height="273" src="https://picsum.photos/500/273" width="500"><p data-block-key="1f4rd">More text and something that&#x27;s left-aligned. Morbi mollis magna erat, a tristique libero laoreet ut. Curabitur sit amet arcu laoreet, aliquet nibh at, dictum sapien. Duis a tempus nibh. Phasellus porta felis id diam fringilla tincidunt. Curabitur eget gravida leo. Vestibulum sapien nibh, pharetra eget ornare eu, tristique at purus.</p>',
           media: [BlockVideoEmbedData.data]
         }
       ]

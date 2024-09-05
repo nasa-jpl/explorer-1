@@ -1,38 +1,41 @@
 <template>
   <div v-if="data">
-    <client-only placeholder="Loading Image Comparison...">
-      <VueCompareImage
-        v-if="theBeforeImageSrc && theAfterImageSrc"
-        class="h-full animate-fadeIn"
-        :left-image="theBeforeImageSrc.url"
-        left-image-alt="Left image"
-        :right-image="theAfterImageSrc.url"
-        right-image-alt="Right image"
-      />
-    </client-only>
+    <VueCompareImage
+      v-if="theBeforeImageSrc && theAfterImageSrc"
+      class="h-full animate-fadeIn"
+      :left-image="theBeforeImageSrc.url"
+      left-image-alt="Left image"
+      :right-image="theAfterImageSrc.url"
+      right-image-alt="Right image"
+    />
     <div
-      v-if="data.caption && data.caption.length > 2"
-      class="text-gray-mid-dark mt-3"
-      v-html="data.caption"
-    ></div>
+      v-if="data.caption || customDetailUrl"
+      class="lg:px-0 p-4 pb-0 print:pl-0"
+    >
+      <BaseImageCaption
+        :data="{ caption: data.caption }"
+        :custom-link="customDetailUrl"
+        custom-link-text="Full Image Details"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-// import VueCompareImage from 'vue3-compare-image'
-
-// const VueCompareImage = process.browser ? require('vue3-compare-image') : null
+import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 
 export default defineComponent({
   name: 'BlockImageComparison',
-  // components: {
-  //   VueCompareImage,
-  // },
+  components: { BaseImageCaption },
   props: {
     data: {
       type: Object,
       required: true
+    },
+    customDetailUrl: {
+      type: String,
+      default: undefined
     }
   },
   computed: {

@@ -180,6 +180,7 @@ const { data } = reactive(props)
         :publication-date="data.publicationDate"
         schema
         pill
+        hide-date
       />
       <ShareButtonsEdu
         v-if="data?.url"
