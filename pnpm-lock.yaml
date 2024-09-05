@@ -542,9 +542,6 @@ importers:
       vue-bind-once:
         specifier: ^0.2.1
         version: 0.2.1(vue@3.4.27(typescript@5.4.5))
-      vue-observe-visibility:
-        specifier: ^1.0.0
-        version: 1.0.0
       vue3-compare-image:
         specifier: ^1.2.5
         version: 1.2.5(vue@3.4.27(typescript@5.4.5))
@@ -9002,9 +8999,6 @@ packages:
     resolution: {integrity: sha512-K3wt3iVmNGaFEOUR4JIThQRWfqokxLfnPslD41FDZB2ajXp789+wCqJyGYlIFsvEQ2P61PInw6/ph5iiqg51gg==}
     peerDependencies:
       vue: '>=2'
-
-  vue-observe-visibility@1.0.0:
-    resolution: {integrity: sha512-s5TFh3s3h3Mhd3jaz3zGzkVHKHnc/0C/gNr30olO99+yw2hl3WBhK3ng3/f9OF+qkW4+l7GkmwfAzDAcY3lCFg==}
 
   vue-observe-visibility@2.0.0-alpha.1:
     resolution: {integrity: sha512-flFbp/gs9pZniXR6fans8smv1kDScJ8RS7rEpMjhVabiKeq7Qz3D9+eGsypncjfIyyU84saU88XZ0zjbD6Gq/g==}
@@ -19809,8 +19803,6 @@ snapshots:
   vue-inbrowser-compiler-independent-utils@4.71.1(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       vue: 3.4.27(typescript@5.4.5)
-
-  vue-observe-visibility@1.0.0: {}
 
   vue-observe-visibility@2.0.0-alpha.1(vue@3.4.27(typescript@5.4.5)):
     dependencies:
