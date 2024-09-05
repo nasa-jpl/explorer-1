@@ -140,6 +140,14 @@ export default defineComponent({
         return 'noopener'
       }
       return undefined
+    },
+    computedTo() {
+      let toValue = this.to
+      // filter out unnecessary `/home/` prefix from wagtail default site urlPaths
+      if (toValue && toValue.startsWith('/home/')) {
+        toValue = toValue.replace('/home/', '/')
+      }
+      return toValue
     }
   },
   methods: {
@@ -155,10 +163,10 @@ export default defineComponent({
   <div>
     <!-- annoyingly repetive due to complexities around `to` and @click.native -->
     <nuxt-link
-      v-if="to"
+      v-if="computedTo"
       class="group"
       :class="computedClass"
-      :to="to"
+      :to="computedTo"
       :target="theTarget"
       :rel="theRel"
       :aria-label="ariaLabel"
