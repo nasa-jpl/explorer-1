@@ -65,16 +65,6 @@ export default defineComponent({
         return 'button'
       }
     },
-    // necessary for valid html
-    // must account for <a>, <nuxt-link>, and <button> use-cases
-    theHref(): string | undefined {
-      if (this.tag === 'nuxt-link') {
-        return this.to as string
-      } else if (this.tag === 'a') {
-        return this.href
-      }
-      return undefined
-    },
     computedTo() {
       let toValue = this.to
       // filter out unnecessary `/home/` prefix from wagtail default site urlPaths
@@ -82,6 +72,17 @@ export default defineComponent({
         toValue = toValue.replace('/home/', '/')
       }
       return toValue
+    },
+    // necessary for valid html
+    // must account for <a>, <nuxt-link>, and <button> use-cases
+    theHref(): string | undefined {
+      let href = undefined
+      if (this.computedTo && typeof this.computedTo === 'string') {
+        href = this.computedTo
+      } else if (this.tag === 'a') {
+        href = this.href
+      }
+      return href
     },
     variantClass(): string {
       let classes = variants[this.variant]
