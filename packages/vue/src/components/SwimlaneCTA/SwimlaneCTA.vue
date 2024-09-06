@@ -42,7 +42,9 @@
               </template>
             </div>
             <div class="lg:p-1 text-contrast relative z-20 pt-2 pl-0">
-              <p class="text-secondary lg:text-7xl mb-0 text-4xl font-medium">is a place for</p>
+              <p class="text-secondary text-white lg:text-7xl mb-0 text-4xl font-medium">
+                is a place for
+              </p>
             </div>
           </div>
 
@@ -92,7 +94,9 @@
               </template>
             </div>
             <div class="lg:p-1 relative z-20 pt-2 pl-0">
-              <p class="text-secondary text-contrast lg:text-7xl mb-0 text-4xl font-medium">
+              <p
+                class="text-secondary text-white text-contrast lg:text-7xl mb-0 text-4xl font-medium"
+              >
                 is a place for
               </p>
             </div>
