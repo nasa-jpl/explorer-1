@@ -97,8 +97,14 @@
         {{ theItem.title }}
       </component>
       <p
+        v-if="(theItem as EventCardObject).targetAudience"
+        :class="{ 'mt-2': !large, 'mt-4': large }"
+      >
+        <strong>Target Audience:</strong> {{ (theItem as EventCardObject).targetAudience }}
+      </p>
+      <p
         v-if="theItem.date && !themeStore.isEdu"
-        class="text-gray-mid-dark mt-2"
+        class="text-gray-mid-dark"
         :class="{ 'mt-2': !large, 'mt-4': large }"
       >
         {{ theItem.date }}

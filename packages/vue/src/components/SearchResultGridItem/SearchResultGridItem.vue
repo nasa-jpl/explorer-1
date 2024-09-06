@@ -21,7 +21,8 @@
           ongoing,
           primarySubject,
           gradeLevels,
-          time
+          time,
+          targetAudience
         }
       }"
       :heading-level="headingLevel"
@@ -173,6 +174,10 @@ export default defineComponent({
     ongoing: {
       type: Boolean,
       default: false
+    },
+    targetAudience: {
+      type: String,
+      default: undefined
     },
     location: {
       type: String,

@@ -24,7 +24,8 @@
           ongoing,
           primarySubject,
           gradeLevels,
-          time
+          time,
+          targetAudience
         }
       }"
       show-calendar-chip
@@ -342,6 +343,10 @@ export default defineComponent({
     ongoing: {
       type: Boolean,
       default: false
+    },
+    targetAudience: {
+      type: String,
+      default: undefined
     },
     primarySubject: {
       type: Object as PropType<PrimarySubjectObject>,
