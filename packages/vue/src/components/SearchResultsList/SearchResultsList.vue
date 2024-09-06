@@ -30,6 +30,7 @@
           :end-time="page.endTime"
           :event-type="page.eventType"
           :ongoing="page.ongoing"
+          :target-audience="page.targetAudience"
           :location="page.location"
           :primary-subject="page.primarySubject as unknown as PrimarySubjectObject"
           :grade-levels="page.gradeLevels as unknown as GradeLevelsObject[]"
@@ -55,6 +56,7 @@
           :end-time="page.endTime"
           :event-type="page.eventType"
           :ongoing="page.ongoing"
+          :target-audience="page.targetAudience"
           :location="page.location"
           :primary-subject="page.primarySubject as unknown as PrimarySubjectObject"
           :grade-levels="page.gradeLevels as unknown as GradeLevelsObject[]"
@@ -215,6 +217,10 @@ export default defineComponent({
               page.ongoing =
                 handle === 'edu_events_edueventpage'
                   ? page._source.edu_events_edueventpage__ongoing
+                  : undefined
+              page.targetAudience =
+                handle === 'edu_events_edueventpage'
+                  ? page._source.edu_events_edueventpage__target_audience
                   : undefined
               // edu resources
               page.gradeLevels = gradeLevels

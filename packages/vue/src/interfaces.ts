@@ -93,8 +93,9 @@ export interface ElasticSearchPage {
   eventType?: string
   ongoing?: boolean
   primarySubject?: string
-  gradeLevels: string
-  time: string
+  gradeLevels?: string
+  time?: string
+  targetAudience?: string
 }
 
 export interface FormOption {
@@ -136,6 +137,7 @@ export interface EventCardObject extends Card {
   locationName?: string
   location?: string
   locationLink?: string
+  targetAudience?: string
 }
 
 export interface PrimarySubjectObject {

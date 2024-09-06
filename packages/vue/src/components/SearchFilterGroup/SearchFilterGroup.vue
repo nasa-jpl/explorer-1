@@ -1,11 +1,6 @@
 <template>
   <div
-    v-if="
-      typeof groupKey !== 'undefined' &&
-      typeof buckets !== 'undefined' &&
-      bucketsLength >= 1 &&
-      !hideFilterGroups.includes(groupKey)
-    "
+    v-if="showFilterGroup"
     :id="`filterGroup_${groupKey}`"
     class="border-gray-light-mid col-span-3 pb-4 mb-4 border-b"
   >
@@ -13,7 +8,10 @@
     <legend class="md:mb-3 text-body-md mb-2 font-bold leading-normal tracking-wide">
       {{ groupTitle }}
     </legend>
-    <div class="buckets">
+    <div
+      v-if="buckets?.length"
+      class="buckets"
+    >
       <div
         v-for="(bucket, index) in buckets"
         :key="bucket.key"
@@ -43,6 +41,7 @@
         </div>
       </div>
     </div>
+    <div v-else><span class="text-sm text-gray-mid-dark">No matching filters</span></div>
     <!--
       TODO: this logic could probably cleaner. It flows in the opposite way of the loop
       for making checkboxes above.
@@ -116,6 +115,18 @@ export default {
     },
     bucketsLength() {
       return this.buckets.length
+    },
+    showFilterGroup() {
+      if (this.themeStore.isEdu) {
+        return this.groupTitle && !this.hideFilterGroups.includes(this.groupKey)
+      } else {
+        return (
+          typeof this.groupKey !== 'undefined' &&
+          typeof this.buckets !== 'undefined' &&
+          this.bucketsLength >= 1 &&
+          !this.hideFilterGroups.includes(this.groupKey)
+        )
+      }
     }
   },
   watch: {
