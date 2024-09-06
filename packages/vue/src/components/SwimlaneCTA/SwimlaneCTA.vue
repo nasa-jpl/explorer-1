@@ -1,5 +1,5 @@
 <template>
-  <div class="justify-items-center flex w-full">
+  <div class="justify-items-center flex w-full relative overflow-hidden">
     <BaseLink
       v-if="targetLink"
       class="w-full"
@@ -68,7 +68,7 @@
         :class="'SwimlaneCTA lg:hidden block' + computedClass"
       >
         <div
-          class="lg:flex-row lg:pr-12 lg:py-5 flex flex-col justify-center w-full px-5 py-6 bg-black bg-opacity-25"
+          class="lg:flex-row lg:pr-12 lg:py-5 flex flex-col justify-center w-full px-5 py-6 bg-black bg-opacity-25 font-primary"
         >
           <div class="lg:flex-row lg:pr-3 lg:pb-0 flex flex-col items-center justify-center pb-2">
             <div class="relative z-20 p-2 pl-0">
