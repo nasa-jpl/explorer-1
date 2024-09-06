@@ -68,12 +68,15 @@ export default defineComponent({
     // necessary for valid html
     // must account for <a>, <nuxt-link>, and <button> use-cases
     theHref(): string | undefined {
-      if (this.tag === 'nuxt-link') {
-        return this.to as string
+      let href = undefined
+      if (this.to && typeof this.to === 'string') {
+        href = this.to
       } else if (this.tag === 'a') {
-        return this.href
+        href = this.href
       }
-      return undefined
+      // filter out unnecessary `/home/` prefix from wagtail default site urlPaths
+      if (href && href.startsWith('/home/')) href = href.replace('/home/', '')
+      return href
     },
     computedTo() {
       let toValue = this.to
