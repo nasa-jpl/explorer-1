@@ -121,8 +121,8 @@ export default {
         return this.groupTitle && !this.hideFilterGroups.includes(this.groupKey)
       } else {
         return (
-          typeof groupKey !== 'undefined' &&
-          typeof buckets !== 'undefined' &&
+          typeof this.groupKey !== 'undefined' &&
+          typeof this.buckets !== 'undefined' &&
           this.bucketsLength >= 1 &&
           !this.hideFilterGroups.includes(this.groupKey)
         )
