@@ -39,7 +39,7 @@ export const BaseStory = {
     setup() {
       return { args }
     },
-    template: `<div>
+    template: `<div style="min-height: 80vh">
     <button type="button" :data-a11y-dialog-show="args.data.id">Open the dialog</button>
     <TimelineDialog :data="args.data" :dialog-box-class="args.dialogBoxClass"></TimelineDialog>
   </div>`
