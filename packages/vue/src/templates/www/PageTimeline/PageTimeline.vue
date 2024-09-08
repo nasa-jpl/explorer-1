@@ -5,11 +5,24 @@ import BackToTop from './../../../components/BackToTop/BackToTop.vue'
 import BlockMilestone, { Milestone } from './BlockMilestone.vue'
 import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
+// Use a SearchSelectMenu for consistency with the "sort by" dropdown.
 import SearchSelectMenu from './../../../components/SearchSelectMenu/SearchSelectMenu.vue'
 import TimelineDialog from './../../../components/TimelineDialog/TimelineDialog.vue'
 import YearTicker from './../../../components/YearTicker/YearTicker.vue'
 import ParallaxContainer from './../../../components/ParallaxContainer/ParallaxContainer.vue'
 import ParallaxElement from './../../../components/ParallaxElement/ParallaxElement.vue'
+
+/**
+ * This page contains a lot of overlapping elements. Layers from highest to lowest:
+ * - TimelineDialog
+ * - Dropdown menus within NavSecondary
+ * - BackToTop, Main navigation, NavSecondary
+ * - (YearTicker on mobile viewport)
+ * - Milestone cards (BlockMilestone / BlockCircleImageCard)
+ * - VerticalLine
+ * - Milestone background images
+ * - (YearTicker on desktop viewport)
+ */
 
 type SortBy = '' | 'latestDate' | 'oldestDate'
 
@@ -216,22 +229,10 @@ export default defineComponent({
       :image="data.heroImage"
       has-overlay
     />
-    <!--
-    /**
-     * This page contains a lot of overlapping elements. Layers from highest to lowest:
-     * - TimelineDialog
-     * - Dropdown menus within NavSecondary
-     * - BackToTop, Main navigation, NavSecondary
-     * - (YearTicker on mobile viewport)
-     * - Milestone cards (BlockMilestone / BlockCircleImageCard)
-     * - VerticalLine
-     * - Milestone background images
-     * - (YearTicker on desktop viewport)
-     */ -->
+
     <NavSecondary>
       <!-- Use a fixed height to simplify sticky positioning. -->
       <div class="w-full flex gap-4 align-content h-16">
-        <!-- Use a SearchSelectMenu for consistency with the "sort by" dropdown. -->
         <SearchSelectMenu
           v-model="jumpTo"
           v-model:select-value="jumpTo"
