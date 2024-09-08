@@ -10,7 +10,7 @@ interface TextInputProps {
   maxlength?: string
   pattern?: string
   title?: string
-  autofocus?: boolean
+  autoFocus?: boolean
   labelClass?: string
   inputClass?: string
 }
