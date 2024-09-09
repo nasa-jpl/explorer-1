@@ -76,8 +76,9 @@ const { data } = reactive(props)
     >
       <DetailHeadline
         :title="data.title"
-        label="Slideshow"
+        label="Gallery"
         :publication-date="data.publicationDate"
+        pill-color="secondary"
         schema
         pill
         hide-date
