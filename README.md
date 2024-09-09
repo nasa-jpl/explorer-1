@@ -27,8 +27,9 @@ make html-storybook
 ### Publishing to npm
 
 1. Update the package version for any packages that have been changed since the last publish (usually @explorer-1/vue and sometimes @explorer-1/common)
+2. Also update the package version for the main workspace.
 
-2. Commit changes and also tag with the latest main workspace version
+3. Commit changes and also tag with the latest main workspace version
 
    ```bash
    git commit -m "bumping package version for publishing"
@@ -37,7 +38,7 @@ make html-storybook
    git push --tags
    ```
 
-3. Publish relevant packages to npm:
+4. Publish relevant packages to npm:
 
    ```bash
    pnpm publish --filter \@explorer-1/vue
