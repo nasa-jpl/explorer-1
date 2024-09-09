@@ -107,18 +107,22 @@ export default defineComponent({
     </template>
 
     <!-- mission carousel -->
-    <HomepageMissionsCarousel
-      v-if="data?.missionsCarousel[0]?.targets?.length"
-      :data="data.missionsCarousel[0]"
-      class="lg:my-18 my-10"
-    />
+    <template v-if="data?.missionsCarousel">
+      <HomepageMissionsCarousel
+        v-if="data?.missionsCarousel[0]?.targets?.length"
+        :data="data.missionsCarousel[0]"
+        class="lg:my-18 my-10"
+      />
+    </template>
 
     <!-- featured robot -->
-    <HomepageFeaturedRobot
-      v-if="data?.featuredRobots?.length"
-      class="lg:my-24 my-12"
-      :data="data.featuredRobots[0].page"
-    />
+    <template v-if="data?.featuredRobots">
+      <HomepageFeaturedRobot
+        v-if="data?.featuredRobots?.length"
+        class="lg:my-24 my-12"
+        :data="data.featuredRobots[0].page"
+      />
+    </template>
 
     <!-- engage -->
     <div
