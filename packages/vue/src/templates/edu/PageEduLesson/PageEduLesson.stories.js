@@ -125,7 +125,7 @@ export const BaseStory = {
             domain: {
               domain: 'Counting and Cardinality'
             },
-            type: 'ccss_maths'
+            type: 'ccss_math'
           }
         },
         {
@@ -136,7 +136,7 @@ export const BaseStory = {
             domain: {
               domain: 'Counting and Cardinality'
             },
-            type: 'ccss_maths'
+            type: 'ccss_math'
           }
         },
         {
