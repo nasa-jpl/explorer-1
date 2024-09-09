@@ -4,7 +4,7 @@
     class="bg-star-pattern bg-black"
   >
     <section
-      class="HomepageMissionsCarousel ThemeVariantDark max-w-screen-3xl mx-auto overflow-hidden text-white bg-black bg-stars"
+      class="HomepageMissionsCarousel ThemeVariantDark max-w-screen-3xl mx-auto overflow-hidden text-white bg-black bg-stars select-none"
     >
       <div class="lg:BaseGrid lg:py-24 pt-14 container flex flex-col pb-5 mx-auto">
         <div class="xl:px-0 lg:col-end-8 xl:col-end-7 order-1 col-start-2 px-4">
@@ -30,7 +30,7 @@
         </div>
         <div class="lg:order-2 xl:px-0 flex justify-end order-3 col-start-10 col-end-13 px-4">
           <BaseLink
-            :to="{ name: 'missions' }"
+            to="/missions/"
             variant="primary"
           >
             {{ `All Missions` }}

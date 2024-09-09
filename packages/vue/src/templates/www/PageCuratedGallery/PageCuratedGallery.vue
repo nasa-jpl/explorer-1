@@ -265,6 +265,14 @@ export default defineComponent({
 
 <style lang="scss">
 .PageCuratedGallery {
+  // sharebuttons fix TODO: make better
+  @screen lg {
+    .ShareButtons {
+      transform: scale(0.75);
+      top: -1.8rem;
+      z-index: 999;
+    }
+  }
   .CuratedGallery-thumbnails,
   .CuratedGallery-carousel {
     @apply block;
