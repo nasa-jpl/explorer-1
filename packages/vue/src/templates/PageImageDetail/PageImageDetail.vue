@@ -159,10 +159,7 @@
                 <BaseLink
                   variant="none"
                   link-class="font-primary text-jpl-red hover:text-jpl-red-light w-full py-3 text-lg"
-                  :to="{
-                    name: 'missions',
-                    query: { mission_target: item.target }
-                  }"
+                  to="/missions/?mission_target={{ item.target }}"
                 >
                   {{ item.target }}
                 </BaseLink>
