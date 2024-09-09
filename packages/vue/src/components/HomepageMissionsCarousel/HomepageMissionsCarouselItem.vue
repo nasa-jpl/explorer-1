@@ -1,9 +1,43 @@
+<script lang="ts">
+// HomepageMissionsCarouselItem.vue
+/* Slide for the homepage missions carousel.
+   Links to the topic page if provided,
+   otherwise links to mission target as fallback.
+*/
+import { defineComponent } from 'vue'
+import BaseLink from './../BaseLink/BaseLink.vue'
+import IconCaret from './../Icons/IconCaret.vue'
+
+export default defineComponent({
+  name: 'HomepageMissionsCarouselItem',
+  components: {
+    BaseLink,
+    IconCaret
+  },
+  props: {
+    data: {
+      type: Object,
+      required: false,
+      default: undefined
+    }
+  },
+  computed: {
+    hasTopic(): boolean {
+      if (this.data && this.data.topic && this.data.topic.url) {
+        return true
+      }
+      return false
+    }
+  }
+})
+</script>
+
 <template>
   <BaseLink
     v-if="data"
     variant="none"
     :aria-label="hasTopic ? 'More about ' + data.topic.title : 'View ' + data.name + ' missions'"
-    :to="hasTopic ? data.topic.url : { name: 'missions', query: { mission_target: data.name } }"
+    :to="hasTopic ? data.topic.url : '/missions/?mission_target=' + data.name"
     class="HomepageMissionsCarouselItem group flex h-full pb-1 text-white"
     link-class="flex flex-col w-full"
   >
@@ -50,37 +84,7 @@
     </div>
   </BaseLink>
 </template>
-<script lang="ts">
-/* Slide for the homepage missions carousel.
-   Links to the topic page if provided,
-   otherwise links to mission target as fallback.
-*/
-import { defineComponent } from 'vue'
-import BaseLink from './../BaseLink/BaseLink.vue'
-import IconCaret from './../Icons/IconCaret.vue'
 
-export default defineComponent({
-  name: 'HomepageMissionsCarouselItem',
-  components: {
-    BaseLink,
-    IconCaret
-  },
-  props: {
-    data: {
-      type: Object,
-      required: false
-    }
-  },
-  computed: {
-    hasTopic(): boolean {
-      if (this.data && this.data.topic && this.data.topic.url) {
-        return true
-      }
-      return false
-    }
-  }
-})
-</script>
 <style lang="scss">
 .HomepageMissionsCarouselItem {
   .text-wrapper {
