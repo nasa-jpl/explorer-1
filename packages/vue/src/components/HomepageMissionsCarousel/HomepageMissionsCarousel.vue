@@ -1,7 +1,9 @@
 <template>
-  <div class="bg-star-pattern bg-black">
+  <div
+    v-if="data"
+    class="bg-star-pattern bg-black"
+  >
     <section
-      v-if="data"
       class="HomepageMissionsCarousel ThemeVariantDark max-w-screen-3xl mx-auto overflow-hidden text-white bg-black bg-stars"
     >
       <div class="lg:BaseGrid lg:py-24 pt-14 container flex flex-col pb-5 mx-auto">
