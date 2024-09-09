@@ -102,7 +102,7 @@ const standardsEla = computed(() => {
   return sortedStandards.value ? sortedStandards.value['ccss_english_language_arts'] : undefined
 })
 const standardsMath = computed(() => {
-  return sortedStandards.value ? sortedStandards.value['ccss_maths'] : undefined
+  return sortedStandards.value ? sortedStandards.value['ccss_math'] : undefined
 })
 const standardsNgss = computed(() => {
   return sortedStandards.value ? sortedStandards.value['ngss'] : undefined
@@ -185,7 +185,7 @@ const standardsIste = computed(() => {
               <div class="w-full lg:grid grid-cols-2 lg:gap-6 xl:gap-10">
                 <div v-if="standardsEla">
                   <div class="text-base font-semibold text-gray-dark mb-4">
-                    English Language Arts Standards
+                    English Language Arts Standards (CCSS - ELA)
                   </div>
                   <span class="sr-only">.</span>
                   <MetaPanelAccordion
@@ -195,7 +195,7 @@ const standardsIste = computed(() => {
                 </div>
                 <div v-if="standardsMath">
                   <div class="text-base font-semibold text-gray-dark mb-4">
-                    Common Core State Standards For Math
+                    Math Standards (CCSS - Math)
                   </div>
                   <span class="sr-only">.</span>
                   <MetaPanelAccordion
@@ -205,7 +205,7 @@ const standardsIste = computed(() => {
                 </div>
                 <div v-if="standardsNgss">
                   <div class="text-base font-semibold text-gray-dark mb-4">
-                    Next Generation Science Standards
+                    Science Standards (NGSS)
                   </div>
                   <span class="sr-only">.</span>
                   <MetaPanelAccordion
