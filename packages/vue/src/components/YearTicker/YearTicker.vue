@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="mounted"
     class="YearTicker"
     :style="`--duration:${duration}ms`"
   >
@@ -8,17 +9,19 @@
       v-for="(digit, index) in Array.from(targetYear)"
       :key="index"
       :name="animation"
-      :duration="duration"
+      mode="out-in"
+      tag="span"
     >
       <!-- Key by digit so there can be two digits rendered at the same time. -->
       <span
-        :key="digit"
+        :key="digit + index"
         class="Digit"
         >{{ digit }}</span
       >
     </transition-group>
   </div>
 </template>
+
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -34,17 +37,22 @@ export default defineComponent({
     return {
       year: this.targetYear,
       animation: 'digits-increment',
-      duration: 100
+      duration: 100,
+      mounted: false // Track if the component is mounted
     }
   },
   watch: {
-    targetYear(newYear) {
-      this.animation = this.year > newYear ? 'digits-increment' : 'digits-decrement'
+    targetYear(newYear, oldYear) {
+      this.animation = newYear > oldYear ? 'digits-increment' : 'digits-decrement'
       this.year = newYear
     }
+  },
+  mounted() {
+    this.mounted = true // Set mounted to true after mounting
   }
 })
 </script>
+
 <style lang="scss">
 .YearTicker {
   @apply sticky transform text-gray-light-mid translate-x-0.5 md:translate-x-0 ml-7 md:ml-8 lg:ml-30 pt-10 md:pt-5;
@@ -78,7 +86,7 @@ export default defineComponent({
 
   .header-sticky-showing & {
     // For the mobile viewport, offset by the height of the top header and NavSecondary combined.
-    top: calc(theme('spacing.18') + theme('spacing.16') + var(--top-offset));
+    top: calc(theme('spacing.18') + theme('spacing.16') + var (--top-offset));
   }
 
   &::after {
@@ -103,7 +111,6 @@ export default defineComponent({
   }
 
   .Digit {
-    // Force all digits in the same cell so they superpose.
     grid-area: 1 / 1 / 1 / 1;
     transition: transform var(--duration);
     transform: translateY(0);
@@ -112,6 +119,7 @@ export default defineComponent({
       transition-duration: 0.1ms;
     }
   }
+
   // transitions
   .digits-decrement-enter-active {
     transform: translateY(100%);

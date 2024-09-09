@@ -1,113 +1,28 @@
-<template>
-  <div
-    v-if="data"
-    class="-nav-offset"
-  >
-    <HeroLarge
-      :title="data.heroTitle"
-      :summary="data.heroSummary"
-      :image="data.heroImage"
-      has-overlay
-    />
-    <!--
-    /**
-     * This page contains a lot of overlapping elements. Layers from highest to lowest:
-     * - TimelineDialog
-     * - Dropdown menus within NavSecondary
-     * - BackToTop, Main navigation, NavSecondary
-     * - (YearTicker on mobile viewport)
-     * - Milestone cards (BlockMilestone / BlockCircleImageCard)
-     * - VerticalLine
-     * - Milestone background images
-     * - (YearTicker on desktop viewport)
-     */ -->
-    <NavSecondary>
-      <!-- Use a fixed height to simplify sticky positioning. -->
-      <div class="w-full flex gap-4 align-content h-16">
-        <!-- Use a SearchSelectMenu for consistency with the "sort by" dropdown. -->
-        <SearchSelectMenu
-          v-model="jumpTo"
-          v-model:select-value="jumpTo"
-          class="flex"
-          :options="getJumpDecades()"
-          title="Jump to"
-          group-key="jumpTo"
-        />
-        <SearchSelectMenu
-          v-model="sortBy"
-          v-model:select-value="sortBy"
-          class="flex"
-          :options="sortByOptions"
-          title="Sort by"
-          group-key="sortBy"
-        />
-      </div>
-    </NavSecondary>
-    <YearTicker :target-year="currentYear as string" />
-    <h2 class="sr-only">Milestones</h2>
-    <ParallaxContainer
-      class="MilestoneList BaseGrid"
-      :style="{ '--rows': milestones.length }"
-    >
-      <div
-        v-for="(milestone, index) in milestones"
-        :id="`milestone-${milestone.date}`"
-        :key="`${milestone.id}-fg`"
-        class="MilestoneListItem"
-        :style="{ '--row': index + 1 }"
-        :data-milestone-year="milestone.date.split('-')[0]"
-      >
-        <ParallaxElement
-          v-if="milestone.backgroundImage"
-          class="MilestoneImageWrapper"
-          :factor="index % 2 === 0 ? 0.18 : 0.22"
-          :offset="index * 80"
-        >
-          <img
-            class="MilestoneImage"
-            :src="milestone.backgroundImage.src.url"
-            :width="milestone.backgroundImage.src.width"
-            :height="milestone.backgroundImage.src.height"
-            :srcset="`${milestone.backgroundImage.screenMd.url} ${milestone.backgroundImage.screenMd.width}w ${milestone.backgroundImage.src.url} ${milestone.backgroundImage.src.width}w`"
-            :style="{
-              // Shift images left or right based on column, and then by a variable amount to create a staggered effect.
-              '--x-translate': `${(index % 2 === 0 ? 180 : -130) + 10 * (index % 3)}%`
-            }"
-            alt=""
-          />
-        </ParallaxElement>
-        <BlockMilestone
-          :data="milestone"
-          :handle-click="showMilestone"
-        />
-      </div>
-      <div class="VerticalLine"></div>
-    </ParallaxContainer>
-    <BackToTop
-      class="fixed right-10 bottom-10"
-      :threshold="900"
-      @click="handleBackToTop()"
-    />
-
-    <TimelineDialog
-      v-if="activeMilestone"
-      :data="activeMilestone"
-      dialog-box-class="sm:max-w-xl md:max-w-3xl"
-      @hide="() => (activeMilestone = null)"
-    ></TimelineDialog>
-  </div>
-</template>
 <script lang="ts">
+// PageTimeline.vue - Timeline component for displaying milestones.
 import { defineComponent, type PropType } from 'vue'
 import BackToTop from './../../../components/BackToTop/BackToTop.vue'
 import BlockMilestone, { Milestone } from './BlockMilestone.vue'
 import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
+// Use a SearchSelectMenu for consistency with the "sort by" dropdown.
 import SearchSelectMenu from './../../../components/SearchSelectMenu/SearchSelectMenu.vue'
 import TimelineDialog from './../../../components/TimelineDialog/TimelineDialog.vue'
 import YearTicker from './../../../components/YearTicker/YearTicker.vue'
 import ParallaxContainer from './../../../components/ParallaxContainer/ParallaxContainer.vue'
 import ParallaxElement from './../../../components/ParallaxElement/ParallaxElement.vue'
+
+/**
+ * This page contains a lot of overlapping elements. Layers from highest to lowest:
+ * - TimelineDialog
+ * - Dropdown menus within NavSecondary
+ * - BackToTop, Main navigation, NavSecondary
+ * - (YearTicker on mobile viewport)
+ * - Milestone cards (BlockMilestone / BlockCircleImageCard)
+ * - VerticalLine
+ * - Milestone background images
+ * - (YearTicker on desktop viewport)
+ */
 
 type SortBy = '' | 'latestDate' | 'oldestDate'
 
@@ -243,7 +158,8 @@ export default defineComponent({
     },
     getJumpDecades() {
       const decades: Decades = {
-        Top: ''
+        // uppercase string to avoid conflict with the lowercase 's' in the decade
+        TOP: ''
       }
 
       this.milestones.forEach((milestone) => {
@@ -301,16 +217,112 @@ export default defineComponent({
   }
 })
 </script>
+
+<template>
+  <div
+    v-if="data"
+    class="-nav-offset"
+  >
+    <HeroLarge
+      :title="data.heroTitle"
+      :summary="data.heroSummary"
+      :image="data.heroImage"
+      has-overlay
+    />
+
+    <NavSecondary>
+      <!-- Use a fixed height to simplify sticky positioning. -->
+      <div class="w-full flex gap-4 align-content h-16">
+        <SearchSelectMenu
+          v-model="jumpTo"
+          v-model:select-value="jumpTo"
+          class="flex"
+          :options="getJumpDecades()"
+          title="JUMP TO"
+          group-key="jumpTo"
+        />
+        <SearchSelectMenu
+          v-model="sortBy"
+          v-model:select-value="sortBy"
+          class="flex"
+          :options="sortByOptions"
+          title="SORT BY"
+          group-key="sortBy"
+        />
+      </div>
+    </NavSecondary>
+    <YearTicker :target-year="currentYear as string" />
+    <h2 class="sr-only">Milestones</h2>
+    <ParallaxContainer
+      class="MilestoneList BaseGrid"
+      :style="{ '--rows': milestones.length }"
+    >
+      <div
+        v-for="(milestone, index) in milestones"
+        :id="`milestone-${milestone.date}`"
+        :key="`${milestone.id}-fg`"
+        class="MilestoneListItem"
+        :style="{ '--row': index + 1 }"
+        :data-milestone-year="milestone.date.split('-')[0]"
+      >
+        <ParallaxElement
+          v-if="milestone.backgroundImage"
+          class="MilestoneImageWrapper"
+          :factor="0.18"
+          :offset="index * 80"
+        >
+          <img
+            class="MilestoneImage"
+            :src="milestone.backgroundImage.src.url"
+            :width="milestone.backgroundImage.src.width"
+            :height="milestone.backgroundImage.src.height"
+            :srcset="`${milestone.backgroundImage.screenMd.url} ${milestone.backgroundImage.screenMd.width}w ${milestone.backgroundImage.src.url} ${milestone.backgroundImage.src.width}w`"
+            :style="{
+              // Shift images left or right based on column, and then by a variable amount to create a staggered effect.
+              '--x-translate': `${(index % 2 === 0 ? 180 : -130) + 10 * (index % 3)}%`
+            }"
+            alt=""
+          />
+        </ParallaxElement>
+        <BlockMilestone
+          :data="milestone"
+          :handle-click="showMilestone"
+        />
+      </div>
+      <div class="VerticalLine"></div>
+    </ParallaxContainer>
+    <BackToTop
+      class="fixed right-10 bottom-10"
+      :threshold="900"
+      @click="handleBackToTop()"
+    />
+
+    <TimelineDialog
+      v-if="activeMilestone"
+      :data="activeMilestone"
+      dialog-box-class="sm:max-w-xl md:max-w-3xl"
+      @hide="() => (activeMilestone = null)"
+    ></TimelineDialog>
+  </div>
+</template>
+
 <style lang="scss">
 $line-width: 2px;
 $column-gap-width: 1.5rem;
+
+// makes the years able to have a lowercase 's' in the decade
+select {
+  &#select_jumpTo {
+    text-transform: none;
+  }
+}
 
 .NavSecondary {
   @apply block;
 }
 
 .MilestoneList {
-  @apply gap-y-0;
+  @apply gap-y-0 max-w-screen-4xl mx-auto;
 
   // Offset the list up so the vertical line starts from the secondary nav.
   @screen md {
@@ -347,6 +359,10 @@ $column-gap-width: 1.5rem;
   transform: translateX($line-width);
   grid-row: var(--row);
 
+  &:nth-of-type(1) {
+    @apply md:pt-20;
+  }
+
   &:nth-of-type(even) {
     @apply md:justify-start md:col-start-7;
 
@@ -369,7 +385,7 @@ $column-gap-width: 1.5rem;
 }
 
 .VerticalLine {
-  @apply border-l border-r border-jpl-red top-5 md:top-0 bottom-0 col-start-3 md:col-start-7;
+  @apply border-l border-r border-jpl-red top-5 md:top-2 bottom-0 col-start-3 md:col-start-7 mb-12;
 
   // Use CSS grid positioning rather than position absolute within relative,
   // so we don’t create a new stacking context within the ParallaxContainer.
@@ -383,6 +399,12 @@ $column-gap-width: 1.5rem;
     border-image-width: $line-width;
     border-image-slice: 1;
     transform: translateX(-1 * $column-gap-width);
+  }
+
+  &::before {
+    @apply absolute -top-px -left-2px w-1 h-30 bg-gradient-to-b from-white to-transparent;
+
+    content: '';
   }
 }
 </style>
