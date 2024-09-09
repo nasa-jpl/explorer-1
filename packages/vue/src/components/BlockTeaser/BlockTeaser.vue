@@ -44,7 +44,7 @@
         <BaseButton
           v-if="theTeaserPage"
           variant="primary"
-          :href="theTeaserPage.url"
+          :to="theTeaserPage.url"
           class="mt-8"
           :aria-label="`${theButtonText} - ${theHeading}`"
         >
