@@ -30,7 +30,7 @@
         </div>
         <div class="lg:order-2 xl:px-0 flex justify-end order-3 col-start-10 col-end-13 px-4">
           <BaseLink
-            :to="{ name: 'missions' }"
+            to="/missions/"
             variant="primary"
           >
             {{ `All Missions` }}
