@@ -77,9 +77,7 @@ export default defineComponent({
     // must account for <a>, <nuxt-link>, and <button> use-cases
     theHref(): string | undefined {
       let href = undefined
-      if (this.computedTo && typeof this.computedTo === 'string') {
-        href = this.computedTo
-      } else if (this.tag === 'a') {
+      if (this.tag === 'a') {
         href = this.href
       }
       return href
