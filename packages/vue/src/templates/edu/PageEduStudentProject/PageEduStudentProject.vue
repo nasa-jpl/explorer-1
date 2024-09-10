@@ -24,6 +24,7 @@ import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMed
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
+import StudentProjectBadge from '@explorer-1/common/src/images/svg/student-project-badge.svg'
 
 interface EduStudentProjectSectionObject extends PageEduStudentProjectSectionProps {
   type?: string
@@ -225,14 +226,29 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
 
   return filteredSections
 })
+
+const studentBadge = computed(() => {
+  return StudentProjectBadge
+})
 </script>
 <template>
   <div
     v-if="data"
     class="ThemeVariantLight pt-5 lg:pt-12"
   >
+    <div class="BaseGrid hidden lg:block container relative mx-auto z-20 pointer-events-none">
+      <div class="absolute top-0 left-0 col-start-1 col-end-3 text-right lg:-ml-2 xl:ml-4">
+        <img
+          :src="studentBadge"
+          alt=""
+          width="200"
+          height="200"
+          class="block w-full h-auto"
+        />
+      </div>
+    </div>
     <LayoutHelper
-      indent="col-2"
+      indent="col-3"
       class="mb-10"
     >
       <DetailHeadline
@@ -253,7 +269,7 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
         v-if="data?.lesson?.url"
         class="mt-8 font-bold text-body-lg"
       >
-        {{ 'Want to teach this?' }}
+        Want to teach this?
         <BaseLink
           class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
           variant="none"
@@ -264,6 +280,15 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
       </div>
     </LayoutHelper>
 
+    <div class="container relative mx-auto z-20 pointer-events-none">
+      <img
+        :src="studentBadge"
+        alt=""
+        width="150"
+        height="150"
+        class="absolute -mt-16 sm:-mt-24 right-0 lg:hidden md:w-[185px] md:h-[185px]"
+      />
+    </div>
     <!-- hero media -->
     <HeroMedia
       v-if="
