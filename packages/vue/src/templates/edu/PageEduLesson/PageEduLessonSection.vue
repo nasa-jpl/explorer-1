@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
-import { camelCase } from 'lodash'
+import { reactive } from 'vue'
 import type { ImageObject, StreamfieldBlockData } from './../../../interfaces'
 import BlockHeading, {
   type BlockHeadingObject
@@ -28,19 +27,15 @@ const props = withDefaults(defineProps<PageEduLessonSectionProps>(), {
   image: undefined
 })
 
-const { heading, blocks, image } = reactive(props)
-
-const anchorId = computed(() => {
-  return 'lesson_' + camelCase(heading?.heading)
-})
+const { heading, blocks, image, procedures, text } = reactive(props)
 </script>
 <template>
   <section
-    :id="anchorId"
     class="PageEduLessonSection"
     :aria-label="heading?.heading"
   >
     <LayoutHelper
+      v-if="heading"
       indent="col-3"
       class="lg:mb-8 mb-5"
     >

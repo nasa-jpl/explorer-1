@@ -95,7 +95,10 @@ export default defineComponent({
 })
 </script>
 <template>
-  <div v-if="theData">
+  <div
+    v-if="theData"
+    class="BlockImageStandard"
+  >
     <MixinFancybox
       v-if="theData.src"
       :src="theData.original || theData.src?.url"
@@ -122,7 +125,7 @@ export default defineComponent({
     </MixinFancybox>
     <div
       v-if="theData && hasCaptionArea"
-      class="lg:px-0 p-4 pb-0 print:pl-0"
+      class="caption-area pt-4 pb-0 print:pl-0"
     >
       <BaseImageCaption
         :data="theData"

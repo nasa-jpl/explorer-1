@@ -105,7 +105,10 @@ export default defineComponent({
 })
 </script>
 <template>
-  <div v-if="theData">
+  <div
+    v-if="theData"
+    class="BlockImageFullBleed"
+  >
     <div class="bg-gray-light">
       <div class="max-w-screen-3xl mx-auto">
         <MixinFancybox
@@ -137,7 +140,7 @@ export default defineComponent({
     </div>
     <div
       v-if="data && hasCaptionArea"
-      class="max-w-screen-3xl p-4 pb-0 mx-auto"
+      class="caption-area max-w-screen-3xl p-4 pb-0 mx-auto"
     >
       <BaseImageCaption
         :data="theData"

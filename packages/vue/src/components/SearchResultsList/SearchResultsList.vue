@@ -166,7 +166,10 @@ export default defineComponent({
               } else if (handle.startsWith('edu_resources')) {
                 date = null
                 primarySubject = page._source[handle + '__primary_subject'] as PrimarySubjectObject
-                if (page._source[handle + '__grade_levels']) {
+                if (
+                  page._source[handle + '__grade_levels'] &&
+                  handle !== 'edu_resources_edustudentprojectpage'
+                ) {
                   gradeLevels = [] as GradeLevelsObject[]
                   // @ts-expect-error
                   page._source[handle + '__grade_levels'].forEach((level) => {
