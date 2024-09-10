@@ -139,6 +139,7 @@ export default {
           if (newVal.length > 0) {
             query = {
               ...this.$route.query,
+              page: 1,
               [this.groupKey]: newVal.toString()
             }
           } else {
