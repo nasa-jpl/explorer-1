@@ -42,7 +42,7 @@ const time = computed(() => {
 <template>
   <div
     class="MetadataEduResource"
-    :class="{ '-compact text-body-sm': props.compact, 'text-body-lg': !props.compact }"
+    :class="{ '-compact text-sm xl:text-base': props.compact, 'text-body-lg': !props.compact }"
   >
     <div
       v-if="primarySubject"
@@ -69,6 +69,7 @@ const time = computed(() => {
     <div
       v-if="time && showTime"
       class="MetadataEduResourceItem"
+      :class="primarySubject && audience && time ? '-xlScreensOnly' : ''"
     >
       <IconTime
         class="MetadataEduResourceIcon text-[1.15em]"
@@ -102,10 +103,14 @@ const time = computed(() => {
   }
 
   &.-compact {
-    @apply flex flex-grow;
+    @apply flex flex-grow flex-wrap;
     .MetadataEduResourceItem {
+      @apply whitespace-nowrap;
       @apply max-w-none min-w-[4em];
       @apply mr-6 mb-0;
+      &.-xlScreensOnly {
+        @apply hidden xl:flex;
+      }
     }
   }
 }

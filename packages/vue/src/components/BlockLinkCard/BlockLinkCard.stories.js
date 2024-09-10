@@ -10,9 +10,9 @@ export default {
   argTypes: {
     size: {
       control: {
-        type: 'select',
-        options: ['sm', 'md', 'lg']
-      }
+        type: 'select'
+      },
+      options: ['sm', 'md', 'lg']
     },
     headingLevel: {
       description:
@@ -152,6 +152,29 @@ export const EventItemWithChip = {
     }
   }
 }
+export const EventWithDateNoTime = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    ...BlockLinkCardData,
+    showCalendarChip: true,
+    data: {
+      page: {
+        ...BlockLinkCardData.data,
+        __typename: 'EDUEventPage',
+        startDate: '2021-11-11',
+        startDatetime: null,
+        endDatetime: null,
+        endDate: '2021-11-12',
+        ongoing: false,
+        eventType: 'Workshop'
+      }
+    }
+  }
+}
 export const EduLesson = {
   decorators: [
     () => ({
@@ -160,6 +183,7 @@ export const EduLesson = {
   ],
   args: {
     ...BlockLinkCardData,
+    size: 'sm',
     data: {
       page: {
         __typename: 'EDULessonPage',
@@ -172,7 +196,10 @@ export const EduLesson = {
           { gradeLevel: '1' },
           { gradeLevel: '2' },
           { gradeLevel: '8' }
-        ]
+        ],
+        time: {
+          time: '1-2 hrs'
+        }
       }
     }
   }
