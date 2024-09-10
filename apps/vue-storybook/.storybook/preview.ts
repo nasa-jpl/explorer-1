@@ -190,7 +190,23 @@ const preview: Preview = {
           'Mixins',
           ['Overview'],
           'Templates',
-          ['WWW', 'EDU', 'PageContent']
+          [
+            'WWW',
+            'EDU',
+            [
+              'PageContent',
+              'PageEduNewsDetail',
+              'PageEduEventDetail',
+              'PageEduCollectionsDetail',
+              'PageEduExplainerArticle',
+              'PageEduLesson',
+              'PageEduStudentProject',
+              'PageEduTeachableMoment',
+              'PageEduMultimediaDetail',
+              '*'
+            ],
+            'PageContent'
+          ]
         ]
       }
     }

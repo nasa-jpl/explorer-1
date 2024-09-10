@@ -109,7 +109,7 @@ export default defineComponent({
   computed: {
     ...mapStores(useThemeStore),
     theImageCaption(): string | undefined {
-      if (this.image && this.caption && this.caption.length > 2 && this.displayCaption) {
+      if (this.displayCaption && this.image && this.caption && this.caption.length > 2) {
         return this.caption
       } else if (
         this.image &&
@@ -135,10 +135,12 @@ export default defineComponent({
     },
     // to handle captions for videos
     customCaption(): Partial<ImageObject> | undefined {
-      if ((this.caption && this.caption.length > 2) || this.credit) {
-        return {
-          caption: this.caption,
-          credit: this.credit
+      if (this.displayCaption) {
+        if ((this.caption && this.caption.length > 2) || this.credit) {
+          return {
+            caption: this.caption,
+            credit: this.credit
+          }
         }
       }
       return undefined

@@ -6,6 +6,7 @@ import type {
   StreamfieldBlockData
 } from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
+import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import type { BlockHeadingObject } from '../../../components/BlockHeading/BlockHeading.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
@@ -94,17 +95,35 @@ const heroEmpty = computed((): boolean => {
   return data?.hero?.length === 0
 })
 
+const theHero = computed(() => {
+  if (data?.hero?.length) {
+    return data.hero[0]
+  }
+  return undefined
+})
+
+const heroTitle = computed((): boolean => {
+  if (theHero.value) {
+    // excludes VideoBlock as this will autoplay
+    if (theHero.value.blockType === 'HeroTitleBlock') {
+      return true
+    }
+  }
+  return false
+})
+
 const heroInline = computed((): boolean => {
   // heroes with interactive elements have special handling
-  if (!heroEmpty.value && data?.hero) {
+  if (theHero.value && !heroTitle.value) {
     // excludes VideoBlock as this will autoplay
-    if (data?.hero[0].blockType === 'VideoBlock') {
+    if (theHero.value.blockType === 'VideoBlock') {
       return false
     } else if (
-      data?.hero[0].blockType === 'CarouselBlock' ||
-      data?.hero[0].blockType === 'IframeEmbedBlock' ||
-      data?.hero[0].blockType === 'VideoEmbedBlock' ||
-      data?.hero[0].blockType === 'ImageComparisonBlock'
+      data?.heroPosition === 'inline' ||
+      theHero.value.blockType === 'CarouselBlock' ||
+      theHero.value.blockType === 'IframeEmbedBlock' ||
+      theHero.value.blockType === 'VideoEmbedBlock' ||
+      theHero.value.blockType === 'ImageComparisonBlock'
     ) {
       return true
     }
@@ -251,24 +270,43 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
 
   return filteredSections
 })
+const computedClass = computed((): string => {
+  if (heroInline.value || heroEmpty.value) {
+    return 'pt-5 lg:pt-12'
+  } else if (!heroInline.value) {
+    return '-nav-offset'
+  }
+  return ''
+})
 </script>
 <template>
   <div
     v-if="data"
-    class="ThemeVariantLight pt-5 lg:pt-12"
+    class="ThemeVariantLight"
+    :class="computedClass"
   >
+    <!-- hero title -->
+    <HeroLarge
+      v-if="heroTitle && theHero"
+      :title="data.title"
+      :image="theHero.image"
+      :summary="theHero.heroSummary"
+      :custom-pill-type="data.__typename"
+    />
+
     <LayoutHelper
       indent="col-2"
       class="mb-10"
     >
       <DetailHeadline
+        v-if="data.title && !heroTitle"
         :title="data.title"
         label="Lesson"
         pill
       />
       <ShareButtonsEdu
         v-if="data?.url"
-        class="mt-4"
+        :class="heroTitle ? 'mt-10' : 'mt-4'"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
@@ -290,29 +328,30 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     <MetaPanel
       button="View Standards"
       theme="primary"
-      :class="{ 'mb-10 lg:mb-14': heroInline || data?.hero?.length === 0 }"
+      :class="{ 'mb-10 lg:mb-14': heroTitle || heroInline || data?.hero?.length === 0 }"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :time="data.customTime ? { time: data.customTime } : data.time"
       :grade-levels="data.gradeLevels"
       :standards="data.standards"
-      :negative-bottom="heroInline || data?.hero?.length !== 0"
+      :negative-bottom="(heroInline || data?.hero?.length !== 0) && !heroTitle"
     />
 
     <!-- hero media -->
     <HeroMedia
       v-if="
         !heroEmpty &&
+        !heroTitle &&
         !heroInline &&
-        data?.hero?.length &&
-        (data.hero[0].blockType === 'HeroImageBlock' || data.hero[0].blockType === 'VideoBlock')
+        theHero &&
+        (theHero.blockType === 'HeroImageBlock' || theHero.blockType === 'VideoBlock')
       "
       class="md:mb-12 lg:mb-18 mb-10"
-      :image="data.hero[0].image"
-      :video="data.hero[0].video"
-      :display-caption="data.hero[0].displayCaption"
-      :caption="data.hero[0].caption"
-      :credit="data.hero[0].credit"
+      :image="theHero.image"
+      :video="theHero.video"
+      :display-caption="theHero.displayCaption"
+      :caption="theHero.caption"
+      :credit="theHero.credit"
       :constrain="data.heroConstrain"
     />
 
