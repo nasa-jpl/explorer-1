@@ -23,16 +23,19 @@
         v-else-if="block.blockType == 'RichTextBlock'"
         :key="`richText${index}`"
         indent="col-3"
-        :class="seamlessText(index) ? 'lg:mb-8 mb-5' : 'lg:mb-18 mb-10'"
+        :class="seamlessText(index) ? 'lg:mb-8 mb-5' : marginBottom"
       >
-        <BlockText :text="block.value" />
+        <BlockText
+          :text="block.value"
+          :variant="size"
+        />
       </LayoutHelper>
 
       <!-- custom margin bottom that matches BlockText styles if followed by RichTextBlock -->
       <BlockInlineImage
         v-else-if="block.blockType == 'InlineImageBlock'"
         :key="`inlineImageBlock${index}`"
-        :class="seamlessText(index) ? 'lg:mb-8 mb-5' : 'lg:mb-18 mb-10'"
+        :class="seamlessText(index) ? 'lg:mb-8 mb-5' : marginBottom"
         :data="block"
       />
 
@@ -40,7 +43,7 @@
         v-else-if="block.blockType == 'ListBlock' && block.field === 'content_card_list'"
         :key="`listBlock${index}`"
         indent="col-3"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockListCards :data="block" />
       </LayoutHelper>
@@ -49,7 +52,7 @@
         v-else-if="block.blockType == 'KeyPointBlock'"
         :key="`keyPointBlock${index}`"
         indent="col-3"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockKeyPoints :data="block" />
       </LayoutHelper>
@@ -58,7 +61,7 @@
         v-else-if="block.blockType == 'QuoteBlock'"
         :key="`quoteBlock${index}`"
         indent="col-4"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockQuote :data="block as unknown as BlockQuoteAttributes" />
       </LayoutHelper>
@@ -67,7 +70,7 @@
         v-else-if="block.blockType == 'CTABlock'"
         :key="`ctaBlock${index}`"
         indent="col-4"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockCta :data="block" />
       </LayoutHelper>
@@ -76,7 +79,7 @@
         v-else-if="block.blockType == 'TeaserBlock'"
         :key="`teaserBlock${index}`"
         indent="col-2"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockTeaser
           :custom-label="block.customLabel"
@@ -93,7 +96,7 @@
         v-else-if="block.blockType == 'CarouselBlock'"
         :key="`carouselBlock${index}`"
         indent="col-2"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockImageCarousel
           :items="block.blocks"
@@ -104,7 +107,8 @@
       <div
         v-else-if="block.blockType == 'ImageGalleryBlock'"
         :key="`imageGalleryBlock${index}`"
-        class="max-w-screen-3xl lg:mb-18 mx-auto mb-10"
+        class="max-w-screen-3xl mx-auto"
+        :class="marginBottom"
       >
         <BlockImageGallery
           :title="block.galleryTitle"
@@ -119,7 +123,7 @@
         v-else-if="block.blockType == 'VideoBlock'"
         :key="`videoBlock${index}`"
         indent="col-2"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockVideo :data="block" />
       </LayoutHelper>
@@ -128,7 +132,7 @@
         v-else-if="block.blockType == 'VideoEmbedBlock'"
         :key="`videoEmbedBlock${index}`"
         indent="col-2"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockVideoEmbed :data="block as unknown as VideoBlockEmbedData" />
       </LayoutHelper>
@@ -136,7 +140,7 @@
       <BlockImage
         v-else-if="block.blockType == 'FullBleedImageBlock'"
         :key="`fullBleedImageBlock${index}`"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
         :data="block"
         :full-bleed="block.fullBleed"
       />
@@ -145,7 +149,7 @@
         v-else-if="block.blockType == 'ImageComparisonBlock'"
         :key="`imageComparisonBlock${index}`"
         indent="col-2"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockImageComparison :data="block" />
       </LayoutHelper>
@@ -154,7 +158,7 @@
         v-else-if="block.blockType == 'IframeEmbedBlock'"
         :key="`iframeEmbedBlock${index}`"
         indent="col-2"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockIframeEmbed :data="block" />
       </LayoutHelper>
@@ -163,7 +167,7 @@
         v-else-if="block.blockType == 'GitHubGistBlock'"
         :key="`GitHubGistBlock${index}`"
         indent="col-3"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockGist :data="block" />
       </LayoutHelper>
@@ -172,7 +176,7 @@
         v-else-if="block.blockType == 'TableBlock'"
         :key="`tableBlock${index}`"
         indent="col-3"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockTable :data="block" />
       </LayoutHelper>
@@ -181,7 +185,7 @@
         v-else-if="block.blockType == 'RelatedLinksBlock'"
         :key="`relatedLinksBlock${index}`"
         indent="col-3"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockRelatedLinks :data="block as any as BlockRelatedLinksObject" />
       </LayoutHelper>
@@ -195,7 +199,8 @@
       <div
         v-else-if="block.blockType == 'ListBlock' && block.field === 'card_grid'"
         :key="`cardGridBlock${index}`"
-        class="LayoutHelper md:BaseGrid md:container md:mx-auto lg:mb-18 mb-10"
+        class="LayoutHelper md:BaseGrid md:container md:mx-auto"
+        :class="marginBottom"
       >
         <div class="lg:col-start-2 lg:col-end-12 md:col-span-full md:px-4 px-0 relative">
           <BlockCardGrid :cards="block.items" />
@@ -205,7 +210,7 @@
       <div
         v-else-if="block.blockType === 'LinkCarouselBlock' && block.blocks?.length"
         :key="`linkCarouselBlock${index}`"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockLinkCarousel :items="block.blocks" />
       </div>
@@ -214,7 +219,7 @@
         v-else-if="block.blockType === 'LinkCardListBlock' && block.blocks?.length"
         :key="`linkCardListBlock${index}`"
         indent="col-2"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockLinkCardList :items="block.blocks" />
       </LayoutHelper>
@@ -223,7 +228,7 @@
         v-else-if="block.blockType == 'AccordionBlock'"
         :key="`accordionBlock${index}`"
         indent="col-3"
-        class="lg:mb-18 mb-10"
+        :class="marginBottom"
       >
         <BlockAccordion :data="block as unknown as AccordionBlockObject" />
       </LayoutHelper>
@@ -231,7 +236,8 @@
       <div
         v-else
         :key="index"
-        class="lg:mb-18 p-3 mb-10 overflow-hidden border"
+        class="p-3 overflow-hidden border"
+        :class="marginBottom"
       >
         <pre>{{ block }}</pre>
       </div>
@@ -315,6 +321,11 @@ export default defineComponent({
       default: 'default',
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
+    size: {
+      type: String as PropType<'small' | 'medium' | 'large'>,
+      required: false,
+      default: 'large'
+    },
     // eslint-disable-next-line vue/require-default-prop
     data: {
       type: Array as PropType<StreamfieldBlockData[]>,
@@ -324,6 +335,13 @@ export default defineComponent({
   computed: {
     layoutClass(): string {
       return variants[this.variant]
+    },
+    marginBottom() {
+      let margin = 'lg:mb-10 mb-6'
+      if (this.size === 'large') {
+        margin = 'lg:mb-18 mb-10'
+      }
+      return margin
     }
   },
   methods: {
@@ -365,6 +383,10 @@ export default defineComponent({
       .col-start-6.col-span-5 {
         @apply col-span-7;
       }
+    }
+
+    .p-4.caption-area {
+      @apply px-0;
     }
   }
 }

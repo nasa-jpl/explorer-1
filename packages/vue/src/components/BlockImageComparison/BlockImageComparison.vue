@@ -1,5 +1,8 @@
 <template>
-  <div v-if="data">
+  <div
+    v-if="data"
+    class="BlockImageComparison"
+  >
     <ClientOnly>
       <VueCompareImage
         v-if="theBeforeImageSrc && theAfterImageSrc"
@@ -12,7 +15,7 @@
     </ClientOnly>
     <div
       v-if="data.caption || customDetailUrl"
-      class="lg:px-0 p-4 pb-0 print:pl-0"
+      class="caption-area lg:px-0 p-4 pb-0 print:pl-0"
     >
       <BaseImageCaption
         :data="{ caption: data.caption }"

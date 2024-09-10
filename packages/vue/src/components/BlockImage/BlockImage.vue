@@ -25,7 +25,10 @@ export default defineComponent({
 })
 </script>
 <template>
-  <div v-if="data">
+  <div
+    v-if="data"
+    class="BlockImage"
+  >
     <template v-if="fullBleed && data.imageFullBleed">
       <BlockImageFullBleed
         :data="data.imageFullBleed"

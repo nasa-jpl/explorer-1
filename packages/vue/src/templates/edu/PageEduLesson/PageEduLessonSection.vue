@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<PageEduLessonSectionProps>(), {
   image: undefined
 })
 
-const { heading, blocks, image } = reactive(props)
+const { heading, blocks, image, procedures, text } = reactive(props)
 
 const anchorId = computed(() => {
   return 'lesson_' + camelCase(heading?.heading)
