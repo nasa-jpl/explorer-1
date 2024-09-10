@@ -274,14 +274,13 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         :image="data.thumbnailImage?.original"
       />
       <div
-        v-if="data.studentProject"
+        v-if="data.studentProject?.url"
         class="mt-8 font-bold text-body-lg"
       >
         Find out what’s involved for students:
         <BaseLink
           class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
           variant="none"
-          :to="data.studentProject.url"
         >
           View the Project Steps
         </BaseLink>
@@ -293,7 +292,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       :class="{ 'mb-10 lg:mb-14': heroInline || data?.hero?.length === 0 }"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
-      :time="data.time"
+      :time="data.customTime ? { time: data.customTime } : data.time"
       :grade-levels="data.gradeLevels"
       :standards="data.standards"
       :negative-bottom="heroInline || data?.hero?.length !== 0"

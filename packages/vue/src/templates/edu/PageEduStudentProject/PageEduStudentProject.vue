@@ -286,7 +286,7 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
       :class="{ 'mb-10 lg:mb-14': true }"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
-      :time="data.time"
+      :time="data.customTime ? { time: data.customTime } : data.time"
       :standards="data.standards"
       :negative-top="heroInline || data?.hero?.length !== 0"
     >
