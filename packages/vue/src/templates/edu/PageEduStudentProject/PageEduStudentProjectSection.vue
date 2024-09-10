@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
-import { camelCase } from 'lodash'
+import { reactive } from 'vue'
 import type { ImageObject, StreamfieldBlockData } from './../../../interfaces'
 import BlockHeading, {
   type BlockHeadingObject

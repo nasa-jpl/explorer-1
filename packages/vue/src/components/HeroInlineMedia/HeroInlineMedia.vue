@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
+import { reactive } from 'vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BlockIframeEmbed from './../BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockImageComparison from './../BlockImageComparison/BlockImageComparison.vue'
@@ -19,25 +19,6 @@ const props = withDefaults(defineProps<HeroInlineMediaProps>(), {
 })
 
 const { heroBlocks, constrain } = reactive(props)
-
-// const heroInline = computed(() => {
-//   // heroes with interactive elements have special handling
-//   if (heroBlocks?.length) {
-//     // excludes VideoBlock as this will autoplay
-//     if (heroBlocks[0].blockType === 'VideoBlock') {
-//       return false
-//     } else if (
-//       heroBlocks[0].blockType === 'HeroImageBlock' ||
-//       heroBlocks[0].blockType === 'CarouselBlock' ||
-//       heroBlocks[0].blockType === 'IframeEmbedBlock' ||
-//       heroBlocks[0].blockType === 'VideoEmbedBlock' ||
-//       heroBlocks[0].blockType === 'ImageComparisonBlock'
-//     ) {
-//       return true
-//     }
-//   }
-//   return false
-// })
 </script>
 <template>
   <div v-if="heroBlocks?.length">
