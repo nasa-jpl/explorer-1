@@ -10,9 +10,9 @@ export default {
   argTypes: {
     size: {
       control: {
-        type: 'select',
-        options: ['sm', 'md', 'lg']
-      }
+        type: 'select'
+      },
+      options: ['sm', 'md', 'lg']
     },
     headingLevel: {
       description:
@@ -183,6 +183,7 @@ export const EduLesson = {
   ],
   args: {
     ...BlockLinkCardData,
+    size: 'sm',
     data: {
       page: {
         __typename: 'EDULessonPage',
@@ -195,7 +196,10 @@ export const EduLesson = {
           { gradeLevel: '1' },
           { gradeLevel: '2' },
           { gradeLevel: '8' }
-        ]
+        ],
+        time: {
+          time: '1-2 hrs'
+        }
       }
     }
   }
