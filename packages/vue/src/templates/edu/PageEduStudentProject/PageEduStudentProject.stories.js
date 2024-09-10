@@ -59,7 +59,6 @@ export const BaseStory = {
           blockType: 'HeroImageBlock'
         }
       ],
-      heroConstrain: true,
 
       lesson: {
         title: 'Lesson',
@@ -131,7 +130,7 @@ export const BaseStory = {
       materialsHeading: 'Custom Materials Heading',
       materialsImage: BlockImageData.image,
 
-      stepsNumbering: true,
+      stepsNumbering: false,
 
       steps: [
         {
