@@ -281,6 +281,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         <BaseLink
           class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
           variant="none"
+          :to="data.studentProject?.url"
         >
           View the Project Steps
         </BaseLink>
