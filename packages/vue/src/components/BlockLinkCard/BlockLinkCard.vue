@@ -98,7 +98,7 @@
       </component>
       <p
         v-if="(theItem as EventCardObject).targetAudience"
-        :class="{ 'mt-2': !large, 'mt-4': large }"
+        :class="{ 'mt-1': !large, 'mt-4': large }"
       >
         <strong>Target Audience:</strong> {{ (theItem as EventCardObject).targetAudience }}
       </p>

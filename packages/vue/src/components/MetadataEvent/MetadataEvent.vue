@@ -76,7 +76,7 @@ const location = computed(() => {
   <div
     class="MetadataEvent"
     :class="{
-      '-compact text-body-sm': props.compact,
+      '-compact text-sm xl:text-base': props.compact,
       'text-body-lg': !props.compact,
       '-allow-break': props.allowBreak
     }"
@@ -173,8 +173,9 @@ const location = computed(() => {
   }
 
   &.-compact {
-    @apply flex flex-grow;
+    @apply flex flex-grow flex-wrap;
     .MetadataEventItem {
+      @apply whitespace-nowrap;
       @apply max-w-none min-w-[4em];
       @apply mr-6 mb-0;
     }
