@@ -11,7 +11,7 @@
     </BaseImagePlaceholder>
     <div
       v-if="data.caption || customDetailUrl"
-      class="lg:px-0 p-4 print:pl-0"
+      class="caption-area lg:px-0 p-4 print:pl-0"
     >
       <BaseImageCaption
         :data="data"

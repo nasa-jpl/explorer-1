@@ -15,30 +15,31 @@ import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsE
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
-import PageEduLessonSection, { type PageEduLessonSectionProps } from './PageEduLessonSection.vue'
+import MetaPanelItems from '../../../components/MetaPanelItems/MetaPanelItems.vue'
+import PageEduStudentProjectSection, {
+  type PageEduStudentProjectSectionProps
+} from './PageEduStudentProjectSection.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
+import StudentProjectBadge from '@explorer-1/common/src/images/svg/student-project-badge.svg'
 
-interface EduLessonSectionObject extends PageEduLessonSectionProps {
+interface EduStudentProjectSectionObject extends PageEduStudentProjectSectionProps {
   type?: string
 }
-interface EduLessonProcedureBlocks {
-  blocks: StreamfieldBlockData[]
-}
-export interface EduLessonProcedure {
-  sectionHeading?: string
-  steps?: EduLessonProcedureBlocks[]
-  stepsNumbering?: boolean
+export interface EduStudentProjectStep {
+  heading?: string
+  media?: StreamfieldBlockData[]
+  content?: StreamfieldBlockData[]
 }
 
-interface PageEduLessonObject extends PageEduResourcesObject {
+interface PageEduStudentProjectObject extends PageEduResourcesObject {
   [key: string]: any
   studentProject: {
     title: string
-    url: string
+    urlPath: string
   }
   overview: StreamfieldBlockData[]
   overviewHeading: string
@@ -46,37 +47,25 @@ interface PageEduLessonObject extends PageEduResourcesObject {
   materials: string
   materialsHeading: string
   materialsImage: ImageObject
-  management: StreamfieldBlockData[]
-  managementHeading: string
-  background: StreamfieldBlockData[]
-  backgroundHeading: string
-  procedures: EduLessonProcedure[]
-  proceduresHeading: string
-  proceduresStepsNumbering: boolean
-  discussion: StreamfieldBlockData[]
-  discussionHeading: string
-  assessment: StreamfieldBlockData[]
-  assessmentHeading: string
-  extensions: StreamfieldBlockData[]
-  extensionsHeading: string
-  techAddons: StreamfieldBlockData[]
-  techAddonsHeading: string
+  steps: EduStudentProjectStep[]
+  stepsHeading: string
+  stepsStepsNumbering?: boolean
   customSections: any
 }
-interface PageEduLessonProps {
-  data?: PageEduLessonObject
+interface PageEduStudentProjectProps {
+  data?: PageEduStudentProjectObject
 }
 
-const props = withDefaults(defineProps<PageEduLessonProps>(), {
+const props = withDefaults(defineProps<PageEduStudentProjectProps>(), {
   data: undefined
 })
 
 const { data } = reactive(props)
 
-const PageEduLessonJumpMenu = ref()
+const PageEduStudentProjectJumpMenu = ref()
 
 defineExpose({
-  PageEduLessonJumpMenu
+  PageEduStudentProjectJumpMenu
 })
 
 const stringAsHeadingBlockData = (
@@ -112,19 +101,7 @@ const heroInline = computed((): boolean => {
   return false
 })
 
-const sectionOrder = [
-  'top',
-  'overview',
-  'materials',
-  'management',
-  'background',
-  'procedures',
-  'discussion',
-  'assessment',
-  'extensions',
-  'techAddons',
-  'bottom'
-]
+const sectionOrder = ['top', 'overview', 'materials', 'steps', 'bottom']
 
 // mimic HeadingBlock data shape for defined section headings
 const staticSectionHeadings = computed((): { [key: string]: BlockHeadingObject } | undefined => {
@@ -133,9 +110,7 @@ const staticSectionHeadings = computed((): { [key: string]: BlockHeadingObject }
       // only include the heading if the section has content
       if (data[section]?.length) {
         const headingText =
-          section === 'techAddons'
-            ? 'Tech Add-ons'
-            : section.charAt(0).toUpperCase() + section.slice(1)
+          section === 'steps' ? 'Project Steps' : section.charAt(0).toUpperCase() + section.slice(1)
         acc[section] = stringAsHeadingBlockData(
           (data[`${section}Heading`] as HeadingLevel) || headingText
         )
@@ -192,13 +167,13 @@ const consolidatedBlocks = computed(() => {
       if (staticSectionHeadings.value && staticSectionHeadings.value[section]) {
         blocks.push(staticSectionHeadings.value[section])
       }
-      if (section !== 'materials' && section !== 'procedures') {
+      if (section !== 'materials' && section !== 'steps') {
         blocks.push(...data[section])
-      } else if (section === 'procedures' && data.procedures?.length) {
-        // get blocks in nested procedures
-        data.procedures.forEach((item) => {
-          if (item.steps?.length) {
-            blocks.push(...item.steps)
+      } else if (section === 'steps' && data.steps?.length) {
+        // get blocks in nested steps
+        data.steps.forEach((item) => {
+          if (item.content?.length) {
+            blocks.push(...item.content)
           }
         })
       }
@@ -220,9 +195,9 @@ const consolidatedBlocks = computed(() => {
   return blocks
 })
 
-// organize data to render with PageEduLessonSection component
-const consolidatedSections = computed((): EduLessonSectionObject[] => {
-  const sections: EduLessonSectionObject[] = []
+// organize data to render with PageEduStudentProjectSection component
+const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
+  const sections: EduStudentProjectSectionObject[] = []
   // include custom top section
   if (keyedCustomSections.value && keyedCustomSections.value['top']) {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['top'] })
@@ -231,9 +206,9 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     if (data && data[section]) {
       sections.push({
         heading: staticSectionHeadings.value ? staticSectionHeadings.value[section] : undefined,
-        blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
+        blocks: section !== 'materials' && section !== 'steps' ? data[section] : undefined,
         text: section === 'materials' ? data[section] : undefined,
-        procedures: section === 'procedures' ? data[section] : undefined
+        steps: section === 'steps' ? data[section] : undefined
       })
     }
     // include custom "after_" sections
@@ -246,10 +221,14 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['bottom'] })
   }
   const filteredSections = sections.filter(
-    (item) => item.text || item.blocks?.length || item.procedures?.length
+    (item) => item.text || item.blocks?.length || item.steps?.length
   )
 
   return filteredSections
+})
+
+const studentBadge = computed(() => {
+  return StudentProjectBadge
 })
 </script>
 <template>
@@ -257,14 +236,27 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     v-if="data"
     class="ThemeVariantLight pt-5 lg:pt-12"
   >
+    <div class="BaseGrid hidden lg:block container relative mx-auto z-20 pointer-events-none">
+      <div class="absolute top-0 left-0 col-start-1 col-end-3 text-right lg:-ml-2 xl:ml-4">
+        <img
+          :src="studentBadge"
+          alt=""
+          width="200"
+          height="200"
+          class="block w-full h-auto"
+        />
+      </div>
+    </div>
     <LayoutHelper
-      indent="col-2"
+      indent="col-3"
       class="mb-10"
     >
       <DetailHeadline
+        v-if="data.title"
         :title="data.title"
-        label="Lesson"
+        label="Student Project"
         pill
+        pill-color="secondary"
       />
       <ShareButtonsEdu
         v-if="data?.url"
@@ -274,30 +266,29 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         :image="data.thumbnailImage?.original"
       />
       <div
-        v-if="data.studentProject?.url"
+        v-if="data?.lesson?.url"
         class="mt-8 font-bold text-body-lg"
       >
-        Find out what’s involved for students:
+        Want to teach this?
         <BaseLink
           class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
           variant="none"
+          :to="data.lesson.url"
         >
-          View the Project Steps
+          View the Lesson Plan
         </BaseLink>
       </div>
     </LayoutHelper>
-    <MetaPanel
-      button="View Standards"
-      theme="primary"
-      :class="{ 'mb-10 lg:mb-14': heroInline || data?.hero?.length === 0 }"
-      :primary-subject="data.primarySubject"
-      :additional-subjects="data.additionalSubjects"
-      :time="data.customTime ? { time: data.customTime } : data.time"
-      :grade-levels="data.gradeLevels"
-      :standards="data.standards"
-      :negative-bottom="heroInline || data?.hero?.length !== 0"
-    />
 
+    <div class="container relative mx-auto z-20 pointer-events-none">
+      <img
+        :src="studentBadge"
+        alt=""
+        width="150"
+        height="150"
+        class="absolute -mt-16 sm:-mt-24 right-0 lg:hidden md:w-[185px] md:h-[185px]"
+      />
+    </div>
     <!-- hero media -->
     <HeroMedia
       v-if="
@@ -306,19 +297,16 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         data?.hero?.length &&
         (data.hero[0].blockType === 'HeroImageBlock' || data.hero[0].blockType === 'VideoBlock')
       "
-      class="md:mb-12 lg:mb-18 mb-10"
       :image="data.hero[0].image"
       :video="data.hero[0].video"
-      :display-caption="data.hero[0].displayCaption"
+      :display-caption="false"
       :caption="data.hero[0].caption"
       :credit="data.hero[0].credit"
       :constrain="data.heroConstrain"
     />
-
-    <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
-      v-if="!heroEmpty && heroInline && data.hero?.length"
-      class="lg:mb-22 mb-10"
+      v-else-if="!heroEmpty && heroInline && data.hero?.length"
+      class="lg:mb-14 mb-10"
     >
       <HeroInlineMedia
         :hero-blocks="data.hero"
@@ -326,11 +314,43 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       />
     </LayoutHelper>
 
+    <MetaPanel
+      button="Info for Teachers"
+      theme="stars"
+      :class="{ 'mb-10 lg:mb-14': true }"
+      :primary-subject="data.primarySubject"
+      :additional-subjects="data.additionalSubjects"
+      :time="data.customTime ? { time: data.customTime } : data.time"
+      :standards="data.standards"
+      :negative-top="!heroInline && !heroEmpty"
+    >
+      <template #metaInfo>
+        <div :class="data?.standards ? 'border-b border-gray-light-mid' : ''">
+          <div class="py-6 lg:py-8">
+            <MetaPanelItems :grade-levels="data?.gradeLevels" />
+            <div
+              v-if="data.lesson"
+              class="mt-8 font-bold text-body-s"
+            >
+              Want to teach this?
+              <BaseLink
+                class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
+                variant="none"
+                :to="data.lesson.url"
+              >
+                View the Lesson Plan
+              </BaseLink>
+            </div>
+          </div>
+        </div>
+      </template>
+    </MetaPanel>
+
     <NavJumpMenu
-      ref="PageEduLessonJumpMenu"
+      ref="PageEduStudentProjectJumpMenu"
       :title="data.title"
       :blocks="consolidatedBlocks"
-      dropdown-text="In this lesson"
+      dropdown-text="In this project"
     />
 
     <template
@@ -341,11 +361,12 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         v-if="value.type === 'streamfield'"
         :data="value.blocks"
       />
-      <PageEduLessonSection
+      <PageEduStudentProjectSection
         v-else
         :heading="value.heading"
         :blocks="value.blocks"
-        :procedures="value.procedures"
+        :steps="value.steps"
+        :steps-numbering="data.stepsNumbering"
         :text="value.text"
         :image="value.image"
       />
@@ -370,7 +391,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     <BlockLinkCarousel
       item-type="cards"
       class="lg:my-24 my-12 print:px-4"
-      :heading="data.relatedContentHeading || 'Related Lessons & Projects'"
+      :heading="data.relatedContentHeading || 'Related Projects'"
       :items="data.relatedContent"
     />
 

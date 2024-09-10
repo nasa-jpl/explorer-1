@@ -2,6 +2,7 @@ import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories
 import { BlockIframeEmbedData } from './../../../components/BlockIframeEmbed/BlockIframeEmbed.stories.js'
 import { BlockImageCarouselData } from './../../../components/BlockImageCarousel/BlockImageCarousel.stories'
 import { BlockImageData } from './../../../components/BlockImage/BlockImage.stories'
+import { BlockInlineImageData } from './../../../components/BlockInlineImage/BlockInlineImage.stories'
 import { BlockHeadingData } from './../../../components/BlockHeading/BlockHeading.stories'
 import { BlockImageComparisonData } from './../../../components/BlockImageComparison/BlockImageComparison.stories'
 import { BaseVideoData } from './../../../components/BaseVideo/BaseVideo.stories'
@@ -12,12 +13,12 @@ import {
   BlockStreamfieldTruncatedData,
   BlockStreamfieldMinimalData
 } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
-import PageEduLesson from './PageEduLesson.vue'
+import PageEduStudentProject from './PageEduStudentProject.vue'
 import { AboutTheAuthorData } from './../../../components/AboutTheAuthor/AboutTheAuthor.stories'
 
 export default {
-  title: 'Templates/EDU/PageEduLesson',
-  component: PageEduLesson,
+  title: 'Templates/EDU/PageEduStudentProject',
+  component: PageEduStudentProject,
   tags: ['!autodocs'],
   decorators: [
     () => ({
@@ -36,14 +37,14 @@ export default {
 export const BaseStory = {
   args: {
     data: {
-      __typename: 'EDULessonPage',
-      title: 'Test Lesson',
-      url: 'http://localhost:3000/edu/resources/test-lesson',
-      pageType: 'EDUExplainerArticlePage',
-      contentType: 'edu_resources.EDUExplainerArticlePage',
+      __typename: 'EDUStudentProjectPage',
+      title: 'Test Student Project',
+      url: '/edu/resources/test-student-project',
+      pageType: 'EDUStudentProjectPage',
+      contentType: 'edu_resources.EDUStudentProjectPage',
       searchDescription: '',
-      seoTitle: 'Test Lesson',
-      slug: 'test-lesson',
+      seoTitle: 'Test Student Project',
+      slug: 'test-student-project',
       publicationDate: '2024-08-16',
       lastPublishedAt: '2024-08-22T02:33:13.507206+00:00',
       thumbnailImage: {
@@ -58,10 +59,9 @@ export const BaseStory = {
           blockType: 'HeroImageBlock'
         }
       ],
-      heroConstrain: true,
 
-      studentProject: {
-        title: 'Student Project',
+      lesson: {
+        title: 'Lesson',
         url: '/path-to-student-project'
       },
 
@@ -84,6 +84,7 @@ export const BaseStory = {
       time: {
         time: 'Under 30 mins'
       },
+      customTime: undefined,
       standards: [
         {
           standard: {
@@ -92,17 +93,6 @@ export const BaseStory = {
               'Read closely to determine what the text says explicitly and to make logical inferences from it; cite specific textual evidence when writing or speaking to support conclusions drawn from the text.',
             domain: {
               domain: 'College and Career Readiness Anchor Standards for Reading'
-            },
-            type: 'ccss_english_language_arts'
-          }
-        },
-        {
-          standard: {
-            code: 'RL.3.2',
-            definition:
-              'Recount stories, including fables, folktales, and myths from diverse cultures; determine the central message, lesson, or moral and explain how it is conveyed through key details in the text.',
-            domain: {
-              domain: 'Reading Standards for Literature'
             },
             type: 'ccss_english_language_arts'
           }
@@ -120,27 +110,6 @@ export const BaseStory = {
         },
         {
           standard: {
-            code: 'K.CC.A',
-            definition: 'Know number names and the count sequence.',
-            domain: {
-              domain: 'Counting and Cardinality'
-            },
-            type: 'ccss_math'
-          }
-        },
-        {
-          standard: {
-            code: 'K.CC.A.3',
-            definition:
-              'Write numbers from 0 to 20. Represent a number of objects with a written numeral 0-20 (with 0 representing a count of no objects).',
-            domain: {
-              domain: 'Counting and Cardinality'
-            },
-            type: 'ccss_math'
-          }
-        },
-        {
-          standard: {
             code: 'K-PS2-1',
             definition:
               'Plan and conduct an investigation to compare the effects of different strengths or different directions of pushes and pulls on the motion of an object.',
@@ -152,117 +121,48 @@ export const BaseStory = {
         }
       ],
 
-      overview: [],
-      overviewHeading: 'Custom Overview heading',
+      overview: BlockStreamfieldMinimalData.body,
+      overviewHeading: undefined,
       overviewImage: BlockImageData.image,
 
       materials:
         '<ul><li data-block-key="nvq4l">list item one</li><li data-block-key="efmt7">list item two</li><li data-block-key="d0f66">list item three this one is really long and the text just keeps on going lorem ipsum dolor sit amet consectatur</li></ul><p data-block-key="bksrq">Paragraph to appear below.</p>',
-      materialsHeading: 'Materials stuff',
+      materialsHeading: 'Custom Materials Heading',
       materialsImage: BlockImageData.image,
 
-      management: BlockStreamfieldMinimalData.body,
-      managementHeading: 'Management stuff',
+      stepsNumbering: false,
 
-      background: [
-        ...BlockStreamfieldMinimalData.body,
+      steps: [
         {
-          blockType: 'RichTextBlock',
-          value:
-            '<ol><li data-block-key="wv2pw">A list<ol><li data-block-key="mc91">A nested list should be a.<ol><li data-block-key="3p0pb">Another nested should be i.<ol><li data-block-key="22afo">Another is a number again.</li></ol></li></ol></li></ol></li></ol>'
-        }
-      ],
-      backgroundHeading: 'Background heading',
-
-      procedures: [
-        {
-          sectionHeading: 'Section Heading 1',
-          stepsNumbering: true,
-          steps: [
-            {
-              blocks: [
-                // {
-                //   blockType: 'HeadingBlock',
-                //   heading: 'Heading Text',
-                //   level: 'h3',
-                //   size: 'h3',
-                //   blockId: `${Math.random().toString(36).slice(2)}`
-                // },
-                ...BlockStreamfieldMinimalData.body,
-                {
-                  blockType: 'HeadingBlock',
-                  heading: 'Heading Text',
-                  level: 'h3',
-                  size: 'h3',
-                  blockId: `${Math.random().toString(36).slice(2)}`
-                },
-
-                {
-                  blockType: 'RichTextBlock',
-                  value:
-                    '<ol><li data-block-key="wv2pw">A list<ol><li data-block-key="mc91">A nested list should be a.<ol><li data-block-key="3p0pb">Another nested should be i.<ol><li data-block-key="22afo">Another is a number again.</li></ol></li></ol></li></ol></li></ol>'
-                }
-              ]
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            }
-          ]
+          heading: 'Lorem ipsum dolor no media',
+          media: [],
+          content: [BlockImageData, ...BlockStreamfieldMinimalData.body, BlockInlineImageData.block]
         },
         {
-          // sectionHeading: 'Section Heading 2',
-          stepsNumbering: true,
-          steps: [
+          heading: 'Sit amet',
+          media: [
             {
-              blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
+              blockType: 'VideoBlock',
+              video: BaseVideoData,
+              caption: 'Lorem ipsum dolor sit amet',
+              credit: 'NASA/JPL'
             }
-          ]
+          ],
+          content: BlockStreamfieldMinimalData.body
         },
         {
-          sectionHeading: 'Section Heading 3',
-          stepsNumbering: false,
-          steps: [
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            }
-          ]
+          heading: 'Consectatur adipscing',
+          media: [BlockImageComparisonData],
+          content: BlockStreamfieldMinimalData.body
         }
       ],
-      proceduresHeading: 'Procedures heading',
-
-      discussion: BlockStreamfieldMinimalData.body,
-      discussionHeading: 'Discussion heading',
-
-      assessment: BlockStreamfieldMinimalData.body,
-      assessmentHeading: 'Assessment heading',
-
-      extensions: BlockStreamfieldMinimalData.body,
-      extensionsHeading: 'Extensions heading',
-
-      techAddons: BlockStreamfieldMinimalData.body,
-      techAddonsHeading: 'Tech addons heading',
 
       customSections: [
         {
-          blockType: 'EDULessonCustomSectionBlock',
+          blockType: 'EDUStudentProjectCustomSectionBlock',
           content: BlockStreamfieldTruncatedData.body,
           heading: BlockHeadingData,
-          position: 'after_procedures'
+          position: 'after_overview'
         }
       ],
 

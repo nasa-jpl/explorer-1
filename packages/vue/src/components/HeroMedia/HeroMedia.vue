@@ -44,7 +44,7 @@
       <div
         v-if="hasCaptionArea"
         :class="captionVisibilityClass"
-        class="max-w-screen-3xl ThemeVariantGray bg-gray-light bg-opacity-90 lg:bg-opacity-100 ThemeVariantGray lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto print:block"
+        class="caption-area max-w-screen-3xl ThemeVariantGray bg-gray-light bg-opacity-90 lg:bg-opacity-100 ThemeVariantGray lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto print:block"
       >
         <BaseImageCaption :data="theImageData || customCaption" />
       </div>

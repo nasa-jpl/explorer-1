@@ -1,5 +1,8 @@
 <template>
-  <div v-if="theImageData">
+  <div
+    v-if="theImageData"
+    class="BlockImageCarouselItem"
+  >
     <MixinFancybox
       :src="theImageData.original || theImageData.src?.url"
       :caption="theImageData.caption"
@@ -28,7 +31,7 @@
     </MixinFancybox>
     <div
       v-if="theImageData && hasCaptionArea"
-      class="lg:px-0 lg:pt-3 px-4 pt-10"
+      class="caption-area lg:px-0 lg:pt-3 px-4 pt-10"
     >
       <BaseImageCaption
         class="slide-caption"
