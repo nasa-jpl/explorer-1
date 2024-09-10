@@ -17,7 +17,7 @@ export interface PageEduStudentProjectSectionProps {
   heading?: BlockHeadingObject
   blocks?: StreamfieldBlockData[]
   steps?: EduStudentProjectStep[]
-  stepsNumbering: boolean
+  stepsNumbering?: boolean
   text?: string
   image?: ImageObject
 }
@@ -32,18 +32,14 @@ const props = withDefaults(defineProps<PageEduStudentProjectSectionProps>(), {
 })
 
 const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
-
-const anchorId = computed(() => {
-  return 'lesson_' + camelCase(heading?.heading)
-})
 </script>
 <template>
   <section
-    :id="anchorId"
     class="PageEduStudentProjectSection"
     :aria-label="heading?.heading"
   >
     <LayoutHelper
+      v-if="heading"
       indent="col-3"
       class="lg:mb-8 mb-5"
     >
@@ -86,7 +82,7 @@ const anchorId = computed(() => {
             <!-- split 50/50 -->
             <div class="lg:grid grid-cols-2 gap-6 lg:gap-10">
               <div
-                :class="index % 2 === 1 ? 'order-1' : 'order-2'"
+                :class="index % 2 === 0 ? 'order-1' : 'order-2'"
                 class="mb-6 lg:mb-0"
               >
                 <BaseHeading
@@ -110,7 +106,7 @@ const anchorId = computed(() => {
               </div>
               <HeroInlineMedia
                 :hero-blocks="step.media"
-                :class="index % 2 === 0 ? 'order-1' : 'order-2'"
+                :class="index % 2 === 1 ? 'order-1' : 'order-2'"
                 constrain
               />
             </div>

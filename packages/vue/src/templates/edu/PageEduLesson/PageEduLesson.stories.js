@@ -62,7 +62,7 @@ export const BaseStory = {
 
       studentProject: {
         title: 'Student Project',
-        urlPath: '/path-to-student-project'
+        url: '/path-to-student-project'
       },
 
       primarySubject: {

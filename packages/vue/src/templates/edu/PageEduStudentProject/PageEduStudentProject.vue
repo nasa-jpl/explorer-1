@@ -15,6 +15,7 @@ import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsE
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
+import MetaPanelItems from '../../../components/MetaPanelItems/MetaPanelItems.vue'
 import PageEduStudentProjectSection, {
   type PageEduStudentProjectSectionProps
 } from './PageEduStudentProjectSection.vue'
@@ -235,6 +236,7 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
       class="mb-10"
     >
       <DetailHeadline
+        v-if="data.title"
         :title="data.title"
         label="Student Project"
         pill
@@ -247,11 +249,11 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
         :title="data.title"
         :image="data.thumbnailImage?.original"
       />
-      <p
-        v-if="data.lesson"
+      <div
+        v-if="data?.lesson?.url"
         class="mt-8 font-bold text-body-lg"
       >
-        Want to teach this?
+        {{ 'Want to teach this?' }}
         <BaseLink
           class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
           variant="none"
@@ -259,7 +261,7 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
         >
           View the Lesson Plan
         </BaseLink>
-      </p>
+      </div>
     </LayoutHelper>
 
     <!-- hero media -->
@@ -285,10 +287,30 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :time="data.time"
-      :grade-levels="data.gradeLevels"
       :standards="data.standards"
       :negative-top="heroInline || data?.hero?.length !== 0"
-    />
+    >
+      <template #metaInfo>
+        <div :class="data?.standards ? 'border-b border-gray-light-mid' : ''">
+          <div class="py-6 lg:py-8">
+            <MetaPanelItems :grade-levels="data?.gradeLevels" />
+            <div
+              v-if="data.lesson"
+              class="mt-8 font-bold text-body-s"
+            >
+              Want to teach this?
+              <BaseLink
+                class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
+                variant="none"
+                :to="data.lesson.url"
+              >
+                View the Lesson Plan
+              </BaseLink>
+            </div>
+          </div>
+        </div>
+      </template>
+    </MetaPanel>
 
     <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper

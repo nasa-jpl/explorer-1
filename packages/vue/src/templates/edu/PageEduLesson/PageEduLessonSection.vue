@@ -29,18 +29,14 @@ const props = withDefaults(defineProps<PageEduLessonSectionProps>(), {
 })
 
 const { heading, blocks, image, procedures, text } = reactive(props)
-
-const anchorId = computed(() => {
-  return 'lesson_' + camelCase(heading?.heading)
-})
 </script>
 <template>
   <section
-    :id="anchorId"
     class="PageEduLessonSection"
     :aria-label="heading?.heading"
   >
     <LayoutHelper
+      v-if="heading"
       indent="col-3"
       class="lg:mb-8 mb-5"
     >

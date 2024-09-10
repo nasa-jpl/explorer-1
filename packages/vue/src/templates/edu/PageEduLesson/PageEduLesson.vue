@@ -38,7 +38,7 @@ interface PageEduLessonObject extends PageEduResourcesObject {
   [key: string]: any
   studentProject: {
     title: string
-    urlPath: string
+    url: string
   }
   overview: StreamfieldBlockData[]
   overviewHeading: string
@@ -273,7 +273,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         :title="data.title"
         :image="data.thumbnailImage?.original"
       />
-      <p
+      <div
         v-if="data.studentProject"
         class="mt-8 font-bold text-body-lg"
       >
@@ -281,11 +281,11 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         <BaseLink
           class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
           variant="none"
-          :to="data.studentProject.urlPath"
+          :to="data.studentProject.url"
         >
           View the Project Steps
         </BaseLink>
-      </p>
+      </div>
     </LayoutHelper>
     <MetaPanel
       button="View Standards"
