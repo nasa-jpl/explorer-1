@@ -56,9 +56,12 @@ export const BaseStory = {
       hero: [
         {
           ...HeroMediaData,
-          blockType: 'HeroImageBlock'
+          blockType: 'HeroImageBlock',
+          displayCaption: false
         }
       ],
+      heroConstrain: false,
+      heroPosition: 'full_bleed',
 
       lesson: {
         title: 'Lesson',
@@ -130,7 +133,7 @@ export const BaseStory = {
       materialsHeading: 'Custom Materials Heading',
       materialsImage: BlockImageData.image,
 
-      stepsNumbering: false,
+      stepsNumbering: true,
 
       steps: [
         {
@@ -175,6 +178,29 @@ export const BaseStory = {
   }
 }
 
+export const HeroTitle = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      hero: [
+        {
+          ...HeroMediaData,
+          heroSummary: 'Text appears below the title',
+          blockType: 'HeroTitleBlock'
+        }
+      ]
+    }
+  }
+}
+
+export const InlineHero = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      heroPosition: 'inline'
+    }
+  }
+}
 export const HeroCarousel = {
   args: {
     data: {
@@ -223,7 +249,8 @@ export const HeroVideoEmbed = {
           embed: {
             embed: `<iframe title="Meet NASA's Diana Trujillo - Embedded Hero" width="480" height="270" src="https://www.youtube.com/embed/vUuUyYqI83Q?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
           },
-          blockType: 'VideoEmbedBlock'
+          blockType: 'VideoEmbedBlock',
+          displayCaption: false
         }
       ]
     }
