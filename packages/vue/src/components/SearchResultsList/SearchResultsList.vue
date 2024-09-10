@@ -150,20 +150,25 @@ export default defineComponent({
                     : null
               const pageType = page._source[handle + '__label']
               if (handle === 'events_eventpage') {
+                // WWW Events
                 date = 'Event date: ' + parseDate(page._source[handle + '__start_datetime'])
               } else if (handle === 'edu_events_edueventpage') {
+                // EDU Events
                 date = null
                 location = page._source[handle + '__location_filter']
               } else if (handle === 'missions_mission') {
+                // WWW Missions
                 date = page._source.display_date_filter
                   ? 'Launch date: ' + page._source.display_date_filter
                   : typeof page._source.publication_date_filter !== 'undefined'
                     ? 'Published: ' + parseDate(page._source.publication_date_filter)
                     : 'Published: ' + parseDate(page._source.first_published_at_filter)
               } else if (handle === 'profiles_profilepage') {
+                // WWW Profiles
                 topic = page._source[handle + '__go_site_name']
                 date = null
               } else if (handle.startsWith('edu_resources')) {
+                // EDU Resources
                 date = null
                 primarySubject = page._source[handle + '__primary_subject'] as PrimarySubjectObject
                 if (
@@ -178,6 +183,7 @@ export default defineComponent({
                 }
                 time = { time: page._source.activity_time_label_filter } as EduResourcesTime
               } else {
+                // Fallback publication date
                 date =
                   typeof page._source.publication_date_filter !== 'undefined'
                     ? parseDate(page._source.publication_date_filter)
@@ -195,11 +201,11 @@ export default defineComponent({
                 handle === 'events_eventpage' ? page._source[handle + '__location'] : location
               page.startDate =
                 handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
-                  ? page._source[handle + '__start_datetime']
+                  ? page._source[handle + '__start_date']
                   : null
               page.endDate =
                 handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
-                  ? page._source[handle + '__end_datetime']
+                  ? page._source[handle + '__end_date']
                   : null
               page.startTime =
                 handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
