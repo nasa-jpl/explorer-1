@@ -74,7 +74,7 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
         class="PageEduStudentProjectStep lg:mb-10 mb-8 px-4 lg:px-0"
       >
         <LayoutHelper
-          class="bg-gray-light py-6 lg:py-14 px-4 lg:px-0"
+          class="ThemeVariantGray bg-gray-light py-6 lg:py-14 px-4 lg:px-0"
           indent="col-2"
         >
           <template v-if="step.media?.length">
@@ -90,7 +90,7 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
                 >
                   <span
                     v-if="stepsNumbering"
-                    class="text-secondary"
+                    class="steps-numbering"
                     aria-hidden
                     >{{ `Step ${index + 1}:` }}</span
                   >
@@ -160,6 +160,11 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
   .caption-area {
     @apply px-0;
   }
+  .steps-numbering {
+    // intentionally overriding correction that occurs within ThemeVariantGray
+    @apply text-jpl-red;
+  }
+
   .PageEduStudentProjectStep__fullWidth {
     @screen lg {
       .BlockText {

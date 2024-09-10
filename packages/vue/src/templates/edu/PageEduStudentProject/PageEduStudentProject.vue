@@ -279,6 +279,15 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
       :credit="data.hero[0].credit"
       :constrain="data.heroConstrain"
     />
+    <LayoutHelper
+      v-else-if="!heroEmpty && heroInline && data.hero?.length"
+      class="lg:mb-14 mb-10"
+    >
+      <HeroInlineMedia
+        :hero-blocks="data.hero"
+        :constrain="data.heroConstrain"
+      />
+    </LayoutHelper>
 
     <MetaPanel
       button="Info for Teachers"
@@ -288,7 +297,7 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
       :additional-subjects="data.additionalSubjects"
       :time="data.customTime ? { time: data.customTime } : data.time"
       :standards="data.standards"
-      :negative-top="heroInline || data?.hero?.length !== 0"
+      :negative-top="!heroInline && !heroEmpty"
     >
       <template #metaInfo>
         <div :class="data?.standards ? 'border-b border-gray-light-mid' : ''">
@@ -311,17 +320,6 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
         </div>
       </template>
     </MetaPanel>
-
-    <!-- TODO: put this in a component (exclude layout though) -->
-    <LayoutHelper
-      v-if="!heroEmpty && heroInline && data.hero?.length"
-      class="lg:mb-22 mb-10"
-    >
-      <HeroInlineMedia
-        :hero-blocks="data.hero"
-        :constrain="data.heroConstrain"
-      />
-    </LayoutHelper>
 
     <NavJumpMenu
       ref="PageEduStudentProjectJumpMenu"
