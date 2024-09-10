@@ -109,6 +109,22 @@ export const BaseStory = {
     }
   }
 }
+
+export const HeroTitle = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      hero: [
+        {
+          ...HeroMediaData,
+          heroSummary: 'Text appears below the title',
+          blockType: 'HeroTitleBlock'
+        }
+      ]
+    }
+  }
+}
+
 export const InlineHero = {
   args: {
     data: {

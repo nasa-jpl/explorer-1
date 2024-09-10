@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
+import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
@@ -25,7 +26,8 @@ export default defineComponent({
     BlockLinkCarousel,
     BlockRelatedLinks,
     BlockText,
-    NavJumpMenu
+    NavJumpMenu,
+    HeroLarge
   },
   props: {
     data: {
@@ -36,16 +38,35 @@ export default defineComponent({
   },
   computed: {
     heroEmpty(): boolean {
-      return (this.data?.hero || []).length === 0
+      return this.data?.hero?.length === 0
+    },
+    theHero() {
+      if (this.data?.hero?.length) {
+        return this.data.hero[0]
+      }
+      return undefined
+    },
+    heroTitle(): boolean {
+      if (this.theHero) {
+        // excludes VideoBlock as this will autoplay
+        if (this.theHero.blockType === 'HeroTitleBlock') {
+          return true
+        }
+      }
+      return false
     },
     heroInline(): boolean {
-      if (!this.heroEmpty) {
-        if (this.data?.hero[0].blockType === 'VideoBlock') {
+      // heroes with interactive elements have special handling
+      if (this.theHero && !this.heroTitle) {
+        // excludes VideoBlock as this will autoplay
+        if (this.theHero.blockType === 'VideoBlock') {
           return false
         } else if (
           this.data?.heroPosition === 'inline' ||
-          this.data?.hero[0].blockType === 'CarouselBlock' ||
-          this.data?.hero[0].blockType === 'VideoEmbedBlock'
+          this.theHero.blockType === 'CarouselBlock' ||
+          this.theHero.blockType === 'IframeEmbedBlock' ||
+          this.theHero.blockType === 'VideoEmbedBlock' ||
+          this.theHero.blockType === 'ImageComparisonBlock'
         ) {
           return true
         }
@@ -77,20 +98,29 @@ export default defineComponent({
       itemprop="image"
       :content="data.thumbnailImage.original"
     />
-
+    <!-- hero title -->
+    <HeroLarge
+      v-if="heroTitle && theHero"
+      :title="data.title"
+      :image="theHero.image"
+      :summary="theHero.heroSummary"
+      :custom-pill-type="data.__typename"
+    />
     <!-- hero image -->
     <HeroMedia
       v-if="
         !heroEmpty &&
+        !heroTitle &&
         !heroInline &&
-        (data.hero[0].blockType === 'HeroImageBlock' || data.hero[0].blockType === 'VideoBlock')
+        theHero &&
+        (theHero.blockType === 'HeroImageBlock' || theHero.blockType === 'VideoBlock')
       "
       class="md:mb-12 lg:mb-18 mb-10"
-      :image="data.hero[0].image"
-      :video="data.hero[0].video"
-      :display-caption="data.hero[0].displayCaption"
-      :caption="data.hero[0].caption"
-      :credit="data.hero[0].credit"
+      :image="theHero.image"
+      :video="theHero.video"
+      :display-caption="theHero.displayCaption"
+      :caption="theHero.caption"
+      :credit="theHero.credit"
       :constrain="data.heroConstrain"
     />
 
@@ -100,6 +130,7 @@ export default defineComponent({
       class="mb-10"
     >
       <DetailHeadline
+        v-if="!heroTitle"
         :title="data.title"
         :read-time="data.readTime"
         :publication-date="data.publicationDate"
@@ -112,7 +143,7 @@ export default defineComponent({
       />
       <ShareButtonsEdu
         v-if="data?.url"
-        class="mt-4"
+        :class="heroTitle ? 'mt-10' : 'mt-4'"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"

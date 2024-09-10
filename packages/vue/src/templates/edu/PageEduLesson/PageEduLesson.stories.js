@@ -58,7 +58,8 @@ export const BaseStory = {
           blockType: 'HeroImageBlock'
         }
       ],
-      heroConstrain: true,
+      heroConstrain: false,
+      heroPosition: 'full_bleed',
 
       studentProject: {
         title: 'Student Project',
@@ -271,6 +272,30 @@ export const BaseStory = {
       relatedLinks: BlockRelatedLinksData.data,
       relatedContentHeading: 'Related Content',
       relatedContent: BlockLinkCardCarouselData
+    }
+  }
+}
+
+export const HeroTitle = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      hero: [
+        {
+          ...HeroMediaData,
+          heroSummary: 'Text appears below the title',
+          blockType: 'HeroTitleBlock'
+        }
+      ]
+    }
+  }
+}
+
+export const InlineHero = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      heroPosition: 'inline'
     }
   }
 }

@@ -6,6 +6,7 @@ import type {
   StreamfieldBlockData
 } from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
+import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import BaseLink from './../../../components/BaseLink/BaseLink.vue'
 import type { BlockHeadingObject } from '../../../components/BlockHeading/BlockHeading.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
@@ -83,17 +84,35 @@ const heroEmpty = computed((): boolean => {
   return data?.hero?.length === 0
 })
 
+const theHero = computed(() => {
+  if (data?.hero?.length) {
+    return data.hero[0]
+  }
+  return undefined
+})
+
+const heroTitle = computed((): boolean => {
+  if (theHero.value) {
+    // excludes VideoBlock as this will autoplay
+    if (theHero.value.blockType === 'HeroTitleBlock') {
+      return true
+    }
+  }
+  return false
+})
+
 const heroInline = computed((): boolean => {
   // heroes with interactive elements have special handling
-  if (!heroEmpty.value && data?.hero) {
+  if (theHero.value && !heroTitle.value) {
     // excludes VideoBlock as this will autoplay
-    if (data?.hero[0].blockType === 'VideoBlock') {
+    if (theHero.value.blockType === 'VideoBlock') {
       return false
     } else if (
-      data?.hero[0].blockType === 'CarouselBlock' ||
-      data?.hero[0].blockType === 'IframeEmbedBlock' ||
-      data?.hero[0].blockType === 'VideoEmbedBlock' ||
-      data?.hero[0].blockType === 'ImageComparisonBlock'
+      data?.heroPosition === 'inline' ||
+      theHero.value.blockType === 'CarouselBlock' ||
+      theHero.value.blockType === 'IframeEmbedBlock' ||
+      theHero.value.blockType === 'VideoEmbedBlock' ||
+      theHero.value.blockType === 'ImageComparisonBlock'
     ) {
       return true
     }
@@ -230,13 +249,34 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
 const studentBadge = computed(() => {
   return StudentProjectBadge
 })
+
+const computedClass = computed((): string => {
+  if (heroInline.value || heroEmpty.value) {
+    return 'pt-5 lg:pt-12'
+  } else if (!heroInline.value) {
+    return '-nav-offset'
+  }
+  return ''
+})
 </script>
 <template>
   <div
     v-if="data"
-    class="ThemeVariantLight pt-5 lg:pt-12"
+    class="ThemeVariantLight"
+    :class="computedClass"
   >
-    <div class="BaseGrid hidden lg:block container relative mx-auto z-20 pointer-events-none">
+    <!-- hero title -->
+    <HeroLarge
+      v-if="heroTitle && theHero"
+      :title="data.title"
+      :image="theHero.image"
+      :summary="theHero.heroSummary"
+      :custom-pill-type="data.__typename"
+    />
+    <div
+      v-if="!heroTitle"
+      class="BaseGrid hidden lg:block container relative mx-auto z-20 pointer-events-none"
+    >
       <div class="absolute top-0 left-0 col-start-1 col-end-3 text-right lg:-ml-2 xl:ml-4">
         <img
           :src="studentBadge"
@@ -252,7 +292,7 @@ const studentBadge = computed(() => {
       class="mb-10"
     >
       <DetailHeadline
-        v-if="data.title"
+        v-if="data.title && !heroTitle"
         :title="data.title"
         label="Student Project"
         pill
@@ -260,7 +300,7 @@ const studentBadge = computed(() => {
       />
       <ShareButtonsEdu
         v-if="data?.url"
-        class="mt-4"
+        :class="heroTitle ? 'mt-10' : 'mt-4'"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
@@ -280,7 +320,10 @@ const studentBadge = computed(() => {
       </div>
     </LayoutHelper>
 
-    <div class="container relative mx-auto z-20 pointer-events-none">
+    <div
+      v-if="!heroTitle"
+      class="container relative mx-auto z-20 pointer-events-none"
+    >
       <img
         :src="studentBadge"
         alt=""
@@ -293,15 +336,16 @@ const studentBadge = computed(() => {
     <HeroMedia
       v-if="
         !heroEmpty &&
+        !heroTitle &&
         !heroInline &&
-        data?.hero?.length &&
-        (data.hero[0].blockType === 'HeroImageBlock' || data.hero[0].blockType === 'VideoBlock')
+        theHero &&
+        (theHero.blockType === 'HeroImageBlock' || theHero.blockType === 'VideoBlock')
       "
-      :image="data.hero[0].image"
-      :video="data.hero[0].video"
-      :display-caption="false"
-      :caption="data.hero[0].caption"
-      :credit="data.hero[0].credit"
+      :image="theHero.image"
+      :video="theHero.video"
+      :display-caption="theHero.displayCaption"
+      :caption="theHero.caption"
+      :credit="theHero.credit"
       :constrain="data.heroConstrain"
     />
     <LayoutHelper
@@ -322,7 +366,7 @@ const studentBadge = computed(() => {
       :additional-subjects="data.additionalSubjects"
       :time="data.customTime ? { time: data.customTime } : data.time"
       :standards="data.standards"
-      :negative-top="!heroInline && !heroEmpty"
+      :negative-top="!heroInline && !heroEmpty && !heroTitle"
     >
       <template #metaInfo>
         <div :class="data?.standards ? 'border-b border-gray-light-mid' : ''">
