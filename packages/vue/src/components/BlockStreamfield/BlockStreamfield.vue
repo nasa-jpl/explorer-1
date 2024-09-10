@@ -37,6 +37,7 @@
         :key="`inlineImageBlock${index}`"
         :class="seamlessText(index) ? 'lg:mb-8 mb-5' : marginBottom"
         :data="block"
+        :variant="size"
       />
 
       <LayoutHelper

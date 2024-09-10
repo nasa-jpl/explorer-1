@@ -166,13 +166,11 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
   }
 
   .PageEduStudentProjectStep__fullWidth {
-    @screen lg {
-      .BlockText {
+    .LayoutHelper > div > .BlockText {
+      @screen lg {
         @apply mr-[10rem];
       }
-    }
-    @screen xl {
-      .BlockText {
+      @screen xl {
         @apply mr-[14rem];
       }
     }

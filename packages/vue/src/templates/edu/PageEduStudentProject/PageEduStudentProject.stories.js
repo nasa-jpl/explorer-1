@@ -2,6 +2,7 @@ import { HeroMediaData } from './../../../components/HeroMedia/HeroMedia.stories
 import { BlockIframeEmbedData } from './../../../components/BlockIframeEmbed/BlockIframeEmbed.stories.js'
 import { BlockImageCarouselData } from './../../../components/BlockImageCarousel/BlockImageCarousel.stories'
 import { BlockImageData } from './../../../components/BlockImage/BlockImage.stories'
+import { BlockInlineImageData } from './../../../components/BlockInlineImage/BlockInlineImage.stories'
 import { BlockHeadingData } from './../../../components/BlockHeading/BlockHeading.stories'
 import { BlockImageComparisonData } from './../../../components/BlockImageComparison/BlockImageComparison.stories'
 import { BaseVideoData } from './../../../components/BaseVideo/BaseVideo.stories'
@@ -136,7 +137,7 @@ export const BaseStory = {
         {
           heading: 'Lorem ipsum dolor no media',
           media: [],
-          content: [BlockImageData, ...BlockStreamfieldMinimalData.body]
+          content: [BlockImageData, ...BlockStreamfieldMinimalData.body, BlockInlineImageData.block]
         },
         {
           heading: 'Sit amet',
