@@ -118,7 +118,7 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
               <span
                 v-if="stepsNumbering"
                 aria-hidden
-                class="text-secondary"
+                class="steps-numbering"
                 >{{ `Step ${index + 1}:` }}</span
               >
               {{ step.heading }}
