@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import IconSearch from './../Icons/IconSearch.vue'
-import BaseButton from './../BaseButton/BaseButton.vue'
 
 interface SearchInputProps {
   underlinedInput?: boolean
