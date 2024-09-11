@@ -19,6 +19,7 @@
           <NavJumpMenuContent
             :key="index"
             :item="item"
+            v-bind="$attrs"
           />
         </NavSecondaryDropdown>
       </template>
@@ -41,17 +42,20 @@ import NavSecondary from './../NavSecondary/NavSecondary.vue'
 import NavSecondaryDropdown from './../NavSecondary/NavSecondaryDropdown.vue'
 import NavSecondaryLink from './../NavSecondary/NavSecondaryLink.vue'
 import NavJumpMenuContent from './../NavJumpMenu/NavJumpMenuContent.vue'
+import type { BlockHeadingObject } from './../BlockHeading/BlockHeading.vue'
 import type { BlockData, BreadcrumbPathObject } from './../../interfaces'
 import { getHeadingId } from '../../utils/getHeadingId'
 
 interface NavJumpMenuProps {
   title?: string
   jumpLinks?: BreadcrumbPathObject[]
-  blocks?: BlockData[]
+  blocks?: BlockData[] | BlockHeadingObject[]
   headingLevel?: string
   invert?: boolean
   enabled?: boolean
   dropdownText?: string
+  // stepsNumbering?: boolean
+  // stepClasses?: string
 }
 
 const props = withDefaults(defineProps<NavJumpMenuProps>(), {
@@ -63,6 +67,8 @@ const props = withDefaults(defineProps<NavJumpMenuProps>(), {
   invert: true,
   hidden: false,
   dropdownText: 'Jump to…'
+  // stepsNumbering: false,
+  // stepClasses: 'text-primary'
 })
 
 const NavJumpMenuRef = ref()

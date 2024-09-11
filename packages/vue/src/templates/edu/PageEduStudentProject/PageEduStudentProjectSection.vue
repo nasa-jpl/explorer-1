@@ -71,22 +71,40 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
       <li
         v-for="(step, index) in steps"
         :key="index"
-        class="PageEduStudentProjectStep lg:mb-10 mb-8 px-4 lg:px-0"
+        class="PageEduStudentProjectStep lg:mb-12 mb-10 px-4 lg:px-0"
       >
         <LayoutHelper
-          class="ThemeVariantGray bg-gray-light py-6 lg:py-14 px-4 lg:px-0"
+          class="ThemeVariantGray bg-gray-light py-6 sm:py-8 md:py-12 lg:py-19 xl:py-20 px-4 lg:px-0"
           indent="col-2"
         >
           <template v-if="step.media?.length">
             <!-- split 50/50 -->
             <div class="lg:grid grid-cols-2 gap-6 lg:gap-10">
+              <BaseHeading
+                level="h3"
+                class="lg:hidden mb-5"
+              >
+                <span
+                  v-if="stepsNumbering"
+                  class="steps-numbering"
+                  aria-hidden
+                  >{{ `Step ${index + 1}:` }}</span
+                >
+                {{ step.heading }}
+              </BaseHeading>
+              <HeroInlineMedia
+                :hero-blocks="step.media"
+                class="order-1 mb-6 lg:mb-0"
+                :class="index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'"
+                constrain
+              />
               <div
-                :class="index % 2 === 0 ? 'order-1' : 'order-2'"
-                class="mb-6 lg:mb-0"
+                :class="index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'"
+                class="order-2"
               >
                 <BaseHeading
                   level="h3"
-                  class="mb-5"
+                  class="hidden lg:block mb-5"
                 >
                   <span
                     v-if="stepsNumbering"
@@ -103,11 +121,6 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
                   variant="fluid"
                 />
               </div>
-              <HeroInlineMedia
-                :hero-blocks="step.media"
-                :class="index % 2 === 1 ? 'order-1' : 'order-2'"
-                constrain
-              />
             </div>
           </template>
           <template v-else>

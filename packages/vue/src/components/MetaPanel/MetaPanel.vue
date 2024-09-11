@@ -128,7 +128,7 @@ const standardsIste = computed(() => {
       >
         <div class="col-start-container lg:col-start-indent-col-2 col-end-container">
           <div class="MetaPanel-heading lg:grid grid-cols-12 col-end-container container">
-            <div class="col-start-1 col-end-10 xl:col-end-9 pl-4 lg:pl-10 pr-6 py-6 lg:py-10">
+            <div class="col-start-1 col-end-9 xl:col-end-9 pl-4 lg:pl-10 pr-6 py-6 lg:py-10">
               <MetaPanelItems
                 :theme="theme"
                 :primary-subject="primarySubject"
@@ -138,8 +138,8 @@ const standardsIste = computed(() => {
               />
             </div>
             <div
-              v-if="button"
-              class="ThemeVariantLight col-start-10 col-end-13 pl-4 lg:pl-0 pt-4 pb-6 lg:pr-4 xl:pr-10 2xl:pr-0 lg:py-10 lg:text-right"
+              v-if="button && (standards?.length || $slots.metaInfo)"
+              class="ThemeVariantLight col-start-9 col-end-13 pl-4 lg:pl-0 pt-4 pb-6 lg:pr-4 xl:pr-10 2xl:pr-0 lg:py-10 lg:text-right"
             >
               <BaseButton
                 variant="secondary"
@@ -164,7 +164,7 @@ const standardsIste = computed(() => {
           </div>
         </div>
         <div
-          v-if="standards || $slots.metaInfo"
+          v-if="standards?.length || $slots.metaInfo"
           v-show="metaPanelOpen"
           class="MetaPanel-panel col-start-container lg:col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid bg-gray-light pb-3 lg:pb-6"
         >
@@ -176,11 +176,11 @@ const standardsIste = computed(() => {
                 <slot name="metaInfo" />
               </div>
               <div
-                v-if="standards"
+                v-if="standards?.length"
                 class="pt-6 lg:pt-7"
               >
                 <div
-                  class="text-subtitle mb-5"
+                  class="ThemeVariantGray text-subtitle mb-5"
                   :class="headingClass"
                 >
                   Standards
