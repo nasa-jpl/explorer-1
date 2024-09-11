@@ -101,7 +101,7 @@ const submitSearch = () => {
                   >
                     <BaseLink
                       variant="none"
-                      :to="topic.page?.url"
+                      :to="`/edu/resources?topic=${topic.page?.title}`"
                       link-class="text-gray-dark whitespace-nowrap text-sm bg-[#99D1DF] font-extrabold rounded-full inline-block px-3 py-1 text-contrast-none hover:bg-action hover:text-white"
                     >
                       {{ topic.page?.title }}
