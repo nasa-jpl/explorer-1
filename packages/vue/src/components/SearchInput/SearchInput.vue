@@ -8,6 +8,7 @@ interface SearchInputProps {
   placeholder?: string
   autoFocus?: boolean
   defaultColors?: boolean
+  withButton?: boolean
 }
 
 // define props
@@ -16,10 +17,11 @@ const props = withDefaults(defineProps<SearchInputProps>(), {
   underlinedInputValue: undefined,
   placeholder: '',
   autoFocus: false,
-  defaultColors: true
+  defaultColors: true,
+  withButton: false
 })
 
-const emit = defineEmits(['input', 'esc'])
+const emit = defineEmits(['input', 'esc', 'submit'])
 
 const model = defineModel()
 const isFocused = ref(false)
@@ -67,20 +69,29 @@ onMounted(() => {
     <input
       ref="searchQueryRef"
       v-model="model"
-      class="pl-14 focus:ring-2 relative z-10 w-full pr-5 text-lg bg-transparent border-0"
+      class="pl-14 h-full focus:ring-2 relative z-10 w-full px-5 text-sm md:text-base lg:text-lg bg-transparent border-0"
       :class="{
         'text-gray-dark': defaultColors,
         'py-1': underlinedInput,
-        'py-4': !underlinedInput
+        'py-3.5 lg:py-5': !underlinedInput
       }"
       type="search"
       aria-label="Query"
       :placeholder="placeholder"
       @keydown.esc="emit('esc')"
+      @keydown.enter="emit('submit')"
       @input="emit('input', $event.target)"
       @focus="isFocused = true"
       @blur="isFocused = false"
     />
+    <button
+      v-if="withButton"
+      class="z-10 cursor-pointer bg-action p-4 lg:p-5 border border-white"
+      aria-label="Search resources"
+      @click="emit('submit')"
+    >
+      <IconSearch class="relative z-10 text-xl sm:text-2xl lg:text-3xl text-white" />
+    </button>
   </div>
 </template>
 <style lang="scss" scoped>
