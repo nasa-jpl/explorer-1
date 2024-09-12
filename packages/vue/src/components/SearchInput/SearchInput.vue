@@ -73,7 +73,7 @@ onMounted(() => {
       :class="{
         'text-gray-dark': defaultColors,
         'py-1': underlinedInput,
-        'py-3.5 lg:py-6': !underlinedInput
+        'py-3.5 lg:py-5': !underlinedInput
       }"
       type="search"
       aria-label="Query"
@@ -86,7 +86,8 @@ onMounted(() => {
     />
     <button
       v-if="withButton"
-      class="hover:cursor-pointer bg-action p-4 lg:p-5 border border-white"
+      class="z-10 cursor-pointer bg-action p-4 lg:p-5 border border-white"
+      aria-label="Search resources"
       @click="emit('submit')"
     >
       <IconSearch class="relative z-10 text-xl sm:text-2xl lg:text-3xl text-white" />
