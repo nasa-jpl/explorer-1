@@ -1,14 +1,13 @@
 <template>
-  <div v-if="data">
+  <div v-if="data?.url">
     <template v-if="data.height">
       <iframe
         v-if="data.url"
         ref="BlockIframeEmbed"
         loading="lazy"
         class="w-full border-none print:!border print:border-gray-dark"
-        :class="{ lazyload: !lazyNative }"
         :title="data.title"
-        :data-src="data.url"
+        :src="data.url"
         width="90%"
         :height="data.height"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -28,9 +27,8 @@
             ref="BlockIframeEmbed"
             loading="lazy"
             class="w-full border-none"
-            :class="{ lazyload: !lazyNative }"
             :title="data.title"
-            :data-src="data.url"
+            :src="data.url"
             data-chromatic="ignore"
             width="90%"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -60,29 +58,7 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
-    }
-  },
-  data() {
-    return {
-      lazyNative: true
-    }
-  },
-  mounted() {
-    this.featureDetectIframeLazyLoad()
-  },
-  methods: {
-    featureDetectIframeLazyLoad() {
-      if ('loading' in HTMLIFrameElement.prototype) {
-        const iframe = this.$refs.BlockIframeEmbed as HTMLIFrameElement
-        this.lazyNative = true
-        // move data-src attribute to src
-        if (iframe.dataset.src) {
-          iframe.src = iframe.dataset.src
-        }
-      } else {
-        this.lazyNative = false
-      }
+      default: undefined
     }
   },
   computed: {

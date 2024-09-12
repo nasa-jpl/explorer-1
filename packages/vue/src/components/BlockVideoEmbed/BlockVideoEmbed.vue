@@ -63,8 +63,6 @@ export default defineComponent({
       if (!this.data?.embed) {
         return
       }
-
-      // TODO: not using feature detect as that would require rewriting the html output from wagtail to set data-src instead of src
       // get the iframe in this component
       const iframe = this.$el.querySelector('iframe')
       if (iframe) {
