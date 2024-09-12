@@ -62,9 +62,6 @@ export default defineComponent({
       if (this.objectFitClass) {
         classes = classes + ' ' + objectFitClasses[this.objectFitClass]
       }
-      if (!this.lazyNative) {
-        classes = classes + ' lazyload'
-      }
       return classes
     }
   },
