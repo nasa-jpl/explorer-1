@@ -20,7 +20,7 @@
           media="(min-width: 420px)"
           :srcset="theImage.screenMd?.url"
         />
-        <source :data-srcset="theImage.screenSm?.url" />
+        <source :srcset="theImage.screenSm?.url" />
         <img
           class="object-cover w-full h-full"
           :src="theImage.src.url"

@@ -252,7 +252,8 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         heading: staticSectionHeadings.value ? staticSectionHeadings.value[section] : undefined,
         blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
         text: section === 'materials' ? data[section] : undefined,
-        procedures: section === 'procedures' ? data[section] : undefined
+        procedures: section === 'procedures' ? data[section] : undefined,
+        image: data[`${section}Image`]
       })
     }
     // include custom "after_" sections
@@ -271,12 +272,11 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
   return filteredSections
 })
 const computedClass = computed((): string => {
-  if (heroInline.value || heroEmpty.value) {
-    return 'pt-5 lg:pt-12'
-  } else if (!heroInline.value) {
+  if (heroTitle.value) {
     return '-nav-offset'
+  } else {
+    return 'pt-5 lg:pt-12'
   }
-  return ''
 })
 </script>
 <template>
@@ -355,7 +355,6 @@ const computedClass = computed((): string => {
       :constrain="data.heroConstrain"
     />
 
-    <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
       v-if="!heroEmpty && heroInline && data.hero?.length"
       class="lg:mb-22 mb-10"
