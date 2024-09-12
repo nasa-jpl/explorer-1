@@ -38,7 +38,7 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
     :aria-label="heading?.heading"
   >
     <LayoutHelper
-      v-if="heading"
+      v-if="heading?.heading"
       indent="col-3"
       class="lg:mb-8 mb-5"
     >
@@ -74,37 +74,16 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
         class="PageEduStudentProjectStep lg:mb-12 mb-10 px-4 lg:px-0"
       >
         <LayoutHelper
-          class="ThemeVariantGray bg-gray-light py-6 sm:py-8 md:py-12 lg:py-19 xl:py-20 px-4 lg:px-0"
-          indent="col-2"
+          class="px-0 lg:px-4"
+          indent="col-1"
         >
-          <template v-if="step.media?.length">
-            <!-- split 50/50 -->
-            <div class="lg:grid grid-cols-2 gap-6 lg:gap-10">
-              <BaseHeading
-                level="h3"
-                class="lg:hidden mb-5"
-              >
-                <span
-                  v-if="stepsNumbering"
-                  class="steps-numbering"
-                  aria-hidden
-                  >{{ `Step ${index + 1}:` }}</span
-                >
-                {{ step.heading }}
-              </BaseHeading>
-              <HeroInlineMedia
-                :hero-blocks="step.media"
-                class="order-1 mb-6 lg:mb-0"
-                :class="index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'"
-                constrain
-              />
-              <div
-                :class="index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'"
-                class="order-2"
-              >
+          <div class="ThemeVariantGray bg-gray-light px-8 py-6 md:px-10 md:py-8 lg:px-18 lg:py-16">
+            <template v-if="step.media?.length">
+              <!-- split 50/50 -->
+              <div class="lg:grid grid-cols-2 gap-6 lg:gap-10">
                 <BaseHeading
                   level="h3"
-                  class="hidden lg:block mb-5"
+                  class="lg:hidden mb-5"
                 >
                   <span
                     v-if="stepsNumbering"
@@ -114,36 +93,59 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
                   >
                   {{ step.heading }}
                 </BaseHeading>
-                <BlockStreamfield
-                  v-if="step.content"
-                  :data="step.content"
-                  size="medium"
-                  variant="fluid"
+                <HeroInlineMedia
+                  :hero-blocks="step.media"
+                  class="order-1 mb-6 lg:mb-0"
+                  :class="index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'"
+                  constrain
                 />
+                <div
+                  :class="index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'"
+                  class="order-2"
+                >
+                  <BaseHeading
+                    level="h3"
+                    class="hidden lg:block mb-5"
+                  >
+                    <span
+                      v-if="stepsNumbering"
+                      class="steps-numbering"
+                      aria-hidden
+                      >{{ `Step ${index + 1}:` }}</span
+                    >
+                    {{ step.heading }}
+                  </BaseHeading>
+                  <BlockStreamfield
+                    v-if="step.content"
+                    :data="step.content"
+                    size="medium"
+                    variant="fluid"
+                  />
+                </div>
               </div>
-            </div>
-          </template>
-          <template v-else>
-            <BaseHeading
-              level="h3"
-              class="mb-5"
-            >
-              <span
-                v-if="stepsNumbering"
-                aria-hidden
-                class="steps-numbering"
-                >{{ `Step ${index + 1}:` }}</span
+            </template>
+            <template v-else>
+              <BaseHeading
+                level="h3"
+                class="mb-5"
               >
-              {{ step.heading }}
-            </BaseHeading>
-            <BlockStreamfield
-              v-if="step.content"
-              class="PageEduStudentProjectStep__fullWidth"
-              :data="step.content"
-              size="medium"
-              variant="fluid"
-            />
-          </template>
+                <span
+                  v-if="stepsNumbering"
+                  aria-hidden
+                  class="steps-numbering"
+                  >{{ `Step ${index + 1}:` }}</span
+                >
+                {{ step.heading }}
+              </BaseHeading>
+              <BlockStreamfield
+                v-if="step.content"
+                class="PageEduStudentProjectStep__fullWidth"
+                :data="step.content"
+                size="medium"
+                variant="fluid"
+              />
+            </template>
+          </div>
         </LayoutHelper>
       </li>
     </component>

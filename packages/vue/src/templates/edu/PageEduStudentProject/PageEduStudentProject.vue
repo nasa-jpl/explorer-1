@@ -111,22 +111,32 @@ const heroInline = computed((): boolean => {
 
 const sectionOrder = ['top', 'overview', 'materials', 'steps', 'bottom']
 
-const stringAsHeadingBlockData = (heading: string): BlockHeadingObject => {
+const stringAsHeadingBlockData = (
+  heading: string,
+  level: HeadingLevel = 'h2'
+): BlockHeadingObject => {
   return {
     blockType: 'HeadingBlock',
     heading: heading,
-    level: 'h3'
+    level: level
   }
 }
 
-// mimic HeadingBlock data shape for defined section headings
+// mimic HeadingBlock data shape for predefined section headings
 const staticSectionHeadings = computed((): { [key: string]: BlockHeadingObject } | undefined => {
   if (data) {
     const result = sectionOrder.reduce<Record<string, BlockHeadingObject>>((acc, section) => {
       // only include the heading if the section has content
       if (data[section]?.length) {
+        // generate heading text
         const headingText =
-          section === 'steps' ? 'Project Steps' : section.charAt(0).toUpperCase() + section.slice(1)
+          section === 'steps'
+            ? 'Project Steps'
+            : section === 'overview'
+              ? // we don't want an overview heading unless it's custom
+                undefined
+              : section.charAt(0).toUpperCase() + section.slice(1)
+        // set the headings for each section
         acc[section] = stringAsHeadingBlockData(
           (data[`${section}Heading`] as HeadingLevel) || headingText
         )
@@ -176,7 +186,7 @@ const stepHeadings = computed(() => {
   const headings: BlockHeadingObject[] = []
   if (steps?.length) {
     steps.forEach((step) => {
-      if (step.heading) headings.push(stringAsHeadingBlockData(step.heading))
+      if (step.heading) headings.push(stringAsHeadingBlockData(step.heading, 'h3'))
     })
   }
   return headings
