@@ -103,18 +103,25 @@
       }
     }
   }
+  // richtext media support
   .richtext-image {
-    &.full-width {
+    &.fullwidth {
       @apply mb-10 lg:mb-14;
-      @apply w-full h-auto;
+      img {
+        @apply w-full h-auto;
+      }
     }
     &.left,
     &.right {
       @apply mb-5 lg:mb-5 mx-5 lg:mx-8;
-      @apply inline max-w-full sm:max-w-[50%] h-auto;
+      @apply inline max-w-full sm:max-w-[50%];
+      img {
+        @apply max-w-full  h-auto;
+      }
     }
     &.left {
       @apply sm:float-left ml-0;
+      // mimics offset in BlockInlineImage
       @apply ml-0 lg:-ml-[5.3rem] xl:-ml-[6.8rem];
       // uncomment if floating images become unwieldy
       // + p,
@@ -124,6 +131,7 @@
     }
     &.right {
       @apply sm:float-right mr-0;
+      // mimics offset in BlockInlineImage
       @apply mr-0 lg:-mr-[5.3rem] xl:-mr-[6.8rem];
       // uncomment if floating images become unwieldy
       // + p,
@@ -135,6 +143,29 @@
       @apply mb-0;
     }
   }
+  .richtext-caption {
+    // mimic BaseImageCaption
+    @apply pt-3 text-gray-mid-dark text-sm lg:text-base;
+    div.caption {
+      @apply inline #{!important};
+    }
+
+    a {
+      @apply text-action underline cursor-pointer;
+
+      &:hover {
+        @apply text-action-hover;
+      }
+    }
+
+    .ThemeVariantLight & {
+      @apply text-gray-mid-dark;
+    }
+
+    .ThemeVariantDark & {
+      @apply text-gray-mid;
+    }
+  }
   > div {
     @apply mb-10 lg:mb-14;
     iframe {
@@ -144,7 +175,7 @@
       @apply mb-0;
     }
   }
-
+  // other sizes
   &.-small {
     p {
       @apply mb-2;
