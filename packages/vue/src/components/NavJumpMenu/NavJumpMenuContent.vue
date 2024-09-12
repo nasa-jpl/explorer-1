@@ -11,6 +11,12 @@
         :link-class="linkClass(child)"
       >
         <span>
+          <span
+            v-if="$attrs['steps-numbering']"
+            :class="$attrs['steps-classes']"
+            aria-hidden
+            >{{ `Step ${index + 1}:` }}</span
+          >
           {{ child.title }}
         </span>
       </BaseLink>
@@ -33,7 +39,6 @@ export default defineComponent({
     BaseLink
   },
   props: {
-    // the tertiary nav item object that includes path, title, and children
     item: {
       type: Object,
       required: true

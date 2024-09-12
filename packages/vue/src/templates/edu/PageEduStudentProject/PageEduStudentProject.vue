@@ -69,17 +69,6 @@ defineExpose({
   PageEduStudentProjectJumpMenu
 })
 
-const stringAsHeadingBlockData = (
-  heading: HeadingLevel,
-  overrideText?: string
-): BlockHeadingObject => {
-  return {
-    blockType: 'HeadingBlock',
-    heading: (overrideText || heading) as HeadingLevel,
-    level: 'h2'
-  }
-}
-
 const heroEmpty = computed((): boolean => {
   return data?.hero?.length === 0
 })
@@ -122,14 +111,32 @@ const heroInline = computed((): boolean => {
 
 const sectionOrder = ['top', 'overview', 'materials', 'steps', 'bottom']
 
-// mimic HeadingBlock data shape for defined section headings
+const stringAsHeadingBlockData = (
+  heading: string,
+  level: HeadingLevel = 'h2'
+): BlockHeadingObject => {
+  return {
+    blockType: 'HeadingBlock',
+    heading: heading,
+    level: level
+  }
+}
+
+// mimic HeadingBlock data shape for predefined section headings
 const staticSectionHeadings = computed((): { [key: string]: BlockHeadingObject } | undefined => {
   if (data) {
     const result = sectionOrder.reduce<Record<string, BlockHeadingObject>>((acc, section) => {
       // only include the heading if the section has content
       if (data[section]?.length) {
+        // generate heading text
         const headingText =
-          section === 'steps' ? 'Project Steps' : section.charAt(0).toUpperCase() + section.slice(1)
+          section === 'steps'
+            ? 'Project Steps'
+            : section === 'overview'
+              ? // we don't want an overview heading unless it's custom
+                undefined
+              : section.charAt(0).toUpperCase() + section.slice(1)
+        // set the headings for each section
         acc[section] = stringAsHeadingBlockData(
           (data[`${section}Heading`] as HeadingLevel) || headingText
         )
@@ -173,45 +180,16 @@ const keyedCustomSections = computed(
   }
 )
 
-const consolidatedBlocks = computed(() => {
-  // NavJumpMenu handles filtering for HeadingBlock, so we don't need to do that here
-  const blocks = []
-  // include custom top blocks
-  if (keyedCustomSections.value && keyedCustomSections.value['top']) {
-    blocks.push(...keyedCustomSections.value['top'])
+// used to get headings for the JumpMenu
+const stepHeadings = computed(() => {
+  const steps = data?.steps
+  const headings: BlockHeadingObject[] = []
+  if (steps?.length) {
+    steps.forEach((step) => {
+      if (step.heading) headings.push(stringAsHeadingBlockData(step.heading, 'h3'))
+    })
   }
-  // include predefined section blocks
-  sectionOrder.forEach((section) => {
-    if (data && data[section]) {
-      if (staticSectionHeadings.value && staticSectionHeadings.value[section]) {
-        blocks.push(staticSectionHeadings.value[section])
-      }
-      if (section !== 'materials' && section !== 'steps') {
-        blocks.push(...data[section])
-      } else if (section === 'steps' && data.steps?.length) {
-        // get blocks in nested steps
-        data.steps.forEach((item) => {
-          if (item.content?.length) {
-            blocks.push(...item.content)
-          }
-        })
-      }
-    }
-    // include custom "after_" blocks
-    if (keyedCustomSections.value && keyedCustomSections.value[`after_${section}`]) {
-      blocks.push(...keyedCustomSections.value[`after_${section}`])
-    }
-  })
-  // include custom bottom blocks
-  if (keyedCustomSections.value && keyedCustomSections.value['bottom']) {
-    blocks.push(...keyedCustomSections.value['bottom'])
-  }
-  // include body blocks
-  if (data?.body?.length) {
-    blocks.push(...data.body)
-  }
-
-  return blocks
+  return headings
 })
 
 // organize data to render with PageEduStudentProjectSection component
@@ -227,7 +205,8 @@ const consolidatedSections = computed((): EduStudentProjectSectionObject[] => {
         heading: staticSectionHeadings.value ? staticSectionHeadings.value[section] : undefined,
         blocks: section !== 'materials' && section !== 'steps' ? data[section] : undefined,
         text: section === 'materials' ? data[section] : undefined,
-        steps: section === 'steps' ? data[section] : undefined
+        steps: section === 'steps' ? data[section] : undefined,
+        image: data[`${section}Image`]
       })
     }
     // include custom "after_" sections
@@ -251,12 +230,11 @@ const studentBadge = computed(() => {
 })
 
 const computedClass = computed((): string => {
-  if (heroInline.value || heroEmpty.value) {
-    return 'pt-5 lg:pt-12'
-  } else if (!heroInline.value) {
+  if (heroTitle.value) {
     return '-nav-offset'
+  } else {
+    return 'pt-5 lg:pt-12'
   }
-  return ''
 })
 </script>
 <template>
@@ -319,59 +297,35 @@ const computedClass = computed((): string => {
         </BaseLink>
       </div>
     </LayoutHelper>
-
     <div
       v-if="!heroTitle"
-      class="container relative mx-auto z-20 pointer-events-none"
+      class="lg:hidden container relative mx-auto z-30 pointer-events-none"
     >
       <img
         :src="studentBadge"
         alt=""
         width="150"
         height="150"
-        class="absolute -mt-16 sm:-mt-24 right-0 lg:hidden md:w-[185px] md:h-[185px]"
+        class="absolute -mt-10 sm:-mt-24 right-0 lg:hidden md:w-[185px] md:h-[185px]"
       />
     </div>
-    <!-- hero media -->
-    <HeroMedia
-      v-if="
-        !heroEmpty &&
-        !heroTitle &&
-        !heroInline &&
-        theHero &&
-        (theHero.blockType === 'HeroImageBlock' || theHero.blockType === 'VideoBlock')
-      "
-      :image="theHero.image"
-      :video="theHero.video"
-      :display-caption="theHero.displayCaption"
-      :caption="theHero.caption"
-      :credit="theHero.credit"
-      :constrain="data.heroConstrain"
-    />
-    <LayoutHelper
-      v-else-if="!heroEmpty && heroInline && data.hero?.length"
-      class="lg:mb-14 mb-10"
-    >
-      <HeroInlineMedia
-        :hero-blocks="data.hero"
-        :constrain="data.heroConstrain"
-      />
-    </LayoutHelper>
-
     <MetaPanel
       button="Info for Teachers"
-      theme="stars"
-      :class="{ 'mb-10 lg:mb-14': true }"
+      theme="secondary"
+      :class="{ 'mb-10 lg:mb-14': heroTitle || heroInline || heroEmpty }"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :time="data.customTime ? { time: data.customTime } : data.time"
       :standards="data.standards"
-      :negative-top="!heroInline && !heroEmpty && !heroTitle"
+      :negative-bottom="!heroInline && !heroTitle && !heroEmpty"
     >
       <template #metaInfo>
-        <div :class="data?.standards ? 'border-b border-gray-light-mid' : ''">
+        <div :class="data?.standards?.length ? 'border-b border-gray-light-mid' : ''">
           <div class="py-6 lg:py-8">
-            <MetaPanelItems :grade-levels="data?.gradeLevels" />
+            <MetaPanelItems
+              theme="secondary"
+              :grade-levels="data?.gradeLevels"
+            />
             <div
               v-if="data.lesson"
               class="mt-8 font-bold text-body-s"
@@ -390,11 +344,42 @@ const computedClass = computed((): string => {
       </template>
     </MetaPanel>
 
+    <!-- hero media -->
+    <HeroMedia
+      v-if="
+        !heroEmpty &&
+        !heroTitle &&
+        !heroInline &&
+        theHero &&
+        (theHero.blockType === 'HeroImageBlock' || theHero.blockType === 'VideoBlock')
+      "
+      class="md:mb-12 lg:mb-18 mb-10"
+      :image="theHero.image"
+      :video="theHero.video"
+      :display-caption="theHero.displayCaption"
+      :caption="theHero.caption"
+      :credit="theHero.credit"
+      :constrain="data.heroConstrain"
+    />
+    <LayoutHelper
+      v-else-if="!heroEmpty && heroInline && data.hero?.length"
+      class="lg:mb-22 mb-10"
+    >
+      <HeroInlineMedia
+        :hero-blocks="data.hero"
+        :constrain="data.heroConstrain"
+      />
+    </LayoutHelper>
+
     <NavJumpMenu
+      v-if="stepHeadings?.length"
       ref="PageEduStudentProjectJumpMenu"
       :title="data.title"
-      :blocks="consolidatedBlocks"
-      dropdown-text="In this project"
+      :blocks="stepHeadings"
+      dropdown-text="Project Steps"
+      heading-level="h3"
+      :steps-numbering="true"
+      steps-classes="text-secondary"
     />
 
     <template

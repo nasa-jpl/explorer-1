@@ -53,11 +53,6 @@ export default defineComponent({
       default: 'lazy'
     }
   },
-  data() {
-    return {
-      lazyNative: true
-    }
-  },
   computed: {
     computedClass(): string {
       let classes = ''
@@ -67,31 +62,10 @@ export default defineComponent({
       if (this.objectFitClass) {
         classes = classes + ' ' + objectFitClasses[this.objectFitClass]
       }
-      if (!this.lazyNative) {
-        classes = classes + ' lazyload'
-      }
       return classes
     }
   },
-  mounted() {
-    this.featureDetectImageLazyLoad()
-  },
   methods: {
-    featureDetectImageLazyLoad() {
-      if ('loading' in HTMLImageElement.prototype) {
-        const image = this.$refs.BaseImage ? (this.$refs.BaseImage as HTMLImageElement) : null
-        this.lazyNative = true
-        // reassign dataset attributes
-        if (image && image.dataset.src) {
-          image.src = image.dataset.src
-        }
-        if (image && image.dataset.srcset) {
-          image.srcset = image.dataset.srcset
-        }
-      } else {
-        this.lazyNative = false
-      }
-    },
     imageFailed() {
       console.log('Image failed to load.')
     }
@@ -105,8 +79,8 @@ export default defineComponent({
       ref="BaseImage"
       class="BaseImage print:border print:border-gray-mid"
       :class="computedClass"
-      :data-src="src"
-      :data-srcset="srcset"
+      :src="src"
+      :srcset="srcset"
       :alt="alt"
       :width="width"
       :height="height"
