@@ -10,7 +10,12 @@ export default {
       options: Object.keys(variants)
     },
     text: { control: { type: 'text' } }
-  }
+  },
+  decorators: [
+    () => ({
+      template: '<div class="lg:w-2/3 mx-auto"><story /></div>'
+    })
+  ]
 }
 
 export const BaseStory = {
