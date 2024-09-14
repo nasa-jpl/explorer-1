@@ -47,42 +47,22 @@
             <span class="text-gray-mid-dark"> ({{ bucket.doc_count.toLocaleString() }}) </span>
           </label>
         </div>
+
+        <!-- dynamic slots for subFilters -->
         <div
           v-if="
             (bucket.key_as_string || bucket.key) &&
-            getSubFilters(bucket.key_as_string || bucket.key)
+            getSubFilters(bucket.key_as_string || bucket.key) &&
+            subFilterParentKeys?.length
           "
           class="block"
         >
-          <!-- sub filters -->
-          <template
-            v-for="(subFilter, subFilter_index) of getSubFilters(
-              bucket.key_as_string || bucket.key
-            )"
-            :key="subFilter_index"
+          <div
+            v-if="hasSubFilter(bucket.key_as_string || bucket.key)"
+            class="SubFilters pl-5"
           >
-            <div class="flex pl-4 my-2">
-              <input
-                :id="generateId(subFilter.key, subFilter.agg)"
-                v-model="filterByHandler"
-                type="checkbox"
-                :value="subFilter.key"
-                class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
-              />
-              <label
-                :for="generateId(subFilter.key, subFilter.agg)"
-                class="form-check-label pl-2 tracking-normal align-middle"
-              >
-                {{ subFilter.key }}
-                <span
-                  v-if="subFilter.doc_count"
-                  class="text-gray-mid-dark"
-                >
-                  ({{ subFilter.doc_count.toLocaleString() }})
-                </span>
-              </label>
-            </div>
-          </template>
+            <slot :name="`slot_${getSubFilterParentKey(bucket.key_as_string || bucket.key)}`" />
+          </div>
         </div>
       </div>
     </div>
@@ -114,23 +94,6 @@ import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import { lookupContentType } from './../../utils/lookupContentType'
 import { SubFiltersObject } from './../../interfaces'
-
-// const getFilterUpdatedKey = (filterUpdatedKey, filterValue) => {
-//   let theKey = filterUpdatedKey
-//   const subFilterKeys = Object.keys(this.subFilters)
-//   subFilterKeys.forEach((key) => {
-//     // if the updated filter has sub filters, continue check
-//     if (this.subFilters[key]) {
-//       // find the subfilter with matching key
-//       const match = this.subFilters[key].find((subfilter) => {
-//         subfilter.key === filterValue
-//       })
-//       // get the aggregation key
-//       theKey = match.agg
-//     }
-//   })
-//   return theKey
-// }
 
 export default {
   name: 'SearchFilterGroup',
@@ -192,7 +155,10 @@ export default {
     },
     showFilterGroup() {
       if (this.themeStore.isEdu) {
-        return this.groupTitle && !this.hideFilterGroups.includes(this.groupKey)
+        return (
+          (this.groupTitle || this.buckets?.length) &&
+          !this.hideFilterGroups.includes(this.groupKey)
+        )
       } else {
         return (
           typeof this.groupKey !== 'undefined' &&
@@ -201,47 +167,23 @@ export default {
           !this.hideFilterGroups.includes(this.groupKey)
         )
       }
+    },
+    subFilterParentKeys() {
+      return this.subFilters ? Object.keys(this.subFilters) : undefined
     }
   },
   watch: {
     filterBy: {
       // update URL with filter parameters
       handler(newVal, oldVal) {
-        // helper
-        const getFilterUpdatedKey = (filterUpdatedKey, filterValue) => {
-          // console.log(filterUpdatedKey) // subject
-          // console.log(filterValue) // chemistry
-          let theKey = filterUpdatedKey
-          const subFilterKeys = Object.keys(this.subFilters)
-          subFilterKeys.forEach((key) => {
-            // if the updated filter has sub filters, continue check
-            if (this.subFilters[key]) {
-              // console.log(this.subFilters[key])
-              // find the subfilter with matching key
-              const match = this.subFilters[key].find((subFilter) => {
-                console.log('key', subFilter.key)
-                console.log('filterValue', filterValue)
-                return subFilter.key === filterValue
-              })
-              console.log(match)
-              // get the aggregation key
-              if (match) {
-                theKey = match.agg // subject_area
-              }
-            }
-          })
-          return theKey
-        }
         // using lodash to avoid discrepancies between comparing nested objects and arrays
         if (!isEqual(newVal, oldVal)) {
           let query = Object.assign({}, this.$route.query)
           if (newVal.length > 0) {
-            const theKey = getFilterUpdatedKey(this.groupKey, newVal.toString())
-            console.log(theKey)
             query = {
               ...this.$route.query,
               page: 1,
-              [theKey]: newVal.toString()
+              [this.groupKey]: newVal.toString()
             }
           } else {
             // clear the param from the URL if no value is passed
@@ -268,6 +210,14 @@ export default {
         key = key.replaceAll(' ', '_')
       }
       return key
+    },
+    hasSubFilter(filterKey) {
+      const lookupKey = this.getSubFilterParentKey(filterKey)
+      // check if any of the keys are populated in subFilters
+      if (this.subFilters && lookupKey && this.subFilters[lookupKey]) {
+        return true
+      }
+      return undefined
     },
     getSubFilters(filterKey) {
       const lookupKey = this.getSubFilterParentKey(filterKey)
@@ -297,23 +247,10 @@ export default {
         name = name.replace('EDU ', '')
       }
       return name ? name : key
+    },
+    getSlotName(key) {
+      return `slot_${key}`
     }
-    // getFilterUpdatedKey(filterUpdatedKey, filterValue) {
-    //   let theKey = filterUpdatedKey
-    //   const subFilterKeys = Object.keys()
-    //   subFilterKeys.forEach((key) => {
-    //     // if the updated filter has sub filters, continue check
-    //     if (this.subFilters[key]) {
-    //       // find the subfilter with matching key
-    //       const match = this.subFilters[key].find((subfilter) => {
-    //         subfilter.key === filterValue
-    //       })
-    //       // get the aggregation key
-    //       theKey = match.agg
-    //     }
-    //   })
-    //   return theKey
-    // }
   }
 }
 </script>
