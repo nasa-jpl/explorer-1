@@ -42,9 +42,11 @@ export default defineComponent({
   },
   computed: {
     hasContent() {
-      return this.contacts.some(
-        (c) => c.contact.name || c.contact.address || c.contact.phone || c.contact.email
-      )
+      return this.contacts?.length
+        ? this.contacts.some(
+            (c) => c.contact.name || c.contact.address || c.contact.phone || c.contact.email
+          )
+        : undefined
     }
   },
   methods: {

@@ -84,7 +84,7 @@ interface SortedStandards {
 const sortedStandards = computed((): SortedStandards | undefined => {
   if (standards) {
     const sorted = standards.reduce<SortedStandards>((acc, item) => {
-      const type = item.standard.type
+      const type = item.standard?.type
       // Initialize array for type if it doesn't exist
       if (!acc[type]) {
         acc[type] = []
@@ -126,9 +126,9 @@ const standardsIste = computed(() => {
         class="col-start-container lg:col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid"
         :class="backgroundClass"
       >
-        <div class="is-this-needed col-start-container lg:col-start-indent-col-2 col-end-container">
+        <div class="col-start-container lg:col-start-indent-col-2 col-end-container">
           <div class="MetaPanel-heading lg:grid grid-cols-12 col-end-container container">
-            <div class="col-start-1 col-end-10 xl:col-end-9 pl-4 lg:pl-10 pr-2 py-6 lg:py-10">
+            <div class="col-start-1 col-end-9 xl:col-end-9 pl-4 lg:pl-10 pr-6 py-6 lg:py-10">
               <MetaPanelItems
                 :theme="theme"
                 :primary-subject="primarySubject"
@@ -138,8 +138,8 @@ const standardsIste = computed(() => {
               />
             </div>
             <div
-              v-if="button"
-              class="ThemeVariantLight col-start-10 col-end-13 pl-4 pt-4 pb-6 lg:py-10 lg:text-right"
+              v-if="button && (standards?.length || $slots.metaInfo)"
+              class="ThemeVariantLight col-start-9 col-end-13 pl-4 lg:pl-0 pt-4 pb-6 lg:pr-4 xl:pr-10 2xl:pr-0 lg:py-10 lg:text-right"
             >
               <BaseButton
                 variant="secondary"
@@ -164,61 +164,66 @@ const standardsIste = computed(() => {
           </div>
         </div>
         <div
-          v-if="standards"
+          v-if="standards?.length || $slots.metaInfo"
           v-show="metaPanelOpen"
           class="MetaPanel-panel col-start-container lg:col-start-indent-col-2 col-end-bleed lg:grid grid-cols-subgrid bg-gray-light pb-3 lg:pb-6"
         >
           <div
             class="container col-start-container lg:col-start-indent-col-2 col-end-container px-8 lg:px-[3rem] xl:px-[5.8rem]"
           >
-            <div
-              class="pt-6 lg:pt-7"
-              :class="borderClass"
-            >
-              <div
-                class="text-subtitle mb-5"
-                :class="headingClass"
-              >
-                Standards
-                <span class="sr-only">.</span>
+            <div :class="borderClass">
+              <div v-if="$slots.metaInfo">
+                <slot name="metaInfo" />
               </div>
-              <div class="w-full lg:grid grid-cols-2 lg:gap-6 xl:gap-10">
-                <div v-if="standardsEla">
-                  <div class="text-base font-semibold text-gray-dark mb-4">
-                    English Language Arts Standards
-                  </div>
+              <div
+                v-if="standards?.length"
+                class="pt-6 lg:pt-7"
+              >
+                <div
+                  class="ThemeVariantGray text-subtitle mb-5"
+                  :class="headingClass"
+                >
+                  Standards
                   <span class="sr-only">.</span>
-                  <MetaPanelAccordion
-                    :standards="standardsEla"
-                    class="mb-6"
-                  />
                 </div>
-                <div v-if="standardsMath">
-                  <div class="text-base font-semibold text-gray-dark mb-4">
-                    Common Core State Standards For Math
+                <div class="w-full lg:grid grid-cols-2 lg:gap-6 xl:gap-10">
+                  <div v-if="standardsEla">
+                    <div class="text-base font-semibold text-gray-dark mb-4">
+                      English Language Arts Standards (CCSS - ELA)
+                    </div>
+                    <span class="sr-only">.</span>
+                    <MetaPanelAccordion
+                      :standards="standardsEla"
+                      class="mb-6"
+                    />
                   </div>
-                  <span class="sr-only">.</span>
-                  <MetaPanelAccordion
-                    :standards="standardsMath"
-                    class="mb-6"
-                  />
-                </div>
-                <div v-if="standardsNgss">
-                  <div class="text-base font-semibold text-gray-dark mb-4">
-                    Next Generation Science Standards
+                  <div v-if="standardsMath">
+                    <div class="text-base font-semibold text-gray-dark mb-4">
+                      Math Standards (CCSS - Math)
+                    </div>
+                    <span class="sr-only">.</span>
+                    <MetaPanelAccordion
+                      :standards="standardsMath"
+                      class="mb-6"
+                    />
                   </div>
-                  <span class="sr-only">.</span>
-                  <MetaPanelAccordion
-                    :standards="standardsNgss"
-                    class="mb-6"
-                  />
-                </div>
-                <div v-if="standardsIste">
-                  <div class="text-base font-semibold text-gray-dark mb-4">
-                    Technology Standards (ISTE)
+                  <div v-if="standardsNgss">
+                    <div class="text-base font-semibold text-gray-dark mb-4">
+                      Science Standards (NGSS)
+                    </div>
+                    <span class="sr-only">.</span>
+                    <MetaPanelAccordion
+                      :standards="standardsNgss"
+                      class="mb-6"
+                    />
                   </div>
-                  <span class="sr-only">.</span>
-                  <MetaPanelAccordion :standards="standardsIste" />
+                  <div v-if="standardsIste">
+                    <div class="text-base font-semibold text-gray-dark mb-4">
+                      Technology Standards (ISTE)
+                    </div>
+                    <span class="sr-only">.</span>
+                    <MetaPanelAccordion :standards="standardsIste" />
+                  </div>
                 </div>
               </div>
             </div>

@@ -24,6 +24,26 @@ make nuxt
 make html-storybook
 ```
 
+### Publishing to npm
+
+1. Update the package version for any packages that have been changed since the last publish (usually @explorer-1/vue and sometimes @explorer-1/common)
+2. Also update the package version for the main workspace.
+
+3. Commit changes and also tag with the latest main workspace version
+
+   ```bash
+   git commit -m "bumping package version for publishing"
+   git tag 3.x.x
+   git push
+   git push --tags
+   ```
+
+4. Publish relevant packages to npm:
+
+   ```bash
+   pnpm publish --filter \@explorer-1/vue
+   ```
+
 ### Developing Vue components
 
 1. Create new component files in `packages/vue`
@@ -36,6 +56,7 @@ make html-storybook
 ## Table of contents
 
 - [Version 3.x.x docs (draft)](#version-3xx-docs-draft)
+  - [Publishing to npm](#publishing-to-npm)
   - [Developing Vue components](#developing-vue-components)
 - [What's included](#whats-included)
 - [Installation](#installation)

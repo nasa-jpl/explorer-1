@@ -13,6 +13,7 @@ import {
   BlockStreamfieldMinimalData
 } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
 import PageEduLesson from './PageEduLesson.vue'
+import { AboutTheAuthorData } from './../../../components/AboutTheAuthor/AboutTheAuthor.stories'
 
 export default {
   title: 'Templates/EDU/PageEduLesson',
@@ -44,22 +45,25 @@ export const BaseStory = {
       seoTitle: 'Test Lesson',
       slug: 'test-lesson',
       publicationDate: '2024-08-16',
+      lastPublishedAt: '2024-08-22T02:33:13.507206+00:00',
       thumbnailImage: {
         __typename: 'CustomImage',
         original: 'http://127.0.0.1:9000/media/original_images/imagessirtfsirtf-090303-16.jpg',
         alt: ''
       },
+      authors: AboutTheAuthorData,
       hero: [
         {
           ...HeroMediaData,
           blockType: 'HeroImageBlock'
         }
       ],
-      heroConstrain: true,
+      heroConstrain: false,
+      heroPosition: 'full_bleed',
 
       studentProject: {
         title: 'Student Project',
-        urlPath: '/path-to-student-project'
+        url: '/path-to-student-project'
       },
 
       primarySubject: {
@@ -122,7 +126,7 @@ export const BaseStory = {
             domain: {
               domain: 'Counting and Cardinality'
             },
-            type: 'ccss_maths'
+            type: 'ccss_math'
           }
         },
         {
@@ -133,7 +137,7 @@ export const BaseStory = {
             domain: {
               domain: 'Counting and Cardinality'
             },
-            type: 'ccss_maths'
+            type: 'ccss_math'
           }
         },
         {
@@ -149,7 +153,7 @@ export const BaseStory = {
         }
       ],
 
-      overview: BlockStreamfieldMinimalData.body,
+      overview: [],
       overviewHeading: 'Custom Overview heading',
       overviewImage: BlockImageData.image,
 
@@ -161,22 +165,86 @@ export const BaseStory = {
       management: BlockStreamfieldMinimalData.body,
       managementHeading: 'Management stuff',
 
-      background: BlockStreamfieldMinimalData.body,
+      background: [
+        ...BlockStreamfieldMinimalData.body,
+        {
+          blockType: 'RichTextBlock',
+          value:
+            '<ol><li data-block-key="wv2pw">A list<ol><li data-block-key="mc91">A nested list should be a.<ol><li data-block-key="3p0pb">Another nested should be i.<ol><li data-block-key="22afo">Another is a number again.</li></ol></li></ol></li></ol></li></ol>'
+        }
+      ],
       backgroundHeading: 'Background heading',
 
       procedures: [
         {
-          blocks: BlockStreamfieldMinimalData.body
+          sectionHeading: 'Section Heading 1',
+          stepsNumbering: true,
+          steps: [
+            {
+              blocks: [
+                // {
+                //   blockType: 'HeadingBlock',
+                //   heading: 'Heading Text',
+                //   level: 'h3',
+                //   size: 'h3',
+                //   blockId: `${Math.random().toString(36).slice(2)}`
+                // },
+                ...BlockStreamfieldMinimalData.body,
+                {
+                  blockType: 'HeadingBlock',
+                  heading: 'Heading Text',
+                  level: 'h3',
+                  size: 'h3',
+                  blockId: `${Math.random().toString(36).slice(2)}`
+                },
+
+                {
+                  blockType: 'RichTextBlock',
+                  value:
+                    '<ol><li data-block-key="wv2pw">A list<ol><li data-block-key="mc91">A nested list should be a.<ol><li data-block-key="3p0pb">Another nested should be i.<ol><li data-block-key="22afo">Another is a number again.</li></ol></li></ol></li></ol></li></ol>'
+                }
+              ]
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
         },
         {
-          blocks: BlockStreamfieldMinimalData.body
+          // sectionHeading: 'Section Heading 2',
+          stepsNumbering: true,
+          steps: [
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
         },
         {
-          blocks: BlockStreamfieldMinimalData.body
+          sectionHeading: 'Section Heading 3',
+          stepsNumbering: false,
+          steps: [
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            },
+            {
+              blocks: BlockStreamfieldMinimalData.body
+            }
+          ]
         }
       ],
       proceduresHeading: 'Procedures heading',
-      proceduresStepsNumbering: true,
 
       discussion: BlockStreamfieldMinimalData.body,
       discussionHeading: 'Discussion heading',
@@ -204,6 +272,30 @@ export const BaseStory = {
       relatedLinks: BlockRelatedLinksData.data,
       relatedContentHeading: 'Related Content',
       relatedContent: BlockLinkCardCarouselData
+    }
+  }
+}
+
+export const HeroTitle = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      hero: [
+        {
+          ...HeroMediaData,
+          heroSummary: 'Text appears below the title',
+          blockType: 'HeroTitleBlock'
+        }
+      ]
+    }
+  }
+}
+
+export const InlineHero = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      heroPosition: 'inline'
     }
   }
 }

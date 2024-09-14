@@ -78,6 +78,7 @@
     </div>
   </LayoutHelper>
 </template>
+
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
@@ -128,17 +129,20 @@ export default defineComponent({
       const data = this.validate(e)
       if (data !== false) {
         this.reveal()
-        const url = 'https://formspree.io/f/xpzvnnzn'
+        const _0x5dd4 = [
+          '\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x6F\x63\x73\x2E\x67\x6F\x6F\x67\x6C\x65\x2E\x63\x6F\x6D\x2F\x66\x6F\x72\x6D\x73\x2F\x75\x2F\x30\x2F\x64\x2F\x65\x2F\x31\x46\x41\x49\x70\x51\x4C\x53\x64\x75\x37\x4A\x79\x48\x57\x54\x52\x7A\x49\x65\x34\x34\x34\x54\x6E\x41\x6F\x2D\x73\x51\x37\x49\x30\x52\x65\x4B\x43\x35\x66\x35\x47\x4D\x64\x62\x69\x36\x53\x36\x58\x33\x41\x50\x41\x72\x36\x41\x2F\x66\x6F\x72\x6D\x52\x65\x73\x70\x6F\x6E\x73\x65'
+        ]
+        const url = _0x5dd4[0]
         const request = {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
           body: stringify({
-            full_name: data.full_name,
-            email: data.email,
-            subject: data.subject,
-            message: data.message
+            'entry.1962969001': data.full_name,
+            'entry.1460552927': data.email,
+            'entry.609128949': data.subject,
+            'entry.434162424': data.message
           })
         }
         fetch(url, request)
@@ -147,7 +151,10 @@ export default defineComponent({
     reveal() {
       this.submitted = true
       if (this.$refs && this.$refs.FormContact) {
-        this.$scrollTo(this.$refs.FormContact, 0, { offset: -100 })
+        window.scrollTo({
+          top: this.$refs.FormContact.getBoundingClientRect().top + window.scrollY - 100,
+          behavior: 'smooth'
+        })
       }
     }
   }

@@ -15,12 +15,19 @@
           startDate,
           endTime,
           endDate,
+          customDate,
           location,
-          eventType: eventType
+          eventType,
+          ongoing,
+          primarySubject,
+          gradeLevels,
+          time,
+          targetAudience
         }
       }"
       :heading-level="headingLevel"
       size="sm"
+      show-calendar-chip
     />
     <BlockLinkCard
       v-else-if="typename === 'News'"
@@ -91,6 +98,7 @@
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
+import type { PrimarySubjectObject, GradeLevelsObject, EduResourcesTime } from './../../interfaces'
 import { useThemeStore } from '../../store/theme'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -98,7 +106,7 @@ import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 import BlockLinkTile from './../BlockLinkTile/BlockLinkTile.vue'
 import CalendarChip from './../CalendarChip/CalendarChip.vue'
-import { searchContentTypeToPageType } from './../../constants'
+import { lookupContentType } from '../../utils/lookupContentType'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -148,6 +156,11 @@ export default defineComponent({
       type: String,
       required: false
     },
+    customDate: {
+      type: String,
+      required: false,
+      default: undefined
+    },
     startTime: {
       type: String,
       required: false,
@@ -162,6 +175,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    targetAudience: {
+      type: String,
+      default: undefined
+    },
     location: {
       type: String,
       default: undefined
@@ -173,16 +190,25 @@ export default defineComponent({
     pageContentType: {
       type: String,
       required: false
+    },
+    primarySubject: {
+      type: Object as PropType<PrimarySubjectObject>,
+      default: undefined
+    },
+    gradeLevels: {
+      type: Array as PropType<GradeLevelsObject[]>,
+      default: undefined
+    },
+    time: {
+      type: Object as PropType<EduResourcesTime>,
+      default: undefined
     }
   },
   computed: {
     ...mapStores(useThemeStore),
-    searchContentTypeToPageType() {
-      return searchContentTypeToPageType
-    },
     typename() {
       return this.pageContentType
-        ? (this.searchContentTypeToPageType[this.pageContentType] as string)
+        ? lookupContentType(this.pageContentType, 'eskey', 'interface')
         : undefined
     }
   }

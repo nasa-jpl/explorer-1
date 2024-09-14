@@ -86,7 +86,6 @@ export default defineComponent({
       this.dialog = this.$refs.DialogRef
         ? new A11yDialog(this.$refs.DialogRef as HTMLElement)
         : null
-      console.log(this.dialog)
       if (this.dialog) {
         this.dialog
           .on('show', () => {

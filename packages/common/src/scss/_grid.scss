@@ -82,4 +82,21 @@
       @apply -mt-29; // just a little more than -28 to get rid of the barely visible white line
     }
   }
+  .ThemeEdu {
+    // applied globally via /layouts/default.vue
+    .nav-offset {
+      @apply pt-18; // height of mobile header
+
+      @screen lg {
+        @apply pt-0;
+      }
+    }
+
+    // for use on pages with flush-top hero sections // doesn't apply to EDU
+    .-nav-offset {
+      @screen lg {
+        @apply mt-0; // get rid of the barely visible white line
+      }
+    }
+  }
 }

@@ -10,6 +10,7 @@ import BlockImageStandard from './../../../components/BlockImage/BlockImageStand
 import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
+import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 
 interface PageEduNewsDetailObject extends PageObject {
   readTime: string
@@ -18,7 +19,7 @@ interface PageEduNewsDetailObject extends PageObject {
   heroImageInline: ImageObject
   heroConstrain: boolean
   heroImageCaption: string
-  authors: AuthorObject[]
+  authors: { author: AuthorObject }[]
   showJumpMenu: boolean
 }
 
@@ -68,10 +69,10 @@ defineExpose({
     itemtype="http://schema.org/Article"
   >
     <NavJumpMenu
+      v-if="data.showJumpMenu"
       ref="PageEduNewsDetailJumpMenu"
       :title="data.title"
       :blocks="data.body"
-      :enabled="data.showJumpMenu"
       dropdown-text="In this news article"
     />
 
@@ -151,6 +152,15 @@ defineExpose({
       itemprop="articleBody"
       :data="data.body"
     />
+
+    <LayoutHelper
+      v-if="data.authors?.length"
+      indent="col-3"
+      class="mb-10 lg:mb-22"
+    >
+      <AboutTheAuthor :authors="data.authors" />
+    </LayoutHelper>
+
     <div class="bg-stars bg-primary-darker">
       <div class="py-10 text-center text-white">
         <strong>Related News goes here</strong>

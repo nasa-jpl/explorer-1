@@ -246,13 +246,15 @@ export default defineComponent({
     // to determine active class on menu links and 'more' menu links
     checkActive(item: LinkObject) {
       const urlKey = this.getUrlKey(item)
-      if (urlKey && this.breadcrumb && this.breadcrumb.menu_links) {
+      if (urlKey && this.breadcrumb?.menu_links) {
         // key into the breadcrumbs for each section
-        const objArray = this.breadcrumb.menu_links[urlKey]
+        const sectionLinks = this.breadcrumb.menu_links[urlKey]
         // check if any of the paths contained in the array are active
-        const isActive = objArray.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
+        const isActive = sectionLinks?.length
+          ? sectionLinks.some((link: BreadcrumbPathObject) => mixinIsActivePath(link.path))
+          : undefined
         if (isActive) {
-          mixinUpdateGlobalChildren(this.breadcrumb.menu_links[urlKey])
+          mixinUpdateGlobalChildren(sectionLinks)
         }
         return isActive
       }
@@ -263,7 +265,9 @@ export default defineComponent({
         // get the more menu array
         const arr = this.breadcrumb.more
         // check if array contains current path
-        const isActive = arr.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
+        const isActive = arr?.length
+          ? arr.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
+          : undefined
         if (isActive) {
           // clear the secondary nav store when visiting a breadcrumb page
           // ensures blank secondary nav unless explicitly set via content page "Promote" settings

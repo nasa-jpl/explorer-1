@@ -9,15 +9,21 @@
     />
 
     <div
-      v-if="(data.caption && data.caption.length > 2) || data.credit"
-      class="lg:px-0 p-4 pb-0 print:pl-0"
+      v-if="hasCaption"
+      class="caption-area lg:px-0 p-4 pb-0 print:pl-0"
     >
-      <BaseImageCaption :data="data" />
+      <BaseImageCaption
+        :data="data"
+        :custom-link="customDetailUrl"
+        custom-link-text="Full Video Details"
+      />
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import BaseVideo from './../BaseVideo/BaseVideo.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 
@@ -35,6 +41,20 @@ export default defineComponent({
     autoplay: {
       type: Boolean,
       default: false
+    },
+    customDetailUrl: {
+      type: String,
+      default: undefined
+    }
+  },
+  computed: {
+    ...mapStores(useThemeStore),
+    hasCaption() {
+      if (this.themeStore.isEdu) {
+        return this.data?.caption || this.customDetailUrl
+      } else {
+        return this.data?.caption || this.data?.credit || this.customDetailUrl
+      }
     }
   }
 })

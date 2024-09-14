@@ -254,7 +254,9 @@ export default defineComponent({
         // key into the breadcrumbs for each section
         const objArray = this.breadcrumb.menu_links[urlKey]
         // check if any of the paths contained in the array are active
-        const isActive = objArray.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
+        const isActive = objArray?.length
+          ? objArray.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
+          : undefined
         if (isActive) {
           mixinUpdateGlobalChildren(this.breadcrumb.menu_links[urlKey])
         }
@@ -267,7 +269,9 @@ export default defineComponent({
         // get the more menu array
         const arr = this.breadcrumb.more
         // check if array contains current path
-        const isActive = arr.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
+        const isActive = arr?.length
+          ? arr.some((el: BreadcrumbPathObject) => mixinIsActivePath(el.path))
+          : undefined
         if (isActive) {
           // clear the secondary nav store when visiting a breadcrumb page
           // ensures blank secondary nav unless explicitly set via content page "Promote" settings
@@ -300,7 +304,7 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .NavDesktopEdu {
-  @apply border-b border-transparent;
+  @apply border-none;
 
   > .header-bg {
     @apply bg-gradient-to-r from-black to-primary bg-transparent to-90%;

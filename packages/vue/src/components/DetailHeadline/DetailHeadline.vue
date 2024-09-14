@@ -9,9 +9,8 @@
           :variant="pillColor"
           size="lg"
           class="mr-3"
-        >
-          {{ pillLabel }}
-        </BasePill>
+          :text="pillLabel"
+        />
       </template>
       <template v-else>
         <div
@@ -101,12 +100,13 @@
         <span :itemprop="schema ? 'name' : undefined"> Jet Propulsion Laboratory </span>
         <span :itemprop="schema ? 'url' : undefined"> https://www.jpl.nasa.gov/ </span>
       </span>
-      <span v-if="publicationDate">
-        <meta
-          v-if="schema"
-          itemprop="datePublished"
-          :content="pubDatetime"
-        />
+      <meta
+        v-if="schema && publicationDate"
+        itemprop="datePublished"
+        :content="pubDatetime"
+      />
+
+      <span v-if="publicationDate && !hideDate">
         {{
           // @ts-ignore
           $filters.displayDate(publicationDate)
@@ -140,7 +140,7 @@ export default defineComponent({
       default: undefined
     },
     author: {
-      type: Object as PropType<AuthorObject | AuthorObject[]>,
+      type: Object as PropType<AuthorObject | { author: AuthorObject }[]>,
       required: false,
       default: undefined
     },
@@ -187,6 +187,10 @@ export default defineComponent({
     schema: {
       type: Boolean,
       default: false
+    },
+    hideDate: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -208,11 +212,10 @@ export default defineComponent({
       const returnDate = new Date(this.publicationDate + ' ' + currentTime)
       return returnDate.toISOString()
     },
-    authors(): { name: string; organization: string }[] | undefined {
+    authors(): AuthorObject[] | undefined {
       let authors: AuthorObject[] | undefined = undefined
       if (this.author && this.author.constructor === Array) {
         authors = []
-        // @ts-expect-error we know it's an array at this point
         this.author.forEach((author: { author: AuthorObject }) => {
           // @ts-expect-error authors array is defined above
           authors.push(author.author)

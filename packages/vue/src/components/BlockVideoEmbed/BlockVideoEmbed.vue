@@ -10,10 +10,14 @@
       <div v-html="data.embed.embed"></div>
     </BaseImagePlaceholder>
     <div
-      v-if="data.caption"
-      class="lg:px-0 p-4 print:pl-0"
+      v-if="data.caption || customDetailUrl"
+      class="caption-area lg:px-0 p-4 print:pl-0"
     >
-      <BaseImageCaption :data="data" />
+      <BaseImageCaption
+        :data="data"
+        :custom-link="customDetailUrl"
+        custom-link-text="Full Video Details"
+      />
     </div>
   </div>
 </template>
@@ -45,6 +49,10 @@ export default defineComponent({
       type: Object as PropType<Partial<BlockData>>,
       required: false,
       default: undefined
+    },
+    customDetailUrl: {
+      type: String,
+      default: undefined
     }
   },
   mounted() {
@@ -55,8 +63,6 @@ export default defineComponent({
       if (!this.data?.embed) {
         return
       }
-
-      // TODO: not using feature detect as that would require rewriting the html output from wagtail to set data-src instead of src
       // get the iframe in this component
       const iframe = this.$el.querySelector('iframe')
       if (iframe) {

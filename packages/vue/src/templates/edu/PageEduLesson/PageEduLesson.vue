@@ -1,46 +1,45 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import type {
-  BlockData,
   ImageObject,
   PageEduResourcesObject,
   StreamfieldBlockData
 } from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
+import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import BaseLink from './../../../components/BaseLink/BaseLink.vue'
-import BaseImagePlaceholder from './../../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import type { BlockHeadingObject } from '../../../components/BlockHeading/BlockHeading.vue'
-import BlockImageCarousel from './../../../components/BlockImageCarousel/BlockImageCarousel.vue'
-import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
-import BlockVideo from './../../../components/BlockVideo/BlockVideo.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
-import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
-import BlockIframeEmbed from '../../../components/BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
 import PageEduLessonSection, { type PageEduLessonSectionProps } from './PageEduLessonSection.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
+import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
+import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
+
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
 
 interface EduLessonSectionObject extends PageEduLessonSectionProps {
-  type?: 'streamfield'
+  type?: string
 }
 interface EduLessonProcedureBlocks {
   blocks: StreamfieldBlockData[]
 }
-interface EduLessonProcedure {
-  procedure: EduLessonProcedureBlocks
+export interface EduLessonProcedure {
+  sectionHeading?: string
+  steps?: EduLessonProcedureBlocks[]
+  stepsNumbering?: boolean
 }
 
 interface PageEduLessonObject extends PageEduResourcesObject {
   [key: string]: any
   studentProject: {
     title: string
-    urlPath: string
+    url: string
   }
   overview: StreamfieldBlockData[]
   overviewHeading: string
@@ -96,31 +95,40 @@ const heroEmpty = computed((): boolean => {
   return data?.hero?.length === 0
 })
 
-const heroInline = computed((): boolean => {
-  // heroes with interactive elements have special handling
-  if (!heroEmpty.value && data?.hero) {
+const theHero = computed(() => {
+  if (data?.hero?.length) {
+    return data.hero[0]
+  }
+  return undefined
+})
+
+const heroTitle = computed((): boolean => {
+  if (theHero.value) {
     // excludes VideoBlock as this will autoplay
-    if (data?.hero[0].blockType === 'VideoBlock') {
-      return false
-    } else if (
-      data?.hero[0].blockType === 'CarouselBlock' ||
-      data?.hero[0].blockType === 'IframeEmbedBlock' ||
-      data?.hero[0].blockType === 'VideoEmbedBlock' ||
-      data?.hero[0].blockType === 'ImageComparisonBlock'
-    ) {
+    if (theHero.value.blockType === 'HeroTitleBlock') {
       return true
     }
   }
   return false
 })
 
-const computedClass = computed((): string => {
-  if (heroInline.value || heroEmpty) {
-    return 'pt-5 lg:pt-12'
-  } else if (!heroInline.value) {
-    return '-nav-offset'
+const heroInline = computed((): boolean => {
+  // heroes with interactive elements have special handling
+  if (theHero.value && !heroTitle.value) {
+    // excludes VideoBlock as this will autoplay
+    if (theHero.value.blockType === 'VideoBlock') {
+      return false
+    } else if (
+      data?.heroPosition === 'inline' ||
+      theHero.value.blockType === 'CarouselBlock' ||
+      theHero.value.blockType === 'IframeEmbedBlock' ||
+      theHero.value.blockType === 'VideoEmbedBlock' ||
+      theHero.value.blockType === 'ImageComparisonBlock'
+    ) {
+      return true
+    }
   }
-  return ''
+  return false
 })
 
 const sectionOrder = [
@@ -141,13 +149,16 @@ const sectionOrder = [
 const staticSectionHeadings = computed((): { [key: string]: BlockHeadingObject } | undefined => {
   if (data) {
     const result = sectionOrder.reduce<Record<string, BlockHeadingObject>>((acc, section) => {
-      const headingText =
-        section === 'techAddons'
-          ? 'Tech Add-ons'
-          : section.charAt(0).toUpperCase() + section.slice(1)
-      acc[section] = stringAsHeadingBlockData(
-        (data[`${section}Heading`] as HeadingLevel) || headingText
-      )
+      // only include the heading if the section has content
+      if (data[section]?.length) {
+        const headingText =
+          section === 'techAddons'
+            ? 'Tech Add-ons'
+            : section.charAt(0).toUpperCase() + section.slice(1)
+        acc[section] = stringAsHeadingBlockData(
+          (data[`${section}Heading`] as HeadingLevel) || headingText
+        )
+      }
       return acc
     }, {})
     return result
@@ -205,8 +216,8 @@ const consolidatedBlocks = computed(() => {
       } else if (section === 'procedures' && data.procedures?.length) {
         // get blocks in nested procedures
         data.procedures.forEach((item) => {
-          if (item.procedure?.blocks?.length) {
-            blocks.push(...item.procedure.blocks)
+          if (item.steps?.length) {
+            blocks.push(...item.steps)
           }
         })
       }
@@ -230,7 +241,7 @@ const consolidatedBlocks = computed(() => {
 
 // organize data to render with PageEduLessonSection component
 const consolidatedSections = computed((): EduLessonSectionObject[] => {
-  const sections = []
+  const sections: EduLessonSectionObject[] = []
   // include custom top section
   if (keyedCustomSections.value && keyedCustomSections.value['top']) {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['top'] })
@@ -238,13 +249,11 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
   sectionOrder.forEach((section) => {
     if (data && data[section]) {
       sections.push({
-        heading: staticSectionHeadings.value
-          ? (staticSectionHeadings.value[section] as BlockData)
-          : undefined,
+        heading: staticSectionHeadings.value ? staticSectionHeadings.value[section] : undefined,
         blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
         text: section === 'materials' ? data[section] : undefined,
         procedures: section === 'procedures' ? data[section] : undefined,
-        procedureSteps: section === 'procedures' ? data.proceduresStepsNumbering : false
+        image: data[`${section}Image`]
       })
     }
     // include custom "after_" sections
@@ -256,7 +265,18 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
   if (keyedCustomSections.value && keyedCustomSections.value['bottom']) {
     sections.push({ type: 'streamfield', blocks: keyedCustomSections.value['bottom'] })
   }
-  return sections as EduLessonSectionObject[]
+  const filteredSections = sections.filter(
+    (item) => item.text || item.blocks?.length || item.procedures?.length
+  )
+
+  return filteredSections
+})
+const computedClass = computed((): string => {
+  if (heroTitle.value) {
+    return '-nav-offset'
+  } else {
+    return 'pt-5 lg:pt-12'
+  }
 })
 </script>
 <template>
@@ -265,101 +285,83 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     class="ThemeVariantLight"
     :class="computedClass"
   >
+    <!-- hero title -->
+    <HeroLarge
+      v-if="heroTitle && theHero"
+      :title="data.title"
+      :image="theHero.image"
+      :summary="theHero.heroSummary"
+      :custom-pill-type="data.__typename"
+    />
+
     <LayoutHelper
       indent="col-2"
       class="mb-10"
     >
       <DetailHeadline
+        v-if="data.title && !heroTitle"
         :title="data.title"
         label="Lesson"
         pill
       />
       <ShareButtonsEdu
         v-if="data?.url"
-        class="mt-4"
+        :class="heroTitle ? 'mt-10' : 'mt-4'"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
       />
-      <p
-        v-if="data.studentProject"
+      <div
+        v-if="data.studentProject?.url"
         class="mt-8 font-bold text-body-lg"
       >
         Find out what’s involved for students:
         <BaseLink
           class="font-normal inline text-action underline hover:text-action-dark cursor-pointer"
           variant="none"
-          :to="data.studentProject.urlPath"
+          :to="data.studentProject?.url"
         >
           View the Project Steps
         </BaseLink>
-      </p>
+      </div>
     </LayoutHelper>
     <MetaPanel
       button="View Standards"
       theme="primary"
-      :class="{ 'mb-10 lg:mb-14': heroInline || data?.hero?.length === 0 }"
+      :class="{ 'mb-10 lg:mb-14': heroTitle || heroInline || data?.hero?.length === 0 }"
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
-      :time="data.time"
+      :time="data.customTime ? { time: data.customTime } : data.time"
       :grade-levels="data.gradeLevels"
       :standards="data.standards"
-      :negative-bottom="heroInline || data?.hero?.length !== 0"
+      :negative-bottom="(heroInline || data?.hero?.length !== 0) && !heroTitle"
     />
 
     <!-- hero media -->
     <HeroMedia
       v-if="
         !heroEmpty &&
+        !heroTitle &&
         !heroInline &&
-        data?.hero?.length &&
-        (data.hero[0].blockType === 'HeroImageBlock' || data.hero[0].blockType === 'VideoBlock')
+        theHero &&
+        (theHero.blockType === 'HeroImageBlock' || theHero.blockType === 'VideoBlock')
       "
       class="md:mb-12 lg:mb-18 mb-10"
-      :image="data.hero[0].image"
-      :video="data.hero[0].video"
-      :display-caption="data.hero[0].displayCaption"
-      :caption="data.hero[0].caption"
-      :credit="data.hero[0].credit"
+      :image="theHero.image"
+      :video="theHero.video"
+      :display-caption="theHero.displayCaption"
+      :caption="theHero.caption"
+      :credit="theHero.credit"
       :constrain="data.heroConstrain"
     />
 
-    <!-- TODO: put this in a component (exclude layout though) -->
     <LayoutHelper
       v-if="!heroEmpty && heroInline && data.hero?.length"
       class="lg:mb-22 mb-10"
     >
-      <BlockImageStandard
-        v-if="data.hero[0].blockType === 'HeroImageBlock'"
-        :data="data.hero[0].imageInline"
-        :display-caption="data.hero[0].displayCaption"
-        :caption="data.hero[0].caption"
+      <HeroInlineMedia
+        :hero-blocks="data.hero"
         :constrain="data.heroConstrain"
-      />
-      <BlockImageCarousel
-        v-else-if="data.hero[0].blockType === 'CarouselBlock'"
-        :items="data.hero[0].blocks"
-        :block-id="data.hero[0].id"
-      />
-      <BlockIframeEmbed
-        v-else-if="data.hero[0].blockType === 'IframeEmbedBlock'"
-        :data="data.hero[0]"
-      />
-      <BlockVideo
-        v-else-if="data.hero[0].blockType === 'VideoBlock'"
-        :data="data.hero[0]"
-        autoplay
-      />
-      <BaseImagePlaceholder
-        v-else-if="data.hero[0].blockType === 'VideoEmbedBlock'"
-        aspect-ratio="16:9"
-        dark-mode
-      >
-        <div v-html="data.hero[0].embed?.embed"></div>
-      </BaseImagePlaceholder>
-      <BlockImageComparison
-        v-else-if="data.hero[0].blockType === 'ImageComparisonBlock'"
-        :data="data.hero[0]"
       />
     </LayoutHelper>
 
@@ -367,7 +369,6 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
       ref="PageEduLessonJumpMenu"
       :title="data.title"
       :blocks="consolidatedBlocks"
-      :enabled="true"
       dropdown-text="In this lesson"
     />
 
@@ -384,14 +385,16 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
         :heading="value.heading"
         :blocks="value.blocks"
         :procedures="value.procedures"
-        :procedure-steps="value.procedureSteps"
         :text="value.text"
         :image="value.image"
       />
     </template>
 
     <!-- streamfield blocks -->
-    <BlockStreamfield :data="data.body" />
+    <BlockStreamfield
+      v-if="data.body?.length"
+      :data="data.body"
+    />
 
     <!-- related links -->
     <LayoutHelper
@@ -406,8 +409,29 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     <BlockLinkCarousel
       item-type="cards"
       class="lg:my-24 my-12 print:px-4"
-      :heading="data.relatedContentHeading"
+      :heading="data.relatedContentHeading || 'Related Lessons & Projects'"
       :items="data.relatedContent"
     />
+
+    <LayoutHelper
+      v-if="data.authors?.length"
+      indent="col-3"
+    >
+      <AboutTheAuthor :authors="data.authors" />
+    </LayoutHelper>
+
+    <LayoutHelper
+      v-if="data.lastPublishedAt"
+      indent="col-3"
+      class="lg:my-18 my-10"
+    >
+      <p class="border-t border-gray-light-mid pt-8">
+        <strong>Lesson Last Updated:</strong>
+        {{
+          // @ts-ignore
+          $filters.displayDate(data.lastPublishedAt)
+        }}
+      </p>
+    </LayoutHelper>
   </div>
 </template>

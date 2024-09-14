@@ -20,7 +20,7 @@
           media="(min-width: 420px)"
           :srcset="theImage.screenMd?.url"
         />
-        <source :data-srcset="theImage.screenSm?.url" />
+        <source :srcset="theImage.screenSm?.url" />
         <img
           class="object-cover w-full h-full"
           :src="theImage.src.url"
@@ -47,12 +47,13 @@
           'my-6 lg:mt-0 lg:mb-10': compact
         }"
       >
-        <nuxt-link
+        <BaseLink
+          variant="none"
           :to="feature.url"
           class="lg:w-1/2 xl:w-5/12 block"
         >
           <div
-            v-if="customPill || customLabel || feature.label"
+            v-if="customPill || customPillType || customLabel || feature.label"
             class="flex items-center lg:mb-3 mb-2"
           >
             <BasePill
@@ -61,9 +62,8 @@
               size="sm"
               class="mr-3"
               :content-type="customPillType"
-            >
-              {{ customPill }}
-            </BasePill>
+              :text="customPill"
+            />
             <p
               v-if="customLabel || feature.label"
               class="text-subtitle"
@@ -75,12 +75,12 @@
           <p class="text-h3 font-semibold mb-0">
             <span class="mr-2">{{ feature.title }}</span>
             <span
-              class="text-jpl-red-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-4xl transition-all duration-200 ease-in"
+              class="text-action-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-4xl transition-all duration-200 ease-in"
             >
               <IconArrow class="inline" />
             </span>
           </p>
-        </nuxt-link>
+        </BaseLink>
         <BaseLink
           :to="feature.url"
           class="lg:block hidden"

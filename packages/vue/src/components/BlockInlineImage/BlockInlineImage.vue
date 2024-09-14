@@ -44,14 +44,17 @@
         class="flex col-span-5"
         :class="data.alignTo === 'right' ? 'col-start-3 lg:order-1' : 'col-start-6 lg:order-2'"
       >
-        <BlockText :text="data.text" />
+        <BlockText
+          :variant="variant"
+          :text="data.text"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import type { ImageObject } from '../../interfaces'
 import { mixinGetSrcSet } from './../../utils/mixins'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
@@ -73,6 +76,10 @@ export default defineComponent({
     data: {
       type: Object,
       required: false
+    },
+    variant: {
+      type: String as PropType<'small' | 'medium' | 'large'>,
+      default: 'large'
     }
   },
   computed: {

@@ -5,13 +5,13 @@
     :to="theItem.url ? theItem.url : undefined"
     :href="theItem.externalLink ? theItem.externalLink : undefined"
     class="BlockLinkCard group"
-    :link-class="`block ${small ? 'pb-3' : 'pb-5'} ${large ? 'sm:flex flex-row' : ''}`"
+    :link-class="`block ${small ? 'pb-3' : 'pb-5'} ${large ? 'sm:flex flex-row border-b border-gray-light-mid pb-5 mb-5' : ''}`"
     external-target-blank
   >
     <BaseImagePlaceholder
       :aspect-ratio="large ? '3:2' : '16:9'"
-      class="bg-gray-dark relative mb-6 edu:lg:mb-8 overflow-hidden"
-      :class="{ 'lg:mb-10': medium, 'sm:w-1/3': large }"
+      class="bg-gray-dark h-full relative overflow-hidden mb-6"
+      :class="{ 'lg:mb-10': medium, 'sm:w-1/3 lg:mb-0': large }"
       dark-mode
       no-logo
     >
@@ -47,9 +47,8 @@
           :class="{ 'mb-2': !large, 'mb-4': large }"
           size="sm"
           :content-type="metadataType"
-        >
-          {{ (theItem as EventCardObject).eventType }}
-        </BasePill>
+          :text="(theItem as EventCardObject).eventType"
+        />
       </template>
       <template
         v-else-if="themeStore.isEdu && theItem.parent?.title && theItem.parent?.title !== 'EDU'"
@@ -98,8 +97,14 @@
         {{ theItem.title }}
       </component>
       <p
-        v-if="theItem.date"
-        class="text-gray-mid-dark mt-2"
+        v-if="(theItem as EventCardObject).targetAudience"
+        :class="{ 'mt-1': !large, 'mt-4': large }"
+      >
+        <strong>Target Audience:</strong> {{ (theItem as EventCardObject).targetAudience }}
+      </p>
+      <p
+        v-if="theItem.date && !themeStore.isEdu"
+        class="text-gray-mid-dark"
         :class="{ 'mt-2': !large, 'mt-4': large }"
       >
         {{ theItem.date }}
@@ -107,8 +112,18 @@
       <p
         v-if="large && theItem.summary"
         class="mt-4 text-gray-mid-dark"
+        :class="{
+          'line-clamp-2 sm:line-clamp-1 lg:line-clamp-2 xl:line-clamp-3': themeStore.isEdu
+        }"
       >
         {{ theItem.summary }}
+      </p>
+      <p
+        v-if="theItem.date && themeStore.isEdu"
+        class="text-gray-mid-dark mt-2"
+        :class="{ 'mt-2': !large, 'mt-4': large }"
+      >
+        {{ theItem.date }}
       </p>
       <div
         v-if="metadataAttrs"
@@ -117,14 +132,14 @@
         <MetadataEvent
           v-if="metadataType === 'EDUEventPage'"
           :event="theItem"
-          :show-time="false"
-          :show-location="false"
+          :show-time="large"
           compact
         />
         <MetadataEduResource
           v-else-if="metadataAttrs.type === 'resource'"
           :resource="theItem as EduResourceCardObject"
-          :variant="metadataAttrs.variant"
+          :variant="metadataAttrs.icons"
+          :show-time="true"
           compact
         />
       </div>
@@ -132,7 +147,7 @@
     <div
       v-if="!large"
       class="BlockLinkCard__CardArrow ThemeVariantLight can-hover:block can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
-      :class="metadataAttrs ? `text-${metadataAttrs.variant}` : 'text-primary'"
+      :class="metadataAttrs ? `text-${metadataAttrs.icons}` : 'text-primary'"
     >
       <IconArrow />
     </div>
@@ -271,7 +286,7 @@ export default defineComponent({
       } else if (this.medium) {
         classes = 'can-hover:group-hover:-translate-y-3 edu:can-hover:group-hover:-translate-y-2'
       } else if (this.large) {
-        classes = 'sm:pl-8 sm:w-2/3'
+        classes = 'sm:pl-8 sm:w-2/3 lg:pt-2'
       }
       return classes
     },

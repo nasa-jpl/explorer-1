@@ -76,7 +76,6 @@ import BlockStreamfield from './../src/components/BlockStreamfield/BlockStreamfi
 import BlockTable from './../src/components/BlockTable/BlockTable.vue'
 import BlockTeaser from './../src/components/BlockTeaser/BlockTeaser.vue'
 import BlockText from './../src/components/BlockText/BlockText.vue'
-import BlockTwitterEmbed from './../src/components/BlockTwitterEmbed/BlockTwitterEmbed.vue'
 import BlockVideo from './../src/components/BlockVideo/BlockVideo.vue'
 import BlockVideoEmbed from './../src/components/BlockVideoEmbed/BlockVideoEmbed.vue'
 import CalendarButton from './../src/components/CalendarButton/CalendarButton.vue'
@@ -280,7 +279,6 @@ export {
   BlockTable,
   BlockTeaser,
   BlockText,
-  BlockTwitterEmbed,
   BlockVideo,
   BlockVideoEmbed,
   CalendarButton,

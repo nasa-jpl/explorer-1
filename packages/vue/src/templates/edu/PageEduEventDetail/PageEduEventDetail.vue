@@ -36,9 +36,8 @@
         <BasePill
           variant="primary"
           size="lg"
-        >
-          {{ data.eventType }}
-        </BasePill>
+          :text="data.eventType"
+        />
       </div>
       <BaseHeading
         level="h1"

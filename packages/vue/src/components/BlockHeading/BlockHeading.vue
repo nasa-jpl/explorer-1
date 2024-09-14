@@ -19,7 +19,7 @@ import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
 export interface BlockHeadingObject {
   blockType?: string
-  heading: HeadingLevel
+  heading: string
   level?: HeadingLevel
   size?: string
   blockId?: string
@@ -55,7 +55,7 @@ export default defineComponent({
   &:target {
     @apply scroll-mt-14;
     @screen lg {
-      @apply scroll-mt-20;
+      @apply scroll-mt-[8rem];
     }
   }
 }

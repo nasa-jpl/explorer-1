@@ -148,15 +148,21 @@ export const mixinHighlightPrimary = (value: boolean) => {
       Useful for dropdown toggles.
     */
 export const mixinIsActivePath = (itemPath: string): Boolean => {
-  const route = useRoute()
-  const currentPath = route ? route.path : null
-  const path = itemPath
-  const ancestorPath = path ? (path.endsWith('/') ? path : path + '/') : null
-  if (currentPath && path && ancestorPath) {
-    if (currentPath === path) {
-      return true
-    } else {
-      return currentPath.startsWith(ancestorPath)
+  if (itemPath) {
+    const route = useRoute()
+    const currentPath = route ? route.path : false
+    const path = itemPath.startsWith('http') ? itemPath.replace(/^.*\/\/[^/]+/, '') : itemPath
+    const ancestorPath = path ? (path.endsWith('/') ? path : path + '/') : false
+
+    if (currentPath && path && ancestorPath) {
+      if (currentPath === path) {
+        return true
+      } else if (currentPath.startsWith('/edu/events')) {
+        // special treatment since EDU combines News & Events in the main nav
+        return path.startsWith('/edu/news')
+      } else {
+        return currentPath.startsWith(ancestorPath)
+      }
     }
   }
   return false
@@ -188,12 +194,14 @@ export const mixinIsActivePath = (itemPath: string): Boolean => {
     */
 export const mixinGetSrcSet = (srcSetObject: Partial<ImageObject>): string => {
   let srcSet = ''
-  const valid = Object.keys(srcSetObject).some(function (key) {
-    if (key.startsWith('screen')) {
-      return true
-    }
-    return false
-  })
+  const valid = Object.keys(srcSetObject)?.length
+    ? Object.keys(srcSetObject).some(function (key) {
+        if (key.startsWith('screen')) {
+          return true
+        }
+        return false
+      })
+    : false
   if (valid) {
     const srcSetArray: string[] = []
     for (const [key, value] of Object.entries(srcSetObject)) {
@@ -282,14 +290,16 @@ export const mixinLightboxGalleryItems = (items: object | any): object | false =
 // return event dates for the red box that appears in the corner of the hero and thumbnail images
 export const mixinFormatSplitEventDates = (
   startDatetime: string,
-  endDatetime?: string
+  endDatetime?: string,
+  compact?: boolean
 ): EventDateObject => {
   const startDateDayjs = dayjs(startDatetime)
 
+  const monthFormat = compact ? 'MM' : 'MMM'
   let day = startDateDayjs.format('D')
-  const month = startDateDayjs.format('MMM').replace('.', '')
+  const month = startDateDayjs.format(monthFormat).replace('.', '')
   const year = startDateDayjs.format('YYYY')
-  const monthAndYear = startDateDayjs.format('MMM YYYY')
+  const monthAndYear = startDateDayjs.format(`${monthFormat} YYYY`)
 
   if (endDatetime) {
     const endDateDayjs = dayjs(endDatetime)

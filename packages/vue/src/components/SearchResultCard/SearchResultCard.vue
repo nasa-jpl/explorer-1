@@ -6,9 +6,7 @@
       size="lg"
       :data="{
         page: {
-          __typename: pageContentType
-            ? (searchContentTypeToPageType[pageContentType] as string)
-            : undefined,
+          __typename: pageContentType ? getInterfaceFromEskey(pageContentType) : undefined,
           url,
           type,
           label: topic,
@@ -20,10 +18,17 @@
           startDate,
           endTime,
           endDate,
+          customDate,
           location,
-          eventType: eventType
+          eventType,
+          ongoing,
+          primarySubject,
+          gradeLevels,
+          time,
+          targetAudience
         }
       }"
+      show-calendar-chip
     />
     <EventCard
       v-else-if="isEvents"
@@ -210,6 +215,7 @@
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
+import type { PrimarySubjectObject, GradeLevelsObject, EduResourcesTime } from './../../interfaces'
 import { useThemeStore } from '../../store/theme'
 import PodcastEpisodeCard from './../PodcastEpisodeCard/PodcastEpisodeCard.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
@@ -218,7 +224,7 @@ import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import EventCard from './../EventCard/EventCard.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
-import { searchContentTypeToPageType } from './../../constants'
+import { lookupContentType } from '../../utils/lookupContentType'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export default defineComponent({
@@ -320,6 +326,11 @@ export default defineComponent({
       required: false,
       default: undefined
     },
+    customDate: {
+      type: String,
+      required: false,
+      default: undefined
+    },
     location: {
       type: String,
       required: false,
@@ -328,12 +339,34 @@ export default defineComponent({
     pageContentType: {
       type: String,
       default: undefined
+    },
+    ongoing: {
+      type: Boolean,
+      default: false
+    },
+    targetAudience: {
+      type: String,
+      default: undefined
+    },
+    primarySubject: {
+      type: Object as PropType<PrimarySubjectObject>,
+      default: undefined
+    },
+    gradeLevels: {
+      type: Array as PropType<GradeLevelsObject[]>,
+      default: undefined
+    },
+    time: {
+      type: Object as PropType<EduResourcesTime>,
+      default: undefined
     }
   },
   computed: {
-    ...mapStores(useThemeStore),
-    searchContentTypeToPageType() {
-      return searchContentTypeToPageType
+    ...mapStores(useThemeStore)
+  },
+  methods: {
+    getInterfaceFromEskey(key: string) {
+      return lookupContentType(key, 'eskey', 'interface')
     }
   }
 })

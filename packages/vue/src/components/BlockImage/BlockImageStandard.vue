@@ -1,7 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import type { ImageObject } from './../../interfaces'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -19,7 +20,7 @@ export default defineComponent({
   props: {
     data: {
       type: Object as PropType<ImageObject>,
-      required: false
+      default: undefined
     },
     // if a caption should even be visible
     displayCaption: {
@@ -29,7 +30,12 @@ export default defineComponent({
     // overrides caption provided with image model
     caption: {
       type: String,
-      required: false
+      default: undefined
+    },
+    // overrides detail url provided with image model. Also forces hasCaption to be true
+    customDetailUrl: {
+      type: String,
+      default: undefined
     },
     // if the image should be constrained to a 16:9 aspect ratio
     constrain: {
@@ -38,6 +44,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
     theCaption(): string | undefined {
       if (this.caption && this.caption.length > 2 && this.displayCaption) {
         return this.caption
@@ -51,19 +58,36 @@ export default defineComponent({
       }
       return undefined
     },
+    theCredit() {
+      if (this.themeStore.isEdu && !this.displayCaption) {
+        return undefined
+      }
+      return this.data?.credit
+    },
     // reform the data object with the computed caption
     theData(): ImageObject | undefined {
       if (this.data) {
         return {
           ...this.data,
-          caption: this.theCaption
+          caption: this.theCaption,
+          credit: this.theCredit,
+          detailUrl: this.customDetailUrl
         }
       }
       return undefined
     },
     hasCaptionArea(): boolean {
-      if (this.data && (this.theCaption || this.data.credit || this.data.detailUrl)) {
-        return true
+      if (this.theData) {
+        if (this.themeStore.isEdu) {
+          return this.theData.caption || this.customDetailUrl ? true : false
+        } else if (
+          this.theData.caption ||
+          this.theData.credit ||
+          this.theData.detailUrl ||
+          this.customDetailUrl
+        ) {
+          return true
+        }
       }
       return false
     }
@@ -71,13 +95,16 @@ export default defineComponent({
 })
 </script>
 <template>
-  <div v-if="theData">
+  <div
+    v-if="theData"
+    class="BlockImageStandard"
+  >
     <MixinFancybox
       v-if="theData.src"
       :src="theData.original || theData.src?.url"
       :caption="theData.caption"
       :credit="theData.credit"
-      :detail-url="theData.detailUrl"
+      :detail-url="customDetailUrl || theData.detailUrl"
     >
       <BaseImagePlaceholder
         :aspect-ratio="constrain ? '16:9' : 'none'"
@@ -98,9 +125,13 @@ export default defineComponent({
     </MixinFancybox>
     <div
       v-if="theData && hasCaptionArea"
-      class="lg:px-0 p-4 pb-0 print:pl-0"
+      class="caption-area pt-4 pb-0 print:pl-0"
     >
-      <BaseImageCaption :data="theData" />
+      <BaseImageCaption
+        :data="theData"
+        :custom-link="customDetailUrl"
+        custom-link-text="Full Image Details"
+      />
     </div>
   </div>
 </template>

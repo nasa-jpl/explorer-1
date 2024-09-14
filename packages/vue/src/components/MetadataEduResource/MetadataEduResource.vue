@@ -11,12 +11,14 @@ interface MetadataEduResourceProps {
   resource: EduResourceCardObject
   compact?: boolean
   variant?: string
+  showTime: boolean
 }
 
 // define props
 const props = withDefaults(defineProps<MetadataEduResourceProps>(), {
   resource: undefined,
   compact: false,
+  showTime: false,
   variant: 'primary'
 })
 
@@ -30,13 +32,17 @@ const audience = computed(() => {
   return rangeifyGrades(props.resource?.gradeLevels)
 })
 const time = computed(() => {
-  return props.resource?.time?.time
+  let time = props.resource?.time?.time
+  if (time && props.compact) {
+    time = time.replace('Under ', '<')
+  }
+  return time
 })
 </script>
 <template>
   <div
     class="MetadataEduResource"
-    :class="{ '-compact text-body-sm': props.compact, 'text-body-lg': !props.compact }"
+    :class="{ '-compact text-sm xl:text-base': props.compact, 'text-body-lg': !props.compact }"
   >
     <div
       v-if="primarySubject"
@@ -61,8 +67,9 @@ const time = computed(() => {
       <span>{{ audience }}</span>
     </div>
     <div
-      v-if="time"
+      v-if="time && showTime"
       class="MetadataEduResourceItem"
+      :class="primarySubject && audience && time ? '-xlScreensOnly' : ''"
     >
       <IconTime
         class="MetadataEduResourceIcon text-[1.15em]"
@@ -96,10 +103,14 @@ const time = computed(() => {
   }
 
   &.-compact {
-    @apply flex flex-grow;
+    @apply flex flex-grow flex-wrap;
     .MetadataEduResourceItem {
+      @apply whitespace-nowrap;
       @apply max-w-none min-w-[4em];
       @apply mr-6 mb-0;
+      &.-xlScreensOnly {
+        @apply hidden xl:flex;
+      }
     }
   }
 }

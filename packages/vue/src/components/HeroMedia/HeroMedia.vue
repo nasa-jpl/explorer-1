@@ -44,7 +44,7 @@
       <div
         v-if="hasCaptionArea"
         :class="captionVisibilityClass"
-        class="max-w-screen-3xl ThemeVariantGray bg-gray-light bg-opacity-90 lg:bg-opacity-100 ThemeVariantGray lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto print:block"
+        class="caption-area max-w-screen-3xl ThemeVariantGray bg-gray-light bg-opacity-90 lg:bg-opacity-100 ThemeVariantGray lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto print:block"
       >
         <BaseImageCaption :data="theImageData || customCaption" />
       </div>
@@ -109,7 +109,7 @@ export default defineComponent({
   computed: {
     ...mapStores(useThemeStore),
     theImageCaption(): string | undefined {
-      if (this.image && this.caption && this.caption.length > 2 && this.displayCaption) {
+      if (this.displayCaption && this.image && this.caption && this.caption.length > 2) {
         return this.caption
       } else if (
         this.image &&
@@ -135,10 +135,12 @@ export default defineComponent({
     },
     // to handle captions for videos
     customCaption(): Partial<ImageObject> | undefined {
-      if ((this.caption && this.caption.length > 2) || this.credit) {
-        return {
-          caption: this.caption,
-          credit: this.credit
+      if (this.displayCaption) {
+        if ((this.caption && this.caption.length > 2) || this.credit) {
+          return {
+            caption: this.caption,
+            credit: this.credit
+          }
         }
       }
       return undefined

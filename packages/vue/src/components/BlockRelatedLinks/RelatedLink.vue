@@ -2,8 +2,10 @@
   <component
     :is="tag"
     :to="to"
+    variant="none"
     :href="href"
     class="bg-gray-light group text-body-lg flex items-center justify-between px-4 py-4 cursor-pointer print:px-0 print:py-0 print:block"
+    link-class="bg-gray-light group text-body-lg flex items-center justify-between  w-full print:block"
     :target="target"
     rel="noopener"
   >
@@ -18,7 +20,8 @@
   </component>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, resolveComponent } from 'vue'
+import BaseLink from './../BaseLink/BaseLink.vue'
 import IconArrow from './../Icons/IconArrow.vue'
 import IconDownload from './../Icons/IconDownload.vue'
 import IconExternal from './../Icons/IconExternal.vue'
@@ -36,6 +39,7 @@ export const variants: Variants = {
 export default defineComponent({
   name: 'BlockRelatedLinks',
   components: {
+    BaseLink,
     IconArrow,
     IconDownload,
     IconExternal
@@ -59,7 +63,7 @@ export default defineComponent({
   computed: {
     tag() {
       if (this.to) {
-        return 'nuxt-link'
+        return resolveComponent('BaseLink')
       } else {
         return 'a'
       }

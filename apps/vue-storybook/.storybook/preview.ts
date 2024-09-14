@@ -13,6 +13,7 @@ import '@explorer-1/common/src/scss/styles-with-fonts.scss'
 import { withGlobals, globalTypes } from './withGlobals'
 import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/common-storybook/src/config/canvas.css'
+import VueObserveVisibility from 'vue3-observe-visibility'
 
 const pinia = createPinia()
 const router = createRouter({
@@ -40,6 +41,7 @@ setup((app, _context) => {
   app.use(vClickOutside)
   app.use(VueCompareImage)
   app.use(BindOncePlugin)
+  app.use(VueObserveVisibility)
   app.component('Swiper', Swiper)
   app.component('SwiperSlide', SwiperSlide)
   app.config.globalProperties.$filters = filters
@@ -188,7 +190,23 @@ const preview: Preview = {
           'Mixins',
           ['Overview'],
           'Templates',
-          ['WWW', 'EDU', 'PageContent']
+          [
+            'WWW',
+            'EDU',
+            [
+              'PageContent',
+              'PageEduNewsDetail',
+              'PageEduEventDetail',
+              'PageEduCollectionsDetail',
+              'PageEduExplainerArticle',
+              'PageEduLesson',
+              'PageEduStudentProject',
+              'PageEduTeachableMoment',
+              'PageEduMultimediaDetail',
+              '*'
+            ],
+            'PageContent'
+          ]
         ]
       }
     }

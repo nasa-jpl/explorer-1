@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, resolveComponent } from 'vue'
 
 interface Variants {
   [key: string]: string
@@ -54,26 +54,33 @@ export default defineComponent({
   },
   emits: ['click'],
   computed: {
-    tag(): string {
+    tag() {
       if (this.disabled) {
         return 'button'
       } else if (this.to) {
-        return 'nuxt-link'
+        return resolveComponent('NuxtLink')
       } else if (this.href) {
         return 'a'
       } else {
         return 'button'
       }
     },
+    computedTo() {
+      let toValue = this.to
+      // filter out unnecessary `/home/` prefix from wagtail default site urlPaths
+      if (toValue && typeof toValue === 'string' && toValue.startsWith('/home/')) {
+        toValue = toValue.replace('/home/', '/')
+      }
+      return toValue
+    },
     // necessary for valid html
     // must account for <a>, <nuxt-link>, and <button> use-cases
     theHref(): string | undefined {
-      if (this.tag === 'nuxt-link') {
-        return this.to as string
-      } else if (this.tag === 'a') {
-        return this.href
+      let href = undefined
+      if (this.tag === 'a') {
+        href = this.href
       }
-      return undefined
+      return href
     },
     variantClass(): string {
       let classes = variants[this.variant]
@@ -99,7 +106,7 @@ export default defineComponent({
     :aria-label="ariaLabel"
     :disabled="disabled"
     :href="theHref"
-    :to="to ? to : undefined"
+    :to="computedTo ? computedTo : undefined"
     @click="$emit('click')"
   >
     <span class="label block">

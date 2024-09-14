@@ -38,6 +38,7 @@ export interface StreamfieldBlockData extends BlockData {
   caption?: string
   credit?: string
   imageInline?: ImageObject
+  heroSummary?: string
 }
 
 export interface ImageSrcObject {
@@ -79,16 +80,23 @@ export interface ElasticSearchPage {
   content_type: string
   url: string
   type: string
-  topic: string
-  image: string | any
-  date: string
-  startDate: string
-  endDate: string
-  startTime: string
-  endTime: string
-  location: string
+  topic?: string
+  image?: string | any
+  date?: string
+  startDate?: string
+  endDate?: string
+  customDate?: string
+  startTime?: string
+  endTime?: string
+  location?: string
   title: string
-  summary: string
+  summary?: string
+  eventType?: string
+  ongoing?: boolean
+  primarySubject?: string
+  gradeLevels?: string
+  time?: string
+  targetAudience?: string
 }
 
 export interface FormOption {
@@ -126,9 +134,11 @@ export interface EventCardObject extends Card {
   eventType?: string
   ongoing?: boolean
   isVirtualEvent?: boolean
+  isInPersonEvent?: boolean
   locationName?: string
   location?: string
   locationLink?: string
+  targetAudience?: string
 }
 
 export interface PrimarySubjectObject {
@@ -183,7 +193,10 @@ export interface Attributes {
 
 export interface AuthorObject {
   name: string
-  organization: string
+  organization?: string
+  image?: ImageObject
+  jobTitle?: string
+  biography?: string
 }
 
 export interface Topic {
@@ -196,6 +209,7 @@ export type MetadataType = 'event' | 'resource'
 export interface LabelObject {
   label?: string
   variant: string
+  icons?: string
   type?: MetadataType
 }
 export interface PillDictionaryInterface {
@@ -214,11 +228,14 @@ export type MetaPanelTheme = 'primary' | 'secondary' | 'stars'
 export interface PageObject {
   __typename: string
   contentType: string
+  lastPublishedAt?: string
   breadcrumb?: string
   slug: string
   url: string
   title: string
+  readTime?: string
   getTopicsForDisplay?: Topic[]
+  showJumpMenu?: boolean
   label?: string
   summary?: string
   topper?: string
@@ -259,6 +276,7 @@ export interface EduResourceStandardItem {
 
 export interface PageEduResourcesObject extends PageObject {
   hero?: StreamfieldBlockData[]
+  authors?: { author: AuthorObject }[]
   primarySubject?: EduResourcesSubject
   additionalSubjects?: EduResourcesSubject[]
   gradeLevels?: EduResourcesGradeLevel[]

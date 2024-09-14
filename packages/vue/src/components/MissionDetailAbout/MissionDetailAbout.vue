@@ -42,7 +42,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import { ObserveVisibility } from 'vue-observe-visibility'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BlockText from './../BlockText/BlockText.vue'
 
@@ -55,9 +54,6 @@ export default defineComponent({
   components: {
     BaseHeading,
     BlockText
-  },
-  directives: {
-    ObserveVisibility
   },
   props: {
     descriptionHeading: {

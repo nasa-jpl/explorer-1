@@ -66,9 +66,20 @@ export const PodcastEpisodeCard = {
 export const EduEventCard = {
   args: {
     ...SearchResultCardData,
-    pageContentType: 'eduevents_edueventpage',
+    __typename: 'EDUEventPage',
+    pageType: 'EDUEventPage',
+    contentType: 'EDUEventPage',
+    topic: null,
+    date: null,
+    isEvents: true,
+    type: 'Event',
     startDate: '2021-11-11',
     endDate: '2021-11-11',
-    eventType: 'Internship'
+    eventType: 'Internship',
+    startTime: '00:00:00-08:00',
+    endTime: '23:59:59.999999-08:00',
+    location: 'Hybrid',
+    targetAudience: 'All ages',
+    pageContentType: 'edu_events_edueventpage'
   }
 }

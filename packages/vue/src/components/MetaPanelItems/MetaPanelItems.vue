@@ -13,7 +13,7 @@ import IconTime from './../Icons/IconTime.vue'
 
 interface MetaPanelProps {
   theme?: MetaPanelTheme
-  primarySubject: EduResourcesSubject
+  primarySubject?: EduResourcesSubject
   additionalSubjects?: EduResourcesSubject[]
   gradeLevels?: EduResourcesGradeLevel[]
   time?: EduResourcesTime
@@ -31,18 +31,21 @@ const props = withDefaults(defineProps<MetaPanelProps>(), {
 const { theme, primarySubject, additionalSubjects, gradeLevels, time } = reactive(props)
 
 const audience = computed(() => {
-  return gradeLevels ? rangeifyGrades(gradeLevels) : undefined
+  return gradeLevels ? rangeifyGrades(gradeLevels, false) : undefined
 })
 
 const subjects = computed(() => {
-  let combinedArray = [primarySubject.subject]
-  let output = undefined
-  if (additionalSubjects) {
-    const filteredArray = additionalSubjects.map((item) => item.subject)
-    combinedArray = combinedArray.concat(filteredArray)
+  if (primarySubject?.subject) {
+    let combinedArray = [primarySubject.subject]
+    let output = undefined
+    if (additionalSubjects) {
+      const filteredArray = additionalSubjects.map((item) => item.subject)
+      combinedArray = combinedArray.concat(filteredArray)
+    }
+    output = combinedArray.join(', ')
+    return output
   }
-  output = combinedArray.join(', ')
-  return output
+  return undefined
 })
 
 const iconColor = computed(() => {
@@ -82,11 +85,11 @@ const themeVariant = computed(() => {
 
 <template>
   <div
-    class="MetaPanelItems md:flex gap-10"
-    :class="{ 'justify-between': subjects && audience && time }"
+    class="MetaPanelItems md:flex gap-10 pr-5 sm:pr-10 lg:pr-20"
+    :class="{ 'justify-between': subjects && audience && time?.time }"
   >
     <div
-      v-if="subjects"
+      v-if="primarySubject?.subject"
       class="MetaPanelItem"
     >
       <div
@@ -100,14 +103,13 @@ const themeVariant = computed(() => {
           class="MetaPanelItem-heading"
           :class="`${themeVariant} ${headingColor}`"
         >
-          Subjects
-          <span class="sr-only">.</span>
+          Subject
         </div>
         <div
           class="MetaPanelItem-content"
           :class="textColor"
         >
-          {{ subjects }}
+          {{ primarySubject.subject }}
         </div>
       </div>
     </div>
@@ -127,7 +129,6 @@ const themeVariant = computed(() => {
           :class="`${themeVariant} ${headingColor}`"
         >
           Grade Levels
-          <span class="sr-only">.</span>
         </div>
         <div
           class="MetaPanelItem-content"
@@ -153,7 +154,6 @@ const themeVariant = computed(() => {
           :class="`${themeVariant} ${headingColor}`"
         >
           Time Required
-          <span class="sr-only">.</span>
         </div>
         <div
           class="MetaPanelItem-content"

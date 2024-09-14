@@ -1,3 +1,51 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+import HomepageCarousel from './../../../components/HomepageCarousel/HomepageCarousel.vue'
+import HomepageFeaturedRobot from './../../../components/HomepageFeaturedRobot/HomepageFeaturedRobot.vue'
+import HomepageTeaserBlock from './../../../components/HomepageTeaserBlock/HomepageTeaserBlock.vue'
+import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import BlockQuote from './../../../components/BlockQuote/BlockQuote.vue'
+import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
+import SwimlaneCTA from './../../../components/SwimlaneCTA/SwimlaneCTA.vue'
+import HomepageMissionsCarousel from './../../../components/HomepageMissionsCarousel/HomepageMissionsCarousel.vue'
+import HomepageStats from './../../../components/HomepageStats/HomepageStats.vue'
+import HomepageEmbedBlock from './../../../components/HomepageEmbedBlock/HomepageEmbedBlock.vue'
+
+export default defineComponent({
+  name: 'PageHomepage',
+  components: {
+    HomepageCarousel,
+    HomepageFeaturedRobot,
+    HomepageTeaserBlock,
+    BlockLinkCarousel,
+    BlockQuote,
+    LayoutHelper,
+    SwimlaneCTA,
+    HomepageMissionsCarousel,
+    HomepageStats,
+    HomepageEmbedBlock
+  },
+  props: {
+    data: {
+      type: Object,
+      required: false,
+      default: undefined
+    }
+  },
+  computed: {
+    theNews(): any[] | undefined {
+      // check first for featured news
+      if (this.data?.featuredNews?.length) {
+        return this.data.featuredNews
+      } else if (this.data?.latestNews?.length) {
+        return this.data.latestNews
+      }
+      return undefined
+    }
+  }
+})
+</script>
+
 <template>
   <div
     v-if="data"
@@ -59,18 +107,20 @@
     </template>
 
     <!-- mission carousel -->
-    <HomepageMissionsCarousel
-      v-if="data?.missionsCarousel?.targets?.length"
-      :data="data.missionsCarousel"
-      class="lg:my-18 my-10"
-    />
+    <template v-if="data?.missionsCarousel && data?.missionsCarousel[0]?.targets?.length">
+      <HomepageMissionsCarousel
+        :data="data.missionsCarousel[0]"
+        class="lg:my-18 my-10"
+      />
+    </template>
 
     <!-- featured robot -->
-    <HomepageFeaturedRobot
-      v-if="data?.featuredRobots?.length"
-      class="lg:my-24 my-12"
-      :data="data.featuredRobots[0].page"
-    />
+    <template v-if="data?.featuredRobots?.length">
+      <HomepageFeaturedRobot
+        class="lg:my-24 my-12"
+        :data="data.featuredRobots[0].page"
+      />
+    </template>
 
     <!-- engage -->
     <div
@@ -87,50 +137,3 @@
     <SwimlaneCTA />
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
-import HomepageCarousel from './../../../components/HomepageCarousel/HomepageCarousel.vue'
-import HomepageFeaturedRobot from './../../../components/HomepageFeaturedRobot/HomepageFeaturedRobot.vue'
-import HomepageTeaserBlock from './../../../components/HomepageTeaserBlock/HomepageTeaserBlock.vue'
-import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
-import BlockQuote from './../../../components/BlockQuote/BlockQuote.vue'
-import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
-import SwimlaneCTA from './../../../components/SwimlaneCTA/SwimlaneCTA.vue'
-import HomepageMissionsCarousel from './../../../components/HomepageMissionsCarousel/HomepageMissionsCarousel.vue'
-import HomepageStats from './../../../components/HomepageStats/HomepageStats.vue'
-import HomepageEmbedBlock from './../../../components/HomepageEmbedBlock/HomepageEmbedBlock.vue'
-
-export default defineComponent({
-  name: 'PageHomepage',
-  components: {
-    HomepageCarousel,
-    HomepageFeaturedRobot,
-    HomepageTeaserBlock,
-    BlockLinkCarousel,
-    BlockQuote,
-    LayoutHelper,
-    SwimlaneCTA,
-    HomepageMissionsCarousel,
-    HomepageStats,
-    HomepageEmbedBlock
-  },
-  props: {
-    data: {
-      type: Object,
-      required: false,
-      default: undefined
-    }
-  },
-  computed: {
-    theNews(): any[] | undefined {
-      // check first for featured news
-      if (this.data?.featuredNews?.length) {
-        return this.data.featuredNews
-      } else if (this.data?.latestNews?.length) {
-        return this.data.latestNews
-      }
-      return undefined
-    }
-  }
-})
-</script>
