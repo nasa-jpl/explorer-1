@@ -218,10 +218,10 @@ export default {
             if (this.subFilters[key]) {
               // console.log(this.subFilters[key])
               // find the subfilter with matching key
-              const match = this.subFilters[key].some((subFilter) => {
-                console.log(subFilter.key)
-                console.log(filterValue)
-                subFilter.key === filterValue
+              const match = this.subFilters[key].find((subFilter) => {
+                console.log('key', subFilter.key)
+                console.log('filterValue', filterValue)
+                return subFilter.key === filterValue
               })
               console.log(match)
               // get the aggregation key
@@ -237,6 +237,7 @@ export default {
           let query = Object.assign({}, this.$route.query)
           if (newVal.length > 0) {
             const theKey = getFilterUpdatedKey(this.groupKey, newVal.toString())
+            console.log(theKey)
             query = {
               ...this.$route.query,
               page: 1,
