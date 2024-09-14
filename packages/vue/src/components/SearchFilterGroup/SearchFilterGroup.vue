@@ -49,6 +49,7 @@
         </div>
 
         <!-- dynamic slots for subFilters -->
+        <!-- TODO: turn this into an accordion -->
         <div
           v-if="
             (bucket.key_as_string || bucket.key) &&
