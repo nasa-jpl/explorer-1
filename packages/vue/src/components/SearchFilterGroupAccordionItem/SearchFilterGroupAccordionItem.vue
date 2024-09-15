@@ -1,9 +1,21 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { uniqueId } from 'lodash'
 import IconPlus from './../Icons/IconPlus.vue'
+
+export interface SearchFilterGroupAccordionItemProps {
+  initOpen?: boolean
+}
+
+// define props
+const props = withDefaults(defineProps<SearchFilterGroupAccordionItemProps>(), {
+  initOpen: false
+})
+
+const { initOpen } = reactive(props)
+
 const ariaExpanded = ref(false)
-const isHidden = ref(true)
+const isHidden = ref(!initOpen)
 const itemId = ref(uniqueId())
 
 const panelId = computed(() => {

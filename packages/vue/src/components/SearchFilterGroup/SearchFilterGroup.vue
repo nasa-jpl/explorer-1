@@ -21,6 +21,7 @@
         <SearchFilterGroupAccordionItem
           v-if="hasSubFilters(bucket.key_as_string || bucket.key)"
           class="w-auto"
+          :init-open="subFilterIsInQueryParams(bucket.key_as_string || bucket.key)"
         >
           <template #header>
             <!-- correct for zero based index -->
@@ -175,6 +176,10 @@ export default {
     subFilters: {
       type: Object as PropType<SubFiltersObject>,
       default: undefined
+    },
+    subFilterAggKey: {
+      type: String,
+      default: undefined
     }
   },
   emits: ['update:filterBy'],
@@ -267,6 +272,20 @@ export default {
         return true
       }
       return undefined
+    },
+    subFilterIsInQueryParams(bucketKey) {
+      const subFilters = this.getSubFilters(bucketKey)
+      let state = false
+      if (subFilters?.length) {
+        subFilters.forEach((subFilter) => {
+          const agg = subFilter.agg
+          const key = subFilter.key
+          if (agg && key && this.$route.query[agg]?.includes(key)) {
+            state = true
+          }
+        })
+      }
+      return state
     },
     getSubFilters(filterKey) {
       const lookupKey = this.getSubFilterParentKey(filterKey)
