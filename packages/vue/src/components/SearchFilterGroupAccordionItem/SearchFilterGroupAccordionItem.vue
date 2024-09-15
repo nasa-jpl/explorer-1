@@ -52,6 +52,7 @@ const emit = defineEmits(['filterGroupAccordionItemOpened', 'filterGroupAccordio
         <button
           v-bind-once="{ id: headingId, 'aria-controls': panelId }"
           :aria-expanded="ariaExpanded"
+          aria-label="Expand"
           class="SearchFilterGroupAccordionItem-trigger group block w-auto text-body-lg pl-4 pr-1 -my-2"
           @click="handleClick()"
         >

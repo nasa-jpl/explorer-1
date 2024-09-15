@@ -59,6 +59,11 @@ export const DateFilter = {
   }
 }
 export const SubFilters = {
+  decorators: [
+    () => ({
+      template: '<div id="storyRoot" class="md:w-1/2 lg:w-1/3"><story /></div>'
+    })
+  ],
   args: {
     filterBy: [],
     buckets: [
@@ -89,6 +94,40 @@ export const SubFilters = {
         }
       ],
       earth: [
+        {
+          key: 'Sea Level',
+          agg: 'solar_system_area',
+          doc_count: 20
+        },
+        {
+          key: 'Pollution',
+          agg: 'solar_system_area',
+          doc_count: 21
+        },
+        {
+          key: 'Climate Change',
+          agg: 'solar_system_area',
+          doc_count: 22
+        }
+      ],
+      stars_and_galaxies: [
+        {
+          key: 'Sea Level',
+          agg: 'solar_system_area',
+          doc_count: 20
+        },
+        {
+          key: 'Pollution',
+          agg: 'solar_system_area',
+          doc_count: 21
+        },
+        {
+          key: 'Climate Change',
+          agg: 'solar_system_area',
+          doc_count: 22
+        }
+      ],
+      technology: [
         {
           key: 'Sea Level',
           agg: 'solar_system_area',
