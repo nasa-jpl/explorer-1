@@ -61,30 +61,31 @@ import ThumbnailCarousel from './../ThumbnailCarousel/ThumbnailCarousel.vue'
 
 const route = useRoute()
 
-interface ActiveTab {
-  title: string
-  episodes: Episode[]
-}
-
 interface Episode {
   url: string
   title: string
   publicationDate: any
   thumbnailImage: Partial<ImageObject>
 }
+
+interface ActiveTab {
+  title?: string
+  episodes?: Episode[] | Season
+}
+
 interface Season {
-  id: string
-  url: string
-  title: string
-  seasonNumber: number
-  episodes: Episode[]
+  id?: string
+  url?: string
+  title?: string
+  seasonNumber?: number
+  episodes?: Episode[]
 }
 
 interface Series {
-  id: string
-  title: string
-  url: string
-  seasons: Season[]
+  id?: string
+  title?: string
+  url?: string
+  seasons?: Season[]
 }
 export default defineComponent({
   name: 'PodcastSeriesCarousel',
@@ -112,10 +113,11 @@ export default defineComponent({
   },
   computed: {
     sortedSeasons(): Season[] | null {
-      let seasons = null
+      let seasons = undefined
       if (this.series && this.series.seasons) {
         seasons = this.series.seasons
-        return seasons.sort((a: Season, b: Season) => a.seasonNumber - b.seasonNumber)
+        seasons = seasons.toSorted((a: Season, b: Season) => a.seasonNumber - b.seasonNumber)
+        return seasons
       }
       return seasons
     },
@@ -142,9 +144,9 @@ export default defineComponent({
       }
       return null
     },
-    activeTabData(): ActiveTab | undefined {
-      let season: Season | undefined = undefined
-      if (this.series?.seasons) {
+    activeTabData(): ActiveTab | Season | undefined {
+      let season
+      if (this.series?.seasons?.length) {
         if (this.activeSeasonId) {
           season = this.series.seasons.find((o: Season) => {
             return o.id === this.activeSeasonId
@@ -152,14 +154,19 @@ export default defineComponent({
         } else {
           season = this.series.seasons[0]
         }
-        if (season?.episodes) {
-          season.episodes.sort(
+        if (season?.episodes?.length) {
+          let episodes: Episode[] = season.episodes
+          episodes = episodes.toSorted(
             (a: Episode, b: Episode) =>
               new Date(a.publicationDate).getTime() - new Date(b.publicationDate).getTime()
           )
+          season = {
+            ...season,
+            episodes: episodes
+          }
         }
       }
-      return season ? season : undefined
+      return season
     }
   },
   methods: {
