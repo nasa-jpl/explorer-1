@@ -28,10 +28,10 @@ const emit = defineEmits(['filterGroupAccordionItemOpened', 'filterGroupAccordio
 </script>
 <template>
   <div
-    class="SearchFilterGroupAccordionItem border-t pt-2"
+    class="SearchFilterGroupAccordionItem border-t pt-3"
     :class="{
       '-open border-gray-light-mid  -mb-px': !isHidden,
-      'border-transparent mb-2': isHidden
+      'border-transparent mb-3': isHidden
     }"
   >
     <div class="SearchFilterGroupAccordionItemHeader flex flex-row w-full content-between">
@@ -54,7 +54,7 @@ const emit = defineEmits(['filterGroupAccordionItemOpened', 'filterGroupAccordio
     </div>
     <div
       v-show="!isHidden"
-      class="SearchFilterGroupAccordionItemContent"
+      class="SearchFilterGroupAccordionItemContent text-sm"
     >
       <div
         v-bind-once="{ id: panelId, 'aria-labelledby': headingId }"
@@ -66,3 +66,10 @@ const emit = defineEmits(['filterGroupAccordionItemOpened', 'filterGroupAccordio
     </div>
   </div>
 </template>
+<style lang="scss">
+.SearchFilterGroupAccordionItemContent {
+  input.mt-px {
+    @apply mt-0 #{!important};
+  }
+}
+</style>
