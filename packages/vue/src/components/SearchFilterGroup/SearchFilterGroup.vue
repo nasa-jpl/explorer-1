@@ -18,53 +18,95 @@
         ref="buckets"
         class="form-group form-check"
       >
-        <!-- correct for zero based index -->
-        <div
-          v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
-          class="flex my-2"
+        <SearchFilterGroupAccordionItem
+          v-if="hasSubFilters(bucket.key_as_string || bucket.key)"
+          class="w-auto"
         >
-          <input
-            :id="
-              bucket.key_as_string
-                ? generateId(bucket.key_as_string, groupKey)
-                : generateId(bucket.key, groupKey)
-            "
-            v-model="filterByHandler"
-            type="checkbox"
-            :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
-            class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
-          />
-          <!-- 'key_as_string' exists for dates to have a human readable version -->
-          <label
-            :for="
-              bucket.key_as_string
-                ? generateId(bucket.key_as_string, groupKey)
-                : generateId(bucket.key, groupKey)
-            "
-            class="form-check-label pl-2 tracking-normal align-middle"
-          >
-            {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
-            <span class="text-gray-mid-dark"> ({{ bucket.doc_count.toLocaleString() }}) </span>
-          </label>
-        </div>
-
-        <!-- dynamic slots for subFilters -->
-        <!-- TODO: turn this into an accordion -->
-        <div
-          v-if="
-            (bucket.key_as_string || bucket.key) &&
-            getSubFilters(bucket.key_as_string || bucket.key) &&
-            subFilterParentKeys?.length
-          "
-          class="block"
-        >
+          <template #header>
+            <!-- correct for zero based index -->
+            <div
+              v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
+              class="flex flex-grow"
+            >
+              <input
+                :id="
+                  bucket.key_as_string
+                    ? generateId(bucket.key_as_string, groupKey)
+                    : generateId(bucket.key, groupKey)
+                "
+                v-model="filterByHandler"
+                type="checkbox"
+                :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
+                class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
+              />
+              <!-- 'key_as_string' exists for dates to have a human readable version -->
+              <label
+                :for="
+                  bucket.key_as_string
+                    ? generateId(bucket.key_as_string, groupKey)
+                    : generateId(bucket.key, groupKey)
+                "
+                class="form-check-label pl-2 tracking-normal align-middle"
+              >
+                <span class="font-extrabold">{{
+                  prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key)
+                }}</span>
+                <span class="text-gray-mid-dark font-normal">
+                  ({{ bucket.doc_count.toLocaleString() }})
+                </span>
+              </label>
+            </div>
+          </template>
+          <template #default>
+            <!-- dynamic slots for subFilters -->
+            <div
+              v-if="
+                (bucket.key_as_string || bucket.key) &&
+                getSubFilters(bucket.key_as_string || bucket.key) &&
+                subFilterParentKeys?.length
+              "
+              class="block"
+            >
+              <div
+                v-if="hasSubFilters(bucket.key_as_string || bucket.key)"
+                class="SubFilters"
+              >
+                <slot :name="`slot_${getSubFilterParentKey(bucket.key_as_string || bucket.key)}`" />
+              </div>
+            </div>
+          </template>
+        </SearchFilterGroupAccordionItem>
+        <template v-else>
+          <!-- correct for zero based index -->
           <div
-            v-if="hasSubFilter(bucket.key_as_string || bucket.key)"
-            class="SubFilters pl-5"
+            v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
+            class="flex my-2"
           >
-            <slot :name="`slot_${getSubFilterParentKey(bucket.key_as_string || bucket.key)}`" />
+            <input
+              :id="
+                bucket.key_as_string
+                  ? generateId(bucket.key_as_string, groupKey)
+                  : generateId(bucket.key, groupKey)
+              "
+              v-model="filterByHandler"
+              type="checkbox"
+              :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
+              class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
+            />
+            <!-- 'key_as_string' exists for dates to have a human readable version -->
+            <label
+              :for="
+                bucket.key_as_string
+                  ? generateId(bucket.key_as_string, groupKey)
+                  : generateId(bucket.key, groupKey)
+              "
+              class="form-check-label pl-2 tracking-normal align-middle"
+            >
+              {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
+              <span class="text-gray-mid-dark"> ({{ bucket.doc_count.toLocaleString() }}) </span>
+            </label>
           </div>
-        </div>
+        </template>
       </div>
     </div>
     <div v-else><span class="text-sm text-gray-mid-dark">No matching filters</span></div>
@@ -95,9 +137,13 @@ import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import { lookupContentType } from './../../utils/lookupContentType'
 import { SubFiltersObject } from './../../interfaces'
+import SearchFilterGroupAccordionItem from './../SearchFilterGroupAccordionItem/SearchFilterGroupAccordionItem.vue'
 
 export default {
   name: 'SearchFilterGroup',
+  components: {
+    SearchFilterGroupAccordionItem
+  },
   props: {
     filterBy: {
       type: Array,
@@ -212,7 +258,7 @@ export default {
       }
       return key
     },
-    hasSubFilter(filterKey) {
+    hasSubFilters(filterKey) {
       const lookupKey = this.getSubFilterParentKey(filterKey)
       // check if any of the keys are populated in subFilters
       if (this.subFilters && lookupKey && this.subFilters[lookupKey]) {
