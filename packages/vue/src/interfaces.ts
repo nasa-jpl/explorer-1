@@ -185,6 +185,27 @@ export interface FooterResponse {
   footer: any
 }
 
+export interface EDUSubjectArea {
+  id: number
+  primarySubject: EduResourcesSubject
+  subjectArea: string
+}
+
+export interface SubFiltersObject {
+  [key: string]: {
+    parentBucketKey: string
+    aggParentKey: string
+    aggMapKey: string
+    subFilterKey: string
+  }
+}
+
+export interface EduSubjectAreasResponse {
+  eduSubjectAreas: {
+    eduSubjectAreas: EDUSubjectArea[]
+  }
+}
+
 export type Explorer1Theme = 'defaultTheme' | 'ThemeInternal' | 'ThemeEdu'
 
 export interface Attributes {

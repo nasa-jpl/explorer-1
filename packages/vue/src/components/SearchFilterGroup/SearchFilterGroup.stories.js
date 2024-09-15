@@ -58,3 +58,92 @@ export const DateFilter = {
     truncateFilters: true
   }
 }
+export const SubFilters = {
+  decorators: [
+    () => ({
+      template: '<div id="storyRoot" class="md:w-1/2 lg:w-1/3"><story /></div>'
+    })
+  ],
+  args: {
+    filterBy: [],
+    buckets: [
+      { key: 'Solar System', doc_count: 3308 },
+      { key: 'Earth', doc_count: 1179 },
+      { key: 'Stars and Galaxies', doc_count: 979 },
+      { key: 'Technology', doc_count: 480 }
+    ],
+    groupKey: 'topics',
+    groupTitle: 'Topic',
+    truncateFilters: false,
+    subFilters: {
+      solar_system: [
+        {
+          key: 'Sun',
+          agg: 'solar_system_area',
+          doc_count: 20
+        },
+        {
+          key: 'Mercury',
+          agg: 'solar_system_area',
+          doc_count: 21
+        },
+        {
+          key: 'Venus',
+          agg: 'solar_system_area',
+          doc_count: 22
+        }
+      ],
+      earth: [
+        {
+          key: 'Sea Level',
+          agg: 'solar_system_area',
+          doc_count: 20
+        },
+        {
+          key: 'Pollution',
+          agg: 'solar_system_area',
+          doc_count: 21
+        },
+        {
+          key: 'Climate Change',
+          agg: 'solar_system_area',
+          doc_count: 22
+        }
+      ],
+      stars_and_galaxies: [
+        {
+          key: 'Sea Level',
+          agg: 'solar_system_area',
+          doc_count: 20
+        },
+        {
+          key: 'Pollution',
+          agg: 'solar_system_area',
+          doc_count: 21
+        },
+        {
+          key: 'Climate Change',
+          agg: 'solar_system_area',
+          doc_count: 22
+        }
+      ],
+      technology: [
+        {
+          key: 'Sea Level',
+          agg: 'solar_system_area',
+          doc_count: 20
+        },
+        {
+          key: 'Pollution',
+          agg: 'solar_system_area',
+          doc_count: 21
+        },
+        {
+          key: 'Climate Change',
+          agg: 'solar_system_area',
+          doc_count: 22
+        }
+      ]
+    }
+  }
+}
