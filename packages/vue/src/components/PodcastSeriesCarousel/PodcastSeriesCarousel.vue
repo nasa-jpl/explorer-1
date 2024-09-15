@@ -46,7 +46,7 @@
         :initial-slide="
           activeSeasonId === initialSeasonId && initialEpisodeIndex ? initialEpisodeIndex : 0
         "
-        :slides="activeTabData.episodes"
+        :slides="activeTabData.episodes as Partial<Slide>[]"
       />
     </keep-alive>
   </div>
@@ -61,6 +61,12 @@ import ThumbnailCarousel from './../ThumbnailCarousel/ThumbnailCarousel.vue'
 
 const route = useRoute()
 
+interface Slide {
+  url: string
+  title: string
+  thumbnailImage: Partial<ImageObject>
+}
+
 interface Episode {
   url: string
   title: string
@@ -74,7 +80,7 @@ interface ActiveTab {
 }
 
 interface Season {
-  id?: string
+  id: string
   url?: string
   title?: string
   seasonNumber?: number
@@ -82,7 +88,7 @@ interface Season {
 }
 
 interface Series {
-  id?: string
+  id: string
   title?: string
   url?: string
   seasons?: Season[]
@@ -112,11 +118,16 @@ export default defineComponent({
     }
   },
   computed: {
-    sortedSeasons(): Season[] | null {
+    sortedSeasons(): Season[] | undefined {
       let seasons = undefined
       if (this.series && this.series.seasons) {
         seasons = this.series.seasons
-        seasons = seasons.toSorted((a: Season, b: Season) => a.seasonNumber - b.seasonNumber)
+        // @ts-expect-error seasons is an array
+        seasons = seasons.toSorted((a: Season, b: Season) => {
+          if (a.seasonNumber && b.seasonNumber) {
+            return a.seasonNumber - b.seasonNumber
+          }
+        })
         return seasons
       }
       return seasons
@@ -156,10 +167,12 @@ export default defineComponent({
         }
         if (season?.episodes?.length) {
           let episodes: Episode[] = season.episodes
-          episodes = episodes.toSorted(
-            (a: Episode, b: Episode) =>
-              new Date(a.publicationDate).getTime() - new Date(b.publicationDate).getTime()
-          )
+          // @ts-expect-error episodes is an array
+          episodes = episodes.toSorted((a: Episode, b: Episode) => {
+            if (a.publicationDate && b.publicationDate) {
+              return new Date(a.publicationDate).getTime() - new Date(b.publicationDate).getTime()
+            }
+          })
           season = {
             ...season,
             episodes: episodes
