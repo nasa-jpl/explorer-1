@@ -215,9 +215,9 @@
     </LayoutHelper>
     <LayoutHelper
       v-if="
-        (data.keepExploringMission && data.keepExploringMission.length) ||
-        (data.keepExploringTarget && data.keepExploringTarget.length) ||
-        (data.keepExploringInstrument && data.keepExploringInstrument.length)
+        data.keepExploringMission?.length ||
+        data.keepExploringTarget?.length ||
+        data.keepExploringInstrument?.length
       "
       indent="col-2"
     >
@@ -228,12 +228,7 @@
       </h2>
       <ul class="TopicTabs flex flex-row flex-wrap justify-start pb-4 mb-5 list-none">
         <li
-          v-if="
-            data.relatedMission &&
-            data.relatedMission.length &&
-            data.keepExploringMission &&
-            data.keepExploringMission.length
-          "
+          v-if="data.relatedMission?.length && data.keepExploringMission?.length"
           class="last:mr-0 sm:w-auto md:mr-16 w-full mr-10 text-center"
         >
           <button
@@ -247,12 +242,7 @@
           </button>
         </li>
         <li
-          v-if="
-            data.targets &&
-            data.targets.length &&
-            data.keepExploringTarget &&
-            data.keepExploringTarget.length
-          "
+          v-if="data.targets?.length && data.keepExploringTarget?.length"
           class="last:mr-0 sm:w-auto md:mr-16 w-full mr-10 text-center"
         >
           <button
@@ -265,12 +255,7 @@
           </button>
         </li>
         <li
-          v-if="
-            data.instruments &&
-            data.instruments.length &&
-            data.keepExploringInstrument &&
-            data.keepExploringInstrument.length
-          "
+          v-if="data.instruments?.length && data.keepExploringInstrument?.length"
           class="last:mr-0 sm:w-auto md:mr-16 w-full mr-10 text-center"
         >
           <button
@@ -285,9 +270,7 @@
       </ul>
     </LayoutHelper>
     <keep-alive>
-      <template
-        v-if="openTab === 1 && data.keepExploringMission && data.keepExploringMission.length"
-      >
+      <template v-if="openTab === 1 && data.keepExploringMission?.length">
         <ThumbnailCarousel
           :key="openTab"
           class="lg:mb-24 mb-12"
@@ -295,9 +278,7 @@
           :slides="data.keepExploringMission"
         />
       </template>
-      <template
-        v-else-if="openTab === 2 && data.keepExploringTarget && data.keepExploringTarget.length"
-      >
+      <template v-else-if="openTab === 2 && data.keepExploringTarget?.length">
         <ThumbnailCarousel
           :key="openTab"
           class="lg:mb-24 mb-12"
@@ -305,11 +286,7 @@
           :slides="data.keepExploringTarget"
         />
       </template>
-      <template
-        v-else-if="
-          openTab === 3 && data.keepExploringInstrument && data.keepExploringInstrument.length
-        "
-      >
+      <template v-else-if="openTab === 3 && data.keepExploringInstrument?.length">
         <ThumbnailCarousel
           :key="openTab"
           class="lg:mb-24 mb-12"
@@ -319,7 +296,7 @@
       </template>
     </keep-alive>
     <div
-      v-if="data.relatedTopics && data.relatedTopics.length"
+      v-if="data.relatedTopics?.length"
       class="bg-gray-light lg:py-24 py-12"
     >
       <BlockLinkCarousel
@@ -386,11 +363,11 @@ export default defineComponent({
   methods: {
     initExploreCarousels() {
       if (this.data) {
-        if (this.data.keepExploringMission && this.data.keepExploringMission.length) {
+        if (this.data.keepExploringMission?.length) {
           this.openTab = 1
-        } else if (this.data.keepExploringTarget && this.data.keepExploringTarget.length) {
+        } else if (this.data.keepExploringTarget?.length) {
           this.openTab = 2
-        } else if (this.data.keepExploringInstrument && this.data.keepExploringInstrument.length) {
+        } else if (this.data.keepExploringInstrument?.length) {
           this.openTab = 3
         }
       }

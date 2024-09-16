@@ -46,7 +46,7 @@
         :initial-slide="
           activeSeasonId === initialSeasonId && initialEpisodeIndex ? initialEpisodeIndex : 0
         "
-        :slides="activeTabData.episodes"
+        :slides="activeTabData.episodes as Partial<Slide>[]"
       />
     </keep-alive>
   </div>
@@ -61,9 +61,10 @@ import ThumbnailCarousel from './../ThumbnailCarousel/ThumbnailCarousel.vue'
 
 const route = useRoute()
 
-interface ActiveTab {
+interface Slide {
+  url: string
   title: string
-  episodes: Episode[]
+  thumbnailImage: Partial<ImageObject>
 }
 
 interface Episode {
@@ -72,19 +73,25 @@ interface Episode {
   publicationDate: any
   thumbnailImage: Partial<ImageObject>
 }
+
+interface ActiveTab {
+  title?: string
+  episodes?: Episode[] | Season
+}
+
 interface Season {
   id: string
-  url: string
-  title: string
-  seasonNumber: number
-  episodes: Episode[]
+  url?: string
+  title?: string
+  seasonNumber?: number
+  episodes?: Episode[]
 }
 
 interface Series {
   id: string
-  title: string
-  url: string
-  seasons: Season[]
+  title?: string
+  url?: string
+  seasons?: Season[]
 }
 export default defineComponent({
   name: 'PodcastSeriesCarousel',
@@ -111,11 +118,17 @@ export default defineComponent({
     }
   },
   computed: {
-    sortedSeasons(): Season[] | null {
-      let seasons = null
+    sortedSeasons(): Season[] | undefined {
+      let seasons = undefined
       if (this.series && this.series.seasons) {
         seasons = this.series.seasons
-        return seasons.sort((a: Season, b: Season) => a.seasonNumber - b.seasonNumber)
+        // @ts-expect-error seasons is an array
+        seasons = seasons.toSorted((a: Season, b: Season) => {
+          if (a.seasonNumber && b.seasonNumber) {
+            return a.seasonNumber - b.seasonNumber
+          }
+        })
+        return seasons
       }
       return seasons
     },
@@ -142,9 +155,9 @@ export default defineComponent({
       }
       return null
     },
-    activeTabData(): ActiveTab | undefined {
-      let season: Season | undefined = undefined
-      if (this.series?.seasons) {
+    activeTabData(): ActiveTab | Season | undefined {
+      let season
+      if (this.series?.seasons?.length) {
         if (this.activeSeasonId) {
           season = this.series.seasons.find((o: Season) => {
             return o.id === this.activeSeasonId
@@ -152,14 +165,21 @@ export default defineComponent({
         } else {
           season = this.series.seasons[0]
         }
-        if (season?.episodes) {
-          season.episodes.sort(
-            (a: Episode, b: Episode) =>
-              new Date(a.publicationDate).getTime() - new Date(b.publicationDate).getTime()
-          )
+        if (season?.episodes?.length) {
+          let episodes: Episode[] = season.episodes
+          // @ts-expect-error episodes is an array
+          episodes = episodes.toSorted((a: Episode, b: Episode) => {
+            if (a.publicationDate && b.publicationDate) {
+              return new Date(a.publicationDate).getTime() - new Date(b.publicationDate).getTime()
+            }
+          })
+          season = {
+            ...season,
+            episodes: episodes
+          }
         }
       }
-      return season ? season : undefined
+      return season
     }
   },
   methods: {
