@@ -87,7 +87,7 @@ export default defineComponent({
 <template>
   <div
     v-if="data"
-    class="ThemeVariantLight"
+    class="ThemeVariantLight PageEduExplainerArticle"
     :class="computedClass"
     itemscope
     itemtype="http://schema.org/Article"
@@ -226,3 +226,16 @@ export default defineComponent({
     </LayoutHelper>
   </div>
 </template>
+<style lang="scss">
+.PageEduExplainerArticle {
+  .BlockText {
+    ul {
+      li {
+        &::before {
+          @apply bg-secondary;
+        }
+      }
+    }
+  }
+}
+</style>

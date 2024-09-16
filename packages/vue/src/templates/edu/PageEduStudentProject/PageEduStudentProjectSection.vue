@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import type { ImageObject, StreamfieldBlockData } from './../../../interfaces'
+import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import BlockHeading, {
   type BlockHeadingObject
 } from './../../../components/BlockHeading/BlockHeading.vue'
 import type { EduStudentProjectStep } from './PageEduStudentProject.vue'
-import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
-import BlockText from './../../../components/BlockText/BlockText.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
+import BlockInlineImage from './../../../components/BlockInlineImage/BlockInlineImage.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
+import { getHeadingId } from './../../../utils/getHeadingId'
 
 export interface PageEduStudentProjectSectionProps {
   heading?: BlockHeadingObject
@@ -48,8 +49,19 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
       />
     </LayoutHelper>
 
+    <!-- simple richtext -->
+    <BlockInlineImage
+      v-if="text"
+      :data="{
+        text: text,
+        image: image,
+        alignTo: 'right'
+      }"
+      class="lg:mb-18 mb-10"
+    />
+
     <LayoutHelper
-      v-if="image"
+      v-else-if="image"
       indent="col-2"
       class="lg:mb-8 mb-5"
     >
@@ -71,6 +83,7 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
       <li
         v-for="(step, index) in steps"
         :key="index"
+        v-bind-once="{ id: step.heading ? getHeadingId(step.heading) : undefined }"
         class="PageEduStudentProjectStep lg:mb-12 mb-10 px-4 lg:px-0"
       >
         <LayoutHelper
@@ -149,15 +162,6 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
         </LayoutHelper>
       </li>
     </component>
-
-    <!-- simple richtext -->
-    <LayoutHelper
-      v-else-if="text"
-      indent="col-3"
-      class="lg:mb-18 mb-10"
-    >
-      <BlockText :text="text" />
-    </LayoutHelper>
   </section>
 </template>
 <style lang="scss">
@@ -167,6 +171,9 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
   @return math.div($pxValue, 16) * 1rem;
 }
 .PageEduStudentProjectStep {
+  &:target {
+    @apply scroll-mt-14;
+  }
   .BlockStreamfield {
     div:last-child {
       @apply mb-0 #{!important};
@@ -179,7 +186,6 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
     // intentionally overriding correction that occurs within ThemeVariantGray
     @apply text-jpl-red;
   }
-
   .PageEduStudentProjectStep__fullWidth {
     .LayoutHelper > div > .BlockText {
       @screen lg {
