@@ -204,6 +204,7 @@
     </LayoutHelper>
 
     <PodcastSeriesCarousel
+      v-if="data?.series"
       :series="data.series"
       :initial-season-id="data.parent ? data.parent.id : null"
       class="mb-12 lg:mb-24"

@@ -18,27 +18,98 @@
         ref="buckets"
         class="form-group form-check"
       >
-        <!-- correct for zero based index -->
-        <div
-          v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
-          class="flex my-2"
+        <SearchFilterGroupAccordionItem
+          v-if="hasSubFilters(bucket.key_as_string || bucket.key)"
+          class="w-auto"
+          :init-open="subFilterIsInQueryParams(bucket.key_as_string || bucket.key)"
         >
-          <input
-            :id="bucket.key_as_string ? generateId(bucket.key_as_string) : generateId(bucket.key)"
-            v-model="filterByHandler"
-            type="checkbox"
-            :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
-            class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
-          />
-          <!-- 'key_as_string' exists for dates to have a human readable version -->
-          <label
-            :for="bucket.key_as_string ? generateId(bucket.key_as_string) : generateId(bucket.key)"
-            class="form-check-label pl-2 tracking-normal align-middle"
+          <template #header>
+            <!-- correct for zero based index -->
+            <div
+              v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
+              class="flex flex-grow"
+            >
+              <input
+                :id="
+                  bucket.key_as_string
+                    ? generateId(bucket.key_as_string, groupKey)
+                    : generateId(bucket.key, groupKey)
+                "
+                v-model="filterByHandler"
+                type="checkbox"
+                :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
+                class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
+              />
+              <!-- 'key_as_string' exists for dates to have a human readable version -->
+              <label
+                :for="
+                  bucket.key_as_string
+                    ? generateId(bucket.key_as_string, groupKey)
+                    : generateId(bucket.key, groupKey)
+                "
+                class="form-check-label pl-2 tracking-normal align-middle"
+              >
+                <span class="font-extrabold">{{
+                  prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key)
+                }}</span>
+                <span class="text-gray-mid-dark font-normal text-sm">
+                  ({{ bucket.doc_count.toLocaleString() }})
+                </span>
+              </label>
+            </div>
+          </template>
+          <template #default>
+            <!-- dynamic slots for subFilters -->
+            <div
+              v-if="
+                (bucket.key_as_string || bucket.key) &&
+                getSubFilters(bucket.key_as_string || bucket.key) &&
+                subFilterParentKeys?.length
+              "
+              class="block"
+            >
+              <div
+                v-if="hasSubFilters(bucket.key_as_string || bucket.key)"
+                class="SubFilters"
+              >
+                <slot :name="`slot_${getSubFilterParentKey(bucket.key_as_string || bucket.key)}`" />
+              </div>
+            </div>
+          </template>
+        </SearchFilterGroupAccordionItem>
+        <template v-else>
+          <!-- correct for zero based index -->
+          <div
+            v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
+            class="flex my-2"
           >
-            {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
-            <span class="text-gray-mid-dark"> ({{ bucket.doc_count.toLocaleString() }}) </span>
-          </label>
-        </div>
+            <input
+              :id="
+                bucket.key_as_string
+                  ? generateId(bucket.key_as_string, groupKey)
+                  : generateId(bucket.key, groupKey)
+              "
+              v-model="filterByHandler"
+              type="checkbox"
+              :value="bucket.key_as_string ? bucket.key_as_string : bucket.key"
+              class="text-primary focus:ring-2 focus:ring-primary flex-shrink-0 w-5 h-5 mt-px mr-1 align-middle border rounded-none"
+            />
+            <!-- 'key_as_string' exists for dates to have a human readable version -->
+            <label
+              :for="
+                bucket.key_as_string
+                  ? generateId(bucket.key_as_string, groupKey)
+                  : generateId(bucket.key, groupKey)
+              "
+              class="form-check-label pl-2 tracking-normal align-middle"
+            >
+              {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
+              <span class="text-gray-mid-dark text-sm">
+                ({{ bucket.doc_count.toLocaleString() }})
+              </span>
+            </label>
+          </div>
+        </template>
       </div>
     </div>
     <div v-else><span class="text-sm text-gray-mid-dark">No matching filters</span></div>
@@ -63,16 +134,28 @@
 </template>
 <script lang="ts">
 // @ts-nocheck
+import { PropType } from 'vue'
 import isEqual from 'lodash/isEqual.js'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import { lookupContentType } from './../../utils/lookupContentType'
+import { SubFiltersObject } from './../../interfaces'
+import SearchFilterGroupAccordionItem from './../SearchFilterGroupAccordionItem/SearchFilterGroupAccordionItem.vue'
 
 export default {
   name: 'SearchFilterGroup',
+  components: {
+    SearchFilterGroupAccordionItem
+  },
   props: {
-    filterBy: Array,
-    buckets: null,
+    filterBy: {
+      type: Array,
+      default: undefined
+    },
+    buckets: {
+      type: Object,
+      default: undefined
+    },
     hideFilterGroups: {
       type: Array,
       default: () => []
@@ -83,12 +166,20 @@ export default {
     },
     groupTitle: {
       type: String,
-      required: false
+      default: ''
     },
     truncateFilters: {
       type: Boolean,
       required: false,
       default: false
+    },
+    subFilters: {
+      type: Object as PropType<SubFiltersObject>,
+      default: undefined
+    },
+    subFilterAggKey: {
+      type: String,
+      default: undefined
     }
   },
   emits: ['update:filterBy'],
@@ -118,7 +209,10 @@ export default {
     },
     showFilterGroup() {
       if (this.themeStore.isEdu) {
-        return this.groupTitle && !this.hideFilterGroups.includes(this.groupKey)
+        return (
+          (this.groupTitle || this.buckets?.length) &&
+          !this.hideFilterGroups.includes(this.groupKey)
+        )
       } else {
         return (
           typeof this.groupKey !== 'undefined' &&
@@ -127,6 +221,9 @@ export default {
           !this.hideFilterGroups.includes(this.groupKey)
         )
       }
+    },
+    subFilterParentKeys() {
+      return this.subFilters ? Object.keys(this.subFilters) : undefined
     }
   },
   watch: {
@@ -152,11 +249,51 @@ export default {
       }
     }
   },
+
   methods: {
-    generateId(value) {
+    generateId(value, group) {
       let valueString = String(value)
       valueString = valueString.split(' ').join('')
-      return `filter_${this.groupKey}_${valueString}`
+      return `filter_${group}_${valueString}`
+    },
+    // used to match sub-filters to their parent
+    getSubFilterParentKey(value) {
+      let key = value
+      if (key) {
+        key = key.toLowerCase()
+        key = key.replaceAll(' ', '_')
+      }
+      return key
+    },
+    hasSubFilters(filterKey) {
+      const lookupKey = this.getSubFilterParentKey(filterKey)
+      // check if any of the keys are populated in subFilters
+      if (this.subFilters && lookupKey && this.subFilters[lookupKey]) {
+        return true
+      }
+      return undefined
+    },
+    subFilterIsInQueryParams(bucketKey) {
+      const subFilters = this.getSubFilters(bucketKey)
+      let state = false
+      if (subFilters?.length) {
+        subFilters.forEach((subFilter) => {
+          const agg = subFilter.agg
+          const key = subFilter.key
+          if (agg && key && this.$route.query[agg]?.includes(key)) {
+            state = true
+          }
+        })
+      }
+      return state
+    },
+    getSubFilters(filterKey) {
+      const lookupKey = this.getSubFilterParentKey(filterKey)
+      // check if any of the keys are populated in subFilters
+      if (this.subFilters && lookupKey && this.subFilters[lookupKey]) {
+        return this.subFilters[lookupKey]
+      }
+      return undefined
     },
     toggleShowMoreFilters() {
       if (this.checkbox.checkboxLimit === this.checkbox.initialLimit) {
@@ -178,6 +315,9 @@ export default {
         name = name.replace('EDU ', '')
       }
       return name ? name : key
+    },
+    getSlotName(key) {
+      return `slot_${key}`
     }
   }
 }

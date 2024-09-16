@@ -207,10 +207,10 @@ export default defineComponent({
       return this.defaultShowGridView
     },
     sortedSeasons() {
-      let seasons = null
+      let seasons = undefined
       if (this.data && this.data.seasons) {
         seasons = this.data.seasons
-        return seasons.sort((a, b) => a.seasonNumber - b.seasonNumber)
+        seasons = seasons.toSorted((a, b) => a.seasonNumber - b.seasonNumber)
       }
       return seasons
     }
