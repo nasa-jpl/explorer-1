@@ -192,7 +192,10 @@ export default defineComponent({
               page.content_type = handle
               page.id = page._id
               page.score = page._score
+              // ensure router links
               page.url = page._source.url
+                ? page._source.url.replace(/^[^:]+:\/\/[^/?#]+/, '')
+                : undefined
               page.title = page._source.title
               page.type = pageType
               page.topic = topic
