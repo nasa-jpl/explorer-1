@@ -1,0 +1,26 @@
+.BlockRichTable {
+  table {
+    @apply border-gray-light-mid border-t border-b border-collapse w-full;
+  }
+
+  thead {
+    @apply bg-jpl-blue-darker;
+  }
+
+  th {
+    @apply p-3 lg:p-5 border-gray-light-mid border-b font-secondary uppercase text-base leading-tight tracking-wider text-white text-left font-normal;
+  }
+
+  tbody {
+    @apply text-gray-dark;
+  }
+
+  tbody {
+    tr {
+      @apply table-row bg-white border-t border-gray-light-mid;
+    }
+    td {
+      @apply p-3 lg:p-5 align-top;
+    }
+  }
+}
