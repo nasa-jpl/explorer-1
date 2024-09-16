@@ -1,6 +1,3 @@
-// needed to @extend .BlockText
-@import '@explorer-1/common/src/scss/components/BlockText';
-
 .BlockRichTable {
   table {
     @apply border-gray-light-mid border-t border-b border-collapse w-full;
@@ -18,41 +15,12 @@
     @apply text-gray-dark;
   }
 
-  tbody tr {
-    @apply table-row bg-white border-t border-gray-light-mid;
-  }
-
-  .rich_text,
-  .link {
-    @extend .BlockText;
-  }
-  // Below selectors are extra-specific to ensure they take priority over the @extend-ed .BlockText styles.
-  td.rich_text p {
-    @apply mb-4;
-  }
-
-  td.rich_text ol {
-    @apply pl-6 mb-4;
-  }
-
-  td.rich_text ul {
-    @apply pl-6 mb-4 list-disc;
-
-    li {
-      @apply p-0;
+  tbody {
+    tr {
+      @apply table-row bg-white border-t border-gray-light-mid;
     }
-
-    li::before {
-      @apply hidden;
+    td {
+      @apply p-3 lg:p-5 align-top;
     }
-  }
-
-  td.rich_text ul li,
-  td.rich_text ol li {
-    @apply my-1;
-  }
-
-  td.rich_text hr {
-    @apply my-4;
   }
 }

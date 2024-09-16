@@ -188,7 +188,7 @@
         indent="col-3"
         class="lg:mb-18 mb-10"
       >
-        <BlockRichTable :data="block" />
+        <BlockRichTable :table="block" />
       </LayoutHelper>
 
       <LayoutHelper

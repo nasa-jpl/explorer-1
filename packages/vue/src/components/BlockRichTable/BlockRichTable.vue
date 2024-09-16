@@ -1,39 +1,18 @@
 <script lang="ts">
-// eslint-disable vue/no-v-html
-// @ts-nocheck
-import { defineComponent, computed } from 'vue'
-import BlockImage from './../BlockImage/BlockImage.vue'
+import { defineComponent } from 'vue'
+import BlockImageStandard from './../BlockImage/BlockImageStandard.vue'
+import BlockText from './../BlockText/BlockText.vue'
 
 export default defineComponent({
   name: 'BlockRichTable',
+  components: {
+    BlockImageStandard,
+    BlockText
+  },
   props: {
-    data: {
+    table: {
       type: Object,
       required: true
-    }
-  },
-  setup(props) {
-    // Parse the table data from the JSON string
-    const parsedData = computed(() => {
-      try {
-        return JSON.parse(props.data.table)
-      } catch (error) {
-        console.error('Error parsing table data:', error)
-        return null
-      }
-    })
-
-    // Extract the relevant table block
-    const table = computed(() => {
-      if (!parsedData.value || !parsedData.value.data.page.body) {
-        return null
-      }
-
-      return parsedData.value.data.page.body.find((block) => block.blockType === 'RichTableBlock')
-    })
-
-    return {
-      table
     }
   }
 })
@@ -42,13 +21,13 @@ export default defineComponent({
 <template>
   <div
     v-if="table"
-    class="BlockRichTable"
+    class="BlockRichTable BlockText -small text-body-sm"
   >
     <div class="overflow-x-auto scrolling-touch max-w-screen-3xl mx-auto">
       <table
         class="min-w-full border-gray-light-mid w-full border-t border-b border-collapse table-auto"
       >
-        <thead>
+        <thead v-if="table.tableContent.tableHead?.length">
           <tr>
             <th
               v-for="(headCell, headIndex) in table.tableContent.tableHead[0]"
@@ -60,7 +39,7 @@ export default defineComponent({
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="table.tableContent.tableBody?.length">
           <tr
             v-for="(row, rowIndex) in table.tableContent.tableBody"
             :key="rowIndex"
@@ -68,43 +47,39 @@ export default defineComponent({
             <td
               v-for="(cell, cellIndex) in row"
               :key="cellIndex"
-              class="min-w-72 sm:min-w-80 bg-white text-gray-dark border-gray-light-mid p-0"
+              class="min-w-72 sm:min-w-80 bg-white text-gray-dark border-gray-light-mid"
             >
               <template v-if="cell.blockType === 'CharBlock'">
-                <p class="text-sm text-left my-2 px-3 lg:px-5">
+                <p class="">
                   {{ cell.value }}
                 </p>
               </template>
               <template v-else-if="cell.blockType === 'RichTextBlock'">
-                <div class="text-xs text-left my-2 px-3 lg:px-5">{{ cell.value }}</div>
+                <BlockText
+                  variant="small"
+                  :text="cell.value"
+                />
               </template>
               <template v-else-if="cell.blockType === 'ImageBlock'">
-                <BlockImage
-                  :data="cell.value"
-                  :full-bleed="true"
-                ></BlockImage>
-                <figure>
-                  <img
-                    :src="cell.image.url"
-                    :alt="cell.image.caption"
-                    class="w-full h-auto"
-                  />
-                  <figcaption class="text-xs text-left my-2 px-3 lg:px-5">
-                    {{ cell.image.caption }}
-                  </figcaption>
-                </figure>
+                <BlockImageStandard
+                  class=""
+                  :data="cell.image"
+                  :display-caption="cell.displayCaption"
+                  :caption="cell.caption"
+                  :constrain="cell.constrain"
+                />
               </template>
             </td>
           </tr>
         </tbody>
       </table>
-      <div class="flex w-full">
-        <caption class="text-center font-bold my-2 px-3 lg:px-5">
+      <template v-if="table.tableCaption">
+        <caption class="block text-left px-0 text-gray-mid-dark text-body-sm mt-4">
           {{
             table.tableCaption
           }}
         </caption>
-      </div>
+      </template>
     </div>
   </div>
 </template>
