@@ -111,7 +111,7 @@
           </nav>
           <div class="pl-8">
             <nav
-              v-if="data.footerMoreFromJpl && data.footerMoreFromJpl.length > 0"
+              v-if="data.footerMoreFromJpl?.length"
               aria-label="Other JPL Sites"
               class="mt-6"
             >
@@ -194,7 +194,7 @@ export default defineComponent({
       default: null
     }
   },
-  emits: ['closeMobileMenu', 'openMobileMenu'],
+  // emits: ['closeMobileMenu', 'openMobileMenu'],
   data() {
     return {
       menuVisible: false,
@@ -255,20 +255,21 @@ export default defineComponent({
     closeMenu() {
       if (this.menuVisible) {
         this.menuVisible = false
-        this.$emit('closeMobileMenu')
-        document.body.classList.remove('overflow-hidden')
+        // this.$emit('closeMobileMenu')
+        if (document.body) document.body.classList.remove('overflow-hidden')
       }
     },
     openMenu() {
       if (!this.menuVisible) {
+        console.log('opening mobile menu')
         this.menuVisible = true
-        this.$emit('openMobileMenu')
-        document.body.classList.add('overflow-hidden')
+        // this.$emit('openMobileMenu')
+        if (document.body) document.body.classList.add('overflow-hidden')
       }
     },
     // safe way to retrieve url key from nav items. used with breadcrumb to determine active class.
     getUrlKey(item: LinkObject): string | null {
-      if (item.linkPage) {
+      if (item?.linkPage) {
         return item.linkPage.url
       }
       return null
@@ -276,7 +277,7 @@ export default defineComponent({
     // to determine active class on menu links and 'more' menu links
     checkActive(item: LinkObject) {
       const urlKey = this.getUrlKey(item)
-      if (urlKey && this.breadcrumb && this.breadcrumb.menu_links) {
+      if (urlKey && this.breadcrumb?.menu_links) {
         // key into the breadcrumbs for each section
         const objArray = this.breadcrumb.menu_links[urlKey]
         // check if any of the paths contained in the array are active

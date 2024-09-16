@@ -257,5 +257,14 @@ const { data } = reactive(props)
       }
     }
   }
+  .BlockText {
+    ul {
+      li {
+        &::before {
+          @apply bg-secondary;
+        }
+      }
+    }
+  }
 }
 </style>

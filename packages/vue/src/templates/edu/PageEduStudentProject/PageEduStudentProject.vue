@@ -240,7 +240,7 @@ const computedClass = computed((): string => {
 <template>
   <div
     v-if="data"
-    class="ThemeVariantLight"
+    class="ThemeVariantLight PageEduStudentProject"
     :class="computedClass"
   >
     <!-- hero title -->
@@ -446,3 +446,16 @@ const computedClass = computed((): string => {
     </LayoutHelper>
   </div>
 </template>
+<style lang="scss">
+.PageEduStudentProject {
+  .BlockText {
+    ul {
+      li {
+        &::before {
+          @apply bg-secondary;
+        }
+      }
+    }
+  }
+}
+</style>

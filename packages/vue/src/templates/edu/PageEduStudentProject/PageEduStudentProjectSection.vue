@@ -9,6 +9,7 @@ import type { EduStudentProjectStep } from './PageEduStudentProject.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
+import BlockInlineImage from './../../../components/BlockInlineImage/BlockInlineImage.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import { getHeadingId } from './../../../utils/getHeadingId'
@@ -49,8 +50,19 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
       />
     </LayoutHelper>
 
+    <!-- simple richtext -->
+    <BlockInlineImage
+      v-if="text"
+      :data="{
+        text: text,
+        image: image,
+        alignTo: 'right'
+      }"
+      class="lg:mb-18 mb-10"
+    />
+
     <LayoutHelper
-      v-if="image"
+      v-else-if="image"
       indent="col-2"
       class="lg:mb-8 mb-5"
     >
@@ -151,15 +163,6 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
         </LayoutHelper>
       </li>
     </component>
-
-    <!-- simple richtext -->
-    <LayoutHelper
-      v-else-if="text"
-      indent="col-3"
-      class="lg:mb-18 mb-10"
-    >
-      <BlockText :text="text" />
-    </LayoutHelper>
   </section>
 </template>
 <style lang="scss">
@@ -184,7 +187,6 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
     // intentionally overriding correction that occurs within ThemeVariantGray
     @apply text-jpl-red;
   }
-
   .PageEduStudentProjectStep__fullWidth {
     .LayoutHelper > div > .BlockText {
       @screen lg {
