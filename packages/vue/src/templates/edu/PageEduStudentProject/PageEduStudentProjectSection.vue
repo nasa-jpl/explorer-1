@@ -7,7 +7,6 @@ import BlockHeading, {
 } from './../../../components/BlockHeading/BlockHeading.vue'
 import type { EduStudentProjectStep } from './PageEduStudentProject.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
-import BlockText from './../../../components/BlockText/BlockText.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import BlockInlineImage from './../../../components/BlockInlineImage/BlockInlineImage.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
