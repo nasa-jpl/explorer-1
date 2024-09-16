@@ -6,7 +6,9 @@
     class="BlockHeading"
     :class="{ 'has-anchor': generateId }"
   >
-    {{ data.heading }}
+    <slot>
+      {{ data.heading }}
+    </slot>
   </BaseHeading>
 </template>
 
