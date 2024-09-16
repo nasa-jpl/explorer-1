@@ -133,7 +133,6 @@
   </transition>
 </template>
 <script lang="ts">
-// @ts-nocheck
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { eventBus } from './../../utils/eventBus'
@@ -194,7 +193,7 @@ export default defineComponent({
       default: null
     }
   },
-  // emits: ['closeMobileMenu', 'openMobileMenu'],
+  emits: ['closeMobileMenu', 'openMobileMenu'],
   data() {
     return {
       menuVisible: false,
@@ -255,15 +254,14 @@ export default defineComponent({
     closeMenu() {
       if (this.menuVisible) {
         this.menuVisible = false
-        // this.$emit('closeMobileMenu')
+        this.$emit('closeMobileMenu')
         if (document.body) document.body.classList.remove('overflow-hidden')
       }
     },
     openMenu() {
       if (!this.menuVisible) {
-        console.log('opening mobile menu')
         this.menuVisible = true
-        // this.$emit('openMobileMenu')
+        this.$emit('openMobileMenu')
         if (document.body) document.body.classList.add('overflow-hidden')
       }
     },
