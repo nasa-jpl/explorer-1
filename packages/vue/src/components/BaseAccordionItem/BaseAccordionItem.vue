@@ -2,11 +2,8 @@
 import { computed, reactive, ref } from 'vue'
 import type { AccordionItemObject } from './../../interfaces.ts'
 import { uniqueId } from 'lodash'
-import { useThemeStore } from '../../store/theme.ts'
 import IconPlus from './../Icons/IconPlus.vue'
 import IconMinus from './../Icons/IconMinus.vue'
-
-const themeStore = useThemeStore()
 
 export interface BaseAccordionItemProps {
   headingLevel?: string
