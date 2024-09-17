@@ -81,7 +81,8 @@
           <!-- correct for zero based index -->
           <div
             v-if="!truncateFilters || index <= checkbox.checkboxLimit - 1"
-            class="flex my-2"
+            class="flex"
+            :class="{ 'pt-2 mt-2 mb-3': styleAsAccordion, 'my-2': !styleAsAccordion }"
           >
             <input
               :id="
@@ -102,9 +103,10 @@
                   : generateId(bucket.key, groupKey)
               "
               class="form-check-label pl-2 tracking-normal align-middle"
+              :class="{ 'font-extrabold': styleAsAccordion }"
             >
               {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
-              <span class="text-gray-mid-dark text-sm">
+              <span class="text-gray-mid-dark text-sm font-normal">
                 ({{ bucket.doc_count.toLocaleString() }})
               </span>
             </label>
@@ -180,6 +182,12 @@ export default {
     subFilterAggKey: {
       type: String,
       default: undefined
+    },
+    // force accordion styles and spacing even if there are no subfilters
+    // useful when mixing filters with and without subfilters together
+    styleAsAccordion: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['update:filterBy'],
