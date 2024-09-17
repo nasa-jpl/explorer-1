@@ -2,6 +2,7 @@
 import { computed, reactive, ref } from 'vue'
 import { uniqueId } from 'lodash'
 import IconPlus from './../Icons/IconPlus.vue'
+import IconMinus from './../Icons/IconMinus.vue'
 
 export interface SearchFilterGroupAccordionItemProps {
   initOpen?: boolean
@@ -57,10 +58,10 @@ const emit = defineEmits(['filterGroupAccordionItemOpened', 'filterGroupAccordio
           @click="handleClick()"
         >
           <span
-            class="SearchFilterGroupAccordionItem-icon inline-block text-xs text-action flex-shrink-0 transform transition-transform"
-            :class="{ '!rotate-45': !isHidden }"
+            class="SearchFilterGroupAccordionItem-icon inline-block text-xs text-action flex-shrink-0"
           >
-            <IconPlus />
+            <IconPlus v-if="isHidden" />
+            <IconMinus v-else />
           </span>
         </button>
       </template>

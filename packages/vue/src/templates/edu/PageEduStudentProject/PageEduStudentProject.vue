@@ -452,7 +452,8 @@ const computedClass = computed((): string => {
     ul {
       li {
         &::before {
-          @apply bg-secondary;
+          // intentionally using a specific red
+          @apply bg-jpl-red;
         }
       }
     }

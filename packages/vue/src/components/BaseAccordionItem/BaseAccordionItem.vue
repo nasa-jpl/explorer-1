@@ -3,6 +3,7 @@ import { computed, reactive, ref } from 'vue'
 import type { AccordionItemObject } from './../../interfaces.ts'
 import { uniqueId } from 'lodash'
 import IconPlus from './../Icons/IconPlus.vue'
+import IconMinus from './../Icons/IconMinus.vue'
 
 export interface BaseAccordionItemProps {
   headingLevel?: string
@@ -76,9 +77,9 @@ const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
               </slot>
               <span
                 class="BaseAccordion-icon pointer-events-none text-xs text-action flex-shrink-0 transform transition-transform"
-                :class="{ 'rotate-45': !isHidden }"
               >
-                <IconPlus />
+                <IconPlus v-if="isHidden" />
+                <IconMinus v-else />
               </span>
             </button>
           </component>
