@@ -193,9 +193,11 @@ export default defineComponent({
               page.id = page._id
               page.score = page._score
               // ensure router links
+              // TODO: issues with router links so disabling for now
+              // page.url = page._source.url
+              //   ? page._source.url.replace(/^[^:]+:\/\/[^/?#]+/, '')
+              //   : undefined
               page.url = page._source.url
-                ? page._source.url.replace(/^[^:]+:\/\/[^/?#]+/, '')
-                : undefined
               page.title = page._source.title
               page.type = pageType
               page.topic = topic

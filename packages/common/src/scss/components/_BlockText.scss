@@ -175,6 +175,18 @@
       @apply mb-0;
     }
   }
+  &.-medium {
+    ul {
+      li {
+        &::before {
+          @apply mt-3;
+          @screen lg {
+            @apply mt-3.5;
+          }
+        }
+      }
+    }
+  }
   // other sizes
   &.-small {
     p {
@@ -240,6 +252,16 @@
 
         &:last-child {
           @apply mb-0;
+        }
+      }
+    }
+    ul {
+      li {
+        &::before {
+          @apply mt-2.5;
+          @screen lg {
+            @apply mt-3;
+          }
         }
       }
     }
