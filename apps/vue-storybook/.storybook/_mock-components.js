@@ -27,5 +27,8 @@ export default (app) => {
   })
 
   // use static dsn widget instead of fetch
+  app.component('FetchDsnWidget', DsnWidget)
+
+  // use static asteroid watch widget instead of fetch
   app.component('FetchAsteroidWatchWidget', AsteroidWatchWidget)
 }
