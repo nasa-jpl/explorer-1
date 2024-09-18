@@ -160,7 +160,7 @@
         >
           <div
             v-if="commitSha"
-            class="lg:inline-block lg:mb-0 block pr-4 mb-2"
+            class="lg:inline-block lg:mb-0 block pr-4 mb-2 !hidden"
           >
             <span class="text-gray-light font-bold inline-block pr-1">Version:</span>
             <span>{{ commitSha }}</span>
@@ -178,7 +178,7 @@
         <div v-else>
           <div
             v-if="commitSha != null"
-            class="lg:inline-block lg:mb-0 block px-3 mb-2"
+            class="lg:inline-block lg:mb-0 block px-3 mb-2 !hidden"
           >
             <span class="text-gray-light font-bold inline-block pr-1">Version:</span>
             <span>{{ commitSha }}</span>
