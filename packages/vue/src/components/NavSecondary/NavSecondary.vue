@@ -14,7 +14,7 @@
       :class="{ 'bg-gradient-to-r from-black to-primary bg-transparent to-90% text-white': invert }"
     >
       <div
-        :class="`nav-secondary-container lg:container lg:px-0 lg:whitespace-normal lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap ${invert ? 'border-0' : 'border-t border-gray-mid text-gray-mid-dark  border-opacity-50'}`"
+        :class="`nav-secondary-container edu:border-0 lg:container lg:px-0 lg:whitespace-normal lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap ${invert ? 'border-0' : 'border-t border-gray-mid text-gray-mid-dark  border-opacity-50'}`"
       >
         <div class="lg:ml-0 2xl:-mr-3 lg:justify-end flex -ml-3">
           <template v-for="(item, index) in theBreadcrumb">
@@ -179,7 +179,7 @@ export default defineComponent({
 <style lang="scss">
 .NavSecondary {
   top: -1px; // for intersection observer to work
-  @apply sticky z-40 w-full bg-white border-b edu:border-0 border-gray-mid border-opacity-0 transition-border-opacity duration-150 edu:duration-300 ease-in;
+  @apply sticky z-40 w-full bg-white border-b border-gray-mid border-opacity-0 transition-border-opacity duration-150 edu:duration-300 ease-in;
   @apply hidden;
   @screen lg {
     @apply block;
@@ -191,7 +191,8 @@ export default defineComponent({
     }
   }
 
-  &.-is-sticky {
+  &.-is-sticky,
+  &.-is-sticky-offset {
     @apply border-gray-mid border-opacity-50;
   }
 
