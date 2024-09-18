@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { reactive } from 'vue'
+import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
+import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
+import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
+import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
+import ShareButtons from './../../../components/ShareButtons/ShareButtons.vue'
+import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
+
+interface PageAsteroidWatchContentProps {
+  data: any
+}
+const props = withDefaults(defineProps<PageAsteroidWatchContentProps>(), {
+  data: undefined
+})
+
+const { data } = reactive(props)
+</script>
 <template>
   <div
     v-if="data"
@@ -30,7 +48,7 @@
     </LayoutHelper>
 
     <template v-if="data.slug === 'next-five-approaches'">
-      <AsteroidWatchWidget class="lg:mb-18 mb-10" />
+      <FetchAsteroidWatchWidget class="lg:mb-18 mb-10" />
     </template>
 
     <!-- share buttons -->
@@ -48,32 +66,3 @@
     <BlockStreamfield :data="data.body" />
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue'
-import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
-import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
-import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
-import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
-import ShareButtons from './../../../components/ShareButtons/ShareButtons.vue'
-import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
-import AsteroidWatchWidget from './../../../components/AsteroidWatchWidget/AsteroidWatchWidget.vue'
-
-export default defineComponent({
-  name: 'PageAsteroidWatchContent',
-  components: {
-    NavSecondary,
-    LayoutHelper,
-    HeroMedia,
-    ShareButtons,
-    BlockStreamfield,
-    DetailHeadline,
-    AsteroidWatchWidget
-  },
-  props: {
-    data: {
-      type: Object,
-      required: false
-    }
-  }
-})
-</script>

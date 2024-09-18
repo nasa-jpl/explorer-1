@@ -1,6 +1,7 @@
 // import and assign mock components
 import { action } from '@storybook/addon-actions'
 import DsnWidget from '@explorer-1/vue/src/components/DsnWidget/DsnWidget.vue'
+import AsteroidWatchWidget from '@explorer-1/vue/src/components/AsteroidWatchWidget/AsteroidWatchWidget.vue'
 
 export default (app) => {
   // nuxt-link mock component
@@ -26,5 +27,5 @@ export default (app) => {
   })
 
   // use static dsn widget instead of fetch
-  app.component('FetchDsnWidget', DsnWidget)
+  app.component('FetchAsteroidWatchWidget', AsteroidWatchWidget)
 }
