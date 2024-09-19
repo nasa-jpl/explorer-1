@@ -55,7 +55,7 @@
 
   ol,
   ul {
-    @apply mb-5;
+    @apply mb-5 relative left-14 pr-14;
 
     @screen lg {
       @apply mb-8;
@@ -75,7 +75,7 @@
   }
 
   ol {
-    @apply pl-12 list-decimal;
+    @apply list-decimal pl-2 lg:pl-4;
     ol {
       list-style-type: lower-alpha;
       ol {
@@ -86,20 +86,12 @@
       }
     }
   }
-
   ul {
     li {
-      @apply pl-12 relative;
-
-      &::before {
-        content: '';
-        width: 30px;
-        height: 2px;
-        @apply bg-primary block absolute top-0 left-0 mt-3;
-
-        @screen sm {
-          @apply mt-4;
-        }
+      @apply pl-2 lg:pl-4;
+      &::marker {
+        content: '—';
+        @apply leading-none text-primary font-medium text-[22px] lg:text-[28px];
       }
     }
   }
@@ -113,7 +105,7 @@
     }
     &.left,
     &.right {
-      @apply mb-5 lg:mb-5 mx-5 lg:mx-8;
+      @apply mt-[.25rem] mb-5 lg:mb-5 mx-5 lg:mx-8;
       @apply inline max-w-full sm:max-w-[50%];
       img {
         @apply max-w-full  h-auto;
@@ -123,25 +115,19 @@
       @apply sm:float-left ml-0;
       // mimics offset in BlockInlineImage
       @apply ml-0 lg:-ml-[5.3rem] xl:-ml-[6.8rem];
-      // uncomment if floating images become unwieldy
-      // + p,
-      // + div {
-      //   clear: right;
-      // }
     }
     &.right {
       @apply sm:float-right mr-0;
       // mimics offset in BlockInlineImage
       @apply mr-0 lg:-mr-[5.3rem] xl:-mr-[6.8rem];
-      // uncomment if floating images become unwieldy
-      // + p,
-      // + div {
-      //   clear: left;
-      // }
     }
     &:last-child {
       @apply mb-0;
     }
+  }
+  // subsequent floating images
+  .richtext-image ~ .richtext-image {
+    clear: both;
   }
   .richtext-caption {
     // mimic BaseImageCaption
@@ -178,11 +164,8 @@
   &.-medium {
     ul {
       li {
-        &::before {
-          @apply mt-3;
-          @screen lg {
-            @apply mt-3.5;
-          }
+        &::marker {
+          @apply lg:text-[24px];
         }
       }
     }
@@ -257,11 +240,8 @@
     }
     ul {
       li {
-        &::before {
-          @apply mt-2.5;
-          @screen lg {
-            @apply mt-3;
-          }
+        &::marker {
+          @apply lg:text-[22px];
         }
       }
     }
