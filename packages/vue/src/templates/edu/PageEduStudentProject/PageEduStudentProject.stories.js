@@ -9,6 +9,7 @@ import { BaseVideoData } from './../../../components/BaseVideo/BaseVideo.stories
 import { BlockVideoEmbedData } from './../../../components/BlockVideoEmbed/BlockVideoEmbed.stories'
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
+import { BlockRichTableData } from './../../../components/BlockRichTable/BlockRichTable.stories'
 import {
   BlockStreamfieldTruncatedData,
   BlockStreamfieldMinimalData
@@ -139,7 +140,12 @@ export const BaseStory = {
         {
           heading: 'Lorem ipsum dolor no media',
           media: [],
-          content: [BlockImageData, ...BlockStreamfieldMinimalData.body, BlockInlineImageData.block]
+          content: [
+            BlockImageData,
+            ...BlockStreamfieldMinimalData.body,
+            BlockRichTableData,
+            BlockInlineImageData.block
+          ]
         },
         {
           heading: 'Sit amet',
@@ -156,7 +162,7 @@ export const BaseStory = {
         {
           heading: 'Consectatur adipscing',
           media: [BlockImageComparisonData],
-          content: BlockStreamfieldMinimalData.body
+          content: BlockStreamfieldTruncatedData.body
         }
       ],
 
