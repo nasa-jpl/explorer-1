@@ -174,18 +174,9 @@
       </LayoutHelper>
 
       <LayoutHelper
-        v-else-if="block.blockType == 'TableBlock'"
-        :key="`tableBlock${index}`"
-        indent="col-3"
-        :class="marginBottom"
-      >
-        <BlockTable :data="block" />
-      </LayoutHelper>
-
-      <LayoutHelper
         v-else-if="block.blockType == 'RichTableBlock'"
         :key="`richTableBlock${index}`"
-        indent="col-3"
+        :indent="themeStore.isEdu ? 'col-2' : 'col-3'"
         class="lg:mb-18 mb-10"
       >
         <BlockRichTable :table="block" />
@@ -277,7 +268,6 @@ import BlockQuote, { type BlockQuoteAttributes } from './../BlockQuote/BlockQuot
 import BlockRelatedLinks, {
   type BlockRelatedLinksObject
 } from './../BlockRelatedLinks/BlockRelatedLinks.vue'
-import BlockTable from './../BlockTable/BlockTable.vue'
 import BlockRichTable from './../BlockRichTable/BlockRichTable.vue'
 import BlockTeaser from './../BlockTeaser/BlockTeaser.vue'
 import BlockText from './../BlockText/BlockText.vue'
@@ -287,6 +277,8 @@ import BlockVideo from './../BlockVideo/BlockVideo.vue'
 import BlockVideoEmbed, {
   type BlockData as VideoBlockEmbedData
 } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 
 interface Variants {
   [key: string]: string
@@ -317,7 +309,6 @@ export default defineComponent({
     BlockListCards,
     BlockQuote,
     BlockRelatedLinks,
-    BlockTable,
     BlockRichTable,
     BlockTeaser,
     BlockText,
@@ -345,6 +336,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapStores(useThemeStore),
     layoutClass(): string {
       return variants[this.variant]
     },
