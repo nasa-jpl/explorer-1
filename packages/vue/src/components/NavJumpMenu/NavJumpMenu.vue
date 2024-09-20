@@ -18,6 +18,7 @@
         >
           <NavJumpMenuContent
             :key="index"
+            class="max-h-[72vh] overflow-y-auto"
             :item="item"
             v-bind="$attrs"
           />
