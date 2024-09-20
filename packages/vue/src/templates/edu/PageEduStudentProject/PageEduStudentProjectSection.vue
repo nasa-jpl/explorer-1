@@ -199,7 +199,7 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
     }
   }
   .PageEduStudentProjectStep__fullWidth {
-    .LayoutHelper > div > .BlockText p {
+    .LayoutHelper > div > .BlockText:not(.BlockRichTable.BlockText) p {
       @screen lg {
         @apply mr-[10rem];
       }

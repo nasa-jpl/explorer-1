@@ -23,7 +23,7 @@ export default defineComponent({
     v-if="table"
     class="BlockRichTable BlockText -small text-body-sm"
   >
-    <div class="overflow-x-auto scrolling-touch max-w-screen-3xl mx-auto">
+    <div class="overflow-x-auto scrolling-touch max-w-screen-3xl mx-auto !mb-0">
       <table
         class="min-w-full border-gray-light-mid w-full border-t border-b border-collapse table-auto"
       >
@@ -33,7 +33,7 @@ export default defineComponent({
               v-for="(headCell, headIndex) in table.tableContent.tableHead[0]"
               :key="headIndex"
               scope="col"
-              class="min-w-72 sm:min-w-80 bg-jpl-blue-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b"
+              class="min-w-[12rem] bg-jpl-blue-darker edu:bg-jpl-teal-dark text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b"
             >
               {{ headCell.text }}
             </th>
@@ -47,7 +47,7 @@ export default defineComponent({
             <td
               v-for="(cell, cellIndex) in row"
               :key="cellIndex"
-              class="min-w-72 sm:min-w-80 bg-white text-gray-dark border-gray-light-mid"
+              class="min-w-[12rem] bg-white text-gray-dark border-gray-light-mid"
             >
               <template v-if="cell.blockType === 'CharBlock'">
                 <p class="">
@@ -73,14 +73,14 @@ export default defineComponent({
           </tr>
         </tbody>
       </table>
-      <template v-if="table.tableCaption">
-        <caption class="block text-left px-0 text-gray-mid-dark text-body-sm mt-4">
-          {{
-            table.tableCaption
-          }}
-        </caption>
-      </template>
     </div>
+    <template v-if="table.tableCaption">
+      <caption class="block text-left px-0 text-gray-mid-dark text-body-sm mt-4">
+        {{
+          table.tableCaption
+        }}
+      </caption>
+    </template>
   </div>
 </template>
 
