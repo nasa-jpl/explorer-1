@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useThemeStore } from '../../store/theme'
 import SearchInput from './../SearchInput/SearchInput.vue'
 const router = useRouter()
+const themeStore = useThemeStore()
 
 interface NavSearchFormProps {
   mobile?: boolean
@@ -20,7 +22,10 @@ const clearSearch = () => {
 }
 const submitSearch = () => {
   emit('submitForm')
-  router.push({ path: '/search', query: { query: searchQuery.value } })
+  router.push({
+    path: themeStore.isEdu ? '/edu/search/' : '/search',
+    query: { query: searchQuery.value }
+  })
 }
 </script>
 <template>

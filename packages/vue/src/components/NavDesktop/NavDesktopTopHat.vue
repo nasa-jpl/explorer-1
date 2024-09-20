@@ -16,8 +16,13 @@
           :class="{ '-ml-3': index === 0 }"
         >
           <span
-            class="can-hover:group-hover:border-jpl-red-light inline-block py-2 border-b-2"
-            :class="index === 0 ? 'border-jpl-red-light' : 'border-transparent'"
+            class="can-hover:group-hover:border-jpl-red inline-block py-2 border-b-2"
+            :class="
+              (getLinkText(item) === 'JPL' && !themeStore.isEdu) ||
+              (getLinkText(item) === 'Education' && themeStore.isEdu)
+                ? 'border-jpl-red'
+                : 'border-transparent'
+            "
           >
             {{ getLinkText(item) }}
           </span>
@@ -29,6 +34,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
+import { mapStores } from 'pinia'
+import { useThemeStore } from './../../store/theme'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import type { LinkObject } from './../../utils/mixins'
 import type { PropType } from 'vue'
@@ -51,6 +58,9 @@ export default defineComponent({
     getLinkText(link: LinkObject): string | undefined {
       return mixinGetLinkText(link)
     }
+  },
+  computed: {
+    ...mapStores(useThemeStore)
   }
 })
 </script>
