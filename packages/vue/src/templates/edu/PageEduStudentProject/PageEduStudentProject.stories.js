@@ -9,6 +9,7 @@ import { BaseVideoData } from './../../../components/BaseVideo/BaseVideo.stories
 import { BlockVideoEmbedData } from './../../../components/BlockVideoEmbed/BlockVideoEmbed.stories'
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
+import { RichTextMediaData } from './../../../components/BlockText/BlockText.stories.js'
 import { BlockRichTableData } from './../../../components/BlockRichTable/BlockRichTable.stories'
 import {
   BlockStreamfieldTruncatedData,
@@ -144,7 +145,11 @@ export const BaseStory = {
             BlockImageData,
             ...BlockStreamfieldMinimalData.body,
             BlockRichTableData,
-            BlockInlineImageData.block
+            BlockInlineImageData.block,
+            {
+              blockType: 'RichTextBlock',
+              value: RichTextMediaData
+            }
           ]
         },
         {

@@ -231,8 +231,8 @@ export default defineComponent({
   .BlockText {
     ul {
       li {
-        &::before {
-          @apply bg-secondary;
+        &::marker {
+          @apply text-secondary;
         }
       }
     }

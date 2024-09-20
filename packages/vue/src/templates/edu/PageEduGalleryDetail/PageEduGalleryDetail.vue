@@ -260,8 +260,8 @@ const { data } = reactive(props)
   .BlockText {
     ul {
       li {
-        &::before {
-          @apply bg-secondary;
+        &::marker {
+          @apply text-secondary;
         }
       }
     }
