@@ -32,16 +32,16 @@ export const RichTextMediaData = `<p data-block-key="5f55p">Description for it.<
         <a class="caption-link" href="#">Full Image Details</a>
     </div>
 </div>
-<ul><li>Item one in the list</li><li>Item two in the list</li><li>Third item in the list</li></ul>
+<ul><li>Item one in the list</li><li>Aliquam erat volutpat. Nam et lorem purus. Pellentesque placerat, lorem eget ultrices bibendum, lorem dolor finibus metus, consectetur mattis lorem sapien id felis. Cras scelerisque lacus et tristique luctus.</li><li>Third item in the list</li></ul>
 <p data-block-key="4409g">More text and something that&#x27;s <span="math-text">right-aligned</span>.</p><p data-block-key="bid36"></p><div class="richtext-image right"><img alt="Lecture Brings Galileo&amp;#x27;s Travels into Final Focus" height="350" loading="lazy" src="https://picsum.photos/640/350" width="640">
     <div class="richtext-caption">
         <div class="caption">Lecture Brings Galileo's Travels into Final Focus</div>
     </div>
 </div>
-<ol><li>Item one in the list</li><li>Item two in the list</li><li>Third item in the list</li></ol>
+<ol><li>Item one in the list</li><li>Aliquam erat volutpat. Nam et lorem purus. Pellentesque placerat, lorem eget ultrices bibendum, lorem dolor finibus metus, consectetur mattis lorem sapien id felis. Cras scelerisque lacus et tristique luctus.</li><li>Third item in the list</li></ol>
 <p data-block-key="1f4rd"> Pellentesque euismod, metus et vehicula tincidunt, magna velit viverra enim, non efficitur elit enim ut ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum massa est, aliquam sed volutpat quis, tempor vitae felis. Quisque suscipit in purus non rhoncus. Vestibulum commodo gravida nibh. Quisque imperdiet lacus rhoncus malesuada elementum. Mauris tempor purus quis sollicitudin ornare. Suspendisse eget gravida neque. Etiam gravida, sapien ac condimentum placerat, tellus eros volutpat elit, non viverra lectus turpis ut lectus. Praesent varius porttitor eros eu efficitur. Etiam nec neque semper, facilisis leo non, tempor enim. Etiam a sodales lacus. Aenean a nibh ipsum.</p>
-<ul><li>Item one in the list</li><li>Item two in the list</li><li>Third item in the list</li></ul>
-<ol><li>Item one in the list</li><li>Item two in the list</li><li>Third item in the list</li></ol>
+<ul><li>Item one in the list</li><li>Aliquam erat volutpat. Nam et lorem purus. Pellentesque placerat, lorem eget ultrices bibendum, lorem dolor finibus metus, consectetur mattis lorem sapien id felis. Cras scelerisque lacus et tristique luctus.</li><li>Third item in the list</li></ul>
+<ol><li>Item one in the list</li><li>Aliquam erat volutpat. Nam et lorem purus. Pellentesque placerat, lorem eget ultrices bibendum, lorem dolor finibus metus, consectetur mattis lorem sapien id felis. Cras scelerisque lacus et tristique luctus.</li><li>Third item in the list</li></ol>
 <p>Nunc molestie aliquet nunc, ut viverra risus elementum bibendum. Cras metus metus, sagittis sed ex at, rutrum dictum leo. Cras sodales, urna id aliquam scelerisque, neque sem venenatis justo, a feugiat lorem ligula molestie orci. Vestibulum in suscipit diam. Phasellus pulvinar quis diam ullamcorper sagittis. Praesent a risus leo. Etiam tempor dolor eu turpis laoreet fermentum. Sed turpis risus, interdum ut bibendum ut, ornare a augue. Donec condimentum odio non lectus efficitur sodales. Vivamus posuere ligula a eros molestie, semper porttitor augue interdum. Cras et facilisis ligula, nec malesuada velit. </p>`
 
 export const BaseStory = {

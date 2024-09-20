@@ -144,6 +144,7 @@ export const BaseStory = {
           content: [
             BlockImageData,
             ...BlockStreamfieldMinimalData.body,
+            BlockRichTableData,
             BlockInlineImageData.block,
             {
               blockType: 'RichTextBlock',
