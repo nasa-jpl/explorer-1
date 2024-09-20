@@ -187,7 +187,7 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
     @apply text-jpl-red;
   }
   .PageEduStudentProjectStep__fullWidth {
-    .LayoutHelper > div > .BlockText {
+    .LayoutHelper > div > .BlockText:not(.BlockRichTable.BlockText) {
       @screen lg {
         @apply mr-[10rem];
       }
