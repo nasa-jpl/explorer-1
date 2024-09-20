@@ -16,7 +16,8 @@
       :key="child_index"
     >
       <BaseLink
-        :to="child.path"
+        :to="child.path.startsWith('/') ? child.path : undefined"
+        :href="!child.path.startsWith('/') ? child.path : undefined"
         variant="none"
         :link-class="linkClass(child, child_index === item.children.length - 1)"
         exact
@@ -35,7 +36,8 @@
           class=""
         >
           <BaseLink
-            :to="grandchild.path"
+            :to="grandchild.path.startsWith('/') ? grandchild.path : undefined"
+            :href="!grandchild.path.startsWith('/') ? grandchild.path : undefined"
             variant="none"
             :link-class="
               nestedLinkClass(
