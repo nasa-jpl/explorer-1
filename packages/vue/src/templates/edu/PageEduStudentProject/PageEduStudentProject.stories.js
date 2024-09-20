@@ -9,11 +9,8 @@ import { BaseVideoData } from './../../../components/BaseVideo/BaseVideo.stories
 import { BlockVideoEmbedData } from './../../../components/BlockVideoEmbed/BlockVideoEmbed.stories'
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
-<<<<<<< HEAD
 import { RichTextMediaData } from './../../../components/BlockText/BlockText.stories.js'
-=======
 import { BlockRichTableData } from './../../../components/BlockRichTable/BlockRichTable.stories'
->>>>>>> main
 import {
   BlockStreamfieldTruncatedData,
   BlockStreamfieldMinimalData
