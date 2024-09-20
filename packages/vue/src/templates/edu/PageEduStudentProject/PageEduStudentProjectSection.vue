@@ -209,6 +209,12 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
           @apply mr-[14rem];
         }
       }
+      table {
+        p,
+        li {
+          @apply mr-0;
+        }
+      }
     }
   }
 }
