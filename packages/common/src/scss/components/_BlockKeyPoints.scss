@@ -1,21 +1,14 @@
 .BlockKeyPoints {
   @media not print {
+    ul {
+      @apply ml-6;
+    }
     ul li {
-      &::before {
-        @apply bg-primary;
-        @apply inline-block;
-        @apply relative;
-        @apply mr-4;
-        @apply shrink-0;
-        @apply mt-3;
-        @apply print:hidden;
-
-        content: '';
-        width: 30px;
-        height: 2px;
-        vertical-align: middle;
+      &::marker {
+        content: '—';
+        @apply leading-none text-primary font-medium text-[22px] lg:text-[24px];
       }
-
+      @apply pl-2 lg:pl-4;
       .BlockText {
         p {
           @apply mb-2;
