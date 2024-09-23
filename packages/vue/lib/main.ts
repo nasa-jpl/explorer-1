@@ -73,7 +73,6 @@ import BlockQuote from './../src/components/BlockQuote/BlockQuote.vue'
 import BlockRelatedLinks from './../src/components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import RelatedLink from './../src/components/BlockRelatedLinks/RelatedLink.vue'
 import BlockStreamfield from './../src/components/BlockStreamfield/BlockStreamfield.vue'
-import BlockTable from './../src/components/BlockTable/BlockTable.vue'
 import BlockTeaser from './../src/components/BlockTeaser/BlockTeaser.vue'
 import BlockText from './../src/components/BlockText/BlockText.vue'
 import BlockVideo from './../src/components/BlockVideo/BlockVideo.vue'
@@ -276,7 +275,6 @@ export {
   BlockRelatedLinks,
   RelatedLink,
   BlockStreamfield,
-  BlockTable,
   BlockTeaser,
   BlockText,
   BlockVideo,

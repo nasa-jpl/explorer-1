@@ -451,9 +451,9 @@ const computedClass = computed((): string => {
   .BlockText {
     ul {
       li {
-        &::before {
+        &::marker {
           // intentionally using a specific red
-          @apply bg-jpl-red;
+          @apply text-jpl-red;
         }
       }
     }

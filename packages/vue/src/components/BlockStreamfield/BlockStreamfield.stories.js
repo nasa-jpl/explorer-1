@@ -11,7 +11,7 @@ import { BlockKeyPointsData } from './../BlockKeyPoints/BlockKeyPoints.stories'
 import { BlockListCardsData } from './../BlockListCards/BlockListCards.stories'
 import { BlockQuoteData } from './../BlockQuote/BlockQuote.stories'
 import { BlockRelatedLinksData } from './../BlockRelatedLinks/BlockRelatedLinks.stories'
-import { BlockTableData } from './../BlockTable/BlockTable.stories'
+import { BlockRichTableData } from './../BlockRichTable/BlockRichTable.stories'
 import { BlockTeaserData } from './../BlockTeaser/BlockTeaser.stories'
 import { BlockIframeEmbedData } from './../BlockIframeEmbed/BlockIframeEmbed.stories'
 import { BlockVideoData } from './../BlockVideo/BlockVideo.stories'
@@ -26,6 +26,10 @@ export default {
     variant: {
       control: { type: 'select' },
       options: Object.keys(variants)
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large']
     }
   },
   parameters: {
@@ -122,7 +126,7 @@ export const BlockStreamfieldData = {
       ...BlockInlineImageData.block,
       alignTo: 'left'
     },
-    BlockTableData,
+    BlockRichTableData,
     {
       blockType: 'ListBlock',
       field: 'card_grid',
@@ -132,12 +136,13 @@ export const BlockStreamfieldData = {
 }
 
 export const BaseStory = {
-  args: { data: BlockStreamfieldData.body, variant: 'default' }
+  args: { data: BlockStreamfieldData.body, variant: 'default', size: 'large' }
 }
 
 export const MatchingWidths = {
   args: {
     data: BlockStreamfieldData.body,
-    variant: 'fluid'
+    variant: 'fluid',
+    size: 'large'
   }
 }

@@ -160,18 +160,5 @@ defineExpose({
     >
       <AboutTheAuthor :authors="data.authors" />
     </LayoutHelper>
-
-    <div class="bg-stars bg-primary-darker">
-      <div class="py-10 text-center text-white">
-        <strong>Related News goes here</strong>
-      </div>
-      <!-- extras -->
-      <!-- <BlockLinkCarousel
-        item-type="cards"
-        class="mt-24"
-        heading="Explore more"
-        :items="data.getRelatedOrLatestNews"
-      /> -->
-    </div>
   </div>
 </template>
