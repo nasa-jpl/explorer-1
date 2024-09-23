@@ -36,7 +36,7 @@
         <div class="ml-2 pl-3 xl:ml-3 xl:pl-5 border-l border-white border-opacity-30 z-20">
           <BaseLink
             class="text-white font-bold text-2xl xl:text-3xl"
-            to="/edu/"
+            to="/edubeta/"
             link-class="py-2"
             variant="none"
           >
