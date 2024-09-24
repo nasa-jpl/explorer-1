@@ -1,6 +1,6 @@
 <template>
   <div v-if="theItem">
-    <template v-if="metadataType === 'EDUCollectionsDetailPage' && specialStyles">
+    <template v-if="metadataType === 'EDUCollectionsDetailPage' && useFeaturedStyles">
       <BlockLinkCardCollectionLg
         :the-item="theItem as EduResourceCardObject"
         :metadata-type="metadataType"
@@ -283,7 +283,7 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    specialStyles: {
+    useFeaturedStyles: {
       type: Boolean,
       default: false
     }

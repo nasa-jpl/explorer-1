@@ -267,7 +267,7 @@ export const EduCollection = {
   args: {
     ...BlockLinkCardData,
     size: 'sm',
-    specialStyles: true,
+    useFeaturedStyles: true,
     data: {
       page: {
         __typename: 'EDUCollectionsDetailPage',
@@ -298,7 +298,7 @@ export const EduCollectionLarge = {
   args: {
     ...BlockLinkCardData,
     size: 'lg',
-    specialStyles: true,
+    useFeaturedStyles: true,
     data: {
       page: {
         __typename: 'EDUCollectionsDetailPage',
