@@ -1,10 +1,11 @@
 <template>
   <div v-if="theItem">
-    <template v-if="metadataType === 'EDUCollectionsDetailPage' && size === 'lg' && specialStyles">
+    <template v-if="metadataType === 'EDUCollectionsDetailPage' && specialStyles">
       <BlockLinkCardCollectionLg
         :the-item="theItem as EduResourceCardObject"
         :metadata-type="metadataType"
         :metadata-attrs="metadataAttrs"
+        :size="size"
       />
     </template>
     <template v-else>

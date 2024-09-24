@@ -28,6 +28,7 @@
       :heading-level="headingLevel"
       size="sm"
       show-calendar-chip
+      special-styles
     />
     <BlockLinkCard
       v-else-if="typename === 'News'"

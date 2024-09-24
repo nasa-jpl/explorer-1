@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import type { EduResourceCardObject } from '../../interfaces'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
@@ -13,6 +13,7 @@ interface BlockLinkCardCollectionLgProps {
   metadataType?: string
   metadataAttrs?: any
   headingLevel?: HeadingLevel
+  size?: string
 }
 
 // define props
@@ -20,10 +21,15 @@ const props = withDefaults(defineProps<BlockLinkCardCollectionLgProps>(), {
   theItem: undefined,
   metadataType: undefined,
   metadataAttrs: undefined,
-  headingLevel: undefined
+  headingLevel: undefined,
+  size: undefined
 })
 
-const { theItem, metadataType, metadataAttrs, headingLevel } = reactive(props)
+const { theItem, metadataType, metadataAttrs, headingLevel, size } = reactive(props)
+
+const isSmall = computed(() => {
+  return size === 'sm'
+})
 </script>
 
 <template>
@@ -33,11 +39,16 @@ const { theItem, metadataType, metadataAttrs, headingLevel } = reactive(props)
     :to="theItem.url ? theItem.url : undefined"
     :href="theItem.externalLink ? theItem.externalLink : undefined"
     class="BlockLinkCardCollectionLg group bg-stars bg-primary-dark"
-    link-class="block sm:flex flex-row mb-8 relative"
+    :link-class="`block mb-8 relative ${isSmall ? 'flex flex-col' : 'sm:flex flex-row'}`"
     external-target-blank
   >
     <BaseImagePlaceholder
-      class="bg-gray-dark h-full relative sm:absolute sm:top-0 sm:right-0 sm:bottom:0 overflow-hidden mb-6 sm:w-1/3 lg:mb-0 order-1 sm:order-2 z-20 aspect-ratio-three-two sm:aspect-ratio-one-one"
+      class="bg-gray-dark h-full relative overflow-hidden mb-6 z-20"
+      :class="{
+        'aspect-ratio-sixteen-nine': isSmall,
+        'sm:absolute sm:top-0 sm:right-0 sm:bottom:0 sm:w-1/3 lg:mb-0 order-1 sm:order-2 aspect-ratio-three-two sm:aspect-ratio-one-one':
+          !isSmall
+      }"
       dark-mode
       no-logo
     >
@@ -54,7 +65,11 @@ const { theItem, metadataType, metadataAttrs, headingLevel } = reactive(props)
       <div v-else></div>
     </BaseImagePlaceholder>
     <div
-      class="BlockLinkCard__CardContent px-6 pb-6 sm:pt-6 lg:px-12 lg:py-10 can-hover:group-hover:delay-200 ThemeVariantLight sm:w-2/3 order-2 sm:order-1"
+      class="BlockLinkCard__CardContent can-hover:group-hover:delay-200 ThemeVariantLight"
+      :class="{
+        'px-4 pb-4': isSmall,
+        'px-6 pb-6 sm:pt-6 lg:px-12 lg:py-10 sm:w-2/3 order-2 sm:order-1': !isSmall
+      }"
     >
       <div
         class="absolute z-0 inset-0 bg-gradient-to-r from-transparent-black-75 to-transparent"
@@ -62,7 +77,10 @@ const { theItem, metadataType, metadataAttrs, headingLevel } = reactive(props)
       <div class="relative z-10">
         <template v-if="metadataAttrs">
           <BasePill
-            class="mb-4"
+            :class="{
+              'mb-2': isSmall,
+              'mb-4': !isSmall
+            }"
             size="sm"
             :content-type="metadataType"
           />
@@ -70,19 +88,25 @@ const { theItem, metadataType, metadataAttrs, headingLevel } = reactive(props)
 
         <component
           :is="headingLevel || 'p'"
-          class="text-white text-xl font-medium leading-tight tracking-tight edu:font-extrabold lg:text-3xl"
+          class="text-white text-xl font-medium leading-tight tracking-tight edu:font-extrabold"
+          :class="{
+            'lg:text-3xl': !isSmall
+          }"
         >
           {{ theItem.title }}
         </component>
         <p
-          v-if="theItem.summary"
+          v-if="theItem.summary && !isSmall"
           class="mt-4 text-white line-clamp-2 sm:line-clamp-1 lg:line-clamp-2 xl:line-clamp-3"
         >
           {{ theItem.summary }}
         </p>
         <div
           v-if="metadataAttrs"
-          class="mt-4"
+          :class="{
+            'mt-1': isSmall,
+            'mt-4': !isSmall
+          }"
         >
           <MetadataEduResource
             :resource="theItem"

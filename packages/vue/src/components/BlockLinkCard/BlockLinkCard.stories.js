@@ -266,6 +266,7 @@ export const EduCollection = {
   ],
   args: {
     ...BlockLinkCardData,
+    size: 'sm',
     specialStyles: true,
     data: {
       page: {
@@ -294,11 +295,6 @@ export const EduCollection = {
   }
 }
 export const EduCollectionLarge = {
-  decorators: [
-    () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
-    })
-  ],
   args: {
     ...BlockLinkCardData,
     size: 'lg',
