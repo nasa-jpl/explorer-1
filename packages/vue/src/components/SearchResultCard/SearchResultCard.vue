@@ -29,6 +29,7 @@
         }
       }"
       show-calendar-chip
+      special-styles
     />
     <EventCard
       v-else-if="isEvents"

@@ -258,3 +258,74 @@ export const LargeEduExplainerArticle = {
     }
   }
 }
+export const EduCollection = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    ...BlockLinkCardData,
+    specialStyles: true,
+    data: {
+      page: {
+        __typename: 'EDUCollectionsDetailPage',
+        ...BlockLinkCardData.data,
+        summary:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mattis auctor magna. Quisque molestie ex metus, et aliquet nunc porttitor nec. Donec imperdiet quam dolor, ut iaculis justo ornare non. Proin finibus nulla ut lorem molestie sagittis quis ut nulla. Sed sit amet dui consectetur, aliquam tortor nec, pulvinar libero.',
+        primarySubject: {
+          subject: 'Engineering'
+        },
+        gradeLevels: [
+          { gradeLevel: 'All Ages' },
+          { gradeLevel: 'K' },
+          { gradeLevel: '1' },
+          { gradeLevel: '2' },
+          { gradeLevel: '5' },
+          { gradeLevel: '6' },
+          { gradeLevel: '7' },
+          { gradeLevel: '8' }
+        ],
+        time: {
+          time: '1-2 hrs'
+        }
+      }
+    }
+  }
+}
+export const EduCollectionLarge = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    ...BlockLinkCardData,
+    size: 'lg',
+    specialStyles: true,
+    data: {
+      page: {
+        __typename: 'EDUCollectionsDetailPage',
+        ...BlockLinkCardData.data,
+        summary:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mattis auctor magna. Quisque molestie ex metus, et aliquet nunc porttitor nec. Donec imperdiet quam dolor, ut iaculis justo ornare non. Proin finibus nulla ut lorem molestie sagittis quis ut nulla. Sed sit amet dui consectetur, aliquam tortor nec, pulvinar libero.',
+        primarySubject: {
+          subject: 'Engineering'
+        },
+        gradeLevels: [
+          { gradeLevel: 'All Ages' },
+          { gradeLevel: 'K' },
+          { gradeLevel: '1' },
+          { gradeLevel: '2' },
+          { gradeLevel: '5' },
+          { gradeLevel: '6' },
+          { gradeLevel: '7' },
+          { gradeLevel: '8' }
+        ],
+        time: {
+          time: '1-2 hrs'
+        }
+      }
+    }
+  }
+}
