@@ -11,7 +11,7 @@ interface MetadataEduResourceProps {
   resource: EduResourceCardObject
   compact?: boolean
   variant?: string
-  showTime: boolean
+  showTime?: boolean
 }
 
 // define props
