@@ -49,10 +49,17 @@
           :content-type="metadataType"
           :text="(theItem as EventCardObject).eventType"
         />
+        <template v-if="metadataType === 'EDUNewsPage' && theItem.label">
+          <!-- include the topic label for EDU News -->
+          <span class="text-subtitle text-gray-mid-dark uppercase ThemeVariantLight pl-3">
+            {{ theItem.label }}
+          </span>
+        </template>
       </template>
       <template
         v-else-if="themeStore.isEdu && theItem.parent?.title && theItem.parent?.title !== 'EDU'"
       >
+        <!-- use parent page's title as the label for EDU Content cards, unless the EDU homepage is the parent -->
         <div class="flex flex-wrap">
           <p
             class="text-subtitle"

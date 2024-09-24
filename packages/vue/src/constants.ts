@@ -1,6 +1,12 @@
 import type { PillDictionaryInterface } from './interfaces'
 
 export const eduMetadataDictionary: PillDictionaryInterface = {
+  EDUNewsPage: {
+    label: 'News',
+    variant: 'primary',
+    icons: 'primary',
+    type: undefined
+  },
   EDUEventPage: {
     label: 'Event',
     variant: 'primary',

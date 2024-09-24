@@ -258,3 +258,22 @@ export const LargeEduExplainerArticle = {
     }
   }
 }
+
+export const EduNewsItem = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    ...BlockLinkCardData,
+    data: {
+      page: {
+        ...BlockLinkCardData.data,
+        __typename: 'EDUNewsPage'
+      }
+    },
+    headingLevel: 'h2',
+    size: 'sm'
+  }
+}
