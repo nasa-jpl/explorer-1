@@ -277,3 +277,31 @@ export const EduNewsItem = {
     size: 'sm'
   }
 }
+
+export const ExternalLink = {
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+    })
+  ],
+  args: {
+    data: {
+      __typename: 'ExternalLinkCardWithDescription',
+      externalLink: 'https://nasa.gov',
+      title: 'External Link',
+      label: 'Dolor Sit',
+      summary:
+        'Cras rhoncus lorem condimentum tellus rhoncus dictum. Maecenas finibus nibh lorem, quis ornare est vulputate et. Nulla imperdiet ultrices est, ac mattis justo consequat sit amet.',
+      thumbnailImage: {
+        __typename: 'CustomImage',
+        src: {
+          __typename: 'CustomRendition',
+          url: 'https://picsum.photos/512/288',
+          width: '512',
+          height: '288'
+        }
+      }
+    },
+    headingLevel: 'h2'
+  }
+}
