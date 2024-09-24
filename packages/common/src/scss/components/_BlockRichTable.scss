@@ -23,4 +23,11 @@
       @apply p-3 lg:p-5 align-top;
     }
   }
+  .BlockImageStandard,
+  .BlockText {
+    @apply min-w-[12rem] lg:min-w-[15rem];
+    .caption-area {
+      @apply pt-2;
+    }
+  }
 }
