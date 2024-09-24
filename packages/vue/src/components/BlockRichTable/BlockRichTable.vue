@@ -33,7 +33,7 @@ export default defineComponent({
               v-for="(headCell, headIndex) in table.tableContent.tableHead[0]"
               :key="headIndex"
               scope="col"
-              class="min-w-[12rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b"
+              class="min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b"
             >
               {{ headCell.text }}
             </th>
@@ -47,7 +47,7 @@ export default defineComponent({
             <td
               v-for="(cell, cellIndex) in row"
               :key="cellIndex"
-              class="min-w-[12rem] bg-white text-gray-dark border-gray-light-mid"
+              class="min-w-[6rem] bg-white text-gray-dark border-gray-light-mid"
             >
               <template v-if="cell.blockType === 'CharBlock'">
                 <p class="">
