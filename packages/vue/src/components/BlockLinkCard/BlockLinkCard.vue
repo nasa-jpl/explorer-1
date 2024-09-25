@@ -59,10 +59,17 @@
               :content-type="metadataType"
               :text="(theItem as EventCardObject).eventType"
             />
+            <template v-if="metadataType === 'EDUNewsPage' && theItem.label">
+              <!-- include the topic label for EDU News -->
+              <span class="text-subtitle text-gray-mid-dark uppercase ThemeVariantLight pl-3">
+                {{ theItem.label }}
+              </span>
+            </template>
           </template>
           <template
             v-else-if="themeStore.isEdu && theItem.parent?.title && theItem.parent?.title !== 'EDU'"
           >
+            <!-- use parent page's title as the label for EDU Content cards, unless the EDU homepage is the parent -->
             <div class="flex flex-wrap">
               <p
                 class="text-subtitle"
@@ -98,6 +105,12 @@
                 </span>
                 <span class="sr-only">.</span>
               </p>
+              <template v-if="theItem.externalLink">
+                <IconExternal
+                  class="text-primary ml-2"
+                  :class="{ 'text-sm mt-1px': small, '-mt-1px': medium, '-mt-.5': large }"
+                />
+              </template>
             </div>
           </template>
 
@@ -177,6 +190,7 @@ import { useThemeStore } from '../../store/theme'
 import { mixinFormatEventDates } from './../../utils/mixins'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 import IconArrow from './../Icons/IconArrow.vue'
+import IconExternal from './../Icons/IconExternal.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
@@ -191,6 +205,7 @@ export default defineComponent({
   name: 'BlockLinkCard',
   components: {
     IconArrow,
+    IconExternal,
     BaseLink,
     BaseImage,
     BaseImagePlaceholder,
