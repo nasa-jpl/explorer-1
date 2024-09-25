@@ -109,34 +109,32 @@ export default defineComponent({
     v-if="theData"
     class="BlockImageFullBleed"
   >
-    <div class="bg-gray-light">
-      <div class="max-w-screen-3xl mx-auto">
-        <MixinFancybox
-          v-if="theData.src"
-          :src="theData.original || theData.src?.url"
-          :caption="theData.caption"
-          :credit="theData.credit"
-          :detail-url="customDetailUrl || theData.detailUrl"
+    <div class="max-w-screen-3xl mx-auto">
+      <MixinFancybox
+        v-if="theData.src"
+        :src="theData.original || theData.src?.url"
+        :caption="theData.caption"
+        :credit="theData.credit"
+        :detail-url="customDetailUrl || theData.detailUrl"
+      >
+        <BaseImagePlaceholder
+          :aspect-ratio="constrain ? '16:9' : 'none'"
+          :responsive-aspect-ratio="constrain ? 'lg:aspect-ratio-two-one' : ''"
+          dark-mode
         >
-          <BaseImagePlaceholder
-            :aspect-ratio="constrain ? '16:9' : 'none'"
-            :responsive-aspect-ratio="constrain ? 'lg:aspect-ratio-two-one' : ''"
-            dark-mode
-          >
-            <BaseImage
-              v-if="theData.src && theData.srcCropped"
-              :src="constrain ? theData.srcCropped.url : theData.src.url"
-              :srcset="theData.srcSet && !constrain ? theData.srcSet : theSrcSet"
-              :width="constrain ? theData.srcCropped.width : theData.src.width"
-              :height="constrain ? theData.srcCropped.height : theData.src.height"
-              :alt="theData.alt"
-              :image-class="!constrain ? 'w-full h-auto' : undefined"
-              :object-fit-class="constrain ? 'cover' : undefined"
-              loading="lazy"
-            />
-          </BaseImagePlaceholder>
-        </MixinFancybox>
-      </div>
+          <BaseImage
+            v-if="theData.src && theData.srcCropped"
+            :src="constrain ? theData.srcCropped.url : theData.src.url"
+            :srcset="theData.srcSet && !constrain ? theData.srcSet : theSrcSet"
+            :width="constrain ? theData.srcCropped.width : theData.src.width"
+            :height="constrain ? theData.srcCropped.height : theData.src.height"
+            :alt="theData.alt"
+            :image-class="!constrain ? 'w-full h-auto' : undefined"
+            :object-fit-class="constrain ? 'cover' : undefined"
+            loading="lazy"
+          />
+        </BaseImagePlaceholder>
+      </MixinFancybox>
     </div>
     <div
       v-if="data && hasCaptionArea"

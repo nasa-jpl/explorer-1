@@ -3,51 +3,49 @@
     v-if="image || video"
     class="HeroMedia"
   >
-    <div class="bg-gray-light">
-      <div class="vh-crop max-w-screen-3xl relative flex items-center mx-auto overflow-hidden">
-        <div class="hero">
-          <template v-if="theImageData">
-            <img
-              v-if="theImageData.src"
-              class="object-cover object-center w-full h-full"
-              :srcset="theSrcSet"
-              :src="theImageData.src.url"
-              :width="theImageData.src.width"
-              :height="theImageData.src.height"
-              :alt="theImageData.alt"
-              itemprop="image"
-              data-chromatic="ignore"
-            />
-          </template>
-          <template v-else-if="video">
-            <MixinVideoBg :video="video" />
-          </template>
-        </div>
-        <div
-          v-if="hasCaptionArea"
-          class="lg:hidden absolute bottom-0 left-0 w-full h-auto mx-auto print:hidden"
-        >
-          <button
-            class="bg-opacity-90 text-gray-dark flex items-center justify-center w-12 h-12 ml-auto bg-white cursor-pointer"
-            aria-label="Toggle caption"
-            @click="toggleCaption"
-          >
-            <IconInfo
-              v-show="!captionVisible"
-              class="text-xl"
-            />
-            <IconClose v-show="captionVisible" />
-          </button>
-        </div>
+    <div class="vh-crop max-w-screen-3xl relative flex items-center mx-auto overflow-hidden">
+      <div class="hero">
+        <template v-if="theImageData">
+          <img
+            v-if="theImageData.src"
+            class="object-cover object-center w-full h-full"
+            :srcset="theSrcSet"
+            :src="theImageData.src.url"
+            :width="theImageData.src.width"
+            :height="theImageData.src.height"
+            :alt="theImageData.alt"
+            itemprop="image"
+            data-chromatic="ignore"
+          />
+        </template>
+        <template v-else-if="video">
+          <MixinVideoBg :video="video" />
+        </template>
       </div>
-
       <div
         v-if="hasCaptionArea"
-        :class="captionVisibilityClass"
-        class="caption-area max-w-screen-3xl ThemeVariantGray bg-gray-light bg-opacity-90 lg:bg-opacity-100 ThemeVariantGray lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto print:block"
+        class="lg:hidden absolute bottom-0 left-0 w-full h-auto mx-auto print:hidden"
       >
-        <BaseImageCaption :data="theImageData || customCaption" />
+        <button
+          class="bg-opacity-90 text-gray-dark flex items-center justify-center w-12 h-12 ml-auto bg-white cursor-pointer"
+          aria-label="Toggle caption"
+          @click="toggleCaption"
+        >
+          <IconInfo
+            v-show="!captionVisible"
+            class="text-xl"
+          />
+          <IconClose v-show="captionVisible" />
+        </button>
       </div>
+    </div>
+
+    <div
+      v-if="hasCaptionArea"
+      :class="captionVisibilityClass"
+      class="caption-area max-w-screen-3xl ThemeVariantGray bg-gray-light bg-opacity-90 lg:bg-opacity-100 ThemeVariantGray lg:block lg:pb-4 lg:px-3 xl:px-8 lg:pt-4 items-start p-4 mx-auto print:block"
+    >
+      <BaseImageCaption :data="theImageData || customCaption" />
     </div>
   </div>
 </template>
