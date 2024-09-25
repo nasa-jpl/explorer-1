@@ -95,14 +95,5 @@ export default defineComponent({
 </template>
 
 <style lang="scss">
-// @import '@explorer-1/common/src/scss/components/BlockRichTable';
-.BlockRichTable {
-  .BlockImageStandard,
-  .BlockText {
-    @apply min-w-[12rem] lg:min-w-[15rem];
-    .caption-area {
-      @apply pt-2;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockRichTable';
 </style>
