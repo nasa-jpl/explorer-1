@@ -16,6 +16,7 @@ import { BlockTeaserData } from './../BlockTeaser/BlockTeaser.stories'
 import { BlockIframeEmbedData } from './../BlockIframeEmbed/BlockIframeEmbed.stories'
 import { BlockVideoData } from './../BlockVideo/BlockVideo.stories'
 import { BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.stories'
+import { MixedColumnWidths } from './../BlockRichTable/BlockRichTable.stories'
 import BlockStreamfield, { variants } from './BlockStreamfield.vue'
 
 export default {
@@ -127,6 +128,45 @@ export const BlockStreamfieldData = {
       alignTo: 'left'
     },
     BlockRichTableData,
+    MixedColumnWidths.args.table,
+    {
+      blockType: 'RichTableBlock',
+      tableCaption: 'table caption',
+      tableContent: {
+        tableHead: [
+          [
+            {
+              text: '1. Learn'
+            }
+          ]
+        ],
+        tableBody: [
+          [
+            {
+              ...BlockImageData,
+              caption: '<p>My custom caption.</p>',
+              displayCaption: true,
+              blockType: 'ImageBlock'
+            }
+          ],
+          [
+            {
+              blockType: 'RichTextBlock',
+              value:
+                '<p>Rich text. Lorem ipsum <a href="/missions/test-mission/">dolor</a> sit amet, consectetur adipiscing elit. Quisque vitae justo quis justo malesuada molestie. Cras sed tincidunt dui.</p>\n'
+            }
+          ],
+
+          [
+            {
+              blockType: 'CharBlock',
+              value:
+                "Geologists are scientists who study a planet's solid features, like soil, rocks, and minerals. There are all kinds of rocks and minerals that make up our planet – as well as the Moon, Mars, and other rocky worlds. By studying these features, we can learn more about how rocky worlds form and change over time."
+            }
+          ]
+        ]
+      }
+    },
     {
       blockType: 'ListBlock',
       field: 'card_grid',
