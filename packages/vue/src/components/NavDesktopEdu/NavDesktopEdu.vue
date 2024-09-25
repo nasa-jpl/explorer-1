@@ -12,7 +12,7 @@
     }"
   >
     <!-- navbar -->
-    <div class="header-bg z-10 max-w-screen-3xl absolute inset-0 mx-auto"></div>
+    <div class="header-bg z-10 absolute inset-0 mx-auto"></div>
     <div class="px-4">
       <div class="h-18 container flex items-center justify-between mx-auto">
         <!-- branding -->
