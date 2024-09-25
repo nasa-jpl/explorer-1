@@ -3,9 +3,7 @@
     v-if="cards"
     class="BlockCardGrid"
   >
-    <div
-      :class="`hidden md:grid md:grid-cols-2 lg:grid-cols-3 ${compact ? ' gap-5' : '3xl:grid-cols-4 gap-8'}`"
-    >
+    <div :class="computedClasses">
       <BlockCardGridItem
         v-for="(card, index) of cards"
         :key="`item-${index}`"
@@ -64,6 +62,23 @@ export default defineComponent({
     cards: {
       type: Array as PropType<CardGridItem[]>,
       default: undefined
+    }
+  },
+  computed: {
+    fourColumns() {
+      return this.cards && this.cards.length > 3
+    },
+    computedClasses() {
+      let classes = 'hidden md:grid md:grid-cols-2 lg:grid-cols-3'
+      if (this.compact) {
+        classes += ' gap-5'
+      } else {
+        classes += ' gap-8'
+      }
+      if (this.fourColumns) {
+        classes += ' xl:grid-cols-4'
+      }
+      return classes
     }
   }
 })

@@ -92,3 +92,6 @@ export const BaseStory = {
   name: 'BlockCardGrid',
   args: { cards: BlockCardGridData }
 }
+export const ThreeCards = {
+  args: { cards: BlockCardGridData.slice(0, 3) }
+}
