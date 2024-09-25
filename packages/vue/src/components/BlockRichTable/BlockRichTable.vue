@@ -25,15 +25,24 @@ export default defineComponent({
   >
     <div class="overflow-x-auto scrolling-touch max-w-screen-3xl mx-auto !mb-0">
       <table
-        class="min-w-full border-gray-light-mid w-full border-t border-b border-collapse table-auto"
+        v-if="table.tableContent"
+        class="min-w-full border-gray-light-mid w-full border-t border-b border-collapse table-auto m-0 p-0"
       >
+        <caption
+          v-if="table.tableCaption"
+          class="sr-only"
+        >
+          {{
+            table.tableCaption
+          }}
+        </caption>
         <thead v-if="table.tableContent.tableHead?.length">
           <tr>
             <th
               v-for="(headCell, headIndex) in table.tableContent.tableHead[0]"
               :key="headIndex"
               scope="col"
-              class="min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b"
+              class="min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b text-left"
             >
               {{ headCell.text }}
             </th>
@@ -47,7 +56,7 @@ export default defineComponent({
             <td
               v-for="(cell, cellIndex) in row"
               :key="cellIndex"
-              class="min-w-[6rem] bg-white text-gray-dark border-gray-light-mid"
+              class="min-w-[6rem] bg-white text-gray-dark border-gray-light-mid lg:p-5 p-3 align-top"
             >
               <template v-if="cell.blockType === 'CharBlock'">
                 <p class="">
@@ -75,11 +84,12 @@ export default defineComponent({
       </table>
     </div>
     <template v-if="table.tableCaption">
-      <caption class="block text-left px-0 text-gray-mid-dark text-body-sm mt-4">
-        {{
-          table.tableCaption
-        }}
-      </caption>
+      <div
+        class="max-w-screen-3xl mx-auto block text-left px-0 text-gray-mid-dark text-body-sm mt-4"
+        aria-hidden
+      >
+        {{ table.tableCaption }}
+      </div>
     </template>
   </div>
 </template>
