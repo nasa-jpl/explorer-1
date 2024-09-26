@@ -8,9 +8,11 @@ const themeStore = useThemeStore()
 
 interface NavSearchFormProps {
   mobile?: boolean
+  placeholder?: string
 }
 const props = withDefaults(defineProps<NavSearchFormProps>(), {
-  mobile: false
+  mobile: false,
+  placeholder: 'Search JPL'
 })
 const emit = defineEmits(['clearSearch', 'submitForm'])
 
@@ -35,7 +37,7 @@ const submitSearch = () => {
   >
     <SearchInput
       v-model="searchQuery"
-      placeholder="Search JPL"
+      :placeholder="placeholder"
       :underlined-input="!props.mobile"
       :underlined-input-value="searchQuery"
       :auto-focus="!props.mobile"
