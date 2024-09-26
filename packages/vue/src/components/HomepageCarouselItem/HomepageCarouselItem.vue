@@ -52,7 +52,7 @@
     </div>
     <div class="lg:flex lg:items-center lg:relative lg:h-full absolute bottom-0 z-20 w-full">
       <div
-        class="bg-gradient-to-b lg:bg-gradient-to-l from-transparent lg:from-transparent xl:from-transparent-w25 to-black lg:to-transparent-black-75 absolute inset-0"
+        class="bg-gradient-to-b lg:bg-gradient-to-l from-transparent lg:from-transparent xl:from-transparent-w25 to-black lg:to-transparent-black-75 xl:to-transparent-black-75 absolute inset-0"
       ></div>
       <div
         class="lg:px-10 2xl:px-0 lg:pb-10 lg:pt-0 text-contrast container relative px-4 pt-40 pb-24 mx-auto text-white"
