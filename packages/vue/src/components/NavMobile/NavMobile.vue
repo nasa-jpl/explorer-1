@@ -67,6 +67,7 @@
           <!-- search input goes here -->
           <NavSearchForm
             mobile
+            :placeholder="themeStore.isEdu ? 'Search JPL Education' : undefined"
             class="px-4 my-5"
             @submit-form="closeMenu()"
           />

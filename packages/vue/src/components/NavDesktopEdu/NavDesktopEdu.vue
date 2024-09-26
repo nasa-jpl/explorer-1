@@ -96,6 +96,7 @@
             >
               <NavSearchForm
                 class="w-full"
+                placeholder="Search JPL Education"
                 @clear-search="closeSearch()"
                 @submit-form="closeSearch()"
               />
