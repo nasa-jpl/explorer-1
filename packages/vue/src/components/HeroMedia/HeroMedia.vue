@@ -4,7 +4,7 @@
     class="HeroMedia"
   >
     <div class="vh-crop max-w-screen-3xl relative flex items-center mx-auto overflow-hidden">
-      <div class="hero">
+      <div class="hero w-full">
         <template v-if="theImageData">
           <img
             v-if="theImageData.src"
