@@ -200,6 +200,7 @@ export default defineComponent({
             }
           },
           slideChange: (swiper: Swiper) => {
+            // @ts-ignore
             this.theIndex = swiper.realIndex
             ;(this as any).videoHandler(swiper)
           }
