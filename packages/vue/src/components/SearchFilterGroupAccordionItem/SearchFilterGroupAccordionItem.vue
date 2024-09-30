@@ -41,10 +41,10 @@ const emit = defineEmits(['filterGroupAccordionItemOpened', 'filterGroupAccordio
 </script>
 <template>
   <div
-    class="SearchFilterGroupAccordionItem border-t pt-2.5"
+    class="SearchFilterGroupAccordionItem border-t pt-[0.4375rem]"
     :class="{
       '-open border-gray-light-mid  -mb-px': !isHidden,
-      'border-transparent mb-3': isHidden
+      'border-transparent mb-2.5': isHidden
     }"
   >
     <div class="SearchFilterGroupAccordionItemHeader flex flex-row w-full content-between">
