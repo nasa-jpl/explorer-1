@@ -188,18 +188,21 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
     // intentionally overriding correction that occurs within ThemeVariantGray
     @apply text-jpl-red;
   }
-  .richtext-image {
-    &.right,
-    &.left {
-      @apply lg:max-w-md;
-    }
-    &.right {
-      @apply mr-0;
-    }
-    &.left {
-      @apply ml-0;
+  .LayoutHelper > div > .BlockText {
+    .richtext-image {
+      &.right,
+      &.left {
+        @apply lg:max-w-md;
+      }
+      &.right {
+        @apply mr-0;
+      }
+      &.left {
+        @apply ml-0;
+      }
     }
   }
+
   .PageEduStudentProjectStep__fullWidth {
     .LayoutHelper > div > .BlockText {
       p,
