@@ -74,9 +74,11 @@
             </transition>
           </div>
           <!-- tabbed navigation -->
-          <div class="HomepageCarouselTabs relative container overflow-hidden mx-auto pt-5 pb-22">
+          <div
+            class="HomepageCarouselTabs relative container overflow-hidden px-0 mx-auto pt-5 pb-22"
+          >
             <!-- offset by one tab to allow for previous slide transitions -->
-            <div class="w-full -translate-x-1/5">
+            <div class="w-full -translate-x-1/5 ml-10 pr-10 2xl:ml-0 2xl:pr-0">
               <!-- tab container width adjusts automatically according to slide count when there are less than 6 slides -->
               <div :class="tabContainerWidthClass">
                 <!-- translate amount depends on tab container width, so the class is applied dynamically -->
@@ -95,7 +97,7 @@
                     external-target-blank
                     class="pr-5 flex-shrink-0 h-auto translate-x-0"
                     :class="tabWidthClass"
-                    link-class="
+                    :link-class="`
                       group
                       border-opacity-30 border-r border-white
                       can-hover:hover:text-white
@@ -107,7 +109,9 @@
                       -ml-5
                       font-semibold
                       text-base text-left text-white text-opacity-75
-                      transition-all duration-200 ease-in"
+                      transition-all duration-200 ease-in
+                      ${index === 0 ? '!text-white' : ''}
+                      `"
                   >
                     <span>
                       {{ item.slideTitle }}
@@ -157,6 +161,7 @@ export default defineComponent({
     sliderOptions: SwiperOptions
     tabbedItems: Slide[] | undefined
     slideToNext: Boolean
+    theIndex: number
   } {
     return {
       slideLoaded: false,
@@ -195,25 +200,22 @@ export default defineComponent({
             }
           },
           slideChange: (swiper: Swiper) => {
+            this.theIndex = swiper.realIndex
             ;(this as any).videoHandler(swiper)
           }
         }
       },
+      theIndex: 0,
       tabbedItems: undefined,
       slideToNext: true
     }
   },
   computed: {
-    theIndex(): number | false {
-      if (this.slider) {
-        return this.slider.realIndex
-      }
-      return false
-    },
     onlyOneSlide(): boolean {
       return this.items?.length === 1
     },
     loopedTabs(): Array<Slide> {
+      // used to "cycle" through tabbed items
       // return a looped array starting at the active slide
       const items = this.items
       // offset by one to avoid slice(0,0) in reorderedItems
@@ -237,9 +239,9 @@ export default defineComponent({
       } else if (this.items?.length === 4) {
         return 'overflow-hidden w-4/5'
       } else if (this.items?.length === 5) {
-        return 'overflow-hidden container'
+        return 'overflow-hidden container px-0'
       }
-      return 'overflow-visible container'
+      return 'overflow-visible container px-0'
     },
     tabWidthClass(): string {
       if (this.items?.length === 2) {
