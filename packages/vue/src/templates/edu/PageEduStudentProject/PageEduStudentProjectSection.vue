@@ -90,7 +90,9 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
           class="px-0 lg:px-4"
           indent="col-1"
         >
-          <div class="ThemeVariantGray bg-gray-light px-8 py-6 md:px-10 md:py-8 lg:px-18 lg:py-16">
+          <div
+            class="ThemeVariantGray bg-gray-light px-8 py-6 md:px-10 md:py-8 lg:px-18 lg:py-16 overflow-hidden"
+          >
             <template v-if="step.media?.length">
               <!-- split 50/50 -->
               <div class="lg:grid grid-cols-2 gap-6 lg:gap-10">
