@@ -45,8 +45,6 @@
           :width="item.listingPageHeroImage.src.width"
           :height="item.listingPageHeroImage.src.height"
           alt=""
-          loading="lazy"
-          data-chromatic="ignore"
         />
       </picture>
     </div>
