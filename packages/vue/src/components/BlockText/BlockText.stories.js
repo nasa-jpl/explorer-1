@@ -19,13 +19,13 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const RichTextMediaData = `<p data-block-key="5f55p">Description for it.</p><div class="richtext-image fullwidth"><img alt="Perseverance Looks Back at &amp;#x27;Bright Angel&amp;#x27;" height="480" loading="lazy" src="https://picsum.photos/640/480" width="640">
+export const RichTextMediaData = `<h2>A heading in BlockText</h2><p data-block-key="5f55p">Description for it.</p><div class="richtext-image fullwidth"><img alt="Perseverance Looks Back at &amp;#x27;Bright Angel&amp;#x27;" height="480" loading="lazy" src="https://picsum.photos/640/480" width="640">
   <div class="richtext-caption">
       <div class="caption">One of the navigation cameras aboard NASAs Perseverance Mars rover captured this view looking back at the Bright Angel area on July 30, 2024.</div>
       <span class="credit">Credit: NASA/JPL-Caltech</span>
       <a class="caption-link" href="#">Full Image Details</a>
   </div>
-</div><p data-block-key="89jcq">More text and another image that&#x27;s full width (above)</p><p data-block-key="6jsp"></p><div class="richtext-image left"><img alt="Carbon Mapper Coalition&amp;#x27;s Tanager Satellite" height="336" loading="lazy" src="https://picsum.photos/640/336" width="640">
+</div><h3>Subheading in BlockText</h3><p data-block-key="89jcq">More text and another image that&#x27;s full width (above)</p><p data-block-key="6jsp"></p><div class="richtext-image left"><img alt="Carbon Mapper Coalition&amp;#x27;s Tanager Satellite" height="336" loading="lazy" src="https://picsum.photos/640/336" width="640">
     <div class="richtext-caption">
         <div class="caption">This artists concept depicts one of the Carbon Mapper Coalitions Tanager satellites, the first of which launched on Aug. 16, 2024. Tanager-1 will use imaging spectrometer technology developed at JPL to measure greenhouse gas point-source emissions.</div>
         <span class="credit">Credit: Planet Labs PBC</span>

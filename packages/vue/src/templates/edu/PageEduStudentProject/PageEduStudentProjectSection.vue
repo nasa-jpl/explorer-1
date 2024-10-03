@@ -208,16 +208,16 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
       p,
       li {
         @screen lg {
-          @apply mr-[10rem];
+          @apply pr-[9rem];
         }
         @screen xl {
-          @apply mr-[14rem];
+          @apply pr-[13rem];
         }
       }
       table {
         p,
         li {
-          @apply mr-0;
+          @apply pr-0;
         }
       }
     }
