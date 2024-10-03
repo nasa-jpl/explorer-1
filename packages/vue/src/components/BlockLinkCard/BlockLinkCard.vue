@@ -105,7 +105,7 @@
                 </span>
                 <span class="sr-only">.</span>
               </p>
-              <template v-if="theItem.externalLink">
+              <template v-if="theItem.externalLink && themeStore.isEdu">
                 <IconExternal
                   class="text-primary ml-2"
                   :class="{ 'text-sm mt-1px': small, '-mt-1px': medium, '-mt-.5': large }"
