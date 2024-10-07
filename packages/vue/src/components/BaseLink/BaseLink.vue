@@ -1,7 +1,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapStores } from 'pinia'
+import { useThemeStore } from '../../store/theme'
 import { eventBus } from './../../utils/eventBus'
 import MixinAnimationCaret from './../MixinAnimationCaret/MixinAnimationCaret.vue'
+import { isEduExternalLink } from './../../utils/isEduExternalLink'
 
 interface Variants {
   [key: string]: string
@@ -111,6 +114,7 @@ export default defineComponent({
   },
   emits: ['linkClicked', 'specificLinkClicked'],
   computed: {
+    ...mapStores(useThemeStore),
     computedVariants(): Variants {
       if (this.usePrimaryColor) {
         return primaryColorVariants
@@ -127,10 +131,27 @@ export default defineComponent({
       }
       return classes
     },
+    isEduExternal(): boolean | string {
+      if (this.href) {
+        return isEduExternalLink(this.href)
+      }
+      return ''
+    },
+    isExternal(): boolean {
+      if (this.href) {
+        if (this.themeStore.isEdu && isEduExternalLink(this.href)) {
+          return true
+        } else if (!this.themeStore.isEdu) {
+          return true
+        }
+        return false
+      }
+      return false
+    },
     theTarget(): string | undefined {
       if (this.target) {
         return this.target
-      } else if (this.href && this.externalTargetBlank) {
+      } else if (this.isExternal && this.externalTargetBlank) {
         return '_blank'
       }
       return undefined
