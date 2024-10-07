@@ -105,7 +105,13 @@
                 </span>
                 <span class="sr-only">.</span>
               </p>
-              <template v-if="theItem.externalLink && themeStore.isEdu">
+              <template
+                v-if="
+                  theItem.externalLink &&
+                  themeStore.isEdu &&
+                  isEduExternalLink(theItem.externalLink)
+                "
+              >
                 <IconExternal
                   class="text-primary ml-2"
                   :class="{ 'text-sm mt-1px': small, '-mt-1px': medium, '-mt-.5': large }"
@@ -188,6 +194,7 @@ import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import { mixinFormatEventDates } from './../../utils/mixins'
+import { isEduExternalLink } from './../../utils/isEduExternalLink'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 import IconArrow from './../Icons/IconArrow.vue'
 import IconExternal from './../Icons/IconExternal.vue'
@@ -388,6 +395,11 @@ export default defineComponent({
             (this.theItem as EventCardObject).endDate
           )
         : undefined
+    }
+  },
+  methods: {
+    isEduExternalLink(url: string): boolean {
+      return isEduExternalLink(url)
     }
   }
 })
