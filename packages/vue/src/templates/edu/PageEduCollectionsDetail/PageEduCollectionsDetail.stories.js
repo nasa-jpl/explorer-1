@@ -1,6 +1,7 @@
 import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
 import { BlockStreamfieldMinimalData } from './../../../components/BlockStreamfield/BlockStreamfield.stories'
+import { NavSecondaryData } from './../../../components/NavSecondary/NavSecondary.stories.js'
 import PageEduCollectionsDetail from './PageEduCollectionsDetail.vue'
 
 export default {
@@ -99,6 +100,42 @@ export const NoMetaPanel = {
     data: {
       ...BaseStory.args.data,
       showMetaPanel: false
+    }
+  }
+}
+
+export const NoHero = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      heroImage: undefined
+    }
+  }
+}
+
+export const SecondaryNav = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      breadcrumb: NavSecondaryData.breadcrumb
+    }
+  }
+}
+export const SecondaryNavHeroInline = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      breadcrumb: NavSecondaryData.breadcrumb,
+      heroPosition: 'inline'
+    }
+  }
+}
+export const SecondaryNavNoHero = {
+  args: {
+    data: {
+      ...BaseStory.args.data,
+      breadcrumb: NavSecondaryData.breadcrumb,
+      heroImage: undefined
     }
   }
 }

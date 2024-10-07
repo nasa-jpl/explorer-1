@@ -10,7 +10,7 @@
     }"
   >
     <div
-      class="max-w-screen-3xl mx-auto"
+      class="w-full mx-auto"
       :class="{ 'bg-gradient-to-r from-black to-primary bg-transparent to-90% text-white': invert }"
     >
       <div
