@@ -9,6 +9,7 @@ import BlockStreamfield from './../../../components/BlockStreamfield/BlockStream
 import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
+import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
 import ShareButtonsEdu from '../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
 
@@ -39,9 +40,9 @@ const heroInline = computed((): boolean => {
 })
 
 const computedClass = computed((): string => {
-  if (heroInline.value || !data?.heroImage) {
+  if ((heroInline.value || !data?.heroImage) && !data?.breadcrumb) {
     return 'pt-5 lg:pt-12'
-  } else if (!heroInline.value) {
+  } else if (!heroInline.value || data?.breadcrumb) {
     return '-nav-offset'
   }
   return ''
@@ -63,8 +64,16 @@ const computedClass = computed((): string => {
       :class="!data.showMetaPanel ? 'mb-10' : ''"
     />
 
+    <!-- secondary nav -->
+    <NavSecondary
+      v-if="data.breadcrumb"
+      class="mb-10"
+      :breadcrumb="data.breadcrumb"
+      :has-intro="data.heroImage && !heroInline ? true : false"
+    />
+
     <NavJumpMenu
-      v-if="data.showJumpMenu"
+      v-if="data.showJumpMenu && !data.breadcrumb"
       ref="PageEduCollectionsDetailJumpMenu"
       :title="data.title"
       :blocks="data.body"
@@ -97,8 +106,8 @@ const computedClass = computed((): string => {
       :primary-subject="data.primarySubject"
       :additional-subjects="data.additionalSubjects"
       :grade-levels="data.gradeLevels"
-      :negative-top="!heroInline"
-      :negative-bottom="heroInline"
+      :negative-top="!heroInline && !data.breadcrumb && data.heroImage ? true : false"
+      :negative-bottom="heroInline && !data.breadcrumb"
     />
 
     <!-- TODO: put this in a component (exclude layout though) -->
@@ -115,7 +124,7 @@ const computedClass = computed((): string => {
     </LayoutHelper>
 
     <LayoutHelper
-      v-if="!heroInline"
+      v-if="!heroInline && data.heroImage"
       indent="col-2"
       class="mb-6 lg:mb-12"
       :class="{ '-mt-4': data.showMetaPanel }"
