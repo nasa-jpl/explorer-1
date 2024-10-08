@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, resolveComponent } from 'vue'
+import { computed, reactive } from 'vue'
 import IconEduArt from '../Icons/IconEduArt.vue'
 import IconEduEngineering from '../Icons/IconEduEngineering.vue'
 import IconEduEnglishLanguageArts from '../Icons/IconEduEnglishLanguageArts.vue'
