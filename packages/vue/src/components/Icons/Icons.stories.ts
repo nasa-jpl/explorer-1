@@ -48,7 +48,6 @@ import IconSocialReddit from './IconSocialReddit.vue'
 import IconSocialTwitter from './IconSocialTwitter.vue'
 import IconSocialYoutube from './IconSocialYoutube.vue'
 import IconStop from './IconStop.vue'
-import IconSubject from './IconSubject.vue'
 import IconTime from './IconTime.vue'
 import IconUniversity from './IconUniversity.vue'
 import IconUser from './IconUser.vue'
@@ -447,12 +446,6 @@ export const Profile = {
   render: () => ({
     components: { IconProfile },
     template: '<IconProfile />'
-  })
-}
-export const Subject = {
-  render: () => ({
-    components: { IconSubject },
-    template: '<IconSubject />'
   })
 }
 export const Volume = {

@@ -7,7 +7,8 @@ import {
   EduResourcesGradeLevel,
   EduResourcesTime
 } from './../../interfaces'
-import IconSubject from './../Icons/IconSubject.vue'
+
+import EduSubjectIcon from './../EduSubjectIcon/EduSubjectIcon.vue'
 import IconProfile from './../Icons/IconProfile.vue'
 import IconTime from './../Icons/IconTime.vue'
 
@@ -96,7 +97,10 @@ const themeVariant = computed(() => {
         class="MetaPanelItem-icon"
         :class="iconColor"
       >
-        <IconSubject class="text-[2em] md:text-[2.4em]" />
+        <EduSubjectIcon
+          :subject="primarySubject?.subject"
+          class="text-[1.3em] md:text-[1.6em]"
+        />
       </div>
       <div>
         <div
