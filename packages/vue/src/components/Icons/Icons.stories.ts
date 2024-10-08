@@ -53,6 +53,12 @@ import IconTime from './IconTime.vue'
 import IconUniversity from './IconUniversity.vue'
 import IconUser from './IconUser.vue'
 import IconVolume from './IconVolume.vue'
+import IconEduArt from './IconEduArt.vue'
+import IconEduEnglishLanguageArts from './IconEduEnglishLanguageArts.vue'
+import IconEduEngineering from './IconEduEngineering.vue'
+import IconEduMathematics from './IconEduMathematics.vue'
+import IconEduScience from './IconEduScience.vue'
+import IconEduTechnology from './IconEduTechnology.vue'
 
 export default {
   title: 'Foundations/Icons',
@@ -111,7 +117,9 @@ export default {
     IconTime,
     IconUniversity,
     IconUser,
-    IconVolume
+    IconVolume,
+    IconEduMathematics,
+    IconEduScience
   },
   parameters: {
     docs: {
@@ -451,5 +459,41 @@ export const Volume = {
   render: () => ({
     components: { IconVolume },
     template: '<IconVolume />'
+  })
+}
+export const EduArt = {
+  render: () => ({
+    components: { IconEduArt },
+    template: '<IconEduArt />'
+  })
+}
+export const EduEngineering = {
+  render: () => ({
+    components: { IconEduEngineering },
+    template: '<IconEduEngineering />'
+  })
+}
+export const EduEnglishLanguageArts = {
+  render: () => ({
+    components: { IconEduEnglishLanguageArts },
+    template: '<IconEduEnglishLanguageArts />'
+  })
+}
+export const EduMathematics = {
+  render: () => ({
+    components: { IconEduMathematics },
+    template: '<IconEduMathematics />'
+  })
+}
+export const EduScience = {
+  render: () => ({
+    components: { IconEduScience },
+    template: '<IconEduScience />'
+  })
+}
+export const EduTechnology = {
+  render: () => ({
+    components: { IconEduTechnology },
+    template: '<IconEduTechnology />'
   })
 }
