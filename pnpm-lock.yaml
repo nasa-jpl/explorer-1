@@ -194,8 +194,8 @@ importers:
         specifier: ^1.28.7
         version: 1.28.7(typescript@5.5.4)
       '@percy/storybook':
-        specifier: ^6.0.1
-        version: 6.0.1(typescript@5.5.4)
+        specifier: ^6.0.2
+        version: 6.0.2(typescript@5.5.4)
       '@rushstack/eslint-patch':
         specifier: ^1.2.0
         version: 1.10.3
@@ -1930,8 +1930,8 @@ packages:
     resolution: {integrity: sha512-7EAlaJT4B+naFLkF8YECOw1koZxUM59YSA90SS9KPxezEFQ1lZNBlbXN2zcK7xBF5tqdA05wHQECJkuA4V71kA==}
     hasBin: true
 
-  '@percy/storybook@6.0.1':
-    resolution: {integrity: sha512-A1EmBOY6dfv5RR4OiqkjOf0Ga5glASrgq6A/wHDBIpZTTUuBxHXUT3J7hKfGx5pr6P4TdZ1gy4fuVhtvOlTFgA==}
+  '@percy/storybook@6.0.2':
+    resolution: {integrity: sha512-4NkElEIlbuo0HjS6sKiC19JzJwXOh996gwxu4p5QCx9pchnac30KlYAsJoYzu/2n+QrNBNEAe1atmC0eN9ldEg==}
     hasBin: true
 
   '@percy/webdriver-utils@1.28.7':
@@ -9838,7 +9838,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@percy/storybook@6.0.1(typescript@5.5.4)':
+  '@percy/storybook@6.0.2(typescript@5.5.4)':
     dependencies:
       '@percy/cli-command': 1.28.7(typescript@5.5.4)
       cross-spawn: 7.0.3
