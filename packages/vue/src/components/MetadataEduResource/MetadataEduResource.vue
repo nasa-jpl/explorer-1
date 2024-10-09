@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { EduResourceCardObject } from './../../interfaces.ts'
-import IconSubject from './../Icons/IconSubject.vue'
+import EduSubjectIcon from './../EduSubjectIcon/EduSubjectIcon.vue'
 import IconProfile from './../Icons/IconProfile.vue'
 import IconTime from './../Icons/IconTime.vue'
 import {} from './../../utils/mixins'
@@ -42,14 +42,18 @@ const time = computed(() => {
 <template>
   <div
     class="MetadataEduResource"
-    :class="{ '-compact text-sm xl:text-base': props.compact, 'text-body-lg': !props.compact }"
+    :class="{
+      '-compact text-sm xl:text-base': props.compact,
+      'text-body-lg': !props.compact
+    }"
   >
     <div
       v-if="primarySubject"
       class="MetadataEduResourceItem"
     >
-      <IconSubject
-        class="MetadataEduResourceIcon text-[1.25em]"
+      <EduSubjectIcon
+        :subject="primarySubject"
+        class="MetadataEduResourceIcon text-[.85em] -mt-px"
         :class="iconClass"
       />
       <span>
