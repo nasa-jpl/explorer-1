@@ -58,11 +58,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/configs/tsconfig
       '@percy/cli':
-        specifier: ^1.28.6
+        specifier: ^1.28.7
         version: 1.28.7(typescript@5.5.4)
       '@percy/storybook':
-        specifier: ^6.0.0
-        version: 6.0.0(typescript@5.5.4)
+        specifier: ^6.0.2
+        version: 6.0.2(typescript@5.5.4)
       '@rushstack/eslint-patch':
         specifier: ^1.2.0
         version: 1.10.3
@@ -1925,10 +1925,6 @@ packages:
   '@percy/sdk-utils@1.28.7':
     resolution: {integrity: sha512-LIhfHnkcS0fyIdo3gvKn7rwodZjbEtyLkgiDRSRulcBOatI2mhn2Bh269sXXiiFTyAW2BDQjyE3DWc4hkGbsbQ==}
     engines: {node: '>=14'}
-
-  '@percy/storybook@6.0.0':
-    resolution: {integrity: sha512-7EAlaJT4B+naFLkF8YECOw1koZxUM59YSA90SS9KPxezEFQ1lZNBlbXN2zcK7xBF5tqdA05wHQECJkuA4V71kA==}
-    hasBin: true
 
   '@percy/storybook@6.0.2':
     resolution: {integrity: sha512-4NkElEIlbuo0HjS6sKiC19JzJwXOh996gwxu4p5QCx9pchnac30KlYAsJoYzu/2n+QrNBNEAe1atmC0eN9ldEg==}
@@ -9826,17 +9822,6 @@ snapshots:
   '@percy/logger@1.28.7': {}
 
   '@percy/sdk-utils@1.28.7': {}
-
-  '@percy/storybook@6.0.0(typescript@5.5.4)':
-    dependencies:
-      '@percy/cli-command': 1.28.7(typescript@5.5.4)
-      cross-spawn: 7.0.3
-      qs: 6.12.1
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - typescript
-      - utf-8-validate
 
   '@percy/storybook@6.0.2(typescript@5.5.4)':
     dependencies:

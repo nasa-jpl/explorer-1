@@ -39,7 +39,7 @@
     "@explorer-1/html": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
-    "@percy/cli": "^1.28.6",
+    "@percy/cli": "^1.28.7",
     "@percy/storybook": "^6.0.2",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storybook/addon-a11y": "^8.3.5",
