@@ -142,11 +142,15 @@ watch(
 </script>
 <style lang="scss">
 .NavJumpMenu {
+  &.NavSecondary {
+    @apply fixed z-20;
+  }
   &.-hide-until-threshold {
-    @apply opacity-0 h-0 transition-none overflow-visible pointer-events-none;
+    @apply visible transition-none overflow-visible -mb-[3.7rem];
+    // @apply h-0;
     &.-is-sticky,
     &.-is-sticky-offset {
-      @apply opacity-100 transition-all pointer-events-auto;
+      @apply visible transition-all pointer-events-auto;
     }
   }
   .NavSecondaryLink.secondary-root {

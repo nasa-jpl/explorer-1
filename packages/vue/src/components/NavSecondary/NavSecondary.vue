@@ -163,7 +163,8 @@ export default defineComponent({
         },
         {
           threshold: [0],
-          rootMargin: this.themeStore.isEdu ? '-73px 0px 0px 0px' : '-113px 0px 0px 0px'
+          //rootMargin: this.themeStore.isEdu ? '-73px 0px 0px 0px' : '-113px 0px 0px 0px'
+          rootMargin: this.themeStore.isEdu ? '0px 0px 0px 0px' : '-113px 0px 0px 0px'
         }
       )
     },
