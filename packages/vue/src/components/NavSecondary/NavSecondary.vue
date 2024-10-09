@@ -6,7 +6,8 @@
     class="NavSecondary"
     :class="{
       'has-intro': hasIntro,
-      '!bg-transparent': invert
+      '!bg-transparent border-none': invert,
+      '-is-sticky-offset': direction === 'up'
     }"
   >
     <div
@@ -14,7 +15,7 @@
       :class="{ 'bg-gradient-to-r from-black to-primary bg-transparent to-90% text-white': invert }"
     >
       <div
-        :class="`nav-secondary-container edu:border-0 lg:container lg:px-0 lg:whitespace-normal lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap ${invert ? 'border-0' : 'border-t border-gray-mid text-gray-mid-dark  border-opacity-50'}`"
+        :class="`nav-secondary-container edu:border-0 lg:container lg:px-0 lg:whitespace-normal lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap ${invert ? 'border-0' : 'border-t border-gray-mid text-gray-mid-dark border-opacity-50'}`"
       >
         <div class="lg:ml-0 2xl:-mr-3 lg:justify-end flex -ml-3">
           <template v-for="(item, index) in theBreadcrumb">
@@ -90,12 +91,16 @@ export default defineComponent({
     stickyElement?: HTMLElement
     observer?: IntersectionObserver
     observerOffset?: IntersectionObserver
+    direction?: string
+    posY: number
   } {
     return {
       isSticky: false,
       stickyElement: undefined,
       observer: undefined,
-      observerOffset: undefined
+      observerOffset: undefined,
+      direction: undefined,
+      posY: 0
     }
   },
   computed: {
@@ -127,6 +132,7 @@ export default defineComponent({
       if (!this.jumpMenu) {
         mixinHighlightPrimary(false)
       }
+      window.addEventListener('scroll', this.handleScroll)
     }
 
     if (
@@ -140,6 +146,9 @@ export default defineComponent({
       this.checkSticky()
     }
   },
+  unmounted() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
   methods: {
     isExternal(path: string): boolean {
       if (path && path.startsWith('http')) {
@@ -147,31 +156,43 @@ export default defineComponent({
       }
       return false
     },
+    handleScroll() {
+      var scrollY = window.scrollY
+      if (scrollY > this.posY) {
+        this.direction = 'down'
+      } else {
+        this.direction = 'up'
+      }
+      this.posY = scrollY
+    },
     initIntersectionObservers() {
       this.stickyElement = this.$refs.NavSecondary as HTMLElement
       this.observer = new IntersectionObserver(
         ([e]) => {
           e.target.classList.toggle('-is-sticky', e.intersectionRatio === 0)
-        },
-        {
-          threshold: [0]
-        }
-      )
-      this.observerOffset = new IntersectionObserver(
-        ([e]) => {
-          e.target.classList.toggle('-is-sticky-offset', e.intersectionRatio === 0)
+          // console.log('INTERSECT: is-sticky')
         },
         {
           threshold: [0],
-          //rootMargin: this.themeStore.isEdu ? '-73px 0px 0px 0px' : '-113px 0px 0px 0px'
-          rootMargin: this.themeStore.isEdu ? '0px 0px 0px 0px' : '-113px 0px 0px 0px'
+          rootMargin: this.themeStore.isEdu ? '-73px 0px 0px 0px' : '-113px 0px 0px 0px'
         }
       )
+      // this.observerOffset = new IntersectionObserver(
+      //   ([e]) => {
+      //     e.target.classList.toggle('-SECOND-TRIGGER', e.intersectionRatio === 0)
+      //     console.log('INTERSECT: WHAT')
+      //   },
+      //   {
+      //     threshold: [0],
+      //     //rootMargin: this.themeStore.isEdu ? '-73px 0px 0px 0px' : '-113px 0px 0px 0px'
+      //     rootMargin: this.themeStore.isEdu ? '-120px 0px 0px 0px' : '-113px 0px 0px 0px'
+      //   }
+      // )
     },
     checkSticky() {
       if (this.stickyElement) {
         if (this.observer) this.observer.observe(this.stickyElement)
-        if (this.observerOffset) this.observerOffset.observe(this.stickyElement)
+        // if (this.observerOffset) this.observerOffset.observe(this.stickyElement)
       }
     }
   }
@@ -219,7 +240,7 @@ export default defineComponent({
     @apply top-18;
 
     &.-is-sticky-offset {
-      @apply border-gray-mid border-opacity-50 transition-all;
+      // @apply border-gray-mid border-opacity-50 transition-all;
 
       .nav-secondary-container {
         @apply border-gray-mid border-opacity-50;
