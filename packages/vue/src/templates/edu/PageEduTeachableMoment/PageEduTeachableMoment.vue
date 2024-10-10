@@ -92,6 +92,7 @@ const computedClass = computed((): string => {
       :blocks="data.body"
       dropdown-text="In this Teachable Moment"
     />
+
     <!-- hero title -->
     <HeroLarge
       v-if="heroTitle && theHero"

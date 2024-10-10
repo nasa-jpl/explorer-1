@@ -54,6 +54,14 @@ const computedClass = computed((): string => {
     class="ThemeEdu ThemeVariantLight"
     :class="computedClass"
   >
+    <NavJumpMenu
+      v-if="data.showJumpMenu && !data.breadcrumb"
+      ref="PageEduCollectionsDetailJumpMenu"
+      :title="data.title"
+      :blocks="data.body"
+      dropdown-text="In this collection"
+    />
+
     <!-- hero large -->
     <HeroLarge
       v-if="!heroInline && data.heroImage"
@@ -70,14 +78,6 @@ const computedClass = computed((): string => {
       class="mb-10"
       :breadcrumb="data.breadcrumb"
       :has-intro="data.heroImage && !heroInline ? true : false"
-    />
-
-    <NavJumpMenu
-      v-if="data.showJumpMenu && !data.breadcrumb"
-      ref="PageEduCollectionsDetailJumpMenu"
-      :title="data.title"
-      :blocks="data.body"
-      dropdown-text="In this collection"
     />
 
     <LayoutHelper
