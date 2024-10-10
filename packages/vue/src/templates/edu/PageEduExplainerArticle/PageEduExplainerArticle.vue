@@ -56,12 +56,9 @@ export default defineComponent({
       return false
     },
     heroInline(): boolean {
-      // heroes with interactive elements have special handling
       if (this.theHero && !this.heroTitle) {
-        // excludes VideoBlock as this will autoplay
-        if (this.theHero.blockType === 'VideoBlock') {
-          return false
-        } else if (
+        // heroes with interactive elements have special handling
+        if (
           this.data?.heroPosition === 'inline' ||
           this.theHero.blockType === 'CarouselBlock' ||
           this.theHero.blockType === 'IframeEmbedBlock' ||
@@ -70,6 +67,7 @@ export default defineComponent({
         ) {
           return true
         }
+        return false
       }
       return false
     },
