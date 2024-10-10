@@ -41,7 +41,6 @@ const { heroBlocks, constrain } = reactive(props)
     <BlockVideo
       v-else-if="heroBlocks[0].blockType === 'VideoBlock'"
       :data="heroBlocks[0]"
-      autoplay
     />
     <BaseImagePlaceholder
       v-else-if="heroBlocks[0].blockType === 'VideoEmbedBlock'"

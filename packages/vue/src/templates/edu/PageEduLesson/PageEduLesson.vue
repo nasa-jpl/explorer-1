@@ -113,12 +113,9 @@ const heroTitle = computed((): boolean => {
 })
 
 const heroInline = computed((): boolean => {
-  // heroes with interactive elements have special handling
   if (theHero.value && !heroTitle.value) {
-    // excludes VideoBlock as this will autoplay
-    if (theHero.value.blockType === 'VideoBlock') {
-      return false
-    } else if (
+    // heroes with interactive elements have special handling
+    if (
       data?.heroPosition === 'inline' ||
       theHero.value.blockType === 'CarouselBlock' ||
       theHero.value.blockType === 'IframeEmbedBlock' ||
@@ -127,6 +124,7 @@ const heroInline = computed((): boolean => {
     ) {
       return true
     }
+    return false
   }
   return false
 })
