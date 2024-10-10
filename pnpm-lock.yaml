@@ -225,13 +225,13 @@ importers:
         version: 8.3.5(storybook@8.3.5)(vue@3.5.3(typescript@5.5.4))
       '@storybook/vue3-vite':
         specifier: ^8.3.5
-        version: 8.3.5(storybook@8.3.5)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))
+        version: 8.3.5(storybook@8.3.5)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))(webpack-sources@3.2.3)
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
         version: 5.0.5(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))
       '@vue/eslint-config-prettier':
-        specifier: ^7.1.0
-        version: 7.1.0(eslint@9.4.0)(prettier@3.3.1)
+        specifier: ^10.0.0
+        version: 10.0.0(@types/eslint@8.56.10)(eslint@9.4.0)(prettier@3.3.1)
       '@whitespace/storybook-addon-html':
         specifier: ^6.1.1
         version: 6.1.1(prettier@3.3.1)(react-syntax-highlighter@15.5.0(react@18.3.1))
@@ -285,7 +285,7 @@ importers:
         version: 5.5.4
       unplugin-vue-components:
         specifier: ^0.27.0
-        version: 0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4))
+        version: 0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2)(webpack-sources@3.2.3))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4))
       vite:
         specifier: ^5.3.1
         version: 5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)
@@ -402,13 +402,13 @@ importers:
         version: link:../configs/prettier
       autoprefixer:
         specifier: ^10.4.19
-        version: 10.4.20(postcss@8.4.45)
+        version: 10.4.20(postcss@8.4.38)
       lazysizes:
         specifier: ^5.3.0
         version: 5.3.2
       postcss-import:
         specifier: ^16.1.0
-        version: 16.1.0(postcss@8.4.45)
+        version: 16.1.0(postcss@8.4.38)
       typescript:
         specifier: ^5.4.5
         version: 5.5.4
@@ -1625,6 +1625,7 @@ packages:
   '@koa/router@12.0.1':
     resolution: {integrity: sha512-ribfPYfHb+Uw3b27Eiw6NPqjhIhTpVFzEWLwyc/1Xp+DCdwRRyIlAUODX+9bPARF6aQtUu1+/PHzdNvRzcs/+Q==}
     engines: {node: '>= 12'}
+    deprecated: Use v12.0.2 or higher to fix the vulnerability issue
 
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
@@ -2928,11 +2929,11 @@ packages:
   '@vue/devtools-shared@7.4.4':
     resolution: {integrity: sha512-yeJULXFHOKIm8yL2JFO050a9ztTVqOCKTqN9JHFxGTJN0b+gjtfn6zC+FfyHUgjwCwf6E3hfKrlohtthcqoYqw==}
 
-  '@vue/eslint-config-prettier@7.1.0':
-    resolution: {integrity: sha512-Pv/lVr0bAzSIHLd9iz0KnvAr4GKyCEl+h52bc4e5yWuDVtLgFwycF7nrbWTAQAS+FU6q1geVd07lc6EWfJiWKQ==}
+  '@vue/eslint-config-prettier@10.0.0':
+    resolution: {integrity: sha512-iDEjsfT+UXQTJfe+4mstb/B5BSZ5RpL6FO3F97XxElIXdD04gkH+F7PR4fBMEVyJi4892G4LQVPQ8oXxVyp8Dw==}
     peerDependencies:
-      eslint: '>= 7.28.0'
-      prettier: '>= 2.0.0'
+      eslint: '>= 8.21.0'
+      prettier: '>= 3.0.0'
 
   '@vue/language-core@1.8.27':
     resolution: {integrity: sha512-L8Kc27VdQserNaCUNiSFdDl9LWT24ly8Hpwf1ECy3aFb9m6bDhBGQYOujDm21N7EW3moKIOKEanQwe1q5BK+mA==}
@@ -4177,31 +4178,28 @@ packages:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
-  eslint-config-prettier@8.10.0:
-    resolution: {integrity: sha512-SM8AMJdeQqRYT9O9zguiruQZaN7+z+E4eAP9oiLNGKMtomwaB1E9dcgUD6ZAn/eQAb52USbvezbiljfZUhbJcg==}
-    hasBin: true
-    peerDependencies:
-      eslint: '>=7.0.0'
-
   eslint-config-prettier@9.1.0:
     resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-plugin-prettier@4.2.1:
-    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
-    engines: {node: '>=12.0.0'}
+  eslint-plugin-prettier@5.1.3:
+    resolution: {integrity: sha512-C9GCVAs4Eq7ZC/XFQHITLiHJxQngdtraXaM+LoUFoFp/lHNl2Zn8f3WQbe9HvTBBQ9YnKFB0/2Ajdqwo5D1EAw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      eslint: '>=7.28.0'
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
       eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
+      prettier: '>=3.0.0'
     peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
       eslint-config-prettier:
         optional: true
 
-  eslint-plugin-prettier@5.1.3:
-    resolution: {integrity: sha512-C9GCVAs4Eq7ZC/XFQHITLiHJxQngdtraXaM+LoUFoFp/lHNl2Zn8f3WQbe9HvTBBQ9YnKFB0/2Ajdqwo5D1EAw==}
+  eslint-plugin-prettier@5.2.1:
+    resolution: {integrity: sha512-gH3iR3g4JfF+yYPaJYkN7jEl9QbweL/YfkoRlNnuIEHEz1vHVlCmWOS+eGGiRuzHQXdJFCOTxRgvju9b8VUmrw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'
@@ -7358,6 +7356,10 @@ packages:
     resolution: {integrity: sha512-HwOKAP7Wc5aRGYdKH+dw0PRRpbO841v2DENBtjnR5HFWoiNByAl7vrx3p0G/rCyYXQsrxqtX48TImFtPcIHSpQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
+  synckit@0.9.2:
+    resolution: {integrity: sha512-vrozgXDQwYO72vHjUb/HnFbQx1exDjoKzqx23aXEg2a9VIg2TSFZ8FmeZpTjUCFMYw7mpX4BE2SFu8wI7asYsw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+
   system-architecture@0.1.0:
     resolution: {integrity: sha512-ulAk51I9UVUyJgxlv9M6lFot2WP3e7t8Kz9+IS6D4rVba1tR9kON+Ey69f+1R4Q8cd45Lod6a4IcJIxnzGc/zA==}
     engines: {node: '>=18'}
@@ -9430,6 +9432,35 @@ snapshots:
       - supports-color
       - webpack-sources
 
+  '@nuxt/kit@3.13.1(rollup@4.21.2)':
+    dependencies:
+      '@nuxt/schema': 3.13.1(rollup@4.21.2)(webpack-sources@3.2.3)
+      c12: 1.11.2(magicast@0.3.4)
+      consola: 3.2.3
+      defu: 6.1.4
+      destr: 2.0.3
+      globby: 14.0.2
+      hash-sum: 2.0.0
+      ignore: 5.3.2
+      jiti: 1.21.6
+      klona: 2.0.6
+      knitwork: 1.1.0
+      mlly: 1.7.1
+      pathe: 1.1.2
+      pkg-types: 1.2.0
+      scule: 1.3.0
+      semver: 7.6.3
+      ufo: 1.5.4
+      unctx: 2.3.1(webpack-sources@3.2.3)
+      unimport: 3.11.1(rollup@4.21.2)(webpack-sources@3.2.3)
+      untyped: 1.4.2
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - webpack-sources
+    optional: true
+
   '@nuxt/module-builder@0.7.1(@nuxt/kit@3.13.1(magicast@0.3.4)(rollup@4.21.2)(webpack-sources@3.2.3))(nuxi@3.13.1)(sass@1.77.4)(typescript@5.5.4)(vue-tsc@2.1.6(typescript@5.5.4))(webpack-sources@3.2.3)':
     dependencies:
       '@nuxt/kit': 3.13.1(magicast@0.3.4)(rollup@4.21.2)(webpack-sources@3.2.3)
@@ -10250,7 +10281,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))':
+  '@storybook/builder-vite@8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(webpack-sources@3.2.3)':
     dependencies:
       '@storybook/csf-plugin': 8.3.5(storybook@8.3.5)(webpack-sources@3.2.3)
       '@types/find-cache-dir': 3.2.1
@@ -10492,9 +10523,9 @@ snapshots:
       '@types/express': 4.17.21
       file-system-cache: 2.3.0
 
-  '@storybook/vue3-vite@8.3.5(storybook@8.3.5)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))':
+  '@storybook/vue3-vite@8.3.5(storybook@8.3.5)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))(webpack-sources@3.2.3)':
     dependencies:
-      '@storybook/builder-vite': 8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))
+      '@storybook/builder-vite': 8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(webpack-sources@3.2.3)
       '@storybook/vue3': 8.3.5(storybook@8.3.5)(vue@3.5.3(typescript@5.5.4))
       find-package-json: 1.2.0
       magic-string: 0.30.11
@@ -11159,12 +11190,14 @@ snapshots:
     dependencies:
       rfdc: 1.4.1
 
-  '@vue/eslint-config-prettier@7.1.0(eslint@9.4.0)(prettier@3.3.1)':
+  '@vue/eslint-config-prettier@10.0.0(@types/eslint@8.56.10)(eslint@9.4.0)(prettier@3.3.1)':
     dependencies:
       eslint: 9.4.0
-      eslint-config-prettier: 8.10.0(eslint@9.4.0)
-      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.10.0(eslint@9.4.0))(eslint@9.4.0)(prettier@3.3.1)
+      eslint-config-prettier: 9.1.0(eslint@9.4.0)
+      eslint-plugin-prettier: 5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@9.4.0))(eslint@9.4.0)(prettier@3.3.1)
       prettier: 3.3.1
+    transitivePeerDependencies:
+      - '@types/eslint'
 
   '@vue/language-core@1.8.27(typescript@5.5.4)':
     dependencies:
@@ -11432,6 +11465,16 @@ snapshots:
     dependencies:
       browserslist: 4.23.1
       caniuse-lite: 1.0.30001632
+      fraction.js: 4.3.7
+      normalize-range: 0.1.2
+      picocolors: 1.0.1
+      postcss: 8.4.38
+      postcss-value-parser: 4.2.0
+
+  autoprefixer@10.4.20(postcss@8.4.38):
+    dependencies:
+      browserslist: 4.23.3
+      caniuse-lite: 1.0.30001658
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -12535,21 +12578,9 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-config-prettier@8.10.0(eslint@9.4.0):
-    dependencies:
-      eslint: 9.4.0
-
   eslint-config-prettier@9.1.0(eslint@9.4.0):
     dependencies:
       eslint: 9.4.0
-
-  eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.10.0(eslint@9.4.0))(eslint@9.4.0)(prettier@3.3.1):
-    dependencies:
-      eslint: 9.4.0
-      prettier: 3.3.1
-      prettier-linter-helpers: 1.0.0
-    optionalDependencies:
-      eslint-config-prettier: 8.10.0(eslint@9.4.0)
 
   eslint-plugin-prettier@5.1.3(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@9.4.0))(eslint@9.4.0)(prettier@3.3.1):
     dependencies:
@@ -12557,6 +12588,16 @@ snapshots:
       prettier: 3.3.1
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
+    optionalDependencies:
+      '@types/eslint': 8.56.10
+      eslint-config-prettier: 9.1.0(eslint@9.4.0)
+
+  eslint-plugin-prettier@5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@9.4.0))(eslint@9.4.0)(prettier@3.3.1):
+    dependencies:
+      eslint: 9.4.0
+      prettier: 3.3.1
+      prettier-linter-helpers: 1.0.0
+      synckit: 0.9.2
     optionalDependencies:
       '@types/eslint': 8.56.10
       eslint-config-prettier: 9.1.0(eslint@9.4.0)
@@ -16605,6 +16646,11 @@ snapshots:
       '@pkgr/core': 0.1.1
       tslib: 2.6.3
 
+  synckit@0.9.2:
+    dependencies:
+      '@pkgr/core': 0.1.1
+      tslib: 2.6.3
+
   system-architecture@0.1.0: {}
 
   table@6.8.2:
@@ -17062,7 +17108,7 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-  unplugin-vue-components@0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4)):
+  unplugin-vue-components@0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2)(webpack-sources@3.2.3))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4)):
     dependencies:
       '@antfu/utils': 0.7.8
       '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
@@ -17078,6 +17124,26 @@ snapshots:
     optionalDependencies:
       '@babel/parser': 7.25.6
       '@nuxt/kit': 3.13.1(magicast@0.3.4)(rollup@4.21.2)(webpack-sources@3.2.3)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  unplugin-vue-components@0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4)):
+    dependencies:
+      '@antfu/utils': 0.7.8
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
+      chokidar: 3.6.0
+      debug: 4.3.5
+      fast-glob: 3.3.2
+      local-pkg: 0.5.0
+      magic-string: 0.30.10
+      minimatch: 9.0.4
+      resolve: 1.22.8
+      unplugin: 1.10.1
+      vue: 3.5.3(typescript@5.5.4)
+    optionalDependencies:
+      '@babel/parser': 7.25.6
+      '@nuxt/kit': 3.13.1(rollup@4.21.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
