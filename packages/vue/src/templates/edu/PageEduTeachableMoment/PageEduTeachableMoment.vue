@@ -85,6 +85,14 @@ const computedClass = computed((): string => {
     class="ThemeEdu ThemeVariantLight"
     :class="computedClass"
   >
+    <NavJumpMenu
+      v-if="data.showJumpMenu"
+      ref="PageEduTeachableMomentJumpMenu"
+      :title="data.title"
+      :blocks="data.body"
+      dropdown-text="In this Teachable Moment"
+    />
+
     <!-- hero title -->
     <HeroLarge
       v-if="heroTitle && theHero"
@@ -131,13 +139,6 @@ const computedClass = computed((): string => {
       />
     </LayoutHelper>
 
-    <NavJumpMenu
-      v-if="data.showJumpMenu"
-      ref="PageEduTeachableMomentJumpMenu"
-      :title="data.title"
-      :blocks="data.body"
-      dropdown-text="In this Teachable Moment"
-    />
     <LayoutHelper
       v-if="!heroEmpty && heroInline && data.hero?.length"
       class="lg:mb-22 mb-10"

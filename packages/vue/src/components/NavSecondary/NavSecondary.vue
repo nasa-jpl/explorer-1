@@ -7,7 +7,7 @@
     :class="{
       'has-intro': hasIntro,
       '!bg-transparent border-none': invert,
-      '-is-sticky-offset': direction === 'up'
+      '-scrolled-up': scrollDirection === 'up'
     }"
   >
     <div
@@ -91,7 +91,7 @@ export default defineComponent({
     stickyElement?: HTMLElement
     observer?: IntersectionObserver
     observerOffset?: IntersectionObserver
-    direction?: string
+    scrollDirection?: string
     posY: number
   } {
     return {
@@ -99,7 +99,7 @@ export default defineComponent({
       stickyElement: undefined,
       observer: undefined,
       observerOffset: undefined,
-      direction: undefined,
+      scrollDirection: undefined,
       posY: 0
     }
   },
@@ -159,9 +159,9 @@ export default defineComponent({
     handleScroll() {
       var scrollY = window.scrollY
       if (scrollY > this.posY) {
-        this.direction = 'down'
+        this.scrollDirection = 'down'
       } else {
-        this.direction = 'up'
+        this.scrollDirection = 'up'
       }
       this.posY = scrollY
     },
@@ -170,29 +170,16 @@ export default defineComponent({
       this.observer = new IntersectionObserver(
         ([e]) => {
           e.target.classList.toggle('-is-sticky', e.intersectionRatio === 0)
-          // console.log('INTERSECT: is-sticky')
         },
         {
           threshold: [0],
           rootMargin: this.themeStore.isEdu ? '-73px 0px 0px 0px' : '-113px 0px 0px 0px'
         }
       )
-      // this.observerOffset = new IntersectionObserver(
-      //   ([e]) => {
-      //     e.target.classList.toggle('-SECOND-TRIGGER', e.intersectionRatio === 0)
-      //     console.log('INTERSECT: WHAT')
-      //   },
-      //   {
-      //     threshold: [0],
-      //     //rootMargin: this.themeStore.isEdu ? '-73px 0px 0px 0px' : '-113px 0px 0px 0px'
-      //     rootMargin: this.themeStore.isEdu ? '-120px 0px 0px 0px' : '-113px 0px 0px 0px'
-      //   }
-      // )
     },
     checkSticky() {
       if (this.stickyElement) {
         if (this.observer) this.observer.observe(this.stickyElement)
-        // if (this.observerOffset) this.observerOffset.observe(this.stickyElement)
       }
     }
   }
@@ -202,7 +189,6 @@ export default defineComponent({
 .NavSecondary {
   top: -1px; // for intersection observer to work
   @apply sticky z-40 w-full bg-white border-b border-gray-mid border-opacity-0 transition-border-opacity duration-150 edu:duration-300 ease-in;
-  @apply hidden;
   @screen lg {
     @apply block;
   }
@@ -213,8 +199,7 @@ export default defineComponent({
     }
   }
 
-  &.-is-sticky,
-  &.-is-sticky-offset {
+  &.-is-sticky {
     @apply border-gray-mid border-opacity-50;
   }
 
@@ -238,16 +223,15 @@ export default defineComponent({
   // change sticky point if global nav is showing
   .header-sticky-showing & {
     @apply top-18;
+    @screen lg {
+      @apply top-28;
+    }
 
-    &.-is-sticky-offset {
-      // @apply border-gray-mid border-opacity-50 transition-all;
-
+    &.-scrolled-up {
+      @apply border-gray-mid border-opacity-50;
       .nav-secondary-container {
         @apply border-gray-mid border-opacity-50;
       }
-    }
-    @screen lg {
-      @apply top-28;
     }
   }
 }

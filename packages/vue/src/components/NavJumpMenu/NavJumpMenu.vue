@@ -3,7 +3,8 @@
     v-if="enabled"
     id="NavJumpMenu"
     ref="NavJumpMenuRef"
-    class="NavJumpMenu -hide-until-threshold"
+    class="NavJumpMenu"
+    :class="{ '-ready': initialized }"
     :invert="invert"
     jump-menu
   >
@@ -36,7 +37,7 @@
   </NavSecondary>
 </template>
 <script setup lang="ts">
-import { computed, defineExpose, ref, onMounted, watch } from 'vue'
+import { computed, defineExpose, ref, onMounted, onUnmounted, watch } from 'vue'
 import { mixinUpdateSecondary } from './../../utils/mixins'
 import { useRoute } from 'vue-router'
 import NavSecondary from './../NavSecondary/NavSecondary.vue'
@@ -72,6 +73,8 @@ const props = withDefaults(defineProps<NavJumpMenuProps>(), {
   // stepClasses: 'text-primary'
 })
 
+const initialized = ref(false)
+
 const NavJumpMenuRef = ref()
 
 const theJumpLinks = computed(() => {
@@ -100,6 +103,11 @@ const theJumpLinks = computed(() => {
   return []
 })
 
+const initializeJumpMenu = () => {
+  initialized.value = true
+  console.log('initialized jump menu', initialized.value)
+}
+
 const theBreadcrumbs = computed(() => {
   let breadcrumb = undefined
   const rootItem = props.title
@@ -127,6 +135,11 @@ defineExpose({
 })
 onMounted(() => {
   mixinUpdateSecondary(theBreadcrumbs.value, true)
+  // ensures jump menu isn't visible during route changes
+  setTimeout(initializeJumpMenu, 500)
+})
+onUnmounted(() => {
+  initialized.value = false
 })
 
 const route = useRoute()
@@ -142,16 +155,9 @@ watch(
 </script>
 <style lang="scss">
 .NavJumpMenu {
-  &.NavSecondary {
-    @apply fixed z-20;
-  }
-  &.-hide-until-threshold {
-    @apply visible transition-none overflow-visible -mb-[3.7rem];
-    // @apply h-0;
-    &.-is-sticky,
-    &.-is-sticky-offset {
-      @apply visible transition-all pointer-events-auto;
-    }
+  @apply invisible transition-all overflow-visible -mb-[3.7rem] z-30 fixed #{!important};
+  &.-ready {
+    @apply visible #{!important};
   }
   .NavSecondaryLink.secondary-root {
     span {

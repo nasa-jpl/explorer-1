@@ -98,6 +98,14 @@ export default defineComponent({
       itemprop="image"
       :content="data.thumbnailImage.original"
     />
+
+    <NavJumpMenu
+      v-if="data.showJumpMenu"
+      :title="data.title"
+      :blocks="data.body"
+      dropdown-text="In this article"
+    />
+
     <!-- hero title -->
     <HeroLarge
       v-if="heroTitle && theHero"
@@ -149,15 +157,7 @@ export default defineComponent({
         :image="data.thumbnailImage?.original"
       />
     </LayoutHelper>
-
-    <NavJumpMenu
-      v-if="data.showJumpMenu"
-      :title="data.title"
-      :blocks="data.body"
-      dropdown-text="In this article"
-    />
     <!-- inline hero content -->
-
     <LayoutHelper
       v-if="!heroEmpty && heroInline"
       indent="col-2"
