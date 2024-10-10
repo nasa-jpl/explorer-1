@@ -285,6 +285,13 @@ const computedClass = computed((): string => {
     class="ThemeVariantLight"
     :class="computedClass"
   >
+    <NavJumpMenu
+      ref="PageEduLessonJumpMenu"
+      :title="data.title"
+      :blocks="consolidatedBlocks"
+      dropdown-text="In this lesson"
+    />
+
     <!-- hero title -->
     <HeroLarge
       v-if="heroTitle && theHero"
@@ -364,13 +371,6 @@ const computedClass = computed((): string => {
         :constrain="data.heroConstrain"
       />
     </LayoutHelper>
-
-    <NavJumpMenu
-      ref="PageEduLessonJumpMenu"
-      :title="data.title"
-      :blocks="consolidatedBlocks"
-      dropdown-text="In this lesson"
-    />
 
     <template
       v-for="(value, _key) in consolidatedSections"

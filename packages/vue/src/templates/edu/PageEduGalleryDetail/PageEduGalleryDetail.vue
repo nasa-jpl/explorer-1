@@ -69,6 +69,12 @@ const { data } = reactive(props)
     itemscope
     itemtype="http://schema.org/MediaGallery"
   >
+    <NavJumpMenu
+      v-if="data.showJumpMenu && jumpMenuHeadings?.length"
+      :title="data.title"
+      :jump-links="jumpMenuHeadings"
+    />
+
     <!-- Detail Headline -->
     <LayoutHelper
       indent="col-2"
@@ -96,12 +102,6 @@ const { data } = reactive(props)
         class="lg:mt-8 mt-5"
       />
     </LayoutHelper>
-
-    <NavJumpMenu
-      v-if="data.showJumpMenu && jumpMenuHeadings?.length"
-      :title="data.title"
-      :jump-links="jumpMenuHeadings"
-    />
 
     <div
       v-for="(item, index) in data.galleryItems"

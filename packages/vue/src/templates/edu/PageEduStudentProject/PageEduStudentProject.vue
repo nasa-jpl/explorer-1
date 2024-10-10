@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import type {
   ImageObject,
   PageEduResourcesObject,
@@ -26,7 +27,7 @@ import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.
 
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
 import StudentProjectBadge from '@explorer-1/common/src/images/svg/student-project-badge.svg'
-
+const route = useRoute()
 interface EduStudentProjectSectionObject extends PageEduStudentProjectSectionProps {
   type?: string
 }
@@ -243,6 +244,18 @@ const computedClass = computed((): string => {
     class="ThemeVariantLight PageEduStudentProject"
     :class="computedClass"
   >
+    <NavJumpMenu
+      v-if="stepHeadings?.length"
+      :key="route.fullPath"
+      ref="PageEduStudentProjectJumpMenu"
+      :title="data.title"
+      :blocks="stepHeadings"
+      dropdown-text="Project Steps"
+      heading-level="h3"
+      :steps-numbering="true"
+      steps-classes="text-secondary"
+    />
+
     <!-- hero title -->
     <HeroLarge
       v-if="heroTitle && theHero"
@@ -370,17 +383,6 @@ const computedClass = computed((): string => {
         :constrain="data.heroConstrain"
       />
     </LayoutHelper>
-
-    <NavJumpMenu
-      v-if="stepHeadings?.length"
-      ref="PageEduStudentProjectJumpMenu"
-      :title="data.title"
-      :blocks="stepHeadings"
-      dropdown-text="Project Steps"
-      heading-level="h3"
-      :steps-numbering="true"
-      steps-classes="text-secondary"
-    />
 
     <template
       v-for="(value, _key) in consolidatedSections"

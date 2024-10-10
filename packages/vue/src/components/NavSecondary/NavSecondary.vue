@@ -6,7 +6,8 @@
     class="NavSecondary"
     :class="{
       'has-intro': hasIntro,
-      '!bg-transparent': invert
+      '!bg-transparent border-none': invert,
+      '-scrolled-up': scrollDirection === 'up'
     }"
   >
     <div
@@ -14,7 +15,7 @@
       :class="{ 'bg-gradient-to-r from-black to-primary bg-transparent to-90% text-white': invert }"
     >
       <div
-        :class="`nav-secondary-container edu:border-0 lg:container lg:px-0 lg:whitespace-normal lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap ${invert ? 'border-0' : 'border-t border-gray-mid text-gray-mid-dark  border-opacity-50'}`"
+        :class="`nav-secondary-container edu:border-0 lg:container lg:px-0 lg:whitespace-normal lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-sm font-medium whitespace-nowrap ${invert ? 'border-0' : 'border-t border-gray-mid text-gray-mid-dark border-opacity-50'}`"
       >
         <div class="lg:ml-0 2xl:-mr-3 lg:justify-end flex -ml-3">
           <template v-for="(item, index) in theBreadcrumb">
@@ -90,12 +91,16 @@ export default defineComponent({
     stickyElement?: HTMLElement
     observer?: IntersectionObserver
     observerOffset?: IntersectionObserver
+    scrollDirection?: string
+    posY: number
   } {
     return {
       isSticky: false,
       stickyElement: undefined,
       observer: undefined,
-      observerOffset: undefined
+      observerOffset: undefined,
+      scrollDirection: undefined,
+      posY: 0
     }
   },
   computed: {
@@ -127,6 +132,7 @@ export default defineComponent({
       if (!this.jumpMenu) {
         mixinHighlightPrimary(false)
       }
+      window.addEventListener('scroll', this.handleScroll)
     }
 
     if (
@@ -140,6 +146,9 @@ export default defineComponent({
       this.checkSticky()
     }
   },
+  unmounted() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
   methods: {
     isExternal(path: string): boolean {
       if (path && path.startsWith('http')) {
@@ -147,19 +156,20 @@ export default defineComponent({
       }
       return false
     },
+    handleScroll() {
+      var scrollY = window.scrollY
+      if (scrollY > this.posY) {
+        this.scrollDirection = 'down'
+      } else {
+        this.scrollDirection = 'up'
+      }
+      this.posY = scrollY
+    },
     initIntersectionObservers() {
       this.stickyElement = this.$refs.NavSecondary as HTMLElement
       this.observer = new IntersectionObserver(
         ([e]) => {
           e.target.classList.toggle('-is-sticky', e.intersectionRatio === 0)
-        },
-        {
-          threshold: [0]
-        }
-      )
-      this.observerOffset = new IntersectionObserver(
-        ([e]) => {
-          e.target.classList.toggle('-is-sticky-offset', e.intersectionRatio === 0)
         },
         {
           threshold: [0],
@@ -170,7 +180,6 @@ export default defineComponent({
     checkSticky() {
       if (this.stickyElement) {
         if (this.observer) this.observer.observe(this.stickyElement)
-        if (this.observerOffset) this.observerOffset.observe(this.stickyElement)
       }
     }
   }
@@ -180,7 +189,6 @@ export default defineComponent({
 .NavSecondary {
   top: -1px; // for intersection observer to work
   @apply sticky z-40 w-full bg-white border-b border-gray-mid border-opacity-0 transition-border-opacity duration-150 edu:duration-300 ease-in;
-  @apply hidden;
   @screen lg {
     @apply block;
   }
@@ -191,8 +199,7 @@ export default defineComponent({
     }
   }
 
-  &.-is-sticky,
-  &.-is-sticky-offset {
+  &.-is-sticky {
     @apply border-gray-mid border-opacity-50;
   }
 
@@ -216,16 +223,15 @@ export default defineComponent({
   // change sticky point if global nav is showing
   .header-sticky-showing & {
     @apply top-18;
+    @screen lg {
+      @apply top-28;
+    }
 
-    &.-is-sticky-offset {
-      @apply border-gray-mid border-opacity-50 transition-all;
-
+    &.-scrolled-up {
+      @apply border-gray-mid border-opacity-50;
       .nav-secondary-container {
         @apply border-gray-mid border-opacity-50;
       }
-    }
-    @screen lg {
-      @apply top-28;
     }
   }
 }
