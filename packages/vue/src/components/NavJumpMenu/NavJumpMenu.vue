@@ -105,7 +105,6 @@ const theJumpLinks = computed(() => {
 
 const initializeJumpMenu = () => {
   initialized.value = true
-  console.log('initialized jump menu', initialized.value)
 }
 
 const theBreadcrumbs = computed(() => {
