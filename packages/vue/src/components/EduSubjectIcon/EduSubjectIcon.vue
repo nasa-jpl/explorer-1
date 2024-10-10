@@ -23,6 +23,7 @@ const theIcon = computed(() => {
   let component = undefined
   switch (normalizedSubject.value) {
     case 'art':
+    case 'arts':
       component = IconEduArt
       break
     case 'english':
