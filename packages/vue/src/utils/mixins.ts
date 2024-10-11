@@ -293,20 +293,33 @@ export const mixinFormatSplitEventDates = (
   endDatetime?: string,
   compact?: boolean
 ): EventDateObject => {
-  const startDateDayjs = dayjs(startDatetime)
+  const endDateDayjs = endDatetime ? dayjs(endDatetime) : undefined
+
+  const startDateDayjs = () => {
+    // use the end date if the event has started but hasn't ended
+    let date = startDatetime
+    const startDate = startDatetime ? dayjs(startDatetime) : undefined
+    if (startDatetime && endDatetime && endDateDayjs && startDate) {
+      let now = dayjs(new Date())
+      if (endDateDayjs > now && startDate < now) {
+        date = endDatetime
+      } else {
+        date = startDatetime
+      }
+    }
+    return dayjs(date)
+  }
 
   const monthFormat = compact ? 'MM' : 'MMM'
-  let day = startDateDayjs.format('D')
-  const month = startDateDayjs.format(monthFormat).replace('.', '')
-  const year = startDateDayjs.format('YYYY')
-  const monthAndYear = startDateDayjs.format(`${monthFormat} YYYY`)
+  let day = startDateDayjs().format('D')
+  const month = startDateDayjs().format(monthFormat).replace('.', '')
+  const year = startDateDayjs().format('YYYY')
+  const monthAndYear = startDateDayjs().format(`${monthFormat} YYYY`)
 
-  if (endDatetime) {
-    const endDateDayjs = dayjs(endDatetime)
-
+  if (endDateDayjs) {
     if (
-      startDateDayjs.format('MM') === endDateDayjs.format('MM') &&
-      startDateDayjs.format('ll') !== endDateDayjs.format('ll')
+      startDateDayjs().format('MM') === endDateDayjs.format('MM') &&
+      startDateDayjs().format('ll') !== endDateDayjs.format('ll')
     ) {
       // If event spans multiple days within the same month, show both days
       day = `${day}-${endDateDayjs.format('D')}`
