@@ -25,7 +25,7 @@ const clearSearch = () => {
 const submitSearch = () => {
   emit('submitForm')
   router.push({
-    path: themeStore.isEdu ? '/edubeta/search/' : '/search',
+    path: themeStore.isEdu ? '/edu/search/' : '/search',
     query: { query: searchQuery.value }
   })
 }

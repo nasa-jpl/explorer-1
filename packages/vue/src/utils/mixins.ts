@@ -157,9 +157,9 @@ export const mixinIsActivePath = (itemPath: string): Boolean => {
     if (currentPath && path && ancestorPath) {
       if (currentPath === path) {
         return true
-      } else if (currentPath.startsWith('/edubeta/events')) {
+      } else if (currentPath.startsWith('/edu/events')) {
         // special treatment since EDU combines News & Events in the main nav
-        return path.startsWith('/edubeta/news')
+        return path.startsWith('/edu/news')
       } else {
         return currentPath.startsWith(ancestorPath)
       }
