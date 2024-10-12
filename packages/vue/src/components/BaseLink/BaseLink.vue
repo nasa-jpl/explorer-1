@@ -1,5 +1,4 @@
 <script lang="ts">
-import { parse } from 'urllib'
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
