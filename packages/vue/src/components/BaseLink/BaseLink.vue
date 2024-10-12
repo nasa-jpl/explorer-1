@@ -163,12 +163,16 @@ export default defineComponent({
       return undefined
     },
     computedTo() {
-      let toValue = this.to
+      let toValue = this.to ? this.addTrailingSlash(this.to as string) : undefined
       // filter out unnecessary `/home/` prefix from wagtail default site urlPaths
       if (toValue && typeof toValue === 'string' && toValue.startsWith('/home/')) {
         toValue = toValue.replace('/home/', '/')
       }
       return toValue
+    },
+    computedHref() {
+      let hrefValue = this.href ? this.addTrailingSlash(this.href as string) : undefined
+      return hrefValue
     }
   },
   methods: {
@@ -176,6 +180,28 @@ export default defineComponent({
       this.$root?.$emit('linkClicked')
       this.$emit('specificLinkClicked')
       eventBus.emit('linkClicked')
+    },
+    addTrailingSlash(path: string) {
+      let filteredPath = path
+      const isFilePath = () => {
+        const afterLastSlash = path.split('/').pop()
+        if (afterLastSlash && afterLastSlash.includes('.')) {
+          return true
+        }
+        return false
+      }
+      const isQueryPath = path.includes('?')
+      if (!isFilePath() && path !== '/' && !path.endsWith('/') && !path.startsWith('/preview')) {
+        // add a trailing slash if there isn't one
+        filteredPath += '/'
+      } else if (isQueryPath) {
+        // also add a trailing slash to paths with query params
+        const urlParts = filteredPath.split('?')
+        const queryParams = urlParts.shift()
+        const pathWithSlash = `${urlParts[0]}/`
+        filteredPath = pathWithSlash + queryParams
+      }
+      return filteredPath
     }
   }
 })
@@ -220,8 +246,8 @@ export default defineComponent({
       </template>
     </nuxt-link>
     <a
-      v-else-if="href"
-      :href="href"
+      v-else-if="computedHref"
+      :href="computedHref"
       class="group"
       :class="computedClass"
       :target="theTarget"
