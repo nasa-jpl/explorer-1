@@ -185,16 +185,20 @@ export default defineComponent({
       eventBus.emit('linkClicked')
     },
     addTrailingSlash(path: string) {
+      // Guard to ensure path is a string
+      if (typeof path !== 'string') {
+        throw new Error('Invalid path type, expected a string.')
+      }
+    
       let filteredPath = path
       const isFilePath = () => {
         const afterLastSlash = path.split('/').pop()
-        if (afterLastSlash && afterLastSlash.includes('.')) {
-          return true
-        }
-        return false
+        return afterLastSlash ? afterLastSlash.includes('.') : false
       }
+    
       const isQueryPath = path.includes('?')
       const isAnchorPath = path.includes('#')
+    
       if (
         !isQueryPath &&
         !isAnchorPath &&
@@ -203,11 +207,11 @@ export default defineComponent({
         !path.endsWith('/') &&
         !path.startsWith('/preview')
       ) {
-        // add a trailing slash if there isn't one
+        // Add a trailing slash if there isn't one
         filteredPath += '/'
       } else if (isQueryPath) {
         if (!path.includes('/?')) {
-          // also add a trailing slash to paths with query params
+          // Also add a trailing slash to paths with query params
           const urlParts = filteredPath.split('?')
           const pathWithSlash = `${urlParts[0]}/`
           const queryParams = urlParts[1]
@@ -215,13 +219,14 @@ export default defineComponent({
         }
       } else if (isAnchorPath) {
         if (!path.includes('/#')) {
-          // also add a trailing slash to paths with anchors
+          // Also add a trailing slash to paths with anchors
           const urlParts = filteredPath.split('#')
           const pathWithSlash = `${urlParts[0]}/`
           const anchor = urlParts[1]
           filteredPath = pathWithSlash + '#' + anchor
         }
       }
+    
       return filteredPath
     }
   }
