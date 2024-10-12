@@ -171,7 +171,10 @@ export default defineComponent({
       return toValue
     },
     computedHref() {
-      let hrefValue = this.href ? this.addTrailingSlash(this.href as string) : undefined
+      let hrefValue =
+        this.href && (this.href.includes('jpl.nasa.gov') || this.href.includes('localhost'))
+          ? this.addTrailingSlash(this.href as string)
+          : this.href
       return hrefValue
     }
   },
@@ -191,15 +194,33 @@ export default defineComponent({
         return false
       }
       const isQueryPath = path.includes('?')
-      if (!isFilePath() && path !== '/' && !path.endsWith('/') && !path.startsWith('/preview')) {
+      const isAnchorPath = path.includes('#')
+      if (
+        !isQueryPath &&
+        !isAnchorPath &&
+        !isFilePath() &&
+        path !== '/' &&
+        !path.endsWith('/') &&
+        !path.startsWith('/preview')
+      ) {
         // add a trailing slash if there isn't one
         filteredPath += '/'
       } else if (isQueryPath) {
-        // also add a trailing slash to paths with query params
-        const urlParts = filteredPath.split('?')
-        const queryParams = urlParts.shift()
-        const pathWithSlash = `${urlParts[0]}/`
-        filteredPath = pathWithSlash + queryParams
+        if (!path.includes('/?')) {
+          // also add a trailing slash to paths with query params
+          const urlParts = filteredPath.split('?')
+          const pathWithSlash = `${urlParts[0]}/`
+          const queryParams = urlParts[1]
+          filteredPath = pathWithSlash + '?' + queryParams
+        }
+      } else if (isAnchorPath) {
+        if (!path.includes('/#')) {
+          // also add a trailing slash to paths with anchors
+          const urlParts = filteredPath.split('#')
+          const pathWithSlash = `${urlParts[0]}/`
+          const anchor = urlParts[1]
+          filteredPath = pathWithSlash + '#' + anchor
+        }
       }
       return filteredPath
     }
