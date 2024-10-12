@@ -186,8 +186,8 @@ export default defineComponent({
     addTrailingSlash(path: string) {
       let filteredPath = path
       const isFilePath = () => {
-        const afterLashSlash = path.split('/').pop()
-        if (afterLashSlash && afterLashSlash.includes('.')) {
+        const afterLastSlash = path.split('/').pop()
+        if (afterLastSlash && afterLastSlash.includes('.')) {
           return true
         }
         return false
