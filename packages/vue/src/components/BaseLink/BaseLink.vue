@@ -205,7 +205,7 @@ export default defineComponent({
       ) {
         // add a trailing slash if there isn't one
         filteredPath += '/'
-      } else if (isQueryPath && !isAnchorPath) {
+      } else if (isQueryPath) {
         if (!path.includes('/?')) {
           // also add a trailing slash to paths with query params
           const urlParts = filteredPath.split('?')
