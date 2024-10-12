@@ -194,10 +194,10 @@ export default defineComponent({
         return false
       }
       const isQueryPath = path.includes('?')
-      console.log(path)
-      console.log(isQueryPath)
+      const isAnchorPath = path.includes('#')
       if (
         !isQueryPath &&
+        !isAnchorPath &&
         !isFilePath() &&
         path !== '/' &&
         !path.endsWith('/') &&
@@ -205,13 +205,21 @@ export default defineComponent({
       ) {
         // add a trailing slash if there isn't one
         filteredPath += '/'
-      } else if (isQueryPath) {
+      } else if (isQueryPath && !isAnchorPath) {
         if (!path.includes('/?')) {
           // also add a trailing slash to paths with query params
           const urlParts = filteredPath.split('?')
           const pathWithSlash = `${urlParts[0]}/`
           const queryParams = urlParts[1]
           filteredPath = pathWithSlash + '?' + queryParams
+        }
+      } else if (isAnchorPath) {
+        if (!path.includes('/#')) {
+          // also add a trailing slash to paths with anchors
+          const urlParts = filteredPath.split('#')
+          const pathWithSlash = `${urlParts[0]}/`
+          const anchor = urlParts[1]
+          filteredPath = pathWithSlash + '#' + anchor
         }
       }
       return filteredPath
