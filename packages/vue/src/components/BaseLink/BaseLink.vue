@@ -165,10 +165,8 @@ export default defineComponent({
     computedTo() {
       let toValue = this.to ? this.addTrailingSlash(this.to as string) : undefined
       // filter out unnecessary `/home/` prefix from wagtail default site urlPaths
-      if (toValue && typeof toValue === 'string') {
-        if (toValue.startsWith('/home/')) {
-          toValue = toValue.replace('/home/', '/')
-        }
+      if (toValue && typeof toValue === 'string' && toValue.startsWith('/home/')) {
+        toValue = toValue.replace('/home/', '/')
       }
       return toValue
     },
