@@ -3,14 +3,7 @@
     v-if="hasContent"
     heading="Past Events"
     variant="cards"
-    :link="{
-      // path: 'events',
-      query: {
-        event_status: 'Past events',
-        sortBy: 'eventStartDateLatest',
-        page: '1'
-      }
-    }"
+    link="/events/?page=1&event_status=Past+events&sortBy=eventStartDateLatest"
     link-title="View all past events"
     indent="col-1"
     v-bind="$attrs"
