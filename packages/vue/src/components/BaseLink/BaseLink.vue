@@ -163,12 +163,19 @@ export default defineComponent({
       return undefined
     },
     computedTo() {
-      let toValue = this.to
+      let toValue = this.to ? this.addTrailingSlash(this.to as string) : undefined
       // filter out unnecessary `/home/` prefix from wagtail default site urlPaths
       if (toValue && typeof toValue === 'string' && toValue.startsWith('/home/')) {
         toValue = toValue.replace('/home/', '/')
       }
       return toValue
+    },
+    computedHref() {
+      let hrefValue =
+        this.href && (this.href.includes('jpl.nasa.gov') || this.href.includes('localhost'))
+          ? this.addTrailingSlash(this.href as string)
+          : this.href
+      return hrefValue
     }
   },
   methods: {
@@ -176,6 +183,48 @@ export default defineComponent({
       this.$root?.$emit('linkClicked')
       this.$emit('specificLinkClicked')
       eventBus.emit('linkClicked')
+    },
+    addTrailingSlash(path: string) {
+      let filteredPath = path
+      if (path && typeof path === 'string') {
+        const isFilePath = () => {
+          const afterLastSlash = path.split('/').pop()
+          if (afterLastSlash && afterLastSlash.includes('.')) {
+            return true
+          }
+          return false
+        }
+        const isQueryPath = path.includes('?')
+        const isAnchorPath = path.includes('#')
+        if (
+          !isQueryPath &&
+          !isAnchorPath &&
+          !isFilePath() &&
+          path !== '/' &&
+          !path.endsWith('/') &&
+          !path.startsWith('/preview')
+        ) {
+          // add a trailing slash if there isn't one
+          filteredPath += '/'
+        } else if (isQueryPath) {
+          if (!path.includes('/?')) {
+            // also add a trailing slash to paths with query params
+            const urlParts = filteredPath.split('?')
+            const pathWithSlash = `${urlParts[0]}/`
+            const queryParams = urlParts[1]
+            filteredPath = pathWithSlash + '?' + queryParams
+          }
+        } else if (isAnchorPath) {
+          if (!path.includes('/#')) {
+            // also add a trailing slash to paths with anchors
+            const urlParts = filteredPath.split('#')
+            const pathWithSlash = `${urlParts[0]}/`
+            const anchor = urlParts[1]
+            filteredPath = pathWithSlash + '#' + anchor
+          }
+        }
+      }
+      return filteredPath
     }
   }
 })
@@ -220,8 +269,8 @@ export default defineComponent({
       </template>
     </nuxt-link>
     <a
-      v-else-if="href"
-      :href="href"
+      v-else-if="computedHref"
+      :href="computedHref"
       class="group"
       :class="computedClass"
       :target="theTarget"
