@@ -172,52 +172,55 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
   // Assumes font-size for body element is a constant 16px
   @return math.div($pxValue, 16) * 1rem;
 }
-.PageEduStudentProjectStep {
-  &:target {
-    @apply scroll-mt-14;
-  }
-  .BlockStreamfield {
-    div:last-child {
-      @apply mb-0 #{!important};
+.PageEduStudentProjectSection {
+  @apply overflow-x-hidden;
+  .PageEduStudentProjectStep {
+    &:target {
+      @apply scroll-mt-14;
     }
-  }
-  .caption-area {
-    @apply px-0;
-  }
-  .steps-numbering {
-    // intentionally overriding correction that occurs within ThemeVariantGray
-    @apply text-jpl-red;
-  }
-  .LayoutHelper > div > .BlockText {
-    .richtext-image {
-      &.right,
-      &.left {
-        @apply lg:max-w-md;
-      }
-      &.right {
-        @apply mr-0;
-      }
-      &.left {
-        @apply ml-0;
+    .BlockStreamfield {
+      div:last-child {
+        @apply mb-0 #{!important};
       }
     }
-  }
-
-  .PageEduStudentProjectStep__fullWidth {
+    .caption-area {
+      @apply px-0;
+    }
+    .steps-numbering {
+      // intentionally overriding correction that occurs within ThemeVariantGray
+      @apply text-jpl-red;
+    }
     .LayoutHelper > div > .BlockText {
-      p,
-      li {
-        @screen lg {
-          @apply pr-[9rem];
+      .richtext-image {
+        &.right,
+        &.left {
+          @apply lg:max-w-md;
         }
-        @screen xl {
-          @apply pr-[13rem];
+        &.right {
+          @apply mr-0;
+        }
+        &.left {
+          @apply ml-0;
         }
       }
-      table {
+    }
+
+    .PageEduStudentProjectStep__fullWidth {
+      .LayoutHelper > div > .BlockText {
         p,
         li {
-          @apply pr-0;
+          @screen lg {
+            @apply pr-[9rem];
+          }
+          @screen xl {
+            @apply pr-[13rem];
+          }
+        }
+        table {
+          p,
+          li {
+            @apply pr-0;
+          }
         }
       }
     }

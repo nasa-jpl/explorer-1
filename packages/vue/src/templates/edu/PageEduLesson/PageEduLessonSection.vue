@@ -123,55 +123,58 @@ const { heading, blocks, image, procedures, text } = reactive(props)
   // Assumes font-size for body element is a constant 16px
   @return math.div($pxValue, 16) * 1rem;
 }
-.PageEduProcedureSection {
-  .PageEduProcedureSectionSteps {
-    counter-reset: step;
-  }
-  .PageEduProcedureSectionSingleStep {
-    li:not(:last-of-type) .BlockStreamfield {
-      @apply -mb-5;
+.PageEduLessonSection {
+  @apply overflow-x-hidden;
+  .PageEduProcedureSection {
+    .PageEduProcedureSectionSteps {
+      counter-reset: step;
     }
-  }
-  ol.PageEduProcedureSectionSingleStep {
-    @apply list-none;
-    > li {
-      @apply relative w-full;
-      counter-increment: step;
-      &::before {
-        @apply relative block w-[45rem] mx-auto h-0 pl-1;
-        content: counter(step) '. ';
-        // mimicking .text-body-lg
-        font-size: pxToRem(18);
-        line-height: 1.6667;
+    .PageEduProcedureSectionSingleStep {
+      li:not(:last-of-type) .BlockStreamfield {
+        @apply -mb-5;
       }
+    }
+    ol.PageEduProcedureSectionSingleStep {
+      @apply list-none;
+      > li {
+        @apply relative w-full;
+        counter-increment: step;
+        &::before {
+          @apply relative block w-[45rem] mx-auto h-0 pl-1;
+          content: counter(step) '. ';
+          // mimicking .text-body-lg
+          font-size: pxToRem(18);
+          line-height: 1.6667;
+        }
 
-      @screen sm {
-        &::before {
-          @apply w-[47rem];
-          font-size: pxToRem(19);
+        @screen sm {
+          &::before {
+            @apply w-[47rem];
+            font-size: pxToRem(19);
+          }
         }
-      }
-      @screen md {
-        &::before {
-          @apply w-[51.5rem];
-          font-size: pxToRem(20);
+        @screen md {
+          &::before {
+            @apply w-[51.5rem];
+            font-size: pxToRem(20);
+          }
         }
-      }
-      @screen lg {
-        &::before {
-          @apply w-[46rem] pl-0;
-          font-size: pxToRem(21);
+        @screen lg {
+          &::before {
+            @apply w-[46rem] pl-0;
+            font-size: pxToRem(21);
+          }
         }
-      }
-      @screen xl {
-        &::before {
-          @apply w-[59rem];
-          font-size: pxToRem(22);
+        @screen xl {
+          &::before {
+            @apply w-[59rem];
+            font-size: pxToRem(22);
+          }
         }
-      }
-      @screen 2xl {
-        &::before {
-          // @apply w-[58.5rem];
+        @screen 2xl {
+          &::before {
+            // @apply w-[58.5rem];
+          }
         }
       }
     }

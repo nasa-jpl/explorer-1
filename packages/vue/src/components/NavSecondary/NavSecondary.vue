@@ -189,6 +189,7 @@ export default defineComponent({
 .NavSecondary {
   top: -1px; // for intersection observer to work
   @apply sticky z-40 w-full bg-white border-b border-gray-mid border-opacity-0 transition-border-opacity duration-150 edu:duration-300 ease-in;
+  @apply hidden;
   @screen lg {
     @apply block;
   }
