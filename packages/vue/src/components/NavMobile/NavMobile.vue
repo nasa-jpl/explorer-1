@@ -41,7 +41,14 @@
               v-if="themeStore.theme === 'ThemeEdu'"
               class="-ml-1 pl-2 border-l border-white border-opacity-30 z-20 print:border-black"
             >
-              <span class="text-white font-bold text-xl pl-px">Education</span>
+              <BaseLink
+                class="text-white font-bold text-xl pl-px"
+                to="/edubeta/"
+                link-class="py-2"
+                variant="none"
+              >
+                Education</BaseLink
+              >
             </div>
           </div>
           <button
