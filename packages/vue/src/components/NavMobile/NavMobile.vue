@@ -44,7 +44,6 @@
               <BaseLink
                 class="text-white font-bold text-xl pl-px"
                 to="/edubeta/"
-                link-class="py-2"
                 variant="none"
               >
                 Education</BaseLink
