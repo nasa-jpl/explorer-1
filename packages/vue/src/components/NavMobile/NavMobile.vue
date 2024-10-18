@@ -43,7 +43,7 @@
             >
               <BaseLink
                 class="text-white font-bold text-xl pl-px"
-                to="/edubeta/"
+                to="/edu/"
                 variant="none"
               >
                 Education</BaseLink
