@@ -33,7 +33,7 @@ const image = computed(() => {
 })
 
 const submitSearch = () => {
-  router.push({ path: '/edubeta/resources/', query: { query: searchQuery.value } })
+  router.push({ path: '/edu/resources/', query: { query: searchQuery.value } })
 }
 </script>
 <template>
@@ -101,7 +101,7 @@ const submitSearch = () => {
                   >
                     <BaseLink
                       variant="none"
-                      :to="`/edubeta/resources?query=${topic.page?.title}`"
+                      :to="`/edu/resources?query=${topic.page?.title}`"
                       link-class="text-gray-dark whitespace-nowrap text-sm bg-[#99D1DF] font-extrabold rounded-full inline-block px-3 py-1 text-contrast-none hover:bg-action hover:text-white"
                     >
                       {{ topic.page?.title }}
