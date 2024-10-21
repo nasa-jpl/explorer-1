@@ -13,6 +13,7 @@ import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelate
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
+import { addHeadingAnchorsToRichTextBlock } from './../../../utils/getHeadingsFromRichText'
 
 interface PageEduTeachableMomentProps {
   data?: PageEduResourcesObject
@@ -68,6 +69,21 @@ const heroInline = computed((): boolean => {
   return false
 })
 
+// adds anchors to headings within RichTextBlock
+const filteredBody = computed(() => {
+  const blocks = data?.body
+  if (blocks) {
+    // @ts-expect-error
+    const filteredBlocks = []
+    blocks.forEach((block) => {
+      // @ts-expect-error
+      filteredBlocks.push(addHeadingAnchorsToRichTextBlock(block))
+    })
+    // @ts-expect-error
+    return filteredBlocks
+  }
+  return data?.body
+})
 const computedClass = computed((): string => {
   if (heroInline.value || heroEmpty.value) {
     return 'pt-5 lg:pt-12'
@@ -160,7 +176,7 @@ const computedClass = computed((): string => {
     </LayoutHelper>
 
     <!-- streamfield blocks -->
-    <BlockStreamfield :data="data.body" />
+    <BlockStreamfield :data="filteredBody" />
 
     <!-- related links -->
     <LayoutHelper

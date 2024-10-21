@@ -45,19 +45,18 @@ import NavSecondaryDropdown from './../NavSecondary/NavSecondaryDropdown.vue'
 import NavSecondaryLink from './../NavSecondary/NavSecondaryLink.vue'
 import NavJumpMenuContent from './../NavJumpMenu/NavJumpMenuContent.vue'
 import type { BlockHeadingObject } from './../BlockHeading/BlockHeading.vue'
+import type { BlockTextObject } from './../BlockText/BlockText.vue'
 import type { BlockData, BreadcrumbPathObject } from './../../interfaces'
 import { getHeadingId } from '../../utils/getHeadingId'
 
 interface NavJumpMenuProps {
   title?: string
   jumpLinks?: BreadcrumbPathObject[]
-  blocks?: BlockData[] | BlockHeadingObject[]
+  blocks?: BlockData[] | BlockHeadingObject[] | BlockTextObject[]
   headingLevel?: string
   invert?: boolean
   enabled?: boolean
   dropdownText?: string
-  // stepsNumbering?: boolean
-  // stepClasses?: string
 }
 
 const props = withDefaults(defineProps<NavJumpMenuProps>(), {
@@ -69,8 +68,6 @@ const props = withDefaults(defineProps<NavJumpMenuProps>(), {
   invert: true,
   hidden: false,
   dropdownText: 'Jump to…'
-  // stepsNumbering: false,
-  // stepClasses: 'text-primary'
 })
 
 const initialized = ref(false)
@@ -88,15 +85,27 @@ const theJumpLinks = computed(() => {
       }
     })
     const filteredBlocks = indexedBlocks.filter((b) => {
-      return b.blockType === 'HeadingBlock' && b.level === props.headingLevel
+      return (
+        (b.blockType === 'HeadingBlock' &&
+          (b as BlockHeadingObject).level === props.headingLevel) ||
+        (b.blockType === 'RichTextBlock' &&
+          (b as BlockTextObject).value.includes(`<${props.headingLevel}`))
+      )
     })
     // map to the correct data shape
+    // TODO This might have to change since RichTextBlock can contain multiple headings
     const links: BreadcrumbPathObject[] = filteredBlocks.map((h) => {
-      return {
-        // @ts-expect-error using parameter that was added to BlockData
-        path: '#' + getHeadingId(h.heading, h.blockId),
-        title: h.heading
-      } as BreadcrumbPathObject
+      return h.blockType === 'HeadingBlock'
+        ? ({
+            // @ts-expect-error using parameter that was added to BlockData
+            path: '#' + getHeadingId(h.heading, h.blockId),
+            title: h.heading
+          } as BreadcrumbPathObject)
+        : ({
+            // @ts-expect-error using parameter that was added to BlockData
+            // path: '#' + getRichTextHeadingId(h.value, h.id),
+            // title: getRichTextHeadingText(h.value)
+          } as BreadcrumbPathObject)
     })
     return links
   }
