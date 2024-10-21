@@ -95,10 +95,10 @@
     }
   }
   ul {
+    list-style-type: '—';
     li {
       @apply pl-2 lg:pl-4;
       &::marker {
-        content: '—';
         @apply leading-none text-primary font-medium text-[22px] lg:text-[28px];
       }
     }
