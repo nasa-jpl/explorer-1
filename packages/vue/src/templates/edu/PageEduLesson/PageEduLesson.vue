@@ -20,8 +20,8 @@ import PageEduLessonSection, { type PageEduLessonSectionProps } from './PageEduL
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
-
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
+import { anchorizeStreamfield } from '../../../utils/anchorizeStreamfield'
 
 interface EduLessonSectionObject extends PageEduLessonSectionProps {
   type?: string
@@ -143,6 +143,10 @@ const sectionOrder = [
   'bottom'
 ]
 
+const filteredBody = computed(() => {
+  return anchorizeStreamfield(data?.body) || []
+})
+
 // mimic HeadingBlock data shape for defined section headings
 const staticSectionHeadings = computed((): { [key: string]: BlockHeadingObject } | undefined => {
   if (data) {
@@ -184,8 +188,9 @@ const keyedCustomSections = computed(
           if (!acc[position]) {
             acc[position] = []
           }
+          const filteredContent = anchorizeStreamfield(section.content) || []
           acc[position].push(section.heading)
-          acc[position].push(...section.content)
+          acc[position].push(...filteredContent)
           return acc
         },
         {}
@@ -210,7 +215,8 @@ const consolidatedBlocks = computed(() => {
         blocks.push(staticSectionHeadings.value[section])
       }
       if (section !== 'materials' && section !== 'procedures') {
-        blocks.push(...data[section])
+        const filteredBlocks = anchorizeStreamfield(data[section]) || []
+        blocks.push(...filteredBlocks)
       } else if (section === 'procedures' && data.procedures?.length) {
         // get blocks in nested procedures
         data.procedures.forEach((item) => {
@@ -230,8 +236,8 @@ const consolidatedBlocks = computed(() => {
     blocks.push(...keyedCustomSections.value['bottom'])
   }
   // include body blocks
-  if (data?.body?.length) {
-    blocks.push(...data.body)
+  if (filteredBody.value) {
+    blocks.push(...filteredBody.value)
   }
 
   return blocks
@@ -248,7 +254,10 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
     if (data && data[section]) {
       sections.push({
         heading: staticSectionHeadings.value ? staticSectionHeadings.value[section] : undefined,
-        blocks: section !== 'materials' && section !== 'procedures' ? data[section] : undefined,
+        blocks:
+          section !== 'materials' && section !== 'procedures'
+            ? anchorizeStreamfield(data[section])
+            : undefined,
         text: section === 'materials' ? data[section] : undefined,
         procedures: section === 'procedures' ? data[section] : undefined,
         image: data[`${section}Image`]
@@ -269,6 +278,7 @@ const consolidatedSections = computed((): EduLessonSectionObject[] => {
 
   return filteredSections
 })
+
 const computedClass = computed((): string => {
   if (heroTitle.value) {
     return '-nav-offset'
@@ -390,8 +400,8 @@ const computedClass = computed((): string => {
 
     <!-- streamfield blocks -->
     <BlockStreamfield
-      v-if="data.body?.length"
-      :data="data.body"
+      v-if="filteredBody?.length"
+      :data="filteredBody"
     />
 
     <!-- related links -->

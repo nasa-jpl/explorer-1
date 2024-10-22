@@ -46,13 +46,13 @@ import NavSecondaryLink from './../NavSecondary/NavSecondaryLink.vue'
 import NavJumpMenuContent from './../NavJumpMenu/NavJumpMenuContent.vue'
 import type { BlockHeadingObject } from './../BlockHeading/BlockHeading.vue'
 import type { BlockTextObject } from './../BlockText/BlockText.vue'
-import type { BlockData, BreadcrumbPathObject } from './../../interfaces'
+import type { BlockData, BreadcrumbPathObject, StreamfieldBlockData } from './../../interfaces'
 import { getHeadingId } from '../../utils/getHeadingId'
 
 interface NavJumpMenuProps {
   title?: string
   jumpLinks?: BreadcrumbPathObject[]
-  blocks?: BlockData[] | BlockHeadingObject[] | BlockTextObject[]
+  blocks?: (StreamfieldBlockData | BlockData | BlockHeadingObject | BlockTextObject)[]
   headingLevel?: string
   invert?: boolean
   enabled?: boolean
