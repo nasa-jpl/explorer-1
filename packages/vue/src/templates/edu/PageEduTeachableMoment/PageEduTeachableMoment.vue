@@ -13,7 +13,7 @@ import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelate
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
-import { addHeadingAnchorsToRichTextBlock } from './../../../utils/getHeadingsFromRichText'
+import { addHeadingAnchorsToRichTextBlock } from './../../../utils/addHeadingAnchorsToRichTextBlock'
 
 interface PageEduTeachableMomentProps {
   data?: PageEduResourcesObject
@@ -103,7 +103,7 @@ const computedClass = computed((): string => {
       v-if="data.showJumpMenu"
       ref="PageEduTeachableMomentJumpMenu"
       :title="data.title"
-      :blocks="data.body"
+      :blocks="filteredBody"
       dropdown-text="In this Teachable Moment"
     />
 

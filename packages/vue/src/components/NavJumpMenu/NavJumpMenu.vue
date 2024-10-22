@@ -93,21 +93,39 @@ const theJumpLinks = computed(() => {
       )
     })
     // map to the correct data shape
-    // TODO This might have to change since RichTextBlock can contain multiple headings
-    const links: BreadcrumbPathObject[] = filteredBlocks.map((h) => {
-      return h.blockType === 'HeadingBlock'
-        ? ({
-            // @ts-expect-error using parameter that was added to BlockData
-            path: '#' + getHeadingId(h.heading, h.blockId),
-            title: h.heading
-          } as BreadcrumbPathObject)
-        : ({
-            // @ts-expect-error using parameter that was added to BlockData
-            // path: '#' + getRichTextHeadingId(h.value, h.id),
-            // title: getRichTextHeadingText(h.value)
-          } as BreadcrumbPathObject)
+    const links: (BreadcrumbPathObject | BreadcrumbPathObject[])[] = filteredBlocks.map((h) => {
+      let block = h
+      let blocks = []
+      if (h.blockType === 'HeadingBlock') {
+        block = {
+          // @ts-expect-error using parameter that was added to BlockData
+          path: '#' + getHeadingId(h.heading, h.blockId),
+          title: (h as BlockHeadingObject).heading
+        }
+      } else if (h.blockType === 'RichTextBlock') {
+        let text = (h as BlockTextObject).value
+        if (text) {
+          const regex = new RegExp(
+            `<${props.headingLevel} id="(.*?)">(.*?)<\/${props.headingLevel}>`,
+            'g'
+          )
+          const matches = text.matchAll(regex)
+          const headings = [...matches]
+          for (let arr of headings) {
+            const [_match, g1, g2] = arr
+            const block = {
+              path: '#' + g1,
+              title: g2
+            }
+            blocks.push(block)
+          }
+        }
+      }
+      return blocks.length
+        ? (blocks as unknown as BreadcrumbPathObject[])
+        : (block as unknown as BreadcrumbPathObject)
     })
-    return links
+    return links ? links.flat() : undefined
   }
   return []
 })

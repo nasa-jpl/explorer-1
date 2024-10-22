@@ -21,9 +21,3 @@ export const addHeadingAnchorsToRichTextBlock = (block: BlockTextObject, heading
   }
   return block
 }
-
-export const getHeadingsFromRichText = (block: BlockTextObject, headingLevel = 'h2') => {
-  if (headingLevel) {
-    return block
-  }
-}
