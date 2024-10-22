@@ -84,6 +84,7 @@ const filteredBody = computed(() => {
   }
   return data?.body
 })
+
 const computedClass = computed((): string => {
   if (heroInline.value || heroEmpty.value) {
     return 'pt-5 lg:pt-12'

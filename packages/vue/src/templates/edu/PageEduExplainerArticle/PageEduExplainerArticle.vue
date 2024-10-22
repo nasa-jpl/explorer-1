@@ -12,6 +12,7 @@ import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelate
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
+import { addHeadingAnchorsToRichTextBlock } from './../../../utils/addHeadingAnchorsToRichTextBlock'
 
 export default defineComponent({
   name: 'PageEduExplainerArticle',
@@ -71,6 +72,21 @@ export default defineComponent({
       }
       return false
     },
+    // adds anchors to headings within RichTextBlock
+    filteredBody() {
+      const blocks = this.data?.body
+      if (blocks) {
+        // @ts-expect-error
+        const filteredBlocks = []
+        // @ts-expect-error
+        blocks.forEach((block) => {
+          filteredBlocks.push(addHeadingAnchorsToRichTextBlock(block))
+        })
+        // @ts-expect-error
+        return filteredBlocks
+      }
+      return this.data?.body
+    },
     computedClass(): string {
       if (this.heroInline || this.heroEmpty) {
         return 'pt-5 lg:pt-12'
@@ -100,7 +116,7 @@ export default defineComponent({
     <NavJumpMenu
       v-if="data.showJumpMenu"
       :title="data.title"
-      :blocks="data.body"
+      :blocks="filteredBody"
       dropdown-text="In this article"
     />
 
@@ -182,7 +198,7 @@ export default defineComponent({
     <!-- streamfield blocks -->
     <BlockStreamfield
       itemprop="articleBody"
-      :data="data.body"
+      :data="filteredBody"
     />
 
     <!-- related links -->
