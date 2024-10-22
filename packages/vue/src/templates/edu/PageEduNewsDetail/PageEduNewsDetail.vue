@@ -11,7 +11,7 @@ import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
-import { addHeadingAnchorsToRichTextBlock } from './../../../utils/addHeadingAnchorsToRichTextBlock'
+import { anchorizeStreamfield } from './../../../utils/anchorizeStreamfield'
 
 interface PageEduNewsDetailObject extends PageObject {
   readTime: string
@@ -44,20 +44,9 @@ const heroInline = computed(() => {
   return false
 })
 
-// adds anchors to headings within RichTextBlock
 const filteredBody = computed(() => {
-  const blocks = props.data?.body
-  if (blocks) {
-    // @ts-expect-error
-    const filteredBlocks = []
-    blocks.forEach((block) => {
-      // @ts-expect-error
-      filteredBlocks.push(addHeadingAnchorsToRichTextBlock(block))
-    })
-    // @ts-expect-error
-    return filteredBlocks
-  }
-  return props.data?.body
+  // adds anchors to headings within RichTextBlock
+  return anchorizeStreamfield(props.data?.body)
 })
 
 const computedClass = computed(() => {

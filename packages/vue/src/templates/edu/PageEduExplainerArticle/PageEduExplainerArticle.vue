@@ -12,7 +12,7 @@ import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelate
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
-import { addHeadingAnchorsToRichTextBlock } from './../../../utils/addHeadingAnchorsToRichTextBlock'
+import { anchorizeStreamfield } from './../../../utils/anchorizeStreamfield'
 
 export default defineComponent({
   name: 'PageEduExplainerArticle',
@@ -72,20 +72,9 @@ export default defineComponent({
       }
       return false
     },
-    // adds anchors to headings within RichTextBlock
     filteredBody() {
-      const blocks = this.data?.body
-      if (blocks) {
-        // @ts-expect-error
-        const filteredBlocks = []
-        // @ts-expect-error
-        blocks.forEach((block) => {
-          filteredBlocks.push(addHeadingAnchorsToRichTextBlock(block))
-        })
-        // @ts-expect-error
-        return filteredBlocks
-      }
-      return this.data?.body
+      // adds anchors to headings within RichTextBlock
+      return anchorizeStreamfield(this.data?.body)
     },
     computedClass(): string {
       if (this.heroInline || this.heroEmpty) {

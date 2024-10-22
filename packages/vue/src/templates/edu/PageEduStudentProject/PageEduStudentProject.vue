@@ -24,9 +24,10 @@ import PageEduStudentProjectSection, {
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
-
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
 import StudentProjectBadge from '@explorer-1/common/src/images/svg/student-project-badge.svg'
+import { anchorizeStreamfield } from './../../../utils/anchorizeStreamfield'
+
 const route = useRoute()
 interface EduStudentProjectSectionObject extends PageEduStudentProjectSectionProps {
   type?: string
@@ -186,6 +187,7 @@ const stepHeadings = computed(() => {
   if (steps?.length) {
     steps.forEach((step) => {
       if (step.heading) headings.push(stringAsHeadingBlockData(step.heading, 'h3'))
+      // TODO add step heading logic here for h3s
     })
   }
   return headings

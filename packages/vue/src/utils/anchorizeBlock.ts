@@ -1,7 +1,7 @@
 import type { BlockTextObject } from './../components/BlockText/BlockText.vue'
 import { getHeadingId } from './getHeadingId'
 
-export const addHeadingAnchorsToRichTextBlock = (block: BlockTextObject, headingLevel = 'h2') => {
+export const anchorizeBlock = (block: BlockTextObject, headingLevel = 'h2') => {
   if (block?.blockType === 'RichTextBlock') {
     const regex = new RegExp(
       `<${headingLevel} data-block-key="(.*?)">(.*?)<\/${headingLevel}>`,

@@ -12,7 +12,7 @@ import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
 import ShareButtonsEdu from '../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
-import { addHeadingAnchorsToRichTextBlock } from './../../../utils/addHeadingAnchorsToRichTextBlock'
+import { anchorizeStreamfield } from './../../../utils/anchorizeStreamfield'
 
 interface PageEduCollectionsDetail extends PageEduResourcesObject {
   heroImage: ImageObject
@@ -40,20 +40,9 @@ const heroInline = computed((): boolean => {
   return data?.heroPosition === 'inline'
 })
 
-// adds anchors to headings within RichTextBlock
 const filteredBody = computed(() => {
-  const blocks = data?.body
-  if (blocks) {
-    // @ts-expect-error
-    const filteredBlocks = []
-    blocks.forEach((block) => {
-      // @ts-expect-error
-      filteredBlocks.push(addHeadingAnchorsToRichTextBlock(block))
-    })
-    // @ts-expect-error
-    return filteredBlocks
-  }
-  return data?.body
+  // adds anchors to headings within RichTextBlock
+  return anchorizeStreamfield(data?.body)
 })
 
 const computedClass = computed((): string => {
