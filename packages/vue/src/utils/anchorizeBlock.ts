@@ -3,10 +3,7 @@ import { getHeadingId } from './getHeadingId'
 
 export const anchorizeBlock = (block: BlockTextObject, headingLevel = 'h2') => {
   if (block?.blockType === 'RichTextBlock') {
-    const regex = new RegExp(
-      `<${headingLevel} data-block-key="(.*?)">(.*?)<\/${headingLevel}>`,
-      'g'
-    )
+    const regex = new RegExp(`<${headingLevel} data-block-key="(.*?)">(.*?)</${headingLevel}>`, 'g')
     let text = block?.value
     if (text) {
       text = text.replaceAll(regex, (_match, g1, g2) => {

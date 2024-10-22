@@ -106,7 +106,7 @@ const theJumpLinks = computed(() => {
         let text = (h as BlockTextObject).value
         if (text) {
           const regex = new RegExp(
-            `<${props.headingLevel} id="(.*?)">(.*?)<\/${props.headingLevel}>`,
+            `<${props.headingLevel} id="(.*?)">(.*?)</${props.headingLevel}>`,
             'g'
           )
           const matches = text.matchAll(regex)
