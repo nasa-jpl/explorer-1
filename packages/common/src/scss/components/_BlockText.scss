@@ -32,6 +32,13 @@
     &:last-child {
       @apply mb-0;
     }
+    // from BlockHeading.vue
+    &:target {
+      @apply scroll-mt-14;
+      @screen lg {
+        @apply scroll-mt-[7rem];
+      }
+    }
   }
 
   hr {

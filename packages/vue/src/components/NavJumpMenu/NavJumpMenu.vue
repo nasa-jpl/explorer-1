@@ -45,19 +45,18 @@ import NavSecondaryDropdown from './../NavSecondary/NavSecondaryDropdown.vue'
 import NavSecondaryLink from './../NavSecondary/NavSecondaryLink.vue'
 import NavJumpMenuContent from './../NavJumpMenu/NavJumpMenuContent.vue'
 import type { BlockHeadingObject } from './../BlockHeading/BlockHeading.vue'
-import type { BlockData, BreadcrumbPathObject } from './../../interfaces'
+import type { BlockTextObject } from './../BlockText/BlockText.vue'
+import type { BlockData, BreadcrumbPathObject, StreamfieldBlockData } from './../../interfaces'
 import { getHeadingId } from '../../utils/getHeadingId'
 
 interface NavJumpMenuProps {
   title?: string
   jumpLinks?: BreadcrumbPathObject[]
-  blocks?: BlockData[] | BlockHeadingObject[]
+  blocks?: (StreamfieldBlockData | BlockData | BlockHeadingObject | BlockTextObject)[]
   headingLevel?: string
   invert?: boolean
   enabled?: boolean
   dropdownText?: string
-  // stepsNumbering?: boolean
-  // stepClasses?: string
 }
 
 const props = withDefaults(defineProps<NavJumpMenuProps>(), {
@@ -69,8 +68,6 @@ const props = withDefaults(defineProps<NavJumpMenuProps>(), {
   invert: true,
   hidden: false,
   dropdownText: 'Jump to…'
-  // stepsNumbering: false,
-  // stepClasses: 'text-primary'
 })
 
 const initialized = ref(false)
@@ -88,17 +85,47 @@ const theJumpLinks = computed(() => {
       }
     })
     const filteredBlocks = indexedBlocks.filter((b) => {
-      return b.blockType === 'HeadingBlock' && b.level === props.headingLevel
+      return (
+        (b.blockType === 'HeadingBlock' &&
+          (b as BlockHeadingObject).level === props.headingLevel) ||
+        (b.blockType === 'RichTextBlock' &&
+          (b as BlockTextObject).value.includes(`<${props.headingLevel}`))
+      )
     })
     // map to the correct data shape
-    const links: BreadcrumbPathObject[] = filteredBlocks.map((h) => {
-      return {
-        // @ts-expect-error using parameter that was added to BlockData
-        path: '#' + getHeadingId(h.heading, h.blockId),
-        title: h.heading
-      } as BreadcrumbPathObject
+    const links: (BreadcrumbPathObject | BreadcrumbPathObject[])[] = filteredBlocks.map((h) => {
+      let block = h
+      let blocks = []
+      if (h.blockType === 'HeadingBlock') {
+        block = {
+          // @ts-expect-error using parameter that was added to BlockData
+          path: '#' + getHeadingId(h.heading, h.blockId),
+          title: (h as BlockHeadingObject).heading
+        }
+      } else if (h.blockType === 'RichTextBlock') {
+        let text = (h as BlockTextObject).value
+        if (text) {
+          const regex = new RegExp(
+            `<${props.headingLevel} id="(.*?)">(.*?)</${props.headingLevel}>`,
+            'g'
+          )
+          const matches = text.matchAll(regex)
+          const headings = [...matches]
+          for (let arr of headings) {
+            const [_match, g1, g2] = arr
+            const block = {
+              path: '#' + g1,
+              title: g2
+            }
+            blocks.push(block)
+          }
+        }
+      }
+      return blocks.length
+        ? (blocks as unknown as BreadcrumbPathObject[])
+        : (block as unknown as BreadcrumbPathObject)
     })
-    return links
+    return links ? links.flat() : undefined
   }
   return []
 })
