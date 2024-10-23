@@ -12,6 +12,10 @@ interface Variants {
   [key: string]: string
 }
 
+export interface BlockTextObject {
+  blockType?: string
+  value: string
+}
 export const variants: Variants = {
   small: 'text-body-sm -small',
   medium: 'text-body-md -medium',
