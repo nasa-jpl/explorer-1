@@ -75,7 +75,7 @@ const computedClass = computed((): string => {
       :image="data.heroImage"
       :summary="data.heroSummary"
       :custom-pill-type="data.__typename"
-      :class="!data.showMetaPanel ? 'mb-10' : ''"
+      :class="!data.showMetaPanel && !data.breadcrumb ? 'mb-10' : ''"
     />
 
     <!-- secondary nav -->
