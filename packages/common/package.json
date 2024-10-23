@@ -1,6 +1,6 @@
 {
   "name": "@explorer-1/common",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "private": false,
   "publishConfig": {
     "access": "public"
