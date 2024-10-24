@@ -277,6 +277,7 @@ export default defineComponent({
         this.reveal()
         const request = {
           method: 'POST',
+          mode: 'no-cors',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
