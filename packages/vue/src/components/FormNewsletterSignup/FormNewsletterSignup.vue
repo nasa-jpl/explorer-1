@@ -60,7 +60,7 @@
             label="Zip"
             type="text"
             maxlength="10"
-            pattern="[0-9]{5-10}"
+            pattern="[0-9]{5,10}"
             title="Five digit zip code"
             placeholder="enter your 5-digit zip code"
           />
