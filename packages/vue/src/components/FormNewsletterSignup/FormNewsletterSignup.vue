@@ -60,7 +60,7 @@
             label="Zip"
             type="text"
             maxlength="10"
-            pattern="[0-9]{5-10}"
+            pattern="[0-9]{5}(-[0-9]{4})?"
             title="Five digit zip code"
             placeholder="enter your 5-digit zip code"
           />
@@ -277,6 +277,7 @@ export default defineComponent({
         this.reveal()
         const request = {
           method: 'POST',
+          mode: 'no-cors',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
