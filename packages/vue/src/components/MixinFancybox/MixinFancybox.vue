@@ -256,16 +256,14 @@ export default defineComponent({
         if (slide.type === 'image') {
           caption = `<div class="mx-auto container">
               ${slide.title ? `<h6 class="font-semibold text-4xl mb-1">${slide.title}</h6>` : ''}
-              ${
-                caption.length
-                  ? `<div class="caption inline sm:flex text-body-md pb-2 mr-2 sm:mr-0"><div class="inline">${caption}</div></div>`
-                  : ''
-              }
-              ${
-                slide.url
-                  ? `<a href="${slide.url}" class="inline-block text-body-md whitespace-nowrap relative text-primary can-hover:hover:text-primary-dark cursor-pointer focus:outline-none" title="Full Image Details">Full Image Details</a>`
-                  : ''
-              }
+              ${caption.length
+              ? `<div class="caption inline sm:flex text-body-md pb-2 mr-2 sm:mr-0"><div class="inline">${caption}</div></div>`
+              : ''
+            }
+              ${slide.url
+              ? `<a href="${slide.url}" class="inline-block text-body-md whitespace-nowrap relative text-primary can-hover:hover:text-primary-dark cursor-pointer focus:outline-none" title="Full Image Details">Full Image Details</a>`
+              : ''
+            }
             </div>`
         }
 
@@ -281,26 +279,11 @@ export default defineComponent({
 })
 </script>
 <template>
-  <a
-    class="MixinFancybox group cursor-pointer block"
-    role="link"
-    aria-label="Open in Lightbox"
-    :href="src"
-    :data-fancybox="galleryName || ''"
-    :data-src="src"
-    :data-width="src ? src.width : null"
-    :data-height="src ? src.height : null"
-    :data-srcset="srcSet"
-    :data-sizes="sizes"
-    :data-theme="computedClass"
-    :data-caption="computedCaption"
-    :data-title="title"
-    :data-animated="animated"
-    :data-download-src="downloadSrc"
-    :data-url="detailUrl"
-    :data-max-width="src ? src.width : null"
-    @click="$emit('click')"
-  >
+  <a class="MixinFancybox group cursor-pointer block" role="link" aria-label="Open in Lightbox" :href="src"
+    :data-fancybox="galleryName || ''" :data-src="src" :data-width="src ? src.width : null"
+    :data-height="src ? src.height : null" :data-srcset="srcSet" :data-sizes="sizes" :data-theme="computedClass"
+    :data-caption="computedCaption" :data-title="title" :data-animated="animated" :data-download-src="downloadSrc"
+    :data-url="detailUrl" :data-max-width="src ? src.width : null" @click="$emit('click')">
     <MixinFancyboxOpenButton />
     <slot></slot>
   </a>
