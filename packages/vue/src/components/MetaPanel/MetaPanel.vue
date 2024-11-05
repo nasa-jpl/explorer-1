@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import {
-  MetaPanelTheme,
   EduResourcesGradeLevel,
-  EduResourceStandardItem,
   EduResourcesSubject,
-  EduResourcesTime
+  EduResourceStandardItem,
+  EduResourcesTime,
+  MetaPanelTheme
 } from './../../interfaces'
-import MetaPanelAccordion from './../MetaPanelAccordion/MetaPanelAccordion.vue'
-import MetaPanelItems from './../MetaPanelItems/MetaPanelItems.vue'
+import BaseButton from './../BaseButton/BaseButton.vue'
 import IconMinus from './../Icons/IconMinus.vue'
 import IconPlus from './../Icons/IconPlus.vue'
-import BaseButton from './../BaseButton/BaseButton.vue'
+import MetaPanelAccordion from './../MetaPanelAccordion/MetaPanelAccordion.vue'
+import MetaPanelItems from './../MetaPanelItems/MetaPanelItems.vue'
 
 interface MetaPanelProps {
   button?: string
@@ -117,8 +117,8 @@ const standardsIste = computed(() => {
     aria-label="Metadata"
     class="MetaPanel z-20 relative overflow-hidden"
     :class="{
-      '-mt-14': negativeTop,
-      '-mb-14': negativeBottom
+      '-mt-4 lg:-mt-10 xl:-mt-14': negativeTop,
+      '-mb-4 lg:-mb-10 xl:-mb-14': negativeBottom
     }"
   >
     <div class="MixedBleedGrid pl-4 lg:pl-0">
