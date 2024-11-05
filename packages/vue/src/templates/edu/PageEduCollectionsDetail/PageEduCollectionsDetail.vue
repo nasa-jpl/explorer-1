@@ -12,6 +12,7 @@ import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
 import MetaPanel from '../../../components/MetaPanel/MetaPanel.vue'
 import ShareButtonsEdu from '../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
+import { anchorizeStreamfield } from './../../../utils/anchorizeStreamfield'
 
 interface PageEduCollectionsDetail extends PageEduResourcesObject {
   heroImage: ImageObject
@@ -39,6 +40,11 @@ const heroInline = computed((): boolean => {
   return data?.heroPosition === 'inline'
 })
 
+const filteredBody = computed(() => {
+  // adds anchors to headings within RichTextBlock
+  return anchorizeStreamfield(data?.body)
+})
+
 const computedClass = computed((): string => {
   if ((heroInline.value || !data?.heroImage) && !data?.breadcrumb) {
     return 'pt-5 lg:pt-12'
@@ -58,7 +64,7 @@ const computedClass = computed((): string => {
       v-if="data.showJumpMenu && !data.breadcrumb"
       ref="PageEduCollectionsDetailJumpMenu"
       :title="data.title"
-      :blocks="data.body"
+      :blocks="filteredBody"
       dropdown-text="In this collection"
     />
 
@@ -69,7 +75,7 @@ const computedClass = computed((): string => {
       :image="data.heroImage"
       :summary="data.heroSummary"
       :custom-pill-type="data.__typename"
-      :class="!data.showMetaPanel ? 'mb-10' : ''"
+      :class="!data.showMetaPanel && !data.breadcrumb ? 'mb-10' : ''"
     />
 
     <!-- secondary nav -->
@@ -137,7 +143,7 @@ const computedClass = computed((): string => {
     </LayoutHelper>
 
     <!-- streamfield blocks -->
-    <BlockStreamfield :data="data.body" />
+    <BlockStreamfield :data="filteredBody" />
 
     <!-- related links -->
     <LayoutHelper

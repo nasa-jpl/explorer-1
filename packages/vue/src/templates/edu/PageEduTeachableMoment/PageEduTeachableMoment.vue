@@ -13,6 +13,7 @@ import BlockRelatedLinks from '../../../components/BlockRelatedLinks/BlockRelate
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
+import { anchorizeStreamfield } from './../../../utils/anchorizeStreamfield'
 
 interface PageEduTeachableMomentProps {
   data?: PageEduResourcesObject
@@ -68,6 +69,11 @@ const heroInline = computed((): boolean => {
   return false
 })
 
+const filteredBody = computed(() => {
+  // adds anchors to headings within RichTextBlock
+  return anchorizeStreamfield(data?.body)
+})
+
 const computedClass = computed((): string => {
   if (heroInline.value || heroEmpty.value) {
     return 'pt-5 lg:pt-12'
@@ -87,7 +93,7 @@ const computedClass = computed((): string => {
       v-if="data.showJumpMenu"
       ref="PageEduTeachableMomentJumpMenu"
       :title="data.title"
-      :blocks="data.body"
+      :blocks="filteredBody"
       dropdown-text="In this Teachable Moment"
     />
 
@@ -160,7 +166,7 @@ const computedClass = computed((): string => {
     </LayoutHelper>
 
     <!-- streamfield blocks -->
-    <BlockStreamfield :data="data.body" />
+    <BlockStreamfield :data="filteredBody" />
 
     <!-- related links -->
     <LayoutHelper

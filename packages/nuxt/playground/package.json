@@ -14,6 +14,6 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "nuxt": "^3.11.2"
+    "nuxt": "^3.13.2"
   }
 }
