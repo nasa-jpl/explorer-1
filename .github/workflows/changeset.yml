@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 20.18.0
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: 9
