@@ -22,6 +22,7 @@
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "scripts": {
+    "changeset": "pnpm exec changeset",
     "clean": "pnpm clean:nodemodules && pnpm clean:dist && pnpm clean:nuxt",
     "clean:nodemodules": "rimraf \"**/node_modules\"",
     "clean:cache": "rimraf \"**/.cache\"",
@@ -36,7 +37,7 @@
     "lint:fix": "pnpm run -r --if-present lint:fix"
   },
   "engines": {
-    "node": "^20.13.1",
+    "node": "^20.18.0",
     "pnpm": ">=9.1.1",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm"
@@ -49,6 +50,10 @@
     "@explorer-1/vue": "workspace:^",
     "@explorer-1/vue-storybook": "workspace:^",
     "@types/node": "^20.12.12"
+  },
+  "dependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.9"
   },
   "resolutions": {
     "jackspeak": "2.1.1"

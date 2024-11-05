@@ -46,6 +46,10 @@ i: install
 clean:
 	pnpm run clean
 
+## Version: Create a Changeset (walkthrough versioning)
+changeset:
+	pnpm run changeset
+
 ## Refresh: remove node_modules and install
 refresh:
 	pnpm run refresh

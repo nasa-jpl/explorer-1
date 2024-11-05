@@ -12,7 +12,7 @@
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "engines": {
-    "node": "^20.13.1",
+    "node": "^20.18.0",
     "npm": "^10.5.2"
   },
   "prettier": "@explorer-1/prettier-config",
