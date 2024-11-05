@@ -95,13 +95,6 @@ onMounted(() => {
   </div>
 </template>
 <style lang="scss" scoped>
-input[type='search'] {
-  transform: scale(0.875);
-  transform-origin: left;
-  @media screen and (min-width: 1024px) {
-    transform: scale(1);
-  }
-}
 .custom-focus {
   input {
     outline: none;
