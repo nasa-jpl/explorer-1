@@ -57,9 +57,5 @@ export default defineComponent({
   .EmailInput::placeholder {
     @apply text-white text-opacity-40;
   }
-  input[type='email'].EmailInput {
-    transform: scale(0.875);
-    transform-origin: left;
-  }
 }
 </style>
