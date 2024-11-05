@@ -135,8 +135,11 @@ const { heading, blocks, image, procedures, text } = reactive(props)
       }
     }
     ol.PageEduProcedureSectionSingleStep {
-      @apply list-none indent-7 pr-4 xl:indent-0.5 xl:pr-0.5;
+      @apply list-none pl-7;
       text-wrap: pretty;
+      @screen lg {
+        @apply pl-0;
+      }
       > li {
         @apply relative w-full;
         counter-increment: step;
