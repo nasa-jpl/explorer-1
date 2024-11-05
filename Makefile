@@ -31,7 +31,6 @@ else
 	@make nvm-use
 	@echo '⏳ it can take a few minutes to install all of the $(YELLOW)node_modules$(RESET)'
 	@echo '🙆 this could be a good opportunity to have a stretch... '
-	@echo '⏭️  postinstall will check $(GREEN)workspaces$(RESET) with $(YELLOW)manypkg$(RESET)...'
 endif
 
 nvm:

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import IconSearch from './../Icons/IconSearch.vue'
 
 interface SearchInputProps {
@@ -69,7 +69,7 @@ onMounted(() => {
     <input
       ref="searchQueryRef"
       v-model="model"
-      class="pl-14 h-full focus:ring-2 relative z-10 w-full px-5 text-sm md:text-base lg:text-lg bg-transparent border-0"
+      class="pl-14 h-full focus:ring-2 relative z-10 w-full px-5 text-base lg:text-lg bg-transparent border-0"
       :class="{
         'text-gray-dark': defaultColors,
         'py-1': underlinedInput,
@@ -95,6 +95,13 @@ onMounted(() => {
   </div>
 </template>
 <style lang="scss" scoped>
+input[type='search'] {
+  transform: scale(0.875);
+  transform-origin: left;
+  @media screen and (min-width: 1024px) {
+    transform: scale(1);
+  }
+}
 .custom-focus {
   input {
     outline: none;
