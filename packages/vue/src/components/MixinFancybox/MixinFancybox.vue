@@ -1,9 +1,12 @@
+<!-- eslint-disable vue/require-explicit-emits -->
+<!-- eslint-disable vue/require-default-prop -->
 <script lang="ts">
+// MixinFancybox.vue
 // @ts-nocheck
-import { defineComponent } from 'vue'
 import { Fancybox } from '@fancyapps/ui'
-import { Fullscreen } from '@fancyapps/ui/src/shared/utils/Fullscreen.js'
 import '@fancyapps/ui/dist/fancybox.css'
+import { Fullscreen } from '@fancyapps/ui/src/shared/utils/Fullscreen.js'
+import { defineComponent } from 'vue'
 import MixinFancyboxOpenButton from './MixinFancyboxOpenButton.vue'
 
 export const fancyboxThemes = {
