@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.2.91
+
+### Patch Changes
+
+- fac37c6: Fixing hero title options on Content Pages
+
 ## 0.2.90
 
 ### Patch Changes
