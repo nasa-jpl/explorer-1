@@ -57,7 +57,7 @@ export default defineComponent({
       return false
     },
     heroTitle() {
-      return (this.data?.heroImage && !this.heroInline && this.data?.displayTitleInHero)
+      return this.data?.heroImage && !this.heroInline && this.data?.displayTitleInHero
     },
     hideH1() {
       if (route?.path === '/a-plan-for-jpl') {
@@ -109,14 +109,14 @@ export default defineComponent({
       :class="h1LayoutHelperClasses"
     >
       <DetailHeadline
-      v-if="!heroTitle"
+        v-if="!heroTitle"
         :title="data.title"
         :label="displayLabel"
         :class="{ 'sr-only': hideH1 }"
       />
       <ShareButtonsEdu
         v-if="themeStore.isEdu && data?.url"
-        :class="{'mt-4': !heroTitle}"
+        :class="{ 'mt-4': !heroTitle }"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
