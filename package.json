@@ -22,6 +22,7 @@
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "scripts": {
+    "changeset": "pnpm exec changeset",
     "clean": "pnpm clean:nodemodules && pnpm clean:dist && pnpm clean:nuxt",
     "clean:nodemodules": "rimraf \"**/node_modules\"",
     "clean:cache": "rimraf \"**/.cache\"",
