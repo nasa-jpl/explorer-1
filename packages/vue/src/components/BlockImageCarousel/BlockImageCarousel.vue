@@ -52,7 +52,7 @@
         >
           <span
             class="inline-block w-3 h-3 rounded-full"
-            :class="currentIndex === index ? 'bg-jpl-red' : 'bg-gray-light-mid'"
+            :class="currentIndex === index ? 'bg-primary' : 'bg-gray-light-mid'"
           ></span>
         </button>
       </div>
@@ -60,17 +60,17 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
+import swiperOptions from '@explorer-1/common/src/js/_swiperOptions'
 import Swiper from 'swiper'
 import { A11y, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
-import swiperOptions from '@explorer-1/common/src/js/_swiperOptions'
-import BlockImageCarouselItem from './../BlockImageCarouselItem/BlockImageCarouselItem.vue'
-import IconPrev from './../Icons/IconPrev.vue'
-import IconNext from './../Icons/IconNext.vue'
-import BaseButton from './../BaseButton/BaseButton.vue'
+import type { PropType } from 'vue'
+import { defineComponent } from 'vue'
 import type { ImageObject } from '../../interfaces'
+import BaseButton from './../BaseButton/BaseButton.vue'
+import BlockImageCarouselItem from './../BlockImageCarouselItem/BlockImageCarouselItem.vue'
+import IconNext from './../Icons/IconNext.vue'
+import IconPrev from './../Icons/IconPrev.vue'
 const BlockImageCarouselOptions = swiperOptions.BlockImageCarousel
 
 Swiper.use([Navigation, A11y])
