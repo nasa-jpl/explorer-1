@@ -28,6 +28,22 @@ export default {
 export const BaseStory = {
   name: 'PageContent',
   args: {
-    data: { ...ContentPageData, displayLabel: undefined, parent: { title: 'Parent Page' } }
+    data: {
+      ...ContentPageData,
+      displayLabel: undefined,
+      parent: { title: 'Parent Page' }
+    }
+  }
+}
+export const HeroTitle = {
+  args: {
+    data: {
+      ...ContentPageData,
+      displayLabel: undefined,
+      parent: { title: 'Parent Page' },
+      displayTitleInHero: true,
+      heroSummary: 'Test',
+      heroPosition: 'full'
+    }
   }
 }

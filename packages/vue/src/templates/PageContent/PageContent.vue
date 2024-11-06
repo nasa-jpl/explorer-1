@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
+import HeroLarge from './../../components/HeroLarge/HeroLarge.vue'
 import HeroMedia from './../../components/HeroMedia/HeroMedia.vue'
 import NavSecondary from './../../components/NavSecondary/NavSecondary.vue'
 import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
@@ -21,6 +22,7 @@ const route = useRoute()
 export default defineComponent({
   name: 'PageContent',
   components: {
+    HeroLarge,
     HeroMedia,
     NavSecondary,
     LayoutHelper,
@@ -54,6 +56,9 @@ export default defineComponent({
       }
       return false
     },
+    heroTitle() {
+      return (this.data?.heroImage && !this.heroInline && this.data?.displayTitleInHero)
+    },
     hideH1() {
       if (route?.path === '/a-plan-for-jpl') {
         return true
@@ -77,8 +82,14 @@ export default defineComponent({
     :class="{ '-nav-offset': !heroInline && data.heroImage }"
   >
     <!-- hero image -->
+    <HeroLarge
+      v-if="heroTitle"
+      :title="data.title"
+      :image="data.heroImage"
+      :summary="data.heroSummary"
+    />
     <HeroMedia
-      v-if="data.heroImage && !heroInline"
+      v-else-if="!heroTitle && data.heroImage && !heroInline"
       class="md:mb-0 mb-10"
       :image="data.heroImage"
       :caption="data.heroImageCaption"
@@ -98,13 +109,14 @@ export default defineComponent({
       :class="h1LayoutHelperClasses"
     >
       <DetailHeadline
+      v-if="!heroTitle"
         :title="data.title"
         :label="displayLabel"
         :class="{ 'sr-only': hideH1 }"
       />
       <ShareButtonsEdu
         v-if="themeStore.isEdu && data?.url"
-        class="mt-4"
+        :class="{'mt-4': !heroTitle}"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
