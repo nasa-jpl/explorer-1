@@ -42,7 +42,7 @@ export const HeroTitle = {
       displayLabel: undefined,
       parent: { title: 'Parent Page' },
       displayTitleInHero: true,
-      heroSummary: 'Test',
+      heroSummary: 'Text appears below the title',
       heroPosition: 'full'
     }
   }
