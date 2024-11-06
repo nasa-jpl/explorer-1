@@ -3,7 +3,7 @@
     <div class="border-opacity-40 relative flex items-center border border-white">
       <input
         v-model="email"
-        class="EmailInput border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-sm text-white bg-transparent"
+        class="EmailInput text-base border-0 text-opacity-90 pl-14 relative z-10 w-full py-3 pr-3 text-white bg-transparent"
         type="email"
         name="email"
         required
