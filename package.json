@@ -51,6 +51,10 @@
     "@explorer-1/vue-storybook": "workspace:^",
     "@types/node": "^20.12.12"
   },
+  "dependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.9"
+  },
   "resolutions": {
     "jackspeak": "2.1.1"
   },
