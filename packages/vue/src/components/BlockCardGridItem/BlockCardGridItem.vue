@@ -5,6 +5,7 @@
     :to="link?.page?.url ? link.page.url : undefined"
     :href="link?.externalLink ? link?.externalLink : undefined"
     class="BlockCardGridItem group"
+    :class="wrapperClass"
     external-target-blank
   >
     <BlockCardGridItemElement
@@ -14,6 +15,7 @@
   </BaseLink>
   <BlockCardGridItemElement
     v-else
+    :class="wrapperClass"
     v-bind="$attrs"
   />
 </template>
@@ -32,6 +34,11 @@ export default defineComponent({
   props: {
     link: {
       type: Object as PropType<LinkObject>,
+      required: false,
+      default: undefined
+    },
+    wrapperClass: {
+      type: String,
       required: false,
       default: undefined
     }
