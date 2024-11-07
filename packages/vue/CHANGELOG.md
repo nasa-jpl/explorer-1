@@ -1,5 +1,12 @@
 # @explorer-1/vue
 
+## 0.2.93
+
+### Patch Changes
+
+- 907df23: Reverting edubeta to edu
+- 4e61269: restoring changes from main with no dependency updates'
+
 ## 0.2.91
 
 ### Patch Changes
