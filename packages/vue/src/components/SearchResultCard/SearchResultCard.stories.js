@@ -46,10 +46,12 @@ export const EventCard = {
     ...SearchResultCardData,
     isEvents: true,
     type: 'Event',
-    startTime: '00:00:00-08:00',
-    endTime: '23:59:59.999999-08:00',
-    startDate: '2021-11-11',
-    endDate: '2021-11-11',
+    endDate: '2028-02-26',
+    endTime: '12:00:00',
+    startDate: '2028-02-26',
+    startTime: '08:00:00',
+    startDatetime: '2028-02-26T08:00:00-08:00',
+    endDatetime: '2028-02-26T12:00:00-08:00',
     location: 'On lab',
     compact: false
   }
