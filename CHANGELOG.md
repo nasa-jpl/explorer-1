@@ -1,5 +1,12 @@
 # explorer-1
 
+## 3.2.93
+
+### Patch Changes
+
+- 4e61269: restoring changes from main with no dependency updates'
+- 907df23: package version updates for publishing
+
 ## 3.2.91
 
 ### Patch Changes
