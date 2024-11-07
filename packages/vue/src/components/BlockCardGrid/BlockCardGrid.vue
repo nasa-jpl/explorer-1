@@ -28,6 +28,7 @@
         :title="card.title"
         :text="card.description"
         :image="card.image"
+        :link="card.link"
         class="swiper-slide mb-5"
       />
     </MixinCarousel>
