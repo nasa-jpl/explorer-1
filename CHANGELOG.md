@@ -1,5 +1,17 @@
 # explorer-1
 
+## 3.2.91
+
+### Patch Changes
+
+- fac37c6: Fixing hero title options on Content Pages
+
+## 3.2.90
+
+### Patch Changes
+
+- 9892b68: reverts back to v0.2.87 dependencies to get listing pages working again
+
 ## 3.2.89
 
 ### Patch Changes
