@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.2.94
+
+### Patch Changes
+
+- 44c2b37: Bumping package version for publishing
+
 ## 3.2.93
 
 ### Patch Changes

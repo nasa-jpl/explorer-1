@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.2.94
+
+### Patch Changes
+
+- 28d3e9f: Fixing event times in search result listings
+
 ## 0.2.93
 
 ### Patch Changes
