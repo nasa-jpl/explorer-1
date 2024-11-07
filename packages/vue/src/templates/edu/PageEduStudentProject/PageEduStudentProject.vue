@@ -24,9 +24,9 @@ import PageEduStudentProjectSection, {
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
-
 import { HeadingLevel } from '../../../components/BaseHeading/BaseHeading.vue'
 import StudentProjectBadge from '@explorer-1/common/src/images/svg/student-project-badge.svg'
+
 const route = useRoute()
 interface EduStudentProjectSectionObject extends PageEduStudentProjectSectionProps {
   type?: string

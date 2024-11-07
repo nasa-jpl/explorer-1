@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import type { ImageObject, StreamfieldBlockData } from './../../../interfaces'
+import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import BlockHeading, {
   type BlockHeadingObject
 } from './../../../components/BlockHeading/BlockHeading.vue'
-import type { EduLessonProcedure } from './PageEduLesson.vue'
-import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
-import BlockText from './../../../components/BlockText/BlockText.vue'
-import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
+import BlockText from './../../../components/BlockText/BlockText.vue'
+import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
+import type { ImageObject, StreamfieldBlockData } from './../../../interfaces'
+import type { EduLessonProcedure } from './PageEduLesson.vue'
 
 export interface PageEduLessonSectionProps {
   heading?: BlockHeadingObject
@@ -135,7 +135,11 @@ const { heading, blocks, image, procedures, text } = reactive(props)
       }
     }
     ol.PageEduProcedureSectionSingleStep {
-      @apply list-none;
+      @apply list-none pl-7;
+      text-wrap: pretty;
+      @screen lg {
+        @apply pl-0;
+      }
       > li {
         @apply relative w-full;
         counter-increment: step;

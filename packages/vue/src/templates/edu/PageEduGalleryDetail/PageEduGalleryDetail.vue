@@ -20,6 +20,7 @@ import BlockStreamfield from './../../../components/BlockStreamfield/BlockStream
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
 import { getHeadingId } from '../../../utils/getHeadingId'
+
 interface PageEduGalleryObject extends PageEduResourcesObject {
   overviewString?: string
   galleryItems?: {

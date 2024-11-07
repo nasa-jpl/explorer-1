@@ -11,6 +11,7 @@ import BlockText from './../../../components/BlockText/BlockText.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import NavJumpMenu from './../../../components/NavJumpMenu/NavJumpMenu.vue'
 import AboutTheAuthor from './../../../components/AboutTheAuthor/AboutTheAuthor.vue'
+import { anchorizeStreamfield } from './../../../utils/anchorizeStreamfield'
 
 interface PageEduNewsDetailObject extends PageObject {
   readTime: string
@@ -43,6 +44,11 @@ const heroInline = computed(() => {
   return false
 })
 
+const filteredBody = computed(() => {
+  // adds anchors to headings within RichTextBlock
+  return anchorizeStreamfield(props.data?.body)
+})
+
 const computedClass = computed(() => {
   if (heroInline.value || heroEmpty.value) {
     return 'pt-5 lg:pt-12'
@@ -72,7 +78,7 @@ defineExpose({
       v-if="data.showJumpMenu"
       ref="PageEduNewsDetailJumpMenu"
       :title="data.title"
-      :blocks="data.body"
+      :blocks="filteredBody"
       dropdown-text="In this news article"
     />
 
@@ -150,7 +156,7 @@ defineExpose({
     <!-- streamfield blocks -->
     <BlockStreamfield
       itemprop="articleBody"
-      :data="data.body"
+      :data="filteredBody"
     />
 
     <LayoutHelper
