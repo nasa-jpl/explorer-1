@@ -18,6 +18,8 @@
           startDate,
           endTime,
           endDate,
+          startDatetime,
+          endDatetime,
           customDate,
           location,
           eventType,
@@ -42,6 +44,8 @@
       :start-date="startDate"
       :end-time="endTime"
       :end-date="endDate"
+      :start-datetime="startDatetime"
+      :end-datetime="endDatetime"
       :heading-level="headingLevel"
       compact
     />
@@ -328,6 +332,16 @@ export default defineComponent({
       default: undefined
     },
     customDate: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    startDatetime: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    endDatetime: {
       type: String,
       required: false,
       default: undefined
