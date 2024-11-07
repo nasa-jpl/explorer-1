@@ -29,6 +29,8 @@
             endTime,
             startDate,
             endDate,
+            startDatetime,
+            endDatetime,
             location
           }"
           compact
@@ -120,6 +122,16 @@ export default defineComponent({
     endDate: {
       type: String,
       required: false
+    },
+    startDatetime: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    endDatetime: {
+      type: String,
+      required: false,
+      default: undefined
     },
     location: {
       type: String,

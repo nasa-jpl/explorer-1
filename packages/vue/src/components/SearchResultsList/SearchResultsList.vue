@@ -28,6 +28,8 @@
           :end-date="page.endDate"
           :start-time="page.startTime"
           :end-time="page.endTime"
+          :start-datetime="page.startDatetime"
+          :end-datetime="page.endDatetime"
           :event-type="page.eventType"
           :ongoing="page.ongoing"
           :target-audience="page.targetAudience"
@@ -54,6 +56,8 @@
           :end-date="page.endDate"
           :start-time="page.startTime"
           :end-time="page.endTime"
+          :start-datetime="page.startDatetime"
+          :end-datetime="page.endDatetime"
           :event-type="page.eventType"
           :ongoing="page.ongoing"
           :target-audience="page.targetAudience"
@@ -219,6 +223,14 @@ export default defineComponent({
               page.endTime =
                 handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
                   ? page._source[handle + '__end_time_string']
+                  : null
+              page.startDatetime =
+                handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
+                  ? page._source[handle + '__start_datetime']
+                  : null
+              page.endDatetime =
+                handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
+                  ? page._source[handle + '__end_datetime']
                   : null
               page.eventType =
                 handle === 'edu_events_edueventpage'

@@ -15,6 +15,8 @@
           startDate,
           endTime,
           endDate,
+          startDatetime,
+          endDatetime,
           customDate,
           location,
           eventType,
@@ -156,6 +158,16 @@ export default defineComponent({
     endDate: {
       type: String,
       required: false
+    },
+    startDatetime: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    endDatetime: {
+      type: String,
+      required: false,
+      default: undefined
     },
     customDate: {
       type: String,
