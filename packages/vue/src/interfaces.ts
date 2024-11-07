@@ -88,6 +88,8 @@ export interface ElasticSearchPage {
   customDate?: string
   startTime?: string
   endTime?: string
+  startDatetime?: string
+  endDatetime?: string
   location?: string
   title: string
   summary?: string
