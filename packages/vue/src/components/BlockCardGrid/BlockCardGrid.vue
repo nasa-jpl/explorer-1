@@ -7,7 +7,7 @@
       <BlockCardGridItem
         v-for="(card, index) of cards"
         :key="`item-${index}`"
-        class="col-span-1"
+        wrapper-class="col-span-1"
         :label="card.label"
         :title="card.title"
         :description="card.description"
@@ -23,12 +23,13 @@
     >
       <BlockCardGridItem
         v-for="(card, index) of cards"
-        :key="index"
+        :key="`item-mobile-${index}`"
         :label="card.label"
         :title="card.title"
         :text="card.description"
         :image="card.image"
-        class="swiper-slide mb-5"
+        :link="card.link"
+        wrapper-class="swiper-slide mb-5"
       />
     </MixinCarousel>
   </div>
