@@ -1,5 +1,13 @@
 # @explorer-1/vue
 
+## 0.2.95
+
+### Patch Changes
+
+- c06cf28: Adding srcset to HeroLarge component
+- 4bcdacd: Hides Jump Menu when overscrolling
+- f750419: Fixing anchor link positioning on EDU Lesson pages.
+
 ## 0.2.94
 
 ### Patch Changes
