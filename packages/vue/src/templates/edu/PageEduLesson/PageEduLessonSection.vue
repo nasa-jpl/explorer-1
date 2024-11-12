@@ -124,7 +124,6 @@ const { heading, blocks, image, procedures, text } = reactive(props)
   @return math.div($pxValue, 16) * 1rem;
 }
 .PageEduLessonSection {
-  @apply overflow-x-hidden;
   .PageEduProcedureSection {
     .PageEduProcedureSectionSteps {
       counter-reset: step;
