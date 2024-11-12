@@ -4,7 +4,7 @@
       <picture v-if="image && image.src">
         <source
           media="(min-width: 768px)"
-          :srcset="image.srcSet"
+          :srcset="theSrcSet"
         />
         <source
           media="(min-width: 420px)"
@@ -71,7 +71,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mixinTransparentHeader } from './../../utils/mixins'
+import { mixinTransparentHeader, mixinGetSrcSet } from './../../utils/mixins'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import BasePill from './../BasePill/BasePill.vue'
@@ -119,7 +119,14 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapStores(useThemeStore)
+    ...mapStores(useThemeStore),
+    theSrcSet() {
+      return this.image
+        ? mixinGetSrcSet(this.image)
+          ? mixinGetSrcSet(this.image)
+          : this.image.srcSet
+        : undefined
+    }
   },
   mounted() {
     mixinTransparentHeader()
