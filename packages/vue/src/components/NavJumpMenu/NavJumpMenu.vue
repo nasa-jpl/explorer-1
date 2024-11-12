@@ -185,6 +185,9 @@ watch(
   &.-ready {
     @apply visible #{!important};
   }
+  &.-at-top {
+    @apply invisible #{!important};
+  }
   .NavSecondaryLink.secondary-root {
     span {
       @apply border-primary #{!important};

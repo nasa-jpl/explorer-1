@@ -7,7 +7,8 @@
     :class="{
       'has-intro': hasIntro,
       '!bg-transparent border-none': invert,
-      '-scrolled-up': scrollDirection === 'up'
+      '-scrolled-up': scrollDirection === 'up',
+      '-at-top': posY === 0
     }"
   >
     <div
