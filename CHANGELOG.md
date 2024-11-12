@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.2.95
+
+### Patch Changes
+
+- 10e2668: Package version bump
+
 ## 3.2.94
 
 ### Patch Changes
