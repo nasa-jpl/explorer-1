@@ -9,7 +9,7 @@ snapshot:
   enableJavascript: true
   enableLayout: true
 discovery:
-  concurrency: 15
+  concurrency: 2
   retry: true
 storybook:
   # args: {}
@@ -25,6 +25,7 @@ storybook:
       'Foundations/Grid and Layout: Full Page Example',
       # TODO: add a story that has all icons in it
       'Navigation/*',
+      # 'Components/BlockStreamfield/*',
       'Components/*',
       'Mixins/*',
       'Templates/*'
