@@ -232,7 +232,7 @@ importers:
         version: 8.3.5(storybook@8.3.5)(vue@3.5.3(typescript@5.5.4))
       '@storybook/vue3-vite':
         specifier: ^8.3.5
-        version: 8.3.5(storybook@8.3.5)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))
+        version: 8.3.5(storybook@8.3.5)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))(webpack-sources@3.2.3)
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
         version: 5.0.5(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))
@@ -280,7 +280,7 @@ importers:
         version: 8.3.5
       storybook-addon-vue-slots:
         specifier: ^0.9.29
-        version: 0.9.29(@storybook/blocks@8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5))(@storybook/components@8.3.5(storybook@8.3.5))(@storybook/core-events@8.1.11)(@storybook/preview-api@8.3.5(storybook@8.3.5))(@storybook/theming@8.3.5(storybook@8.3.5))(@storybook/types@8.1.11)(@storybook/vue3@8.3.5(storybook@8.3.5)(vue@3.5.3(typescript@5.5.4)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.3(typescript@5.5.4))
+        version: 0.9.29(@storybook/blocks@8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5))(@storybook/components@8.4.4(storybook@8.3.5))(@storybook/core-events@8.1.11)(@storybook/preview-api@8.3.5(storybook@8.3.5))(@storybook/theming@8.3.5(storybook@8.3.5))(@storybook/types@8.1.11)(@storybook/vue3@8.3.5(storybook@8.3.5)(vue@3.5.3(typescript@5.5.4)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.3(typescript@5.5.4))
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.5.4))
@@ -292,7 +292,7 @@ importers:
         version: 5.5.4
       unplugin-vue-components:
         specifier: ^0.27.0
-        version: 0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4))
+        version: 0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2)(webpack-sources@3.2.3))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4))
       vite:
         specifier: ^5.3.1
         version: 5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)
@@ -409,13 +409,13 @@ importers:
         version: link:../configs/prettier
       autoprefixer:
         specifier: ^10.4.19
-        version: 10.4.20(postcss@8.4.45)
+        version: 10.4.20(postcss@8.4.38)
       lazysizes:
         specifier: ^5.3.0
         version: 5.3.2
       postcss-import:
         specifier: ^16.1.0
-        version: 16.1.0(postcss@8.4.45)
+        version: 16.1.0(postcss@8.4.38)
       typescript:
         specifier: ^5.4.5
         version: 5.5.4
@@ -1693,6 +1693,7 @@ packages:
   '@koa/router@12.0.1':
     resolution: {integrity: sha512-ribfPYfHb+Uw3b27Eiw6NPqjhIhTpVFzEWLwyc/1Xp+DCdwRRyIlAUODX+9bPARF6aQtUu1+/PHzdNvRzcs/+Q==}
     engines: {node: '>= 12'}
+    deprecated: Use v12.0.2 or higher to fix the vulnerability issue
 
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
@@ -2407,6 +2408,11 @@ packages:
     resolution: {integrity: sha512-Rq28YogakD3FO4F8KwAtGpo1g3t4V/gfCLqTQ8B6oQUFoxLqegkWk/DlwCzvoJndXuQJfdSyM6+r1JcA4Nql5A==}
     peerDependencies:
       storybook: ^8.3.5
+
+  '@storybook/components@8.4.4':
+    resolution: {integrity: sha512-0BSZVmsk23C0BSRKx3liZSVQFXtoF86XQFdNQxjrXIwdHIEN7TcL3DwcxeVUU5ilGp7HeDgAydGNIPGgTeEe6g==}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
   '@storybook/core-common@8.1.11':
     resolution: {integrity: sha512-Ix0nplD4I4DrV2t9B+62jaw1baKES9UbR/Jz9LVKFF9nsua3ON0aVe73dOjMxFWBngpzBYWe+zYBTZ7aQtDH4Q==}
@@ -9780,6 +9786,35 @@ snapshots:
       - supports-color
       - webpack-sources
 
+  '@nuxt/kit@3.13.1(rollup@4.21.2)':
+    dependencies:
+      '@nuxt/schema': 3.13.1(rollup@4.21.2)(webpack-sources@3.2.3)
+      c12: 1.11.2(magicast@0.3.4)
+      consola: 3.2.3
+      defu: 6.1.4
+      destr: 2.0.3
+      globby: 14.0.2
+      hash-sum: 2.0.0
+      ignore: 5.3.2
+      jiti: 1.21.6
+      klona: 2.0.6
+      knitwork: 1.1.0
+      mlly: 1.7.1
+      pathe: 1.1.2
+      pkg-types: 1.2.0
+      scule: 1.3.0
+      semver: 7.6.3
+      ufo: 1.5.4
+      unctx: 2.3.1(webpack-sources@3.2.3)
+      unimport: 3.11.1(rollup@4.21.2)(webpack-sources@3.2.3)
+      untyped: 1.4.2
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - webpack-sources
+    optional: true
+
   '@nuxt/module-builder@0.7.1(@nuxt/kit@3.13.1(magicast@0.3.4)(rollup@4.21.2)(webpack-sources@3.2.3))(nuxi@3.13.1)(sass@1.77.4)(typescript@5.5.4)(vue-tsc@2.1.6(typescript@5.5.4))(webpack-sources@3.2.3)':
     dependencies:
       '@nuxt/kit': 3.13.1(magicast@0.3.4)(rollup@4.21.2)(webpack-sources@3.2.3)
@@ -10600,7 +10635,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))':
+  '@storybook/builder-vite@8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(webpack-sources@3.2.3)':
     dependencies:
       '@storybook/csf-plugin': 8.3.5(storybook@8.3.5)(webpack-sources@3.2.3)
       '@types/find-cache-dir': 3.2.1
@@ -10651,6 +10686,10 @@ snapshots:
       '@storybook/global': 5.0.0
 
   '@storybook/components@8.3.5(storybook@8.3.5)':
+    dependencies:
+      storybook: 8.3.5
+
+  '@storybook/components@8.4.4(storybook@8.3.5)':
     dependencies:
       storybook: 8.3.5
 
@@ -10842,9 +10881,9 @@ snapshots:
       '@types/express': 4.17.21
       file-system-cache: 2.3.0
 
-  '@storybook/vue3-vite@8.3.5(storybook@8.3.5)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))':
+  '@storybook/vue3-vite@8.3.5(storybook@8.3.5)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(vue@3.5.3(typescript@5.5.4))(webpack-sources@3.2.3)':
     dependencies:
-      '@storybook/builder-vite': 8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))
+      '@storybook/builder-vite': 8.3.5(storybook@8.3.5)(typescript@5.5.4)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))(webpack-sources@3.2.3)
       '@storybook/vue3': 8.3.5(storybook@8.3.5)(vue@3.5.3(typescript@5.5.4))
       find-package-json: 1.2.0
       magic-string: 0.30.11
@@ -11784,6 +11823,16 @@ snapshots:
     dependencies:
       browserslist: 4.23.1
       caniuse-lite: 1.0.30001632
+      fraction.js: 4.3.7
+      normalize-range: 0.1.2
+      picocolors: 1.0.1
+      postcss: 8.4.38
+      postcss-value-parser: 4.2.0
+
+  autoprefixer@10.4.20(postcss@8.4.38):
+    dependencies:
+      browserslist: 4.23.3
+      caniuse-lite: 1.0.30001658
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -16793,10 +16842,10 @@ snapshots:
 
   std-env@3.7.0: {}
 
-  storybook-addon-vue-slots@0.9.29(@storybook/blocks@8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5))(@storybook/components@8.3.5(storybook@8.3.5))(@storybook/core-events@8.1.11)(@storybook/preview-api@8.3.5(storybook@8.3.5))(@storybook/theming@8.3.5(storybook@8.3.5))(@storybook/types@8.1.11)(@storybook/vue3@8.3.5(storybook@8.3.5)(vue@3.5.3(typescript@5.5.4)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.3(typescript@5.5.4)):
+  storybook-addon-vue-slots@0.9.29(@storybook/blocks@8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5))(@storybook/components@8.4.4(storybook@8.3.5))(@storybook/core-events@8.1.11)(@storybook/preview-api@8.3.5(storybook@8.3.5))(@storybook/theming@8.3.5(storybook@8.3.5))(@storybook/types@8.1.11)(@storybook/vue3@8.3.5(storybook@8.3.5)(vue@3.5.3(typescript@5.5.4)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vue@3.5.3(typescript@5.5.4)):
     dependencies:
       '@storybook/blocks': 8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)
-      '@storybook/components': 8.3.5(storybook@8.3.5)
+      '@storybook/components': 8.4.4(storybook@8.3.5)
       '@storybook/core-events': 8.1.11
       '@storybook/preview-api': 8.3.5(storybook@8.3.5)
       '@storybook/theming': 8.3.5(storybook@8.3.5)
@@ -17502,7 +17551,7 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-  unplugin-vue-components@0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4)):
+  unplugin-vue-components@0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2)(webpack-sources@3.2.3))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4)):
     dependencies:
       '@antfu/utils': 0.7.8
       '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
@@ -17518,6 +17567,26 @@ snapshots:
     optionalDependencies:
       '@babel/parser': 7.25.6
       '@nuxt/kit': 3.13.1(magicast@0.3.4)(rollup@4.21.2)(webpack-sources@3.2.3)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  unplugin-vue-components@0.27.0(@babel/parser@7.25.6)(@nuxt/kit@3.13.1(rollup@4.21.2))(rollup@4.21.2)(vue@3.5.3(typescript@5.5.4)):
+    dependencies:
+      '@antfu/utils': 0.7.8
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
+      chokidar: 3.6.0
+      debug: 4.3.5
+      fast-glob: 3.3.2
+      local-pkg: 0.5.0
+      magic-string: 0.30.10
+      minimatch: 9.0.4
+      resolve: 1.22.8
+      unplugin: 1.10.1
+      vue: 3.5.3(typescript@5.5.4)
+    optionalDependencies:
+      '@babel/parser': 7.25.6
+      '@nuxt/kit': 3.13.1(rollup@4.21.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
