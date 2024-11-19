@@ -33,14 +33,14 @@
             class="lg:pr-14"
             :text="data.paragraph"
           />
-          <template v-if="data.link && theLink">
+          <template v-if="data.link || theExternalLink">
             <BaseLink
               variant="primary"
               class="mt-5"
               link-class="inline-block"
               caret-wrapper-class="py-2"
-              :href="theLink"
-              :to="data.link.page ? data.link.page.url : null"
+              :href="theExternalLink"
+              :to="data.link.page ? data.link.page.url : undefined"
               external-target-blank
             >
               {{ data.link.text }}
@@ -60,13 +60,13 @@
               v-if="theCard.image"
               class="relative h-auto"
             >
-              <template v-if="theCard.link && theLink">
+              <template v-if="theCardExternalLink || theCard.link">
                 <BaseLink
                   variant="none"
                   link-class="block"
                   :aria-label="theCard.link.text || 'Learn more'"
-                  :href="theLink"
-                  :to="theCard.link.page ? theCard.link.page.url : null"
+                  :href="theCardExternalLink"
+                  :to="theCard.link.page?.url || undefined"
                   external-target-blank
                 >
                   <HomepageTeaserBlockCardImage :data="theCard" />
@@ -87,14 +87,14 @@
                 {{ theCard.description }}
               </p>
 
-              <template v-if="theCard.link && theLink">
+              <template v-if="theCard.link && theCardExternalLink">
                 <BaseLink
                   variant="primary"
                   class="mt-3"
                   link-class="inline-block"
                   caret-wrapper-class="py-2"
-                  :href="theLink"
-                  :to="theCard.link.page ? theCard.link.page.url : null"
+                  :href="theCardExternalLink"
+                  :to="theCard.link.page ? theCard.link.page.url : undefined"
                   external-target-blank
                 >
                   {{ theCard.link.text }}
@@ -135,11 +135,11 @@ export default defineComponent({
     }
   },
   computed: {
-    theCard(): object | null {
-      if (this.data.card && this.data.card.length > 0) {
-        return this.data.card[0]
+    theCard(): object | undefined {
+      if (this.data?.card && this.data.card.length > 0) {
+        return this.data?.card[0]
       }
-      return null
+      return undefined
     },
     hasCoverImage(): boolean {
       if (this.data.coverImage && this.data.coverImage.src) {
@@ -147,8 +147,11 @@ export default defineComponent({
       }
       return false
     },
-    theLink() {
-      return mixinGetExternalLink(this.data.link) || undefined
+    theExternalLink() {
+      return mixinGetExternalLink(this.data?.link) || undefined
+    },
+    theCardExternalLink() {
+      return mixinGetExternalLink(this.theCard?.link) || undefined
     },
     theSrcSet() {
       return this.data.coverImage
