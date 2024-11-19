@@ -60,7 +60,7 @@
               v-if="theCard.image"
               class="relative h-auto"
             >
-              <template v-if="theCardExternalLink || theCard.link">
+              <template v-if="theCard.link || theCardExternalLink">
                 <BaseLink
                   variant="none"
                   link-class="block"
@@ -87,7 +87,7 @@
                 {{ theCard.description }}
               </p>
 
-              <template v-if="theCard.link && theCardExternalLink">
+              <template v-if="theCard.link || theCardExternalLink">
                 <BaseLink
                   variant="primary"
                   class="mt-3"
