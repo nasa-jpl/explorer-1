@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.2.96
+
+### Patch Changes
+
+- 2735223: Fixing link logic in HomepageTeaserBlock
+
 ## 0.2.95
 
 ### Patch Changes
