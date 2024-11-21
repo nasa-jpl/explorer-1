@@ -1,6 +1,6 @@
 {
   "name": "@explorer-1/nuxt",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "publishConfig": {
     "access": "public"
