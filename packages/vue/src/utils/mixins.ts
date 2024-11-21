@@ -217,9 +217,9 @@ export const mixinGetSrcSet = (srcSetObject: Partial<ImageObject>): string => {
 }
 // Use with RelatedLinkBlock to retrieve the external link to use with an href prop
 export const mixinGetExternalLink = (link: RelatedLinkObject): string | undefined => {
-  if (link.externalLink) {
+  if (link?.externalLink) {
     return link.externalLink
-  } else if (link.document) {
+  } else if (link?.document) {
     return link.document.url
   }
   return undefined
