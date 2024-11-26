@@ -78,11 +78,11 @@ export default defineComponent({
     // image object includes the image caption and credit
     image: {
       type: Object,
-      required: false
+      default: undefined
     },
     video: {
       type: Object,
-      required: false
+      default: undefined
     },
     // if a caption should even be visible
     displayCaption: {
@@ -92,11 +92,11 @@ export default defineComponent({
     // for video heroes that pass separate caption and credit data
     caption: {
       type: String,
-      required: false
+      default: undefined
     },
     credit: {
       type: String,
-      required: false
+      default: undefined
     }
   },
   data() {
