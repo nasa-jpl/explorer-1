@@ -25,7 +25,6 @@ storybook:
       'Foundations/Grid and Layout: Full Page Example',
       # TODO: add a story that has all icons in it
       'Navigation/*',
-      # 'Components/BlockStreamfield/*',
       'Components/*',
       'Mixins/*',
       'Templates/*'
