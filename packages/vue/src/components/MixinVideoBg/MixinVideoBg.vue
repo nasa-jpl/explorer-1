@@ -5,6 +5,7 @@
     muted
     playsinline
     autoplay
+    controls
     preload="auto"
     class="object-cover w-full h-full"
   >
@@ -32,7 +33,11 @@ export default defineComponent({
   props: {
     video: {
       type: Object,
-      required: false
+      default: undefined
+    },
+    autoplay: {
+      type: Boolean,
+      default: false
     }
   }
 })
