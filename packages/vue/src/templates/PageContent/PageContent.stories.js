@@ -28,6 +28,7 @@ export const ContentPageData = {
   breadcrumb: NavSecondaryData.breadcrumb,
   title: 'Make a Paper Mars Helicopter',
   displayLabel: 'Classroom Activity',
+  showShareLinks: true,
   heroPosition: 'inline',
   heroImage: HeroMediaData.image,
   heroImageInline: HeroMediaData.imageInline,
@@ -85,5 +86,13 @@ export const BaseStory = {
   name: 'PageContent',
   args: {
     data: ContentPageData
+  }
+}
+export const NoShareLinks = {
+  args: {
+    data: {
+      ...ContentPageData,
+      showShareLinks: false
+    }
   }
 }
