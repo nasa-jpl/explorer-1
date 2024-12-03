@@ -22,6 +22,7 @@
       class="md:mb-12 lg:mb-18 mb-10"
       :image="data.hero[0].image"
       :video="data.hero[0].video"
+      :autoplay="data.hero[0].autoplay"
       :display-caption="data.hero[0].displayCaption"
       :caption="data.hero[0].caption"
       :credit="data.hero[0].credit"

@@ -5,7 +5,7 @@
   >
     <BaseVideo
       :data="data.video"
-      :autoplay="autoplay"
+      :autoplay="data.autoplay"
     />
 
     <div

@@ -13,7 +13,8 @@ export const BlockVideoData = {
     blockType: 'VideoBlock',
     video: BaseVideoData,
     caption: 'Lorem ipsum dolor sit amet consectatur',
-    credit: 'Credit'
+    credit: 'Credit',
+    autoplay: false
   }
 }
 
