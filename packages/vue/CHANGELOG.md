@@ -1,5 +1,12 @@
 # @explorer-1/vue
 
+## 0.2.97
+
+### Patch Changes
+
+- 039afc4: Adding logic to show/hide share links on content pages
+- 232c7b4: Adding option to autoplay/loop video.
+
 ## 0.2.96
 
 ### Patch Changes
