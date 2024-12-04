@@ -41,6 +41,7 @@ export const BaseStory = {
           url: 'http://localhost:3000/topics/mars'
         }
       ],
+      showShareLinks: true,
       topper: '',
       readTime: '2 min read',
       summary:
