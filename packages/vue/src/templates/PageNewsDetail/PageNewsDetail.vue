@@ -207,16 +207,13 @@ export default defineComponent({
       return (this.data?.hero || []).length === 0
     },
     heroInline(): boolean {
-      if (!this.heroEmpty) {
-        if (this.data?.hero[0].blockType === 'VideoBlock') {
-          return false
-        } else if (
-          this.data?.heroPosition === 'inline' ||
+      if (
+        !this.heroEmpty &&
+        (this.data?.heroPosition === 'inline' ||
           this.data?.hero[0].blockType === 'CarouselBlock' ||
-          this.data?.hero[0].blockType === 'VideoEmbedBlock'
-        ) {
-          return true
-        }
+          this.data?.hero[0].blockType === 'VideoEmbedBlock')
+      ) {
+        return true
       }
       return false
     },
