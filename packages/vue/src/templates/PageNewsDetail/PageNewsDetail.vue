@@ -83,7 +83,7 @@
 
     <!-- share buttons -->
     <LayoutHelper
-      v-if="!data.hideShareLinks"
+      v-if="data.showShareLinks"
       indent="col-2"
       class="lg:mb-0 relative mb-8"
     >
