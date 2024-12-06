@@ -116,7 +116,8 @@ export const HeroVideo = {
           blockType: 'VideoBlock',
           video: BaseVideoData,
           caption: 'Lorem ipsum dolor sit amet',
-          credit: 'NASA/JPL'
+          credit: 'NASA/JPL',
+          autoplay: true
         }
       ]
     }

@@ -176,7 +176,7 @@ import BlockImageStandard from './../../components/BlockImage/BlockImageStandard
 import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
 import BlockText from './../../components/BlockText/BlockText.vue'
-import BlockVideo from './../../components/BlockText/BlockText.vue'
+import BlockVideo from './../../components/BlockVideo/BlockVideo.vue'
 
 export default defineComponent({
   name: 'PageNewsDetail',
