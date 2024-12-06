@@ -41,7 +41,7 @@ export const BaseStory = {
           url: 'http://localhost:3000/topics/mars'
         }
       ],
-      showShareLinks: true,
+      hideShareLinks: false,
       topper: '',
       readTime: '2 min read',
       summary:
@@ -116,7 +116,8 @@ export const HeroVideo = {
           blockType: 'VideoBlock',
           video: BaseVideoData,
           caption: 'Lorem ipsum dolor sit amet',
-          credit: 'NASA/JPL'
+          credit: 'NASA/JPL',
+          autoplay: true
         }
       ]
     }
