@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.2.99
+
+### Patch Changes
+
+- 815dd6d: Prepping for next release
+
 ## 0.2.97
 
 ### Patch Changes

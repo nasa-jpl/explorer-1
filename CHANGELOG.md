@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.2.98
+
+### Patch Changes
+
+- 815dd6d: Prepping for next release
+
 ## 3.2.95
 
 ### Patch Changes
