@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.2.99
+
+### Patch Changes
+
+- fb6ba35: Fixing height of HeroMedia
+
 ## 3.2.98
 
 ### Patch Changes
