@@ -3,40 +3,42 @@
     v-if="image || video"
     class="HeroMedia"
   >
-    <div class="vh-crop max-w-screen-3xl relative flex items-center mx-auto overflow-hidden">
-      <div class="hero w-full">
-        <template v-if="theImageData">
-          <img
-            v-if="theImageData.src"
-            class="object-cover object-center w-full h-full"
-            :srcset="theSrcSet"
-            :src="theImageData.src.url"
-            :width="theImageData.src.width"
-            :height="theImageData.src.height"
-            :alt="theImageData.alt"
-            itemprop="image"
-            data-chromatic="ignore"
-          />
-        </template>
-        <template v-else-if="video">
-          <MixinVideoBg :video="video" />
-        </template>
-      </div>
-      <div
-        v-if="hasCaptionArea"
-        class="lg:hidden absolute bottom-0 left-0 w-full h-auto mx-auto print:hidden"
-      >
-        <button
-          class="bg-opacity-90 text-gray-dark flex items-center justify-center w-12 h-12 ml-auto bg-white cursor-pointer"
-          aria-label="Toggle caption"
-          @click="toggleCaption"
+    <div>
+      <div class="vh-crop max-w-screen-3xl relative flex items-center mx-auto overflow-hidden">
+        <div class="hero w-full">
+          <template v-if="theImageData">
+            <img
+              v-if="theImageData.src"
+              class="object-cover object-center w-full h-full"
+              :srcset="theSrcSet"
+              :src="theImageData.src.url"
+              :width="theImageData.src.width"
+              :height="theImageData.src.height"
+              :alt="theImageData.alt"
+              itemprop="image"
+              data-chromatic="ignore"
+            />
+          </template>
+          <template v-else-if="video">
+            <MixinVideoBg :video="video" />
+          </template>
+        </div>
+        <div
+          v-if="hasCaptionArea"
+          class="lg:hidden absolute bottom-0 left-0 w-full h-auto mx-auto print:hidden"
         >
-          <IconInfo
-            v-show="!captionVisible"
-            class="text-xl"
-          />
-          <IconClose v-show="captionVisible" />
-        </button>
+          <button
+            class="bg-opacity-90 text-gray-dark flex items-center justify-center w-12 h-12 ml-auto bg-white cursor-pointer"
+            aria-label="Toggle caption"
+            @click="toggleCaption"
+          >
+            <IconInfo
+              v-show="!captionVisible"
+              class="text-xl"
+            />
+            <IconClose v-show="captionVisible" />
+          </button>
+        </div>
       </div>
     </div>
 

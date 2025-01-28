@@ -1,7 +1,7 @@
 .HeroMedia {
   > div > .vh-crop {
     @screen sm {
-      max-height: 65vh;
+      max-height: 40vh;
       min-height: 255px;
     }
 
@@ -10,11 +10,11 @@
     }
 
     @screen lg {
-      min-height: 375px;
+      min-height: 345px;
     }
 
     @screen xl {
-      min-height: 430px;
+      min-height: 400px;
     }
 
     > .hero {
