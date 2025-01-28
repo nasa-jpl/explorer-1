@@ -1,5 +1,13 @@
 # @explorer-1/vue
 
+## 0.2.100
+
+### Patch Changes
+
+- fb6ba35: Fixing height of HeroMedia
+- Updated dependencies [fb6ba35]
+  - @explorer-1/common@1.1.24
+
 ## 0.2.99
 
 ### Patch Changes
