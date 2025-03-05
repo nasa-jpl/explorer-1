@@ -8,15 +8,17 @@
     </div>
     <hr class="text-gray-mid mt-6 mb-5" />
 
-    <div class="mb-3">
+    <div
+      v-show="!submitted"
+      class="mb-3"
+    >
       <form
         id="ic_signupform"
-        target="_blank"
         :captcha-key="captchaKey"
         captcha-theme="light"
         new-captcha="true"
         method="POST"
-        :action="iContactForm"
+        @submit.prevent
       >
         <div
           dataname="listGroups"
@@ -24,7 +26,7 @@
         >
           <div>
             <BaseRadioGroup
-              v-model="form.listgroups"
+              v-model="form.listGroups"
               heading="Frequency:"
               group="email"
               title="Email Groups"
@@ -49,12 +51,31 @@
               class="text-nowrap"
               variant="primary"
               compact
+              @click="onSubmit"
             >
               {{ data.buttonText }}
             </BaseButton>
           </div>
         </div>
       </form>
+    </div>
+
+    <!-- success -->
+    <div
+      v-show="submitted"
+      class="pt-10 text-center"
+    >
+      <BaseHeading
+        level="h2"
+        size="h6"
+        >Thank you!</BaseHeading
+      >
+      <div
+        class="text-jpl-blue-light h-22 w-22 p-5 mx-auto my-8 text-4xl font-bold border-4 rounded-full"
+      >
+        &#10003;
+      </div>
+      <p class="text-h6">Check your inbox to verify your email.</p>
     </div>
   </div>
 </template>
@@ -63,7 +84,9 @@
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
+import { stringify } from 'fast-qs'
 import BaseButton from './../BaseButton/BaseButton.vue'
+import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseRadioGroup from './../BaseRadioGroup/BaseRadioGroup.vue'
 import TextInput from './../TextInput/TextInput.vue'
 
@@ -110,6 +133,7 @@ export default defineComponent({
   name: 'BlockNewsletterSignup',
   components: {
     BaseButton,
+    BaseHeading,
     BaseRadioGroup,
     TextInput
   },
@@ -159,6 +183,36 @@ export default defineComponent({
       'https://app.icontact.com/icp/static/form/javascripts/tracking.js'
     )
     document.head.appendChild(validationScript, trackingScript)
+  },
+  methods: {
+    focus(elem) {
+      window.scrollTo(0, elem.offsetTop + 100)
+      elem.focus()
+    },
+    onSubmit() {
+      if (this.form.email) {
+        this.reveal()
+        const request = {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          },
+          body: stringify({
+            'data[email]': this.form.email,
+            'data[listGroups]': this.form.listGroups
+          })
+        }
+        console.log(request)
+        fetch(iContactForm, request)
+      }
+    },
+    reveal() {
+      this.submitted = true
+      if (this.$refs && this.$refs.FormNewsletterSignup) {
+        this.$scrollTo(this.$refs.FormNewsletterSignup, 0, { offset: 100 })
+      }
+    }
   }
 })
 </script>
