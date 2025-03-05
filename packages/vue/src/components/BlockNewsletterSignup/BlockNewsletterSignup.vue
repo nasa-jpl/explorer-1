@@ -45,6 +45,7 @@
             required
             placeholder="Email address"
             :show-label="false"
+            @keydown.enter="onSubmit"
           />
           <div class="submit-container h-auto">
             <BaseButton
