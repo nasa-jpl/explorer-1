@@ -30,7 +30,7 @@
               heading="Frequency:"
               group="email"
               title="Email Groups"
-              preselected="breaking"
+              preselected="41031"
               :options="emailGroups"
             />
           </div>
@@ -63,19 +63,20 @@
     <!-- success -->
     <div
       v-show="submitted"
-      class="pt-10 text-center"
+      class="text-center"
     >
-      <BaseHeading
-        level="h2"
-        size="h6"
-        >Thank you!</BaseHeading
-      >
       <div
-        class="text-jpl-blue-light h-22 w-22 p-5 mx-auto my-8 text-4xl font-bold border-4 rounded-full"
+        class="text-jpl-blue-light pt-[.45rem] h-12 w-12 mx-auto mb-2 text-2xl font-bold border-2 rounded-full"
       >
         &#10003;
       </div>
-      <p class="text-h6">Check your inbox to verify your email.</p>
+      <BaseHeading
+        level="h2"
+        size="h6"
+      >
+        Thank you!
+      </BaseHeading>
+      <p><strong>Check your inbox to verify your email.</strong></p>
     </div>
   </div>
 </template>
@@ -185,10 +186,6 @@ export default defineComponent({
     document.head.appendChild(validationScript, trackingScript)
   },
   methods: {
-    focus(elem) {
-      window.scrollTo(0, elem.offsetTop + 100)
-      elem.focus()
-    },
     onSubmit() {
       if (this.form.email) {
         this.reveal()
@@ -200,18 +197,14 @@ export default defineComponent({
           },
           body: stringify({
             'data[email]': this.form.email,
-            'data[listGroups]': this.form.listGroups
+            'data[listGroups][]': this.form.listGroups
           })
         }
-        console.log(request)
         fetch(iContactForm, request)
       }
     },
     reveal() {
       this.submitted = true
-      if (this.$refs && this.$refs.FormNewsletterSignup) {
-        this.$scrollTo(this.$refs.FormNewsletterSignup, 0, { offset: 100 })
-      }
     }
   }
 })
