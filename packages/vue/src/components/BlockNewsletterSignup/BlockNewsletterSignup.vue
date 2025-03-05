@@ -49,7 +49,6 @@
               class="text-nowrap"
               variant="primary"
               compact
-              @click="submit"
             >
               {{ data.buttonText }}
             </BaseButton>
