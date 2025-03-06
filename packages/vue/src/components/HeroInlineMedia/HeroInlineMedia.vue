@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import BlockVideoEmbed from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockIframeEmbed from './../BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockImageComparison from './../BlockImageComparison/BlockImageComparison.vue'
 import BlockImageCarousel from './../BlockImageCarousel/BlockImageCarousel.vue'
@@ -42,13 +42,10 @@ const { heroBlocks, constrain } = reactive(props)
       v-else-if="heroBlocks[0].blockType === 'VideoBlock'"
       :data="heroBlocks[0]"
     />
-    <BaseImagePlaceholder
+    <BlockVideoEmbed
       v-else-if="heroBlocks[0].blockType === 'VideoEmbedBlock'"
-      aspect-ratio="16:9"
-      dark-mode
-    >
-      <div v-html="heroBlocks[0].embed?.embed"></div>
-    </BaseImagePlaceholder>
+      :data="heroBlocks[0]"
+    />
     <BlockImageComparison
       v-else-if="heroBlocks[0].blockType === 'ImageComparisonBlock'"
       :data="heroBlocks[0]"
