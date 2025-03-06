@@ -16,6 +16,7 @@ import { BlockTeaserData } from './../BlockTeaser/BlockTeaser.stories'
 import { BlockIframeEmbedData } from './../BlockIframeEmbed/BlockIframeEmbed.stories'
 import { BlockVideoData } from './../BlockVideo/BlockVideo.stories'
 import { BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.stories'
+import { BlockNewsletterSignupData } from '../BlockNewsletterSignup/BlockNewsletterSignup.stories'
 import { MixedColumnWidths } from './../BlockRichTable/BlockRichTable.stories'
 import BlockStreamfield, { variants } from './BlockStreamfield.vue'
 
@@ -167,6 +168,7 @@ export const BlockStreamfieldData = {
         ]
       }
     },
+    BlockNewsletterSignupData,
     {
       blockType: 'ListBlock',
       field: 'card_grid',

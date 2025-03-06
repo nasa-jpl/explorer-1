@@ -75,6 +75,14 @@
       >
         <BlockCta :data="block" />
       </LayoutHelper>
+      <LayoutHelper
+        v-else-if="block.blockType == 'NewsletterSignupBlock'"
+        :key="`newsletterSignupBlock${index}`"
+        indent="col-4"
+        :class="marginBottom"
+      >
+        <BlockNewsletterSignup :data="block" />
+      </LayoutHelper>
 
       <LayoutHelper
         v-else-if="block.blockType == 'TeaserBlock'"
@@ -277,6 +285,7 @@ import BlockVideo from './../BlockVideo/BlockVideo.vue'
 import BlockVideoEmbed, {
   type BlockData as VideoBlockEmbedData
 } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
+import BlockNewsletterSignup from '../BlockNewsletterSignup/BlockNewsletterSignup.vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 
@@ -315,7 +324,8 @@ export default defineComponent({
     BlockIframeEmbed,
     BlockGist,
     BlockVideo,
-    BlockVideoEmbed
+    BlockVideoEmbed,
+    BlockNewsletterSignup
   },
   props: {
     variant: {
