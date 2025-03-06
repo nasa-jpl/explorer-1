@@ -43,7 +43,7 @@
           >
             <span
               v-if="option.title"
-              class="font-semibold"
+              :class="option.text ? 'font-semibold' : ''"
               >{{ option.title }}</span
             >
             <span v-if="option.text"> - </span>
