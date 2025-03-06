@@ -14,11 +14,8 @@
     >
       <form
         id="ic_signupform"
-        :captcha-key="captchaKey"
-        captcha-theme="light"
-        new-captcha="true"
         method="POST"
-        @submit.prevent
+        @submit.prevent="onSubmit"
       >
         <div
           dataname="listGroups"
@@ -51,7 +48,7 @@
               class="text-nowrap"
               variant="primary"
               compact
-              @click="onSubmit"
+              type="submit"
             >
               {{ data.buttonText }}
             </BaseButton>
@@ -204,11 +201,11 @@ export default defineComponent({
           },
           body: stringify({
             'data[email]': this.form.email,
-            'data[listGroups]': this.form.listGroups
+            'data[listGroups][]': this.form.listGroups
           })
         }
         fetch(iContactForm, request).then((response) => {
-          if (response.ok) {
+          if (response) {
             console.log('success', response)
             this.reveal()
           } else {
