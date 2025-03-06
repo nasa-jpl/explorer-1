@@ -45,7 +45,6 @@
             required
             placeholder="Email address"
             :show-label="false"
-            @keydown.enter="onSubmit"
           />
           <div class="submit-container h-auto">
             <BaseButton
@@ -59,6 +58,12 @@
           </div>
         </div>
       </form>
+      <p
+        v-if="error"
+        class="mt-3 text-error"
+      >
+        There was an error. Please try again.
+      </p>
     </div>
 
     <!-- success -->
@@ -149,6 +154,8 @@ export default defineComponent({
   data() {
     return {
       submitted: false,
+      error: false,
+      formResponse: undefined,
       form: {
         email: undefined,
         listGroups: undefined
@@ -187,9 +194,8 @@ export default defineComponent({
     document.head.appendChild(validationScript, trackingScript)
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       if (this.form.email) {
-        this.reveal()
         const request = {
           method: 'POST',
           mode: 'no-cors',
@@ -198,14 +204,27 @@ export default defineComponent({
           },
           body: stringify({
             'data[email]': this.form.email,
-            'data[listGroups][]': this.form.listGroups
+            'data[listGroups]': this.form.listGroups
           })
         }
-        fetch(iContactForm, request)
+        fetch(iContactForm, request).then((response) => {
+          if (response.ok) {
+            console.log('success', response)
+            this.reveal()
+          } else {
+            console.log('error', response)
+            this.revealError()
+          }
+        })
       }
     },
     reveal() {
+      this.error = false
       this.submitted = true
+    },
+    revealError() {
+      this.submitted = false
+      this.error = true
     }
   }
 })
