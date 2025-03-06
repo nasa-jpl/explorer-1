@@ -16,6 +16,7 @@ import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelated
 import FormContact from './../../components/FormContact/FormContact.vue'
 import FormNewsletterSignup from './../../components/FormNewsletterSignup/FormNewsletterSignup.vue'
 import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
+import type { BlockData } from '../../interfaces'
 
 const route = useRoute()
 
@@ -71,6 +72,18 @@ export default defineComponent({
         return 'lg:mt-12 mt-5'
       }
       return 'lg:mt-12 lg:mb-18 edu:lg:mb-12 mt-5 mb-10 edu:mb-8'
+    },
+    hasNewsletterSignupBlock() {
+      let status = false
+      const blocks = this.data?.body
+      if (blocks?.length) {
+        blocks.forEach((block: BlockData) => {
+          if (block.blockType === `NewsletterSignupBlock`) {
+            status = true
+          }
+        })
+      }
+      return status
     }
   }
 })
@@ -168,7 +181,7 @@ export default defineComponent({
     </template>
 
     <!-- Newsletter Signup form for specific content page only -->
-    <template v-if="data.slug === 'newsletter-signup'">
+    <template v-if="data.slug === 'newsletter-signup' && !hasNewsletterSignupBlock">
       <!-- Newsletter Signup Form -->
       <FormNewsletterSignup class="lg:mb-18 mb-10" />
     </template>
