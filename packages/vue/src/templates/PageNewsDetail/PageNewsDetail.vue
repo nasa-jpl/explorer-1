@@ -51,33 +51,9 @@
       indent="col-2"
       class="lg:mb-22 mt-10 mb-10"
     >
-      <BlockImageStandard
-        v-if="data.hero[0].blockType === 'HeroImageBlock'"
-        :data="data.hero[0].imageInline"
-        :display-caption="data.hero[0].displayCaption"
-        :caption="data.hero[0].caption"
+      <HeroInlineMedia
+        :hero-blocks="data.hero"
         :constrain="data.heroConstrain"
-      />
-      <BlockImageCarousel
-        v-else-if="data.hero[0].blockType === 'CarouselBlock'"
-        :items="data.hero[0].blocks"
-        :block-id="data.hero[0].id"
-      />
-      <BlockVideo
-        v-else-if="data.hero[0].blockType === 'VideoBlock'"
-        :data="data.hero[0]"
-        autoplay
-      />
-      <BaseImagePlaceholder
-        v-else-if="data.hero[0].blockType === 'VideoEmbedBlock'"
-        aspect-ratio="16:9"
-        dark-mode
-      >
-        <div v-html="data.hero[0].embed.embed"></div>
-      </BaseImagePlaceholder>
-      <BlockImageComparison
-        v-else-if="data.hero[0].blockType === 'ImageComparisonBlock'"
-        :data="data.hero[0]"
       />
     </LayoutHelper>
 
@@ -166,17 +142,13 @@ import { defineComponent } from 'vue'
 import LayoutHelper from './../../components/LayoutHelper/LayoutHelper.vue'
 import HeroMedia from './../../components/HeroMedia/HeroMedia.vue'
 import DetailHeadline from './../../components/DetailHeadline/DetailHeadline.vue'
-import BaseImagePlaceholder from './../../components/BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BlockStreamfield from './../../components/BlockStreamfield/BlockStreamfield.vue'
 import NewsDetailMediaContact from './../../components/NewsDetailMediaContact/NewsDetailMediaContact.vue'
 import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
-import BlockImageCarousel from './../../components/BlockImageCarousel/BlockImageCarousel.vue'
-import BlockImageComparison from './../../components/BlockImageComparison/BlockImageComparison.vue'
-import BlockImageStandard from './../../components/BlockImage/BlockImageStandard.vue'
+import HeroInlineMedia from './../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import ShareButtons from './../../components/ShareButtons/ShareButtons.vue'
 import BlockText from './../../components/BlockText/BlockText.vue'
-import BlockVideo from './../../components/BlockVideo/BlockVideo.vue'
 
 export default defineComponent({
   name: 'PageNewsDetail',
@@ -184,17 +156,13 @@ export default defineComponent({
     LayoutHelper,
     HeroMedia,
     DetailHeadline,
-    BaseImagePlaceholder,
     BlockStreamfield,
     NewsDetailMediaContact,
     BlockRelatedLinks,
-    BlockImageCarousel,
-    BlockImageComparison,
-    BlockImageStandard,
     BlockLinkCarousel,
     ShareButtons,
     BlockText,
-    BlockVideo
+    HeroInlineMedia
   },
   props: {
     data: {
