@@ -205,7 +205,7 @@ export default defineComponent({
           })
         }
         fetch(iContactForm, request).then((response) => {
-          if (response) {
+          if (response.ok) {
             console.log('success', response)
             this.reveal()
           } else {
