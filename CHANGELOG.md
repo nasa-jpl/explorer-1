@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.2.100
+
+### Patch Changes
+
+- 5798546: New block (BlockNewsletterSignup) and bug fixes.
+
 ## 3.2.99
 
 ### Patch Changes
