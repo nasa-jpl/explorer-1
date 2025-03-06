@@ -1,5 +1,14 @@
 # @explorer-1/vue-storybook
 
+## 0.0.15
+
+### Patch Changes
+
+- Adds Newsletter Signup Block
+- Fixes captions in Video Embed block when used as a hero
+- Updated dependencies [5798546]
+  - @explorer-1/vue@0.2.101
+
 ## 0.0.14
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @explorer-1/vue
 
+## 0.2.101
+
+### Patch Changes
+
+- Adds Newsletter Signup Block
+- Fixes captions in Video Embed block when used as a hero
+
 ## 0.2.100
 
 ### Patch Changes
