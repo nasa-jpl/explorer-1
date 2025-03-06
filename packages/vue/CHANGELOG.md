@@ -4,8 +4,8 @@
 
 ### Patch Changes
 
-- 5798546: - Adds Newsletter Signup Block
-  - Fixes captions in Video Embed block when used as a hero
+- Adds Newsletter Signup Block
+- Fixes captions in Video Embed block when used as a hero
 
 ## 0.2.100
 
