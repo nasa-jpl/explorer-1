@@ -171,6 +171,20 @@ export interface BlockRelatedLinksObject extends BlockData {
   links: RelatedLinkObject[]
 }
 
+export interface RedirectResponse {
+  isPermanent: boolean
+  oldPath: string
+  newUrl: string
+}
+
+export interface InitResponse {
+  init: {
+    id: string
+    __typename: string
+  }
+  redirect: RedirectResponse
+}
+
 export interface PageResponse {
   __typename: string
   page: PageObject
