@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.2.101
+
+### Patch Changes
+
+- edd1d1e: Adding types for redirects query
+
 ## 3.2.100
 
 ### Patch Changes

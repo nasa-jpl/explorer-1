@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.2.102
+
+### Patch Changes
+
+- edd1d1e: Adding types for redirects query
+
 ## 0.2.101
 
 ### Patch Changes
