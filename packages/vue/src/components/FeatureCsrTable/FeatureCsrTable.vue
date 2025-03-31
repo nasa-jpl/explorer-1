@@ -65,7 +65,7 @@ const colDefs = ref([
     // custom cell component
     // https://www.ag-grid.com/vue-data-grid/components/
     field: 'exportPackageRates',
-    header: 'Test Limits',
+    headerName: 'Test Limits',
     cellDataType: 'object',
     cellRenderer: CellExportPackageRates,
     cellRendererParams: {
@@ -105,7 +105,7 @@ const updatePosition = () => {
       @input="onFilterTextBoxChanged()"
     />
     <ag-grid-vue
-      class="w-full h-80"
+      class="w-full h-[80vh]"
       :row-data="rowData"
       :column-defs="colDefs"
       :default-col-def="defaultcolDef"

@@ -62,15 +62,19 @@ const onGridReady = (gridParams: GridReadyEvent) => {
 }
 </script>
 <template>
-  <div>
-    <BaseButton
-      class="absolute ml-4"
-      variant="secondary"
-      compact
+  <div class="CellExportPackageRates">
+    <div
+      class="CellExportPackageRatesButtonWrapper absolute"
       :style="`left: ${leftPosition};`"
-      @click="toggle"
-      >{{ show ? 'Hide' : 'Show' }} Rates</BaseButton
     >
+      <BaseButton
+        class="ml-4"
+        variant="secondary"
+        compact
+        @click="toggle"
+        >{{ show ? 'Hide' : 'Show' }} Limits</BaseButton
+      >
+    </div>
     <div
       v-if="show"
       class="pt-[50px]"
