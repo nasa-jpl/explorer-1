@@ -14,77 +14,83 @@ export default {
 export const FeatureCsrTableData = {
   data: [
     {
-      id: 1,
-      exportId: 1,
-      testRecordId: 1,
-      attachment: 'https://jpl.nasa.gov/attachment/1',
-      status: 0,
-      genericPartNumber: 'GPN123',
-      description: 'A description for part 1',
-      partTechnology: 'BiCMOS',
-      partLDC: 'Lot 1',
-      manufacturer: 'Texas Instruments',
-      type: 'SEE',
-      testSubTypes: 'SEEU',
-      actualCompletionDate: '2021-10-07T21:01:10Z',
-      exportPackageRates: [
+      Id: 1,
+      TestRecordId: 2765,
+      Attachment: 'attachment_filename.pdf',
+      Status: 1,
+      GenericPartNumber: 'OP467',
+      Description: 'QUAD OP AMP Linear Device',
+      PartTechnology: 'Bipolar',
+      PartLDC: '2416B',
+      Manufacturer: 'Analog Devices (Precision Monolithics, Inc.)',
+      Type: 'Single Event Effects',
+      TestSubTypes: 'Single Event Dielectric Rupture (SEDR)',
+      ActualCompletionDate: '2025-03-15',
+      ExportPackageRates: [
         {
-          id: 1,
-          exportPackageId: 1,
-          totalDose: '',
-          doseRate: '',
-          totalFluence: '',
-          lethOrEnergy: '1234',
-          fluence: '',
-          energy: ''
+          Id: 1,
+          ExportPackageId: 1,
+          TotalDose: '200',
+          DoseRate: null,
+          TotalFluence: null,
+          LETthOrEnergy: null,
+          Rates: null,
+          Fluence: null,
+          Energy: null,
+          TestSubType: null
         }
       ]
     },
     {
-      id: 2,
-      exportId: 2,
-      testRecordId: 2,
-      attachment: 'https://jpl.nasa.gov/attachment/2',
-      status: 1,
-      genericPartNumber: 'GPN345',
-      description: 'A description for part 2',
-      partTechnology: 'Transistor',
-      partLDC: 'Lot 2',
-      manufacturer: 'NanoTech',
-      type: 'TID',
-      testSubTypes: '',
-      actualCompletionDate: '2021-10-08T21:01:10Z',
-      exportPackageRates: [
+      Id: 2,
+      TestRecordId: 2,
+      Attachment: 'https://jpl.nasa.gov/attachment/1',
+      Status: 0,
+      GenericPartNumber: 'GPN123',
+      Description: 'A description for part 1',
+      PartTechnology: 'BiCMOS',
+      PartLDC: 'Lot 1',
+      Manufacturer: 'Texas Instruments',
+      Type: 'Single Event Effects',
+      TestSubTypes: 'SEEU',
+      ActualCompletionDate: '2021-10-07T21:01:10Z',
+      ExportPackageRates: [
         {
-          id: 2,
-          exportPackageId: 2,
-          totalDose: '154',
-          doseRate: '789',
-          totalFluence: '',
-          lethOrEnergy: '',
-          fluence: '',
-          energy: ''
+          Id: 1,
+          ExportPackageId: 1,
+          TotalDose: null,
+          DoseRate: null,
+          TotalFluence: null,
+          LethOrEnergy: '1234',
+          Fluence: null,
+          Energy: null
         }
-        // {
-        //   id: 3,
-        //   exportPackageId: 2,
-        //   totalDose: '154',
-        //   doseRate: '789',
-        //   totalFluence: '',
-        //   lethOrEnergy: '',
-        //   fluence: '',
-        //   energy: ''
-        // },
-        // {
-        //   id: 4,
-        //   exportPackageId: 2,
-        //   totalDose: '154',
-        //   doseRate: '789',
-        //   totalFluence: '',
-        //   lethOrEnergy: '',
-        //   fluence: '',
-        //   energy: ''
-        // }
+      ]
+    },
+    {
+      Id: 3,
+      TestRecordId: 3,
+      Attachment: 'https://jpl.nasa.gov/attachment/2',
+      Status: 1,
+      GenericPartNumber: 'GPN345',
+      Description: 'A description for part 2',
+      PartTechnology: 'Transistor',
+      PartLDC: 'Lot 2',
+      Manufacturer: 'NanoTech',
+      Type: 'TID',
+      TestSubTypes: '',
+      ActualCompletionDate: '2021-10-08T21:01:10Z',
+      ExportPackageRates: [
+        {
+          Id: 2,
+          ExportPackageId: 2,
+          TotalDose: '154',
+          DoseRate: '789',
+          TotalFluence: null,
+          LethOrEnergy: null,
+          Fluence: null,
+          Energy: null
+        }
       ]
     }
   ]

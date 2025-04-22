@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref, shallowRef, nextTick } from 'vue'
-import CellExportPackageRates from './CellExportPackageRates.vue'
+import BaseModalDialog from '../BaseModal/BaseModalDialog.vue'
 import CsrTestLimits from './CsrTestLimits.vue'
+import CsrTestLimitsTable from './CsrTestLimitsTable.vue'
 
 import {
   ModuleRegistry,
@@ -20,31 +21,30 @@ interface FeatureCsrTableProps {
   rowData: FeatureCsrTableRow[]
 }
 
-interface exportPackageRate {
-  id: number
-  exportPackageId: number
-  totalDose: string
-  doseRate: string
-  totalFluence: string
-  lethOrEnergy: string
-  fluence: string
-  energy: string
+export interface ExportPackageRate {
+  Id: number
+  ExportPackageId: number
+  TotalDose: string
+  DoseRate: string
+  TotalFluence: string
+  LethOrEnergy: string
+  Fluence: string
+  Energy: string
 }
 interface FeatureCsrTableRow {
-  id: number
-  exportId: number
-  testRecordId: number
-  attachment: string
-  status: number
-  genericPartNumber: string
-  description: string
-  partTechnology: string
-  partLDC: string
-  manufacturer: string
-  type: string
-  testSubTypes: string
-  actualCompletionDate: string
-  exportPackageRates: exportPackageRate[]
+  Id: number
+  TestRecordId: number
+  Attachment: string
+  Status: number
+  GenericPartNumber: string
+  Description: string
+  PartTechnology: string
+  PartLDC: string
+  Manufacturer: string
+  Type: string
+  TestSubTypes: string
+  ActualCompletionDate: string
+  ExportPackageRates: ExportPackageRate[]
 }
 const props = withDefaults(defineProps<FeatureCsrTableProps>(), {
   rowData: undefined
@@ -54,30 +54,37 @@ const gridApi = shallowRef<GridApi | undefined>(undefined)
 
 const FeatureCsrTableRef = ref()
 const filterText = ref()
-const exportPackageRatesLeftPosition = ref('0')
+const showModal = ref(false)
+const modalData = ref()
+const closeModal = () => {
+  showModal.value = false
+  modalData.value = undefined
+}
+const openModal = (data: any) => {
+  modalData.value = data
+  showModal.value = true
+}
+
 const theme = themeMaterial
 const defaultcolDef = {
   flex: 1
 }
 const colDefs = ref([
-  { field: 'genericPartNumber', headerName: 'Part Number', filter: true },
-  { field: 'manufacturer', filter: true },
-  { field: 'type', headerName: 'Test Type', filter: true },
-  { field: 'partTechnology', headerName: 'Part Technology', filter: true },
+  { field: 'GenericPartNumber', headerName: 'Part Number', filter: true },
+  { field: 'Manufacturer', filter: true },
+  { field: 'Type', headerName: 'Test Type', filter: true },
+  { field: 'PartTechnology', headerName: 'Part Technology', filter: true },
   {
-    // custom cell component
-    // https://www.ag-grid.com/vue-data-grid/components/
-    field: 'exportPackageRates',
+    field: 'ExportPackageRates',
     headerName: 'Test Limits',
     cellDataType: 'object',
     cellRenderer: CsrTestLimits,
-    // cellRenderer: CellExportPackageRates,
-    // cellRendererParams: {
-    //   leftPosition: () => exportPackageRatesLeftPosition.value
-    // },
+    cellRendererParams: {
+      openModal: openModal.bind(this)
+    },
     autoHeight: true
   },
-  { field: 'attachment', filter: true }
+  { field: 'Attachment', filter: true }
 ])
 
 const onGridReady = (params: GridReadyEvent) => {
@@ -86,15 +93,6 @@ const onGridReady = (params: GridReadyEvent) => {
 
 const onFilterTextBoxChanged = () => {
   gridApi.value!.setGridOption('quickFilterText', filterText.value)
-}
-
-const updatePosition = () => {
-  nextTick(() => {
-    // update left position of export package rates column (ensures proper button placement)
-    exportPackageRatesLeftPosition.value = FeatureCsrTableRef.value.querySelector(
-      '[col-id="exportPackageRates"]'
-    ).style?.left
-  })
 }
 </script>
 <template>
@@ -117,24 +115,20 @@ const updatePosition = () => {
       :row-height="50"
       pagination
       @grid-ready="onGridReady"
-      @grid-size-changed="updatePosition"
-      @column-moved="updatePosition"
-      @column-resized="updatePosition"
     >
     </ag-grid-vue>
+    <BaseModalDialog
+      v-show="showModal"
+      bg-close
+      @close="closeModal()"
+    >
+      <template #modalHeader> Test Limits </template>
+      <div class="mb-8">
+        <CsrTestLimitsTable
+          v-if="modalData"
+          :data="modalData"
+        />
+      </div>
+    </BaseModalDialog>
   </div>
 </template>
-<style lang="scss">
-// :host ::ng-deep .ag-body {
-//   .ag-header-container {
-//     @apply bg-jpl-blue-darker text-white;
-//   }
-//   .ag-row {
-//     // position: relative;
-//   }
-//   .ag-cell.ag-cell-not-inline-editing.ag-cell-auto-height[col-id='exportPackageRates'] {
-//     left: unset !important;
-//     width: 100% !important;
-//   }
-// }
-</style>

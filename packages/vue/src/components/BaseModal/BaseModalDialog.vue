@@ -45,6 +45,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['close'],
   methods: {
     closeModal() {
       this.$emit('close')
