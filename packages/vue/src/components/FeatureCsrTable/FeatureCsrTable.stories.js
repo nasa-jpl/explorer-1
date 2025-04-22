@@ -64,27 +64,27 @@ export const FeatureCsrTableData = {
           lethOrEnergy: '',
           fluence: '',
           energy: ''
-        },
-        {
-          id: 3,
-          exportPackageId: 2,
-          totalDose: '154',
-          doseRate: '789',
-          totalFluence: '',
-          lethOrEnergy: '',
-          fluence: '',
-          energy: ''
-        },
-        {
-          id: 4,
-          exportPackageId: 2,
-          totalDose: '154',
-          doseRate: '789',
-          totalFluence: '',
-          lethOrEnergy: '',
-          fluence: '',
-          energy: ''
         }
+        // {
+        //   id: 3,
+        //   exportPackageId: 2,
+        //   totalDose: '154',
+        //   doseRate: '789',
+        //   totalFluence: '',
+        //   lethOrEnergy: '',
+        //   fluence: '',
+        //   energy: ''
+        // },
+        // {
+        //   id: 4,
+        //   exportPackageId: 2,
+        //   totalDose: '154',
+        //   doseRate: '789',
+        //   totalFluence: '',
+        //   lethOrEnergy: '',
+        //   fluence: '',
+        //   energy: ''
+        // }
       ]
     }
   ]

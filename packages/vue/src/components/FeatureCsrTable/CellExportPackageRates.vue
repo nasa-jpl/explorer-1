@@ -64,7 +64,7 @@ const onGridReady = (gridParams: GridReadyEvent) => {
 <template>
   <div class="CellExportPackageRates">
     <div
-      class="CellExportPackageRatesButtonWrapper absolute"
+      class="CellExportPackageRatesButtonWrapper absolute relative"
       :style="`left: ${leftPosition};`"
     >
       <BaseButton

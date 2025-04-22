@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { reactive, ref, shallowRef, nextTick } from 'vue'
 import CellExportPackageRates from './CellExportPackageRates.vue'
+import CsrTestLimits from './CsrTestLimits.vue'
 
 import {
   ModuleRegistry,
   AllCommunityModule,
   ValidationModule,
   GridApi,
+  themeMaterial,
   type GridReadyEvent
 } from 'ag-grid-community'
 import { AgGridVue } from 'ag-grid-vue3'
@@ -53,6 +55,7 @@ const gridApi = shallowRef<GridApi | undefined>(undefined)
 const FeatureCsrTableRef = ref()
 const filterText = ref()
 const exportPackageRatesLeftPosition = ref('0')
+const theme = themeMaterial
 const defaultcolDef = {
   flex: 1
 }
@@ -67,10 +70,11 @@ const colDefs = ref([
     field: 'exportPackageRates',
     headerName: 'Test Limits',
     cellDataType: 'object',
-    cellRenderer: CellExportPackageRates,
-    cellRendererParams: {
-      leftPosition: () => exportPackageRatesLeftPosition.value
-    },
+    cellRenderer: CsrTestLimits,
+    // cellRenderer: CellExportPackageRates,
+    // cellRendererParams: {
+    //   leftPosition: () => exportPackageRatesLeftPosition.value
+    // },
     autoHeight: true
   },
   { field: 'attachment', filter: true }
@@ -105,7 +109,8 @@ const updatePosition = () => {
       @input="onFilterTextBoxChanged()"
     />
     <ag-grid-vue
-      class="w-full h-[80vh]"
+      class="w-full h-[80vh] BlockText -small text-body-sm"
+      :theme="theme"
       :row-data="rowData"
       :column-defs="colDefs"
       :default-col-def="defaultcolDef"
@@ -120,13 +125,16 @@ const updatePosition = () => {
   </div>
 </template>
 <style lang="scss">
-.ag-body {
-  .ag-row {
-    // position: relative;
-  }
-  .ag-cell.ag-cell-not-inline-editing.ag-cell-auto-height[col-id='exportPackageRates'] {
-    left: unset !important;
-    width: 100% !important;
-  }
-}
+// :host ::ng-deep .ag-body {
+//   .ag-header-container {
+//     @apply bg-jpl-blue-darker text-white;
+//   }
+//   .ag-row {
+//     // position: relative;
+//   }
+//   .ag-cell.ag-cell-not-inline-editing.ag-cell-auto-height[col-id='exportPackageRates'] {
+//     left: unset !important;
+//     width: 100% !important;
+//   }
+// }
 </style>
