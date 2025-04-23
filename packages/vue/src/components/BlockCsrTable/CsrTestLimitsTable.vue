@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref, shallowRef } from 'vue'
+import { ref, shallowRef } from 'vue'
 import {
   ModuleRegistry,
   AllCommunityModule,
@@ -9,7 +9,7 @@ import {
   type GridReadyEvent
 } from 'ag-grid-community'
 import { AgGridVue } from 'ag-grid-vue3'
-import { type ExportPackageRate } from './FeatureCsrTable.vue'
+import { type ExportPackageRate } from './BlockCsrTable.vue'
 
 ModuleRegistry.registerModules([AllCommunityModule])
 ModuleRegistry.registerModules([ValidationModule])
@@ -22,23 +22,41 @@ const props = withDefaults(defineProps<CsrTestLimitsTableProps>(), {
   data: undefined
 })
 const headerClass = [
-  'bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white text-xs border-gray-light-mid lg:p-5 p-3 border-b text-left'
+  'bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white text-xs border-gray-light-mid px-3 border-b text-left'
 ]
 const gridApi = shallowRef<GridApi | undefined>(undefined)
 const theme = themeMaterial.withParams({
-  accentColor: 'rgb(25 156 227)' // jpl-blue-light
+  accentColor: 'rgb(25 156 227)', // jpl-blue-light
+  spacing: 5
 })
 const colDefs = ref([
-  { field: 'ExportPackageId', headerClass, headerName: 'Test ID', suppressMovable: true },
-  { field: 'TotalDose', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
-  { field: 'DoseRate', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
-  { field: 'TotalFluence', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
-  { field: 'LethOrEnergy', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
-  { field: 'Fluence', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
+  {
+    field: 'ExportPackageId',
+    headerName: 'ID',
+    filter: false,
+    flex: 0,
+    width: 50
+  },
+  { field: 'TotalDose' },
+  { field: 'DoseRate' },
+  { field: 'TotalFluence' },
+  {
+    field: 'LETthOrEnergy',
+    headerName: 'LETth or Energy Range'
+  },
+  {
+    field: 'Fluence',
+    headerClass,
+    filter: 'agNumberColumnFilter',
+    suppressMovable: true
+  },
   { field: 'Energy', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true }
 ])
 const defaultcolDef = {
-  flex: 1
+  flex: 1,
+  filter: 'agNumberColumnFilter',
+  suppressMovable: true,
+  headerClass
 }
 const onGridReady = (gridParams: GridReadyEvent) => {
   gridApi.value = gridParams.api
@@ -50,6 +68,7 @@ const onGridReady = (gridParams: GridReadyEvent) => {
     :theme="theme"
     :row-data="data"
     :column-defs="colDefs"
+    dom-layout="autoHeight"
     :default-col-def="defaultcolDef"
     @grid-ready="onGridReady"
   >

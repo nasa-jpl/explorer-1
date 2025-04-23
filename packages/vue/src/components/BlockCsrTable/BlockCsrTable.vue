@@ -20,8 +20,8 @@ import { AgGridVue } from 'ag-grid-vue3'
 ModuleRegistry.registerModules([AllCommunityModule])
 ModuleRegistry.registerModules([ValidationModule])
 
-interface FeatureCsrTableProps {
-  rowData: FeatureCsrTableRow[]
+interface BlockCsrTableProps {
+  rowData?: BlockCsrTableRow[]
 }
 
 export interface ExportPackageRate {
@@ -30,11 +30,11 @@ export interface ExportPackageRate {
   TotalDose: string
   DoseRate: string
   TotalFluence: string
-  LethOrEnergy: string
+  LETthOrEnergy: string
   Fluence: string
   Energy: string
 }
-interface FeatureCsrTableRow {
+interface BlockCsrTableRow {
   Id: number
   TestRecordId: number
   Attachment: string
@@ -49,13 +49,13 @@ interface FeatureCsrTableRow {
   ActualCompletionDate: string
   ExportPackageRates: ExportPackageRate[]
 }
-const props = withDefaults(defineProps<FeatureCsrTableProps>(), {
+const props = withDefaults(defineProps<BlockCsrTableProps>(), {
   rowData: undefined
 })
 const { rowData } = reactive(props)
 const gridApi = shallowRef<GridApi | undefined>(undefined)
 
-const FeatureCsrTableRef = ref()
+const BlockCsrTableRef = ref()
 const filterText = ref()
 const showModal = ref(false)
 const modalData = ref()
@@ -72,39 +72,35 @@ const theme = themeMaterial.withParams({
   accentColor: 'rgb(25 156 227)' // jpl-blue-light
 })
 
-const defaultcolDef = {
-  flex: 1
-}
 const headerClass = [
   'min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white text-sm border-gray-light-mid lg:p-5 p-3 border-b text-left'
 ]
+const defaultcolDef = {
+  flex: 1,
+  filter: true,
+  suppressMovable: true,
+  headerClass
+}
 const colDefs = ref([
   {
     field: 'GenericPartNumber',
-    headerName: 'Part Number',
-    filter: true,
-    suppressMovable: true,
-    headerClass
+    headerName: 'Part Number'
   },
-  { field: 'Manufacturer', filter: true, suppressMovable: true, headerClass },
-  { field: 'Type', headerName: 'Test Type', filter: true, suppressMovable: true, headerClass },
+  { field: 'Manufacturer' },
+  { field: 'Type', headerName: 'Test Type' },
   {
     field: 'PartTechnology',
-    headerName: 'Part Technology',
-    filter: true,
-    suppressMovable: true,
-    headerClass
+    headerName: 'Part Technology'
   },
   {
     field: 'ExportPackageRates',
     headerName: 'Test Limits',
     cellDataType: 'object',
+    filter: false,
     cellRenderer: CsrTestLimits,
     cellRendererParams: {
       openModal: openModal.bind(this)
-    },
-    suppressMovable: true,
-    headerClass
+    }
   },
   {
     field: 'Attachment',
@@ -113,8 +109,6 @@ const colDefs = ref([
       filterOptions: ['blank', 'notBlank'],
       defaultOption: 'notBlank'
     },
-    suppressMovable: true,
-    headerClass,
     cellRenderer: CsrAttachment
   }
 ])
@@ -130,8 +124,8 @@ const onFilterTextBoxChanged = () => {
 <template>
   <div
     v-if="rowData"
-    ref="FeatureCsrTableRef"
-    class="FeatureCsrTable"
+    ref="BlockCsrTableRef"
+    class="BlockCsrTable"
   >
     <SearchInput
       v-model="filterText"
@@ -140,13 +134,14 @@ const onFilterTextBoxChanged = () => {
       @input="onFilterTextBoxChanged()"
     />
     <ag-grid-vue
-      class="w-full h-[80vh]"
+      class="w-full"
       :theme="theme"
       :row-data="rowData"
       :column-defs="colDefs"
       :default-col-def="defaultcolDef"
-      :row-height="50"
+      dom-layout="autoHeight"
       pagination
+      :pagination-page-size="20"
       @grid-ready="onGridReady"
     >
     </ag-grid-vue>
@@ -189,7 +184,7 @@ const onFilterTextBoxChanged = () => {
   </div>
 </template>
 <style type="scss">
-.FeatureCsrTable {
+.BlockCsrTable {
   .ag-root-wrapper,
   .ag-cell,
   .ag-theme-params-1 {

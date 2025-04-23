@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import BaseButton from './../BaseButton/BaseButton.vue'
-import { type ExportPackageRate } from './FeatureCsrTable.vue'
+import { type ExportPackageRate } from './BlockCsrTable.vue'
 
 interface CsrTestLimitsProps {
   params: {
@@ -23,12 +22,6 @@ const openModal = () => {
 </script>
 <template>
   <div class="CsrTestLimits">
-    <!-- <BaseButton
-      variant="secondary"
-      compact
-      @click="openModal()"
-      >View Test Limits</BaseButton
-    > -->
     <p
       class="text-action hover:text-action-hover hover:cursor-pointer underline"
       @click="openModal()"

@@ -242,6 +242,15 @@
         <BlockAccordion :data="block as unknown as AccordionBlockObject" />
       </LayoutHelper>
 
+      <LayoutHelper
+        v-else-if="block.blockType == 'CsrTableBlock'"
+        :key="`csrTableBlock${index}`"
+        indent="col-1"
+        :class="marginBottom"
+      >
+        <BlockCsrTable :row-data="block.rowData" />
+      </LayoutHelper>
+
       <div
         v-else
         :key="index"
@@ -286,6 +295,7 @@ import BlockVideoEmbed, {
   type BlockData as VideoBlockEmbedData
 } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockNewsletterSignup from '../BlockNewsletterSignup/BlockNewsletterSignup.vue'
+import BlockCsrTable from '../BlockCsrTable/BlockCsrTable.vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 
@@ -325,7 +335,8 @@ export default defineComponent({
     BlockGist,
     BlockVideo,
     BlockVideoEmbed,
-    BlockNewsletterSignup
+    BlockNewsletterSignup,
+    BlockCsrTable
   },
   props: {
     variant: {
