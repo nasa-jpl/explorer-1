@@ -18,16 +18,22 @@ const { params } = reactive(props)
 
 const openModal = () => {
   // @ts-ignore
-  params.openModal(params.data?.ExportPackageRates)
+  params.openModal(params.data)
 }
 </script>
 <template>
   <div class="CsrTestLimits">
-    <BaseButton
+    <!-- <BaseButton
       variant="secondary"
       compact
       @click="openModal()"
       >View Test Limits</BaseButton
+    > -->
+    <p
+      class="text-action hover:text-action-hover hover:cursor-pointer underline"
+      @click="openModal()"
     >
+      View Test Limits
+    </p>
   </div>
 </template>

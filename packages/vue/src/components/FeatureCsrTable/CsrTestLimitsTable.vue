@@ -5,6 +5,7 @@ import {
   AllCommunityModule,
   ValidationModule,
   GridApi,
+  themeMaterial,
   type GridReadyEvent
 } from 'ag-grid-community'
 import { AgGridVue } from 'ag-grid-vue3'
@@ -20,16 +21,21 @@ interface CsrTestLimitsTableProps {
 const props = withDefaults(defineProps<CsrTestLimitsTableProps>(), {
   data: undefined
 })
-const { data } = reactive(props)
+const headerClass = [
+  'bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white text-xs border-gray-light-mid lg:p-5 p-3 border-b text-left'
+]
 const gridApi = shallowRef<GridApi | undefined>(undefined)
-
+const theme = themeMaterial.withParams({
+  accentColor: 'rgb(25 156 227)' // jpl-blue-light
+})
 const colDefs = ref([
-  { field: 'TotalDose' },
-  { field: 'DoseRate' },
-  { field: 'TotalFluence' },
-  { field: 'LethOrEnergy' },
-  { field: 'Fluence' },
-  { field: 'Energy' }
+  { field: 'ExportPackageId', headerClass, headerName: 'Test ID', suppressMovable: true },
+  { field: 'TotalDose', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
+  { field: 'DoseRate', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
+  { field: 'TotalFluence', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
+  { field: 'LethOrEnergy', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
+  { field: 'Fluence', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true },
+  { field: 'Energy', headerClass, filter: 'agNumberColumnFilter', suppressMovable: true }
 ])
 const defaultcolDef = {
   flex: 1
@@ -40,7 +46,8 @@ const onGridReady = (gridParams: GridReadyEvent) => {
 </script>
 <template>
   <ag-grid-vue
-    class="w-full h-40"
+    class="w-full h-40 CsrTestLimitsTable"
+    :theme="theme"
     :row-data="data"
     :column-defs="colDefs"
     :default-col-def="defaultcolDef"
@@ -48,3 +55,10 @@ const onGridReady = (gridParams: GridReadyEvent) => {
   >
   </ag-grid-vue>
 </template>
+<style lang="scss">
+.CsrTestLimitsTable {
+  .ag-root-wrapper {
+    @apply overflow-visible;
+  }
+}
+</style>
