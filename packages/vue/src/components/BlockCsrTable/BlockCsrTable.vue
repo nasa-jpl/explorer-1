@@ -184,7 +184,7 @@ const onFilterTextBoxChanged = () => {
 <template>
   <client-only>
     <div
-      v-if="computedRowData"
+      v-if="rowData || apiEndpoint"
       ref="BlockCsrTableRef"
       class="BlockCsrTable"
     >
@@ -203,6 +203,8 @@ const onFilterTextBoxChanged = () => {
         dom-layout="autoHeight"
         pagination
         :pagination-page-size="20"
+        :ensure-dom-order="true"
+        :suppress-server-side-full-width-loading-row="true"
         @grid-ready="onGridReady"
       >
       </ag-grid-vue>

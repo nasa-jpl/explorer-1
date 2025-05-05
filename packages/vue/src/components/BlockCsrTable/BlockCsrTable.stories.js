@@ -3,7 +3,26 @@ import BlockCsrTable from './BlockCsrTable.vue'
 export default {
   title: 'Components/FeatureFlags/BlockCsrTable',
   component: BlockCsrTable,
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
+  parameters: {
+    a11y: {
+      element: 'body',
+      config: {
+        rules: [
+          // ignore rules that fail tests but are not actually violations
+          // see: https://github.com/ag-grid/ag-grid/issues/6218
+          {
+            id: 'aria-required-children',
+            enabled: false
+          },
+          {
+            id: 'region',
+            enabled: false
+          }
+        ]
+      }
+    }
+  }
 }
 
 export const BlockCsrTableData = [
@@ -197,5 +216,11 @@ export const BaseStory = {
   args: {
     rowData: BlockCsrTableData,
     apiEndpoint: ''
+  }
+}
+export const Api = {
+  args: {
+    rowData: undefined,
+    apiEndpoint: 'https://7aysi4dg5l.execute-api.us-gov-west-1.amazonaws.com/dev/records'
   }
 }
