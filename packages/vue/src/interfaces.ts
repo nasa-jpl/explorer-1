@@ -39,6 +39,8 @@ export interface StreamfieldBlockData extends BlockData {
   credit?: string
   imageInline?: ImageObject
   heroSummary?: string
+  rowData?: any
+  apiEndpoint?: string
 }
 
 export interface ImageSrcObject {

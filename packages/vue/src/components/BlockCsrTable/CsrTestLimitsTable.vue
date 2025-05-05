@@ -18,9 +18,10 @@ interface CsrTestLimitsTableProps {
   data: ExportPackageRate[]
 }
 
-const props = withDefaults(defineProps<CsrTestLimitsTableProps>(), {
+withDefaults(defineProps<CsrTestLimitsTableProps>(), {
   data: undefined
 })
+
 const headerClass = [
   'bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white text-xs border-gray-light-mid px-3 border-b text-left'
 ]
