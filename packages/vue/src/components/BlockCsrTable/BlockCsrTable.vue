@@ -231,7 +231,7 @@ const onFilterTextBoxChanged = () => {
               <strong>Description:</strong> {{ modalData.Description }}
             </p>
             <p v-if="modalData.Attachment">
-              <strong>Attachment: </strong>
+              <strong class="pr-1">Attachment:</strong>
               <BaseLink
                 :href="modalData.Attachment"
                 class="inline"

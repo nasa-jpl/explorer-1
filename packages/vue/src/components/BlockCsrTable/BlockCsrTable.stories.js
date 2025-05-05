@@ -196,6 +196,6 @@ export const BlockCsrTableData = [
 export const BaseStory = {
   args: {
     rowData: BlockCsrTableData,
-    apiEndpoint: "https://7aysi4dg5l.execute-api.us-gov-west-1.amazonaws.com/dev/records"
+    apiEndpoint: ''
   }
 }
