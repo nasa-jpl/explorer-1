@@ -90,20 +90,48 @@ const defaultcolDef = {
 const colDefs = ref([
   {
     field: 'GenericPartNumber',
-    headerName: 'Part Number'
+    headerName: 'Part Number',
+    filterParams: {
+      buttons: ['reset', 'apply'],
+      closeOnApply: true
+    }
   },
-  { field: 'Manufacturer' },
-  { field: 'Type', headerName: 'Test Type' },
+  {
+    field: 'Manufacturer',
+    wrapText: true,
+    autoHeight: true,
+    filterParams: {
+      buttons: ['reset', 'apply'],
+      closeOnApply: true
+    }
+  },
+  {
+    field: 'Type',
+    headerName: 'Test Type',
+    wrapText: true,
+    autoHeight: true,
+    filterParams: {
+      buttons: ['reset', 'apply'],
+      closeOnApply: true
+    }
+  },
   {
     field: 'PartTechnology',
-    headerName: 'Part Technology'
+    headerName: 'Part Technology',
+    filterParams: {
+      buttons: ['reset', 'apply'],
+      closeOnApply: true
+    }
   },
   {
     field: 'Description',
     headerName: 'Description',
     wrapText: true,
     autoHeight: true,
-    className: 'csr-description'
+    filterParams: {
+      buttons: ['reset', 'apply'],
+      closeOnApply: true
+    }
   },
   {
     field: 'ExportPackageRates',
@@ -120,7 +148,9 @@ const colDefs = ref([
     filter: true,
     filterParams: {
       filterOptions: ['blank', 'notBlank'],
-      defaultOption: 'notBlank'
+      defaultOption: 'notBlank',
+      buttons: ['reset', 'apply'],
+      closeOnApply: true
     },
     cellRenderer: CsrAttachment
   }
