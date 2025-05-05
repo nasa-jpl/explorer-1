@@ -2,7 +2,6 @@
 import { action } from '@storybook/addon-actions'
 import DsnWidget from '@explorer-1/vue/src/components/DsnWidget/DsnWidget.vue'
 import AsteroidWatchWidget from '@explorer-1/vue/src/components/AsteroidWatchWidget/AsteroidWatchWidget.vue'
-import BlockCsrTable from '@explorer-1/vue/src/components/BlockCsrTable/BlockCsrTable.vue'
 
 export default (app) => {
   // nuxt-link mock component
@@ -32,7 +31,4 @@ export default (app) => {
 
   // use static asteroid watch widget instead of fetch
   app.component('FetchAsteroidWatchWidget', AsteroidWatchWidget)
-
-  // use static version instead of fetch
-  app.component('FetchBlockCsrTable', BlockCsrTable)
 }

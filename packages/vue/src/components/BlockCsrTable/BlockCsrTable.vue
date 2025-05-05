@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref, shallowRef } from 'vue'
+import { computed, reactive, ref, shallowRef, onMounted } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseModalDialog from '../BaseModal/BaseModalDialog.vue'
 import CsrAttachment from './CsrAttachment.vue'
@@ -22,6 +22,7 @@ ModuleRegistry.registerModules([ValidationModule])
 
 interface BlockCsrTableProps {
   rowData?: BlockCsrTableRow[]
+  apiEndpoint?: string
 }
 
 export interface ExportPackageRate {
@@ -50,12 +51,17 @@ interface BlockCsrTableRow {
   ExportPackageRates: ExportPackageRate[]
 }
 const props = withDefaults(defineProps<BlockCsrTableProps>(), {
-  rowData: undefined
+  rowData: undefined,
+  apiEndpoint: undefined
 })
-const { rowData } = reactive(props)
+const { rowData, apiEndpoint } = reactive(props)
 const gridApi = shallowRef<GridApi | undefined>(undefined)
 
 const BlockCsrTableRef = ref()
+const fetchedRowData = ref()
+const computedRowData = computed(() => {
+  return fetchedRowData.value || rowData
+})
 const filterText = ref()
 const showModal = ref(false)
 const modalData = ref()
@@ -69,7 +75,7 @@ const openModal = (data: any) => {
 }
 
 const theme = themeMaterial.withParams({
-  accentColor: 'rgb(25 156 227)' // jpl-blue-light
+  accentColor: 'rgb(25 156 227)' // jpl-blue-light,
 })
 
 const headerClass = [
@@ -93,6 +99,13 @@ const colDefs = ref([
     headerName: 'Part Technology'
   },
   {
+    field: 'Description',
+    headerName: 'Description',
+    wrapText: true,
+    autoHeight: true,
+    className: 'csr-description'
+  },
+  {
     field: 'ExportPackageRates',
     headerName: 'Test Limits',
     cellDataType: 'object',
@@ -113,6 +126,23 @@ const colDefs = ref([
   }
 ])
 
+async function getRowData() {
+  if (apiEndpoint) {
+    try {
+      let result = await fetch(apiEndpoint)
+      result = await result.json()
+      fetchedRowData.value = result
+      return result
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
+
+onMounted(async () => {
+  await getRowData()
+})
+
 const onGridReady = (params: GridReadyEvent) => {
   gridApi.value = params.api
 }
@@ -122,66 +152,71 @@ const onFilterTextBoxChanged = () => {
 }
 </script>
 <template>
-  <div
-    v-if="rowData"
-    ref="BlockCsrTableRef"
-    class="BlockCsrTable"
-  >
-    <SearchInput
-      v-model="filterText"
-      class="mb-3"
-      placeholder="Filter parts&hellip;"
-      @input="onFilterTextBoxChanged()"
-    />
-    <ag-grid-vue
-      class="w-full"
-      :theme="theme"
-      :row-data="rowData"
-      :column-defs="colDefs"
-      :default-col-def="defaultcolDef"
-      dom-layout="autoHeight"
-      pagination
-      :pagination-page-size="20"
-      @grid-ready="onGridReady"
+  <client-only>
+    <div
+      v-if="computedRowData"
+      ref="BlockCsrTableRef"
+      class="BlockCsrTable"
     >
-    </ag-grid-vue>
-    <BaseModalDialog
-      v-show="showModal"
-      bg-close
-      width-class="max-w-5xl"
-      @close="closeModal()"
-    >
-      <div
-        v-if="modalData"
-        class="mb-8 text-sm"
+      <SearchInput
+        v-model="filterText"
+        class="mb-3"
+        placeholder="Filter parts&hellip;"
+        @input="onFilterTextBoxChanged()"
+      />
+      <ag-grid-vue
+        class="w-full"
+        :theme="theme"
+        :row-data="computedRowData"
+        :column-defs="colDefs"
+        :default-col-def="defaultcolDef"
+        dom-layout="autoHeight"
+        pagination
+        :pagination-page-size="20"
+        @grid-ready="onGridReady"
       >
-        <div class="mb-5">
-          <p v-if="modalData.GenericPartNumber">
-            <strong>Part Number:</strong> {{ modalData.GenericPartNumber }}
-          </p>
-          <p v-if="modalData.Manufacturer">
-            <strong>Manufacturer:</strong> {{ modalData.Manufacturer }}
-          </p>
-          <p v-if="modalData.Type"><strong>Test Type:</strong> {{ modalData.Type }}</p>
-          <p v-if="modalData.PartTechnology">
-            <strong>Part Technology:</strong> {{ modalData.PartTechnology }}
-          </p>
-          <p v-if="modalData.Attachment">
-            <strong>Attachment: </strong>
-            <BaseLink
-              :href="modalData.Attachment"
-              class="inline"
-              variant="default"
-              target="_blank"
-              >Download</BaseLink
-            >
-          </p>
+      </ag-grid-vue>
+      <BaseModalDialog
+        v-show="showModal"
+        bg-close
+        width-class="max-w-5xl"
+        @close="closeModal()"
+      >
+        <div
+          v-if="modalData"
+          class="mb-8 text-sm"
+        >
+          <div class="mb-5">
+            <p v-if="modalData.GenericPartNumber">
+              <strong>Part Number:</strong> {{ modalData.GenericPartNumber }}
+            </p>
+            <p v-if="modalData.Manufacturer">
+              <strong>Manufacturer:</strong> {{ modalData.Manufacturer }}
+            </p>
+            <p v-if="modalData.Type"><strong>Test Type:</strong> {{ modalData.Type }}</p>
+            <p v-if="modalData.PartTechnology">
+              <strong>Part Technology:</strong> {{ modalData.PartTechnology }}
+            </p>
+            <p v-if="modalData.Description">
+              <strong>Description:</strong> {{ modalData.Description }}
+            </p>
+            <p v-if="modalData.Attachment">
+              <strong>Attachment: </strong>
+              <BaseLink
+                :href="modalData.Attachment"
+                class="inline"
+                variant="default"
+                target="_blank"
+                >Download</BaseLink
+              >
+            </p>
+          </div>
+          <h2 class="text-lg tracking-tight mb-3">Test Limits</h2>
+          <CsrTestLimitsTable :data="modalData.ExportPackageRates" />
         </div>
-        <h2 class="text-lg tracking-tight mb-3">Test Limits</h2>
-        <CsrTestLimitsTable :data="modalData.ExportPackageRates" />
-      </div>
-    </BaseModalDialog>
-  </div>
+      </BaseModalDialog>
+    </div>
+  </client-only>
 </template>
 <style type="scss">
 .BlockCsrTable {
@@ -189,6 +224,10 @@ const onFilterTextBoxChanged = () => {
   .ag-cell,
   .ag-theme-params-1 {
     @apply font-primary;
+  }
+  .ag-cell-wrap-text {
+    line-height: 1.25rem;
+    padding: 0.75rem 0;
   }
   .ag-filter-filter {
     .ag-wrapper::before {

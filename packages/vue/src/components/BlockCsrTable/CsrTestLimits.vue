@@ -23,6 +23,7 @@ const openModal = () => {
 <template>
   <div class="CsrTestLimits">
     <p
+      v-if="params.data.ExportPackageRates?.length"
       class="text-action hover:text-action-hover hover:cursor-pointer underline"
       @click="openModal()"
     >

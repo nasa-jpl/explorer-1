@@ -248,7 +248,10 @@
         indent="col-1"
         :class="marginBottom"
       >
-        <BlockCsrTable :row-data="block.rowData" />
+        <BlockCsrTable
+          :row-data="block.rowData"
+          :api-endpoint="block.apiEndpoint"
+        />
       </LayoutHelper>
 
       <div
