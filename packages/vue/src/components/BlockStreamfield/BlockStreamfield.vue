@@ -250,6 +250,7 @@
       >
         <BlockCsrTable
           :row-data="block.rowData"
+          :attachment-prefix="block.attachmentPrefix"
           :api-endpoint="block.apiEndpoint"
         />
       </LayoutHelper>

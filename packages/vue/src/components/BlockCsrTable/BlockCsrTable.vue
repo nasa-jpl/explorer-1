@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref, shallowRef, onMounted } from 'vue'
+import { computed, reactive, ref, onMounted } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseModalDialog from '../BaseModal/BaseModalDialog.vue'
 import CsrAttachment from './CsrAttachment.vue'
@@ -11,9 +11,8 @@ import {
   ModuleRegistry,
   AllCommunityModule,
   ValidationModule,
-  GridApi,
   themeMaterial,
-  type GridReadyEvent
+  type PaginationChangedEvent
 } from 'ag-grid-community'
 import { AgGridVue } from 'ag-grid-vue3'
 
@@ -22,6 +21,7 @@ ModuleRegistry.registerModules([ValidationModule])
 
 interface BlockCsrTableProps {
   rowData?: BlockCsrTableRow[]
+  attachmentPrefix?: string
   apiEndpoint?: string
 }
 
@@ -52,19 +52,18 @@ interface BlockCsrTableRow {
 }
 const props = withDefaults(defineProps<BlockCsrTableProps>(), {
   rowData: undefined,
+  attachmentPrefix: '',
   apiEndpoint: undefined
 })
-const { rowData, apiEndpoint } = reactive(props)
-const gridApi = shallowRef<GridApi | undefined>(undefined)
+const { rowData, apiEndpoint, attachmentPrefix } = reactive(props)
 
 const BlockCsrTableRef = ref()
 const fetchedRowData = ref()
-const computedRowData = computed(() => {
-  return fetchedRowData.value || rowData
-})
+const minHeightClass = ref('page-size-20')
 const filterText = ref()
 const showModal = ref(false)
 const modalData = ref()
+
 const closeModal = () => {
   showModal.value = false
   modalData.value = undefined
@@ -152,7 +151,10 @@ const colDefs = ref([
       buttons: ['reset', 'apply'],
       closeOnApply: true
     },
-    cellRenderer: CsrAttachment
+    cellRenderer: CsrAttachment,
+    cellRendererParams: {
+      attachmentPrefix
+    }
   }
 ])
 
@@ -169,24 +171,43 @@ async function getRowData() {
   }
 }
 
+const computedRowData = computed(() => {
+  return fetchedRowData.value || rowData
+})
+
 onMounted(async () => {
   await getRowData()
 })
 
-const onGridReady = (params: GridReadyEvent) => {
-  gridApi.value = params.api
+// methods
+const onPaginationChanged = (params: PaginationChangedEvent) => {
+  console.log('pagination changed', params)
+  if (params.newPageSize && BlockCsrTableRef.value?.api) {
+    // TODO: not working -- size doesn't seem to be dynamic and always reflects the initial settings of 20
+    const size = BlockCsrTableRef.value.api.getGridOption('paginationPageSize')
+    switch (size) {
+      case 20:
+        minHeightClass.value = 'page-size-20'
+        break
+      case 50:
+        minHeightClass.value = 'page-size-50'
+        break
+      case 100:
+        minHeightClass.value = 'page-size-100'
+        break
+    }
+  }
 }
-
 const onFilterTextBoxChanged = () => {
-  gridApi.value!.setGridOption('quickFilterText', filterText.value)
+  BlockCsrTableRef.value.api.setGridOption('quickFilterText', filterText.value)
 }
 </script>
 <template>
   <client-only>
     <div
       v-if="rowData || apiEndpoint"
-      ref="BlockCsrTableRef"
       class="BlockCsrTable"
+      :class="minHeightClass"
     >
       <SearchInput
         v-model="filterText"
@@ -195,17 +216,18 @@ const onFilterTextBoxChanged = () => {
         @input="onFilterTextBoxChanged()"
       />
       <ag-grid-vue
+        ref="BlockCsrTableRef"
         class="w-full"
         :theme="theme"
         :row-data="computedRowData"
         :column-defs="colDefs"
         :default-col-def="defaultcolDef"
-        dom-layout="autoHeight"
-        pagination
         :pagination-page-size="20"
         :ensure-dom-order="true"
         :suppress-server-side-full-width-loading-row="true"
-        @grid-ready="onGridReady"
+        dom-layout="autoHeight"
+        pagination
+        @pagination-changed="onPaginationChanged"
       >
       </ag-grid-vue>
       <BaseModalDialog
@@ -252,6 +274,15 @@ const onFilterTextBoxChanged = () => {
 </template>
 <style type="scss">
 .BlockCsrTable {
+  &.page-size-20 .ag-root {
+    min-height: 75rem;
+  }
+  &.page-size-50 .ag-root {
+    min-height: 150rem;
+  }
+  &.page-size-100 .ag-root {
+    min-height: 300rem;
+  }
   .ag-root-wrapper,
   .ag-cell,
   .ag-theme-params-1 {

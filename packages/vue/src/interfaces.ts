@@ -41,6 +41,7 @@ export interface StreamfieldBlockData extends BlockData {
   heroSummary?: string
   rowData?: any
   apiEndpoint?: string
+  attachmentPrefix?: string
 }
 
 export interface ImageSrcObject {

@@ -57,7 +57,7 @@ export const BlockCsrTableData = [
   {
     Id: 2,
     TestRecordId: 2,
-    Attachment: 'https://jpl.nasa.gov/attachment/1',
+    Attachment: 'attachment/1',
     Status: 0,
     GenericPartNumber: 'GPN123',
     Description: 'A description for part 1',
@@ -83,7 +83,7 @@ export const BlockCsrTableData = [
   {
     Id: 3,
     TestRecordId: 3,
-    Attachment: 'https://jpl.nasa.gov/attachment/2',
+    Attachment: 'attachment/2',
     Status: 1,
     GenericPartNumber: 'GPN345',
     Description: 'A description for part 2',
@@ -109,7 +109,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'https://jpl.nasa.gov/attachment/2',
+    Attachment: 'attachment/2',
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part. Lorem ipsum dolor sit amet consectatur.',
@@ -135,7 +135,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'https://jpl.nasa.gov/attachment/2',
+    Attachment: 'attachment/2',
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part 2',
@@ -161,7 +161,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'https://jpl.nasa.gov/attachment/2',
+    Attachment: 'attachment/2',
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part 2',
@@ -187,7 +187,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'https://jpl.nasa.gov/attachment/2',
+    Attachment: 'attachment/2',
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part 2',
@@ -215,6 +215,7 @@ export const BlockCsrTableData = [
 export const BaseStory = {
   args: {
     rowData: BlockCsrTableData,
-    apiEndpoint: ''
+    attachmentPrefix: 'https://www.jpl.nasa.gov',
+    apiEndpoint: "https://7aysi4dg5l.execute-api.us-gov-west-1.amazonaws.com/dev/records"
   }
 }
