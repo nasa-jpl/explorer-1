@@ -184,7 +184,7 @@ const onPaginationChanged = (params: PaginationChangedEvent) => {
   console.log('pagination changed', params)
   if (params.newPageSize && BlockCsrTableRef.value?.api) {
     // TODO: not working -- size doesn't seem to be dynamic and always reflects the initial settings of 20
-    const size = BlockCsrTableRef.value.api.getGridOption('paginationPageSize')
+    const size = BlockCsrTableRef.value.api.paginationGetPageSize()
     switch (size) {
       case 20:
         minHeightClass.value = 'page-size-20'
