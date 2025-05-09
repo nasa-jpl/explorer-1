@@ -207,29 +207,33 @@ const onFilterTextBoxChanged = () => {
     <div
       v-if="rowData || apiEndpoint"
       class="BlockCsrTable"
-      :class="minHeightClass"
     >
-      <SearchInput
-        v-model="filterText"
-        class="mb-3"
-        placeholder="Filter parts&hellip;"
-        @input="onFilterTextBoxChanged()"
-      />
-      <ag-grid-vue
-        ref="BlockCsrTableRef"
-        class="w-full"
-        :theme="theme"
-        :row-data="computedRowData"
-        :column-defs="colDefs"
-        :default-col-def="defaultcolDef"
-        :pagination-page-size="20"
-        :ensure-dom-order="true"
-        :suppress-server-side-full-width-loading-row="true"
-        dom-layout="autoHeight"
-        pagination
-        @pagination-changed="onPaginationChanged"
+      <div
+        class="MainCsrTable"
+        :class="minHeightClass"
       >
-      </ag-grid-vue>
+        <SearchInput
+          v-model="filterText"
+          class="mb-3"
+          placeholder="Filter parts&hellip;"
+          @input="onFilterTextBoxChanged()"
+        />
+        <ag-grid-vue
+          ref="BlockCsrTableRef"
+          class="w-full"
+          :theme="theme"
+          :row-data="computedRowData"
+          :column-defs="colDefs"
+          :default-col-def="defaultcolDef"
+          :pagination-page-size="20"
+          :ensure-dom-order="true"
+          :suppress-server-side-full-width-loading-row="true"
+          dom-layout="autoHeight"
+          pagination
+          @pagination-changed="onPaginationChanged"
+        >
+        </ag-grid-vue>
+      </div>
       <BaseModalDialog
         v-show="showModal"
         bg-close
@@ -274,14 +278,16 @@ const onFilterTextBoxChanged = () => {
 </template>
 <style type="scss">
 .BlockCsrTable {
-  &.page-size-20 .ag-root {
-    min-height: 75rem;
-  }
-  &.page-size-50 .ag-root {
-    min-height: 150rem;
-  }
-  &.page-size-100 .ag-root {
-    min-height: 300rem;
+  .MainCsrTable {
+    &.page-size-20 .ag-root {
+      min-height: 75rem;
+    }
+    &.page-size-50 .ag-root {
+      min-height: 150rem;
+    }
+    &.page-size-100 .ag-root {
+      min-height: 300rem;
+    }
   }
   .ag-root-wrapper,
   .ag-cell,
