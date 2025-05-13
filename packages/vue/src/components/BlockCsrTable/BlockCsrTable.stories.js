@@ -3,26 +3,7 @@ import BlockCsrTable from './BlockCsrTable.vue'
 export default {
   title: 'Components/FeatureFlags/BlockCsrTable',
   component: BlockCsrTable,
-  excludeStories: /.*Data$/,
-  parameters: {
-    a11y: {
-      element: 'body',
-      config: {
-        rules: [
-          // ignore rules that fail tests but are not actually violations
-          // see: https://github.com/ag-grid/ag-grid/issues/6218
-          {
-            id: 'aria-required-children',
-            enabled: false
-          },
-          {
-            id: 'region',
-            enabled: false
-          }
-        ]
-      }
-    }
-  }
+  excludeStories: /.*Data$/
 }
 
 export const BlockCsrTableData = [

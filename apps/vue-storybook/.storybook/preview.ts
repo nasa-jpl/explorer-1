@@ -115,6 +115,27 @@ const preview: Preview = {
     html: {
       removeEmptyComments: true
     },
+    a11y: {
+      element: 'body',
+      config: {
+        rules: [
+          // ignore rules that fail tests but are not actually violations
+          // see: https://github.com/ag-grid/ag-grid/issues/6218
+          {
+            id: 'aria-required-children',
+            selector: '*:not(.ag-root)'
+          },
+          {
+            id: 'region',
+            enabled: false
+          },
+          {
+            id: 'scrollable-region-focusable',
+            enabled: false
+          }
+        ]
+      }
+    },
     // set the theme for docs (same as UI)
     docs: {
       theme: customTheme
