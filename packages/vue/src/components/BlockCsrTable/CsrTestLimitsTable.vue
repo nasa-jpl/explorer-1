@@ -50,7 +50,7 @@ const colDefs = ref([
 ])
 const defaultcolDef = {
   flex: 1,
-  filter: 'agNumberColumnFilter',
+  filter: true,
   suppressMovable: true,
   headerClass,
   filterParams: {

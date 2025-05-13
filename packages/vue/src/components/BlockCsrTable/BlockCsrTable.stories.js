@@ -202,7 +202,7 @@ export const BlockCsrTableData = [
         Id: 2,
         ExportPackageId: 2,
         TotalDose: '154',
-        DoseRate: '789',
+        DoseRate: '>789',
         TotalFluence: null,
         LETthOrEnergy: null,
         Fluence: null,
@@ -216,6 +216,6 @@ export const BaseStory = {
   args: {
     rowData: BlockCsrTableData,
     attachmentPrefix: 'https://www.jpl.nasa.gov',
-    apiEndpoint: "https://7aysi4dg5l.execute-api.us-gov-west-1.amazonaws.com/dev/records"
+    apiEndpoint: 'https://7aysi4dg5l.execute-api.us-gov-west-1.amazonaws.com/dev/records'
   }
 }
