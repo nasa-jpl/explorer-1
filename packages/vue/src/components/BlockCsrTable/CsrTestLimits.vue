@@ -27,7 +27,8 @@ const openModal = () => {
       class="text-action hover:text-action-hover hover:cursor-pointer underline"
       @click="openModal()"
     >
-      View Test Limits
+      <span class="hidden lg:inline">View Test Limits</span>
+      <span class="inline lg:hidden">View</span>
     </p>
   </div>
 </template>

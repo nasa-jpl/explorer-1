@@ -74,7 +74,14 @@ const defaultcolDef = {
 <style lang="scss">
 .CsrTestLimitsTable {
   .ag-root {
-    @apply min-h-12;
+    @apply min-h-12 overflow-x-auto;
+    .ag-body {
+      min-width: 40rem;
+    }
+    .ag-header,
+    .ag-header-viewport {
+      @apply overflow-visible;
+    }
   }
   .ag-root-wrapper {
     @apply overflow-visible;

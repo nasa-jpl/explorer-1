@@ -11,8 +11,7 @@ import {
   ModuleRegistry,
   AllCommunityModule,
   ValidationModule,
-  themeMaterial,
-  type PaginationChangedEvent
+  themeMaterial
 } from 'ag-grid-community'
 import { AgGridVue } from 'ag-grid-vue3'
 
@@ -59,7 +58,6 @@ const { rowData, apiEndpoint, attachmentPrefix } = reactive(props)
 
 const BlockCsrTableRef = ref()
 const fetchedRowData = ref()
-const minHeightClass = ref('page-size-20')
 const filterText = ref()
 const showModal = ref(false)
 const modalData = ref()
@@ -180,24 +178,6 @@ onMounted(async () => {
 })
 
 // methods
-const onPaginationChanged = (params: PaginationChangedEvent) => {
-  console.log('pagination changed', params)
-  if (params.newPageSize && BlockCsrTableRef.value?.api) {
-    // TODO: not working -- size doesn't seem to be dynamic and always reflects the initial settings of 20
-    const size = BlockCsrTableRef.value.api.paginationGetPageSize()
-    switch (size) {
-      case 20:
-        minHeightClass.value = 'page-size-20'
-        break
-      case 50:
-        minHeightClass.value = 'page-size-50'
-        break
-      case 100:
-        minHeightClass.value = 'page-size-100'
-        break
-    }
-  }
-}
 const onFilterTextBoxChanged = () => {
   BlockCsrTableRef.value.api.setGridOption('quickFilterText', filterText.value)
 }
@@ -208,10 +188,7 @@ const onFilterTextBoxChanged = () => {
       v-if="rowData || apiEndpoint"
       class="BlockCsrTable"
     >
-      <div
-        class="MainCsrTable"
-        :class="minHeightClass"
-      >
+      <div class="MainCsrTable">
         <SearchInput
           v-model="filterText"
           class="mb-3"
@@ -230,7 +207,6 @@ const onFilterTextBoxChanged = () => {
           :suppress-server-side-full-width-loading-row="true"
           dom-layout="autoHeight"
           pagination
-          @pagination-changed="onPaginationChanged"
         >
         </ag-grid-vue>
       </div>
@@ -278,15 +254,23 @@ const onFilterTextBoxChanged = () => {
 </template>
 <style type="scss">
 .BlockCsrTable {
-  .MainCsrTable {
-    &.page-size-20 .ag-root {
-      min-height: 75rem;
+  .MainCsrTable .ag-root {
+    @apply overflow-x-auto;
+    min-height: 75rem;
+    .ag-body {
+      min-width: 40rem;
     }
-    &.page-size-50 .ag-root {
-      min-height: 150rem;
+    .ag-header,
+    .ag-header-viewport {
+      @apply overflow-visible;
     }
-    &.page-size-100 .ag-root {
-      min-height: 300rem;
+  }
+  .ag-cell {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    @screen lg {
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
     }
   }
   .ag-root-wrapper,
@@ -296,7 +280,8 @@ const onFilterTextBoxChanged = () => {
   }
   .ag-cell-wrap-text {
     line-height: 1.25rem;
-    padding: 0.75rem 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
   .ag-filter-filter {
     .ag-wrapper::before {
@@ -305,6 +290,9 @@ const onFilterTextBoxChanged = () => {
     .ag-input-field-input {
       @apply text-xs;
     }
+  }
+  .ag-paging-row-summary-panel {
+    @apply whitespace-nowrap;
   }
 }
 </style>
