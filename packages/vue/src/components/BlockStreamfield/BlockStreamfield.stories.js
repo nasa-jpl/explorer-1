@@ -90,10 +90,6 @@ export const BlockStreamfieldData = {
     },
     BlockInlineImageData.block,
     {
-      blockType: 'CsrTableBlock',
-      rowData: BlockCsrTableData
-    },
-    {
       blockType: 'HeadingBlock',
       heading: 'Heading 2',
       level: 'h2'
@@ -181,14 +177,24 @@ export const BlockStreamfieldData = {
     }
   ]
 }
+const BlockStreamfieldFeatureFlagsData = [
+  {
+    blockType: 'CsrTableBlock',
+    rowData: BlockCsrTableData
+  }
+]
 
 export const BaseStory = {
-  args: { data: BlockStreamfieldData.body, variant: 'default', size: 'large' }
+  args: {
+    data: [...BlockStreamfieldData.body, ...BlockStreamfieldFeatureFlagsData],
+    variant: 'default',
+    size: 'large'
+  }
 }
 
 export const MatchingWidths = {
   args: {
-    data: BlockStreamfieldData.body,
+    data: [...BlockStreamfieldData.body, ...BlockStreamfieldFeatureFlagsData],
     variant: 'fluid',
     size: 'large'
   }
