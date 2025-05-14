@@ -4,7 +4,8 @@
     @click="bgCloseModal"
   >
     <div
-      class="relative w-full max-w-xl p-8 m-auto bg-white"
+      class="relative w-full p-8 m-auto bg-white"
+      :class="widthClass"
       @click.stop
     >
       <BaseHeading
@@ -43,8 +44,13 @@ export default defineComponent({
     bgClose: {
       type: Boolean,
       default: false
+    },
+    widthClass: {
+      type: String,
+      default: 'max-w-xl'
     }
   },
+  emits: ['close'],
   methods: {
     closeModal() {
       this.$emit('close')

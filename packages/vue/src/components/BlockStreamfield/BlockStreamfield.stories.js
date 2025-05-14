@@ -18,6 +18,7 @@ import { BlockVideoData } from './../BlockVideo/BlockVideo.stories'
 import { BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.stories'
 import { BlockNewsletterSignupData } from '../BlockNewsletterSignup/BlockNewsletterSignup.stories'
 import { MixedColumnWidths } from './../BlockRichTable/BlockRichTable.stories'
+import { BlockCsrTableData } from './../BlockCsrTable/BlockCsrTable.stories'
 import BlockStreamfield, { variants } from './BlockStreamfield.vue'
 
 export default {
@@ -176,14 +177,24 @@ export const BlockStreamfieldData = {
     }
   ]
 }
+const BlockStreamfieldFeatureFlagsData = [
+  {
+    blockType: 'CsrTableBlock',
+    rowData: BlockCsrTableData
+  }
+]
 
 export const BaseStory = {
-  args: { data: BlockStreamfieldData.body, variant: 'default', size: 'large' }
+  args: {
+    data: [...BlockStreamfieldData.body, ...BlockStreamfieldFeatureFlagsData],
+    variant: 'default',
+    size: 'large'
+  }
 }
 
 export const MatchingWidths = {
   args: {
-    data: BlockStreamfieldData.body,
+    data: [...BlockStreamfieldData.body, ...BlockStreamfieldFeatureFlagsData],
     variant: 'fluid',
     size: 'large'
   }

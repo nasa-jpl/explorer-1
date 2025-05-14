@@ -510,6 +510,9 @@ importers:
       '@tailwindcss/forms':
         specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@22.5.4)(typescript@5.5.4)))
+      ag-grid-vue3:
+        specifier: ^33.2.0
+        version: 33.2.0(vue@3.5.3(typescript@5.5.4))
       animejs:
         specifier: ^3.2.2
         version: 3.2.2
@@ -1693,6 +1696,7 @@ packages:
   '@koa/router@12.0.1':
     resolution: {integrity: sha512-ribfPYfHb+Uw3b27Eiw6NPqjhIhTpVFzEWLwyc/1Xp+DCdwRRyIlAUODX+9bPARF6aQtUu1+/PHzdNvRzcs/+Q==}
     engines: {node: '>= 12'}
+    deprecated: Use v12.0.2 or higher to fix the vulnerability issue
 
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
@@ -3108,6 +3112,17 @@ packages:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  ag-charts-types@11.2.0:
+    resolution: {integrity: sha512-MloLYSmM20VM8EbefT7ZMugO3PbjwZzNq4D8rgkjDNPqilhpLPAaNzlKFK8/iEBKRx2afoU4J1wl0aJq182FLQ==}
+
+  ag-grid-community@33.2.0:
+    resolution: {integrity: sha512-WNtDyt9PdrLChbq0hx43WYieLZUEOn5Je7sAK340oZhL08PLkTck90hTy167XxAgXijEKAuzz7SS1MxEzo7VAg==}
+
+  ag-grid-vue3@33.2.0:
+    resolution: {integrity: sha512-oWrQyRox8yvIumz42xn3K9+2awN+2+A5PbWzzMIZve0qSAM2bvrVvjDwDMJcnBYo0erRuHYedf6iX+XtOOEGzw==}
+    peerDependencies:
+      vue: ^3.5.0
 
   agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -8209,8 +8224,8 @@ packages:
   vue-component-type-helpers@2.0.21:
     resolution: {integrity: sha512-3NaicyZ7N4B6cft4bfb7dOnPbE9CjLcx+6wZWAg5zwszfO4qXRh+U52dN5r5ZZfc6iMaxKCEcoH9CmxxoFZHLg==}
 
-  vue-component-type-helpers@2.1.10:
-    resolution: {integrity: sha512-lfgdSLQKrUmADiSV6PbBvYgQ33KF3Ztv6gP85MfGaGaSGMTXORVaHT1EHfsqCgzRNBstPKYDmvAV9Do5CmJ07A==}
+  vue-component-type-helpers@2.2.8:
+    resolution: {integrity: sha512-4bjIsC284coDO9om4HPA62M7wfsTvcmZyzdfR0aUlFXqq4tXxM1APyXpNVxPC8QazKw9OhmZNHBVDA6ODaZsrA==}
 
   vue-demi@0.14.8:
     resolution: {integrity: sha512-Uuqnk9YE9SsWeReYqK2alDI5YzciATE0r2SkA6iMAtuXvNTMNACJLJEXNXaEy94ECuBe4Sk6RzRU80kjdbIo1Q==}
@@ -10872,7 +10887,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.3(typescript@5.5.4)
-      vue-component-type-helpers: 2.1.10
+      vue-component-type-helpers: 2.2.8
 
   '@stylistic/eslint-plugin-js@2.1.0(eslint@9.4.0)':
     dependencies:
@@ -11626,6 +11641,17 @@ snapshots:
   acorn@8.11.3: {}
 
   acorn@8.12.1: {}
+
+  ag-charts-types@11.2.0: {}
+
+  ag-grid-community@33.2.0:
+    dependencies:
+      ag-charts-types: 11.2.0
+
+  ag-grid-vue3@33.2.0(vue@3.5.3(typescript@5.5.4)):
+    dependencies:
+      ag-grid-community: 33.2.0
+      vue: 3.5.3(typescript@5.5.4)
 
   agent-base@6.0.2:
     dependencies:
@@ -17882,7 +17908,7 @@ snapshots:
 
   vue-component-type-helpers@2.0.21: {}
 
-  vue-component-type-helpers@2.1.10: {}
+  vue-component-type-helpers@2.2.8: {}
 
   vue-demi@0.14.8(vue@3.5.3(typescript@5.5.4)):
     dependencies:

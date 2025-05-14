@@ -87,6 +87,10 @@ html-build:
 vue-storybook:
 	pnpm --filter @explorer-1/vue-storybook dev
 
+## Vue: test Storybook
+vue-storybook-test:
+	pnpm --filter @explorer-1/vue-storybook test
+
 ## Vue: build Storybook
 vue-storybook-build:
 	pnpm --filter @explorer-1/vue-storybook build
