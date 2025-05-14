@@ -1,5 +1,13 @@
 # @explorer-1/vue-storybook
 
+## 0.0.17
+
+### Patch Changes
+
+- dd8916f: Adds CSR Table Block component and stories.
+- Updated dependencies [dd8916f]
+  - @explorer-1/vue@0.2.103
+
 ## 0.0.16
 
 ### Patch Changes

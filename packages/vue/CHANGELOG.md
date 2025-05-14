@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.2.103
+
+### Patch Changes
+
+- dd8916f: Adds CSR Table Block component and stories.
+
 ## 0.2.102
 
 ### Patch Changes
