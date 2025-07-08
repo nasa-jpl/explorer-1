@@ -86,15 +86,6 @@
                 :options="emailGroups"
               />
             </div>
-            <div class="mt-8">
-              <BaseCheckboxGroup
-                heading="JPL Education Updates"
-                sub-heading="The JPL Education Office also offers email updates about classroom activities and workshops for educators, projects and competitons for K-12 students and internship opportunities at JPL and NASA."
-                group="education"
-                title="Education Email Groups"
-                :options="eduEmailGroups"
-              />
-            </div>
           </div>
           <div class="mt-4 lg:mt-8 submit-container">
             <BaseButton
@@ -177,41 +168,6 @@ const emailGroups = [
   }
 ]
 
-const eduEmailGroups = [
-  {
-    id: 'educators',
-    title: 'Educators',
-    text: null,
-    value: '21583',
-    alt: 'Lists',
-    name: 'data[listGroups][]'
-  },
-  {
-    id: 'educator-workshop',
-    title: 'Educators Workshops',
-    text: 'Southern California',
-    value: '51343',
-    alt: 'Lists',
-    name: 'data[listGroups][]'
-  },
-  {
-    id: 'students',
-    title: 'Students K-12',
-    text: null,
-    value: '29483',
-    alt: 'Lists',
-    name: 'data[listGroups][]'
-  },
-  {
-    id: 'internships',
-    title: 'Internships',
-    text: null,
-    value: '29484',
-    alt: 'Lists',
-    name: 'data[listGroups][]'
-  }
-]
-
 export default defineComponent({
   name: 'FormNewsletterSignup',
   components: {
@@ -229,8 +185,7 @@ export default defineComponent({
       iContactForm,
       iContactTrackingGif,
       captchaKey,
-      emailGroups,
-      eduEmailGroups
+      emailGroups
     }
   },
   mounted() {

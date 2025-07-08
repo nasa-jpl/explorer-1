@@ -46,7 +46,7 @@
       <div class="footer-extras lg:col-span-3 col-span-12">
         <!-- email sign up -->
         <div class="text-subtitle text-blue edu:text-white lg:mb-5 mb-3">
-          {{ `Get the Latest from JPL ${themeStore.isEdu ? 'Education' : ''} ` }}
+          Get the Latest from JPL
         </div>
         <TheFooterSignUp class="lg:mb-10 mb-8" />
         <!-- social media -->
