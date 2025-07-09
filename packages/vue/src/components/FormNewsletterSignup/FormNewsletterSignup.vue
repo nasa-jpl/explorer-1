@@ -122,7 +122,6 @@ import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import BaseRadioGroup from './../BaseRadioGroup/BaseRadioGroup.vue'
-import BaseCheckboxGroup from './../BaseCheckboxGroup/BaseCheckboxGroup.vue'
 import TextInput from './../TextInput/TextInput.vue'
 
 const iContactForm =
@@ -174,7 +173,6 @@ export default defineComponent({
     LayoutHelper,
     BaseHeading,
     BaseButton,
-    BaseCheckboxGroup,
     BaseRadioGroup,
     TextInput
   },
