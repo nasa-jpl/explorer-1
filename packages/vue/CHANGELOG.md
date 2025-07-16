@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.2.104
+
+### Patch Changes
+
+- 8c49b97: Fixing visibility of description in mobile view of BlockCardGrid.
+
 ## 0.2.103
 
 ### Patch Changes
