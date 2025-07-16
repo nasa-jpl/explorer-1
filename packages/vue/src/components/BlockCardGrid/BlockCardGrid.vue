@@ -26,7 +26,7 @@
         :key="`item-mobile-${index}`"
         :label="card.label"
         :title="card.title"
-        :text="card.description"
+        :description="card.description"
         :image="card.image"
         :link="card.link"
         wrapper-class="swiper-slide mb-5"
