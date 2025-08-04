@@ -55,15 +55,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.NavMobileLink {
-  span {
-    @apply border-b border-transparent;
-  }
-
-  .nuxt-link-active {
-    span {
-      @apply font-medium border-primary #{!important};
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavMobileLink';
 </style>
