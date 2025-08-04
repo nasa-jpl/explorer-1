@@ -81,9 +81,5 @@ const emit = defineEmits(['filterGroupAccordionItemOpened', 'filterGroupAccordio
   </div>
 </template>
 <style lang="scss">
-.SearchFilterGroupAccordionItemContent {
-  input.mt-px {
-    @apply mt-0 #{!important};
-  }
-}
+@import '@explorer-1/common/src/scss/components/SearchFilterGroupAccordionItem';
 </style>
