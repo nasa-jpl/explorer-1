@@ -1,0 +1,16 @@
+.NavSecondaryLink {
+  .nuxt-link-exact-active {
+    span {
+      @apply font-bold text-gray-dark;
+      @apply border-primary #{!important};
+    }
+  }
+  &.-invert {
+    .nuxt-link-exact-active {
+      span {
+        @apply font-bold text-white;
+        @apply border-white #{!important};
+      }
+    }
+  }
+}
