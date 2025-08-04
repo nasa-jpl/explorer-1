@@ -244,50 +244,6 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
-.MissionDetailHero {
-  .content-wrapper {
-    @screen lg {
-      min-height: 80vh;
-    }
-  }
-
-  .content {
-    // fallback text color
-    @apply text-black;
-  }
-
-  .foreground {
-    @screen lg {
-      width: 55%;
-    }
-
-    img {
-      max-height: 300px;
-      @apply w-auto;
-      @screen lg {
-        max-height: 550px;
-      }
-    }
-  }
-
-  &.ThemeVariantLight {
-    .content {
-      @apply text-black;
-    }
-  }
-
-  &.ThemeVariantDark {
-    .background {
-      &::before {
-        content: '';
-        @apply absolute inset-x-0 bottom-0 min-h-1/2 z-20 bg-gradient-to-b from-transparent to-black;
-      }
-    }
-
-    .content {
-      @apply text-white;
-    }
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/MissionDetailHero';
 </style>
