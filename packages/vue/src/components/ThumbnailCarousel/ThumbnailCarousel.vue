@@ -48,29 +48,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.ThumbnailCarousel {
-  &.-cards {
-    .swiper {
-      .swiper-navigation {
-        padding-top: 29.5%;
-
-        .swiper-prev,
-        .swiper-next {
-          @apply transform -translate-y-1/2;
-        }
-      }
-    }
-  }
-
-  .nuxt-link-exact-active {
-    > p {
-      @apply font-semibold;
-
-      span {
-        padding-bottom: 0.2rem;
-        @apply border-b-2 border-jpl-red;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/ThumbnailCarousel';
 </style>
