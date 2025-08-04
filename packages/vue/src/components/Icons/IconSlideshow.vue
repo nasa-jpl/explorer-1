@@ -22,9 +22,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-// @import '@explorer-1/common/src/scss/components/IconSlideshow';
-.IconSlideshow {
-  width: 1em;
-  height: 1em;
-}
+@import '@explorer-1/common/src/scss/components/IconSlideshow';
 </style>
