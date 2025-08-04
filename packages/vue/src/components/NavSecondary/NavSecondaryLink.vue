@@ -72,20 +72,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.NavSecondaryLink {
-  .nuxt-link-exact-active {
-    span {
-      @apply font-bold text-gray-dark;
-      @apply border-primary #{!important};
-    }
-  }
-  &.-invert {
-    .nuxt-link-exact-active {
-      span {
-        @apply font-bold text-white;
-        @apply border-white #{!important};
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavSecondaryLink.scss';
 </style>

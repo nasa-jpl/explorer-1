@@ -122,5 +122,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/NavSecondaryDropdownContent'; 
+@import '@explorer-1/common/src/scss/components/NavSecondaryDropdownContent';
 </style>
