@@ -41,16 +41,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-// In Windows high contrast mode, gives the logo a "link color" background to convey it’s clickable.
-@media (forced-colors: active) {
-  .NavLogoLinks img {
-    position: relative;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .NavLogoLinks a {
-    background-color: linktext;
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavLogoLinks';
 </style>
