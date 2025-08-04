@@ -252,6 +252,6 @@ const onFilterTextBoxChanged = () => {
     </div>
   </client-only>
 </template>
-<style type="scss">
+<style lang="scss">
 @import '@explorer-1/common/src/scss/components/BlockCsrTable';
 </style>
