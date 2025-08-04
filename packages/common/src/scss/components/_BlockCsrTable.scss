@@ -1,0 +1,42 @@
+.BlockCsrTable {
+  .MainCsrTable .ag-root {
+    @apply overflow-x-auto;
+    min-height: 75rem;
+    .ag-body {
+      min-width: 40rem;
+    }
+    .ag-header,
+    .ag-header-viewport {
+      @apply overflow-visible;
+    }
+  }
+  .ag-cell {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    @screen lg {
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+    }
+  }
+  .ag-root-wrapper,
+  .ag-cell,
+  .ag-theme-params-1 {
+    @apply font-primary;
+  }
+  .ag-cell-wrap-text {
+    line-height: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .ag-filter-filter {
+    .ag-wrapper::before {
+      @apply hidden;
+    }
+    .ag-input-field-input {
+      @apply text-xs;
+    }
+  }
+  .ag-paging-row-summary-panel {
+    @apply whitespace-nowrap;
+  }
+}
