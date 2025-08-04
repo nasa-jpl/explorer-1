@@ -1,0 +1,56 @@
+.NavSecondary {
+  top: -1px; // for intersection observer to work
+  @apply sticky z-40 w-full bg-white border-b border-gray-mid border-opacity-0 transition-border-opacity duration-150 edu:duration-300 ease-in;
+  @apply hidden;
+  @screen lg {
+    @apply block;
+  }
+
+  &.has-intro {
+    .nav-secondary-container {
+      @apply border-gray-mid border-opacity-0;
+    }
+  }
+
+  &.-is-sticky {
+    @apply border-gray-mid border-opacity-50;
+  }
+
+  .secondary-root {
+    .nuxt-link-exact-active {
+      span {
+        @apply text-primary font-semibold #{!important};
+      }
+    }
+  }
+
+  // for that nice horizontal scroll on mobile
+  .overflow-x-auto {
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // change sticky point if global nav is showing
+  .header-sticky-showing & {
+    @apply top-18;
+    @screen lg {
+      @apply top-28;
+    }
+
+    &.-scrolled-up {
+      @apply border-gray-mid border-opacity-50;
+      .nav-secondary-container {
+        @apply border-gray-mid border-opacity-50;
+      }
+    }
+  }
+}
+// since we depend on a body class, the edu: prefix won't work as usual and requires the below line
+body.header-sticky-showing .ThemeEdu .NavSecondary {
+  @screen lg {
+    @apply top-[4.45rem];
+  }
+}
