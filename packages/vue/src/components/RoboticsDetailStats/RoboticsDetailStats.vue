@@ -209,9 +209,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.RoboticsDetailStats {
-  .label {
-    @apply font-semibold mb-4 text-jpl-red-dark;
-  }
-}
+@import '@explorer-1/common/src/scss/components/RoboticsDetailStats';
 </style>
