@@ -1,0 +1,11 @@
+.NavMobileLink {
+  span {
+    @apply border-b border-transparent;
+  }
+
+  .nuxt-link-active {
+    span {
+      @apply font-medium border-primary #{!important};
+    }
+  }
+}
