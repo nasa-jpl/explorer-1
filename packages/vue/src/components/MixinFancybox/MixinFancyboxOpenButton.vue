@@ -24,12 +24,5 @@ export default defineComponent({
 </template>
 
 <style lang="scss">
-.MixinFancyboxOpenButton {
-  // scoped styles for Fancybox Opener button
-  @apply relative pointer-events-none cursor-pointer z-10;
-
-  .BaseButton {
-    @apply -top-px -right-px absolute focus:outline-none xl:text-xl inline-block;
-  }
-}
+@import '@explorer-1/common/src/scss/components/MixinFancyboxOpenButton';
 </style>
