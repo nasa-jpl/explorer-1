@@ -1,0 +1,19 @@
+.TheFooter {
+  .auto-col-2 {
+    @screen sm {
+      column-count: 2;
+    }
+  }
+
+  .auto-col-4 {
+    @screen sm {
+      column-count: 2;
+    }
+    @screen lg {
+      column-count: 3;
+    }
+    @screen 2xl {
+      column-count: 4;
+    }
+  }
+}
