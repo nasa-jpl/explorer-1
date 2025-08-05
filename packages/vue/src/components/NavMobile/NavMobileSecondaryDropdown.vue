@@ -105,23 +105,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.NavMobileSecondaryDropdown {
-  .NavDropdownToggle {
-    span {
-      @apply border-b border-transparent;
-    }
-
-    &.-open {
-      span {
-        @apply border-gray-dark font-normal;
-      }
-    }
-
-    &.-active {
-      span {
-        @apply font-medium border-primary #{!important};
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavMobileSecondaryDropdown';
 </style>
