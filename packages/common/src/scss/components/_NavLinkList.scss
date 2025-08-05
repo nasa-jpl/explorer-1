@@ -1,0 +1,8 @@
+.NavLinkList {
+  .auto-col {
+    @screen lg {
+      column-count: 2;
+    }
+  }
+}
+
