@@ -198,23 +198,5 @@ const buttonClass = computed(() => {
   </div>
 </template>
 <style lang="scss">
-.ShareButtonsEdu {
-  .BaseButton {
-    @apply relative focus:z-20;
-    &:hover {
-      @apply z-20;
-    }
-  }
-  .share-buttons-list {
-    .BaseButton.-social {
-      @apply h-10 xl:h-11 py-0 px-2 lg:px-3 #{!important};
-      span.text-xs {
-        @apply whitespace-nowrap;
-      }
-      .label {
-        @apply justify-start xl:justify-center;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/ShareButtonsEdu';
 </style>
