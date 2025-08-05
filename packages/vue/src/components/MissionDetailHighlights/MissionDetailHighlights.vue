@@ -313,16 +313,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.MissionDetailHighlights {
-  &.min-h-mission-highlights {
-    min-height: 38rem;
-  }
-
-  .mission-highlights-lines.-filler {
-    padding-top: 60%;
-    @screen lg {
-      @apply pt-0;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/MissionDetailHighlights';
 </style>
