@@ -99,22 +99,4 @@ export default defineComponent({
 </script>
 <style lang="scss">
 @import '@explorer-1/common/src/scss/components/BlockCircleImageCard';
-
-@media (forced-colors: active) {
-  .BlockCircleImageCard {
-    border: 1px solid;
-  }
-}
-
-.BlockCircleImageCard {
-  @apply md:z-40;
-}
-
-.BlockCircleImageCard .IconExternal {
-  @apply w-6 h-6 text-gray-mid-dark;
-}
-
-.BlockCircleImageCard .IconPlay {
-  @apply w-7 h-7 bg-jpl-red text-white;
-}
 </style>
