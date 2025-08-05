@@ -344,42 +344,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import 'swiper/swiper-bundle.css';
-
-.HomepageCarousel {
-  .HomepageCarouselSlider {
-    .swiper-pagination {
-      @apply relative text-left mx-auto pl-3;
-
-      span {
-        @apply py-2 pl-1 pr-2 h-auto w-auto bg-transparent m-0 opacity-100;
-
-        &::before {
-          content: '';
-          width: 0.65rem;
-          height: 0.65rem;
-          @apply block rounded-full bg-white bg-opacity-40;
-        }
-
-        &.swiper-pagination-bullet-active {
-          &::before {
-            @apply bg-jpl-red;
-          }
-        }
-      }
-    }
-  }
-
-  .load-enter-active {
-    transition: transform 500ms linear;
-  }
-
-  .load-leave-active {
-    transition: none;
-  }
-
-  .load-enter-to {
-    @apply translate-x-0;
-  }
-}
+@import '@explorer-1/common/src/scss/components/HomepageCarousel';
 </style>
