@@ -42,7 +42,7 @@ onMounted(() => {
       * on pages (such as the search page and listing pages)
       * for site-wide search -->
   <div
-    class="relative flex items-center"
+    class="relative flex items-center SearchInput"
     :class="{
       'border border-gray-mid': defaultColors && !underlinedInput,
       'custom-focus': underlinedInput
@@ -94,11 +94,6 @@ onMounted(() => {
     </button>
   </div>
 </template>
-<style lang="scss" scoped>
-.custom-focus {
-  input {
-    outline: none;
-    box-shadow: none;
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/SearchInput';
 </style>
