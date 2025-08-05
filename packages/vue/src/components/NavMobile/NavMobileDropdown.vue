@@ -147,33 +147,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.NavDropdownMobile {
-  // pushes the dropdown below the closest parent div that has position:relative (e.g. the header)
-  > div {
-    &::before {
-      content: '';
-      @apply relative z-0 w-full h-full block;
-    }
-  }
-
-  > button {
-    > span {
-      @apply border-transparent;
-    }
-
-    &.-open {
-      > span {
-        @apply border-primary font-bold;
-      }
-    }
-  }
-  // parent div is active
-  &.-active {
-    > button {
-      > span {
-        @apply border-primary font-bold;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavMobileDropdown';
 </style>
