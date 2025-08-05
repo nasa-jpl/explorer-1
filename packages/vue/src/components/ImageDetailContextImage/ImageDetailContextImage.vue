@@ -83,43 +83,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
-.ContextImageButton {
-  @apply select-none;
-
-  cursor: pointer;
-
-  .ContextImage {
-    @apply mx-auto w-full;
-
-    max-width: 640px;
-  }
-
-  @screen sm {
-    svg.IconDropdown {
-      @apply transform rotate-180;
-    }
-
-    min-width: 100px;
-
-    .ContextImage {
-      min-width: 150px;
-    }
-  }
-  @screen md {
-    .ContextImage {
-      min-width: 200px;
-    }
-  }
-  @screen lg {
-    .ContextImage {
-      min-width: 250px;
-    }
-  }
-  @screen xl {
-    .ContextImage {
-      min-width: 300px;
-    }
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/ImageDetailContextImage';
 </style>
