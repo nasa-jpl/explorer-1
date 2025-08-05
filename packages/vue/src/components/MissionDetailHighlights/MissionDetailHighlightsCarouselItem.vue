@@ -112,12 +112,6 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
-.slide-link {
-  @apply invisible;
-
-  .swiper-slide-active & {
-    @apply visible;
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/MissionDetailHighlightsCarouselItem';
 </style>
