@@ -79,31 +79,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.MissionDetailStatsMini {
-  .theme,
-  .theme-inner {
-    @apply bg-jpl-blue-darker bg-opacity-75 text-white;
-  }
-  // different padding left for first child, which is dynamic
-  .theme-inner {
-    @apply pl-10 pb-10;
-    @screen lg {
-      @apply py-10 pl-0;
-    }
-
-    &:first-child {
-      @apply pt-10;
-      @screen lg {
-        @apply pl-10;
-      }
-      @screen 2xl {
-        @apply pl-0;
-      }
-    }
-  }
-
-  .legend {
-    @apply text-white;
-  }
-}
+@import '@explorer-1/common/src/scss/components/MissionDetailStatsMini';
 </style>
