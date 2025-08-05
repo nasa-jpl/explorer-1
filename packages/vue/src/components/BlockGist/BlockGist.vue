@@ -102,29 +102,6 @@ watch(
   </div>
 </template>
 
-<style scoped lang="scss">
-.BlockGist {
-  .GitHubIcon {
-    @apply h-5 pb-0.5 flex flex-row items-baseline flex-grow-0;
-  }
-
-  iframe {
-    @apply border border-gray-light-mid border-t-8 rounded-none;
-  }
-}
-body.ThemeVariantLight {
-  .BlockGist {
-    iframe {
-      @apply border-gray-light-mid;
-    }
-  }
-}
-
-body.ThemeVariantDark {
-  .BlockGist {
-    iframe {
-      @apply border-gray-mid-dark bg-gray-light;
-    }
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/BlockGist';
 </style>
