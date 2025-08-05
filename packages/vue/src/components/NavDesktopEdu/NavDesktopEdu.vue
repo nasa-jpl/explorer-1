@@ -304,17 +304,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.NavDesktopEdu {
-  @apply border-none;
-
-  > .header-bg {
-    @apply bg-gradient-to-r from-black to-primary bg-transparent to-90%;
-  }
-
-  .main-navigation {
-    > * {
-      @apply text-white;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavDesktopEdu';
 </style>
