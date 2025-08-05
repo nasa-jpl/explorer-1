@@ -120,13 +120,6 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
-.ShareButtons {
-  .BaseButton {
-    @apply relative;
-    &:hover {
-      @apply z-10;
-    }
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/ShareButtons';
 </style>
