@@ -49,6 +49,6 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 // styles go here
 </style>
