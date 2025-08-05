@@ -35,12 +35,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.BaseLightboxOpenButton {
-  // scoped styles for Lightbox Opener button
-  @apply relative lg:absolute lg:inset-0 cursor-pointer z-10;
-
-  .BaseButton {
-    @apply -top-px -right-px absolute focus:outline-none  xl:text-xl inline-block;
-  }
-}
+@import '@explorer-1/common/src/scss/components/BaseLightboxOpenButton';
 </style>
