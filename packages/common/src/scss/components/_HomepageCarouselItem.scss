@@ -1,0 +1,32 @@
+.HomepageCarouselItem,
+.HomepageCarouselItem.swiper-slide {
+  // somewhat arbitrary heights
+  // portrait on small screens
+  //height: 500px;
+  min-height: 500px;
+  // landscape on larger screens
+  @screen lg {
+    height: 800px;
+    min-height: 800px;
+  }
+}
+
+.HomepageCarouselItem {
+  img {
+    @apply transition-transform duration-1000 ease-out transform scale-100;
+  }
+
+  .IconArrow {
+    @apply -ml-5 transition-all duration-500 ease-in opacity-0;
+  }
+
+  &.swiper-slide-active {
+    img {
+      @apply scale-105;
+    }
+
+    .IconArrow {
+      @apply ml-0 opacity-100;
+    }
+  }
+}
