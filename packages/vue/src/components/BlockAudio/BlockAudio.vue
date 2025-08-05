@@ -65,14 +65,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.BlockAudio {
-  max-height: 480px;
-
-  .BlockAudio-thumbnail {
-    @apply hidden;
-    @media only screen and (min-width: 345px) {
-      @apply block;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockAudio';
 </style>
