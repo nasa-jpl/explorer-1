@@ -1,6 +1,6 @@
 <template>
   <div v-if="data">
-    <NavHeading :data="data" />
+    <NavHeading :data="data" class="NavLinkList"/>
     <div
       v-if="data.links"
       :class="{ 'auto-col': autoCol }"
@@ -57,10 +57,6 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
-.auto-col {
-  @screen lg {
-    column-count: 2;
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/NavLinkList';
 </style>
