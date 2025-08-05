@@ -62,12 +62,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.BaseVideo {
-  video {
-    min-width: 100%;
-    left: 0;
-    right: 0;
-    max-height: 901px;
-  }
-}
+@import '@explorer-1/common/src/scss/components/BaseVideo';
 </style>
