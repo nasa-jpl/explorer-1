@@ -119,14 +119,5 @@ const isSmall = computed(() => {
   </BaseLink>
 </template>
 <style lang="scss">
-.BlockLinkCardCollectionLg {
-  .MetadataEduResource .MetadataEduResourceItem {
-    .MetadataEduResourceIcon {
-      @apply text-white;
-    }
-    span {
-      @apply text-white;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockLinkCardCollectionLg';
 </style>
