@@ -162,43 +162,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.BaseSwimlane {
-  @apply overflow-hidden;
-
-  -webkit-mask-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0, transparent),
-    color-stop(0.05, rgba(0, 0, 0, 0.35)),
-    color-stop(0.1, black),
-    color-stop(0.5, black),
-    color-stop(0.9, rgba(0, 0, 0, 0.15)),
-    color-stop(1, transparent)
-  );
-  @screen lg {
-    -webkit-mask-image: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      color-stop(0, transparent),
-      color-stop(0.1, rgba(0, 0, 0, 0.15)),
-      color-stop(0.35, black),
-      color-stop(0.65, black),
-      color-stop(0.9, rgba(0, 0, 0, 0.15)),
-      color-stop(1, transparent)
-    );
-  }
-
-  ul {
-    @apply list-none overflow-hidden transition-transform;
-
-    li {
-      @apply text-center p-0 m-0;
-      @screen lg {
-        @apply text-left font-medium;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BaseSwimlane';
 </style>
