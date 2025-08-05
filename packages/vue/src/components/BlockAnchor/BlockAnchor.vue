@@ -21,18 +21,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-// makes sure anchor links align with navigation's fixed overlay
-.BlockAnchor {
-  &::before {
-    @apply block invisible pointer-events-none;
-
-    content: ' ';
-    margin-top: -83px;
-    height: 83px;
-    @screen lg {
-      margin-top: -182px;
-      height: 182px;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockAnchor.scss';
 </style>
