@@ -103,11 +103,5 @@ const remappedAccordionItems = computed((): AccordionItemObject[] | undefined =>
   </div>
 </template>
 <style lang="scss">
-.BlockAccordion {
-  .AccordionItemImage {
-    div.p-4 {
-      @apply px-0 #{!important};
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockAccordion';
 </style>
