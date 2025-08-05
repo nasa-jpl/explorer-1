@@ -170,21 +170,5 @@ const themeVariant = computed(() => {
   </div>
 </template>
 <style lang="scss">
-.MetaPanelItems {
-  .MetaPanelItem {
-    @apply flex w-full items-start mb-4 md:mb-0 w-auto;
-    &:last-of-type {
-      @apply mb-0;
-    }
-    .MetaPanelItem-icon {
-      @apply mr-1 w-10 md:w-12;
-    }
-    .MetaPanelItem-heading {
-      @apply text-subtitle text-base md:mb-[.2em] whitespace-nowrap;
-    }
-    .MetaPanelItem-content {
-      @apply font-primary font-bold lg:text-xl;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/MetaPanelItems';
 </style>
