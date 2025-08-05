@@ -87,11 +87,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.MissionDetailInlineImage {
-  .ThemeVariantDark & {
-    > div {
-      @apply text-white;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/MissionDetailInlineImage';
 </style>
