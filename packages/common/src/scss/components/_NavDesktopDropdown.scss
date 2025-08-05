@@ -1,0 +1,89 @@
+.NavDesktopDropdown {
+  // pushes the dropdown below the closest parent div that has position:relative (e.g. the header)
+  > div {
+    &::before {
+      content: '';
+      @apply relative z-0 w-full h-full block;
+    }
+  }
+
+  > button {
+    > span {
+      @apply border-transparent;
+    }
+
+    &.-open {
+      > span {
+        @apply border-primary edu:border-white;
+
+        .-transparent & {
+          @apply border-white;
+        }
+
+        .-transparent.-scrolled & {
+          @apply border-primary edu:border-white;
+        }
+      }
+    }
+    &:hover {
+      > span {
+        @apply border-primary edu:border-white;
+
+        .-transparent & {
+          @apply border-white;
+        }
+
+        .-transparent.-scrolled & {
+          @apply border-primary edu:border-white;
+        }
+      }
+    }
+  }
+  // parent div is active
+  &.-active {
+    > button {
+      > span {
+        @apply border-primary edu:border-white font-bold;
+
+        .-transparent & {
+          @apply border-white;
+        }
+
+        .-transparent.-scrolled & {
+          @apply border-primary edu:border-white;
+        }
+
+        &.hasSecondary {
+          @apply border-transparent #{!important};
+        }
+      }
+    }
+  }
+
+  // transitions
+  .navfade-enter-to,
+  .navfade-enter-active {
+    @apply transition-all ease-out transform duration-500;
+  }
+
+  .navfade-leave-active,
+  .navfade-leave-to {
+    @apply transition-all ease-out transform duration-100;
+  }
+
+  .navfade-enter-active {
+    @apply opacity-0 translate-y-2;
+  }
+
+  .navfade-enter-to {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .navfade-leave-to {
+    @apply opacity-100; // translate-y-0
+  }
+
+  .navfade-leave-active {
+    @apply opacity-0; // -translate-y-2
+  }
+}
