@@ -108,18 +108,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-.BaseButton {
-  @apply relative;
-  &:hover {
-    @apply z-10;
-  }
-  // we have to define these here to override the extracted border styles native to BaseButton
-  &.-dark {
-    @apply border-l-0 #{!important};
-
-    &:first-child {
-      @apply border-l #{!important};
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavSocial';
 </style>
