@@ -236,23 +236,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.TheFooter {
-  .auto-col-2 {
-    @screen sm {
-      column-count: 2;
-    }
-  }
-
-  .auto-col-4 {
-    @screen sm {
-      column-count: 2;
-    }
-    @screen lg {
-      column-count: 3;
-    }
-    @screen 2xl {
-      column-count: 4;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/TheFooter';
 </style>
