@@ -1,6 +1,9 @@
 <template>
   <div v-if="data">
-    <NavHeading :data="data" class="NavLinkList"/>
+    <NavHeading
+      :data="data"
+      class="NavLinkList"
+    />
     <div
       v-if="data.links"
       :class="{ 'auto-col': autoCol }"
