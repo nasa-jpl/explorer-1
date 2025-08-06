@@ -127,28 +127,5 @@ const submitSearch = () => {
   </div>
 </template>
 <style lang="scss">
-.PageEduHome {
-  .EduHero {
-    .content-wrapper {
-      @screen lg {
-        min-height: 548px; // maintains 1440x770 aspect ratio
-      }
-
-      @screen xl {
-        min-height: 684px; // maintains 1440x770 aspect ratio
-      }
-
-      @screen 2xl {
-        min-height: 770px; // 1440x770
-      }
-
-      @screen 3xl {
-        min-height: 963px; // maintains 1440x770 aspect ratio
-      }
-      input::placeholder {
-        @apply font-medium text-gray-dark opacity-80;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageEduHome';
 </style>
