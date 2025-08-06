@@ -243,29 +243,5 @@ const { data } = reactive(props)
   </div>
 </template>
 <style lang="scss">
-.PageEduGalleryDetail {
-  .bg-stars .MixinCarousel__Heading {
-    @apply text-white;
-  }
-  .MixinFancybox + .p-4 {
-    @apply px-0;
-  }
-  .PageEduGalleryDetailItem {
-    &:target {
-      @apply scroll-mt-14;
-      @screen lg {
-        @apply scroll-mt-[8rem];
-      }
-    }
-  }
-  .BlockText {
-    ul {
-      li {
-        &::marker {
-          @apply text-secondary;
-        }
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageEduGalleryDetail';
 </style>
