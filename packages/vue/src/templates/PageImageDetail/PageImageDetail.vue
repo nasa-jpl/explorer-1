@@ -380,39 +380,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.PageImageDetail {
-  .PageImageDetail-image-container {
-    .BaseImagePlaceholder {
-      @apply select-none;
-
-      min-height: 400px;
-
-      img {
-        -webkit-user-drag: none;
-      }
-    }
-    @screen sm {
-      &::before {
-        content: '';
-        @apply absolute inset-0;
-      }
-    }
-  }
-
-  .TopicTabs {
-    button {
-      @apply select-none;
-    }
-  }
-
-  aside {
-    .BaseButton {
-      max-width: 200px;
-    }
-
-    .BlockText {
-      @apply text-lg;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageImageDetail';
 </style>
