@@ -1,4 +1,6 @@
 @layer templates {
+  @import 'templates/PageAudioDetail';
+  @import 'templates/PageCuratedGallery';
   @import 'templates/PageEduEventDetail';
   @import 'templates/PageEduExplainerArticle';
   @import 'templates/PageEduGalleryDetail';
@@ -7,7 +9,6 @@
   @import 'templates/PageEduMultimediaDetail';
   @import 'templates/PageEduStudentProject';
   @import 'templates/PageEduStudentProjectSection';
-  @import 'templates/PageAudioDetail';
   @import 'templates/PageEventDetail';
   @import 'templates/PageImageDetail';
   @import 'templates/PageVideoDetail';
