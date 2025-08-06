@@ -133,6 +133,6 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@explorer-1/common/src/scss/components/HeroLarge';
 </style>
