@@ -53,9 +53,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.TheFooterSignup {
-  .EmailInput::placeholder {
-    @apply text-white text-opacity-40;
-  }
-}
+@import '@explorer-1/common/src/scss/components/TheFooterSignUp';
 </style>
