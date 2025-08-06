@@ -29,5 +29,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/LoadingTransitions';
+@import '@explorer-1/common/src/scss/components/LoadingTransition';
 </style>
