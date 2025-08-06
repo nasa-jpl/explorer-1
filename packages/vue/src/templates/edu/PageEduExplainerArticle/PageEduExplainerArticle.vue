@@ -230,15 +230,5 @@ export default defineComponent({
   </div>
 </template>
 <style lang="scss">
-.PageEduExplainerArticle {
-  .BlockText {
-    ul {
-      li {
-        &::marker {
-          @apply text-secondary;
-        }
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageEduExplainerArticle';
 </style>
