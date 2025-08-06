@@ -447,16 +447,5 @@ const computedClass = computed((): string => {
   </div>
 </template>
 <style lang="scss">
-.PageEduStudentProject {
-  .BlockText {
-    ul {
-      li {
-        &::marker {
-          // intentionally using a specific red
-          @apply text-jpl-red;
-        }
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageEduStudentProject';
 </style>
