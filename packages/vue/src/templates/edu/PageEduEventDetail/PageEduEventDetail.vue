@@ -326,33 +326,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.PageEduEventDetail {
-  .PageEduEventDetail__Metadata {
-    @apply flex;
-    @apply items-baseline;
-    @apply mr-4 md:mr-4 xl:mr-12;
-    @apply mb-5 lg:mb-7;
-    @apply lg:max-w-[17rem] lg:min-w-[10rem];
-
-    span {
-      @apply text-gray-dark;
-    }
-
-    svg {
-      min-width: 1.25rem;
-      @apply top-0.5;
-    }
-  }
-
-  .PageEduEventDetail__Buttons {
-    @apply text-base;
-    @apply lg:ml-auto;
-    @apply mt-10;
-    @apply lg:mt-0;
-    @apply text-center;
-  }
-  .bg-stars .MixinCarousel__Heading {
-    @apply text-white;
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageEduEventDetail';
 </style>
