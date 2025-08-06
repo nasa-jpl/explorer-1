@@ -92,21 +92,6 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
-.TopicDetailMissionSpotlight {
-  .content-wrapper {
-    @screen lg {
-      min-height: 548px; // maintains 1440x770 aspect ratio
-    }
-    @screen xl {
-      min-height: 684px; // maintains 1440x770 aspect ratio
-    }
-    @screen 2xl {
-      min-height: 770px; // 1440x770
-    }
-    @screen 3xl {
-      min-height: 963px; // maintains 1440x770 aspect ratio
-    }
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/TopicDetailMissionSpotlight';
 </style>
