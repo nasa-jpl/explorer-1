@@ -81,7 +81,7 @@ jobs:
              "pnpm --filter @explorer-1/vue-storybook test:ci"
 
   visual-tests:
-    needs: [build, a11y-tests]
+    needs: [build]
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
@@ -113,7 +113,7 @@ jobs:
         run: pnpm --filter @explorer-1/vue-storybook percy
 
   publish:
-    needs: [build, a11y-tests]
+    needs: [build]
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
