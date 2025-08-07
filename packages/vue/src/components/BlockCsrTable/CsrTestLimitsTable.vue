@@ -72,19 +72,5 @@ const defaultcolDef = {
   </ag-grid-vue>
 </template>
 <style lang="scss">
-.CsrTestLimitsTable {
-  .ag-root {
-    @apply min-h-12 overflow-x-auto;
-    .ag-body {
-      min-width: 40rem;
-    }
-    .ag-header,
-    .ag-header-viewport {
-      @apply overflow-visible;
-    }
-  }
-  .ag-root-wrapper {
-    @apply overflow-visible;
-  }
-}
+@import '@explorer-1/common/src/scss/components/CsrTestLimitsTable';
 </style>

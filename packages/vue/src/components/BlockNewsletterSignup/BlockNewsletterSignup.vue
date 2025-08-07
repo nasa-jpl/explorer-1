@@ -162,16 +162,6 @@ export default defineComponent({
   }
 })
 </script>
-<style type="scss">
-.BlockNewsletterSignup {
-  fieldset > div {
-    column-count: 2;
-  }
-  .email-container input {
-    @apply mt-0 -mr-1;
-  }
-  .BaseRadioGroup label {
-    @apply text-base text-left;
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/BlockNewsletterSignup';
 </style>

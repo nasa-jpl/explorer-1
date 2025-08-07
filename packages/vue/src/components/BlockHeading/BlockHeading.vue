@@ -53,12 +53,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.BlockHeading {
-  &:target {
-    @apply scroll-mt-14;
-    @screen lg {
-      @apply scroll-mt-[7rem];
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockHeading';
 </style>

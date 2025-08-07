@@ -1,0 +1,6 @@
+.PagePodcastSeason {
+  .flip-horizontal > svg {
+    display: block;
+    transform: scale(-1, 1);
+  }
+}

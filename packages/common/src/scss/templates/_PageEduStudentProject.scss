@@ -1,0 +1,12 @@
+.PageEduStudentProject {
+  .BlockText {
+    ul {
+      li {
+        &::marker {
+          // intentionally using a specific red
+          @apply text-jpl-red;
+        }
+      }
+    }
+  }
+}

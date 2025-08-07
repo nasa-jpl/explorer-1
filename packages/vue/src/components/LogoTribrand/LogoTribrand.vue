@@ -67,27 +67,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-$logo-text-dark: #1b1a19;
-
-.LogoTribrand {
-  width: 20.25em; // 324x72 px at .text-base
-  height: auto;
-
-  .logo-path-jpl-caltech {
-    color: $logo-text-dark;
-  }
-
-  .-transparent.-scrolled & {
-    .logo-path-jpl-caltech {
-      color: $logo-text-dark;
-    }
-  }
-
-  .-transparent &,
-  &.-invert {
-    .logo-path-jpl-caltech {
-      color: #ffffff;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/LogoTribrand';
 </style>

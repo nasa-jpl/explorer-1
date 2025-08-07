@@ -255,8 +255,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="css">
-html {
-  scroll-padding-top: 150px;
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/FormNewsletterSignup';
 </style>

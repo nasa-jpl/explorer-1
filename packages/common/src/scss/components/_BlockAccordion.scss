@@ -1,0 +1,7 @@
+.BlockAccordion {
+  .AccordionItemImage {
+    div.p-4 {
+      @apply px-0 #{!important};
+    }
+  }
+}

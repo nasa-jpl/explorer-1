@@ -391,32 +391,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.BlockStreamfield {
-  // makes everything appear equal width
-  &.-fluid {
-    .LayoutHelper {
-      @apply block;
-      &.container {
-        @apply px-0;
-      }
-      > div.lg\:px-0.px-4 {
-        @apply px-0;
-      }
-    }
-
-    .BlockInlineImage {
-      .col-start-3 {
-        @apply col-start-1 col-span-7;
-      }
-
-      .col-start-6.col-span-5 {
-        @apply col-span-7;
-      }
-    }
-
-    .p-4.caption-area {
-      @apply px-0;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockStreamfield';
 </style>

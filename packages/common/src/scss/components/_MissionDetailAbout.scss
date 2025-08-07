@@ -1,0 +1,74 @@
+.MissionDetailAbout {
+  @apply text-gray-dark; // fallback if no theme
+  li.instrument {
+    @apply mb-3;
+    @apply flex;
+    @apply max-w-full;
+
+    span {
+      @apply opacity-0;
+      @screen lg {
+        max-width: 20ch;
+      }
+    }
+
+    &::before {
+      @apply bg-jpl-red-light;
+      @apply inline-block;
+      @apply relative;
+      @apply mr-3;
+      @apply flex-shrink-0;
+
+      content: '';
+      transform: scale(0);
+      margin-top: 0.65rem;
+      width: 30px;
+      height: 2px;
+    }
+
+    &.lifeless {
+      span {
+        @apply opacity-100;
+      }
+
+      &::before {
+        transform: scale(1);
+      }
+    }
+
+    &.animated {
+      span {
+        @apply animate-fadeIn;
+        @screen lg {
+          max-width: 20ch;
+        }
+
+        -webkit-animation-delay: inherit;
+        animation-delay: inherit;
+      }
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          -webkit-animation-delay: (#{$i * 300ms});
+          animation-delay: (#{$i * 300ms});
+        }
+      }
+
+      &::before {
+        @apply animate-scaleIn;
+
+        -webkit-animation-delay: inherit;
+        animation-delay: inherit;
+        transform-origin: 0% 50%;
+      }
+    }
+  }
+
+  // dark and light treatments
+  .ThemeVariantLight & {
+    @apply text-gray-dark;
+  }
+
+  .ThemeVariantDark & {
+    @apply text-white;
+  }
+}

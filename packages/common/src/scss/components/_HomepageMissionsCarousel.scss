@@ -1,0 +1,73 @@
+@import 'swiper/swiper-bundle.css';
+
+.HomepageMissionsCarousel {
+  // container styles
+  .swiper {
+    @apply overflow-visible #{!important};
+
+    .swiper-navigation {
+      top: 20%;
+    }
+
+    .swiper-prev,
+    .swiper-next {
+      @apply -mt-1 w-auto h-auto transform -translate-y-1/2;
+
+      &.swiper-button-disabled {
+        @apply invisible;
+      }
+      // shared styles for the arrow animation
+      &.BaseButton {
+        @apply transition-none #{!important};
+      }
+
+      &.BaseButton > .label {
+        @apply flex overflow-hidden;
+
+        > .arrow-wrapper {
+          @apply block relative w-full h-full overflow-hidden;
+
+          > .arrow {
+            @apply block;
+          }
+
+          > .arrow-fixed {
+            @apply absolute top-0 left-0 block;
+          }
+        }
+        &:hover {
+          > .arrow-wrapper > .arrow,
+          > .arrow-wrapper > .arrow-fixed {
+            animation-delay: 50ms !important; // hover intent
+          }
+        }
+      }
+    }
+    @screen lg {
+      // specific directional animation
+      .swiper-next.BaseButton > .label {
+        &:hover {
+          > .arrow-wrapper > .arrow {
+            animation: arrow-carousel-next-anim 0.1s linear normal;
+          }
+
+          > .arrow-wrapper > .arrow-fixed {
+            animation: arrow-carousel-next-fixed-anim 0.1s linear normal;
+          }
+        }
+      }
+
+      .swiper-prev.BaseButton > .label {
+        &:hover {
+          > .arrow-wrapper > .arrow {
+            animation: arrow-carousel-prev-anim 0.1s linear normal;
+          }
+
+          > .arrow-wrapper > .arrow-fixed {
+            animation: arrow-carousel-prev-fixed-anim 0.1s linear normal;
+          }
+        }
+      }
+    }
+  }
+}

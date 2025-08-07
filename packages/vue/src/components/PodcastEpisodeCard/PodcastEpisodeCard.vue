@@ -240,12 +240,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.PodcastEpisodeCard {
-  .PodcastEpisodeCard-thumbnail {
-    @apply hidden;
-    @media only screen and (min-width: 325px) {
-      @apply block;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/PodcastEpisodeCard';
 </style>

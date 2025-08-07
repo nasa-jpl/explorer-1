@@ -1,0 +1,23 @@
+.PageVideoDetail {
+  .BaseImagePlaceholder {
+    @apply select-none;
+
+    min-height: 400px;
+  }
+
+  .video-aside {
+    .BaseButton {
+      max-width: 200px;
+    }
+
+    .BlockText {
+      @apply text-lg;
+    }
+  }
+
+  .video-transcript {
+    p {
+      @apply mb-4;
+    }
+  }
+}

@@ -424,18 +424,5 @@ const { data } = reactive(props)
   </div>
 </template>
 <style lang="scss">
-.PageEduMultimediaDetail {
-  .bg-stars .MixinCarousel__Heading {
-    @apply text-white;
-  }
-  .BlockVideo,
-  .BlockVideoEmbed {
-    .BaseImageCaption {
-      @apply px-4 sm:px-5;
-      @screen 3xl {
-        @apply px-0;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageEduMultimediaDetail';
 </style>

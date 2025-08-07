@@ -155,33 +155,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.MissionDetailStats {
-  .adaptive-stats-grid div:nth-child(3) {
-    @apply col-span-3;
-  }
-
-  .theme {
-    @apply bg-gray-light text-gray-dark;
-  }
-
-  .ThemeVariantDark & .theme {
-    @apply bg-jpl-blue-darker bg-opacity-75 text-white;
-  }
-
-  .label {
-    @apply font-semibold mb-3 text-jpl-red-dark;
-  }
-
-  .ThemeVariantDark & .label {
-    @apply text-jpl-blue-light;
-  }
-
-  .legend {
-    @apply text-gray-mid-dark;
-  }
-
-  .ThemeVariantDark & .legend {
-    @apply text-white;
-  }
-}
+@import '@explorer-1/common/src/scss/components/MissionDetailStats';
 </style>

@@ -122,24 +122,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.Dialog {
-  .dialog-main {
-    max-height: 55vh;
-
-    /* Fade effect */
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 1rem,
-      black calc(100% - 1rem),
-      transparent 100%
-    );
-  }
-
-  @media (forced-colors: active) {
-    hr {
-      border: 1px solid;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/TimelineDialog';
 </style>

@@ -1,0 +1,7 @@
+.MissionDetailInlineImage {
+  .ThemeVariantDark & {
+    > div {
+      @apply text-white;
+    }
+  }
+}

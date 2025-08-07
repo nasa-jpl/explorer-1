@@ -244,24 +244,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.BaseTimer {
-  .unit {
-    // Make the units dimmer than the numbers, regardless of which color it’s displayed with.
-    --text-opacity: 0.84;
-  }
-
-  &.-inline {
-    .text-stats-separator {
-      @apply hidden;
-    }
-
-    .text-seconds {
-      width: 2ch;
-    }
-
-    > span span {
-      @apply inline-block;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BaseTimer';
 </style>

@@ -22,8 +22,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.LogoCaltech {
-  width: 8.375em; // 134px wide at .text-base
-  height: auto;
-}
+@import '@explorer-1/common/src/scss/components/LogoCaltech';
 </style>

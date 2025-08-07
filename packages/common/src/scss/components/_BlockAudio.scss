@@ -1,0 +1,10 @@
+.BlockAudio {
+  max-height: 480px;
+
+  .BlockAudio-thumbnail {
+    @apply hidden;
+    @media only screen and (min-width: 345px) {
+      @apply block;
+    }
+  }
+}

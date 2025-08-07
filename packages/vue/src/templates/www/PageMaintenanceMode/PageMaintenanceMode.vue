@@ -64,31 +64,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.PageMaintenanceMode {
-  .NavSocial {
-    @apply -ml-2; // visually centered due to narrow facebook icon
-    .BaseButton.-social {
-      @apply border-0 bg-none text-gray-dark;
-      &:hover {
-        @apply bg-none bg-transparent;
-
-        &.-facebook {
-          @apply text-facebook;
-        }
-
-        &.-twitter {
-          @apply text-twitter;
-        }
-
-        &.-instagram {
-          @apply text-instagram;
-        }
-
-        &.-youtube {
-          @apply text-youtube;
-        }
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageMaintenanceMode';
 </style>

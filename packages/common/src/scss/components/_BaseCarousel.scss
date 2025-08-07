@@ -1,0 +1,19 @@
+@import 'swiper/swiper-bundle.css';
+.BaseCarousel {
+  .swiper {
+    .swiper-prev {
+      @apply mr-px;
+    }
+
+    .swiper-prev,
+    .swiper-next {
+      &.swiper-button-disabled {
+        @apply opacity-75 cursor-default bg-none;
+      }
+    }
+  }
+
+  .swiper-nav {
+    padding-top: 56.25%;
+  }
+}

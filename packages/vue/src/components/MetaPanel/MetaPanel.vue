@@ -234,9 +234,5 @@ const standardsIste = computed(() => {
   </section>
 </template>
 <style lang="scss">
-.MetaPanel {
-  .MetaPanel-button {
-    @apply border-[1px] font-primary normal-case tracking-normal font-bold text-lg py-2 bg-white;
-  }
-}
+@import '@explorer-1/common/src/scss/components/MetaPanel';
 </style>

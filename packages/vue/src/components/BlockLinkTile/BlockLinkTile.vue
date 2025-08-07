@@ -188,9 +188,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.BlockLinkTile {
-  .text-subtitle.divide-x {
-    @apply leading-none #{!important};
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockLinkTile';
 </style>

@@ -298,41 +298,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.NavMobile {
-  @apply absolute top-0 z-50 inset-x-0;
-  // styles for default vs transparent header
-  // underline color and logo inversion styles handled within their respective components
-  &.-scrolled {
-    @media not print {
-      @apply fixed;
-    }
-  }
-}
-// vue-transition classes
-// may scope this wider if mobile uses the same transition
-.headerMobileReveal-enter-to,
-.headerMobileReveal-enter-active {
-  @apply transition-transform transform ease-in-out duration-200;
-}
-
-.headerMobileReveal-leave-active,
-.headerMobileReveal-leave-to {
-  @apply transition-transform transform ease-out duration-200;
-}
-
-.headerMobileReveal-enter-active {
-  @apply -translate-y-full;
-}
-
-.headerMobileReveal-enter-to {
-  @apply translate-y-0;
-}
-
-.headerMobileReveal-leave-to {
-  @apply translate-y-0;
-}
-
-.headerMobileReveal-leave-active {
-  @apply -translate-y-full;
-}
+@import '@explorer-1/common/src/scss/components/NavMobile';
 </style>

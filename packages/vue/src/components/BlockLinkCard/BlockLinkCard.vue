@@ -405,33 +405,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.BlockLinkCard {
-  .text-subtitle.divide-x {
-    @apply leading-none #{!important};
-  }
-  .ThemeVariantDark & {
-    @apply bg-white;
-    .BlockLinkCard__CardContent,
-    .BlockLinkCard__CardArrow {
-      @apply px-6;
-      @apply print:px-0;
-    }
-    .BaseImagePlaceholder {
-      @apply bg-gray-mid-dark;
-    }
-  }
-  .MetadataEvent,
-  .MetadataEduResource {
-    &.-compact {
-      .MetadataEventItem,
-      .MetadataEduResourceItem {
-        @apply mr-2.5;
-      }
-    }
-    .MetadataEventIcon,
-    .MetadataEduResourceIcon {
-      @apply mr-1;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockLinkCard';
 </style>

@@ -148,9 +148,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.AsteroidWatchWidget {
-  .label {
-    @apply font-semibold mb-4 text-jpl-red-dark;
-  }
-}
+@import '@explorer-1/common/src/scss/components/AsteroidWatchWidget';
 </style>

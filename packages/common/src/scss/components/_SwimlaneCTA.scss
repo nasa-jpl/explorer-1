@@ -1,0 +1,34 @@
+// SwimlaneCTA Scoped Styles
+.SwimlaneCTA {
+  @apply max-w-screen-3xl animate-fadeIn relative items-center justify-center object-cover w-full mx-auto bg-center bg-no-repeat bg-cover select-none;
+
+  min-height: 245px;
+
+  @screen lg {
+    min-height: 595px;
+  }
+
+  * {
+    @apply animate-fadeInSlow;
+  }
+
+  &.light-theme {
+    @apply bg-gray-light text-gray-dark;
+
+    ul {
+      li {
+        @apply text-gray-dark;
+      }
+    }
+  }
+
+  &.dark-theme {
+    @apply bg-black text-white;
+
+    ul {
+      li {
+        @apply text-white;
+      }
+    }
+  }
+}

@@ -180,23 +180,5 @@ watch(
 )
 </script>
 <style lang="scss">
-.NavJumpMenu {
-  @apply invisible transition-all overflow-visible -mb-[3.7rem] z-30 fixed #{!important};
-  &.-ready {
-    @apply visible #{!important};
-  }
-  &.-at-top {
-    @apply invisible #{!important};
-  }
-  .NavSecondaryLink.secondary-root {
-    span {
-      @apply border-primary #{!important};
-    }
-    &.-invert {
-      span {
-        @apply border-white #{!important};
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavJumpMenu';
 </style>

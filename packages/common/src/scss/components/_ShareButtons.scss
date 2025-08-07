@@ -1,0 +1,8 @@
+.ShareButtons {
+  .BaseButton {
+    @apply relative;
+    &:hover {
+      @apply z-10;
+    }
+  }
+}
