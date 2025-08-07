@@ -1,5 +1,16 @@
 # @explorer-1/vue
 
+## 0.3.0
+
+### Minor Changes
+
+- fb2e39d: Moving SCSS to dedicated files in packages/common
+
+### Patch Changes
+
+- Updated dependencies [fb2e39d]
+  - @explorer-1/common@1.2.0
+
 ## 0.2.104
 
 ### Patch Changes
