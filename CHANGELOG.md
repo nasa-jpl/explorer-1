@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- fb2e39d: v3.2.103
+- fb2e39d: v3.3.0
 
 ## 3.2.103
 
