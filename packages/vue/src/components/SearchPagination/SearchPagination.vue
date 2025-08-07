@@ -161,13 +161,5 @@ export default {
 }
 </script>
 <style lang="scss">
-.SearchPagination {
-  .-current {
-    @apply font-medium;
-
-    span {
-      @apply border-primary border-b-2;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/SearchPagination';
 </style>

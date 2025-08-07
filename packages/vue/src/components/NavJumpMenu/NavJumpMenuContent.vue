@@ -61,19 +61,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.NavJumpMenuContent {
-  a {
-    @apply block pl-18 pr-6 lg:pl-6 text-gray-dark;
-
-    > span {
-      @apply border-b border-transparent pb-2px;
-    }
-
-    &:hover {
-      > span {
-        @apply border-gray-dark text-gray-dark;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavJumpMenuContent';
 </style>

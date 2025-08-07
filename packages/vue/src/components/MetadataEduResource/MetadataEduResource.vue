@@ -84,38 +84,5 @@ const time = computed(() => {
   </div>
 </template>
 <style lang="scss">
-.MetadataEduResource {
-  @apply lg:flex lg:flex-grow;
-  .MetadataEduResourceItem {
-    @apply flex;
-    @apply items-start;
-    @apply mr-4 md:mr-4 xl:mr-8;
-    @apply mb-5 lg:mb-7;
-    @apply lg:min-w-[10rem];
-
-    span {
-      @apply text-gray-dark;
-    }
-
-    svg {
-      min-width: 1.25rem;
-      @apply top-0.5;
-    }
-    .MetadataEduResourceIcon {
-      @apply relative mr-3 lg:mr-2 xl:mr-3;
-    }
-  }
-
-  &.-compact {
-    @apply flex flex-grow flex-wrap;
-    .MetadataEduResourceItem {
-      @apply whitespace-nowrap;
-      @apply max-w-none min-w-[4em];
-      @apply mr-6 mb-0;
-      &.-xlScreensOnly {
-        @apply hidden xl:flex;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/MetadataEduResource';
 </style>

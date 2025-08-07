@@ -122,25 +122,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.NavSecondaryDropdownContent {
-  a {
-    @apply block pl-18 pr-6 lg:pl-6 text-black;
-
-    > span {
-      @apply border-b border-transparent pb-2px;
-    }
-
-    &:hover {
-      > span {
-        @apply border-black text-black;
-      }
-    }
-
-    &.nuxt-link-active {
-      > span {
-        @apply border-primary font-medium;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavSecondaryDropdownContent';
 </style>

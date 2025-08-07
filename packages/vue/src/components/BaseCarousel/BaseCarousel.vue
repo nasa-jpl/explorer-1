@@ -107,46 +107,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import 'swiper/swiper-bundle.css';
-.BaseCarousel {
-  .swiper {
-    .swiper-prev {
-      @apply mr-px;
-    }
-
-    .swiper-prev,
-    .swiper-next {
-      &.swiper-button-disabled {
-        @apply opacity-75 cursor-default bg-none;
-      }
-    }
-  }
-
-  .swiper-nav {
-    padding-top: 56.25%;
-  }
-
-  // .swiper-dots {
-  //   padding-top: 56.25%;
-  //   @apply pointer-events-none;
-
-  //   .swiper-dot {
-  //     @apply inline-block px-1 py-3 cursor-pointer pointer-events-auto;
-
-  //     &:focus {
-  //       @apply outline-none ring-1;
-  //     }
-
-  //     > span {
-  //       @apply inline-block w-3 h-3 rounded-full bg-gray-light-mid;
-  //     }
-
-  //     &.swiper-dot-active {
-  //       > span {
-  //         @apply bg-primary;
-  //       }
-  //     }
-  //   }
-  // }
-}
+@import '@explorer-1/common/src/scss/components/BaseCarousel';
 </style>

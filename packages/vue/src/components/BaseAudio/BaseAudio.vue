@@ -338,52 +338,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.BaseAudio {
-  @apply relative w-full;
-
-  .BaseAudio__stage {
-    @apply flex flex-row w-full;
-  }
-
-  .BaseAudio__playback-time-total {
-    @apply text-sm md:text-base pl-1 md:pl-3 text-right;
-  }
-
-  .BaseAudio__playback-time-current,
-  .BaseAudio__playback-time-total {
-    @screen sm {
-      min-width: 7ch;
-    }
-  }
-
-  .BaseAudio__rewind-forward {
-    @apply hidden sm:flex flex-row w-25 lg:w-35 mx-auto justify-between;
-
-    > button {
-      @apply opacity-100 hover:opacity-80;
-
-      svg {
-        @apply w-6 text-white;
-      }
-    }
-  }
-
-  .BaseAudio__playback-time-indicator {
-    &::after {
-      @apply h-4 bg-white block absolute w-1 -top-1 -right-1;
-
-      content: '';
-    }
-  }
-
-  .BaseAudio__extern-wrapper {
-    > button {
-      @apply mr-1 sm:-mt-2 lg:-mt-2.5 ml-2.5 opacity-100 hover:opacity-80;
-
-      svg {
-        @apply w-6;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BaseAudio';
 </style>

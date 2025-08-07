@@ -1,0 +1,9 @@
+.SearchPagination {
+  .-current {
+    @apply font-medium;
+
+    span {
+      @apply border-primary border-b-2;
+    }
+  }
+}

@@ -147,27 +147,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.PageVideoDetail {
-  .BaseImagePlaceholder {
-    @apply select-none;
-
-    min-height: 400px;
-  }
-
-  .video-aside {
-    .BaseButton {
-      max-width: 200px;
-    }
-
-    .BlockText {
-      @apply text-lg;
-    }
-  }
-
-  .video-transcript {
-    p {
-      @apply mb-4;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageVideoDetail';
 </style>

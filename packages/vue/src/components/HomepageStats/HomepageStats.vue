@@ -329,34 +329,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.HomepageStats {
-  .BaseTimer {
-    .text-stats-xl {
-      @apply leading-none;
-
-      @screen lg {
-        font-size: 2.125rem; // 34px
-      }
-      @screen xl {
-        font-size: 2.25rem; // 36px
-      }
-    }
-
-    .unit {
-      @apply text-gray-mid-dark;
-    }
-  }
-
-  .BaseUnitToggle {
-    @apply flex items-center;
-
-    fieldset {
-      @apply pl-3;
-    }
-
-    .unit {
-      @apply -mt-3;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/HomepageStats';
 </style>

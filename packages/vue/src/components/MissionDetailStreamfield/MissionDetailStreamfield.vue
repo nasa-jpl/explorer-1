@@ -69,27 +69,6 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.ThemeVariantDark {
-  .MissionDetailStreamfield-heading,
-  .BlockText {
-    @apply text-white;
-  }
-}
-
-.MissionDetailStreamfield {
-  .MissionDetailInlineImage {
-    .featured-image {
-      max-width: 700px;
-      width: auto;
-      position: relative;
-      display: block;
-    }
-    @media screen and (min-width: 1024px) {
-      .BlockText p {
-        max-width: 30ch;
-      }
-    }
-  }
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/MissionDetailStreamfield';
 </style>

@@ -1,0 +1,12 @@
+.MissionDetailHighlights {
+  &.min-h-mission-highlights {
+    min-height: 38rem;
+  }
+
+  .mission-highlights-lines.-filler {
+    padding-top: 60%;
+    @screen lg {
+      @apply pt-0;
+    }
+  }
+}

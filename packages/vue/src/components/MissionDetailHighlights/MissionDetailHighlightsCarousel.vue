@@ -141,20 +141,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import 'swiper/swiper-bundle.css';
-
-.MissionHighlightsCarousel {
-  .swiper {
-    .swiper-prev {
-      @apply mr-px;
-    }
-
-    .swiper-prev,
-    .swiper-next {
-      &.swiper-button-disabled {
-        @apply opacity-75 cursor-default bg-none;
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/MissionDetailHighlightsCarousel';
 </style>

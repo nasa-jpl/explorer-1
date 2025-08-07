@@ -174,9 +174,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.RoboticsDetailStatsMini {
-  > .stat {
-    min-width: 5ch;
-  }
-}
+@import '@explorer-1/common/src/scss/components/RoboticsDetailStatsMini';
 </style>

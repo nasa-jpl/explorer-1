@@ -1,0 +1,11 @@
+.PageEduExplainerArticle {
+  .BlockText {
+    ul {
+      li {
+        &::marker {
+          @apply text-secondary;
+        }
+      }
+    }
+  }
+}

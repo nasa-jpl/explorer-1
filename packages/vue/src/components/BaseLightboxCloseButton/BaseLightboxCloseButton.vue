@@ -36,10 +36,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.BaseLightboxCloseButton {
-  @apply bg-black z-50 px-px text-right w-full mb-auto;
-  @screen 2xl {
-    @apply w-auto -mr-20 -mt-5;
-  }
-}
+@import '@explorer-1/common/src/scss/components/BaseLightboxCloseButton';
 </style>

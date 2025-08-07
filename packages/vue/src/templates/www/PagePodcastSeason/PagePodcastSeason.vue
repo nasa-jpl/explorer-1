@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="ThemeVariantLight"
+    class="ThemeVariantLight PagePodcastSeason"
     :class="{ '-nav-offset': data.featuredEpisode }"
   >
     <!-- hero image -->
@@ -183,9 +183,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.flip-horizontal > svg {
-  display: block;
-  transform: scale(-1, 1);
-}
+<style lang="scss">
+@import '@explorer-1/common/src/scss/templates/PagePodcastSeason';
 </style>

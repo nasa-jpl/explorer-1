@@ -40,25 +40,5 @@ const { standards } = reactive(props)
   </div>
 </template>
 <style lang="scss">
-.MetaPanelAccordion {
-  .BaseAccordionItem {
-    .BaseAccordionHeader {
-      @apply bg-white;
-      > div {
-        @apply border-none;
-      }
-      button.BaseAccordion-trigger {
-        @apply py-2 px-3;
-        @apply can-hover:hover:no-underline;
-      }
-    }
-    &.-open {
-      .BaseAccordionHeader {
-        button.BaseAccordion-trigger {
-          @apply pb-0;
-        }
-      }
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/MetaPanelAccordion';
 </style>

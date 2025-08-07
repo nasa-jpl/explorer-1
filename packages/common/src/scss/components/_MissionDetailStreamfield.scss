@@ -1,0 +1,22 @@
+.MissionDetailStreamfield {
+  .MissionDetailInlineImage {
+    .featured-image {
+      max-width: 700px;
+      width: auto;
+      position: relative;
+      display: block;
+    }
+    @media screen and (min-width: 1024px) {
+      .BlockText p {
+        max-width: 30ch;
+      }
+    }
+  }
+
+  .ThemeVariantDark {
+    .MissionDetailStreamfield-heading,
+    .BlockText {
+        @apply text-white;
+    }
+  }
+}

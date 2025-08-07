@@ -293,34 +293,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.PageEventDetail {
-  .PageEventDetail__Metadata {
-    @apply flex;
-    @apply items-baseline;
-    @apply mr-12;
-    @apply md:mr-8;
-    @apply lg:mr-12;
-    @apply mb-5;
-
-    span {
-      max-width: 230px;
-      min-width: 110px;
-      @apply text-gray-dark;
-    }
-
-    svg {
-      min-width: 1.25rem;
-      @apply top-0.5;
-    }
-  }
-
-  .PageEventDetail__Buttons {
-    @apply text-base;
-    @apply lg:ml-auto;
-    @apply mt-10;
-    @apply lg:mt-0;
-
-    max-width: 260px;
-  }
-}
+@import '@explorer-1/common/src/scss/templates/PageEventDetail';
 </style>

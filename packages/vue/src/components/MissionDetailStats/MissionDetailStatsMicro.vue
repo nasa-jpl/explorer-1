@@ -33,20 +33,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.MissionDetailStatsMicro {
-  .text-stats-xl {
-    @apply text-base leading-none;
-
-    @screen sm {
-      @apply text-4xl;
-    }
-  }
-
-  .legend {
-    @apply text-sm;
-    @screen sm {
-      @apply text-base;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/MissionDetailStatsMicro';
 </style>

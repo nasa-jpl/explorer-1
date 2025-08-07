@@ -126,9 +126,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.TopicDetailMoreItem {
-  .text-subtitle.divide-x {
-    @apply leading-none #{!important};
-  }
-}
+@import '@explorer-1/common/src/scss/components/TopicDetailMoreItem';
 </style>

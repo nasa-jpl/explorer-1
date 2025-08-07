@@ -1,0 +1,96 @@
+.MixinFancybox {
+  @apply relative;
+
+  &:active {
+    outline: none;
+  }
+
+  .MixinFancyboxOpenButton {
+    @apply can-hover:opacity-0 opacity-70 transition-opacity duration-300 block top-px right-px z-10;
+  }
+
+  &:hover {
+    .MixinFancyboxOpenButton {
+      @apply can-hover:opacity-100 duration-200;
+    }
+  }
+
+  &:focus {
+    .MixinFancyboxOpenButton {
+      @apply can-hover:opacity-100;
+    }
+  }
+
+  img {
+    @apply min-w-full h-auto block;
+  }
+}
+
+// Fancybox overrides for various themes
+.fancybox-theme-dark.fancybox__container {
+  z-index: 9999;
+
+  --fancybox-color: rgba(255, 255, 255, var(--tw-text-opacity));
+  --fancybox-bg: #000000;
+  --fancybox-accent-color: #ffffff;
+  --fancybox-thumbs-width: 100px;
+  --fancybox-thumbs-border-radius: 0;
+  --fancybox-thumbs-ratio: 1 / 1;
+  --carousel-button-bg: rgba(0, 0, 0, 0.9);
+  --carousel-button-border-radius: 0;
+  --carousel-button-svg-width: 30px;
+  --carousel-button-svg-height: 30px;
+  --carousel-button-svg-stroke-width: 3;
+  --carousel-button-svg-filter: none;
+
+  .fancybox__content {
+    @apply z-50;
+  }
+
+  .fancybox__nav {
+    @apply hidden;
+
+    @screen sm {
+      @apply block;
+    }
+  }
+
+  .fancybox__caption {
+    @apply z-40 text-left relative inline-block pt-3 lg:pt-4 w-full;
+
+    h1 {
+      text-overflow: ellipsis;
+    }
+
+    p {
+      @apply inline;
+    }
+  }
+
+  .fancybox__slide.has-image.has-caption.is-draggable {
+    .fancybox__caption {
+      @apply opacity-0 transition-opacity duration-200;
+    }
+  }
+
+  .fancybox__slide.has-image:not(.is-draggable),
+  .fancybox__slide.has-image.has-caption.can-zoom_in,
+  .fancybox__slide.has-image.has-caption.is-selected:not(.is-draggable) {
+    .fancybox__caption {
+      @apply opacity-100 transition-opacity duration-200;
+    }
+  }
+
+  .caption-width {
+    background: rgba(0, 0, 0, 0.95);
+    -webkit-transition: max-width 0.15s ease;
+    transition: max-width 0.15s ease;
+    width: 100%;
+  }
+
+  @screen lg {
+    .fancybox__toolbar {
+      padding: 25px;
+    }
+  }
+}

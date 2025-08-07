@@ -102,30 +102,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.BlockDialog {
-  // Make sure the dialog container and all its descendants are not visible and not focusable when it is hidden.
-  &[aria-hidden='true'] {
-    display: none;
-  }
-
-  @media (forced-colors: active) {
-    .dialog-box {
-      border: 1px solid;
-    }
-  }
-
-  .dialog-overlay,
-  .dialog-box {
-    @apply animate-fadeIn;
-
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
-    }
-  }
-
-  // Offset by the size of the icon.
-  .button-close {
-    top: -2rem;
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockDialog';
 </style>

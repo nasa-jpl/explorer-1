@@ -1,0 +1,19 @@
+.NavMobileSecondaryDropdown {
+  .NavDropdownToggle {
+    span {
+      @apply border-b border-transparent;
+    }
+
+    &.-open {
+      span {
+        @apply border-gray-dark font-normal;
+      }
+    }
+
+    &.-active {
+      span {
+        @apply font-medium border-primary #{!important};
+      }
+    }
+  }
+}

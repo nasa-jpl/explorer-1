@@ -23,11 +23,5 @@ const props = withDefaults(defineProps<BlockLinkCardListProps>(), {
   </div>
 </template>
 <style lang="scss">
-.BlockLinkCardList {
-  .BlockLinkCard {
-    div.bg-gray-dark.relative.mb-6 {
-      @apply mb-3 #{!important};
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/BlockLinkCardList';
 </style>

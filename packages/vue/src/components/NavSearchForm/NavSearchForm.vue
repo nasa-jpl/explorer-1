@@ -55,43 +55,5 @@ const submitSearch = () => {
   </form>
 </template>
 <style lang="scss">
-.NavSearchForm {
-  ::placeholder {
-    @apply text-gray-dark;
-  }
-
-  .-transparent & {
-    ::placeholder {
-      @apply text-white;
-    }
-  }
-
-  .-transparent.-scrolled & {
-    ::placeholder {
-      @apply text-gray-dark;
-    }
-  }
-  @screen lg {
-    // remove the default styling of search field
-    input[type='search']::-ms-clear {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-
-    input[type='search']::-ms-reveal {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-
-    /* clears the 'X' from Chrome */
-    input[type='search']::-webkit-search-decoration,
-    input[type='search']::-webkit-search-cancel-button,
-    input[type='search']::-webkit-search-results-button,
-    input[type='search']::-webkit-search-results-decoration {
-      display: none;
-    }
-  }
-}
+@import '@explorer-1/common/src/scss/components/NavSearchForm';
 </style>
