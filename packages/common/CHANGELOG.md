@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 1.2.0
+
+### Minor Changes
+
+- fb2e39d: Moving SCSS to dedicated files in packages/common
+
 ## 1.1.24
 
 ### Patch Changes
