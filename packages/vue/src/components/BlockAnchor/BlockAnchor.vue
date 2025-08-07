@@ -21,5 +21,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/BlockAnchor.scss';
+@import '@explorer-1/common/src/scss/components/BlockAnchor';
 </style>
