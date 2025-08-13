@@ -1,4 +1,5 @@
 import BasePill from './BasePill.vue'
+import { eduMetadataDictionary } from './../../constants'
 
 export default {
   title: 'Components/Base/BasePill',
@@ -15,20 +16,28 @@ export default {
       description: 'The size of the tag',
       control: { type: 'select' },
       options: ['sm', 'md', 'lg']
-    }
-  },
-  parameters: {
-    slots: {
-      default: 'BaseStory slot'
+    },
+    contentType: {
+      control: { type: 'select' },
+      options: Object.keys(eduMetadataDictionary)
     }
   }
 }
 
 // stories
 export const PrimaryMedium = {
-  args: { size: 'md', variant: 'primary', default: 'Psyche Asteroid' }
+  args: {
+    size: 'md',
+    variant: 'primary',
+    text: 'Psyche Asteroid',
+    contentType: "EDULessonPage"
+  }
 }
 
 export const SecondarySmall = {
-  args: { size: 'sm', variant: 'secondary', default: 'Do it yourself' }
+  args: { size: 'sm', variant: 'secondary', text: 'Do it yourself' }
+}
+
+export const WithType = {
+  args: { size: 'sm', variant: 'secondary', text: 'Do it yourself' }
 }
