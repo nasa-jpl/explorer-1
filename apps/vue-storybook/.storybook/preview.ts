@@ -1,7 +1,7 @@
-/** @type { import('@storybook/vue3').Preview } */
-import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+/** @type { import('@storybook/vue3-vite').Preview } */
+import { MINIMAL_VIEWPORTS } from 'storybook/viewport'
 import useMockComponents from './_mock-components.js'
-import { setup, type Preview } from '@storybook/vue3'
+import { setup, type Preview } from '@storybook/vue3-vite'
 import { createRouter, createWebHashHistory, type RouterOptions } from 'vue-router'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import vClickOutside from 'click-outside-vue3'
@@ -14,6 +14,7 @@ import { withGlobals, globalTypes } from './withGlobals'
 import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 import VueObserveVisibility from 'vue3-observe-visibility'
+import { ensure } from 'storybook/theming'
 
 const pinia = createPinia()
 const router = createRouter({
@@ -116,7 +117,7 @@ const preview: Preview = {
       removeEmptyComments: true
     },
     a11y: {
-      element: 'body',
+      context: 'body',
       config: {
         rules: [
           // ignore rules that fail tests but are not actually violations
@@ -138,7 +139,7 @@ const preview: Preview = {
     },
     // set the theme for docs (same as UI)
     docs: {
-      theme: customTheme
+      theme: ensure(customTheme)
     },
     options: {
       storySort: {

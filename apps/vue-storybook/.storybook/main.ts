@@ -11,40 +11,35 @@ const config = {
           './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)',
           './../../../packages/vue/src/**/*.docs.mdx'
         ],
-  addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-        backgrounds: false,
-        outlines: false
-      }
-    },
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        mdxPluginOptions: {
-          mdxCompileOptions: {
-            remarkPlugins: [remarkGfm]
-          }
+
+  addons: [{
+    name: '@storybook/addon-docs',
+    options: {
+      mdxPluginOptions: {
+        mdxCompileOptions: {
+          remarkPlugins: [remarkGfm]
         }
       }
-    },
-    '@storybook/addon-a11y',
-    '@whitespace/storybook-addon-html',
-    'storybook-addon-vue-slots',
-    '@chromatic-com/storybook'
-  ],
+    }
+  }, '@storybook/addon-a11y', '@whitespace/storybook-addon-html', 'storybook-addon-vue-slots', '@chromatic-com/storybook'],
+
   staticDirs: [
     './../public',
     './../node_modules/@explorer-1/common-storybook/src/public',
     './../node_modules/@explorer-1/common/src'
   ],
+
   framework: {
     name: '@storybook/vue3-vite',
     options: {}
   },
 
-  docs: {}
+  docs: {},
+
+  features: {
+    actions: false,
+    backgrounds: false,
+    outlines: false
+  }
 }
 export default config
