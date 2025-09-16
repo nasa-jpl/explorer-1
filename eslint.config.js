@@ -6,4 +6,8 @@ import storybook from "eslint-plugin-storybook";
 // imports config from the shared eslint-config package `packages/configs/eslint`
 import config from '@explorer-1/eslint-config'
 
-export default [...config, ...storybook.configs["flat/recommended"]];
+export default [
+  ...config,
+  ...storybook.configs["flat/recommended"],
+  ...storybook.configs["flat/recommended"]
+];

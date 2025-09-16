@@ -14,32 +14,26 @@ export default {
 
   staticDirs: ['./../public', './../node_modules/@explorer-1/common-storybook/src/public'],
 
-  addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-        backgrounds: false,
-        outlines: false
-      }
-    },
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        mdxPluginOptions: {
-          mdxCompileOptions: {
-            remarkPlugins: [remarkGfm]
-          }
+  addons: [{
+    name: '@storybook/addon-docs',
+    options: {
+      mdxPluginOptions: {
+        mdxCompileOptions: {
+          remarkPlugins: [remarkGfm]
         }
       }
-    },
-    '@storybook/addon-a11y',
-    '@whitespace/storybook-addon-html'
-  ],
+    }
+  }, '@storybook/addon-a11y', '@whitespace/storybook-addon-html'],
 
   core: {
     disableTelemetry: true
   },
 
-  docs: {}
-}
+  docs: {},
+
+  features: {
+    actions: false,
+    backgrounds: false,
+    outlines: false
+  }
+};

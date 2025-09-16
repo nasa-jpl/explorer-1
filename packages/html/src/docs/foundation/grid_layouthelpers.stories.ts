@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html-vite'
 
 const meta: Meta = {
   title: 'Foundation/Grid and Layout/Column Layout Helpers',

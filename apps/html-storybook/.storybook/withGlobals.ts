@@ -1,4 +1,4 @@
-import { useEffect, useGlobals } from '@storybook/preview-api'
+import { useEffect, useGlobals } from 'storybook/preview-api'
 
 const getConfig = (config) => {
   // default values
