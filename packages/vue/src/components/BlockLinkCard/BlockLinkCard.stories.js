@@ -181,6 +181,7 @@ export const EduLesson = {
       template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
+  globals: { theme: 'ThemeEdu' },
   args: {
     ...BlockLinkCardData,
     size: 'sm',
@@ -210,6 +211,7 @@ export const EduExplainerArticle = {
       template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
+  globals: { theme: 'ThemeEdu' },
   args: {
     ...BlockLinkCardData,
     data: {
@@ -234,6 +236,7 @@ export const EduExplainerArticle = {
   }
 }
 export const LargeEduExplainerArticle = {
+  globals: { theme: 'ThemeEdu' },
   args: {
     ...BlockLinkCardData,
     size: 'lg',
@@ -260,6 +263,7 @@ export const LargeEduExplainerArticle = {
 }
 
 export const EduCollection = {
+  globals: { theme: 'ThemeEdu' },
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
@@ -296,6 +300,7 @@ export const EduCollection = {
   }
 }
 export const EduCollectionLarge = {
+  globals: { theme: 'ThemeEdu' },
   args: {
     ...BlockLinkCardData,
     size: 'lg',
@@ -328,6 +333,7 @@ export const EduCollectionLarge = {
 }
 
 export const EduNewsItem = {
+  globals: { theme: 'ThemeEdu' },
   decorators: [
     () => ({
       template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`

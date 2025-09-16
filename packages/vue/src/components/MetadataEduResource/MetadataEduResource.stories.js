@@ -11,6 +11,7 @@ export default {
       options: ['primary', 'secondary']
     }
   },
+  globals: { theme: 'ThemeEdu' },
   excludeStories: /.*Data$/
 }
 
