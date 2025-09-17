@@ -24,7 +24,6 @@ const compat = new FlatCompat({
 export default [
   js.configs.recommended,
   ...compat.extends('plugin:vue/vue3-recommended'),
-  ...compat.extends('plugin:storybook/recommended'),
   {
     files: [
       '**/*.vue',
