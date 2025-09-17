@@ -14,7 +14,6 @@ import { withGlobals, globalTypes } from './withGlobals'
 import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 import VueObserveVisibility from 'vue3-observe-visibility'
-import { ensure } from 'storybook/theming'
 
 const pinia = createPinia()
 const router = createRouter({
@@ -139,7 +138,7 @@ const preview: Preview = {
     },
     // set the theme for docs (same as UI)
     docs: {
-      theme: ensure(customTheme)
+      theme: customTheme
     },
     options: {
       storySort: {
