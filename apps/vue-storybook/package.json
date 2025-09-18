@@ -36,6 +36,7 @@
   "dependencies": {
     "@explorer-1/common": "workspace:*",
     "@explorer-1/common-storybook": "workspace:*",
+    "@explorer-1/html": "workspace:*",
     "@explorer-1/vue": "workspace:*",
     "@fancyapps/ui": "^4.0.26",
     "@tailwindcss/forms": "^0.5.7",
@@ -50,7 +51,6 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
-    "@explorer-1/html": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
     "@percy/cli": "^1.28.7",

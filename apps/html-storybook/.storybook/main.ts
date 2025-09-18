@@ -1,6 +1,10 @@
 import remarkGfm from 'remark-gfm'
 
 export default {
+  refs: {
+    '@explorer-1/vue': { disable: true },
+    '@explorer-1/html': { disable: true }
+  },
   framework: {
     name: '@storybook/html-vite',
     options: {}
