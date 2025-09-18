@@ -1,4 +1,4 @@
-import { useEffect, useGlobals } from '@storybook/preview-api'
+import { useEffect, useGlobals } from 'storybook/preview-api'
 // intentionally importing from node_modules path to avoid pinia initialization errors
 import { useThemeStore } from './../node_modules/@explorer-1/vue/src/store/theme'
 import { type Explorer1Theme } from '@explorer-1/vue/src/interfaces'
@@ -57,27 +57,10 @@ export const withGlobals = (StoryFn, context) => {
         'data-variant'
       ) as Explorer1Theme
 
-      const themeOverride: Explorer1Theme | undefined = window.location.search.includes('edu-')
-        ? 'ThemeEdu'
-        : window.location.search.includes('www-')
-          ? 'defaultTheme'
-          : window.location.search.includes('internal-')
-            ? 'ThemeInternal'
-            : undefined
-      // handle theme
-      if (themeOverride) {
-        updateGlobals({ theme: themeOverride })
-        useTheme.setTheme(themeOverride)
-      } else if (savedTheme) {
-        // update theme attribute and save it to local storage
-        updateGlobals({ theme: savedTheme })
-        useTheme.setTheme(savedTheme)
-      } else {
-        // set it to the first theme
-        if (options && options.length > 0) {
-          updateGlobals({ theme: options[0] })
-          useTheme.setTheme(options[0] as Explorer1Theme)
-        }
+      // default to using the first theme available
+      if (options && options.length > 0) {
+        updateGlobals({ theme: options[0] })
+        useTheme.setTheme(options[0] as Explorer1Theme)
       }
 
       // handle variant

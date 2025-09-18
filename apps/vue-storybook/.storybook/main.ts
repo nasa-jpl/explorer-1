@@ -1,6 +1,15 @@
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 import remarkGfm from 'remark-gfm'
 const config = {
+  // TODO: for html-only components
+  // refs: {
+  //   'html-components': {
+  //     title: 'HTML Components',
+  //     url: 'https://68c9f55524186336c6cb1c0c-amflhlfcai.chromatic.com/', // https://main--68c9f55524186336c6cb1c0c.chromatic.com
+  //     expanded: false // Optional, true by default,
+  //     // sourceUrl: 'https://github.com/storybookjs/storybook', // Optional
+  //   }
+  // },
   stories:
     process.env.NODE_ENV === 'production'
       ? [
@@ -11,15 +20,8 @@ const config = {
           './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)',
           './../../../packages/vue/src/**/*.docs.mdx'
         ],
+
   addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-        backgrounds: false,
-        outlines: false
-      }
-    },
     {
       name: '@storybook/addon-docs',
       options: {
@@ -35,16 +37,24 @@ const config = {
     'storybook-addon-vue-slots',
     '@chromatic-com/storybook'
   ],
+
   staticDirs: [
     './../public',
     './../node_modules/@explorer-1/common-storybook/src/public',
     './../node_modules/@explorer-1/common/src'
   ],
+
   framework: {
     name: '@storybook/vue3-vite',
     options: {}
   },
 
-  docs: {}
+  docs: {},
+
+  features: {
+    actions: false,
+    backgrounds: false,
+    outlines: false
+  }
 }
 export default config

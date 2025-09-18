@@ -11,6 +11,7 @@ export default {
   title: 'Templates/EDU/PageEduGalleryDetail',
   component: PageEduGalleryDetail,
   tags: ['!autodocs'],
+  globals: { theme: 'ThemeEdu' },
   parameters: {
     html: {
       root: '#storyDecorator'

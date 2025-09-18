@@ -66,6 +66,7 @@ export const PodcastEpisodeCard = {
 }
 
 export const EduEventCard = {
+  globals: { theme: 'ThemeEdu' },
   args: {
     ...SearchResultCardData,
     __typename: 'EDUEventPage',

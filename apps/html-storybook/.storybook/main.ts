@@ -16,14 +16,6 @@ export default {
 
   addons: [
     {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-        backgrounds: false,
-        outlines: false
-      }
-    },
-    {
       name: '@storybook/addon-docs',
       options: {
         mdxPluginOptions: {
@@ -34,12 +26,19 @@ export default {
       }
     },
     '@storybook/addon-a11y',
-    '@whitespace/storybook-addon-html'
+    '@whitespace/storybook-addon-html',
+    '@chromatic-com/storybook'
   ],
 
   core: {
     disableTelemetry: true
   },
 
-  docs: {}
+  docs: {},
+
+  features: {
+    actions: false,
+    backgrounds: false,
+    outlines: false
+  }
 }

@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { Canvas, Description } from '@storybook/blocks'
+import { Canvas, Description } from '@storybook/addon-docs/blocks'
 
 export function ComponentItem(props) {
   /*
