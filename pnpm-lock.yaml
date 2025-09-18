@@ -139,6 +139,9 @@ importers:
       '@explorer-1/common-storybook':
         specifier: workspace:*
         version: link:../../packages/common-storybook
+      '@explorer-1/html':
+        specifier: workspace:*
+        version: link:../../packages/html
       '@explorer-1/vue':
         specifier: workspace:*
         version: link:../../packages/vue
@@ -176,9 +179,6 @@ importers:
       '@chromatic-com/storybook':
         specifier: ^4.1.1
         version: 4.1.1(storybook@9.1.6(@testing-library/dom@10.4.1)(msw@2.3.1(typescript@5.5.4))(prettier@3.6.2)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1)))
-      '@explorer-1/html':
-        specifier: workspace:*
-        version: link:../../packages/html
       '@explorer-1/prettier-config':
         specifier: workspace:*
         version: link:../../packages/configs/prettier
