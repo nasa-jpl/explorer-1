@@ -55,5 +55,8 @@
     "vite": "^5.3.1",
     "vite-plugin-dts": "^3.9.1",
     "vue-tsc": "^2.0.6"
+  },
+  "storybook": {
+    "url": "https://main--668c47cbeb95392cd79c3c0d.chromatic.com"
   }
 }

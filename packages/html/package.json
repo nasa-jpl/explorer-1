@@ -41,5 +41,8 @@
     "postcss-import": "^16.1.0",
     "typescript": "^5.4.5",
     "vite": "^5.3.1"
+  },
+  "storybook": {
+    "url": "https://main--68c9f55524186336c6cb1c0c.chromatic.com"
   }
 }
