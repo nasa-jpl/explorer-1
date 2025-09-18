@@ -141,7 +141,7 @@ const preview: Preview = {
       theme: customTheme
     },
     chromatic: {
-      ignoreSelectors: ['.richtext-image img', '.BlockVideoEmbed iframe']
+      ignoreSelectors: ['.richtext-image img', 'img.richtext-image', '.BlockVideoEmbed iframe']
     },
     options: {
       storySort: {
