@@ -1,5 +1,5 @@
 {/* TODO: refactor to include all blocks in the vue storybook */}
-import { Meta } from '@storybook/blocks'
+import { Meta } from '@storybook/addon-docs/blocks'
 import { ComponentList } from './../utils/ComponentList'
 import _ as BlockAccordionStories from './../../components/BlockAccordion/BlockAccordion.stories'
 import _ as BlockCardGridStories from './../../components/BlockCardGrid/BlockCardGrid.stories'

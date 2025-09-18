@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import { Canvas, Description } from '@storybook/blocks'
+import { Canvas, Description } from '@storybook/addon-docs/blocks'
 
 export function ComponentItem(props) {
   /*
@@ -56,11 +56,7 @@ export function ComponentItem(props) {
 
     return (
       <div className={wrapperClass}>
-        <div
-          className={
-            'reactdocs-container pr-5' + (props.fullWidth ? '' : ' lg:w-1/2')
-          }
-        >
+        <div className={'reactdocs-container pr-5' + (props.fullWidth ? '' : ' lg:w-1/2')}>
           <h3 className="text-base tracking-tight font-medium mt-3 mb-3">
             <button
               className="sbdocs sbdocs-a font-medium"
