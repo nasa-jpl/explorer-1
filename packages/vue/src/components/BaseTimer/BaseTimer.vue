@@ -40,7 +40,10 @@
             <template v-else>{{ unitValue(unit) }}</template>
           </span>
           <br v-if="!inline" />
-          <span class="unit text-body-xs uppercase">
+          <span
+            class="unit text-body-xs uppercase"
+            data-chromatic="ignore"
+          >
             {{ shortLabel(unit) }}
           </span>
         </span>
