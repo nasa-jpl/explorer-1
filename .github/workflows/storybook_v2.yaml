@@ -6,10 +6,6 @@ on:
   push:
     branches:
       - v2
-    paths:
-      - 'apps/html-storybook/**'
-      - 'packages/common/**'
-      - 'packages/html/**'
 
   pull_request:
     paths:
