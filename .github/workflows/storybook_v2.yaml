@@ -1,0 +1,54 @@
+# https://storybook.js.org/docs/vue/writing-tests/test-runner#run-against-non-deployed-storybooks
+
+name: 'Storybook'
+
+on:
+  push:
+    branches:
+      - v2
+    paths:
+      - 'apps/html-storybook/**'
+      - 'packages/common/**'
+      - 'packages/html/**'
+
+  pull_request:
+    paths:
+      - 'apps/html-storybook/**'
+      - 'packages/common/**'
+      - 'packages/html/**'
+
+jobs:
+  publish_html:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node ⬢
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies 🧱
+        run: pnpm i
+
+      - name: Build HTML Storybook
+        run: make html-storybook-build
+
+      - uses: chromaui/action@latest
+        # Options required for Chromatic's GitHub Action
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_HTML }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBaseDir: 'apps/html-storybook'
+          storybookBuildDir: 'apps/html-storybook/storybook_compiled'
+          autoAcceptChanges: 'main'
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
