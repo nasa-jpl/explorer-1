@@ -208,9 +208,6 @@ export const BaseStory = {
             },
             {
               blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
             }
           ]
         },
@@ -220,12 +217,6 @@ export const BaseStory = {
           steps: [
             {
               blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
             }
           ]
         },
@@ -233,12 +224,6 @@ export const BaseStory = {
           sectionHeading: 'Section Heading 3',
           stepsNumbering: false,
           steps: [
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            },
-            {
-              blocks: BlockStreamfieldMinimalData.body
-            },
             {
               blocks: BlockStreamfieldMinimalData.body
             }
