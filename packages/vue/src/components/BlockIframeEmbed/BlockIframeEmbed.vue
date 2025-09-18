@@ -30,7 +30,6 @@
             class="w-full border-none"
             :title="data.title"
             :src="data.url"
-            data-chromatic="ignore"
             width="90%"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
