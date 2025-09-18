@@ -66,5 +66,8 @@
     "react-remove-scroll": {
       "tslib": "^2.6.2"
     }
+  },
+  "storybook": {
+    "url": "https://main--68c9f55524186336c6cb1c0c.chromatic.com"
   }
 }
