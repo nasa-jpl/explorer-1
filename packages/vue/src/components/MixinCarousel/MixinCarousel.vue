@@ -196,10 +196,26 @@ export default defineComponent({
       sliderOptions: {
         ...MixinCarouselOptions,
         initialSlide: this.initialSlide,
+        watchSlidesProgress: true,
         a11y: {
           prevSlideMessage: this.heading ? this.heading + ' - Previous slide' : 'Previous slide',
           nextSlideMessage: this.heading ? this.heading + ' - Next slide' : 'Next slide',
           slideRole: 'link'
+        },
+        on: {
+          ...MixinCarouselOptions.on,
+          progress(swiper) {
+            const classList = swiper.el.classList
+            classList.replace('opacity-0', 'opacity-100')
+            swiper.slides.forEach((slide) => {
+              if (slide.classList.contains('swiper-slide-fully-visible')) {
+                slide.setAttribute('aria-hidden', 'false')
+                slide.setAttribute('role', 'link')
+              } else {
+                slide.setAttribute('role', 'presentation')
+              }
+            })
+          }
         },
         breakpoints: {
           ...MixinCarouselOptions.breakpoints,
