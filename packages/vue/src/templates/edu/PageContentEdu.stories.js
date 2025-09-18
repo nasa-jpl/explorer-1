@@ -10,6 +10,7 @@ export default {
       template: `<div id="storyDecorator" class="ThemeEdu"><story/></div>`
     })
   ],
+  globals: { theme: 'ThemeEdu' },
   parameters: {
     html: {
       root: '#storyDecorator'

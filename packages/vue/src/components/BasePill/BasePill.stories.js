@@ -30,7 +30,7 @@ export const PrimaryMedium = {
     size: 'md',
     variant: 'primary',
     text: 'Psyche Asteroid',
-    contentType: "EDULessonPage"
+    contentType: 'EDULessonPage'
   }
 }
 

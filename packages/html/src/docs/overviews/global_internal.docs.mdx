@@ -1,6 +1,5 @@
-import { Meta } from '@storybook/blocks'
+import { Meta } from '@storybook/addon-docs/blocks'
 import { ComponentList } from './../utils/ComponentList'
-import * as AppBarInternalStories from './../../components/AppBarInternal/AppBarInternal.stories'
 import * as NavInternalStories from './../../components/NavInternal/NavInternal.stories'
 import * as NavInternalPanelStories from './../../components/NavInternal/NavInternalPanel.stories'
 import * as NavInternalHighlightStories from './../../components/NavInternal/NavInternalHighlight.stories'
@@ -14,13 +13,6 @@ These elements are combined to create a complete site header and are intended fo
 
 <ComponentList
   components={[
-    {
-      heading: 'AppBar',
-      meta: AppBarInternalStories,
-      path: '/docs/global-layout-headers-for-internal-sites-elements-appbar--docs',
-      fullWidth: true,
-      fullCanvas: true
-    },
     {
       heading: 'Navigation',
       description: 'The primary site navigation menu.',

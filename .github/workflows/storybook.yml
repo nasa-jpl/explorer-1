@@ -80,13 +80,46 @@ jobs:
              "pnpm --filter @explorer-1/vue-storybook start" \
              "pnpm --filter @explorer-1/vue-storybook test:ci"
 
-  visual-tests:
-    needs: [build]
+  # visual-tests:
+  #   needs: [build]
+  #   timeout-minutes: 30
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout 🛎️
+  #       uses: actions/checkout@v4
+
+  #     - name: Setup pnpm
+  #       uses: pnpm/action-setup@v4
+
+  #     - name: Set up Node ⬢
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version-file: '.nvmrc'
+  #         cache: 'pnpm'
+
+  #     - name: Install dependencies 🧱
+  #       run: pnpm i
+
+  #     - name: Download storybook build
+  #       uses: actions/download-artifact@v4.1.7
+  #       with:
+  #         name: storybook
+  #         path: apps/vue-storybook/storybook_compiled
+
+  #     - name: Run Percy
+  #       id: run-percy
+  #       env:
+  #         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+  #       run: pnpm --filter @explorer-1/vue-storybook percy
+
+  publish_html:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -100,17 +133,19 @@ jobs:
       - name: Install dependencies 🧱
         run: pnpm i
 
-      - name: Download storybook build
-        uses: actions/download-artifact@v4.1.7
-        with:
-          name: storybook
-          path: apps/vue-storybook/storybook_compiled
+      - name: Build HTML Storybook
+        run: make html-storybook-build
 
-      - name: Run Percy
-        id: run-percy
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-        run: pnpm --filter @explorer-1/vue-storybook percy
+      - uses: chromaui/action@latest
+        # Options required for Chromatic's GitHub Action
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_HTML }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBaseDir: 'apps/html-storybook'
+          storybookBuildDir: 'apps/html-storybook/storybook_compiled'
+          autoAcceptChanges: 'main'
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
 
   publish:
     needs: [build]

@@ -7,6 +7,7 @@ export default {
 
 export const BaseStory = {
   name: 'ShareButtonsEdu',
+  globals: { theme: 'ThemeEdu' },
   args: {
     url: 'https://jpl.nasa.gov/edu/news/nasas-ingenuity-mars-helicopter-recharges-its-batteries-in-flight',
     title: "NASA's Ingenuity Mars Helicopter Recharges Its Batteries in Flight"

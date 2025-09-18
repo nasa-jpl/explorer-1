@@ -1,7 +1,7 @@
-/** @type { import('@storybook/vue3').Preview } */
-import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+/** @type { import('@storybook/vue3-vite').Preview } */
+import { MINIMAL_VIEWPORTS } from 'storybook/viewport'
 import useMockComponents from './_mock-components.js'
-import { setup, type Preview } from '@storybook/vue3'
+import { setup, type Preview } from '@storybook/vue3-vite'
 import { createRouter, createWebHashHistory, type RouterOptions } from 'vue-router'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import vClickOutside from 'click-outside-vue3'
@@ -116,7 +116,7 @@ const preview: Preview = {
       removeEmptyComments: true
     },
     a11y: {
-      element: 'body',
+      context: 'body',
       config: {
         rules: [
           // ignore rules that fail tests but are not actually violations

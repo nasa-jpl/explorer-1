@@ -19,6 +19,7 @@ export default {
       template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
     })
   ],
+  globals: { theme: 'ThemeEdu' },
   parameters: {
     layout: 'fullscreen',
     html: {

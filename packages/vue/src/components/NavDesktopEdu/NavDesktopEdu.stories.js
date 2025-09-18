@@ -161,6 +161,7 @@ export const NavDesktopData = {
 
 export const BaseStory = {
   name: 'NavDesktop',
+  globals: { theme: 'ThemeEdu' },
   args: {
     data: NavDesktopData,
     headerVisible: true,

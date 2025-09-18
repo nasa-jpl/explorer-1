@@ -1,4 +1,4 @@
-import { useEffect, useGlobals } from '@storybook/preview-api'
+import { useEffect, useGlobals } from 'storybook/preview-api'
 
 const getConfig = (config) => {
   // default values
@@ -47,18 +47,11 @@ export const withGlobals = (StoryFn, context) => {
   if (!isInDocs) {
     // check for value in local storage
     useEffect(() => {
-      const savedTheme = window.localStorage.getItem('data-theme')
       const savedVariant = window.localStorage.getItem('data-variant')
 
-      // handle theme
-      if (savedTheme) {
-        // update theme attribute and save it to local storage
-        updateGlobals({ theme: savedTheme })
-      } else {
-        // set it to the first theme
-        if (options && options.length > 0) {
-          updateGlobals({ theme: options[0] })
-        }
+      // default to using the first theme available
+      if (options && options.length > 0) {
+        updateGlobals({ theme: options[0] })
       }
 
       // handle variant

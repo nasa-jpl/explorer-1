@@ -7,6 +7,7 @@ export default {
   title: 'Templates/EDU/PageEduEventDetail',
   component: PageEduEventDetail,
   tags: ['!autodocs'],
+  globals: { theme: 'ThemeEdu' },
   parameters: {
     html: {
       root: '#storyDecorator'
