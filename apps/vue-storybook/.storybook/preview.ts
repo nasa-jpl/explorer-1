@@ -140,6 +140,9 @@ const preview: Preview = {
     docs: {
       theme: customTheme
     },
+    chromatic: {
+      ignoreSelectors: ['.richtext-image img', '.BlockVideoEmbed iframe']
+    },
     options: {
       storySort: {
         method: 'alphabetical',

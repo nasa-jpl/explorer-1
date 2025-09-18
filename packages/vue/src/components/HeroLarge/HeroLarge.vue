@@ -17,6 +17,7 @@
           :width="image.src.width"
           :height="image.src.height"
           :alt="image.alt"
+          data-chromatic="ignore"
         />
       </picture>
     </div>

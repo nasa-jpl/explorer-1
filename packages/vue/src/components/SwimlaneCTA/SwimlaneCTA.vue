@@ -13,6 +13,7 @@
         v-bind-once="{ style: 'background-image: url(' + randomizeImage + ');' }"
         role="presentation"
         :class="'SwimlaneCTA lg:block hidden' + computedClass"
+        data-chromatic="ignore"
       >
         <div class="absolute inset-0 z-10 bg-black bg-opacity-25"></div>
         <div

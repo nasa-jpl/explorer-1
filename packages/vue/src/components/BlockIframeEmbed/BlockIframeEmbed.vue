@@ -12,6 +12,7 @@
         :height="data.height"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
+        data-chromatic="ignore"
       ></iframe>
     </template>
     <template v-else>
@@ -33,6 +34,7 @@
             width="90%"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+            data-chromatic="ignore"
           ></iframe>
         </div>
       </BaseImagePlaceholder>
