@@ -10,7 +10,7 @@ export const HeaderInternalData = {
 }
 
 export default {
-  title: 'Global Layout/Headers/For Internal Sites',
+  title: 'Internal Header',
   excludeStories: /.*Data$/,
   tags: ['!autodocs'],
   argTypes: {

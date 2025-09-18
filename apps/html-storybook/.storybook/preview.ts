@@ -134,56 +134,7 @@ const preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: [
-          'Introduction',
-          'Roadmap',
-          'Getting Started',
-          ['Developer'],
-          'Guides',
-          'Foundation',
-          [
-            'Colors',
-            'Typography',
-            'Icons',
-            'Logos',
-            'Themes',
-            'Grid and Layout',
-            'Responsive Design'
-          ],
-          'Global Layout',
-          [
-            'Overview',
-            'Headers',
-            [
-              'Overview',
-              'External',
-              'For Internal Sites',
-              [
-                '*',
-                'Elements',
-                ['Overview', 'AppBar', 'Navigation', 'Panel', 'Highlight', 'Section']
-              ]
-            ],
-            'Footers',
-            ['Overview', 'External', 'Internal']
-          ],
-          'Components',
-          [
-            'Overview',
-            'Base',
-            ['Overview'],
-            'Blocks',
-            ['Overview', 'Heroes', ['Overview', 'Small', 'Medium', 'Large']],
-            'Forms',
-            ['Overview', 'TextInput', 'TextArea'],
-            'Search',
-            ['Overview'],
-            'Mixins',
-            ['Overview', 'MixinAnimationCaret', 'MixinVideoBg', 'MixinCarousel'],
-            'Utilities',
-            ['Overview', '*']
-          ]
-        ]
+        order: ['Internal Header', 'Internal Footer']
       }
     },
     backgrounds: {

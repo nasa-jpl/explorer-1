@@ -1,7 +1,7 @@
 import { NavInternalHighlightTemplate } from './NavInternalHighlight'
 
 export default {
-  title: 'Global Layout/Headers/For Internal Sites/Elements/Highlight',
+  title: 'Internal Header/Elements/Highlight',
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',
