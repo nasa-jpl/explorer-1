@@ -1,26 +1,17 @@
 import remarkGfm from 'remark-gfm'
 import type { StorybookConfig } from '@storybook/vue3-vite'
 const config: StorybookConfig = {
-  // TODO: for html-only components
-  // refs: {
-  //   'html-components': {
-  //     title: 'HTML Components',
-  //     url: 'https://main--68c9f55524186336c6cb1c0c.chromatic.com', // https://main--68c9f55524186336c6cb1c0c.chromatic.com
-  //     expanded: false // Optional, true by default,
-  //     // sourceUrl: 'https://github.com/storybookjs/storybook', // Optional
-  //   }
-  // },
   refs: {
     '@explorer-1/vue': { disable: true },
     '@explorer-1/html': { disable: true },
     'internal-components': {
       title: 'Internal-only Components',
-      url: 'https://main--68c9f55524186336c6cb1c0c.chromatic.com', // https://main--68c9f55524186336c6cb1c0c.chromatic.com
+      url: 'https://main--68c9f55524186336c6cb1c0c.chromatic.com',
       expanded: false // Optional, true by default,
     },
     'v2-docs': {
       title: 'V2 Docs (Legacy)',
-      url: 'https://main--68c9f55524186336c6cb1c0c.chromatic.com',
+      url: 'https://v2--68c9f55524186336c6cb1c0c.chromatic.com',
       expanded: false
     }
   },
