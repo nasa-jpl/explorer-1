@@ -7,12 +7,6 @@ on:
     branches:
       - v2
 
-  pull_request:
-    paths:
-      - 'apps/html-storybook/**'
-      - 'packages/common/**'
-      - 'packages/html/**'
-
 jobs:
   publish_html:
     timeout-minutes: 30
