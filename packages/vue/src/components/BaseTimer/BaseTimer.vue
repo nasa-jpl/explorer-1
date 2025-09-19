@@ -34,16 +34,12 @@
           <span
             class="text-stats-xl"
             :class="{ 'text-seconds': unit === 'seconds' }"
-            data-chromatic="ignore"
           >
             <template v-if="countdown && isPast">00</template>
             <template v-else>{{ unitValue(unit) }}</template>
           </span>
           <br v-if="!inline" />
-          <span
-            class="unit text-body-xs uppercase"
-            data-chromatic="ignore"
-          >
+          <span class="unit text-body-xs uppercase">
             {{ shortLabel(unit) }}
           </span>
         </span>
