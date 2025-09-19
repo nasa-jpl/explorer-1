@@ -1,7 +1,7 @@
 <template>
   <component
     :is="diff ? 'time' : 'div'"
-    class="BaseTimer whitespace-nowrap inline-block"
+    class="BaseTimer whitespace-nowrap block"
     :datetime="diff ? diff.toISOString() : null"
     :class="{ '-inline': inline }"
   >
