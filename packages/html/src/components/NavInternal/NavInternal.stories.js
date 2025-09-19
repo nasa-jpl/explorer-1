@@ -8,7 +8,7 @@ import {
 } from './NavInternalPanel.stories'
 
 export default {
-  title: 'Global Layout/Headers/For Internal Sites/Elements/Navigation',
+  title: 'Internal Header/Elements/Navigation',
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',

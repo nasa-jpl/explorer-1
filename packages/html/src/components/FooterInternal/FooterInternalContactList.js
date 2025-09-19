@@ -11,7 +11,7 @@ export const FooterInternalContactListTemplate = ({ title, items }) => {
     for (const [index, item] of items.entries()) {
       itemsTemplate += `<li class="flex flex-nowrap mr-2">${BaseLinkTemplate({
         variant: 'none',
-        linkClass: 'text-jpl-teal can-hover:hover:text-jpl-teal-dark',
+        linkClass: 'text-jpl-teal-light can-hover:hover:text-jpl-teal',
         text: item.name,
         link: `mailto:${item.email}`
       })}

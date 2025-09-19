@@ -67,7 +67,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
               link: 'https://www.jpl.nasa.gov/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-baseline lg:hidden text-jpl-teal can-hover:hover:text-jpl-teal-dark',
+                'flex flex-nowrap items-baseline lg:hidden text-jpl-teal-light can-hover:hover:text-jpl-teal',
               target: '_blank'
             })}
           </li>
@@ -86,7 +86,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
               link: 'https://js.jpl.nasa.gov/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-center lg:hidden text-jpl-teal can-hover:hover:text-jpl-teal-dark',
+                'flex flex-nowrap items-center lg:hidden text-jpl-teal-light can-hover:hover:text-jpl-teal',
               target: '_blank'
             })}
           </li>
@@ -105,7 +105,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
               link: 'https://www.caltech.edu/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-center lg:hidden text-jpl-teal can-hover:hover:text-jpl-teal-dark',
+                'flex flex-nowrap items-center lg:hidden text-jpl-teal-light can-hover:hover:text-jpl-teal',
               target: '_blank'
             })}
           </li>
@@ -124,7 +124,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
               link: 'https://www.nasa.gov/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-center lg:hidden text-jpl-teal can-hover:hover:text-jpl-teal-dark',
+                'flex flex-nowrap items-center lg:hidden text-jpl-teal-light can-hover:hover:text-jpl-teal',
               target: '_blank'
             })}
           </li>
@@ -144,7 +144,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
             icon: 'external',
             wrapperClass: 'inline',
             linkClass:
-              'flex flex-nowrap items-center text-jpl-teal can-hover:hover:text-jpl-teal-dark',
+              'flex flex-nowrap items-center text-jpl-teal-light can-hover:hover:text-jpl-teal',
             target: '_blank'
           })}
         </div>

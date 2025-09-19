@@ -8,6 +8,7 @@
     controls
     preload="auto"
     class="object-cover w-full h-full"
+    data-chromatic="ignore"
   >
     <source
       v-if="video.fileWebm"

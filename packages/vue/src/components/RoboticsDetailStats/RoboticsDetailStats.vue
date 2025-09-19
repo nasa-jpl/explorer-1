@@ -55,6 +55,7 @@
             :src="animalAnalogIcon.src.url"
             width="160"
             height="160"
+            data-chromatic="ignore"
             alt=""
           />
         </picture>

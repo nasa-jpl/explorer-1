@@ -1,7 +1,7 @@
 <template>
   <component
     :is="diff ? 'time' : 'div'"
-    class="BaseTimer whitespace-nowrap"
+    class="BaseTimer whitespace-nowrap block"
     :datetime="diff ? diff.toISOString() : null"
     :class="{ '-inline': inline }"
   >
@@ -40,7 +40,10 @@
             <template v-else>{{ unitValue(unit) }}</template>
           </span>
           <br v-if="!inline" />
-          <span class="unit text-body-xs uppercase">
+          <span
+            class="unit text-body-xs uppercase"
+            data-chromatic="ignore"
+          >
             {{ shortLabel(unit) }}
           </span>
         </span>

@@ -282,6 +282,7 @@ export default defineComponent({
               '--x-translate': `${(index % 2 === 0 ? 180 : -130) + 10 * (index % 3)}%`
             }"
             alt=""
+            data-chromatic="ignore"
           />
         </ParallaxElement>
         <BlockMilestone

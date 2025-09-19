@@ -12,7 +12,7 @@ const contactListData = [
 ]
 
 export default {
-  title: 'Global Layout/Footers/For Internal Sites',
+  title: 'Internal Footer',
   argTypes: {
     siteEditors: {
       type: { name: 'array', required: false },
