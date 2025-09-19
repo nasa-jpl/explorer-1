@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     'internal-components': {
       title: 'Internal-only Components',
       url: 'https://main--68c9f55524186336c6cb1c0c.chromatic.com',
-      expanded: false // Optional, true by default,
+      expanded: true
     },
     'v2-docs': {
       title: 'V2 Docs (Legacy)',

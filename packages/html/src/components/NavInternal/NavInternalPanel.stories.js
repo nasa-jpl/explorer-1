@@ -1,7 +1,7 @@
 import { NavInternalPanelTemplate } from './NavInternalPanel'
 
 export default {
-  title: 'Global Layout/Headers/For Internal Sites/Elements/Panel',
+  title: 'Internal Header/Elements/Panel',
   excludeStories: /.*Data$/,
   argTypes: {
     title: {

@@ -2,7 +2,7 @@ import { NavInternalSectionTemplate } from './NavInternalSection'
 import { menuItemsData, menuItemsNestedData } from './NavInternalPanel.stories'
 
 export default {
-  title: 'Global Layout/Headers/For Internal Sites/Elements/Section',
+  title: 'Internal Header/Elements/Section',
   excludeStories: /.*Data$/,
   argTypes: {
     title: {

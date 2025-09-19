@@ -27,6 +27,7 @@
           :width="theImage.src.width"
           :height="theImage.src.height"
           alt=""
+          data-chromatic="ignore"
         />
       </picture>
     </div>

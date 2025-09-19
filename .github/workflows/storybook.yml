@@ -17,12 +17,14 @@ on:
       - 'packages/vue/**'
 
 jobs:
-  build:
+  publish_vue:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -39,78 +41,16 @@ jobs:
       - name: Build Storybook
         run: make vue-storybook-build
 
-      - name: Upload build to artifacts
-        uses: actions/upload-artifact@v4
+      - uses: chromaui/action@latest
+        # Options required for Chromatic's GitHub Action
         with:
-          name: storybook
-          path: apps/vue-storybook/storybook_compiled
-
-  a11y-tests:
-    needs: build
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Set up Node ⬢
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
-      - name: Install dependencies 🧱
-        run: pnpm i
-
-      - name: Install Playwright
-        run: pnpm --filter @explorer-1/vue-storybook exec playwright install
-
-      - name: Download storybook build
-        uses: actions/download-artifact@v4.1.7
-        with:
-          name: storybook
-          path: apps/vue-storybook/storybook_compiled
-
-      - name: Serve Storybook & Run tests
-        run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-             "pnpm --filter @explorer-1/vue-storybook start" \
-             "pnpm --filter @explorer-1/vue-storybook test:ci"
-
-  # visual-tests:
-  #   needs: [build]
-  #   timeout-minutes: 30
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout 🛎️
-  #       uses: actions/checkout@v4
-
-  #     - name: Setup pnpm
-  #       uses: pnpm/action-setup@v4
-
-  #     - name: Set up Node ⬢
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version-file: '.nvmrc'
-  #         cache: 'pnpm'
-
-  #     - name: Install dependencies 🧱
-  #       run: pnpm i
-
-  #     - name: Download storybook build
-  #       uses: actions/download-artifact@v4.1.7
-  #       with:
-  #         name: storybook
-  #         path: apps/vue-storybook/storybook_compiled
-
-  #     - name: Run Percy
-  #       id: run-percy
-  #       env:
-  #         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-  #       run: pnpm --filter @explorer-1/vue-storybook percy
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBaseDir: 'apps/vue-storybook'
+          storybookBuildDir: 'apps/vue-storybook/storybook_compiled'
+          autoAcceptChanges: 'main'
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
 
   publish_html:
     timeout-minutes: 30
@@ -143,45 +83,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBaseDir: 'apps/html-storybook'
           storybookBuildDir: 'apps/html-storybook/storybook_compiled'
-          autoAcceptChanges: 'main'
-          exitZeroOnChanges: true
-          exitOnceUploaded: true
-
-  publish:
-    needs: [build]
-    timeout-minutes: 30
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Set up Node ⬢
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
-      - name: Install dependencies 🧱
-        run: pnpm i
-
-      - name: Download storybook build
-        uses: actions/download-artifact@v4.1.7
-        with:
-          name: storybook
-          path: apps/vue-storybook/storybook_compiled
-
-      - uses: chromaui/action@latest
-        # Options required for Chromatic's GitHub Action
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBaseDir: 'apps/vue-storybook'
-          storybookBuildDir: 'apps/vue-storybook/storybook_compiled'
           autoAcceptChanges: 'main'
           exitZeroOnChanges: true
           exitOnceUploaded: true

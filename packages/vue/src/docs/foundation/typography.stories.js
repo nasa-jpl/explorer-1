@@ -109,7 +109,7 @@ export const HeadingIcons = {
 export const TextContrast = {
   args: {},
   render: () => ({
-    template: `<div style="background-image: url('https://picsum.photos/1000/400');" class="bg-cover bg-no-repeat bg-center">
+    template: `<div style="background-image: url('https://fastly.picsum.photos/id/1015/1000/40.jpg?hmac=fpUcZPtNEqNVb9cio8CwkUIBZKywJSfhaxdieF0Uxgk');" class="bg-cover bg-no-repeat bg-center">
   <div class="p-10 bg-black/30">
     <span class="text-h3 text-white text-contrast">
       This text uses a text shadow that increases readability when used with a semi-transparent overlay.
