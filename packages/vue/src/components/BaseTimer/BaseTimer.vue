@@ -1,10 +1,9 @@
 <template>
   <component
     :is="diff ? 'time' : 'div'"
-    class="BaseTimer whitespace-nowrap"
+    class="BaseTimer whitespace-nowrap inline-block"
     :datetime="diff ? diff.toISOString() : null"
     :class="{ '-inline': inline }"
-    data-chromatic="ignore"
   >
     <span :hidden="!!diff">Loading…</span>
     <span
@@ -35,12 +34,16 @@
           <span
             class="text-stats-xl"
             :class="{ 'text-seconds': unit === 'seconds' }"
+            data-chromatic="ignore"
           >
             <template v-if="countdown && isPast">00</template>
             <template v-else>{{ unitValue(unit) }}</template>
           </span>
           <br v-if="!inline" />
-          <span class="unit text-body-xs uppercase">
+          <span
+            class="unit text-body-xs uppercase"
+            data-chromatic="ignore"
+          >
             {{ shortLabel(unit) }}
           </span>
         </span>

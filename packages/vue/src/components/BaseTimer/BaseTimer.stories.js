@@ -2,7 +2,12 @@ import BaseTimer from './BaseTimer.vue'
 
 export default {
   title: 'Components/Base/BaseTimer',
-  component: BaseTimer
+  component: BaseTimer,
+  decorators: [
+    () => ({
+      template: `<div id="storyDecorator" class="w-full"><story/></div>`
+    })
+  ]
 }
 
 export const BaseStory = {
