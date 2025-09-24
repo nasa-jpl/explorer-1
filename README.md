@@ -6,58 +6,10 @@
 
 This package aims to include all of the frontend assets (JS and SCSS) necessary to create components using the HTML markup examples in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
 
-## Version 3.x.x docs (draft)
-
-Version 3.x.x adds Vue components and a Nuxt module to Explorer-1.
-
-```bash
-# Start the Vue Storybook
-make vue-storybook
-
-# Start a Vue app to test components directly (optional)
-make vue
-
-# Start a Nuxt app to test the nuxt module
-make nuxt
-
-# Start the HTML Storybook (from v2.x.x)
-make html-storybook
-```
-
-### Publishing to npm
-
-1. Update the package version for any packages that have been changed since the last publish (usually @explorer-1/vue and sometimes @explorer-1/common)
-2. Also update the package version for the main workspace.
-
-3. Commit changes and also tag with the latest main workspace version
-
-   ```bash
-   git commit -m "bumping package version for publishing"
-   git tag 3.x.x
-   git push
-   git push --tags
-   ```
-
-4. Publish relevant packages to npm:
-
-   ```bash
-   pnpm publish --filter \@explorer-1/vue
-   ```
-
-### Developing Vue components
-
-1. Create new component files in `packages/vue`
-2. Start the Vue Storybook to preview and test your component (your component must have a `*.stories.js` file): `make vue-storybook`
-
---
-
-**The below docs only apply to Explorer 1 versions 2.x.x and earlier. Docs are incomplete for version 3.x.x**
+# Version 2.x.x (Legacy) docs
 
 ## Table of contents
 
-- [Version 3.x.x docs (draft)](#version-3xx-docs-draft)
-  - [Publishing to npm](#publishing-to-npm)
-  - [Developing Vue components](#developing-vue-components)
 - [What's included](#whats-included)
 - [Installation](#installation)
 - [Using bundled assets](#using-bundled-assets)

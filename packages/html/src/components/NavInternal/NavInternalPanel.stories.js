@@ -33,7 +33,7 @@ export default {
     allowSectionBreaks: {
       type: { name: 'boolean', required: false },
       description:
-        'If a nav [Section](/?path=/docs/global-layout-headers-for-internal-sites-elements-section--basic-heading) can flow into the next column (only applies if `allowSectionColumns` is `true`.',
+        'If a nav [Section](/?path=/docs/v2-docs_global-layout-headers-for-internal-sites-elements-section--basic-heading) can flow into the next column (only applies if `allowSectionColumns` is `true`.',
       table: {
         defaultValue: { summary: 'true' }
       }
@@ -41,7 +41,7 @@ export default {
     allowSectionColumns: {
       type: { name: 'boolean', required: false },
       description:
-        'If multiple columns should be used to display nav [Sections](/?path=/docs/global-layout-headers-for-internal-sites-elements-section--basic-heading). If set to `false`, all nav items will appear in a single column. Useful if you only have a couple items in the nav.',
+        'If multiple columns should be used to display nav [Sections](/?path=/docs/v2-docs_global-layout-headers-for-internal-sites-elements-section--basic-heading). If set to `false`, all nav items will appear in a single column. Useful if you only have a couple items in the nav.',
       table: {
         defaultValue: { summary: 'true' }
       }
@@ -52,7 +52,7 @@ export default {
     docs: {
       description: {
         component:
-          'The contents of a mega-menu-style dropdown. Intended for use within the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--docs)'
+          'The contents of a mega-menu-style dropdown. Intended for use within the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/v2-docs_global-layout-headers-for-internal-sites--docs)'
       }
     },
     html: {

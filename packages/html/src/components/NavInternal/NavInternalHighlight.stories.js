@@ -8,7 +8,7 @@ export default {
     docs: {
       description: {
         component:
-          'Highlighted content intended for use within [NavInternalPanel](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites-elements-panel--basic) '
+          'Highlighted content intended for use within [NavInternalPanel](https://nasa-jpl.github.io/explorer-1/?path=/docs/v2-docs_global-layout-headers-for-internal-sites-elements-panel--basic) '
       }
     },
     html: {

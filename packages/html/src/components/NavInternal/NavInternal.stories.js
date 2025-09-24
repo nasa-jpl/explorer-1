@@ -16,7 +16,7 @@ export default {
     docs: {
       description: {
         component:
-          'Navigation with mega-menu dropdowns. Note: mobile view will only work when used with the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/global-layout-headers-for-internal-sites--docs).'
+          'Navigation with mega-menu dropdowns. Note: mobile view will only work when used with the [Internal Header](https://nasa-jpl.github.io/explorer-1/?path=/docs/v2-docs_global-layout-headers-for-internal-sites--docs).'
       }
     },
     html: {

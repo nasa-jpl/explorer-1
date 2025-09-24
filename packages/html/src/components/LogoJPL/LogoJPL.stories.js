@@ -20,7 +20,7 @@ const Stories = {
   parameters: {
     docs: {
       description: {
-        component: `The JPL Logo has strict color usage restrictions and should only be used on internal sites, namely in the [AppBar](?path=/docs/global-layout-headers-for-internal-sites-elements-overview--docs).`
+        component: `The JPL Logo has strict color usage restrictions and should only be used on internal sites, namely in the [AppBar](?path=/docs/v2-docs_global-layout-headers-for-internal-sites-elements-overview--docs).`
       }
     }
   }
