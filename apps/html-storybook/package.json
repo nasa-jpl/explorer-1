@@ -20,7 +20,7 @@
     "dev": "pnpm run storybook",
     "setup": "npm run setup:clean && npm run setup:assets",
     "setup:clean": "rimraf ./public/dist",
-    "setup:assets": "cp -R ./node_modules/@explorer-1/common/dist/assets/ ./public/dist",
+    "setup:assets": "cp -R ./../../packages/common/dist/assets/ ./public/dist",
     "storybook": "pnpm run setup && storybook dev -c .storybook -p 7007 --ci",
     "lint": "eslint .storybook",
     "lint:fix": "eslint .storybook --fix",
