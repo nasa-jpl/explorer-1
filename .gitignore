@@ -66,8 +66,6 @@ storybook_compiled
 *.d.ts
 
 # Tailwind
-.www-frontend_temp/
-
 dist
 
 # copied assets when preparing builds

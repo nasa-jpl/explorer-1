@@ -22,6 +22,7 @@
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
   "scripts": {
+    "build": "pnpm --filter @explorer-1/html build",
     "changeset": "pnpm exec changeset",
     "clean": "pnpm clean:nodemodules && pnpm clean:dist && pnpm clean:nuxt",
     "clean:nodemodules": "rimraf \"**/node_modules\"",
@@ -32,7 +33,9 @@
     "nuke-frontend": "rimraf pnpm-lock.yaml && pnpm run refresh",
     "nuke": "pnpm run clean:nodemodules && pnpm run nuke-frontend",
     "preinstall": "npx --yes only-allow pnpm",
+    "prepublishOnly": "pnpm build",
     "preupdate": "npx --yes only-allow pnpm",
+    "postinstall": "pnpm build",
     "lint": "pnpm run -r --if-present lint",
     "lint:fix": "pnpm run -r --if-present lint:fix"
   },
