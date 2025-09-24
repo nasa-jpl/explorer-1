@@ -4,6 +4,7 @@
     class="BaseTimer whitespace-nowrap block"
     :datetime="diff ? diff.toISOString() : null"
     :class="{ '-inline': inline }"
+    data-chromatic="ignore"
   >
     <span :hidden="!!diff">Loading…</span>
     <span
