@@ -19,6 +19,7 @@ export default defineConfig({
         },
         chunkFileNames: 'assets/chunks/[name].js'
       }
-    }
+    },
+    outDir: './../common/dist/'
   }
 })
