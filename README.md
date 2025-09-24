@@ -4,24 +4,39 @@
 [![pre-commit enabled](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![View the Storybook](https://img.shields.io/badge/Storybook-FF4785.svg?logo=storybook&logoColor=white)](https://nasa-jpl.github.io/explorer-1/)
 
-This package aims to include all of the frontend assets (JS and SCSS) necessary to create components using the HTML markup examples in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
+## Prerequisites
 
-## Version 3.x.x docs (draft)
+- [pnpm](https://pnpm.io/installation)
+- [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 
-Version 3.x.x adds Vue components and a Nuxt module to Explorer-1.
+## Getting Started
+
+First, install dependencies:
 
 ```bash
-# Start the Vue Storybook
+nvm use
+pnpm install
+```
+
+### Run Storybook for Vue Components
+
+```bash
+# http://localhost:6006/
 make vue-storybook
+```
+
+### Other commands
+
+```bash
+# Start the HTML Storybook (internal-only components)
+# http://localhost:7007/
+make html-storybook
 
 # Start a Vue app to test components directly (optional)
 make vue
 
-# Start a Nuxt app to test the nuxt module
+# Start a Nuxt app to test the nuxt module (currently broken)
 make nuxt
-
-# Start the HTML Storybook (from v2.x.x)
-make html-storybook
 ```
 
 ### Publishing to npm
@@ -51,14 +66,18 @@ make html-storybook
 
 --
 
-**The below docs only apply to Explorer 1 versions 2.x.x and earlier. Docs are incomplete for version 3.x.x**
-
 ## Table of contents
 
-- [Version 3.x.x docs (draft)](#version-3xx-docs-draft)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [Run Storybook for Vue Components](#run-storybook-for-vue-components)
+  - [Other commands](#other-commands)
   - [Publishing to npm](#publishing-to-npm)
   - [Developing Vue components](#developing-vue-components)
 - [What's included](#whats-included)
+  - [Published Packages](#published-packages)
+  - [Tailwind](#tailwind)
+- [Two options: Vue components or Assets only. Both are documented below:](#two-options-vue-components-or-assets-only-both-are-documented-below)
 - [Installation](#installation)
 - [Using bundled assets](#using-bundled-assets)
   - [CSS and JS](#css-and-js)
@@ -73,9 +92,11 @@ make html-storybook
 
 ## What's included
 
-This package includes the base styles of Explorer 1 (typography, colors, spacing, etc.) along with select components. Branding guidelines, available components and usage examples can be found in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
+This package includes all frontend assets (JS and CSS) necessary to use Explorer-1 components in your project. Branding guidelines, available components and usage examples can be found in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
 
-<details><summary>Package contents</summary>
+Version 3+ adds a Vue component library and also introduces a monorepo structure. The Storybook has evolved to include all Vue components, internal-only components (i.e. our HTML components), and legacy V2 docs.
+
+<details><summary>Monorepo contents</summary>
 
 ```
 
@@ -99,7 +120,25 @@ This package includes the base styles of Explorer 1 (typography, colors, spacing
 
 </details>
 
+### Published Packages
+
+- @explorer-1/vue: Vue components
+- @explorer-1/vanilla: Assets only (compiled CSS and JS)
+- @explorer-1/common: Assets shared between @explorer-1/vue and @explorer-1/vanilla
+
+#### Other available packages, though generally unused and unnecessary
+
+- @explorer-1/vue-storybook
+- @explorer-1/html-storybook
+- @explorer-1/storybook-common
+
+### Tailwind
+
 Explorer 1's CSS classes are based on our [custom Tailwind CSS configuration](./tailwind.config.js). Tailwind CSS is a utility-first CSS framework, and Explorer 1's CSS class names are based on this model. [Learn more about how to use Tailwind CSS](https://tailwindcss.com/docs).
+
+## Two options: Vue components or Assets only. Both are documented below:
+
+# Assets
 
 ## Installation
 
@@ -163,7 +202,7 @@ Below is an example of how to use the Explorer 1 Tailwind CSS config in your own
 // your-project/tailwind.config.js
 
 // import Explorer 1's Tailwind config
-const explorer1Config = require('@nasa-jpl/explorer-1/tailwind.config.js');
+const explorer1Config = require('@explorer-1/common/tailwind.config.js');
 
 module.exports = {
   ...explorer1Config,
