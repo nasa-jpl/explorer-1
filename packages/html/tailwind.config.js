@@ -19,6 +19,7 @@ export default {
     './.www-frontend_temp/pages/**/*.vue',
     './.www-frontend_temp/mixins/**/*.vue',
     './.www-frontend_temp/plugins/**/*.js',
-    './.www-frontend_temp/nuxt.config.js'
+    './.www-frontend_temp/nuxt.config.js',
+    './../vue/src/components/**/*.vue'
   ]
 }
