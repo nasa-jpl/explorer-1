@@ -2,9 +2,9 @@
 
 [![npm](https://img.shields.io/npm/v/@nasa-jpl/explorer-1)](https://npmjs.com/package/@nasa-jpl/explorer-1)
 [![pre-commit enabled](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![View the Storybook](https://img.shields.io/badge/Storybook-FF4785.svg?logo=storybook&logoColor=white)](https://nasa-jpl.github.io/explorer-1/)
+[![View the Storybook](https://img.shields.io/badge/Storybook-FF4785.svg?logo=storybook&logoColor=white)](https://nasa-jpl.github.io/explorer-1/?path=/docs/v2-docs_introduction--docs)
 
-This package aims to include all of the frontend assets (JS and SCSS) necessary to create components using the HTML markup examples in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
+This package aims to include all of the frontend assets (JS and SCSS) necessary to create components using the HTML markup examples in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/?path=/docs/v2-docs_introduction--docs).
 
 # Version 2.x.x (Legacy) docs
 
@@ -25,7 +25,7 @@ This package aims to include all of the frontend assets (JS and SCSS) necessary 
 
 ## What's included
 
-This package includes the base styles of Explorer 1 (typography, colors, spacing, etc.) along with select components. Branding guidelines, available components and usage examples can be found in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/).
+This package includes the base styles of Explorer 1 (typography, colors, spacing, etc.) along with select components. Branding guidelines, available components and usage examples can be found in the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/?path=/docs/v2-docs_introduction--docs).
 
 <details><summary>Package contents</summary>
 
@@ -250,7 +250,7 @@ require('@fancyapps/ui');
 
 ## Component templates (HTML)
 
-Reference the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/) for HTML snippets you can use to create components and build your pages. Step-by-step instructions on how to copy HTML snippets can be found on the [Getting Started Guide for Developers](https://nasa-jpl.github.io/explorer-1/?path=/docs/getting-started-developer--docs#components-and-html-templates) page.
+Reference the [Explorer 1 Storybook](https://nasa-jpl.github.io/explorer-1/?path=/docs/v2-docs_introduction--docs) for HTML snippets you can use to create components and build your pages. Step-by-step instructions on how to copy HTML snippets can be found on the [Getting Started Guide for Developers](https://nasa-jpl.github.io/explorer-1/?path=/docs/v2-docs_getting-started-developer--docs#components-and-html-templates) page.
 
 ## For contributing developers
 
