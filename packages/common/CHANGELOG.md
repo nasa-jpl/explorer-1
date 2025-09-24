@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 1.2.1
+
+### Patch Changes
+
+- 230858f: Updates dist generation workflow
+
 ## 1.2.0
 
 ### Minor Changes
