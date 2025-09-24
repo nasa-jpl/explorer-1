@@ -19,7 +19,7 @@
     "stylelint-config-standard-scss": "^13.1.0"
   },
   "scripts": {
-    "prepublishOnly": "cd ../../../../ && pnpm build"
+    "prepublishOnly": "cd ./../../ && pnpm build"
   },
   "dependencies": {
     "tailwindcss": "^3.4.3",
