@@ -4,7 +4,6 @@
 
 - [Table of contents](#table-of-contents)
 - [What's included](#whats-included)
-  - [Tailwind](#tailwind)
 - [Getting Started](#getting-started)
   - [Include the assets in your project](#include-the-assets-in-your-project)
   - [Fonts](#fonts)
@@ -38,12 +37,6 @@ This package includes compiled assets for Explorer-1 and assets shared with @exp
 
 </details>
 
-### Tailwind
-
-Explorer 1's CSS classes are generated from our [custom Tailwind CSS configuration](./packages/common/tailwind.config.js). Tailwind CSS is a utility-first CSS framework, and Explorer 1's CSS class names are based on this model. [Learn more about how to use Tailwind CSS](https://tailwindcss.com/docs).
-
-There are two ways to integrate Explorer-1 with your project. You can either 1) use the Vue component library or 2) use the compiled assets with your own component library or HTML
-
 ## Getting Started
 
 Install with [npm](https://www.npmjs.com/) or similar:
@@ -67,11 +60,11 @@ Include all styles and scripts by adding the bundled CSS and JS to your project'
 <script src="/path/to/explorer-1.min.js"></script>
 ```
 
-The bundled CSS includes only the Tailwind CSS classes that are used by our team's products and in Explorer 1's documentation; other default Tailwind CSS classes are not available.
+The compiled CSS includes only the Tailwind CSS classes that are used by our team's products and in Explorer 1's documentation; other default Tailwind CSS classes are not available.
 
 ### Fonts
 
-The bundled CSS references fonts with the relative path of `../fonts/`. You will need to add the fonts to your build process to ensure they are included in the relative path. An example of how to handle this is to write a Node script that copies the `/dist/fonts/` folder to the correct path in your project.
+The compiled CSS references fonts with the relative path of `../fonts/`. You will need to add the fonts to your build process to ensure they are included in the relative path. An example of how to handle this is to write a Node script that copies the `/dist/fonts/` folder to the correct path in your project.
 
 ```
 your-project
