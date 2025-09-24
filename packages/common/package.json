@@ -18,6 +18,9 @@
     "stylelint": "^16.5.0",
     "stylelint-config-standard-scss": "^13.1.0"
   },
+  "scripts": {
+    "prepublishOnly": "cd ../../../../ && pnpm build"
+  },
   "dependencies": {
     "tailwindcss": "^3.4.3",
     "@tailwindcss/forms": "^0.5.7",
