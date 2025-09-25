@@ -2,151 +2,122 @@
 
 Documentation on how to run this project locally and add more components.
 
+- [Prerequisites](#prerequisites)
 - [Getting started](#getting-started)
-  - [View the test page](#view-the-test-page)
-  - [View the Storybook](#view-the-storybook)
-  - [Testing your changes as a dependency in another project](#testing-your-changes-as-a-dependency-in-another-project)
-  - [Percy](#percy)
-- [Adding components](#adding-components)
-  - [Storybook](#storybook)
+  - [Run Storybook for Vue Components](#run-storybook-for-vue-components)
+  - [Other commands](#other-commands)
+- [Developing Vue components](#developing-vue-components)
+- [Developing HTML components](#developing-html-components)
+  - [View the HTML test page (optional)](#view-the-html-test-page-optional)
+  - [HTML Storybook](#html-storybook)
   - [SCSS](#scss)
   - [JavaScript](#javascript)
+- [Testing your changes as a dependency in another project](#testing-your-changes-as-a-dependency-in-another-project)
 - [Linting and Formatting](#linting-and-formatting)
-- [Pull request guidance](#pull-request-guidance)
+- [Pull requests](#pull-requests)
 - [Publishing to npm](#publishing-to-npm)
 - [Contribution licensing](#contribution-licensing)
 
+## Prerequisites
+
+- [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+- [pnpm](https://pnpm.io/installation)
+
 ## Getting started
 
-1. Clone this repository and go into its directory
-1. Install dependencies
-   ```bash
-   npm i
-   ```
-1. View rendered components in either the [test page](#view-the-test-page) or [Storybook](#view-the-storybook)
+First, install dependencies:
 
-### View the test page
+```bash
+nvm use
+pnpm install
+```
 
-The test page (`/src/index.html`) is available only in developers' local environments and is useful for rapid prototyping or quick markup tests. This approach is only recommended as a stop-gap until the component you are working on is functional in Storybook. Running the simple HTML test page watches files for changes and recompiles automatically.
+### Run Storybook for Vue Components
 
-1. Serve a simple test page at http://localhost:3000/ and watch for changes, live reloading them with Browsersync
-   ```bash
-   npm run dev
-   ```
-   _Note: You may need to refresh if you've never run the project before._
+```bash
+# http://localhost:6006/
+make vue-storybook
+```
 
-### View the Storybook
+### Other commands
 
-Storybook deploys to GitHub pages and is available to the public. Storybook uses the compiled assets in `dist` and does not watch files for changes.
+```bash
+# Start the HTML Storybook (internal-only components)
+# http://localhost:7007/
+make html-storybook
 
-1. Build the assets Storybook needs to `dist/`
-   ```bash
-   npm run build
-   ```
-2. Serve the Storybook at http://localhost:6006/
-   ```bash
-   npm run storybook
-   ```
+# Start a Vue app to test components directly (optional)
+make vue
 
-As you're working on component CSS or JS, you'll need to re-run `npm run build` in order to see your changes reflected in Storybook.
+# Start a Nuxt app to test the nuxt module (currently broken)
+make nuxt
+```
 
-### Testing your changes as a dependency in another project
+## Developing Vue components
 
-1. From the root of your local clone of explorer-1, create a symlink from your global `node_modules` directory to the local explorer-1 directory:
-   ```bash
-   npm link
-   ```
-2. Then in the same directory as the `package.json` file of the project you want to test explorer-1 in (usually the root of the project), add a symlink from the project's `node_modules` to your global `node_modules`:
+The majority of the Explorer-1 components are built as Vue components. To understand when it's appropriate to build an HTML component instead, refer to [Developing HTML components](#developing-html-components) To create a new component:
 
-   ```bash
-   npm link @nasa-jpl/explorer-1
-   ```
+1. Create new component files in `packages/vue/components`
+2. Start the Vue Storybook to preview and test your component (your component must have a `*.stories.js` file): `make vue-storybook`
+3. **This documentation is currently being developed. Please refer to other existing story files for guidance.**
 
-   This results in a two-part symlink chain: Your project's `node_modules/@nasa-jpl/explorer-1` ➡️ npm's global `node_modules/@nasa-jpl/explorer-1` ➡️ your cloned explorer-1 repo. This works even if you had previously installed the production version of explorer-1.
+## Developing HTML components
 
-3. Run your tests.
+We only use HTML components when there is no need to build a Vue component. This usually only applies to JPL internal-only components, as internal sites are not Vue-based. As a result, we only have a few HTML components. Vue components are preferred and have a smoother developer experience and workflow.
 
-4. When you're done, remove the symlink from your project and reinstall the project's currently-specified published version of explorer-1 with:
-
-   ```bash
-   npm unlink --no-save @nasa-jpl/explorer-1
-   npm i
-   ```
-
-5. Optional: you can now remove the global symlink when you're in the root of your local clone of explorer-1:
-
-   ```bash
-   npm unlink
-   ```
-
-Depending on the project you are testing, you may encounter other quirks, particularly if you compiler caches builds, or if your compiler runs within docker.
-
-- If your compiler has a cache, delete the cache before compiling frontend assets.
-- If your compiler runs in a docker container, you will likely need to find a way to compile frontend assets outside of docker, as symlinks to your global `node_modules` folder will not work in a container.
-
-### Percy
-
-This project includes boilerplate configuration for [Percy's Storybook integration](https://docs.percy.io/docs/storybook#configuration). To use it:
-
-1. Export your project's `PERCY_TOKEN`
-   ```
-   export PERCY_TOKEN="<your-project-token>"
-   ```
-2. Run storybook locally:
-   ```
-   npm run storybook
-   ```
-3. Run Percy
-   ```
-   npm run percy
-   ```
-4. Your snapshots will then appear in your Percy project.
-
-## Adding components
-
-Adding a component requires the following:
+Adding a component to the HTML Storybook requires the following:
 
 1. Name your component. It should be unique and use CamelCase.
-2. [Build it in a Storybook story](#storybook). This will be the source of truth for component markup.
+2. [Build the component with a story file](#html-storybook). This will be the source of truth for component markup.
 3. [Add a SCSS file](#scss), if needed
 4. [Add a JavaScript file](#javascript), if needed
 
-Ultimately, the file diff for adding a new component that requires custom SCSS and JavaScript would look something like this:
+Ultimately, the file diff for adding a new component that requires both custom SCSS and JavaScript would look something like this:
 
 ```
 @nasa-jpl/explorer-1/
-├── README.md
-├── src/
-│   ├── js/
-│   │   ├── components/
-│   │   │   └── _MyComponent.js             # new
-│   │   └── scripts.js                      # modified
-│   └── scss/
-│       ├── components/
-│       │   └── _MyComponent.scss           # new
-│       └── _components.scss                # modified
-└── storybook/
-    └── stories/
-        └── components/
-            └── MyComponent/                # new
-                ├── MyComponent.js          # new
-                └── MyComponent.stories.js  # new
+└── packages
+    └── html
+       └── src/
+           ├── assets/
+           │   ├── js/
+           │   │   ├── components/
+           │   │   │   └── _MyComponent.js      # new
+           │   │   └── scripts.js               # modified
+           │   └── scss/
+           │       ├── components/
+           │       │   └── _MyComponent.scss    # new
+           │       └── _components.scss         # modified
+           └── components/
+               └── MyComponent/                 # new
+                   ├── MyComponent.js           # new
+                   └── MyComponent.stories.js   # new
 ```
 
-### Storybook
+### View the HTML test page (optional)
+
+The test page (`/src/index.html`) is available only in developers' local environments and is useful for rapid prototyping or quick markup tests. This approach is only recommended as a stop-gap until the component you are working on is functional in Storybook. Running the simple HTML test page watches files for changes and recompiles automatically.
+
+1. Serve a simple test page
+   ```bash
+   make html-dev
+   ```
+   _Note: You may need to refresh if you've never run the project before._
+
+### HTML Storybook
 
 Storybook serves as the documentation for how to use the design system's base styles and the included components. Storybook also allows for developing components in isolation, which is useful when adding new components to Explorer 1. Once the files for your component are set up, you can use its template (`MyComponent.js`) to fine-tune the markup. You can then preview and test your component in Storybook.
 
-#### Adding a component story
+#### Adding a component with a story file
 
-1. **Create a folder:** all stories live in `/storybook/stories/`. If you are adding a component, create a new folder for your component in `/storybook/stories/components/`.
+1. **Create a folder:** all stories live adjacent to the component's template file and end in `*.stories.js` in `/storybook/stories/`. If you are adding a component, create a new folder for your component in `/packages/html/src/components/`.
 2. **Create a template file:** create a file for your HTML template. The filename should match your component name, e.g. `MyComponent.js`. It should include one exported constant, named with your component's name, and appended with `Template`. It will look something like this:
 
    ```js
    // MyComponent.js
    export const MyComponentTemplate = () => {
-     return `<div class="MyComponent"><!-- more html markup --></div>`
-   }
+     return `<div class="MyComponent"><!-- more html markup --></div>`;
+   };
    ```
 
    You could make your component reactive by passing arguments:
@@ -154,15 +125,15 @@ Storybook serves as the documentation for how to use the design system's base st
    ```js
    // MyComponent.js
    export const MyComponentTemplate = ({ text }) => {
-     return `<div class="MyComponent">${text}</div>`
-   }
+     return `<div class="MyComponent">${text}</div>`;
+   };
    ```
 
 3. **Add stories for your component:** In the same folder, create your stories file. The filename should be your component name appended with `.stories.js`, e.g. `MyComponent.stories.js`. This file will import your HTML template and configure the stories that will be displayed. We are using the [Component Story Format (CSF)](https://storybook.js.org/docs/html/api/csf) to write our stories. Below is an example of CSF boilerplate for a component that has one argument:
 
    ```js
    // MyComponent.stories.js
-   import { MyComponentTemplate } from './MyComponent.js'
+   import { MyComponentTemplate } from './MyComponent.js';
 
    export default {
      // the title also determines where the story will appear in the sidebar
@@ -184,13 +155,13 @@ Storybook serves as the documentation for how to use the design system's base st
          },
        },
      },
-   }
+   };
    // Each export is a story. A minimum of one is required
-   export const StoryName1 = MyComponentTemplate.bind({})
-   StoryName1.args = { text: 'Example text 1' }
+   export const StoryName1 = MyComponentTemplate.bind({});
+   StoryName1.args = { text: 'Example text 1' };
 
-   export const StoryName2 = MyComponentTemplate.bind({})
-   StoryName2.args = { text: 'Example text 2' }
+   export const StoryName2 = MyComponentTemplate.bind({});
+   StoryName2.args = { text: 'Example text 2' };
    ```
 
    CSF is a flexible format that allows for adding more controls and documentation to your stories. Please read the [Storybook documentation](https://storybook.js.org/docs/html/api/csf) to learn more about CSF.
@@ -201,16 +172,16 @@ If your component reuses other components (e.g. if you were building a dialog bo
 
 ```js
 // AnotherComponent.js
-import { MyComponentTemplate } from 'path/to/MyComponent.js'
+import { MyComponentTemplate } from 'path/to/MyComponent.js';
 export const AnotherComponentTemplate = () => {
   const MyComponent = MyComponentTemplate({
     text: 'Custom text for MyComponent',
-  })
+  });
   return `<div class="AnotherComponent">
     <p>Another component that reuses MyComponent</p>
     ${MyComponent}
-  </div>`
-}
+  </div>`;
+};
 ```
 
 #### Decorators
@@ -224,8 +195,8 @@ export const MyComponentTemplate = () => {
     <div id="storyRoot" class="lg:w-1/2">
       <div class="MyComponent"><!-- more html markup --></div>
     </div>
-  </div>`
-}
+  </div>`;
+};
 ```
 
 ```js
@@ -246,7 +217,7 @@ As long as `parameters.html.root` matches the parent wrapper element of your tem
 
 #### Rebuilding assets
 
-When making changes to a component's CSS or JS, you must run `npm run build` to see those changes reflected in Storybook.
+When making changes to an HTML component's CSS or JS, you must run `make html-build` to see those changes reflected in Storybook.
 
 ### SCSS
 
@@ -277,7 +248,7 @@ Below is an example walkthrough of adding SCSS for a new component named `MyComp
    }
    ```
 
-3. Import the partial in `/src/scss/_components.scss`
+3. Import the partial in `/packages/html/src/assets/scss/_components.scss`
 
    ```scss
    // _components.scss
@@ -286,7 +257,7 @@ Below is an example walkthrough of adding SCSS for a new component named `MyComp
 
 #### Using Node modules
 
-If your component requires styles provided by an npm package, install the package with the `--save` flag, and import the CSS or SCSS in `/src/scss/_vendors.scss` using Parcel's [`npm:` scheme](https://parceljs.org/features/dependency-resolution/#url-schemes). Below is an example installing [@fancyapps/ui](https://github.com/fancyapps/ui) and importing `fancybox.css` from it:
+If your component requires styles provided by an npm package, install the package with the `--save` flag, and import the CSS or SCSS in `/packages/html/src/assets/scss/_vendors.scss`. Below is an example installing [@fancyapps/ui](https://github.com/fancyapps/ui) and importing `fancybox.css` from it:
 
 ```bash
 npm i --save @fancyapps/ui
@@ -294,53 +265,51 @@ npm i --save @fancyapps/ui
 
 ```scss
 // /src/scss/_vendors.scss
-@import 'npm:@fancyapps/ui/dist/fancybox.css';
+@import '@fancyapps/ui/dist/fancybox.css';
 ```
 
 If you need to customize or override the vendor-provided styles, create a dedicated file:
 
-1. Create a SCSS partial in `/src/scss/vendors/` that includes your overrides
+1. Create a SCSS partial in `/packages/html/src/assets/scss/vendors/` that includes your overrides
 
    ```scss
    // /src/scss/vendors/_fancybox_customizations.scss
    // add your custom styles here
    ```
 
-2. Import the SCSS partial in `/src/scss/_vendors/scss` after the styles provided by the npm package
+2. Import the SCSS partial in `/packages/html/src/assets/scss/_vendors/scss` after the styles provided by the npm package
 
    ```scss
    // import css from npm
-   @import 'npm:@fancyapps/ui/dist/fancybox.css';
+   @import '@fancyapps/ui/dist/fancybox.css';
 
    // import overrides
    @import 'vendors/fancybox_customizations';
    ```
 
-Adding npm dependencies to Explorer 1 also requires updating the [Compile your own: Using assets a la carte](README.md#compile-your-own-using-assets-a-la-carte) section in the README. See [Additional requirements for carousels](README.md#additional-requirements-for-carousels) and [Additional requirements for modals and lightboxes](README.md#additional-requirements-for-modals-and-lightboxes) for examples.
-
 ### JavaScript
 
-JavaScript lives in `/src/js/` and is compiled by [Parcel](https://parceljs.org/).
+JavaScript lives in `/packages/html/src/assets/js/` and is compiled by [Parcel](https://parceljs.org/).
 
 #### Adding to scripts.js
 
-You can add more scripts as `require()` statements to the `/src/js/scripts.js` file. Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, the name should also use the component name in CamelCase, e.g.: `_MyComponent.js`.
+You can add more scripts as `require()` statements to the `/packages/html/src/assets/js/scripts.js` file. Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, the name should also use the component name in CamelCase, e.g.: `_MyComponent.js`.
 
 Below is an example walkthrough of adding JavaScript for a new component named `MyComponent`:
 
-1. Create a JavaScript file for your component: `/src/js/components/_MyComponent.js`
+1. Create a JavaScript file for your component: `/packages/html/src/assets/js/components/_MyComponent.js`
 2. When writing your script, be sure to scope it to your component either by CSS class or other unique identifier that will not conflict with other components or HTML elements. You should only use an ID when you are absolutely sure your component will only occur once on a page. Your script should also account for multiple iterations of your component appearing on a page, or not at all.
 
-3. Require the component JavaScript file in `/src/js/scripts.js`
+3. Require the component JavaScript file in `/packages/html/src/assets/js/scripts.js`
 
    ```js
    // scripts.js
-   require('./components/_MyComponent.js')
+   require('./components/_MyComponent.js');
    ```
 
 #### Using Node modules
 
-If your component requires use of an npm package, install the package with the `--save` flag, and require it directly in `/src/js/scripts.js`.
+If your component requires use of an npm package, install the package with the `--save` flag, and require it directly in `/packages/html/src/assets/js/scripts.js`.
 
 ```bash
 npm i --save @fancyapps/ui
@@ -348,31 +317,49 @@ npm i --save @fancyapps/ui
 
 ```js
 // scripts.js
-require('@fancyapps/ui')
+require('@fancyapps/ui');
 ```
 
 If the package requires additional configuration, you should instead create a dedicated JS file:
 
-1. Create a file in `/src/js/vendors/`. The filename should start with an underscore and be named similarly to the package.
+1. Create a file in `/packages/html/src/assets/js/vendors/`. The filename should start with an underscore and be named similarly to the package.
 
    ```js
    // /src/js/vendors/_package-name.js
    // init or configure package here
    ```
 
-2. In `/src/js/scripts.js`, require the vendor script you just created.
+2. In `/packages/html/src/assets/js/scripts.js`, require the vendor script you just created.
    ```js
    // /src/js/scripts.js
-   require('./vendors/_package-name.js')
+   require('./vendors/_package-name.js');
    ```
 
-Adding npm dependencies to Explorer 1 also requires updating the [Compile your own: Using assets a la carte](README.md#compile-your-own-using-assets-a-la-carte) section in the README. See [Additional requirements for carousels](README.md#additional-requirements-for-carousels) and [Additional requirements for modals and lightboxes](README.md#additional-requirements-for-modals-and-lightboxes) for examples.
+## Testing your changes as a dependency in another project
+
+You will need to make sure you have cloned the Explorer-1 repo adjacent to your other project's repo.
+
+#### Setting a local link
+
+In your project's `/package.json`, change the path to `@explorer-1` `dependencies` to:
+
+```json
+    "@explorer-1/common": "link:./../../../explorer-1/packages/common",
+    "@explorer-1/vue": "link:./../../../explorer-1/packages/vue",
+```
+
+Once you've completed your feature work, and the Explorer-1 package has been published, change the paths in `dependencies` back to:
+
+```json
+    "@explorer-1/common": "latest",
+    "@explorer-1/vue": "latest",
+```
 
 ## Linting and Formatting
 
 This project uses eslint, prettier, and stylelint for linting and formatting.
 
-Pre-commit is required on all developers' machines to ensure coding standards are met, please ensure you have the latest version installed: https://pre-commit.com/#install
+Pre-commit is recommended on all developers' machines to ensure coding standards are met, please ensure you have the latest version installed: https://pre-commit.com/#install
 
 1. Verify you have `pre-commit` installed and running the latest version:
 
@@ -390,36 +377,39 @@ Pre-commit is required on all developers' machines to ensure coding standards ar
 
 1. Next time you make a commit, `pre-commit` will run its course.
 
-## Pull request guidance
+## Pull requests
 
-This repository employs the [Release Drafter](https://github.com/marketplace/actions/release-drafter) GitHub Actions workflow to automatically build draft release notes as pull requests are merged. Release Drafter will categorize the main type of changes in each PR within the release notes and also determine what the version number of the next release should be (i.e., whether the release is a major, minor, or patch release).
+This repo uses [Changesets](https://github.com/changesets/changesets) to manage workspace package versions. When finalizing a pull request, be sure to run Changesets:
 
-Release Drafter's ability to do this correctly **depends on PRs being tagged with certain labels**. Most PRs should include at least two labels:
+```bash
+make changeset
+```
 
-1. A label for the **category** of the changes included in the PR (e.g., `feature`, `fix`, `docs`, or `maintenance`)
-2. A label for the **significance** of the chance (i.e., `major`, `minor`, or `patch`, per [Semantic Versioning](https://semver.org/) definitions)
-
-Release Drafter will attempt to automatically apply the category label to a new PR based on its branch name, title, or paths of files that were changed. Please check that it did this sensibly, and modify the labels as necessary. Try to avoid having two major category labels on a PR, because it will then be added to both of those categories in the list.
-
-The quality of the generated release notes also depends on PRs having good human-readable titles.
-
-In cases where a PR is not worth noting in the release notes, you can also tell Release Drafter not to add an entry for it by labeling it with `skip-changelog`.
-
-Finally, don't fret about this too much! The Release Drafter configuration and labeling scheme may take some time to fine-tune, and the drafted release notes can always be manually edited before final publication.
+Follow the prompts to complete the changeset.
 
 ## Publishing to npm
 
-If any changes were made to the src files, be sure to [build to dist](#getting-started) before publishing to NPM.
+Dist files are built automatically when publishing to npm (see the `prepublishOnly` script in `@explorer-1/common`'s package.json file.)
 
-Don't forget to update the version number in `package.json` and run `npm install` to propagate it to `package-lock.json`!
+1. Bump the version number of the main package.json file.
+   1. Do this with changesets: `make changesets` and select just `@nasa-jpl/explorer-1`
+   2. Commit and push the changeset
+2. Approve and merge the changesets-created pull request titled "Version Packages." Be sure it includes your changes from step 1. This will automatically update all package versions within the monorepo.
+3. Run `pnpm install` to propagate version numbers to the lockfile.
 
-1. Login to the public npm registry with your account that has permission to manage this package
+4. Commit changes and also tag with the latest main workspace version
+
    ```bash
-   npm login
+   git commit -m "bumping package version for publishing"
+   git tag x.x.x
+   git push
+   git push --tags
    ```
-2. Publish the package
+
+5. Publish relevant packages to npm:
+
    ```bash
-   npm publish
+   pnpm publish --filter \@explorer-1/vue
    ```
 
 ## Contribution licensing
