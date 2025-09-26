@@ -8,10 +8,10 @@ Documentation on how to run this project locally and add more components.
   - [Other commands](#other-commands)
 - [Developing Vue components](#developing-vue-components)
 - [Developing HTML components](#developing-html-components)
-  - [View the HTML test page (optional)](#view-the-html-test-page-optional)
   - [HTML Storybook](#html-storybook)
   - [SCSS](#scss)
   - [JavaScript](#javascript)
+  - [Using the HTML test page (optional)](#using-the-html-test-page-optional)
 - [Testing your changes as a dependency in another project](#testing-your-changes-as-a-dependency-in-another-project)
 - [Linting and Formatting](#linting-and-formatting)
 - [Testing](#testing)
@@ -96,16 +96,6 @@ Ultimately, the file diff for adding a new component that requires both custom S
                    ├── MyComponent.js           # new
                    └── MyComponent.stories.js   # new
 ```
-
-### View the HTML test page (optional)
-
-The test page (`/src/index.html`) is available only in developers' local environments and is useful for rapid prototyping or quick markup tests. This approach is only recommended as a stop-gap until the component you are working on is functional in Storybook. Running the simple HTML test page watches files for changes and recompiles automatically.
-
-1. Serve a simple test page
-   ```bash
-   make html-dev
-   ```
-   _Note: You may need to refresh if you've never run the project before._
 
 ### HTML Storybook
 
@@ -337,6 +327,16 @@ If the package requires additional configuration, you should instead create a de
    // /src/js/scripts.js
    require('./vendors/_package-name.js');
    ```
+
+### Using the HTML test page (optional)
+
+The test page (`/src/index.html`) is available only in developers' local environments and is useful for rapid prototyping or quick markup tests. This approach is only recommended as a stop-gap until the component you are working on is functional in Storybook. Running the simple HTML test page watches files for changes and recompiles automatically.
+
+1. Serve a simple test page
+   ```bash
+   make html-dev
+   ```
+   _Note: You may need to refresh if you've never run the project before._
 
 ## Testing your changes as a dependency in another project
 
