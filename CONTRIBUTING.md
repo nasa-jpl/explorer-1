@@ -59,7 +59,7 @@ The majority of the Explorer-1 components are built as Vue components. To unders
 
 1. Create new component files in `packages/vue/components`
 2. Start the Vue Storybook to preview and test your component (your component must have a `*.stories.js` file): `make vue-storybook`
-3. **This documentation is currently being developed. Please refer to other existing story files for guidance.**
+3. **This documentation is currently being developed. Please refer to existing vue component files for guidance.**
 
 ## Developing HTML components
 
