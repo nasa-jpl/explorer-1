@@ -11,7 +11,7 @@
   - [Tailwind](#tailwind)
 - [Getting Started](#getting-started)
 - [Contributing Developers](#contributing-developers)
-- [V2 to V3 Migration Guide](#v2-to-v3-migration-guide)
+- [V2 to V3 Migration Guide (WIP)](#v2-to-v3-migration-guide-wip)
   - [Change imports](#change-imports)
 
 ## What's included
@@ -48,7 +48,7 @@ There are two ways to integrate Explorer-1 with your project. You can either 1) 
 
 See the [contributing guide](CONTRIBUTING.md) for guidance.
 
-## V2 to V3 Migration Guide
+## V2 to V3 Migration Guide (WIP)
 
 ### Change imports
 
