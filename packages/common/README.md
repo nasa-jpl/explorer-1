@@ -1,8 +1,5 @@
 # @explorer-1/common
 
-## Table of contents
-
-- [Table of contents](#table-of-contents)
 - [What's included](#whats-included)
 - [Getting Started](#getting-started)
   - [Include the assets in your project](#include-the-assets-in-your-project)

@@ -1,8 +1,5 @@
 # @explorer-1/vue
 
-## Table of contents
-
-- [Table of contents](#table-of-contents)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
   - [Configuration (Vite)](#configuration-vite)
