@@ -7,10 +7,8 @@
 name: Build and Deploy to GH Pages
 
 on:
-  # Currently set to run on every push to main, but in the future
-  # we may want to restrict it to running on every new release.
-  push:
-    branches: [main]
+  release:
+    types: [published]
 
 jobs:
   build-and-deploy:
