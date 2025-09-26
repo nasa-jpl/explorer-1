@@ -14,6 +14,7 @@ Documentation on how to run this project locally and add more components.
   - [JavaScript](#javascript)
 - [Testing your changes as a dependency in another project](#testing-your-changes-as-a-dependency-in-another-project)
 - [Linting and Formatting](#linting-and-formatting)
+- [Testing](#testing)
 - [Pull requests](#pull-requests)
 - [Publishing to npm](#publishing-to-npm)
 - [Contribution licensing](#contribution-licensing)
@@ -378,6 +379,10 @@ Pre-commit is recommended on all developers' machines to ensure coding standards
    ```
 
 1. Next time you make a commit, `pre-commit` will run its course.
+
+## Testing
+
+Accessibility tests and visual regression tests are all handled in CI as part of our [Chromatic](https://www.chromatic.com) integration. To gain access to test results, you must have write access to the repo. Once you have access, log in to [Chromatic](https://www.chromatic.com) using your GitHub credentials. You will automatically have access to the Explorer 1 Chromatic projects.
 
 ## Pull requests
 
