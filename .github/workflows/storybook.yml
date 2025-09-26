@@ -1,4 +1,4 @@
-# https://storybook.js.org/docs/vue/writing-tests/test-runner#run-against-non-deployed-storybooks
+# Deploy both Vue and HTML Storybooks to Chromatic
 
 name: 'Storybook'
 
