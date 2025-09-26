@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.3.1
+
+### Patch Changes
+
+- 230858f: Updates dist generation workflow
+
 ## 3.3.0
 
 ### Minor Changes
