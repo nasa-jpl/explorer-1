@@ -1,5 +1,7 @@
 # @explorer-1/vue
 
+[![npm](https://img.shields.io/npm/v/@explorer-1/vue)](https://npmjs.com/package/@explorer-1/vue)
+
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
   - [Configuration (Vite)](#configuration-vite)

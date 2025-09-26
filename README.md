@@ -22,8 +22,8 @@ Version 3 adds a Vue component library and also introduces a monorepo structure.
 
 ### Published Packages
 
-- [@explorer-1/vue](https://github.com/nasa-jpl/explorer-1/tree/main/packages/vue): Vue components
-- [@explorer-1/common](https://github.com/nasa-jpl/explorer-1/tree/main/packages/common): Static assets and shared assets between @explorer-1/vue
+- [@explorer-1/vue](https://npmjs.com/package/@explorer-1/vue): Vue components
+- [@explorer-1/common](https://npmjs.com/package/@explorer-1/common): Static assets and shared assets between @explorer-1/vue
 
 #### Other available packages, though generally unnecessary
 
