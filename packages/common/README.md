@@ -1,5 +1,7 @@
 # @explorer-1/common
 
+[![npm](https://img.shields.io/npm/v/@explorer-1/common)](https://npmjs.com/package/@explorer-1/common)
+
 - [What's included](#whats-included)
 - [Getting Started](#getting-started)
   - [Include the assets in your project](#include-the-assets-in-your-project)
