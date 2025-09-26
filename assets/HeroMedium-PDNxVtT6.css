@@ -1,0 +1,1 @@
+.HeroSmall,.HeroSmall.swiper-slide{min-height:200px}@media (min-width: 1024px){.HeroSmall,.HeroSmall.swiper-slide{height:360px;min-height:360px}}.HeroMedium,.HeroMedium.swiper-slide,.HeroFeature,.HeroFeature.swiper-slide{min-height:400px}@media (min-width: 1024px){.HeroMedium,.HeroMedium.swiper-slide,.HeroFeature,.HeroFeature.swiper-slide{height:600px;min-height:600px}}

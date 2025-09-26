@@ -1,0 +1,123 @@
+/* Deprecation warning:
+ * Usage of the .BaseCarouselCards class is deprecated and will be removed in the next major release. Use .MixinCarousel instead.
+ */
+
+.MixinCarousel,
+.BaseCarouselCards {
+  .swiper {
+    @apply overflow-visible #{!important};
+
+    .swiper-prev,
+    .swiper-next {
+      @apply -mt-1 w-auto h-auto;
+
+      &.swiper-button-disabled {
+        @apply invisible;
+      }
+      // shared styles for the arrow animation
+      &.BaseButton {
+        @apply transition-none #{!important};
+      }
+
+      &.BaseButton > .label {
+        @apply flex overflow-hidden;
+
+        > .arrow-wrapper {
+          @apply block relative w-full h-full overflow-hidden;
+
+          > .arrow {
+            @apply block;
+          }
+
+          > .arrow-fixed {
+            @apply absolute top-0 left-0 block;
+          }
+        }
+
+        &:hover {
+          > .arrow-wrapper > .arrow,
+          > .arrow-wrapper > .arrow-fixed {
+            animation-delay: 50ms !important; // hover intent
+          }
+        }
+      }
+    }
+
+    @screen lg {
+      // specific directional animation
+      .swiper-next.BaseButton > .label {
+        &:hover {
+          > .arrow-wrapper > .arrow {
+            animation: arrow-carousel-next-anim 0.1s linear normal;
+          }
+
+          > .arrow-wrapper > .arrow-fixed {
+            animation: arrow-carousel-next-fixed-anim 0.1s linear normal;
+          }
+        }
+      }
+
+      .swiper-prev.BaseButton > .label {
+        &:hover {
+          > .arrow-wrapper > .arrow {
+            animation: arrow-carousel-prev-anim 0.1s linear normal;
+          }
+
+          > .arrow-wrapper > .arrow-fixed {
+            animation: arrow-carousel-prev-fixed-anim 0.1s linear normal;
+          }
+        }
+      }
+    }
+  }
+
+  .swiper-wrapper {
+    @apply overflow-visible #{!important};
+
+    .swiper-slide {
+      @apply opacity-50 transition-opacity duration-500 ease-in-out h-auto pointer-events-none;
+
+      &.swiper-slide-visible,
+      &:focus,
+      &:focus-within {
+        @apply opacity-100 pointer-events-auto;
+      }
+    }
+  }
+
+  &.-cards {
+    .swiper {
+      .swiper-navigation {
+        // center arrows with image
+        padding-top: 28.125%; // half of the image's aspect ratio
+        .swiper-prev,
+        .swiper-next {
+          @apply transform -translate-y-1/2;
+        }
+      }
+    }
+  }
+
+  &.-tiles {
+    @apply pb-5;
+
+    .swiper {
+      .swiper-navigation {
+        top: 50%;
+
+        .swiper-prev,
+        .swiper-next {
+          @apply transform -translate-y-1/2;
+        }
+      }
+    }
+  }
+
+  .swiper-lazy {
+    @apply opacity-0;
+
+    &.swiper-lazy-loaded {
+      @apply opacity-100;
+    }
+  }
+}

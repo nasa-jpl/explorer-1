@@ -1,0 +1,16 @@
+.MissionDetailStatsMicro {
+  .text-stats-xl {
+    @apply text-base leading-none;
+
+    @screen sm {
+      @apply text-4xl;
+    }
+  }
+
+  .legend {
+    @apply text-sm;
+    @screen sm {
+      @apply text-base;
+    }
+  }
+}

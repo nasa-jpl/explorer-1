@@ -1,0 +1,103 @@
+@font-face {
+  font-family: Metropolis;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-SemiBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-MediumItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url('../fonts/metropolis/Metropolis-RegularItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Archivo Narrow';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/archivo-narrow/ArchivoNarrow-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Archivo Narrow';
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url('../fonts/archivo-narrow/ArchivoNarrow-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Archivo Narrow';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/archivo-narrow/ArchivoNarrow-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Archivo Narrow';
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+  src: url('../fonts/archivo-narrow/ArchivoNarrow-SemiBoldItalic.woff2') format('woff2');
+}

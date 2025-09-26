@@ -1,0 +1,52 @@
+@media print {
+  // page setup
+  @page {
+    size: legal portrait;
+  }
+  @page :left {
+    margin-left: 0.5in;
+  }
+  @page :right {
+    margin-right: 0.5in;
+  }
+
+  // style adaptations
+  *,
+  *:before,
+  *:after,
+  *:first-letter,
+  p:first-line,
+  div:first-line,
+  blockquote:first-line,
+  li:first-line {
+    background: transparent !important;
+    color: #000 !important; /* Black prints faster:
+								   http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    page-break-after: avoid;
+  }
+  table,
+  figure {
+    page-break-inside: avoid;
+  }
+  main {
+    a[href]:after {
+      content: ' (' attr(href) ')';
+    }
+
+    abbr[title]:after {
+      content: ' (' attr(title) ')';
+    }
+  }
+  .container {
+    @apply max-w-none px-0;
+  }
+}

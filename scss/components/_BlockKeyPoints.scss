@@ -1,0 +1,27 @@
+.BlockKeyPoints {
+  @media not print {
+    ul {
+      @apply ml-6;
+      list-style-type: '—';
+    }
+    ul li {
+      &::marker {
+        @apply leading-none text-primary font-medium text-[22px] lg:text-[24px];
+      }
+      @apply pl-2 lg:pl-4;
+      .BlockText {
+        p {
+          @apply mb-2;
+
+          @screen lg {
+            @apply mb-2;
+          }
+
+          &:last-child {
+            @apply mb-0;
+          }
+        }
+      }
+    }
+  }
+}

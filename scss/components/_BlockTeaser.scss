@@ -1,0 +1,17 @@
+.BlockTeaser {
+  .cover-bg {
+    @apply bg-gray-dark w-full;
+
+    @screen lg {
+      @apply h-full absolute object-cover right-0 w-1/2;
+
+      &.-full {
+        @apply min-w-full right-auto w-auto;
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}

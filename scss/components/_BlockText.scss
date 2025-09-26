@@ -1,0 +1,269 @@
+.BlockText {
+  a {
+    @apply text-action underline cursor-pointer break-words;
+
+    &:hover {
+      @apply text-action-hover;
+    }
+  }
+
+  p {
+    @apply mb-5;
+
+    @screen lg {
+      @apply mb-8;
+    }
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-10 lg:mt-18 mb-5;
+    &:first-child {
+      @apply mt-0;
+    }
+    &:last-child {
+      @apply mb-0;
+    }
+    // from BlockHeading.vue
+    &:target {
+      @apply scroll-mt-14;
+      @screen lg {
+        @apply scroll-mt-[7rem];
+      }
+    }
+  }
+
+  hr {
+    @apply border-gray-light-mid border-t my-5;
+
+    @screen lg {
+      @apply my-8;
+    }
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+      @apply mt-5 lg:mt-8;
+    }
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  ol,
+  ul {
+    @apply mb-5 relative left-14 -ml-8 pr-14;
+    @screen sm {
+      @apply left-9;
+      li {
+        @apply w-full ml-8;
+      }
+    }
+
+    @screen lg {
+      @apply mb-8;
+    }
+
+    &:last-child {
+      @apply mb-0;
+    }
+
+    li {
+      @apply my-3;
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+  }
+
+  ol {
+    @apply list-decimal pl-2 lg:pl-4;
+    ol {
+      list-style-type: lower-alpha;
+      ol {
+        list-style-type: lower-roman;
+        ol {
+          list-style-type: decimal;
+        }
+      }
+    }
+  }
+  ul {
+    list-style-type: '—';
+    li {
+      @apply pl-2 lg:pl-4;
+      &::marker {
+        @apply leading-none text-primary font-medium text-[22px] lg:text-[28px];
+      }
+    }
+  }
+  // richtext media support
+  .richtext-image {
+    &.fullwidth {
+      @apply mb-10 lg:mb-14;
+      img {
+        @apply w-full h-auto;
+      }
+    }
+    &.left,
+    &.right {
+      @apply mt-[.25rem] mb-5 lg:mb-5 sm:mx-5 lg:mx-8;
+      @apply block max-w-full sm:max-w-[50%];
+      img {
+        @apply max-w-full h-auto;
+      }
+    }
+    &.left {
+      @apply sm:float-left ml-0;
+      // mimics offset in BlockInlineImage
+      @apply ml-0 lg:-ml-[5.3rem] xl:-ml-[6.8rem];
+    }
+    &.right {
+      @apply sm:float-right mr-0;
+      // mimics offset in BlockInlineImage
+      @apply mr-0 lg:-mr-[5.3rem] xl:-mr-[6.8rem];
+      // prevents list items trom overlapping right-floating images
+      img,
+      .richtext-caption {
+        @apply sm:pl-6;
+      }
+    }
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+  // subsequent floating images
+  .richtext-image ~ .richtext-image {
+    clear: both;
+  }
+  .richtext-caption {
+    // mimic BaseImageCaption
+    @apply pt-3 text-gray-mid-dark text-sm lg:text-base;
+    div.caption {
+      @apply inline #{!important};
+    }
+
+    a {
+      @apply text-action underline cursor-pointer;
+
+      &:hover {
+        @apply text-action-hover;
+      }
+    }
+
+    .ThemeVariantLight & {
+      @apply text-gray-mid-dark;
+    }
+
+    .ThemeVariantDark & {
+      @apply text-gray-mid;
+    }
+  }
+  > div {
+    @apply mb-10 lg:mb-14;
+    iframe {
+      @apply w-full h-auto aspect-video;
+    }
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+  &.-medium {
+    ul {
+      li {
+        &::marker {
+          @apply lg:text-[24px];
+        }
+      }
+    }
+  }
+  // other sizes
+  &.-small {
+    p {
+      @apply mb-2;
+
+      @screen lg {
+        @apply mb-2;
+      }
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mt-4 mb-2;
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    hr {
+      @apply border-gray-light-mid border-t my-2;
+
+      @screen lg {
+        @apply my-4;
+      }
+
+      + h1,
+      + h2,
+      + h3,
+      + h4,
+      + h5,
+      + h6 {
+        @apply mt-2;
+      }
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+
+    ol,
+    ul {
+      @apply mb-2;
+
+      @screen lg {
+        @apply mb-2;
+      }
+
+      &:last-child {
+        @apply mb-0;
+      }
+
+      li {
+        @apply my-1;
+
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+    }
+    ul {
+      li {
+        &::marker {
+          @apply lg:text-[22px];
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.NavSecondaryDropdown {
+  .NavDropdownToggle {
+    &.-open {
+      > span {
+        @apply border-black text-gray-dark #{!important};
+      }
+      &.-invert {
+        > span {
+          @apply border-white text-white #{!important};
+        }
+      }
+    }
+
+    &.-active {
+      > span {
+        @apply font-bold text-gray-dark;
+        @apply border-primary #{!important};
+      }
+      &.-invert {
+        > span {
+          @apply text-white;
+          @apply border-white #{!important};
+        }
+      }
+    }
+    &:hover {
+      &.-active {
+        > span {
+          @apply text-gray-mid-dark;
+        }
+        &.-invert {
+          > span {
+            @apply text-white;
+          }
+        }
+      }
+    }
+  }
+  // transitions
+  .navfade-enter-to,
+  .navfade-enter-active {
+    @apply transition-all ease-out transform duration-200;
+  }
+
+  .navfade-leave-active,
+  .navfade-leave-to {
+    @apply transition-all ease-out transform duration-200;
+  }
+
+  .navfade-enter-active {
+    @apply opacity-0;
+    @apply -translate-y-2;
+  }
+
+  .navfade-enter-to {
+    @apply opacity-100;
+    @apply translate-y-0;
+  }
+
+  .navfade-leave-to {
+    @apply opacity-100;
+    @apply translate-y-0;
+  }
+
+  .navfade-leave-active {
+    @apply opacity-0;
+    @apply -translate-y-2;
+  }
+}

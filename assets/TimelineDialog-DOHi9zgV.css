@@ -1,0 +1,1 @@
+.Dialog .dialog-main{max-height:55vh;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 1rem,black calc(100% - 1rem),transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,black 1rem,black calc(100% - 1rem),transparent 100%)}@media (forced-colors: active){.Dialog hr{border:1px solid}}

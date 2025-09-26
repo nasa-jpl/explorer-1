@@ -3,51 +3,63 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>@storybook/cli - Storybook</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>storybook - Storybook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     
-    <link
-      rel="prefetch"
-      href="./sb-common-assets/nunito-sans-regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="prefetch"
-      href="./sb-common-assets/nunito-sans-bold.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="./sb-common-assets/fonts.css" />
+    <style>
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-regular.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-italic.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-bold.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-bold-italic.woff2') format('woff2');
+      }
+    </style>
 
     <link href="./sb-manager/runtime.js" rel="modulepreload" />
 
     
     <link href="./sb-addons/storybook-core-server-presets-0/common-manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-controls-1/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/docs-1/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-viewport-2/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/a11y-2/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-toolbars-3/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/whitespace-html-3/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-measure-4/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/chromatic-com-storybook-4/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/essentials-outline-5/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/a11y-6/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/whitespace-html-7/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/storybook-8/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/storybook-5/manager-bundle.js" rel="modulepreload" />
       <style type="text/css">
   /* styles for the storybook sidebar */
-  @import 'dist/css/font-face.css';
+  @import 'css/font-face.css';
 
   .sidebar-item {
     font-family: Metropolis, sans-serif !important;
@@ -59,13 +71,7 @@
     color: inherit !important;
   }
 
-  /* www should be in uppercase */
-  .sidebar-item#www {
-    text-transform: uppercase;
-  }
-
   /* create illusion of hrs between sidebar sections */
-  .sidebar-item#www,
   .sidebar-item#appendix {
     border-radius: 0;
     border-top: 2px solid rgba(0, 0, 0, 0.1);
@@ -105,12 +111,36 @@
           window['FEATURES'] = {
   "argTypeTargetsV7": true,
   "legacyDecoratorFileOrder": false,
-  "disallowImplicitActionsInRenderV8": true
+  "disallowImplicitActionsInRenderV8": true,
+  "viewport": true,
+  "highlight": true,
+  "controls": true,
+  "interactions": true,
+  "actions": false,
+  "backgrounds": false,
+  "outline": true,
+  "measure": true,
+  "outlines": false
 };
         
       
         
-          window['REFS'] = {};
+          window['REFS'] = {
+  "internal-components": {
+    "title": "Internal-only Components",
+    "url": "https://main--68c9f55524186336c6cb1c0c.chromatic.com",
+    "expanded": true,
+    "id": "internal-components",
+    "type": "server-checked"
+  },
+  "v2-docs": {
+    "title": "V2 Docs (Legacy)",
+    "url": "https://v2--68c9f55524186336c6cb1c0c.chromatic.com",
+    "expanded": false,
+    "id": "v2-docs",
+    "type": "server-checked"
+  }
+};
         
       
         
@@ -119,8 +149,7 @@
       
         
           window['DOCS_OPTIONS'] = {
-  "defaultName": "Docs",
-  "autodocs": "tag"
+  "defaultName": "Docs"
 };
         
       
@@ -148,7 +177,7 @@
         
       
         
-          window['STORYBOOK_RENDERER'] = "html";
+          window['STORYBOOK_RENDERER'] = "vue3";
         
       
         
@@ -156,7 +185,7 @@
         
       
         
-          window['STORYBOOK_FRAMEWORK'] = "@storybook/html-vite";
+          window['STORYBOOK_FRAMEWORK'] = "@storybook/vue3-vite";
         
       
     </script>
@@ -164,32 +193,22 @@
 
     <script type="module">
       import './sb-manager/globals-runtime.js';
-      
+
       
         import './sb-addons/storybook-core-server-presets-0/common-manager-bundle.js';
       
-        import './sb-addons/essentials-controls-1/manager-bundle.js';
+        import './sb-addons/docs-1/manager-bundle.js';
       
-        import './sb-addons/essentials-viewport-2/manager-bundle.js';
+        import './sb-addons/a11y-2/manager-bundle.js';
       
-        import './sb-addons/essentials-toolbars-3/manager-bundle.js';
+        import './sb-addons/whitespace-html-3/manager-bundle.js';
       
-        import './sb-addons/essentials-measure-4/manager-bundle.js';
+        import './sb-addons/chromatic-com-storybook-4/manager-bundle.js';
       
-        import './sb-addons/essentials-outline-5/manager-bundle.js';
+        import './sb-addons/storybook-5/manager-bundle.js';
       
-        import './sb-addons/a11y-6/manager-bundle.js';
-      
-        import './sb-addons/whitespace-html-7/manager-bundle.js';
-      
-        import './sb-addons/storybook-8/manager-bundle.js';
-      
-      
+
       import './sb-manager/runtime.js';
     </script>
-
-    
-    <link href="./sb-preview/runtime.js" rel="prefetch" as="script" />
-    
   </body>
 </html>

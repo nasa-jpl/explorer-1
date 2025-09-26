@@ -1,0 +1,24 @@
+/* Deprecation warning:
+ * Usage of the .HeroFocalPoint class is deprecated and will be removed in the next major release. Use .HeroLarge instead.
+ */
+
+.HeroLarge,
+.HeroFocalPoint {
+  .content-wrapper {
+    @screen lg {
+      min-height: 548px; // maintains 1440x770 aspect ratio
+    }
+
+    @screen xl {
+      min-height: 684px; // maintains 1440x770 aspect ratio
+    }
+
+    @screen 2xl {
+      min-height: 770px; // 1440x770
+    }
+
+    @screen 3xl {
+      min-height: 963px; // maintains 1440x770 aspect ratio
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.BaseImageCaption {
+  @apply text-gray-mid-dark;
+
+  > div > .the-caption-text {
+    > p {
+      @apply inline #{!important};
+    }
+
+    a {
+      @apply text-action underline cursor-pointer;
+
+      &:hover {
+        @apply text-action-hover;
+      }
+    }
+  }
+
+  .ThemeVariantLight & {
+    @apply text-gray-mid-dark;
+  }
+
+  .ThemeVariantDark & {
+    @apply text-gray-mid;
+  }
+}

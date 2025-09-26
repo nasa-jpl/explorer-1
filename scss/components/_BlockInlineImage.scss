@@ -1,0 +1,7 @@
+.BlockInlineImage {
+  .ThemeVariantDark & {
+    > div {
+      @apply text-white;
+    }
+  }
+}

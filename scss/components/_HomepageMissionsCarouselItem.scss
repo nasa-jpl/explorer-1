@@ -1,0 +1,57 @@
+.HomepageMissionsCarouselItem {
+  .text-wrapper {
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to top, #6f6f6f, rgba(0, 0, 0, 0)) 1 20%; // border-gray-mid-dark
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+  }
+  // styling based on slide visibility
+  &.swiper-slide,
+  &.swiper-slide-duplicate {
+    @apply opacity-50 transition-all duration-500 ease-in-out h-auto;
+
+    .slide-image {
+      @apply transition-transform duration-500 ease-in-out transform scale-90;
+    }
+
+    .text-wrapper {
+      @apply opacity-0 transition-opacity duration-500 ease-in-out;
+    }
+    // on mobile, only the active slide should be fully visible
+    &.swiper-slide-active,
+    &:focus,
+    &:focus-within {
+      @apply opacity-100;
+
+      .text-wrapper {
+        @apply opacity-100;
+
+        .shifted-text {
+          @apply -mt-3 #{!important};
+        }
+
+        .explore-text {
+          @apply opacity-100 ml-0 #{!important};
+        }
+      }
+
+      .slide-image {
+        @apply scale-105;
+      }
+    }
+    @screen lg {
+      // &.swiper-slide-visible, &.swiper-slide-duplicate-visible
+      &.swiper-slide-prev,
+      &.swiper-slide-active,
+      &.swiper-slide-next {
+        @apply opacity-100;
+
+        .text-wrapper {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+}

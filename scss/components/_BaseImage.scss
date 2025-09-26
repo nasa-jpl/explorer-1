@@ -1,0 +1,30 @@
+// BaseImage Scoped Styles
+img.BaseImage {
+  @apply max-w-full;
+
+  &.lazyload:not([src]),
+  &:not([src]) {
+    @apply opacity-0 border-none;
+  }
+
+  &.lazyloaded {
+    @apply opacity-0;
+
+    animation-name: fadein;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
+
+    @keyframes fadein {
+      0% {
+        @apply opacity-0;
+      }
+
+      100% {
+        @apply opacity-100;
+      }
+    }
+  }
+}

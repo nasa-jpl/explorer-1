@@ -1,0 +1,70 @@
+/* Deprecation warning:
+ * Usage of the .AnimationCaret class is deprecated and will be removed in the next major release. Use .MixinAnimationCaret instead.
+ */
+
+.MixinAnimationCaret,
+.AnimationCaret {
+  @apply flex items-center;
+
+  > .arrow-wrapper {
+    @apply block relative w-6 h-6;
+
+    > .arrow,
+    > .arrow-fixed {
+      @apply absolute top-1/2 transform -translate-y-1/2 left-0 block text-sm;
+    }
+  }
+
+  &:hover {
+    > .arrow-wrapper > .arrow {
+      animation: arrow-anim 0.25s ease-in normal;
+    }
+
+    > .arrow-wrapper > .arrow-fixed {
+      animation: arrow-fixed-anim 0.25s ease-in normal;
+    }
+  }
+
+  &.caret-inline {
+    @apply inline-block;
+
+    > .arrow-wrapper {
+      @apply inline-block w-px;
+
+      > .arrow,
+      > .arrow-fixed {
+        // ems to adjust for different font sizes
+        margin-top: 0.45em;
+      }
+    }
+  }
+
+  @keyframes arrow-anim {
+    0% {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+
+    50% {
+      transform: translate(1rem, -50%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate(1rem, -50%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes arrow-fixed-anim {
+    0% {
+      opacity: 0;
+      transform: translate(-0.5rem, -50%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+  }
+}

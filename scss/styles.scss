@@ -1,0 +1,32 @@
+/* stylelint-disable no-invalid-position-at-import-rule */
+
+// tailwind --------------------
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .bg-stars {
+    @apply bg-star-pattern bg-cover bg-top;
+  }
+}
+
+// vendors / node_modules
+@import 'vendors';
+
+// main elements
+@import 'forms';
+@import 'aspect-ratios';
+@import 'grid';
+@import 'typography';
+@import 'polyfills';
+@import 'animations';
+
+// components
+@import 'components';
+
+// templates
+@import 'templates';
+
+// print styles
+@import 'print';

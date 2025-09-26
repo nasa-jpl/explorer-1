@@ -1,1 +1,0 @@
-const p=({text:$,size:t,tag:e,icon:h="",headingClass:s})=>{let x=s?s+" ":"";t||(t="h3"),e||(e=t),x+={h1:"text-h1",h2:"text-h2",h3:"text-h3",h4:"text-h4",h5:"text-h5",h6:"text-h6"}[t];const c=h?`${h} `:"";return`<${e} class="${x}">${c}${$}</${e}>`};export{p as B};

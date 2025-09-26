@@ -1,0 +1,1 @@
+img.BaseImage{max-width:100%}img.BaseImage.lazyload:not([src]),img.BaseImage:not([src]){border-style:none;opacity:0}img.BaseImage.lazyloaded{opacity:0;animation-name:fadein;animation-duration:.5s;animation-iteration-count:1;animation-fill-mode:forwards;animation-direction:normal;animation-timing-function:ease-out}@keyframes fadein{0%{opacity:0}to{opacity:1}}
