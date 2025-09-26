@@ -1,6 +1,6 @@
 # Preserve v2 Storybook
 
-name: 'Storybook'
+name: 'V2 Storybook'
 
 on:
   push:
