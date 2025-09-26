@@ -4,7 +4,7 @@
 # build Storybook as a static web application, and deploy it to the gh-pages branch.
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Build and Deploy Storybook
+name: Build and Deploy to GH Pages
 
 on:
   # Currently set to run on every push to main, but in the future
@@ -33,14 +33,14 @@ jobs:
         run: pnpm i
 
       - name: Build static Storybook 🛠
-        run: make html-storybook-build
+        run: make vue-storybook-build
 
         # https://github.com/JamesIves/github-pages-deploy-action/issues/1475#issuecomment-1824079512
       - name: Add nojekyll file to read underscore files 📋
-        run: cd apps/html-storybook/storybook_compiled && touch .nojekyll
+        run: cd apps/vue-storybook/storybook_compiled && touch .nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: apps/html-storybook/storybook_compiled
+          folder: apps/vue-storybook/storybook_compiled
           branch: gh-pages

@@ -1,6 +1,6 @@
-# https://storybook.js.org/docs/vue/writing-tests/test-runner#run-against-non-deployed-storybooks
+# Preserve v2 Storybook
 
-name: 'Storybook'
+name: 'V2 Storybook'
 
 on:
   push:
