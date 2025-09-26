@@ -11,10 +11,14 @@ on:
       - 'packages/common/**'
       - 'packages/vue/**'
   pull_request:
+    branches-ignore:
+      - 'changeset-release/**'
     paths:
       - 'apps/vue-storybook/**'
-      - 'packages/common/**'
-      - 'packages/vue/**'
+      - 'packages/common/src/**'
+      - 'packages/common/*.js'
+      - 'packages/common/*.ts'
+      - 'packages/vue/src/**'
 
 jobs:
   publish_vue:
