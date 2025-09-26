@@ -55,7 +55,9 @@ make nuxt
 
 ## Developing Vue components
 
-The majority of the Explorer-1 components are built as Vue components. To understand when it's appropriate to build an HTML component instead, refer to [Developing HTML components](#developing-html-components) To create a new component:
+The majority of the Explorer-1 components are built as Vue components. To understand when it's appropriate to build an HTML component instead, refer to [Developing HTML components](#developing-html-components).
+
+To create a new component:
 
 1. Create new component files in `packages/vue/components`
 2. Start the Vue Storybook to preview and test your component (your component must have a `*.stories.js` file): `make vue-storybook`
