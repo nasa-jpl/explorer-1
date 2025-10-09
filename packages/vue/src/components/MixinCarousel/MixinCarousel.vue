@@ -101,7 +101,7 @@ import { defineComponent } from 'vue'
 import Swiper from 'swiper'
 import { A11y, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
-import swiperOptions from '@explorer-1/common/src/js/_swiperOptions'
+import swiperOptions from '@explorer-1/common/src/js/vendors/_swiperOptions'
 
 import IconPrev from './../Icons/IconPrev.vue'
 import IconNext from './../Icons/IconNext.vue'
