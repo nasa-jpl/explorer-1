@@ -60,7 +60,7 @@
   </div>
 </template>
 <script lang="ts">
-import swiperOptions from '@explorer-1/common/src/js/_swiperOptions'
+import swiperOptions from '@explorer-1/common/src/js/vendors/_swiperOptions'
 import Swiper from 'swiper'
 import { A11y, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'

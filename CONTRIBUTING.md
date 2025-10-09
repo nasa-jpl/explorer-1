@@ -103,7 +103,7 @@ Storybook serves as the documentation for how to use the design system's base st
 
 #### Adding a component with a story file
 
-1. **Create a folder:** all stories live adjacent to the component's template file and end in `*.stories.js` in `/storybook/stories/`. If you are adding a component, create a new folder for your component in `/packages/html/src/components/`.
+1. **Create a folder in @explorer-1/html:** all stories live adjacent to the component's template file and end in `*.stories.js` in `/storybook/stories/`. If you are adding a component, create a new folder for your component in `/packages/html/src/components/`.
 2. **Create a template file:** create a file for your HTML template. The filename should match your component name, e.g. `MyComponent.js`. It should include one exported constant, named with your component's name, and appended with `Template`. It will look something like this:
 
    ```js
@@ -216,19 +216,19 @@ When making changes to an HTML component's CSS or JS, you must run `make html-bu
 
 Styling is achieved with inline Tailwind CSS classes in the component markup. Custom SCSS is only used where that is impossible or impractical.
 
-SCSS files live in `/src/scss/` and [Parcel](https://parceljs.org/) is used to compile all partials and imports. If you must write custom SCSS for your component, all SCSS should be namespaced to your component. See [Adding SCSS](#adding-scss) for more information.
+SCSS files live in `@explorer-1/common` and is compiled by Vite. If you must write custom SCSS for your component, all SCSS should be namespaced to your component. See [Adding SCSS](#adding-scss) for more information.
 
 #### Adding SCSS
 
 > Custom SCSS should only be added if it is impossible or impractical to style your component with inline Tailwind CSS classes.
 
-If you are adding SCSS for component, create a SCSS partial for it in `/src/scss/components/` and import it in `/src/scss/_components.scss`. Partials for global styles should be imported in `/src/scss/styles.scss`. Filenames for component SCSS partials should use CamelCase, e.g. `_MyComponent.scss`
+If you are adding SCSS for component, create a SCSS partial for it in `/packages/common/src/scss/components/` and import it in `/packages/common/src/scss/_components.scss`. Partials for global styles should be imported in `/packages/common/src/scss/styles.scss`. Filenames for component SCSS partials should use CamelCase, e.g. `_MyComponent.scss`
 
 When defining custom classes, use extracted Tailwind CSS classes via Tailwind's `@apply` directive whenever possible.
 
 Below is an example walkthrough of adding SCSS for a new component named `MyComponent`:
 
-1. Create a SCSS partial for your component: `/src/scss/components/_MyComponent.scss`
+1. Create a SCSS partial for your component: `/packages/common/src/scss/components/_MyComponent.scss`
 2. Namespace all styles with your component name:
 
    ```scss
@@ -241,7 +241,7 @@ Below is an example walkthrough of adding SCSS for a new component named `MyComp
    }
    ```
 
-3. Import the partial in `/packages/html/src/assets/scss/_components.scss`
+3. Import the partial in `/packages/common/src/scss/_components.scss`
 
    ```scss
    // _components.scss
@@ -250,10 +250,10 @@ Below is an example walkthrough of adding SCSS for a new component named `MyComp
 
 #### Using Node modules
 
-If your component requires styles provided by an npm package, install the package with the `--save` flag, and import the CSS or SCSS in `/packages/html/src/assets/scss/_vendors.scss`. Below is an example installing [@fancyapps/ui](https://github.com/fancyapps/ui) and importing `fancybox.css` from it:
+If your component requires styles provided by an npm package, install the package with the `--save` flag, and import the CSS or SCSS in `/packages/common/src/scss/_vendors.scss`. Below is an example installing [@fancyapps/ui](https://github.com/fancyapps/ui) and importing `fancybox.css` from it:
 
 ```bash
-npm i --save @fancyapps/ui
+pnpm i --save @fancyapps/ui
 ```
 
 ```scss
@@ -263,14 +263,14 @@ npm i --save @fancyapps/ui
 
 If you need to customize or override the vendor-provided styles, create a dedicated file:
 
-1. Create a SCSS partial in `/packages/html/src/assets/scss/vendors/` that includes your overrides
+1. Create a SCSS partial in `/packages/common/src/scss/vendors/` that includes your overrides
 
    ```scss
    // /src/scss/vendors/_fancybox_customizations.scss
    // add your custom styles here
    ```
 
-2. Import the SCSS partial in `/packages/html/src/assets/scss/_vendors/scss` after the styles provided by the npm package
+2. Import the SCSS partial in `/packages/common/src/scss/_vendors/scss` after the styles provided by the npm package
 
    ```scss
    // import css from npm
@@ -282,50 +282,51 @@ If you need to customize or override the vendor-provided styles, create a dedica
 
 ### JavaScript
 
-JavaScript lives in `/packages/html/src/assets/js/` and is compiled by [Parcel](https://parceljs.org/).
+JavaScript, like SCSS, lives in `/packages/common/src/js/` and is compiled by Vite.
 
 #### Adding to scripts.js
 
-You can add more scripts as `require()` statements to the `/packages/html/src/assets/js/scripts.js` file. Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, the name should also use the component name in CamelCase, e.g.: `_MyComponent.js`.
+You can import more scripts to the `/packages/common/src/js/scripts.js` file. Any script that will be required by `scripts.js` should start with an underscore. If the script is for a component, the name should also use the component name in CamelCase, e.g.: `_MyComponent.js`.
 
 Below is an example walkthrough of adding JavaScript for a new component named `MyComponent`:
 
-1. Create a JavaScript file for your component: `/packages/html/src/assets/js/components/_MyComponent.js`
+1. Create a JavaScript file for your component: `/packages/common/src/js/components/_MyComponent.js`
 2. When writing your script, be sure to scope it to your component either by CSS class or other unique identifier that will not conflict with other components or HTML elements. You should only use an ID when you are absolutely sure your component will only occur once on a page. Your script should also account for multiple iterations of your component appearing on a page, or not at all.
 
-3. Require the component JavaScript file in `/packages/html/src/assets/js/scripts.js`
+3. Require the component JavaScript file in `/packages/common/src/js/scripts.js`
 
    ```js
    // scripts.js
-   require('./components/_MyComponent.js');
+   import initMyComponent from '@explorer-1/common/src/js/components/_MyComponent.js';
+   initMyComponent();
    ```
 
 #### Using Node modules
 
-If your component requires use of an npm package, install the package with the `--save` flag, and require it directly in `/packages/html/src/assets/js/scripts.js`.
+If your component uses an npm package, install the package with the `--save` flag, and import it directly in `/packages/common/src/js/scripts.js`.
 
 ```bash
-npm i --save @fancyapps/ui
+pnpm i --save @fancyapps/ui
 ```
 
 ```js
 // scripts.js
-require('@fancyapps/ui');
+import '@fancyapps/ui';
 ```
 
 If the package requires additional configuration, you should instead create a dedicated JS file:
 
-1. Create a file in `/packages/html/src/assets/js/vendors/`. The filename should start with an underscore and be named similarly to the package.
+1. Create a file in `/packages/common/src/js/vendors/`. The filename should start with an underscore and be named similarly to the package.
 
    ```js
    // /src/js/vendors/_package-name.js
    // init or configure package here
    ```
 
-2. In `/packages/html/src/assets/js/scripts.js`, require the vendor script you just created.
+2. In `/packages/common/src/js/scripts.js`, import the vendor script you just created.
    ```js
-   // /src/js/scripts.js
-   require('./vendors/_package-name.js');
+   // scripts.js
+   import { vendorMethod } from '@explorer-1/common/src/js/vendors/_package-name.js';
    ```
 
 ### Using the HTML test page (optional)
