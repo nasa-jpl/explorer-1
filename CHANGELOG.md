@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.4.0
+
+### Minor Changes
+
+- 165092c: Moving JS dependencies from @explorer-1/html to @explorer-1/common
+
 ## 3.3.1
 
 ### Patch Changes
