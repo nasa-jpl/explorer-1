@@ -278,9 +278,15 @@ importers:
 
   packages/common:
     dependencies:
+      '@fancyapps/ui':
+        specifier: ^4.0.26
+        version: 4.0.31
       '@tailwindcss/forms':
         specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.9.2)))
+      lazysizes:
+        specifier: ^5.3.0
+        version: 5.3.2
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.9.2))
@@ -8194,8 +8200,8 @@ packages:
   vue-component-type-helpers@2.0.21:
     resolution: {integrity: sha512-3NaicyZ7N4B6cft4bfb7dOnPbE9CjLcx+6wZWAg5zwszfO4qXRh+U52dN5r5ZZfc6iMaxKCEcoH9CmxxoFZHLg==}
 
-  vue-component-type-helpers@3.0.7:
-    resolution: {integrity: sha512-TvyUcFXmjZcXUvU+r1MOyn4/vv4iF+tPwg5Ig33l/FJ3myZkxeQpzzQMLMFWcQAjr6Xs7BRwVy/TwbmNZUA/4w==}
+  vue-component-type-helpers@3.1.1:
+    resolution: {integrity: sha512-B0kHv7qX6E7+kdc5nsaqjdGZ1KwNKSUQDWGy7XkTYT7wFsOpkEyaJ1Vq79TjwrrtuLRgizrTV7PPuC4rRQo+vw==}
 
   vue-demi@0.14.8:
     resolution: {integrity: sha512-Uuqnk9YE9SsWeReYqK2alDI5YzciATE0r2SkA6iMAtuXvNTMNACJLJEXNXaEy94ECuBe4Sk6RzRU80kjdbIo1Q==}
@@ -10834,7 +10840,7 @@ snapshots:
       storybook: 9.1.6(@testing-library/dom@10.4.1)(msw@2.3.1(typescript@5.5.4))(prettier@3.6.2)(vite@5.3.2(@types/node@20.14.2)(sass@1.77.4)(terser@5.31.1))
       type-fest: 2.19.0
       vue: 3.5.3(typescript@5.5.4)
-      vue-component-type-helpers: 3.0.7
+      vue-component-type-helpers: 3.1.1
 
   '@stylistic/eslint-plugin-js@2.1.0(eslint@9.4.0)':
     dependencies:
@@ -18045,7 +18051,7 @@ snapshots:
 
   vue-component-type-helpers@2.0.21: {}
 
-  vue-component-type-helpers@3.0.7: {}
+  vue-component-type-helpers@3.1.1: {}
 
   vue-demi@0.14.8(vue@3.5.3(typescript@5.5.4)):
     dependencies:
