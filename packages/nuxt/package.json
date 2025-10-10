@@ -60,7 +60,7 @@
     "@nuxt/schema": "^3.11.2",
     "@nuxt/test-utils": "^3.12.1",
     "@types/node": "^20.12.11",
-    "changelogen": "^0.5.5",
+    "changelogen": "^0.6.2",
     "nuxt": "^3.11.2",
     "typescript": "^5.4.5",
     "vue-tsc": "^2.0.6"
