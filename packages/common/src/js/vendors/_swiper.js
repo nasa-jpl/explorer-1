@@ -4,7 +4,7 @@
  */
 import Swiper from 'swiper'
 import { A11y, Navigation, Pagination } from 'swiper/modules'
-import swiperOptions from '@explorer-1/common/src/js/vendors/_swiperOptions.js'
+import swiperOptions from './_swiperOptions.js'
 
 // Register modules globally
 Swiper.use([A11y, Navigation, Pagination])
