@@ -40,7 +40,6 @@
     "@explorer-1/common": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
     "autoprefixer": "^10.4.19",
-    "lazysizes": "^5.3.0",
     "postcss-import": "^16.1.0",
     "typescript": "^5.4.5",
     "vite": "^5.3.1"
