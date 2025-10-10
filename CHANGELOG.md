@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.4.1
+
+### Patch Changes
+
+- 0105dfb: Cleaning up dependencies, fixing swiperOptions for vanilla JS
+
 ## 3.4.0
 
 ### Minor Changes
