@@ -1,4 +1,3 @@
-import 'lazysizes'
 export const BaseImageTemplate = ({
   src,
   srcset,
