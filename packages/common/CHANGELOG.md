@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 1.3.1
+
+### Patch Changes
+
+- 0105dfb: Cleaning up dependencies, fixing swiperOptions for vanilla JS
+
 ## 1.3.0
 
 ### Minor Changes
