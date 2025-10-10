@@ -1,5 +1,11 @@
 # @explorer-1/html
 
+## 0.1.1
+
+### Patch Changes
+
+- 0105dfb: Cleaning up dependencies, fixing swiperOptions for vanilla JS
+
 ## 0.1.0
 
 ### Minor Changes
