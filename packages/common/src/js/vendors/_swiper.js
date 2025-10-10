@@ -14,7 +14,7 @@ export function initMixinCarousel() {
   // 2. Remove 'modules' option (they are registered globally) and the redundant .init() call
   return new Swiper('.MixinCarousel .swiper', {
     ...swiperOptions.MixinCarousel
-  }).init()
+  })
 }
 
 export function initBlockImageCarousel() {
