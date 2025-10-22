@@ -38,7 +38,7 @@
     "@explorer-1/common-storybook": "workspace:*",
     "@explorer-1/html": "workspace:*",
     "@explorer-1/vue": "workspace:*",
-    "@fancyapps/ui": "^4.0.26",
+    "@fancyapps/ui": "^6.1.0",
     "@tailwindcss/forms": "^0.5.7",
     "click-outside-vue3": "^4.0.1",
     "dayjs": "^1.11.11",

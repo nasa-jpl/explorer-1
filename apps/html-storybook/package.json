@@ -30,7 +30,7 @@
     "storybook:update": "npx storybook@latest upgrade --package-manager pnpm"
   },
   "dependencies": {
-    "@fancyapps/ui": "^4.0.26",
+    "@fancyapps/ui": "^6.1.0",
     "@tailwindcss/forms": "^0.5.7",
     "swiper": "^11.1.3"
   },
