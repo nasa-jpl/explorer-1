@@ -11,8 +11,7 @@
   - [Tailwind](#tailwind)
 - [Getting Started](#getting-started)
 - [Contributing Developers](#contributing-developers)
-- [V2 to V3 Migration Guide (WIP)](#v2-to-v3-migration-guide-wip)
-  - [Change imports](#change-imports)
+- [V2 to V3 Migration](#v2-to-v3-migration)
 
 ## What's included
 
@@ -48,9 +47,6 @@ There are two ways to integrate Explorer-1 with your project. You can either 1) 
 
 See the [contributing guide](CONTRIBUTING.md) for guidance.
 
-## V2 to V3 Migration Guide (WIP)
+## V2 to V3 Migration
 
-### Change imports
-
-- `@nasa-jpl/explorer-1` change to `@explorer-1/common`
-- change includes like `require('@nasa-jpl/explorer-1/src/js/vendors/_swiper.js');` to
+See the [Migration Guide](MIGRATION.md).
