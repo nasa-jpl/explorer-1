@@ -49,6 +49,8 @@
     "@storybook/html-vite": "^9.1.15",
     "@whitespace/storybook-addon-html": "^8.0.2",
     "autoprefixer": "^10.4.19",
+    "eslint-plugin-storybook": "9.1.15",
+    "js-beautify": "^1.15.4",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",
@@ -59,8 +61,7 @@
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5",
-    "vite": "^5.3.1",
-    "eslint-plugin-storybook": "9.1.15"
+    "vite": "^5.3.1"
   },
   "overrides": {
     "react-remove-scroll": {
