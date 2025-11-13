@@ -1,6 +1,6 @@
 # Migration Guide: Upgrading to Explorer-1 v3
 
-This document outlines the changes and steps required to update from v2 to **Explorer-1 v3**. The update includes configuration changes, new static asset handling procedures, and several breaking changes in components.
+This document outlines the changes and steps required to update from v2 to **Explorer-1 v3**. The update includes a new package structure, configuration changes, and several breaking changes.
 
 ## Configuration & Dependency Updates
 
@@ -11,7 +11,7 @@ The `@nasa-jpl/explorer-1` project has been restructured into a monorepo under t
 - **Old Package:** `@nasa-jpl/explorer-1` (Deprecated)
 - **New Main Package:** **`@explorer-1/common`**
 
-#### Action Required
+### Action Required
 
 You must update your project to remove the old package and install the new one.
 
@@ -20,35 +20,39 @@ npm rm @nasa-jpl/explorer-1
 npm install --save @explorer-1/common
 ```
 
-The `dist` files are now location in `@explorer-1/common/dist`:
+The `dist` files are now **located** in `@explorer-1/common/dist`. Key file paths include:
 
 - `@explorer-1/common/dist/assets/css/explorer-1.min.css`
 - `@explorer-1/common/dist/assets/css/font-face.css`
-- `@explorer-1/common/dist/assets/fonts`
+- `@explorer--1/common/dist/assets/fonts/`
 - `@explorer-1/common/dist/js/explorer-1.min.js`
 
-[Learn more about the `@explorer-1/common` package](packages/common/README.md).
+_For more details, see the [`@explorer-1/common` README](packages/common/README.md)._
 
 ---
 
-## Breaking Component Changes
+## Breaking Changes
 
-Several components have received markup or prop changes. The markup for the following components will need to be updated.
+### Global CSS Change
 
 - **`.ThemeInternal` class**
-  - If using the internal theme, you must add the `ThemeInternal` class to your main wrapper element (`<body>` works)
+  - If using the internal theme, you must now add the `ThemeInternal` class to your main wrapper element (e.g., the `<body>` tag).
+
+### Component Updates
+
+The markup for the following components has changed and will need to be updated in your templates.
 
 - **`BaseLink`**
   - Class assignment logic has been completely refactored. All dynamic classes are now assigned directly within the component's template.
 
 - **`BaseImage`**
-  - The `data-src` attribute has been removed. Lazy-loading logic (if any) has changed; use the standard `src` attribute.
+  - The `data-src` attribute has been removed. Use the standard `src` attribute.
 
 - **`KeyPoints`**
   - The internal markup for each list item (`<li>`) has changed.
 
-* **`AccordionItem`**
+- **`AccordionItem`**
   - The markup for the component's `header` section has been modified.
 
-* **`BlockCardGridItem`**
+- **`BlockCardGridItem`**
   - The component now includes a link option with a CSS-driven arrow effect.
