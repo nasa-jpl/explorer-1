@@ -197,22 +197,24 @@ export const ThemeWww = {
   },
   gray: {
     '--color-primary': foundationColors['jpl-red-dark'],
-    '--color-primary-lighter': foundationColors['jpl-red-light'],
+    '--color-primary-lighter': foundationColors['jpl-red'],
     '--color-primary-light': foundationColors['jpl-red'],
     '--color-primary-dark': foundationColors['jpl-red-darker'],
     '--color-primary-darker': foundationColors['jpl-red-darker'],
-    '--color-secondary': 'var(--color-secondary-dark)',
-    '--color-secondary-lighter': 'var(--color-primary-light)',
-    '--color-secondary-light': 'var(--color-primary)',
-    '--color-secondary-dark': 'var(--color-primary-darker)',
+    '--color-secondary': 'var(--color-primary)',
+    '--color-secondary-lighter': 'var(--color-primary-lighter)',
+    '--color-secondary-light': 'var(--color-primary-light)',
+    '--color-secondary-dark': 'var(--color-primary-dark)',
     '--color-secondary-darker': 'var(--color-primary-darker)',
-    '--color-action': 'var(--color-action-dark)',
-    '--color-action-lighter': 'var(--color-action-light)',
-    '--color-action-light': 'var(--color-action)',
-    '--color-action-dark': 'var(--color-primary-darker)',
-    '--color-action-darker': 'var(--color-primary-darker)'
+    '--color-action': 'var(--color-secondary)',
+    '--color-action-lighter': 'var(--color-secondary-lighter)',
+    '--color-action-light': 'var(--color-secondary-light)',
+    '--color-action-dark': 'var(--color-secondary-dark)',
+    '--color-action-darker': 'var(--color-secondary-darker)'
   }
 }
+
+// asdfasdfasdfasd
 
 export const ThemeEdu = {
   default: {
@@ -264,49 +266,49 @@ export const ThemeEdu = {
 
 export const ThemeInternal = {
   default: {
-    '--color-primary': foundationColors['jpl-teal'],
-    '--color-primary-lighter': foundationColors['jpl-teal-lighter'],
-    '--color-primary-light': foundationColors['jpl-teal-light'],
-    '--color-primary-dark': foundationColors['jpl-teal-dark'],
-    '--color-primary-darker': foundationColors['jpl-teal-darker'],
-    '--color-secondary': 'var(--color-primary)',
-    '--color-secondary-light': 'var(--color-primary-light)',
-    '--color-secondary-dark': 'var(--color-primary-dark)',
-    '--color-secondary-darker': 'var(--color-primary-darker)',
-    '--color-action': 'var(--color-primary)',
-    '--color-action-light': 'var(--color-primary-light)',
-    '--color-action-dark': 'var(--color-primary-dark)',
-    '--color-action-darker': 'var(--color-primary-darker)'
+    '--color-primary': foundationColors['jpl-red'],
+    '--color-primary-lighter': foundationColors['jpl-red-lighter'],
+    '--color-primary-light': foundationColors['jpl-red-light'],
+    '--color-primary-dark': foundationColors['jpl-red-dark'],
+    '--color-primary-darker': foundationColors['jpl-red-darker'],
+    '--color-secondary': foundationColors['jpl-teal'],
+    '--color-secondary-light': foundationColors['jpl-teal-light'],
+    '--color-secondary-dark': foundationColors['jpl-teal-dark'],
+    '--color-secondary-darker': foundationColors['jpl-teal-darker'],
+    '--color-action': 'var(--color-secondary)',
+    '--color-action-light': 'var(--color-secondary-light)',
+    '--color-action-dark': 'var(--color-secondary-dark)',
+    '--color-action-darker': 'var(--color-secondary-darker)'
   },
   dark: {
-    '--color-primary': foundationColors['jpl-teal-light'],
-    '--color-primary-lighter': foundationColors['jpl-teal-lighter'],
-    '--color-primary-light': foundationColors['jpl-teal-light'],
-    '--color-primary-dark': foundationColors['jpl-teal'],
-    '--color-primary-darker': foundationColors['jpl-teal-dark'],
-    '--color-secondary': 'var(--color-primary)',
-    '--color-secondary-light': 'var(--color-primary-light)',
-    '--color-secondary-dark': 'var(--color-primary-dark)',
-    '--color-secondary-darker': 'var(--color-primary-darker)',
-    '--color-action': 'var(--color-primary)',
-    '--color-action-light': 'var(--color-primary-light)',
-    '--color-action-dark': 'var(--color-primary-dark)',
-    '--color-action-darker': 'var(--color-primary-darker)'
+    '--color-primary': foundationColors['jpl-red-light'],
+    '--color-primary-lighter': foundationColors['jpl-red-lighter'],
+    '--color-primary-light': foundationColors['jpl-red-light'],
+    '--color-primary-dark': foundationColors['jpl-red'],
+    '--color-primary-darker': foundationColors['jpl-red-dark'],
+    '--color-secondary': foundationColors['jpl-teal-light'],
+    '--color-secondary-light': foundationColors['jpl-teal-light'],
+    '--color-secondary-dark': foundationColors['jpl-teal'],
+    '--color-secondary-darker': foundationColors['jpl-teal-dark'],
+    '--color-action': 'var(--color-secondary)',
+    '--color-action-light': 'var(--color-secondary-light)',
+    '--color-action-dark': 'var(--color-secondary-dark)',
+    '--color-action-darker': 'var(--color-secondary-darker)'
   },
   gray: {
-    '--color-primary': foundationColors['jpl-teal-dark'],
-    '--color-primary-lighter': foundationColors['jpl-teal-light'],
-    '--color-primary-light': foundationColors['jpl-teal'],
-    '--color-primary-dark': foundationColors['jpl-teal-darker'],
-    '--color-primary-darker': foundationColors['jpl-teal-darker'],
-    '--color-secondary': 'var(--color-primary)',
-    '--color-secondary-light': 'var(--color-primary-light)',
-    '--color-secondary-dark': 'var(--color-primary-dark)',
-    '--color-secondary-darker': 'var(--color-primary-darker)',
-    '--color-action': 'var(--color-primary)',
-    '--color-action-light': 'var(--color-primary-light)',
-    '--color-action-dark': 'var(--color-primary-dark)',
-    '--color-action-darker': 'var(--color-primary-darker)'
+    '--color-primary': foundationColors['jpl-red-dark'],
+    '--color-primary-lighter': foundationColors['jpl-red-light'],
+    '--color-primary-light': foundationColors['jpl-red'],
+    '--color-primary-dark': foundationColors['jpl-red-darker'],
+    '--color-primary-darker': foundationColors['jpl-red-darker'],
+    '--color-secondary': foundationColors['jpl-teal-dark'],
+    '--color-secondary-light': foundationColors['jpl-teal'],
+    '--color-secondary-dark': foundationColors['jpl-teal-darker'],
+    '--color-secondary-darker': foundationColors['jpl-teal-darker'],
+    '--color-action': 'var(--color-secondary)',
+    '--color-action-light': 'var(--color-secondary-light)',
+    '--color-action-dark': 'var(--color-secondary-dark)',
+    '--color-action-darker': 'var(--color-secondary-darker)'
   }
 }
 
