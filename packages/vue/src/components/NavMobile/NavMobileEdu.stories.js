@@ -6,18 +6,24 @@ export default {
   component: NavMobile,
   tags: ['!autodocs'],
   excludeStories: /.*Data$/,
+
   parameters: {
     layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'mobile2'
-    },
+
     docs: {
       description: {
         component: 'Doesn\'t look like EDU? Be sure to select "EDU Theme" in the toolbar dropdown.'
       }
     }
+  },
+
+  globals: {
+    viewport: {
+      value: 'mobile2',
+      isRotated: false
+    }
   }
-}
+};
 
 // data
 export const NavMobileData = {

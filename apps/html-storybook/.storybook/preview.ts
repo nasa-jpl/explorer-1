@@ -117,7 +117,7 @@ const preview = {
     },
     // add custom viewports to the toolbar
     viewport: {
-      viewports: {
+      options: {
         ...MINIMAL_VIEWPORTS,
         ...customViewports
       }
@@ -138,14 +138,19 @@ const preview = {
       }
     },
     backgrounds: {
-      default: 'light',
       grid: {
         disable: true
       }
     }
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
+
+  initialGlobals: {
+    backgrounds: {
+      value: 'light'
+    }
+  }
 }
 
 export default preview
