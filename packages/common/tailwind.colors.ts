@@ -100,6 +100,38 @@ export const colorLibrary = {
     900: 'rgb(42, 6, 31)' // #2a061f
   }
 }
+type ColorLibrary = typeof colorLibrary
+
+/**
+ * Flattens the a color library object into a single-level
+ * object with keys like 'color-shade' (e.g., 'gray-100').
+ * @param {object} library - The colorLibrary object.
+ * @returns {object} A new flat object.
+ */
+export function flattenColorLibrary(library: ColorLibrary): Record<string, string> {
+  const colors: Record<string, string> = {}
+  ;(Object.keys(library) as Array<keyof ColorLibrary>).forEach((colorName) => {
+    const value = library[colorName]
+    // If the value is a string, it's a top-level color (like white, black)
+    if (typeof value === 'string') {
+      colors[colorName] = value
+    }
+    // If it's an object, it's a color category with shades
+    else if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      ;(Object.keys(value) as unknown as Array<keyof typeof value>).forEach((shade) => {
+        // Create the new key, e.g., "gray-100"
+        const newKey = `${colorName}-${shade}`
+        colors[newKey] = value[shade]
+      })
+    }
+  })
+  return colors
+}
+export const flattenedColorLibrary = flattenColorLibrary(colorLibrary)
+
+/**
+ * Aliased Colors used for theming
+ * */
 
 export const jplRed = {
   lightest: colorLibrary.red[200],
@@ -198,19 +230,18 @@ export const foundationColors = {
   'jpl-magenta-light': jplMagenta.light,
   'jpl-magenta': jplMagenta.base,
   'jpl-magenta-dark': jplMagenta.dark,
-  'jpl-magenta-darker': jplMagenta.darker,
-  green: '#14C97A'
+  'jpl-magenta-darker': jplMagenta.darker
 }
 
 export const grayScaleColors = {
-  white: colorLibrary.white,
+  // white: colorLibrary.white,
   'off-white': colorLibrary.gray[100],
   'gray-light': colorLibrary.gray[100],
   'gray-light-mid': colorLibrary.gray[300],
   'gray-mid': colorLibrary.gray[400],
   'gray-mid-dark': colorLibrary.gray[500],
-  'gray-dark': colorLibrary.gray[800],
-  black: colorLibrary.black
+  'gray-dark': colorLibrary.gray[800]
+  // black: colorLibrary.black
 }
 
 export const semanticColors = {
@@ -417,7 +448,5 @@ export default {
   ...grayScaleColors,
   ...semanticColors,
   ...socialColors,
-  ...themeVariantColors,
-  transparent: 'transparent',
-  current: 'currentColor'
+  ...themeVariantColors
 }

@@ -1,165 +1,546 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
 import { ColorRow } from './../utils/ColorRow'
 
-<Meta title="Foundations/Colors" />
+<Meta title="Foundations/Colors/Full Library" />
 
-# Colors
+# Full Color Library
 
-- [Brand Colors](#brand-colors)
-- [Functional Gray Tones](#functional-gray-tones)
-- [Semantic Colors](#semantic-colors)
-- [Tokens](#tokens)
+- [<div class="inline-block bg-red-500 p-[.35rem]"></div> JPL Red](#jpl-red)
+- [<div class="inline-block bg-orange-500 p-[.35rem]"></div> Mars Orange](#mars-orange)
+- [<div class="inline-block bg-gold-500 p-[.35rem]"></div> Mylar Gold](#mylar-gold)
+- [<div class="inline-block bg-green-500 p-[.35rem]"></div> Vegetation Green](#vegetation-green)
+- [<div class="inline-block bg-blue-500 p-[.35rem]"></div> Earth Blue](#earth-blue)
+- [<div class="inline-block bg-purple-500 p-[.35rem]"></div> Universe Purple](#universe-purple)
+- [<div class="inline-block bg-magenta-500 p-[.35rem]"></div> Cosmic Magenta](#cosmic-magenta)
+- [<div class="inline-block bg-gray-500 p-[.35rem]"></div> Gray](#gray)
 
-<span id="brand-colors"></span>
+<span id="jpl-red"></span>
 
-## Brand Colors
+## JPL Red
 
-<table>
+<table className="w-full">
   <thead>
     <tr>
-      <th style={{ width: '150px' }}>Color</th>
+      <th style={{ width: '12rem' }}>Color</th>
       <th>Name</th>
-      <th>Token</th>
-      <th>Status</th>
+      <th style={{ width: '8rem' }}>Token</th>
+      <th style={{ width: '6rem' }}>Hex</th>
+      <th style={{ width: '13rem' }}>RGB</th>
     </tr>
   </thead>
   <tbody>
-    {/* Pass the class name to the 'swatchClass' prop.
-      (I'm assuming your class is named 'jpl-red-lighter' or 'bg-jpl-red-lighter')
-    */}
+    {/* --- JPL Red --- */}
     <ColorRow
-      swatchClass="bg-jpl-red-lighter"
-      name="JPL Red Lighter"
-      token="jpl-red-lighter"
+      swatchClass="bg-red-100"
+      name="JPL Red 100"
+      token="red-100"
     />
     <ColorRow
-      swatchClass="bg-jpl-red-light"
-      name="JPL Red Light"
-      token="jpl-red-light"
+      swatchClass="bg-red-200"
+      name="JPL Red 200"
+      token="red-200"
     />
     <ColorRow
-      swatchClass="bg-jpl-red"
-      name="JPL Red"
-      token="jpl-red"
+      swatchClass="bg-red-300"
+      name="JPL Red 300"
+      token="red-300"
     />
     <ColorRow
-      swatchClass="bg-jpl-red-dark"
-      name="JPL Red Dark"
-      token="jpl-red-dark"
+      swatchClass="bg-red-400"
+      name="JPL Red 400"
+      token="red-400"
     />
     <ColorRow
-      swatchClass="bg-jpl-red-darker"
-      name="JPL Red Darker"
-      token="jpl-red-darker"
+      swatchClass="bg-red-500"
+      name="JPL Red 500"
+      token="red-500"
     />
     <ColorRow
-      swatchClass="bg-jpl-orange-lighter"
-      name="JPL Orange Lighter"
-      token="jpl-orange-lighter"
+      swatchClass="bg-red-600"
+      name="JPL Red 600"
+      token="red-600"
     />
-    {/* ... etc ... */}
+    <ColorRow
+      swatchClass="bg-red-700"
+      name="JPL Red 700"
+      token="red-700"
+    />
+    <ColorRow
+      swatchClass="bg-red-800"
+      name="JPL Red 800"
+      token="red-800"
+    />
+    <ColorRow
+      swatchClass="bg-red-900"
+      name="JPL Red 900"
+      token="red-900"
+    />
   </tbody>
 </table>
 
-Each of these foundation colors has specific usage scenarios.
+<span id="mars-orange"></span>
 
-| Color                                              | Name                | Token                 |
-| :------------------------------------------------- | :------------------ | :-------------------- |
-| <div className="bg-jpl-red-lighter p-4"></div>     | JPL Red Lighter     | `jpl-red-lighter`     |
-| <div className="bg-jpl-red-light p-4"></div>       | JPL Red Light       | `jpl-red-light`       |
-| <div className="bg-jpl-red p-4"></div>             | JPL Red             | `jpl-red`             |
-| <div className="bg-jpl-red-dark p-4"></div>        | JPL Red Dark        | `jpl-red-dark`        |
-| <div className="bg-jpl-red-darker p-4"></div>      | JPL Red Darker      | `jpl-red-darker`      |
-| <div className="bg-jpl-orange-lighter p-4"></div>  | JPL Orange Lighter  | `jpl-orange-lighter`  |
-| <div className="bg-jpl-orange-light p-4"></div>    | JPL Orange Light    | `jpl-orange-light`    |
-| <div className="bg-jpl-orange p-4"></div>          | JPL Orange          | `jpl-orange`          |
-| <div className="bg-jpl-orange-dark p-4"></div>     | JPL Orange Dark     | `jpl-orange-dark`     |
-| <div className="bg-jpl-orange-darker p-4"></div>   | JPL Orange Darker   | `jpl-orange-darker`   |
-| <div className="bg-jpl-yellow-lighter p-4"></div>  | JPL Yellow Lighter  | `jpl-yellow-lighter`  |
-| <div className="bg-jpl-yellow-light p-4"></div>    | JPL Yellow Light    | `jpl-yellow-light`    |
-| <div className="bg-jpl-yellow p-4"></div>          | JPL Yellow          | `jpl-yellow`          |
-| <div className="bg-jpl-yellow-dark p-4"></div>     | JPL Yellow Dark     | `jpl-yellow-dark`     |
-| <div className="bg-jpl-yellow-darker p-4"></div>   | JPL Yellow Darker   | `jpl-yellow-darker`   |
-| <div className="bg-jpl-teal-lighter p-4"></div>    | JPL Teal Lighter    | `jpl-teal-lighter`    |
-| <div className="bg-jpl-teal-light p-4"></div>      | JPL Teal Light      | `jpl-teal-light`      |
-| <div className="bg-jpl-teal p-4"></div>            | JPL Teal            | `jpl-teal`            |
-| <div className="bg-jpl-teal-dark p-4"></div>       | JPL Teal Dark       | `jpl-teal-dark`       |
-| <div className="bg-jpl-teal-darker p-4"></div>     | JPL Teal Darker     | `jpl-teal-darker`     |
-| <div className="bg-jpl-blue-lighter p-4"></div>    | JPL Blue Lighter    | `jpl-blue-lighter`    |
-| <div className="bg-jpl-blue-light p-4"></div>      | JPL Blue Light      | `jpl-blue-light`      |
-| <div className="bg-jpl-blue p-4"></div>            | JPL Blue            | `jpl-blue`            |
-| <div className="bg-jpl-blue-dark p-4"></div>       | JPL Blue Dark       | `jpl-blue-dark`       |
-| <div className="bg-jpl-blue-darker p-4"></div>     | JPL Blue Darker     | `jpl-blue-darker`     |
-| <div className="bg-jpl-violet-lighter p-4"></div>  | JPL Violet Lighter  | `jpl-violet-lighter`  |
-| <div className="bg-jpl-violet-light p-4"></div>    | JPL Violet Light    | `jpl-violet-light`    |
-| <div className="bg-jpl-violet p-4"></div>          | JPL Violet          | `jpl-violet`          |
-| <div className="bg-jpl-violet-dark p-4"></div>     | JPL Violet Dark     | `jpl-violet-dark`     |
-| <div className="bg-jpl-violet-darker p-4"></div>   | JPL Violet Darker   | `jpl-violet-darker`   |
-| <div className="bg-jpl-magenta-lighter p-4"></div> | JPL Magenta Lighter | `jpl-magenta-lighter` |
-| <div className="bg-jpl-magenta-light p-4"></div>   | JPL Magenta Light   | `jpl-magenta-light`   |
-| <div className="bg-jpl-magenta p-4"></div>         | JPL Magenta         | `jpl-magenta`         |
-| <div className="bg-jpl-magenta-dark p-4"></div>    | JPL Magenta Dark    | `jpl-magenta-dark`    |
-| <div className="bg-jpl-magenta-darker p-4"></div>  | JPL Magenta Darker  | `jpl-magenta-darker`  |
+## Mars Orange
 
-<span id="functional-gray-tones"></span>
+<table className="w-full">
+  <thead>
+    <tr>
+      <th style={{ width: '12rem' }}>Color</th>
+      <th>Name</th>
+      <th style={{ width: '8rem' }}>Token</th>
+      <th style={{ width: '6rem' }}>Hex</th>
+      <th style={{ width: '13rem' }}>RGB</th>
+    </tr>
+  </thead>
+  <tbody>
+    {/* --- Mars Orange --- */}
+    <ColorRow
+      swatchClass="bg-orange-100"
+      name="Mars Orange 100"
+      token="orange-100"
+    />
+    <ColorRow
+      swatchClass="bg-orange-200"
+      name="Mars Orange 200"
+      token="orange-200"
+    />
+    <ColorRow
+      swatchClass="bg-orange-300"
+      name="Mars Orange 300"
+      token="orange-300"
+    />
+    <ColorRow
+      swatchClass="bg-orange-400"
+      name="Mars Orange 400"
+      token="orange-400"
+    />
+    <ColorRow
+      swatchClass="bg-orange-500"
+      name="Mars Orange 500"
+      token="orange-500"
+    />
+    <ColorRow
+      swatchClass="bg-orange-600"
+      name="Mars Orange 600"
+      token="orange-600"
+    />
+    <ColorRow
+      swatchClass="bg-orange-700"
+      name="Mars Orange 700"
+      token="orange-700"
+    />
+    <ColorRow
+      swatchClass="bg-orange-800"
+      name="Mars Orange 800"
+      token="orange-800"
+    />
+    <ColorRow
+      swatchClass="bg-orange-900"
+      name="Mars Orange 900"
+      token="orange-900"
+    />
+  </tbody>
+</table>
 
-## Functional Gray Tones
+<span id="mylar-gold"></span>
 
-Grayscale colors are used throughout the site for text and layout.
+## Mylar Gold
 
-| Color                                         | Name           | Token            | Value     |
-| :-------------------------------------------- | :------------- | :--------------- | :-------- |
-| <div className="bg-white p-4"></div>          | White          | `white`          | `#FFFFFF` |
-| <div className="bg-off-white p-4"></div>      | Off White      | `off-white`      | `#FAFAFA` |
-| <div className="bg-gray-light p-4"></div>     | Gray Light     | `gray-light`     | `#F5F5F5` |
-| <div className="bg-gray-light-mid p-4"></div> | Gray Light Mid | `gray-light-mid` | `#D8D8D8` |
-| <div className="bg-gray-mid p-4"></div>       | Gray Mid       | `gray-mid`       | `#949494` |
-| <div className="bg-gray-mid-dark p-4"></div>  | Gray Mid Dark  | `gray-mid-dark`  | `#6F6F6F` |
-| <div className="bg-gray-dark p-4"></div>      | Gray Dark      | `gray-dark`      | `#222222` |
-| <div className="bg-black p-4"></div>          | Black          | `black`          | `#000000` |
+<table className="w-full">
+  <thead>
+    <tr>
+      <th style={{ width: '12rem' }}>Color</th>
+      <th>Name</th>
+      <th style={{ width: '8rem' }}>Token</th>
+      <th style={{ width: '6rem' }}>Hex</th>
+      <th style={{ width: '13rem' }}>RGB</th>
+    </tr>
+  </thead>
+  <tbody>
 
-Although several gradations are available via Tailwind CSS classNamees, make sure to only use the intended colors for text:
+    {/* --- Mylar Gold --- */}
+    <ColorRow
+      swatchClass="bg-gold-100"
+      name="Mylar Gold 100"
+      token="gold-100"
+    />
+    <ColorRow
+      swatchClass="bg-gold-200"
+      name="Mylar Gold 200"
+      token="gold-200"
+    />
+    <ColorRow
+      swatchClass="bg-gold-300"
+      name="Mylar Gold 300"
+      token="gold-300"
+    />
+    <ColorRow
+      swatchClass="bg-gold-400"
+      name="Mylar Gold 400"
+      token="gold-400"
+    />
+    <ColorRow
+      swatchClass="bg-gold-500"
+      name="Mylar Gold 500"
+      token="gold-500"
+    />
+    <ColorRow
+      swatchClass="bg-gold-600"
+      name="Mylar Gold 600"
+      token="gold-600"
+    />
+    <ColorRow
+      swatchClass="bg-gold-700"
+      name="Mylar Gold 700"
+      token="gold-700"
+    />
+    <ColorRow
+      swatchClass="bg-gold-800"
+      name="Mylar Gold 800"
+      token="gold-800"
+    />
+    <ColorRow
+      swatchClass="bg-gold-900"
+      name="Mylar Gold 900"
+      token="gold-900"
+    />
 
-- <div className="w-3 h-3 bg-gray-dark inline-block"></div>
-  <code>.text-gray-dark</code>
-- <div className="w-3 h-3 bg-gray-mid-dark inline-block"></div>
-  <code>.text-gray-mid-dark</code>
-- <div className="w-3 h-3 bg-gray-mid inline-block"></div>
-  <code>.text-gray-mid</code>
+  </tbody>
+</table>
 
-<span id="semantic-colors"></span>
+<span id="vegetation-green"></span>
 
-## Semantic Colors
+## Vegetation Green
 
-Recommended for use in forms, alerts, or any element meant to communicate a state.
+<table className="w-full">
+  <thead>
+    <tr>
+      <th style={{ width: '12rem' }}>Color</th>
+      <th>Name</th>
+      <th style={{ width: '8rem' }}>Token</th>
+      <th style={{ width: '6rem' }}>Hex</th>
+      <th style={{ width: '13rem' }}>RGB</th>
+    </tr>
+  </thead>
+  <tbody>
 
-**Note:** Color should never be the _only_ means used to convey state information;
-it must always be accompanied by text or iconography that makes it clear for colorblind users.
+    <ColorRow
+      swatchClass="bg-green-100"
+      name="Vegetation Green 100"
+      token="green-100"
+    />
+    <ColorRow
+      swatchClass="bg-green-200"
+      name="Vegetation Green 200"
+      token="green-200"
+    />
+    <ColorRow
+      swatchClass="bg-green-300"
+      name="Vegetation Green 300"
+      token="green-300"
+    />
+    <ColorRow
+      swatchClass="bg-green-400"
+      name="Vegetation Green 400"
+      token="green-400"
+    />
+    <ColorRow
+      swatchClass="bg-green-500"
+      name="Vegetation Green 500"
+      token="green-500"
+    />
+    <ColorRow
+      swatchClass="bg-green-600"
+      name="Vegetation Green 600"
+      token="green-600"
+    />
+    <ColorRow
+      swatchClass="bg-green-700"
+      name="Vegetation Green 700"
+      token="green-700"
+    />
+    <ColorRow
+      swatchClass="bg-green-800"
+      name="Vegetation Green 800"
+      token="green-800"
+    />
+    <ColorRow
+      swatchClass="bg-green-900"
+      name="Vegetation Green 900"
+      token="green-900"
+    />
 
-| Color                                        | Name          | Token           |
-| :------------------------------------------- | :------------ | :-------------- |
-| <div className="bg-warning-light p-4"></div> | Alert Light   | `alert-light`   |
-| <div className="bg-warning p-4"></div>       | Alert         | `alert`         |
-| <div className="bg-warning-dark p-4"></div>  | Alert Dark    | `alert-dark`    |
-| <div className="bg-error-light p-4"></div>   | Error Light   | `error-light`   |
-| <div className="bg-error p-4"></div>         | Error         | `error`         |
-| <div className="bg-error-dark p-4"></div>    | Error Dark    | `error-dark`    |
-| <div className="bg-success-light p-4"></div> | Success Light | `success-light` |
-| <div className="bg-success p-4"></div>       | Success       | `success`       |
-| <div className="bg-success-dark p-4"></div>  | Success Dark  | `success-dark`  |
-| <div className="bg-focus-light p-4"></div>   | Focus Light   | `focus-light`   |
-| <div className="bg-focus p-4"></div>         | Focus         | `focus`         |
-| <div className="bg-focus-dark p-4"></div>    | Focus Dark    | `focus-dark`    |
-| <div className="bg-disabled p-4"></div>      | Disabled      | `disabled`      |
+  </tbody>
+</table>
 
-<span id="tokens"></span>
+<span id="earth-blue"></span>
 
-## Tokens
+## Earth Blue
 
-All colors are available via Tailwind CSS classNamees using tokens:
+<table className="w-full">
+  <thead>
+    <tr>
+      <th style={{ width: '12rem' }}>Color</th>
+      <th>Name</th>
+      <th style={{ width: '8rem' }}>Token</th>
+      <th style={{ width: '6rem' }}>Hex</th>
+      <th style={{ width: '13rem' }}>RGB</th>
+    </tr>
+  </thead>
+  <tbody>
 
-```
-.bg-{token}
-.text-{token}
-.border-{token}
-```
+    {/* --- Earth Blue --- */}
+    <ColorRow
+      swatchClass="bg-blue-100"
+      name="Earth Blue 100"
+      token="blue-100"
+    />
+    <ColorRow
+      swatchClass="bg-blue-200"
+      name="Earth Blue 200"
+      token="blue-200"
+    />
+    <ColorRow
+      swatchClass="bg-blue-300"
+      name="Earth Blue 300"
+      token="blue-300"
+    />
+    <ColorRow
+      swatchClass="bg-blue-400"
+      name="Earth Blue 400"
+      token="blue-400"
+    />
+    <ColorRow
+      swatchClass="bg-blue-500"
+      name="Earth Blue 500"
+      token="blue-500"
+    />
+    <ColorRow
+      swatchClass="bg-blue-600"
+      name="Earth Blue 600"
+      token="blue-600"
+    />
+    <ColorRow
+      swatchClass="bg-blue-700"
+      name="Earth Blue 700"
+      token="blue-700"
+    />
+    <ColorRow
+      swatchClass="bg-blue-800"
+      name="Earth Blue 800"
+      token="blue-800"
+    />
+    <ColorRow
+      swatchClass="bg-blue-900"
+      name="Earth Blue 900"
+      token="blue-900"
+    />
+      </tbody>
+
+</table>
+
+<span id="universe-purple"></span>
+
+## Universe Purple
+
+<table className="w-full">
+  <thead>
+    <tr>
+      <th style={{ width: '12rem' }}>Color</th>
+      <th>Name</th>
+      <th style={{ width: '8rem' }}>Token</th>
+      <th style={{ width: '6rem' }}>Hex</th>
+      <th style={{ width: '13rem' }}>RGB</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {/* --- Universe Purple --- */}
+    <ColorRow
+      swatchClass="bg-purple-100"
+      name="Universe Purple 100"
+      token="purple-100"
+    />
+    <ColorRow
+      swatchClass="bg-purple-200"
+      name="Universe Purple 200"
+      token="purple-200"
+    />
+    <ColorRow
+      swatchClass="bg-purple-300"
+      name="Universe Purple 300"
+      token="purple-300"
+    />
+    <ColorRow
+      swatchClass="bg-purple-400"
+      name="Universe Purple 400"
+      token="purple-400"
+    />
+    <ColorRow
+      swatchClass="bg-purple-500"
+      name="Universe Purple 500"
+      token="purple-500"
+    />
+    <ColorRow
+      swatchClass="bg-purple-600"
+      name="Universe Purple 600"
+      token="purple-600"
+    />
+    <ColorRow
+      swatchClass="bg-purple-700"
+      name="Universe Purple 700"
+      token="purple-700"
+    />
+    <ColorRow
+      swatchClass="bg-purple-800"
+      name="Universe Purple 800"
+      token="purple-800"
+    />
+    <ColorRow
+      swatchClass="bg-purple-900"
+      name="Universe Purple 900"
+      token="purple-900"
+    />
+
+  </tbody>
+</table>
+
+<span id="cosmic-magenta"></span>
+
+## Cosmic Magenta
+
+<table className="w-full">
+  <thead>
+    <tr>
+      <th style={{ width: '12rem' }}>Color</th>
+      <th>Name</th>
+      <th style={{ width: '8rem' }}>Token</th>
+      <th style={{ width: '6rem' }}>Hex</th>
+      <th style={{ width: '13rem' }}>RGB</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {/* --- Cosmic Magenta --- */}
+    <ColorRow
+      swatchClass="bg-magenta-100"
+      name="Cosmic Magenta 100"
+      token="magenta-100"
+    />
+    <ColorRow
+      swatchClass="bg-magenta-200"
+      name="Cosmic Magenta 200"
+      token="magenta-200"
+    />
+    <ColorRow
+      swatchClass="bg-magenta-300"
+      name="Cosmic Magenta 300"
+      token="magenta-300"
+    />
+    <ColorRow
+      swatchClass="bg-magenta-400"
+      name="Cosmic Magenta 400"
+      token="magenta-400"
+    />
+    <ColorRow
+      swatchClass="bg-magenta-500"
+      name="Cosmic Magenta 500"
+      token="magenta-500"
+    />
+    <ColorRow
+      swatchClass="bg-magenta-600"
+      name="Cosmic Magenta 600"
+      token="magenta-600"
+    />
+    <ColorRow
+      swatchClass="bg-magenta-700"
+      name="Cosmic Magenta 700"
+      token="magenta-700"
+    />
+    <ColorRow
+      swatchClass="bg-magenta-800"
+      name="Cosmic Magenta 800"
+      token="magenta-800"
+    />
+    <ColorRow
+      swatchClass="bg-magenta-900"
+      name="Cosmic Magenta 900"
+      token="magenta-900"
+    />
+
+  </tbody>
+</table>
+
+<span id="gray"></span>
+
+## Gray
+
+<table className="w-full">
+  <thead>
+    <tr>
+      <th style={{ width: '12rem' }}>Color</th>
+      <th>Name</th>
+      <th style={{ width: '8rem' }}>Token</th>
+      <th style={{ width: '6rem' }}>Hex</th>
+      <th style={{ width: '13rem' }}>RGB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ColorRow
+      swatchClass="bg-white"
+      name="White"
+      token="white"
+    />
+    <ColorRow
+      swatchClass="bg-black"
+      name="Black"
+      token="black"
+    />
+    {/* --- Gray --- */}
+    <ColorRow
+      swatchClass="bg-gray-100"
+      name="Gray 100"
+      token="gray-100"
+    />
+    <ColorRow
+      swatchClass="bg-gray-200"
+      name="Gray 200"
+      token="gray-200"
+    />
+    <ColorRow
+      swatchClass="bg-gray-300"
+      name="Gray 300"
+      token="gray-300"
+    />
+    <ColorRow
+      swatchClass="bg-gray-400"
+      name="Gray 400"
+      token="gray-400"
+    />
+    <ColorRow
+      swatchClass="bg-gray-500"
+      name="Gray 500"
+      token="gray-500"
+    />
+    <ColorRow
+      swatchClass="bg-gray-600"
+      name="Gray 600"
+      token="gray-600"
+    />
+    <ColorRow
+      swatchClass="bg-gray-700"
+      name="Gray 700"
+      token="gray-700"
+    />
+    <ColorRow
+      swatchClass="bg-gray-800"
+      name="Gray 800"
+      token="gray-800"
+    />
+    <ColorRow
+      swatchClass="bg-gray-900"
+      name="Gray 900"
+      token="gray-900"
+    />
+  </tbody>
+</table>

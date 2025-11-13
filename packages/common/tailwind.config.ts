@@ -1,13 +1,16 @@
 import type { Config } from 'tailwindcss'
 import type { CustomThemeConfig } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
+import defaultColors from 'tailwindcss/colors'
 import themeColors, {
   foundationColors,
   grayScaleColors,
   socialColors,
   ThemeWww,
   ThemeEdu,
-  ThemeInternal
+  ThemeInternal,
+  colorLibrary as fullColorLibrary,
+  flattenedColorLibrary as flattenedFullColorLibrary
 } from './tailwind.colors'
 
 /*
@@ -59,7 +62,11 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     },
     padding: '1rem' // use .px-0 as needed to override default padding
   },
-  colors: themeColors,
+  /** Override Tailwind's defaults */
+  colors: {
+    ...defaultColors,
+    ...fullColorLibrary
+  },
   fontFamily: {
     primary: ['Metropolis', ...fallbackFontStack],
     secondary: ['Archivo Narrow', 'Metropolis', ...fallbackFontStack],
@@ -129,7 +136,10 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     150: '1.5'
   },
   gradientColorStops: {
+    ...flattenedFullColorLibrary,
     ...themeColors,
+    transparent: 'transparent',
+    current: 'currentColor',
     // Custom color stops for action hover effects
     'transparent-w50': 'transparent 50%',
     'transparent-w25': 'transparent 25%',
@@ -139,7 +149,7 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     'jpl-red-light-w50': foundationColors['jpl-red-light'] + ' 50%',
     'jpl-teal-w50': foundationColors['jpl-teal'] + ' 50%',
     'jpl-teal-dark-w50': foundationColors['jpl-teal-dark'] + ' 50%',
-    'white-w50': grayScaleColors.white + ' 50%',
+    'white-w50': flattenedFullColorLibrary.white + ' 50%',
     'gray-dark-w50': grayScaleColors['gray-dark'] + ' 50%',
     'facebook-w50': socialColors.facebook + ' 50%',
     'twitter-w50': socialColors.twitter + ' 50%',
@@ -187,6 +197,7 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     boxShadow: {
       jpl: '-4px 5px 60px 0 rgba(0, 0, 0, 0.1)'
     },
+    colors: themeColors,
     inset: {
       // tailwind 2.0 will include these automatically
       '1/2': '50%',
