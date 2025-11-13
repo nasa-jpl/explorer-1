@@ -5,7 +5,7 @@ export default {
   component: BaseImagePlaceholder,
   excludeStories: /.*Data$/,
   decorators: () => ({
-    template: '<div class="w-2/3"><story /></div>'
+    template: '<div id="storyRoot" class="w-3/4"><story /></div>'
   }),
   tags: ['autodocs'],
   parameters: {
@@ -15,6 +15,9 @@ export default {
         components: { BaseImage },
         template: `<BaseImage :object-fit-class="args.BaseImageProps.objectFitClass" :loading="args.BaseImageProps.loading" :src="args.BaseImageProps.src" :srcset="args.BaseImageProps.srcset" :alt="args.BaseImageProps.alt" :width="args.BaseImageProps.width" :height="args.BaseImageProps.height" />`
       }
+    },
+    html: {
+      root: '#storyRoot'
     },
     docs: {
       description: {
@@ -29,6 +32,8 @@ export default {
       options: Object.keys(aspectRatios)
     },
     responsiveAspectRatio: {
+      description:
+        'Custom tailwind classes to combine screen-size directives with aspect ratios. Example: `md:aspect-ratio-four-three lg:aspect-ratio-twelve-nine`. Overrides `aspectRatio` setting.',
       control: { type: 'text' }
     }
   }
@@ -38,7 +43,8 @@ export default {
 export const BaseImagePlaceholderData = {
   aspectRatio: '12:9',
   darkMode: true,
-  transparentMode: false
+  transparentMode: false,
+  noLogo: false
 }
 
 export const WithImage = {
@@ -60,6 +66,7 @@ export const BaseStory = {
   name: 'No Image',
   args: {
     ...BaseImagePlaceholderData,
+
     BaseImageProps: {
       src: '',
       srcset: '',
@@ -68,6 +75,10 @@ export const BaseStory = {
       height: '',
       objectFitClass: 'scaleDown',
       loading: ''
-    }
+    },
+
+    noLogo: true,
+    aspectRatio: '16:9',
+    responsiveAspectRatio: 'md:aspect-ratio-four-three lg:aspect-ratio-twelve-nine'
   }
 }

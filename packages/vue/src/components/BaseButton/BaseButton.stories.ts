@@ -8,11 +8,13 @@ export default {
   tags: ['autodocs'],
   parameters: {
     slots: {
-      default: 'BaseStory slot content'
+      default: 'The contents of the button, usually text. Override with `<template #default>`',
+      icon: 'Appears to the right of the `default` slot. Override with `<template #icon>`',
+      afterIcon: 'Appears to the right of the `icon` slot. Override with `<template #afterIcon>`'
     },
     docs: {
       description: {
-        component: 'Simple button with several style variations.'
+        component: 'Simple button with style variations.'
       }
     }
   },
@@ -20,7 +22,7 @@ export default {
     ariaLabel: {
       type: 'string',
       description:
-        "ARIA label. Recommended if your button label isn't descriptive, or if it only contains an icon."
+        "ARIA label. Recommended if your button text isn't descriptive, or if it only contains an icon."
     },
     variant: {
       type: 'string',
@@ -32,13 +34,18 @@ export default {
       table: {
         defaultValue: { summary: 'default' }
       }
+    },
+    to: {
+      description: 'If populated, a router-link will be generated. Overrides `href`'
+    },
+    click: {
+      type: '@click emit'
     }
   }
 }
 
 export const BaseButtonData = {
-  label: 'Explore',
-  ariaLabel: 'Explore',
+  ariaLabel: 'Link to learn more',
   compact: false,
   disabled: false,
   to: '/',
@@ -63,4 +70,5 @@ export const DarkButton = {
     ...BaseButtonData,
     variant: 'dark'
   }
+  // globals: { themeVariant: 'ThemeVariantDark' }
 }

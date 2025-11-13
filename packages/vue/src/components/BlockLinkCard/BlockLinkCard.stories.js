@@ -25,7 +25,7 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator' // to omit decorators from html output
+      root: '#storyRoot' // to omit decorators from html output
     }
   }
 }
@@ -46,16 +46,14 @@ export const BlockLinkCardData = {
       alt: 'Alt text'
     }
   },
-  headingLevel: 'h2',
-  startDate: undefined,
-  endDate: undefined
+  headingLevel: 'h2'
 }
 
 export const BaseStory = {
   name: 'Single Item',
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   args: {
@@ -66,7 +64,7 @@ export const BaseStory = {
 export const SingleItemCompactStyles = {
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   args: {
@@ -78,7 +76,7 @@ export const SingleItemCompactStyles = {
 export const Compact = {
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   name: 'Compact w/ Custom Props',
@@ -110,7 +108,7 @@ export const Compact = {
 export const EventItem = {
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   args: {
@@ -132,7 +130,7 @@ export const EventItem = {
 export const EventItemWithChip = {
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   args: {
@@ -155,12 +153,13 @@ export const EventItemWithChip = {
 export const EventWithDateNoTime = {
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   args: {
     ...BlockLinkCardData,
     showCalendarChip: true,
+
     data: {
       page: {
         ...BlockLinkCardData.data,
@@ -172,13 +171,17 @@ export const EventWithDateNoTime = {
         ongoing: false,
         eventType: 'Workshop'
       }
-    }
+    },
+
+    startDate: 1760598000000,
+    endDate: 1761894000000,
+    startDatetime: "2025-10-11T00:00:00-08:00'"
   }
 }
 export const EduLesson = {
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   globals: { theme: 'ThemeEdu' },
@@ -208,7 +211,7 @@ export const EduLesson = {
 export const EduExplainerArticle = {
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   globals: { theme: 'ThemeEdu' },
@@ -266,7 +269,7 @@ export const EduCollection = {
   globals: { theme: 'ThemeEdu' },
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   args: {
@@ -336,7 +339,7 @@ export const EduNewsItem = {
   globals: { theme: 'ThemeEdu' },
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   args: {
@@ -355,7 +358,7 @@ export const EduNewsItem = {
 export const ExternalLink = {
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`
     })
   ],
   args: {

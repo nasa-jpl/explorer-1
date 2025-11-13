@@ -5,12 +5,12 @@ export default {
   component: BlockImageComparison,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="container mx-auto"><story/></div>`
+      template: `<div id="storyRoot" class="container mx-auto"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

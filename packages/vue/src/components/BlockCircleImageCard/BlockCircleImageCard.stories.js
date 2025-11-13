@@ -7,7 +7,7 @@ export default {
   tags: ['!autodocs'],
   decorators: [
     () => ({
-      template: `<div class="relative max-w-xl mx-auto container"><story/></div>`
+      template: `<div id="storyRoot" class="relative max-w-xl mx-auto container"><story/></div>`
     })
   ],
   argTypes: {
@@ -18,6 +18,7 @@ export default {
     }
   },
   parameters: {
+    html: { root: '#storyRoot' },
     slots: {
       icon: {
         description: 'Icon slot',

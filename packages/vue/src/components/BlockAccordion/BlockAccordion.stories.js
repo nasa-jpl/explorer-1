@@ -71,9 +71,6 @@ export const BlockAccordionData = {
 export const BaseStory = {
   name: 'BlockAccordion',
   args: {
-    data: {
-      blockType: 'AccordionBlock',
-      accordionItemsHeadingLevel: '3'
-    }
+    data: BlockAccordionData
   }
 }

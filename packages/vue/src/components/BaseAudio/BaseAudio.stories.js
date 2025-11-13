@@ -5,22 +5,20 @@ export default {
   component: BaseAudio,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="bg-black p-4 pb-5"><story/></div>`
+      template: `<div id="storyRoot" class="bg-black p-4 pb-5"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/
 }
 
-// shared data
-export const BaseAudioData = {
+const BaseAudioData = {
   file: '/audio/file_example_MP3_700KB.mp3',
-  autoPlay: false,
-  loop: false
+  autoPlay: false
 }
 
 export const BaseStory = {

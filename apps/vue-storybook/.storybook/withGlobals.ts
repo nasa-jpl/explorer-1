@@ -3,7 +3,7 @@ import { useEffect, useGlobals } from 'storybook/preview-api'
 import { useThemeStore } from './../node_modules/@explorer-1/vue/src/store/theme'
 import { type Explorer1Theme } from '@explorer-1/vue/src/interfaces'
 
-export const getConfig = (config) => {
+export const getConfig = (config: any) => {
   // default values
   let defaultMethod: string = 'css'
   let options: string[] | undefined = undefined
@@ -39,13 +39,13 @@ export const getConfig = (config) => {
   return { options, method }
 }
 
-export const withGlobals = (StoryFn, context) => {
+export const withGlobals = (StoryFn: any, context: any) => {
   const useTheme = useThemeStore()
   // function useTheme((context) => useThemeStore)
   const { themesConfig, variantsConfig } = context.globals
   const { options, method } = getConfig(themesConfig)
   const { options: variantOptions, method: variantMethod } = getConfig(variantsConfig)
-  const [{ theme, variant }, updateGlobals] = useGlobals()
+  const [{ theme, themeVariant }, updateGlobals] = useGlobals()
   const isInDocs = context.viewMode === 'docs'
 
   // disable usage of updateGlobals in docs
@@ -66,11 +66,11 @@ export const withGlobals = (StoryFn, context) => {
       // handle variant
       if (savedVariant) {
         // update theme attribute and save it to local storage
-        updateGlobals({ variant: savedVariant })
+        updateGlobals({ themeVariant: savedVariant })
       } else {
         // set it to the first theme
         if (variantOptions && variantOptions.length > 0) {
-          updateGlobals({ variant: variantOptions[0] })
+          updateGlobals({ themeVariant: variantOptions[0] })
         }
       }
     }, [])
@@ -102,20 +102,21 @@ export const withGlobals = (StoryFn, context) => {
   // handle variant method
   if (variantMethod === 'css') {
     useEffect(() => {
-      if (variant) {
+      console.log(themeVariant)
+      if (themeVariant) {
         const savedVariant = window.localStorage.getItem('data-variant')
         if (savedVariant) document.body.classList.remove(savedVariant)
-        document.body.classList.add(variant)
-        window.localStorage.setItem('data-variant', variant)
+        document.body.classList.add(themeVariant)
+        window.localStorage.setItem('data-variant', themeVariant)
       }
-    }, [variant])
+    }, [themeVariant])
   } else if (variantMethod === 'data-attr') {
     useEffect(() => {
-      if (variant) {
-        document.body.setAttribute('data-variant', variant)
-        window.localStorage.setItem('data-variant', variant)
+      if (themeVariant) {
+        document.body.setAttribute('data-variant', themeVariant)
+        window.localStorage.setItem('data-variant', themeVariant)
       }
-    }, [variant])
+    }, [themeVariant])
   }
 
   return StoryFn()
@@ -145,16 +146,16 @@ export const globalTypes = {
         {
           value: 'defaultTheme',
           icon: 'home',
-          title: 'Default Theme'
+          title: 'Default Theme: defaultTheme'
         },
-        { value: 'ThemeEdu', icon: 'globe', title: 'EDU Theme' },
-        { value: 'ThemeInternal', icon: 'key', title: 'Internal Theme' }
+        { value: 'ThemeEdu', icon: 'globe', title: 'EDU Theme: ThemeEdu' },
+        { value: 'ThemeInternal', icon: 'key', title: 'Internal Theme: ThemeInternal' }
       ],
       dynamicTitle: true
     }
   },
-  variant: {
-    description: 'Theme Variant',
+  themeVariant: {
+    description: 'Variant',
     defaultValue: 'ThemeVariantLight',
     toolbar: {
       title: 'Variant',
@@ -164,10 +165,18 @@ export const globalTypes = {
         {
           value: 'ThemeVariantLight',
           icon: 'circlehollow',
-          title: 'Light Variant'
+          title: 'Light Background: ThemeVariantLight'
         },
-        { value: 'ThemeVariantDark', icon: 'circle', title: 'Dark Variant' },
-        { value: 'ThemeVariantGray', icon: 'contrast', title: 'Gray Variant' }
+        {
+          value: 'ThemeVariantDark',
+          icon: 'circle',
+          title: 'Dark Background: ThemeVariantDark'
+        },
+        {
+          value: 'ThemeVariantGray',
+          icon: 'contrast',
+          title: 'Gray Background: ThemeVariantGray'
+        }
       ],
       dynamicTitle: true
     }

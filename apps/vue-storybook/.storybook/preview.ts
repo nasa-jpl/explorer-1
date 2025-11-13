@@ -122,8 +122,8 @@ const preview: Preview = {
         wrapLines: false // default: true
       },
       transform: (code: any) => {
-        // Remove attributes `data-chromatic` and `ng-reflect`:
-        code = code.replace(/(?:data-chromatic|ng-reflect).*?="[\S\s]*?"/g, '')
+        // Remove attributes `data-chromatic` and `baseimageprops`:
+        code = code.replace(/(?:data-chromatic|baseimageprops|content_type).*?="[\S\s]*?"/g, '')
         // @ts-ignore
         code = beautify.html(code, beautifyHtmlOptions)
         return code

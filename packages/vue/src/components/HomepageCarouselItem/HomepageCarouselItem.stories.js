@@ -6,12 +6,12 @@ export default {
   component: HomepageCarouselItem,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="max-w-screen-3xl mx-auto"><story/></div>`
+      template: `<div id="storyRoot" class="max-w-screen-3xl mx-auto"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     viewMode: 'canvas'
   },

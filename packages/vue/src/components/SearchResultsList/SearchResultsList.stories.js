@@ -5,13 +5,13 @@ export default {
   component: SearchResultsList,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="max-w-screen-xl"><story/></div>`
+      template: `<div id="storyRoot" class="max-w-screen-xl"><story/></div>`
     })
   ],
   tags: ['!autodocs'],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

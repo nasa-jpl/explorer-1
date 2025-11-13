@@ -5,14 +5,14 @@ export default {
   component: PagePressKitIndex,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
+      template: `<div id="storyRoot" class="disable-nav-offset"><story/></div>`
     })
   ],
   tags: ['!autodocs'],
   parameters: {
     layout: 'fullscreen',
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*(Data)$/

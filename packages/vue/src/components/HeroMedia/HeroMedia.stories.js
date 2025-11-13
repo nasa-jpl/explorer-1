@@ -6,7 +6,7 @@ export default {
   component: HeroMedia,
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     docs: {
       description: {

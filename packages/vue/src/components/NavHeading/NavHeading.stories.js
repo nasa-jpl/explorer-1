@@ -6,12 +6,12 @@ export default {
   component: NavHeading,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="p-8 bg-jpl-blue-darker edu:bg-primary-dark"><story/></div>`
+      template: `<div id="storyRoot" class="p-8 bg-jpl-blue-darker edu:bg-primary-dark"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     viewMode: 'docs'
   },
