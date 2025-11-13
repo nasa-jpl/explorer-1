@@ -1,31 +1,12 @@
 import HeroLarge from './HeroLarge.vue'
-import { eduMetadataDictionary } from './../../constants'
 
 export default {
   title: 'Components/Heroes/Large',
   component: HeroLarge,
+  tags: ['heroes'],
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'canvas'
-  },
-  argTypes: {
-    customPill: {
-      type: { name: 'string', required: false },
-      description: 'Text for pill (overrides label)'
-    },
-    customPillType: {
-      type: { name: 'string', required: false },
-      control: { type: 'select' },
-      options: Object.keys(eduMetadataDictionary),
-      description:
-        'Maps to EDU resource types. Label is replaced with a color-themed "pill." Must use with `.ThemeEdu`'
-    },
-    hasOverlay: {
-      type: { name: 'boolean' },
-      control: { type: 'boolean' },
-      description:
-        'If secondary nav is also on this page, more space will be added above the hero text'
-    }
   }
 }
 

@@ -24,7 +24,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import { BlockData } from './../../interfaces.ts'
 import BlockHeading from './../BlockHeading/BlockHeading.vue'
 import BlockText from './../BlockText/BlockText.vue'
 
@@ -36,7 +37,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<BlockData>,
       required: false
     }
   }

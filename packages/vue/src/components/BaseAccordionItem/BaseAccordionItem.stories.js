@@ -3,9 +3,6 @@ export default {
   title: 'Components/Base/BaseAccordionItem',
   component: BaseAccordionItem,
   argTypes: {
-    headingLevel: {
-      control: { type: 'select' }
-    },
     // slots
     header: {
       control: false

@@ -3,6 +3,7 @@ import BlockListCards from './BlockListCards.vue'
 export default {
   title: 'Components/Blocks/BlockListCards',
   component: BlockListCards,
+  tags: ['wagtail-blocks', 'listings'],
   excludeStories: /.*Data$/
 }
 

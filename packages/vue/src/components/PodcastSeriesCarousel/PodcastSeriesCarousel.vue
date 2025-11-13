@@ -52,6 +52,7 @@
   </div>
 </template>
 <script lang="ts">
+/** A tabbed carousel of podcast seasons based on series. If a season `id` is provided, the carousel will default to showing that season. If the user is currently on an episode page within the displayed season, that episode will be the active slide in the carousel. */
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'

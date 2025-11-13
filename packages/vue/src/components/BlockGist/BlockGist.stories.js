@@ -3,6 +3,7 @@ import BlockGist from './BlockGist.vue'
 export default {
   title: 'Components/Blocks/BlockGist',
   component: BlockGist,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

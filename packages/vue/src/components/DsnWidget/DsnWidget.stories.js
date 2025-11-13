@@ -3,12 +3,8 @@ import DsnWidget from './DsnWidget.vue'
 export default {
   title: 'Components/WWW/DsnWidget',
   component: DsnWidget,
-  excludeStories: /.*Data$/,
-  argTypes: {
-    status: {
-      control: { type: 'text' }
-    }
-  }
+  tags: ['widget'],
+  excludeStories: /.*Data$/
 }
 
 export const DsnWidgetData = {

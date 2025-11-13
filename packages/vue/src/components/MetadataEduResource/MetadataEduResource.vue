@@ -1,6 +1,8 @@
 <script setup lang="ts">
+/** A row of metadata icons and text that displays key information about a post. Specifically for use with ThemeEdu */
+
 import { computed } from 'vue'
-import type { EduResourceCardObject } from './../../interfaces.ts'
+import type { EduResourceCardObject, MetaPanelTheme } from './../../interfaces.ts'
 import EduSubjectIcon from './../EduSubjectIcon/EduSubjectIcon.vue'
 import IconProfile from './../Icons/IconProfile.vue'
 import IconTime from './../Icons/IconTime.vue'
@@ -9,8 +11,11 @@ import { rangeifyGrades } from './../../utils/rangeifyGrades'
 
 interface MetadataEduResourceProps {
   resource: EduResourceCardObject
+  /** If compact styling should be used */
   compact?: boolean
-  variant?: string
+  /** Use primary or secondary theme colors */
+  variant?: MetaPanelTheme
+  /** If time commitment should be displayed */
   showTime?: boolean
 }
 

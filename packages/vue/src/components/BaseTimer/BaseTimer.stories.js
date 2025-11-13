@@ -7,7 +7,12 @@ export default {
     () => ({
       template: `<div id="storyRoot" class="w-full"><story/></div>`
     })
-  ]
+  ],
+  parameters: {
+    html: {
+      root: '#storyRoot'
+    }
+  }
 }
 
 export const BaseStory = {

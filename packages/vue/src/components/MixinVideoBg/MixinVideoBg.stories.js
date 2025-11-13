@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'This mix-in will always autoplay and loop a video.'
+        component: 'This mix-in loops a muted video.'
       }
     }
   }

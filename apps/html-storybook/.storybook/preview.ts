@@ -158,7 +158,7 @@ const preview = {
     }
   },
 
-  tags: ['autodocs'],
+  tags: [],
 
   initialGlobals: {
     backgrounds: {

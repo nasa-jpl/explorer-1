@@ -22,7 +22,7 @@ const variants = {
   large: 'text-body-lg -large'
 } as const
 
-type VariantKey = keyof typeof variants
+export type VariantKey = keyof typeof variants
 
 export default defineComponent({
   name: 'BlockText',
@@ -36,7 +36,7 @@ export default defineComponent({
       default: undefined
     },
     /**
-     * Adjusts text size and vertical spacing.
+     * Adjusts text size and vertical spacing. Corresponds with the same variants in `BlockInlineImage`
      */
     variant: {
       type: String as () => VariantKey,

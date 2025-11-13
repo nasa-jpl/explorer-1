@@ -3,6 +3,7 @@ import BlockQuote from './BlockQuote.vue'
 export default {
   title: 'Components/Blocks/BlockQuote',
   component: BlockQuote,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/,
   parameters: {
     docs: {

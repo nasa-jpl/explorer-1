@@ -91,7 +91,7 @@
         :class="marginBottom"
       >
         <BlockTeaser
-          :custom-label="block.customLabel"
+          :label="block.customLabel"
           :heading="block.heading"
           :introduction="block.introduction"
           :button-text="block.buttonText"
@@ -302,15 +302,13 @@ import BlockNewsletterSignup from '../BlockNewsletterSignup/BlockNewsletterSignu
 import BlockCsrTable from '../BlockCsrTable/BlockCsrTable.vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
+import { type VariantKey as BlockTextVariantKey } from './../BlockText/BlockText.vue'
 
-interface Variants {
-  [key: string]: string
-}
-
-export const variants: Variants = {
+export const variants = {
   default: '',
   fluid: '-fluid'
 }
+type VariantsKey = keyof typeof variants
 
 export default defineComponent({
   name: 'BlockStreamfield',
@@ -343,21 +341,22 @@ export default defineComponent({
     BlockCsrTable
   },
   props: {
+    /** Changes behavior of width. Fluid width: all block widths will match that of the container. Otherwise they will conform to preset widths. */
     variant: {
-      type: String,
+      type: String as PropType<VariantsKey>,
       required: false,
       default: 'default',
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
+    /** Text size. Corresponds to available variants of `BlockText` */
     size: {
-      type: String as PropType<'small' | 'medium' | 'large'>,
-      required: false,
+      type: String as PropType<BlockTextVariantKey>,
       default: 'large'
     },
-    // eslint-disable-next-line vue/require-default-prop
     data: {
       type: Array as PropType<StreamfieldBlockData[]>,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {

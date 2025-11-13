@@ -62,7 +62,7 @@
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from '../../store/header'
-import type { LinkObject } from '../../utils/mixins'
+import type { NavLinkObject } from '../../utils/mixins'
 import { eventBus } from './../../utils/eventBus'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavMobileLink from './../NavMobile/NavMobileLink.vue'
@@ -140,7 +140,7 @@ export default defineComponent({
         this.closeDropdown()
       }
     },
-    getLinkText(link: LinkObject) {
+    getLinkText(link: NavLinkObject) {
       return mixinGetLinkText(link)
     }
   }

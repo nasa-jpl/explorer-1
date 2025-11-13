@@ -3,6 +3,7 @@ import BlockText from './BlockText.vue'
 export default {
   title: 'Components/Blocks/BlockText',
   component: BlockText,
+  tags: ['wagtail-blocks'],
   decorators: [
     () => ({
       template: '<div class="lg:w-2/3 mx-auto"><story /></div>'

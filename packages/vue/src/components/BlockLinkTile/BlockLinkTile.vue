@@ -99,47 +99,60 @@ export default defineComponent({
     BaseImagePlaceholder
   },
   props: {
-    // if some cards contain external links, be sure to alias the external url as 'externalLink'
+    /** Card data (can accept page data with key `page`) */
     data: {
       type: Object as PropType<Card | EventCardObject>,
-      required: false
+      required: false,
+      default: undefined
     },
-    // override props as needed
-    // so we can use this component in search results
+    /** Overrides `data` */
     url: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Overrides `data` */
     externalLink: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Overrides `data` */
     thumbnailImage: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Overrides `data` */
     label: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Overrides `data` */
     title: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Event: overrides `data` */
     startDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Event: overrides `data` */
     endDate: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
-    // if styling should be compact
+    /** If compact styling should be used (adjusts text size) */
     compact: {
       type: Boolean,
       default: false
     },
-    // if a heading should be used and at what level
+    /** Heading level for semantic markup. This does not affect the style of the heading. No heading element is used if `undefined` */
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
       required: false

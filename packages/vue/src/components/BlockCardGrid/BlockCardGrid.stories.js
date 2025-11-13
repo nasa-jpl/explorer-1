@@ -3,7 +3,7 @@ import BlockCardGrid from './BlockCardGrid.vue'
 export default {
   title: 'Components/Blocks/BlockCardGrid',
   component: BlockCardGrid,
-  tags: ['!autodocs'],
+  tags: ['!autodocs', 'wagtail-blocks', 'listings'],
   excludeStories: /.*Data$/
 }
 

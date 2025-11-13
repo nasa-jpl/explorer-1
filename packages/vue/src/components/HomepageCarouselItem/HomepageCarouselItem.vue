@@ -98,7 +98,7 @@
 <script lang="ts">
 import { defineComponent, resolveComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { ImageObject } from '../../interfaces'
+import type { ImageObject, VideoObject } from '../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import IconArrow from './../Icons/IconArrow.vue'
 
@@ -109,11 +109,7 @@ export interface Slide {
     url: string
   }
   heading: string
-  video: {
-    file: string
-    fileOgg: string
-    fileWebm: string
-  }
+  video: Partial<VideoObject>
   listingPageHeroImage: Partial<ImageObject>
 }
 

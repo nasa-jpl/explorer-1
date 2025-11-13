@@ -22,10 +22,11 @@ const props = defineProps({
    */
   item: {
     type: Object as () => AccordionItemObject,
-    default: () => ({
-      title: undefined,
-      body: undefined
-    })
+    default: () =>
+      ({
+        title: undefined,
+        body: undefined
+      }) as AccordionItemObject
   }
 })
 
@@ -46,6 +47,7 @@ const headingId = computed(() => {
 const emit = defineEmits([
   /**
    * Fires when an item is opened
+   * @type {thing}
    */
   'accordionItemOpened',
   /**

@@ -3,7 +3,7 @@ import BlockCardGridItem from './BlockCardGridItem.vue'
 export default {
   title: 'Components/Cards/BlockCardGridItem',
   component: BlockCardGridItem,
-  tags: ['!autodocs'],
+  tags: ['!autodocs', 'cards'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="lg:w-1/3"><story/></div>`

@@ -3,6 +3,7 @@ import BlockVideoEmbed from './BlockVideoEmbed.vue'
 export default {
   title: 'Components/Blocks/BlockVideoEmbed',
   component: BlockVideoEmbed,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

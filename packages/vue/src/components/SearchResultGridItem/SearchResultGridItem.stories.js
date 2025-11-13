@@ -3,21 +3,12 @@ import SearchResultGridItem from './SearchResultGridItem.vue'
 export default {
   title: 'Components/Cards/SearchResultGridItem',
   component: SearchResultGridItem,
+  tags: ['search', 'cards'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3 lg:grid-cols-3"><story/></div>`
     })
   ],
-  argTypes: {
-    headingLevel: {
-      description:
-        'Change the heading level for semantic markup. This does not affect the style of the heading.',
-      control: {
-        type: 'select',
-        options: [null, 'h1', 'h2', 'h3', 'h4', 'h5']
-      }
-    }
-  },
   parameters: {
     html: {
       root: '#storyRoot'

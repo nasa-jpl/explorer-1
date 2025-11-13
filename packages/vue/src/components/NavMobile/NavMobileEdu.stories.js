@@ -4,7 +4,7 @@ import NavMobile from './NavMobile.vue'
 export default {
   title: 'Navigation/Headers/EDU/NavMobile',
   component: NavMobile,
-  tags: ['!autodocs'],
+  tags: ['navigation'],
   excludeStories: /.*Data$/,
 
   parameters: {
@@ -21,9 +21,10 @@ export default {
     viewport: {
       value: 'mobile2',
       isRotated: false
-    }
+    },
+    theme: 'ThemeEdu'
   }
-};
+}
 
 // data
 export const NavMobileData = {

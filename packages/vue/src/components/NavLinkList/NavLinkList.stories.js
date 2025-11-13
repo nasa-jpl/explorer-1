@@ -3,6 +3,7 @@ import NavLinkList from './NavLinkList.vue'
 export default {
   title: 'Navigation/Elements/NavLinkList',
   component: NavLinkList,
+  tags: ['navigation'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="bg-jpl-blue-darker p-8"><story/></div>`

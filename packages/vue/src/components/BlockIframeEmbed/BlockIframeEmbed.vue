@@ -47,8 +47,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
+import type { BlockData } from './../../interfaces.ts'
 import { useThemeStore } from '../../store/theme'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
@@ -58,7 +59,7 @@ export default defineComponent({
   components: { BaseImageCaption, BaseImagePlaceholder },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<BlockData>,
       default: undefined
     }
   },

@@ -196,13 +196,16 @@ export default defineComponent({
       type: String,
       default: undefined
     },
+    /** Change the heading level for semantic markup. This does not affect the style of the heading. */
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
-      required: false
+      required: false,
+      default: undefined
     },
     pageContentType: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     primarySubject: {
       type: Object as PropType<PrimarySubjectObject>,

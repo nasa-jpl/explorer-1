@@ -41,7 +41,8 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { BlockData } from './../../interfaces.ts'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseAudio from './../BaseAudio/BaseAudio.vue'
@@ -57,7 +58,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<BlockData>,
       required: false
     }
   }

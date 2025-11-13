@@ -17,6 +17,7 @@
   </MixinCarousel>
 </template>
 <script lang="ts">
+/** Ideal for use in a tabbed carousel. See `PodcastSeriesCarousel` and `PageImageDetail` for usage examples. Styled with three cards and a basic card style with a square image. */
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { ImageObject } from '../../interfaces'

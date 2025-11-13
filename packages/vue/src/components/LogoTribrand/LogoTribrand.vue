@@ -53,12 +53,14 @@
   </svg>
 </template>
 <script lang="ts">
+/** Combines JPL, NASA and Caltech in a single logo as an SVG. Tailwind text size classes can be used with inlined SVG (first example), but not when loading the svg file via an `<img />` element */
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'LogoTribrand',
   props: {
-    // The -transparent class on NavDesktop takes care of this -- don't use the prop in this case
-    // Prop should be used when the logo needs to be manually inverted for use somewhere else
+    /** For use when the logo needs to be manually inverted. Note that NavDesktop takes care of this automatically and this prop doesn't need to be used in that specific case.
+     * Only works when using an inline svg
+     */
     invert: {
       type: Boolean,
       default: false

@@ -15,12 +15,7 @@ export default {
       root: '#storyRoot'
     }
   },
-  excludeStories: /.*Data$/,
-  argTypes: {
-    status: {
-      control: { type: 'text' }
-    }
-  }
+  excludeStories: /.*Data$/
 }
 
 export const RoboticsDetailStatsData = {

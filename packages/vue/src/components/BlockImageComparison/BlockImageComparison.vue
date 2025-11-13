@@ -27,7 +27,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { BlockData } from './../../interfaces.ts'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 
 export default defineComponent({
@@ -35,9 +36,10 @@ export default defineComponent({
   components: { BaseImageCaption },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<BlockData>,
       required: true
     },
+    /** Link to more image details. Link text defaults to "Full image details" */
     customDetailUrl: {
       type: String,
       default: undefined

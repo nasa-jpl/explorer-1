@@ -3,6 +3,7 @@ import SearchPagination from './SearchPagination.vue'
 export default {
   title: 'Components/Search/SearchPagination',
   component: SearchPagination,
+  tags: ['search'],
   excludeStories: /.*Data$/
 }
 

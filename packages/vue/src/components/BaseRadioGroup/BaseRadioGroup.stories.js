@@ -3,6 +3,7 @@ import BaseRadioGroup from './BaseRadioGroup.vue'
 export default {
   title: 'Components/Base/BaseRadioGroup',
   component: BaseRadioGroup,
+  tags: ['autodocs', 'forms'],
   parameters: {
     docs: {
       description: {

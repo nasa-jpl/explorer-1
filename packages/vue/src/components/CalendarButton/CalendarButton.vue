@@ -24,34 +24,41 @@ export default defineComponent({
     BaseButton
   },
   props: {
+    /** Used to generate ICS file */
     isAllDay: {
       type: Boolean,
       required: false,
       default: false
     },
+    /** Used to generate ICS file */
     startDate: {
       type: String,
       default: undefined
     },
+    /** Used to generate ICS file */
     startDatetime: {
       type: String,
       default: undefined
     },
+    /** Used to generate ICS file */
     endDatetime: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Used to generate ICS file */
     title: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Used to generate ICS file */
     location: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Used to generate ICS file */
     description: {
       type: String,
       required: false,

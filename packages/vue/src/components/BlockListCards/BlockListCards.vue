@@ -96,9 +96,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { mixinGetExternalLink } from './../../utils/mixins'
-import type { RelatedLinkObject } from '../../interfaces'
+import type { BlockData, RelatedLinkObject } from '../../interfaces'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -116,8 +116,9 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
-      required: false
+      type: Object as PropType<BlockData>,
+      required: false,
+      default: undefined
     }
   },
   methods: {

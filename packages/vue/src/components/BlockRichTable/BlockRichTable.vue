@@ -1,7 +1,16 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { BlockData } from './../../interfaces.ts'
 import BlockImageStandard from './../BlockImage/BlockImageStandard.vue'
 import BlockText from './../BlockText/BlockText.vue'
+
+interface RichTableObject extends BlockData {
+  tableCaption?: string
+  tableContent?: {
+    tableHead?: { text?: string }[]
+    tableBody?: BlockData[][]
+  }
+}
 
 export default defineComponent({
   name: 'BlockRichTable',
@@ -11,7 +20,7 @@ export default defineComponent({
   },
   props: {
     table: {
-      type: Object,
+      type: Object as PropType<RichTableObject>,
       required: true
     }
   }

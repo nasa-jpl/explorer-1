@@ -1,15 +1,9 @@
-import MixinCarousel, { variants } from './MixinCarousel.vue'
+import MixinCarousel from './MixinCarousel.vue'
 
 export default {
   title: 'Mixins/MixinCarousel',
   component: MixinCarousel,
-  tags: ['!autodocs'],
-  argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: Object.keys(variants)
-    }
-  }
+  tags: ['autodocs', 'carousels']
 }
 
 export const BaseStory = {

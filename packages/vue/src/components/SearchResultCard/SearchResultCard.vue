@@ -289,6 +289,7 @@ export default defineComponent({
       required: false,
       default: false
     },
+    /** Change the heading level for semantic markup. This does not affect the style of the heading. */
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
       required: false,

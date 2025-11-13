@@ -3,6 +3,7 @@ import TheFooter from './TheFooter.vue'
 export default {
   title: 'Navigation/Footers/External Footer',
   component: TheFooter,
+  tags: ['navigation'],
   excludeStories: /.*Data$/,
   parameters: {
     docs: {

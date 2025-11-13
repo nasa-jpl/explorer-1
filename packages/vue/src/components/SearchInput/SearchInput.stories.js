@@ -3,6 +3,7 @@ import SearchInput from './SearchInput.vue'
 export default {
   title: 'Components/Search/SearchInput',
   component: SearchInput,
+  tags: ['forms', 'search'],
   excludeStories: /.*Data$/
 }
 

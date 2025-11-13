@@ -4,6 +4,7 @@ import BlockVideo from './BlockVideo.vue'
 export default {
   title: 'Components/Blocks/BlockVideo',
   component: BlockVideo,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

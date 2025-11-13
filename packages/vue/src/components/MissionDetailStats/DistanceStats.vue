@@ -118,9 +118,9 @@ export const supportedAPIPaths = {
     }
   }
 } as const
-type SupportedAPI = keyof typeof supportedAPIPaths
+export type SupportedAPI = keyof typeof supportedAPIPaths
 type SPICEAPIConfig = (typeof supportedAPIPaths)['/spice_data/getRangefromT1/']
-const supportedPaths = Object.keys(supportedAPIPaths) as SupportedAPI[]
+export const supportedPaths = Object.keys(supportedAPIPaths) as SupportedAPI[]
 
 // Normally this should just be `number`, but due to our usage of `@types/node`
 // we need to define this in a way that is compatible with both Node and browser code.
@@ -141,7 +141,10 @@ export default defineComponent({
       required: true,
       validator: (val: string): boolean => val === '' || Object.keys(distanceTypes).includes(val)
     },
-    value: Number,
+    value: {
+      type: Number,
+      default: undefined
+    },
     valueSystem: {
       type: String as PropType<UnitSystemName>,
       required: false,
@@ -150,9 +153,11 @@ export default defineComponent({
     distanceApiUrls: {
       type: String,
       required: false,
-      validator: (val: string): boolean => supportedPaths.some((p) => val.includes(p) || val === '')
+      validator: (val: string): boolean =>
+        supportedPaths.some((p) => val.includes(p) || val === ''),
+      default: undefined
     },
-    labelClass: String
+    labelClass: { type: String, default: undefined }
   },
   data(): {
     apiDistance: APIDistance | null

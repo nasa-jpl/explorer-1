@@ -3,6 +3,7 @@ import BlockIframeEmbed from './BlockIframeEmbed.vue'
 export default {
   title: 'Components/Blocks/BlockIframeEmbed',
   component: BlockIframeEmbed,
+  tags: ['wagtail-blocks'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="mx-auto max-w-screen-md"><story/></div>`

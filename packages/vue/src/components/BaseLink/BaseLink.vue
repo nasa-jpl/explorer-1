@@ -37,10 +37,12 @@ export default defineComponent({
       default: 'default',
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
     },
+    /** If populated, a router-link will be generated. Overrides `href` */
     to: {
       type: [String, Object],
       default: undefined
     },
+    /** Maps to the `exact` prop in Nuxt's native `NuxtLink` component. If `true`, `active-class` will be applied to the link only if the current path is an exact match. Only affects router links. */
     exact: {
       type: Boolean,
       default: false
@@ -57,62 +59,70 @@ export default defineComponent({
       type: String,
       default: ''
     },
+    /** Apply classes directly to the `<a>` element */
     linkClass: {
       type: String,
       default: ''
     },
-    // this will always override the target
+    /** This setting will always override the target, regardless of external link settings */
     target: {
       type: String,
       required: false,
       default: undefined
     },
-    // if external links should open in a new window
+    /** Autmatically sets target to `_blank` for external (non-router) links */
     externalTargetBlank: {
       type: Boolean,
       required: false,
       default: false
     },
-    // the 'primary' variant will always have the caret
+    /** 'If a caret icon should be appended to the link. Set automatically when using the `primary` link variant. */
     caret: {
       type: Boolean,
       required: false,
       default: false
     },
-    // Class applied to the overall MixinAnimationCaret component
+    /** Add classes to the caret wrapper */
     caretWrapperClass: {
       type: String,
       default: ''
     },
-    // Class applied to the caret itself
+    /** Add classes directly to the caret. Maps to `MixinAnimationCaret`'s `arrowClass` prop. */
     caretClass: {
       type: String,
       default: ''
     },
-    // if caret should be displayed inline with text
+    /** Apply `inline` class to the caret wrapper */
     caretInline: {
       type: Boolean,
       required: false,
       default: false
     },
-    // to customize the caret color. also works with group-hover
+    /** Tailwind CSS text color class for the caret. Ex: `text-primary` */
     caretColor: {
       type: String,
       required: false,
       default: ''
     },
+    /** Customize the left margin of the caret using Tailwind classes */
     caretMarginLeft: {
       type: String,
       required: false,
       default: ''
     },
+    /** Overrides the theme's `active` color and uses the `primary` color instead. */
     usePrimaryColor: {
       type: Boolean,
       required: false,
       default: false
     }
   },
-  emits: ['linkClicked', 'specificLinkClicked'],
+  emits: [
+    /** Apply classes directly to the `<a>` element. */
+    'linkClicked',
+    /** Locally emitted click event (includes event attributes) */
+    'specificLinkClicked'
+  ],
   computed: {
     ...mapStores(useThemeStore),
     computedVariants(): Variants {
@@ -131,12 +141,14 @@ export default defineComponent({
       }
       return classes
     },
+    /** If the href link is an external link relative to the EDU site  */
     isEduExternal(): boolean | string {
       if (this.href) {
         return isEduExternalLink(this.href)
       }
       return ''
     },
+    /** If the href is an external link (takes theme and `isEduExternal` into account) */
     isExternal(): boolean {
       if (this.href) {
         if (this.themeStore.isEdu && isEduExternalLink(this.href)) {

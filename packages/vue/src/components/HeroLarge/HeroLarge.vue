@@ -71,11 +71,14 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { mixinTransparentHeader, mixinGetSrcSet } from './../../utils/mixins'
+import type { ImageObject } from './../../interfaces.ts'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
+import { eduMetadataDictionary } from './../../constants'
 import BasePill from './../BasePill/BasePill.vue'
+type ContentTypeKey = keyof typeof eduMetadataDictionary
 
 export default defineComponent({
   name: 'HeroLarge',
@@ -88,15 +91,15 @@ export default defineComponent({
       required: false,
       default: undefined
     },
-    // custom text for pill
+    /** Text for pill (overrides label) */
     customPill: {
       type: String,
       required: false,
       default: undefined
     },
-    // maps to EDU resource types
+    /** Maps to EDU resource types. Label is replaced with a color-themed "pill." Must use with `.ThemeEdu` */
     customPillType: {
-      type: String,
+      type: String as PropType<ContentTypeKey>,
       required: false,
       default: undefined
     },
@@ -111,11 +114,11 @@ export default defineComponent({
       default: undefined
     },
     image: {
-      type: Object,
+      type: Object as PropType<ImageObject>,
       required: false,
       default: undefined
     },
-    // If secondary nav is also on this page, will add more space above hero text
+    /** If secondary nav is also on this page, more space will be added above the hero text */
     hasOverlay: {
       type: Boolean,
       default: false

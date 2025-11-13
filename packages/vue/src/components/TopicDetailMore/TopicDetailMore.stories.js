@@ -2,6 +2,7 @@ import TopicDetailMore from './TopicDetailMore.vue'
 export default {
   title: 'Components/WWW/TopicDetail/TopicDetailMore',
   component: TopicDetailMore,
+  tags: ['listings'],
   excludeStories: /.*Data$/
 }
 

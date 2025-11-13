@@ -1,11 +1,8 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+/** Placeholder image component with aspect ratio and background controls */
 
-interface AspectRatios {
-  [key: string]: string
-}
-
-export const aspectRatios: AspectRatios = {
+export const aspectRatios = {
   none: 'aspect-ratio-none',
   portrait: 'aspect-ratio-four-five',
   square: 'aspect-ratio-square',
@@ -22,33 +19,40 @@ export const aspectRatios: AspectRatios = {
   '16:7': 'aspect-ratio-sixteen-seven',
   '16:9': 'aspect-ratio-sixteen-nine',
   '21:9': 'aspect-ratio-twentyone-nine'
-}
+} as const
+type AspectRatiosKey = keyof typeof aspectRatios
 
 export default defineComponent({
   name: 'BaseImagePlaceholder',
   props: {
+    /** If the placeholder background should be dark */
     darkMode: {
       type: Boolean,
       required: false,
       default: true
     },
+    /** If the placeholder background should be transparent (ovverrides `darkMode`) */
     transparentMode: {
       type: Boolean,
       required: false,
       default: false
     },
+    /** If the JPL logo should not appear in the background of the placeholder */
     noLogo: {
       type: Boolean,
       default: false
     },
+    /** Desired aspect ratio of image. If the contained image doesn't match, it will be adjusted to fit within the selected aspect ratio */
     aspectRatio: {
-      type: String,
+      type: String as PropType<AspectRatiosKey>,
       default: 'none',
       validator: (prop: string): boolean => Object.keys(aspectRatios).includes(prop)
     },
+    /** Custom tailwind classes to combine screen-size directives with aspect ratios.
+     * Example: `md:aspect-ratio-four-three lg:aspect-ratio-twelve-nine`. Overrides `aspectRatio` setting. */
     responsiveAspectRatio: {
       type: String,
-      required: false
+      default: ''
     }
   },
   computed: {

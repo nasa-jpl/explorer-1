@@ -3,7 +3,7 @@ import BlockLinkCardList from './BlockLinkCardList.vue'
 export default {
   title: 'Components/Blocks/BlockLinkCardList',
   component: BlockLinkCardList,
-  tags: ['!autodocs'],
+  tags: ['wagtail-blocks', 'listings'],
   excludeStories: /.*Data$/
 }
 export const BlockLinkCardData = {
@@ -103,8 +103,6 @@ export const BlockLinkCardCarouselData = [
 export const BaseStory = {
   name: 'BlockLinkCardList',
   args: {
-    itemType: 'cards',
-    heading: 'Related Pages',
     items: BlockLinkCardCarouselData
   }
 }

@@ -55,13 +55,13 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
-import type { ImageObject } from '../../interfaces'
+import type { BlockData, ImageObject } from '../../interfaces'
 import { mixinGetSrcSet } from './../../utils/mixins'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
-import BlockText from './../BlockText/BlockText.vue'
+import BlockText, { type VariantKey as BlockTextVariantKey } from './../BlockText/BlockText.vue'
 
 export default defineComponent({
   name: 'BlockInlineImage',
@@ -74,11 +74,14 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<BlockData>,
       required: false
     },
+    /**
+     * Adjusts text size and vertical spacing. Corresponds with the same variants in `BlockText`
+     */
     variant: {
-      type: String as PropType<'small' | 'medium' | 'large'>,
+      type: String as PropType<BlockTextVariantKey>,
       default: 'large'
     }
   },

@@ -75,6 +75,20 @@ export interface ImageObject {
   displayCaption?: boolean
 }
 
+export interface VideoObject {
+  duration?: string
+  file: string
+  fileExtension?: string
+  fileOgg?: string // no webpack loader for ogg files
+  fileWebm?: string
+  height?: string | number
+  id: string
+  sources?: string
+  title: string
+  type?: string
+  width?: string | number
+}
+
 export interface ImageBlock extends BlockData, ImageObject {}
 
 export interface ElasticSearchPage {

@@ -15,7 +15,7 @@ export interface SrcSetDataValue {
   width: number
 }
 // nav link object
-export type LinkObject = {
+export type NavLinkObject = {
   linkPage: {
     title: string
     url: string
@@ -78,7 +78,7 @@ export const mixinTransparentHeader = () => {
       and provides a graceful fallback to use the page title
       if one exists.
     */
-export const mixinGetLinkText = (item: LinkObject): string => {
+export const mixinGetLinkText = (item: NavLinkObject): string => {
   if (item.title) {
     return item.title
   } else if (item.linkPage) {

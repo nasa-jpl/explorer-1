@@ -96,18 +96,26 @@
   </section>
 </template>
 <script lang="ts">
-// HeroMedium
-// A hero image with article link overlay
-// For use when the hero includes a featured content item with link
-// note: This component is very similar to a HomepageCarousel slide
-import { defineComponent } from 'vue'
+/**
+ * HeroMedium
+ * A hero image with article link overlay
+ * For use when the hero includes a featured content item with link
+ * note: This component is very similar to a HomepageCarousel slide
+ */
+import { defineComponent, type PropType } from 'vue'
 import { mixinTransparentHeader } from '../../utils/mixins'
-import type { ImageObject } from '../../interfaces'
+import type { ImageObject, VideoObject } from '../../interfaces'
 import IconArrow from './../Icons/IconArrow.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BasePill from './../BasePill/BasePill.vue'
 import MixinVideoBg from './../MixinVideoBg/MixinVideoBg.vue'
-
+import { eduMetadataDictionary } from './../../constants'
+type ContentTypeKey = keyof typeof eduMetadataDictionary
+type FeatureObject = {
+  url: string
+  title: string
+  image: ImageObject
+}
 export default defineComponent({
   name: 'HeroMedium',
   components: {
@@ -117,18 +125,21 @@ export default defineComponent({
     BasePill
   },
   props: {
+    /** Data for the hero. Usually derived from a page's data */
     feature: {
-      type: Object,
+      type: Object as PropType<FeatureObject>,
       required: false,
       default: undefined
     },
+    /** Text for pill (overrides label) */
     customPill: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Maps to EDU resource types. Label is replaced with a color-themed "pill." Must use with `.ThemeEdu` */
     customPillType: {
-      type: String,
+      type: String as PropType<ContentTypeKey>,
       required: false,
       default: undefined
     },
@@ -146,21 +157,21 @@ export default defineComponent({
       required: false,
       default: false
     },
-    // to override media
-    // use-case: news detail pages use this b/c their feature hero is structured differently
+    /** Overrides feature video. Use-case: news detail pages use this b/c their feature hero is structured differently */
     customVideo: {
-      type: Object,
+      type: Object as PropType<VideoObject>,
       required: false,
       default: undefined
     },
+    /** Overrides feature image. Use-case: news detail pages use this b/c their feature hero is structured differently */
     customImage: {
-      type: Object,
+      type: Object as PropType<ImageObject>,
       required: false,
       default: undefined
     }
   },
   computed: {
-    theVideo(): object | null {
+    theVideo(): Partial<VideoObject> | null {
       if (this.customVideo) {
         return this.customVideo
       } else if (this.feature?.video?.file) {

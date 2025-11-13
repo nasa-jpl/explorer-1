@@ -124,7 +124,8 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BasePill from '../BasePill/BasePill.vue'
 
-export const pillColorVariants = ['primary', 'secondary', 'action']
+export const pillColorVariants = ['primary', 'secondary', 'action'] as const
+type PillColorVariant = (typeof pillColorVariants)[number]
 
 export default defineComponent({
   name: 'DetailHeadline',
@@ -134,60 +135,71 @@ export default defineComponent({
     BasePill
   },
   props: {
+    /** Title of detail page */
     title: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Author or array of authors */
     author: {
       type: Object as PropType<AuthorObject | { author: AuthorObject }[]>,
       required: false,
       default: undefined
     },
+    /** Publication date */
     publicationDate: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Publication time */
     publicationTime: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Approximate read time */
     readTime: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Array of related topics */
     topics: {
       type: Array as PropType<Topic[]>,
       required: false,
       default: undefined
     },
-    // if topics array isn't available
+    /** Label, if there are no related topics */
     label: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Option link for the label */
     labelLink: {
       type: String,
       required: false,
       default: undefined
     },
+    /** If the label should use the "pill" style (only works when using ThemeEdu) */
     pill: {
       type: Boolean,
       default: false
     },
+    /** Pill color variants */
     pillColor: {
-      type: String,
+      type: String as PropType<PillColorVariant>,
       default: 'primary',
       validator: (prop: string): boolean => pillColorVariants.includes(prop)
     },
+    /** If schema.org metadata should be generated */
     schema: {
       type: Boolean,
       default: false
     },
+    /** If publication date should be hidden */
     hideDate: {
       type: Boolean,
       default: false
