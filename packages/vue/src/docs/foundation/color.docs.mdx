@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { ColorRow } from './../utils/ColorRow'
 
 <Meta title="Foundations/Colors" />
 
@@ -12,6 +13,53 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
 <span id="brand-colors"></span>
 
 ## Brand Colors
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: '150px' }}>Color</th>
+      <th>Name</th>
+      <th>Token</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {/* Pass the class name to the 'swatchClass' prop.
+      (I'm assuming your class is named 'jpl-red-lighter' or 'bg-jpl-red-lighter')
+    */}
+    <ColorRow
+      swatchClass="bg-jpl-red-lighter"
+      name="JPL Red Lighter"
+      token="jpl-red-lighter"
+    />
+    <ColorRow
+      swatchClass="bg-jpl-red-light"
+      name="JPL Red Light"
+      token="jpl-red-light"
+    />
+    <ColorRow
+      swatchClass="bg-jpl-red"
+      name="JPL Red"
+      token="jpl-red"
+    />
+    <ColorRow
+      swatchClass="bg-jpl-red-dark"
+      name="JPL Red Dark"
+      token="jpl-red-dark"
+    />
+    <ColorRow
+      swatchClass="bg-jpl-red-darker"
+      name="JPL Red Darker"
+      token="jpl-red-darker"
+    />
+    <ColorRow
+      swatchClass="bg-jpl-orange-lighter"
+      name="JPL Orange Lighter"
+      token="jpl-orange-lighter"
+    />
+    {/* ... etc ... */}
+  </tbody>
+</table>
 
 Each of these foundation colors has specific usage scenarios.
 
