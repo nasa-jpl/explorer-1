@@ -113,7 +113,17 @@ const preview: Preview = {
     },
     // options for the html tab add-on
     html: {
-      removeEmptyComments: true
+      removeComments: true,
+      removeEmptyComments: true,
+      // highlighter: {
+      //   showLineNumbers: true, // default: false
+      //   wrapLines: true // default: true
+      // },
+      transform: (code: any) => {
+        // Remove attributes `data-chromatic` and `ng-reflect`:
+        return code.replace(/(?:data-chromatic|ng-reflect).*?="[\S\s]*?"/g, '')
+        // TODO: prettyPrint
+      }
     },
     a11y: {
       context: 'body',
