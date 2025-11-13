@@ -15,16 +15,13 @@ const config: StorybookConfig = {
       expanded: false
     }
   },
-  stories:
-    process.env.NODE_ENV === 'production'
-      ? [
-          './../node_modules/@explorer-1/vue/src/**/*.docs.mdx',
-          './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
-        ]
-      : [
-          './../../../packages/vue/src/**/*.docs.mdx',
-          './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
-        ],
+
+  framework: {
+    name: '@storybook/vue3-vite',
+    options: {
+      docgen: 'vue-component-meta'
+    }
+  },
 
   addons: [
     {
@@ -43,23 +40,29 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook'
   ],
 
-  staticDirs: [
-    './../public',
-    './../node_modules/@explorer-1/common-storybook/src/public',
-    './../node_modules/@explorer-1/common/src'
-  ],
-
-  framework: {
-    name: '@storybook/vue3-vite',
-    options: {}
-  },
-
   docs: {},
 
   features: {
     actions: false,
     backgrounds: false,
     outlines: false
-  }
+  },
+
+  staticDirs: [
+    './../public',
+    './../node_modules/@explorer-1/common-storybook/src/public',
+    './../node_modules/@explorer-1/common/src'
+  ],
+
+  stories:
+    process.env.NODE_ENV === 'production'
+      ? [
+          './../node_modules/@explorer-1/vue/src/**/*.docs.mdx',
+          './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
+        ]
+      : [
+          './../../../packages/vue/src/**/*.docs.mdx',
+          './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
+        ]
 }
 export default config

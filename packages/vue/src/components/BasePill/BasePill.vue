@@ -1,34 +1,54 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Attributes } from './../../interfaces'
 import { eduMetadataDictionary } from './../../constants'
 
 // using borders to vertically center wonky font face
-const variantMap: Attributes = {
+const variantMap = {
   primary: 'bg-primary border-primary',
   'primary-inverted': 'bg-gray-light-mid !text-primary-darker border-gray-light-mid',
   secondary: 'bg-secondary border-secondary',
   action: 'bg-action border-action'
-}
+} as const
+type VariantMapKey = keyof typeof variantMap
 
-const sizeMap: Attributes = {
+const sizeMap = {
   sm: 'text-xs border-t-2 py-1 px-2.5',
   md: 'text-xs lg:text-base border-t py-1.5 px-3.5',
   lg: 'text-base lg:text-lg border-t pt-1.5 pb-1 px-5'
-}
+} as const
+type SizeMapKey = keyof typeof sizeMap
 
-interface BasePillProps {
-  text?: string
-  variant?: string
-  size?: string
-  contentType?: string
-}
+type ContentTypeKey = keyof typeof eduMetadataDictionary
 
-// define props
-const props = withDefaults(defineProps<BasePillProps>(), {
-  variant: 'primary',
-  size: 'md',
-  contentType: undefined
+const props = defineProps({
+  /**
+   * The text contained in the pill. Plain text only.
+   */
+  text: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The variant (color) of the pill
+   */
+  variant: {
+    type: String as () => VariantMapKey,
+    default: 'primary'
+  },
+  /**
+   * The size of the pill
+   */
+  size: {
+    type: String as () => SizeMapKey,
+    default: 'md'
+  },
+  /**
+   * Maps to EDU Resource types. Must use `ThemeEdu` to affect color.
+   */
+  contentType: {
+    type: String as () => ContentTypeKey,
+    default: undefined
+  }
 })
 
 const metadataType = computed(() => {

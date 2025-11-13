@@ -250,9 +250,7 @@ export interface LabelObject {
   icons?: string
   type?: MetadataType
 }
-export interface PillDictionaryInterface {
-  [EDUExplainerArticlePage: string]: LabelObject
-}
+
 export interface DictionaryInterface {
   [key: string]: string
 }
@@ -263,6 +261,7 @@ export interface AccordionItemObject {
 
 export type MetaPanelTheme = 'primary' | 'secondary' | 'stars'
 
+export type HeadingLevels = 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 export interface PageObject {
   __typename: string
   contentType: string

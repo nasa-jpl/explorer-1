@@ -1,16 +1,8 @@
-import BlockText, { variants } from './BlockText.vue'
+import BlockText from './BlockText.vue'
 
 export default {
   title: 'Components/Blocks/BlockText',
   component: BlockText,
-  tags: ['!autodocs'],
-  argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: Object.keys(variants)
-    },
-    text: { control: { type: 'text' } }
-  },
   decorators: [
     () => ({
       template: '<div class="lg:w-2/3 mx-auto"><story /></div>'
