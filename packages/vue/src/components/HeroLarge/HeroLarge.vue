@@ -7,10 +7,14 @@
           :srcset="theSrcSet"
         />
         <source
+          v-if="image.screenMd"
           media="(min-width: 420px)"
           :srcset="image.screenMd.url"
         />
-        <source :srcset="image.screenSm.url" />
+        <source
+          v-if="image.screenSm"
+          :srcset="image.screenSm.url"
+        />
         <img
           class="md:object-right object-cover object-bottom w-full h-full"
           :src="image.src.url"
@@ -73,12 +77,10 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 import { mixinTransparentHeader, mixinGetSrcSet } from './../../utils/mixins'
-import type { ImageObject } from './../../interfaces.ts'
+import type { ContentTypeKey, ImageObject } from './../../interfaces.ts'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
-import { eduMetadataDictionary } from './../../constants'
 import BasePill from './../BasePill/BasePill.vue'
-type ContentTypeKey = keyof typeof eduMetadataDictionary
 
 export default defineComponent({
   name: 'HeroLarge',

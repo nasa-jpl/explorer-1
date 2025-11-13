@@ -1,7 +1,7 @@
 <script lang="ts">
 /** The combination of BaseImage and BaseImageCaption, plus adding support for expanding the image in a lightbox and styling it to be a full-bleed image. */
 import { defineComponent, type PropType } from 'vue'
-import type { BlockData } from './../../interfaces'
+import type { ImageBlock } from './../../interfaces'
 import BlockImageStandard from './BlockImageStandard.vue'
 import BlockImageFullBleed from './BlockImageFullBleed.vue'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
@@ -15,7 +15,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<BlockData>,
+      type: Object as PropType<ImageBlock>,
       required: false
     },
     /** If image should be the full width of the container */

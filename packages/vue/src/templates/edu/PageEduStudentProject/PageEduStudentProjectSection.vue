@@ -8,7 +8,9 @@ import BlockHeading, {
 import type { EduStudentProjectStep } from './PageEduStudentProject.vue'
 import HeroInlineMedia from './../../../components/HeroInlineMedia/HeroInlineMedia.vue'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
-import BlockInlineImage from './../../../components/BlockInlineImage/BlockInlineImage.vue'
+import BlockInlineImage, {
+  type BlockInlineImageData
+} from './../../../components/BlockInlineImage/BlockInlineImage.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import { getHeadingId } from './../../../utils/getHeadingId'
@@ -52,11 +54,13 @@ const { heading, blocks, image, steps, stepsNumbering, text } = reactive(props)
     <!-- simple richtext -->
     <BlockInlineImage
       v-if="text"
-      :data="{
-        text: text,
-        image: image,
-        alignTo: 'right'
-      }"
+      :data="
+        {
+          text: text,
+          image: image,
+          alignTo: 'right'
+        } as BlockInlineImageData
+      "
       class="lg:mb-18 mb-10"
     />
 

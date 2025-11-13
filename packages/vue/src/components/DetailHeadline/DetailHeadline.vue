@@ -124,8 +124,8 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BasePill from '../BasePill/BasePill.vue'
 
-export const pillColorVariants = ['primary', 'secondary', 'action'] as const
-type PillColorVariant = (typeof pillColorVariants)[number]
+export const pillColorVariants = ['primary', 'secondary', 'action', 'primary-inverted'] as const
+export type PillColorVariant = (typeof pillColorVariants)[number]
 
 export default defineComponent({
   name: 'DetailHeadline',
@@ -192,7 +192,7 @@ export default defineComponent({
     pillColor: {
       type: String as PropType<PillColorVariant>,
       default: 'primary',
-      validator: (prop: string): boolean => pillColorVariants.includes(prop)
+      validator: (prop: PillColorVariant): boolean => pillColorVariants.includes(prop)
     },
     /** If schema.org metadata should be generated */
     schema: {

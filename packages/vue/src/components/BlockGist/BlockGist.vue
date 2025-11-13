@@ -4,7 +4,7 @@ import type { BlockData } from './../../interfaces.ts'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import GitHub404 from './GitHub404.vue'
 
-interface BlockGistData extends BlockData {
+export interface BlockGistData extends BlockData {
   caption?: string
   id?: string
   url?: string

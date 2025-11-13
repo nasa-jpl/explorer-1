@@ -6,7 +6,6 @@ import type { EduResourceCardObject, MetaPanelTheme } from './../../interfaces.t
 import EduSubjectIcon from './../EduSubjectIcon/EduSubjectIcon.vue'
 import IconProfile from './../Icons/IconProfile.vue'
 import IconTime from './../Icons/IconTime.vue'
-import {} from './../../utils/mixins'
 import { rangeifyGrades } from './../../utils/rangeifyGrades'
 
 interface MetadataEduResourceProps {

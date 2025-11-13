@@ -108,7 +108,7 @@ export default defineComponent({
       }
       return null
     },
-    hasCaptionArea(): string | boolean {
+    hasCaptionArea(): string | boolean | undefined {
       if (this.image) {
         return this.theCaption || this.image.credit || this.image.detailUrl
       }

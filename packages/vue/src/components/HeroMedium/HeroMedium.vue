@@ -104,17 +104,24 @@
  */
 import { defineComponent, type PropType } from 'vue'
 import { mixinTransparentHeader } from '../../utils/mixins'
-import type { ImageObject, VideoObject } from '../../interfaces'
+import type {
+  ContentTypeKey,
+  ImageObject,
+  VideoObject,
+  PageObject,
+  StreamfieldBlockData
+} from '../../interfaces'
+import type { BlockVideoData } from './../BlockVideo/BlockVideo.vue'
 import IconArrow from './../Icons/IconArrow.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BasePill from './../BasePill/BasePill.vue'
 import MixinVideoBg from './../MixinVideoBg/MixinVideoBg.vue'
-import { eduMetadataDictionary } from './../../constants'
-type ContentTypeKey = keyof typeof eduMetadataDictionary
-type FeatureObject = {
-  url: string
-  title: string
-  image: ImageObject
+
+export type FeatureObject = PageObject & {
+  image?: ImageObject
+  video?: VideoObject
+  heroBlocks?: (BlockVideoData | StreamfieldBlockData)[]
+  listingPageHeroImage?: ImageObject
 }
 export default defineComponent({
   name: 'HeroMedium',
@@ -171,7 +178,7 @@ export default defineComponent({
     }
   },
   computed: {
-    theVideo(): Partial<VideoObject> | null {
+    theVideo(): VideoObject | null {
       if (this.customVideo) {
         return this.customVideo
       } else if (this.feature?.video?.file) {
@@ -179,7 +186,7 @@ export default defineComponent({
       }
       return null
     },
-    theImage(): Partial<ImageObject> | null {
+    theImage(): ImageObject | null {
       if (this.customImage) {
         return this.customImage
       } else if (this.feature?.image?.src) {

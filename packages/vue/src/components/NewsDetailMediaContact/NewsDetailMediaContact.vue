@@ -21,7 +21,7 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 
-interface Contact {
+export interface Contact {
   contact: {
     id: string
     name: string

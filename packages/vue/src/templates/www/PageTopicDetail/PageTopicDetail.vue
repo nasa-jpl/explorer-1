@@ -114,7 +114,8 @@ export default defineComponent({
   props: {
     data: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     }
   }
 })

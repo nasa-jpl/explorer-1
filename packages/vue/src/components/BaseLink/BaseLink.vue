@@ -1,38 +1,37 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import { eventBus } from './../../utils/eventBus'
 import MixinAnimationCaret from './../MixinAnimationCaret/MixinAnimationCaret.vue'
 import { isEduExternalLink } from './../../utils/isEduExternalLink'
 
-interface Variants {
-  [key: string]: string
-}
-
-export const variants: Variants = {
+const variants = {
   primary: 'text-subtitle text-action can-hover:hover:text-action-dark',
   secondary: 'text-subtitle text-action can-hover:hover:text-action-dark',
   default: '-default underline text-action can-hover:hover:text-action-dark',
   none: ''
-}
-export const primaryColorVariants: Variants = {
+} as const
+type VariantsKey = keyof typeof variants
+
+const primaryColorVariants = {
   primary: 'text-subtitle text-primary can-hover:hover:text-primary-dark',
   secondary: 'text-subtitle text-primary can-hover:hover:text-primary-dark',
   default: '-default underline text-primary can-hover:hover:text-primary-dark',
   none: ''
-}
+} as const
 
 export default defineComponent({
-  // this component is useful when you need a link that can either be an 'a' or router link
-  // falls back to a <div> if no url is provided
+  /**  this component is useful when you need a link that can either be an 'a' or router link.
+   * falls back to a <div> if no url is provided
+   */
   name: 'BaseLink',
   components: {
     MixinAnimationCaret
   },
   props: {
     variant: {
-      type: String,
+      type: String as PropType<VariantsKey>,
       required: false,
       default: 'default',
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
@@ -125,7 +124,7 @@ export default defineComponent({
   ],
   computed: {
     ...mapStores(useThemeStore),
-    computedVariants(): Variants {
+    computedVariants() {
       if (this.usePrimaryColor) {
         return primaryColorVariants
       }

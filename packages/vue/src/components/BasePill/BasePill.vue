@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { ContentTypeKey } from './../../interfaces.ts'
 import { eduMetadataDictionary } from './../../constants'
 
 // using borders to vertically center wonky font face
@@ -17,8 +18,6 @@ const sizeMap = {
   lg: 'text-base lg:text-lg border-t pt-1.5 pb-1 px-5'
 } as const
 type SizeMapKey = keyof typeof sizeMap
-
-type ContentTypeKey = keyof typeof eduMetadataDictionary
 
 const props = defineProps({
   /**

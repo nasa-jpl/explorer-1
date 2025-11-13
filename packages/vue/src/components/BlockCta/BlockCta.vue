@@ -28,10 +28,16 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
-import type { BlockData } from './../../interfaces.ts'
+import type { BlockData, PageObject } from './../../interfaces.ts'
 import { useThemeStore } from '../../store/theme'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconExternal from './../Icons/IconExternal.vue'
+
+export type BlockCtaData = BlockData & {
+  page: PageObject
+  text: string
+  externalLink: string
+}
 
 export default defineComponent({
   name: 'BlockCta',
@@ -41,7 +47,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<BlockData>,
+      type: Object as PropType<BlockCtaData>,
       required: true,
       default: () => ({})
     }

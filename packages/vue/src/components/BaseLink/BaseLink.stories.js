@@ -1,4 +1,4 @@
-import BaseLink, { variants } from './BaseLink.vue'
+import BaseLink from './BaseLink.vue'
 export default {
   title: 'Components/Base/BaseLink',
   component: BaseLink,
@@ -8,11 +8,6 @@ export default {
     }
   },
   argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: Object.keys(variants),
-      description: 'Preset variants'
-    },
     // JSDoc comments for these events aren't working, so we're setting them here
     linkClicked: {
       description: 'Click event emitted at the root-level (globally available)'

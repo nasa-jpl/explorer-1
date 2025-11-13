@@ -24,7 +24,7 @@ import type { ImageObject } from '../../interfaces'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 import SearchResultGridItem from './../SearchResultGridItem/SearchResultGridItem.vue'
 
-interface Slide {
+export interface Slide {
   url: string
   title: string
   thumbnailImage: Partial<ImageObject>

@@ -63,6 +63,15 @@ import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import BlockText, { type VariantKey as BlockTextVariantKey } from './../BlockText/BlockText.vue'
 
+export type BlockInlineImageData = BlockData & {
+  /** rich text */
+  text?: string
+  caption?: string
+  displayCaption: boolean
+  image?: ImageObject
+  alignTo: 'left' | 'right'
+}
+
 export default defineComponent({
   name: 'BlockInlineImage',
   components: {
@@ -74,8 +83,9 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<BlockData>,
-      required: false
+      type: Object as PropType<BlockInlineImageData>,
+      required: false,
+      default: undefined
     },
     /**
      * Adjusts text size and vertical spacing. Corresponds with the same variants in `BlockText`
@@ -96,7 +106,7 @@ export default defineComponent({
         return this.data.caption
       } else if (
         this.data &&
-        this.data.image.caption &&
+        this.data.image?.caption &&
         this.data.image.caption.length > 2 &&
         this.data.displayCaption
       ) {
@@ -114,7 +124,7 @@ export default defineComponent({
       }
       return null
     },
-    hasCaptionArea(): string | false {
+    hasCaptionArea(): string | false | undefined {
       if (this.data && this.data.image) {
         return this.theCaption || this.data.image.credit || this.data.image.detailUrl
       }

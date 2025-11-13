@@ -7,7 +7,7 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const BlockGistData = {
+export const BlockGistStoryData = {
   blockType: 'GitHubGistBlock',
   caption: '<p>Caption for gist block</p>',
   id: 'cefc8e20-2833-4d0b-a4d6-7f469d5dbd02',
@@ -18,6 +18,6 @@ export const BlockGistData = {
 export const BaseStory = {
   name: 'BlockGist',
   args: {
-    data: BlockGistData
+    data: BlockGistStoryData
   }
 }

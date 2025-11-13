@@ -2,7 +2,7 @@
 /** Caption text used with both images and videos. */
 
 import { defineComponent, type PropType } from 'vue'
-import type { ImageObject } from '../../interfaces'
+import type { ImageObject, VideoObject } from '../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
 export default defineComponent({
@@ -14,7 +14,7 @@ export default defineComponent({
     /** `{ImageObject}` data */
     data: {
       // type: Object as PropType<<PartialImageObject>>,
-      type: Object as PropType<ImageObject>,
+      type: Object as PropType<Partial<ImageObject> | Partial<VideoObject> | any>,
       required: true
     },
     /** Appends a link to the end of the caption. Overrides "Full Image Details" link, if it exists. */

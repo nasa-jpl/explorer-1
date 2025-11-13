@@ -34,7 +34,7 @@ export interface ExportPackageRate {
   Fluence: string
   Energy: string
 }
-interface BlockCsrTableRow {
+export interface BlockCsrTableRow {
   Id: number
   TestRecordId: number
   Attachment: string

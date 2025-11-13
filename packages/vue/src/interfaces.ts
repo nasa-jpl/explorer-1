@@ -1,3 +1,7 @@
+import { eduMetadataDictionary } from './constants'
+
+export type ContentTypeKey = keyof typeof eduMetadataDictionary
+
 export interface BreadcrumbPathObject {
   path: string
   title: string
@@ -24,7 +28,7 @@ export interface StreamfieldBlockData extends BlockData {
   galleryDescription?: string
   coverImage?: ImageObject
   gallerySlides?: ImageObject[]
-  blocks?: object[]
+  blocks?: StreamfieldBlockData[] | Card[] | ImageObject[] | VideoObject[]
   value?: string
   customLabel?: string
   introduction?: string
@@ -42,6 +46,7 @@ export interface StreamfieldBlockData extends BlockData {
   rowData?: any
   apiEndpoint?: string
   attachmentPrefix?: string
+  listingPageHeroImage?: ImageObject
 }
 
 export interface ImageSrcObject {
@@ -73,6 +78,7 @@ export interface ImageObject {
   cover?: string
   image?: ImageObject
   displayCaption?: boolean
+  listingPageHeroImage?: ImageObject
 }
 
 export interface VideoObject {
@@ -89,7 +95,12 @@ export interface VideoObject {
   width?: string | number
 }
 
-export interface ImageBlock extends BlockData, ImageObject {}
+export interface ImageBlock extends BlockData, ImageObject {
+  fullBleed: boolean
+  imageFullBleed: ImageObject
+  displayCaption: boolean
+  constrain: boolean
+}
 
 export interface ElasticSearchPage {
   _source: string
@@ -277,7 +288,7 @@ export type MetaPanelTheme = 'primary' | 'secondary' | 'stars'
 
 export type HeadingLevels = 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 export interface PageObject {
-  __typename: string
+  __typename: ContentTypeKey
   contentType: string
   lastPublishedAt?: string
   breadcrumb?: string
@@ -288,6 +299,7 @@ export interface PageObject {
   getTopicsForDisplay?: Topic[]
   showJumpMenu?: boolean
   label?: string
+  topicLabel?: string
   summary?: string
   topper?: string
   seoTitle?: string

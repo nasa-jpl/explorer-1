@@ -36,7 +36,7 @@
         v-else-if="block.blockType == 'InlineImageBlock'"
         :key="`inlineImageBlock${index}`"
         :class="seamlessText(index) ? 'lg:mb-8 mb-5' : marginBottom"
-        :data="block"
+        :data="block as BlockInlineImageData"
         :variant="size"
       />
 
@@ -55,7 +55,7 @@
         indent="col-3"
         :class="marginBottom"
       >
-        <BlockKeyPoints :data="block" />
+        <BlockKeyPoints :data="block as BlockKeyPointsData" />
       </LayoutHelper>
 
       <LayoutHelper
@@ -73,7 +73,7 @@
         indent="col-4"
         :class="marginBottom"
       >
-        <BlockCta :data="block" />
+        <BlockCta :data="block as BlockCtaData" />
       </LayoutHelper>
       <LayoutHelper
         v-else-if="block.blockType == 'NewsletterSignupBlock'"
@@ -134,7 +134,7 @@
         indent="col-2"
         :class="marginBottom"
       >
-        <BlockVideo :data="block" />
+        <BlockVideo :data="block as BlockVideoData" />
       </LayoutHelper>
 
       <LayoutHelper
@@ -143,14 +143,14 @@
         indent="col-2"
         :class="marginBottom"
       >
-        <BlockVideoEmbed :data="block as unknown as VideoBlockEmbedData" />
+        <BlockVideoEmbed :data="block as unknown as BlockVideoEmbedData" />
       </LayoutHelper>
 
       <BlockImage
         v-else-if="block.blockType == 'FullBleedImageBlock'"
         :key="`fullBleedImageBlock${index}`"
         :class="marginBottom"
-        :data="block"
+        :data="block as ImageBlock"
         :full-bleed="block.fullBleed"
       />
 
@@ -160,7 +160,7 @@
         indent="col-2"
         :class="marginBottom"
       >
-        <BlockImageComparison :data="block" />
+        <BlockImageComparison :data="block as BlockImageComparisonData" />
       </LayoutHelper>
 
       <LayoutHelper
@@ -169,7 +169,7 @@
         indent="col-2"
         :class="marginBottom"
       >
-        <BlockIframeEmbed :data="block" />
+        <BlockIframeEmbed :data="block as BlockIframeEmbedData" />
       </LayoutHelper>
 
       <LayoutHelper
@@ -221,7 +221,7 @@
         :key="`linkCarouselBlock${index}`"
         :class="marginBottom"
       >
-        <BlockLinkCarousel :items="block.blocks" />
+        <BlockLinkCarousel :items="block.blocks as Card[]" />
       </div>
 
       <LayoutHelper
@@ -230,7 +230,7 @@
         indent="col-2"
         :class="marginBottom"
       >
-        <BlockLinkCardList :items="block.blocks" />
+        <BlockLinkCardList :items="block.blocks as Card[]" />
       </LayoutHelper>
 
       <LayoutHelper
@@ -269,19 +269,23 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { StreamfieldBlockData } from '../../interfaces'
+import type { ImageBlock, StreamfieldBlockData, Card } from '../../interfaces'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 import BlockAnchor from './../BlockAnchor/BlockAnchor.vue'
 import BlockAccordion, { type AccordionBlockObject } from './../BlockAccordion/BlockAccordion.vue'
 import BlockCardGrid from './../BlockCardGrid/BlockCardGrid.vue'
-import BlockCta from './../BlockCta/BlockCta.vue'
+import BlockCta, { type BlockCtaData } from './../BlockCta/BlockCta.vue'
 import BlockHeading, { BlockHeadingObject } from './../BlockHeading/BlockHeading.vue'
 import BlockImage from './../BlockImage/BlockImage.vue'
 import BlockImageCarousel from './../BlockImageCarousel/BlockImageCarousel.vue'
-import BlockImageComparison from './../BlockImageComparison/BlockImageComparison.vue'
+import BlockImageComparison, {
+  type BlockImageComparisonData
+} from './../BlockImageComparison/BlockImageComparison.vue'
 import BlockImageGallery from './../BlockImageGallery/BlockImageGallery.vue'
-import BlockInlineImage from './../BlockInlineImage/BlockInlineImage.vue'
-import BlockKeyPoints from './../BlockKeyPoints/BlockKeyPoints.vue'
+import BlockInlineImage, {
+  type BlockInlineImageData
+} from './../BlockInlineImage/BlockInlineImage.vue'
+import BlockKeyPoints, { type BlockKeyPointsData } from './../BlockKeyPoints/BlockKeyPoints.vue'
 import BlockLinkCardList from './../BlockLinkCardList/BlockLinkCardList.vue'
 import BlockLinkCarousel from './../BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockListCards from './../BlockListCards/BlockListCards.vue'
@@ -292,12 +296,12 @@ import BlockRelatedLinks, {
 import BlockRichTable from './../BlockRichTable/BlockRichTable.vue'
 import BlockTeaser from './../BlockTeaser/BlockTeaser.vue'
 import BlockText from './../BlockText/BlockText.vue'
-import BlockIframeEmbed from './../BlockIframeEmbed/BlockIframeEmbed.vue'
+import BlockIframeEmbed, {
+  type BlockIframeEmbedData
+} from './../BlockIframeEmbed/BlockIframeEmbed.vue'
 import BlockGist from './../BlockGist/BlockGist.vue'
-import BlockVideo from './../BlockVideo/BlockVideo.vue'
-import BlockVideoEmbed, {
-  type BlockData as VideoBlockEmbedData
-} from './../BlockVideoEmbed/BlockVideoEmbed.vue'
+import BlockVideo, { type BlockVideoData } from './../BlockVideo/BlockVideo.vue'
+import BlockVideoEmbed, { type BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockNewsletterSignup from '../BlockNewsletterSignup/BlockNewsletterSignup.vue'
 import BlockCsrTable from '../BlockCsrTable/BlockCsrTable.vue'
 import { mapStores } from 'pinia'

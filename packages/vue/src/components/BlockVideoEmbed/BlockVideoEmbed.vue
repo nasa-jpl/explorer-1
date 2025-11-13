@@ -24,10 +24,11 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
+import type { BlockData } from './../../interfaces'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 
-export interface BlockData {
+export type BlockVideoEmbedData = BlockData & {
   heading: string
   display?: boolean
   embed: {
@@ -47,7 +48,7 @@ export default defineComponent({
   props: {
     /** BlockData (`embed.embed`) provides the HTML markup for the embed */
     data: {
-      type: Object as PropType<BlockData>,
+      type: Object as PropType<BlockVideoEmbedData>,
       required: false,
       default: undefined
     },

@@ -153,7 +153,7 @@ export default defineComponent({
         return 'flex'
       }
     },
-    hasCaptionArea(): string | boolean {
+    hasCaptionArea(): string | boolean | undefined {
       if (this.theImageData) {
         if (this.themeStore.isEdu) {
           // For EDU, only show the caption area if there is a caption

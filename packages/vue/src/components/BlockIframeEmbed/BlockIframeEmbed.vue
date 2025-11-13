@@ -54,12 +54,18 @@ import { useThemeStore } from '../../store/theme'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 
+export type BlockIframeEmbedData = BlockData & {
+  caption: string
+  title: string
+  url: string
+  height?: number
+}
 export default defineComponent({
   name: 'BlockIframeEmbed',
   components: { BaseImageCaption, BaseImagePlaceholder },
   props: {
     data: {
-      type: Object as PropType<BlockData>,
+      type: Object as PropType<BlockIframeEmbedData>,
       default: undefined
     }
   },

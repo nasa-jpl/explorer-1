@@ -52,7 +52,7 @@
           />
         </BaseImagePlaceholder>
         <!-- @ts-ignore -->
-        <BlockVideoEmbed :data="data" />
+        <BlockVideoEmbed :data="data as unknown as BlockVideoEmbedData" />
         <BlockText
           variant="medium"
           :text="data.description"
@@ -80,7 +80,7 @@ import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BlockText from './../BlockText/BlockText.vue'
-import BlockVideoEmbed from './../BlockVideoEmbed/BlockVideoEmbed.vue'
+import BlockVideoEmbed, { type BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 
 export default defineComponent({
   name: 'TimelineDialog',

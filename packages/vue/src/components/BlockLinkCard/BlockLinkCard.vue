@@ -189,7 +189,12 @@
 
 <script lang="ts">
 import type { PropType } from 'vue'
-import type { Card, EventCardObject, EduResourceCardObject } from './../../interfaces.ts'
+import type {
+  ContentTypeKey,
+  Card,
+  EventCardObject,
+  EduResourceCardObject
+} from './../../interfaces.ts'
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
@@ -388,11 +393,11 @@ export default defineComponent({
       }
       return undefined
     },
-    metadataType() {
+    metadataType(): ContentTypeKey | undefined {
       // checks that this is a valid metadata type
       const validContentTypes = Object.keys(eduMetadataDictionary)
       return this.data?.page?.__typename && validContentTypes.includes(this.data?.page?.__typename)
-        ? this.data?.page?.__typename
+        ? (this.data?.page?.__typename as ContentTypeKey)
         : undefined
     },
     metadataAttrs() {

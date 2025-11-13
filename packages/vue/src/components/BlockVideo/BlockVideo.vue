@@ -23,11 +23,17 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
-import { type BlockData } from './../../interfaces.ts'
+import type { BlockData, VideoObject } from './../../interfaces.ts'
 import { useThemeStore } from '../../store/theme'
 import BaseVideo from './../BaseVideo/BaseVideo.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 
+export type BlockVideoData = BlockData & {
+  video: VideoObject
+  autoplay: boolean
+  caption: string
+  credit: string
+}
 export default defineComponent({
   name: 'BlockVideo',
   components: {
@@ -37,7 +43,7 @@ export default defineComponent({
   props: {
     /** BlockData is used to render an HTML5 video element */
     data: {
-      type: Object as PropType<BlockData>,
+      type: Object as PropType<BlockVideoData>,
       required: false,
       default: undefined
     },

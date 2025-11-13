@@ -42,12 +42,18 @@
 </template>
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
-import type { BlockData } from './../../interfaces.ts'
+import type { BlockData, ImageObject } from './../../interfaces.ts'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseAudio from './../BaseAudio/BaseAudio.vue'
 import LayoutHelper from './../LayoutHelper/LayoutHelper.vue'
 
+export interface BlockAudioData extends BlockData {
+  thumbnailImage: ImageObject
+  uploadedMedia: {
+    file: string
+  }
+}
 export default defineComponent({
   name: 'BlockAudio',
   components: {
@@ -58,8 +64,9 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<BlockData>,
-      required: false
+      type: Object as PropType<BlockAudioData>,
+      required: false,
+      default: undefined
     }
   }
 })

@@ -62,25 +62,25 @@ import ThumbnailCarousel from './../ThumbnailCarousel/ThumbnailCarousel.vue'
 
 const route = useRoute()
 
-interface Slide {
+export interface Slide {
   url: string
   title: string
   thumbnailImage: Partial<ImageObject>
 }
 
-interface Episode {
+export interface Episode {
   url: string
   title: string
   publicationDate: any
   thumbnailImage: Partial<ImageObject>
 }
 
-interface ActiveTab {
+export interface ActiveTab {
   title?: string
   episodes?: Episode[] | Season
 }
 
-interface Season {
+export interface Season {
   id: string
   url?: string
   title?: string
@@ -88,7 +88,7 @@ interface Season {
   episodes?: Episode[]
 }
 
-interface Series {
+export interface Series {
   id: string
   title?: string
   url?: string
