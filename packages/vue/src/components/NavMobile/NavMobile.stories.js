@@ -18,7 +18,7 @@ export default {
       isRotated: false
     }
   }
-};
+}
 
 // data
 export const NavMobileData = {
