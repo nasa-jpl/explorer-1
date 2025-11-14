@@ -83,6 +83,8 @@ export const BaseStory = {
   name: 'HeroLarge',
   args: {
     label: 'Robotics at JPL',
-    ...HeroLargeData
+    ...HeroLargeData,
+    summary: HeroLargeData.description,
+    image: HeroLargeData.heroImage
   }
 }
