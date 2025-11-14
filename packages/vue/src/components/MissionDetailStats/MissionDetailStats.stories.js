@@ -9,12 +9,12 @@ export default {
   subcomponents: { MissionDetailStatsMini, MissionDetailStatsMicro },
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="mt-20"><story/></div>`
+      template: `<div id="storyRoot" class="mt-20"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*(Data)$/,

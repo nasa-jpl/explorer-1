@@ -14,6 +14,8 @@ import { withGlobals, globalTypes } from './withGlobals'
 import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 import VueObserveVisibility from 'vue3-observe-visibility'
+import beautify from 'js-beautify'
+import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/beautifyHtmlOptions.js'
 
 const pinia = createPinia()
 const router = createRouter({
@@ -106,14 +108,26 @@ const preview: Preview = {
       }
     },
     viewport: {
-      viewports: {
+      options: {
         ...MINIMAL_VIEWPORTS,
         ...customViewports
       }
     },
     // options for the html tab add-on
     html: {
-      removeEmptyComments: true
+      removeComments: true,
+      removeEmptyComments: true,
+      highlighter: {
+        // showLineNumbers: true // default: false
+        wrapLines: false // default: true
+      },
+      transform: (code: any) => {
+        // Remove attributes `data-chromatic` and `baseimageprops`:
+        code = code.replace(/(?:data-chromatic|baseimageprops|content_type).*?="[\S\s]*?"/g, '')
+        // @ts-ignore
+        code = beautify.html(code, beautifyHtmlOptions)
+        return code
+      }
     },
     a11y: {
       context: 'body',

@@ -7,7 +7,7 @@ export default {
   component: BlockLinkTile,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative grid grid-cols-2 gap-3 lg:grid-cols-3"><story/></div>`
+      template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3 lg:grid-cols-3"><story/></div>`
     })
   ],
   tags: ['!autodocs'],
@@ -23,7 +23,7 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

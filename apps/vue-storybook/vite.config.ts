@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import packageVersions from '@explorer-1/common-storybook/src/plugins/package-versions.js'
+import packageVersions from '@explorer-1/common-storybook/src/plugins/packageVersions.js'
 
 // import Components from 'unplugin-vue-components/vite'
 

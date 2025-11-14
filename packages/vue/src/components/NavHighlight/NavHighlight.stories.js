@@ -5,12 +5,12 @@ export default {
   component: NavHighlight,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="lg:BaseGrid container"><div class="col-span-5"><story/></div></div>`
+      template: `<div id="storyRoot" class="lg:BaseGrid container"><div class="col-span-5"><story/></div></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     viewMode: 'docs'
   },

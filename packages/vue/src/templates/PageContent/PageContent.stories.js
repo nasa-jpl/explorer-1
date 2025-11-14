@@ -15,7 +15,7 @@ export default {
   tags: ['!autodocs'],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     layout: 'fullscreen'
   },

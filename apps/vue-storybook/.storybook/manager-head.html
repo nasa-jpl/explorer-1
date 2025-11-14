@@ -31,4 +31,10 @@
     max-width: none !important;
     max-height: none !important;
   }
+
+  /* fix placement of "copy" button in HTML add-on */
+  #panel-tab-content > div[hidden] + div:not([class]),
+  #panel-tab-content > div[hidden] + div:not([class]) > div {
+    height: 100%;
+  }
 </style>

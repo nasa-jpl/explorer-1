@@ -88,11 +88,13 @@ export default defineComponent({
       required: false,
       default: undefined
     },
+    // custom text for pill
     customPill: {
       type: String,
       required: false,
       default: undefined
     },
+    // maps to EDU resource types
     customPillType: {
       type: String,
       required: false,

@@ -7,19 +7,20 @@ export default {
   argTypes: {
     variant: {
       type: { name: 'string', required: false },
-      description: 'The variant (color) of the tag',
+      description: 'The variant (color) of the pill',
       control: { type: 'select' },
       options: ['primary', 'secondary', 'action']
     },
     size: {
       type: { name: 'string', required: false },
-      description: 'The size of the tag',
+      description: 'The size of the pill',
       control: { type: 'select' },
       options: ['sm', 'md', 'lg']
     },
     contentType: {
       control: { type: 'select' },
-      options: Object.keys(eduMetadataDictionary)
+      options: Object.keys(eduMetadataDictionary),
+      description: 'Maps to EDU Resource types. Must use `ThemeEdu` to have an effect.'
     }
   }
 }
@@ -39,5 +40,10 @@ export const SecondarySmall = {
 }
 
 export const WithType = {
-  args: { size: 'sm', variant: 'secondary', text: 'Do it yourself' }
+  args: {
+    size: 'sm',
+    variant: 'primary',
+    text: 'Student Project',
+    contentType: 'EDUStudentProjectPage'
+  }
 }

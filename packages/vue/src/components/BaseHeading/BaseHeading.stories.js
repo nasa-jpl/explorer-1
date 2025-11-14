@@ -16,14 +16,14 @@ export default {
     level: {
       type: { name: 'string', required: false },
       description:
-        'The semantic heading tag if different from the display size (ex: a heading looks like an `h4`, but semantically, it is an `h1`.',
+        'The semantic heading tag if different from the display size (ex: a heading needs to look like an `h4`, but semantically, it is an `h1`.',
       control: { type: 'select' },
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
     }
   },
   parameters: {
     slots: {
-      default: 'BaseStory slot content'
+      default: 'The contents of the heading, usually text. Override with `<template #default>`'
     },
     docs: {
       description: {
@@ -71,4 +71,11 @@ const TemplateHeadingsWithIcons = (args) => ({
 })
 
 export const HeadingsWithIcons = TemplateHeadingsWithIcons.bind({})
-HeadingsWithIcons.args = { size: 'h1', level: 'h1', default: 'Heading 1' }
+HeadingsWithIcons.args = { size: 'h3', level: 'h3', default: 'Heading 3 with Icon' }
+HeadingsWithIcons.parameters = {
+  docs: {
+    description: {
+      story: 'Example of overriding the default slot to include an icon component.'
+    }
+  }
+}

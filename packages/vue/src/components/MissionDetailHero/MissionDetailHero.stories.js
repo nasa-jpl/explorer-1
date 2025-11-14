@@ -22,12 +22,12 @@ export default {
   },
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" style="height:2500px"><story/></div>`
+      template: `<div id="storyRoot" style="height:2500px"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     viewMode: 'canvas'
   },

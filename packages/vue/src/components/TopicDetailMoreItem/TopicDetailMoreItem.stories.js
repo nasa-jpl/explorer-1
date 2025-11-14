@@ -4,12 +4,12 @@ export default {
   component: TopicDetailMoreItem,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="lg:w-1/3"><story/></div>`
+      template: `<div id="storyRoot" class="lg:w-1/3"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

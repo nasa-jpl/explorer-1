@@ -17,13 +17,13 @@ export default {
   component: PageNewsDetail,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
+      template: `<div id="storyRoot" class="disable-nav-offset"><story/></div>`
     })
   ],
   parameters: {
     layout: 'fullscreen',
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

@@ -70,5 +70,7 @@ export const BlockAccordionData = {
 // stories
 export const BaseStory = {
   name: 'BlockAccordion',
-  args: { data: BlockAccordionData }
+  args: {
+    data: BlockAccordionData
+  }
 }

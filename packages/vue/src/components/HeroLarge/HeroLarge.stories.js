@@ -1,4 +1,5 @@
 import HeroLarge from './HeroLarge.vue'
+import { eduMetadataDictionary } from './../../constants'
 
 export default {
   title: 'Components/Heroes/Large',
@@ -6,6 +7,25 @@ export default {
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'canvas'
+  },
+  argTypes: {
+    customPill: {
+      type: { name: 'string', required: false },
+      description: 'Text for pill (overrides label)'
+    },
+    customPillType: {
+      type: { name: 'string', required: false },
+      control: { type: 'select' },
+      options: Object.keys(eduMetadataDictionary),
+      description:
+        'Maps to EDU resource types. Label is replaced with a color-themed "pill." Must use with `.ThemeEdu`'
+    },
+    hasOverlay: {
+      type: { name: 'boolean' },
+      control: { type: 'boolean' },
+      description:
+        'If secondary nav is also on this page, more space will be added above the hero text'
+    }
   }
 }
 
@@ -52,15 +72,19 @@ export const HeroLargeData = {
       url: 'https://picsum.photos/id/247/640/900'
     },
     alt: 'Robotics detail page hero image'
-  }
+  },
+  customPill: undefined,
+  customPillType: undefined,
+  hasOverlay: false
 }
 
 // stories
 export const BaseStory = {
   name: 'HeroLarge',
   args: {
-    eyebrow: 'Robotics at JPL',
+    label: 'Robotics at JPL',
     ...HeroLargeData,
+    summary: HeroLargeData.description,
     image: HeroLargeData.heroImage
   }
 }

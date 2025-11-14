@@ -6,12 +6,12 @@ export default {
   excludeStories: /.*Data$/,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="mt-20"><story/></div>`
+      template: `<div id="storyRoot" class="mt-20"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator' // to omit decorators from html output
+      root: '#storyRoot' // to omit decorators from html output
     }
   },
   argTypes: {

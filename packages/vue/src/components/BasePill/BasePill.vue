@@ -22,15 +22,13 @@ interface BasePillProps {
   variant?: string
   size?: string
   contentType?: string
-  invert?: boolean
 }
 
 // define props
 const props = withDefaults(defineProps<BasePillProps>(), {
   variant: 'primary',
   size: 'md',
-  contentType: undefined,
-  invert: false
+  contentType: undefined
 })
 
 const metadataType = computed(() => {

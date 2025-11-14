@@ -7,13 +7,13 @@ export default {
   tags: ['!autodocs'],
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="ThemeEdu"><story/></div>`
+      template: `<div id="storyRoot" class="ThemeEdu"><story/></div>`
     })
   ],
   globals: { theme: 'ThemeEdu' },
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     docs: {
       description: {

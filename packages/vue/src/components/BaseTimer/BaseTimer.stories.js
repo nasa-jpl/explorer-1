@@ -5,7 +5,7 @@ export default {
   component: BaseTimer,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="w-full"><story/></div>`
+      template: `<div id="storyRoot" class="w-full"><story/></div>`
     })
   ]
 }

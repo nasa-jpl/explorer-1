@@ -24,14 +24,14 @@ export default {
   tags: ['!autodocs'],
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="disable-nav-offset"><story/></div>`
+      template: `<div id="storyRoot" class="disable-nav-offset"><story/></div>`
     })
   ],
   globals: { theme: 'ThemeEdu' },
   parameters: {
     layout: 'fullscreen',
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

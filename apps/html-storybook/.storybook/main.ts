@@ -12,14 +12,10 @@ export default {
 
   stories: [
     // @explorer-1/html
-    // './../node_modules/@explorer-1/html/src/**/*.stories.@(js|ts)',
-    // './../node_modules/@explorer-1/html/src/**/*.docs.@(mdx|jsx)'
     './../node_modules/@explorer-1/html/src/components/FooterInternal/**/*.stories.@(js|ts)',
-    './../node_modules/@explorer-1/html/src/components/FooterInternal/**/*.docs.@(mdx|jsx)',
-    './../node_modules/@explorer-1/html/src/components/HeaderInternal/**/*.stories.@(js|ts)',
     './../node_modules/@explorer-1/html/src/components/HeaderInternal/**/*.docs.@(mdx|jsx)',
-    './../node_modules/@explorer-1/html/src/components/NavInternal/**/*.stories.@(js|ts)',
-    './../node_modules/@explorer-1/html/src/components/NavInternal/**/*.docs.@(mdx|jsx)'
+    './../node_modules/@explorer-1/html/src/components/HeaderInternal/**/*.stories.@(js|ts)',
+    './../node_modules/@explorer-1/html/src/components/NavInternal/**/*.stories.@(js|ts)'
   ],
 
   staticDirs: ['./../public', './../node_modules/@explorer-1/common-storybook/src/public'],

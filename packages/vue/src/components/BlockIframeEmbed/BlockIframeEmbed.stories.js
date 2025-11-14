@@ -5,12 +5,12 @@ export default {
   component: BlockIframeEmbed,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="mx-auto max-w-screen-md"><story/></div>`
+      template: `<div id="storyRoot" class="mx-auto max-w-screen-md"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

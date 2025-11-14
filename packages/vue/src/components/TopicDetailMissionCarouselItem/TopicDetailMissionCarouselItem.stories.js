@@ -7,12 +7,12 @@ export default {
   component: TopicDetailMissionCarouselItem,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="relative lg:w-1/3"><story/></div>`
+      template: `<div id="storyRoot" class="relative lg:w-1/3"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

@@ -5,7 +5,7 @@ export default {
   component: BlockImageCarouselItem,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="container mx-auto"><story/></div>`
+      template: `<div id="storyRoot" class="container mx-auto"><story/></div>`
     })
   ],
   argTypes: {
@@ -24,7 +24,7 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

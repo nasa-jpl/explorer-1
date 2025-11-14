@@ -3,14 +3,20 @@ import EventDetailHero from './EventDetailHero.vue'
 export default {
   title: 'Components/WWW/EventDetail/EventDetailHero',
   component: EventDetailHero,
+  tags: ['!autodocs'],
+  argTypes: {
+    constrain: {
+      description: 'Constrain image to 16:9'
+    }
+  },
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="max-w-screen-3xl mx-auto"><story/></div>`
+      template: `<div id="storyRoot" class="max-w-screen-3xl mx-auto"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     themes: {
       clearable: false,
@@ -37,10 +43,6 @@ export const EventDetailHeroData = {
       height: 1200
     },
     alt: 'The hero image'
-  },
-  startDateSplit: {
-    day: '25',
-    monthAndYear: 'Jan. 2020'
   }
 }
 
@@ -48,6 +50,7 @@ export const EventDetailHeroData = {
 export const BaseStory = {
   args: {
     image: EventDetailHeroData.heroImage,
-    startDateSplit: EventDetailHeroData.startDateSplit
+    startDate: '11-11-2025',
+    endDate: '12-02-2025'
   }
 }

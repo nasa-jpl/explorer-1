@@ -14,12 +14,12 @@ export default {
   },
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="container mx-auto border border-black"><story/></div>`
+      template: `<div id="storyRoot" class="container mx-auto border border-black"><story/></div>`
     })
   ]
 }

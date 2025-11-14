@@ -5,6 +5,8 @@ import './../public/dist/css/font-face.css'
 import '@explorer-1/html/src/main.js'
 import '@explorer-1/common-storybook/src/config/canvas.css'
 import { withGlobals } from './withGlobals'
+import beautify from 'js-beautify'
+import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/beautifyHtmlOptions.js'
 
 // viewports that match our tailwind config
 const customViewports = {
@@ -117,14 +119,26 @@ const preview = {
     },
     // add custom viewports to the toolbar
     viewport: {
-      viewports: {
+      options: {
         ...MINIMAL_VIEWPORTS,
         ...customViewports
       }
     },
     // options for the html tab add-on
     html: {
-      removeEmptyComments: true
+      removeComments: true,
+      removeEmptyComments: true,
+      highlighter: {
+        // showLineNumbers: true // default: false
+        wrapLines: false // default: true
+      },
+      transform: (code: any) => {
+        // Remove attributes `data-chromatic` and `ng-reflect`:
+        code = code.replace(/(?:data-chromatic|baseimageprops|content_type).*?="[\S\s]*?"/g, '')
+        // @ts-ignore
+        code = beautify.html(code, beautifyHtmlOptions)
+        return code
+      }
     },
     // set the theme for docs (same as UI)
     docs: {
@@ -138,14 +152,19 @@ const preview = {
       }
     },
     backgrounds: {
-      default: 'light',
       grid: {
         disable: true
       }
     }
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
+
+  initialGlobals: {
+    backgrounds: {
+      value: 'light'
+    }
+  }
 }
 
 export default preview

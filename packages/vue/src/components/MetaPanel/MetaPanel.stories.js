@@ -6,7 +6,7 @@ export default {
   tags: ['!autodocs'],
   decorators: [
     () => ({
-      template: `<div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div><div id="storyDecorator"><story/></div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div></div>`
+      template: `<div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div><div id="storyRoot"><story/></div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div></div>`
     })
   ],
   parameters: {
