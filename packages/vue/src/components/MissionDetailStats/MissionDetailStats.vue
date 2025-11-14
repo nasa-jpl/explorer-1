@@ -75,7 +75,7 @@
 // @ts-nocheck
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import DistanceStats from './DistanceStats.vue'
+import DistanceStats, { supportedPaths } from './DistanceStats.vue'
 import type { DistanceType } from './DistanceStats.vue'
 import BaseTimer from './../BaseTimer/BaseTimer.vue'
 
@@ -110,15 +110,22 @@ export default defineComponent({
   },
   props: {
     showClock: Boolean,
+    /** Select the type of clock. This will change the text of the labels and how the count functions */
     clockType: {
       type: String as PropType<ClockType>,
       required: true,
       validator: (val: ClockType): boolean => Boolean(clockTypes[val])
     },
-    startDateTime: String,
+    startDateTime: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    /** Launch date */
     displayDate: {
       type: String || null,
-      required: false
+      required: false,
+      default: undefined
     },
     missionTypes: {
       type: Array as PropType<{ missionType: string }[]>,
@@ -135,14 +142,23 @@ export default defineComponent({
       required: true,
       validator: (val: Status): boolean => Boolean(statuses[val])
     },
+    /** If distance should be displayed with the stats */
     showDistance: Boolean,
     distanceType: {
       type: String as PropType<DistanceType | ''>,
       required: false,
       default: ''
     },
-    distanceValue: Number,
-    distanceApiUrls: String
+    distanceValue: {
+      type: Number,
+      default: undefined
+    },
+    /** Used with `DistanceStats`. Only `/spice_data/getRangefromT1/` or `/api/v1/missions/` paths are supported. */
+    distanceApiUrls: {
+      type: String,
+      default: undefined,
+      validator: (val: string): boolean => supportedPaths.some((p) => val.includes(p) || val === '')
+    }
   },
   computed: {
     clockTypeLabel(): string {

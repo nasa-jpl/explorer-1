@@ -1,15 +1,11 @@
 import { MenuHighlightColumnData } from './../NavHighlight/NavHighlight.stories'
 import { MenuLinkColumnWithHeaderData } from './../NavLinkList/NavLinkList.stories'
 import NavDesktop from './NavDesktopEdu.vue'
-import NavDesktopTopHat from './../NavDesktop/NavDesktopTopHat.vue'
-import NavDesktopDropdown from './../NavDesktop/NavDesktopDropdown.vue'
-import NavDesktopDropdownContent from './../NavDesktop/NavDesktopDropdownContent.vue'
-import NavDesktopDropdownMore from './../NavDesktop/NavDesktopDropdownMore.vue'
 
 export default {
   title: 'Navigation/Headers/EDU/NavDesktopEdu',
   component: NavDesktop,
-  tags: ['!autodocs'],
+  tags: ['navigation'],
   excludeStories: /.*Data$/,
   parameters: {
     layout: 'fullscreen'

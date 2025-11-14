@@ -26,6 +26,7 @@ export default defineComponent({
     BaseModalDialog
   },
   props: {
+    /** If clicking on the background should close the modal. Note: doesn't have an affect within Storybook */
     bgClose: {
       type: Boolean,
       default: false

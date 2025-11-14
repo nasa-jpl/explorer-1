@@ -27,18 +27,15 @@
   </video>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-
+/** This mix-in loops a muted video. */
+import { defineComponent, type PropType } from 'vue'
+import type { VideoObject } from './../../interfaces.ts'
 export default defineComponent({
   name: 'MixinVideoBg',
   props: {
     video: {
-      type: Object,
+      type: Object as PropType<VideoObject>,
       default: undefined
-    },
-    autoplay: {
-      type: Boolean,
-      default: false
     }
   }
 })

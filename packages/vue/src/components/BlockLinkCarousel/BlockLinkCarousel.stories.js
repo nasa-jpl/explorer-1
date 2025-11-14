@@ -1,21 +1,9 @@
-import BlockLinkCarousel, { itemTypes } from './BlockLinkCarousel.vue'
+import BlockLinkCarousel from './BlockLinkCarousel.vue'
 
 export default {
   title: 'Components/Blocks/BlockLinkCarousel',
   component: BlockLinkCarousel,
-  argTypes: {
-    itemType: {
-      type: 'string',
-      description: 'Type of item used for each slide',
-      control: {
-        type: 'select'
-      },
-      options: Object.keys(itemTypes),
-      table: {
-        defaultValue: { summary: 'cards' }
-      }
-    }
-  },
+  tags: ['wagtail-blocks', 'carousels', 'listings'],
   excludeStories: /.*Data$/
 }
 

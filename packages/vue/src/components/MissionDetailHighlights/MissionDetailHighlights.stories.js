@@ -9,6 +9,7 @@ import MissionDetailHighlights from './MissionDetailHighlights.vue'
 export default {
   title: 'Components/WWW/MissionDetail/MissionHighlights',
   component: MissionDetailHighlights,
+  tags: ['carousels'],
   parameters: {
     viewMode: 'canvas'
   },

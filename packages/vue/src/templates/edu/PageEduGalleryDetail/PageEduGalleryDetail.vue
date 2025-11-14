@@ -9,10 +9,14 @@ import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import BaseHeading from './../../../components/BaseHeading/BaseHeading.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
 import ShareButtonsEdu from './../../../components/ShareButtonsEdu/ShareButtonsEdu.vue'
-import BlockVideo from './../../../components/BlockVideo/BlockVideo.vue'
+import BlockVideo, { type BlockVideoData } from './../../../components/BlockVideo/BlockVideo.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
-import BlockImageComparison from './../../../components/BlockImageComparison/BlockImageComparison.vue'
-import BlockVideoEmbed from './../../../components/BlockVideoEmbed/BlockVideoEmbed.vue'
+import BlockImageComparison, {
+  type BlockImageComparisonData
+} from './../../../components/BlockImageComparison/BlockImageComparison.vue'
+import BlockVideoEmbed, {
+  type BlockVideoEmbedData
+} from './../../../components/BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import BlockText from './../../../components/BlockText/BlockText.vue'
@@ -134,7 +138,7 @@ const { data } = reactive(props)
           <template v-else-if="block.blockType === 'ImageComparisonBlock'">
             <LayoutHelper indent="col-2">
               <BlockImageComparison
-                :data="block"
+                :data="block as BlockImageComparisonData"
                 :custom-detail-url="item.externalLink"
               />
             </LayoutHelper>
@@ -142,7 +146,7 @@ const { data } = reactive(props)
           <template v-else-if="block.blockType === 'VideoBlock'">
             <LayoutHelper indent="col-2">
               <BlockVideo
-                :data="block"
+                :data="block as BlockVideoData"
                 :custom-detail-url="item.externalLink"
               />
             </LayoutHelper>
@@ -150,7 +154,7 @@ const { data } = reactive(props)
           <template v-else-if="block.blockType === 'VideoEmbedBlock'">
             <LayoutHelper indent="col-2">
               <BlockVideoEmbed
-                :data="block"
+                :data="block as BlockVideoEmbedData"
                 :custom-detail-url="item.externalLink"
               />
             </LayoutHelper>

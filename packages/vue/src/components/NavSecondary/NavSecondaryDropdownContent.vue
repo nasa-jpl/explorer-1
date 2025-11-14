@@ -67,7 +67,7 @@
 import { defineComponent } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
-interface NavItemObject {
+export interface NavItemObject {
   path: String
   title: String
   children: [Object]

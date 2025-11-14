@@ -45,7 +45,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { ImageObject } from './../../interfaces.ts'
 import { mixinGetSrcSet } from '../../utils/mixins'
 import BlockText from './../BlockText/BlockText.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
@@ -61,18 +62,22 @@ export default defineComponent({
     BaseImageCaption
   },
   props: {
+    /** Which side should the image be aligned to? */
     alignment: {
-      type: String,
+      type: String as PropType<'left' | 'right'>,
       required: false,
       default: 'right'
     },
+    /** Supports rich text */
     text: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     image: {
-      type: Object,
-      required: false
+      type: Object as PropType<ImageObject>,
+      required: false,
+      default: undefined
     }
   },
   computed: {

@@ -41,7 +41,8 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { VideoObject } from './../../interfaces'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 
 export default defineComponent({
@@ -50,10 +51,13 @@ export default defineComponent({
     BaseImagePlaceholder
   },
   props: {
+    /** Video data object */
     data: {
-      type: Object,
-      required: false
+      type: Object as PropType<VideoObject>,
+      required: false,
+      default: undefined
     },
+    /** If video should autoplay */
     autoplay: {
       type: Boolean,
       default: false

@@ -3,6 +3,7 @@ import NavSocial from './NavSocial.vue'
 export default {
   title: 'Navigation/Elements/NavSocial',
   component: NavSocial,
+  tags: ['navigation'],
   excludeStories: /.*Data$/
 }
 

@@ -3,7 +3,7 @@ import AboutTheAuthor from './AboutTheAuthor.vue'
 export default {
   title: 'Components/Utilities/AboutTheAuthor',
   component: AboutTheAuthor,
-  tags: ['!autodocs'],
+  tags: ['listings'],
   excludeStories: /.*Data$/
 }
 

@@ -4,6 +4,7 @@ import NavLogoLinks from './NavLogoLinks.vue'
 export default {
   title: 'Navigation/Elements/NavLogoLinks',
   component: NavLogoLinks,
+  tags: ['navigation'],
   excludeStories: /.*Data$/
 }
 

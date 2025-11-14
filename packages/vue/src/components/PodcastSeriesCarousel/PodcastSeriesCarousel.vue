@@ -52,6 +52,7 @@
   </div>
 </template>
 <script lang="ts">
+/** A tabbed carousel of podcast seasons based on series. If a season `id` is provided, the carousel will default to showing that season. If the user is currently on an episode page within the displayed season, that episode will be the active slide in the carousel. */
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
@@ -61,25 +62,25 @@ import ThumbnailCarousel from './../ThumbnailCarousel/ThumbnailCarousel.vue'
 
 const route = useRoute()
 
-interface Slide {
+export interface Slide {
   url: string
   title: string
   thumbnailImage: Partial<ImageObject>
 }
 
-interface Episode {
+export interface Episode {
   url: string
   title: string
   publicationDate: any
   thumbnailImage: Partial<ImageObject>
 }
 
-interface ActiveTab {
+export interface ActiveTab {
   title?: string
   episodes?: Episode[] | Season
 }
 
-interface Season {
+export interface Season {
   id: string
   url?: string
   title?: string
@@ -87,7 +88,7 @@ interface Season {
   episodes?: Episode[]
 }
 
-interface Series {
+export interface Series {
   id: string
   title?: string
   url?: string

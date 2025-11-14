@@ -152,11 +152,17 @@ export default defineComponent({
     IconForwardTen
   },
   props: {
+    /**
+     * Path to audio file
+     */
     file: {
       type: String,
       default: null
     },
     autoPlay: {
+      /**
+       * If audio should play automatically
+       */
       type: Boolean,
       default: false
     }

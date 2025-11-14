@@ -140,7 +140,8 @@
   </transition>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+/** Designed to be controlled by a wrapper component that passes state via props */
+import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { eventBus } from './../../utils/eventBus'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
@@ -156,9 +157,16 @@ import NavMobileDropdown from './../NavMobile/NavMobileDropdown.vue'
 import NavMobileLink from './../NavMobile/NavMobileLink.vue'
 import NavSocial from './../NavSocial/NavSocial.vue'
 import NavSearchForm from './../NavSearchForm/NavSearchForm.vue'
-import type { LinkObject, BreadcrumbObject } from '../../utils/mixins'
+import type { NavLinkObject, BreadcrumbObject } from '../../utils/mixins'
 import { mixinIsActivePath } from '../../utils/mixins'
 import type { BreadcrumbPathObject } from '../../interfaces'
+import type { FooterNavItem } from './../TheFooter/TheFooter.vue'
+
+type NavMobileData = {
+  mobileBreadcrumb: string
+  footerMoreFromJpl: NavLinkObject[]
+  footerNavigation: FooterNavItem[]
+}
 
 export default defineComponent({
   name: 'NavMobile',
@@ -174,26 +182,31 @@ export default defineComponent({
     IconExternal
   },
   props: {
+    /** Data object containing navigation data */
     data: {
-      type: Object || null,
+      type: Object as PropType<NavMobileData>,
       required: false,
       default: null
     },
+    /** State: if the top bar should be visible. */
     headerVisible: {
       type: Boolean,
       required: false,
       default: false
     },
+    /** State: if the user has scrolled up */
     scrolledUp: {
       type: Boolean,
       required: false,
       default: false
     },
+    /** State: scrollTop value */
     scrollTop: {
       type: Number,
       required: false,
       default: 0
     },
+    /** Secondary nav data */
     staticSecondaryData: {
       type: Array,
       required: false,
@@ -273,14 +286,14 @@ export default defineComponent({
       }
     },
     // safe way to retrieve url key from nav items. used with breadcrumb to determine active class.
-    getUrlKey(item: LinkObject): string | null {
+    getUrlKey(item: NavLinkObject): string | null {
       if (item?.linkPage) {
         return item.linkPage.url
       }
       return null
     },
     // to determine active class on menu links and 'more' menu links
-    checkActive(item: LinkObject) {
+    checkActive(item: NavLinkObject) {
       const urlKey = this.getUrlKey(item)
       if (urlKey && this.breadcrumb?.menu_links) {
         // key into the breadcrumbs for each section

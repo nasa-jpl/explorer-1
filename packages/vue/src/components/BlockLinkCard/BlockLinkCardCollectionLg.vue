@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import type { EduResourceCardObject } from '../../interfaces'
+import type { ContentTypeKey, EduResourceCardObject } from '../../interfaces'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
@@ -10,7 +10,7 @@ import MetadataEduResource from './../MetadataEduResource/MetadataEduResource.vu
 
 interface BlockLinkCardCollectionLgProps {
   theItem?: EduResourceCardObject
-  metadataType?: string
+  metadataType?: ContentTypeKey
   metadataAttrs?: any
   headingLevel?: HeadingLevel
   size?: string

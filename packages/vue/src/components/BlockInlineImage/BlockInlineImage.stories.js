@@ -4,14 +4,7 @@ import BlockInlineImage from './BlockInlineImage.vue'
 export default {
   title: 'Components/Blocks/BlockInlineImage',
   component: BlockInlineImage,
-  argTypes: {
-    variant: {
-      type: 'string',
-      description: 'Text size variant',
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large']
-    }
-  },
+  tags: ['wagtail-blocks'],
   excludeStories: /.*(Data)$/
 }
 

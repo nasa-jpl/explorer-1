@@ -2,6 +2,7 @@ import TopicDetailMoreItem from './TopicDetailMoreItem.vue'
 export default {
   title: 'Components/WWW/TopicDetail/TopicDetailMore/TopicDetailMoreItem',
   component: TopicDetailMoreItem,
+  tags: ['cards'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="lg:w-1/3"><story/></div>`

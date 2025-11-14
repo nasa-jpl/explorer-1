@@ -85,22 +85,24 @@ type Interval = ReturnType<typeof setInterval>
 export default defineComponent({
   name: 'BaseTimer',
   props: {
+    /** Start time or goal time (depends if it's a countdown or not). Format: `YYYY-MM-DD HH:MM:SS+01:00` */
     targetDateTime: {
       type: String,
       required: true
     },
-    // if blank, the first three significant units will show
+    /** If blank, the first three applicable time units will show */
     selectedUnits: {
       type: Array as PropType<UnitID[]>,
       required: false,
       validator: (val: UnitID[]): boolean => val.every((v) => Boolean(timerUnits[v]))
     },
+    /** If time and units should all appear on one line */
     inline: {
       type: Boolean,
       required: false,
       default: false
     },
-    // if a countdown clock, then this will force it to stop at 0
+    /** If this is a countdown clock, the timer will start `now()` and count down to 0 when it reaches the `targetDateTime`) */
     countdown: {
       type: Boolean,
       required: false,

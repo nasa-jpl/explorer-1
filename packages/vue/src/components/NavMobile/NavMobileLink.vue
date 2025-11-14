@@ -16,7 +16,7 @@
 import { defineComponent } from 'vue'
 import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
 import type { PropType } from 'vue'
-import type { LinkObject } from './../../utils/mixins'
+import type { NavLinkObject } from './../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
 export default defineComponent({
@@ -26,7 +26,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object as PropType<LinkObject>,
+      type: Object as PropType<NavLinkObject>,
       required: false
     },
     // pass a custom title
@@ -45,10 +45,10 @@ export default defineComponent({
     }
   },
   methods: {
-    getRouterLink(link: LinkObject): string | undefined {
+    getRouterLink(link: NavLinkObject): string | undefined {
       return mixinGetRouterLink(link)
     },
-    getLinkText(link: LinkObject): string | undefined {
+    getLinkText(link: NavLinkObject): string | undefined {
       return mixinGetLinkText(link)
     }
   }

@@ -9,6 +9,7 @@ import NavDesktopDropdownMore from './NavDesktopDropdownMore.vue'
 export default {
   title: 'Navigation/Headers/WWW/NavDesktop',
   component: NavDesktop,
+  tags: ['navigation'],
   excludeStories: /.*Data$/
 }
 

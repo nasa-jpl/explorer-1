@@ -3,6 +3,7 @@ import BlockCta from './BlockCta.vue'
 export default {
   title: 'Components/Blocks/BlockCta',
   component: BlockCta,
+  tags: ['!autodocs', 'wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

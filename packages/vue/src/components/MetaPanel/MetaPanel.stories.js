@@ -3,20 +3,16 @@ import MetaPanel from './MetaPanel.vue'
 export default {
   title: 'Components/Utilities/MetaPanel',
   component: MetaPanel,
-  tags: ['!autodocs'],
+  tags: [],
   decorators: [
     () => ({
       template: `<div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div><div id="storyRoot"><story/></div><div class="h-40 w-full max-w-screen-3xl mx-auto bg-gray-dark"><p class="text-white">Dark background for demo purposes only and not part of the component.</p></div></div>`
     })
   ],
   parameters: {
-    layout: 'fullscreen'
-  },
-  argTypes: {
-    theme: {
-      type: { name: 'string', required: false },
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'stars']
+    layout: 'fullscreen',
+    html: {
+      root: '#storyRoot'
     }
   }
 }

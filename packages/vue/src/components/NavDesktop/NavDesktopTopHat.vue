@@ -37,7 +37,7 @@ import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
 import { mapStores } from 'pinia'
 import { useThemeStore } from './../../store/theme'
 import BaseLink from './../BaseLink/BaseLink.vue'
-import type { LinkObject } from './../../utils/mixins'
+import type { NavLinkObject } from './../../utils/mixins'
 import type { PropType } from 'vue'
 
 export default defineComponent({
@@ -47,15 +47,15 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Array as PropType<LinkObject[]>,
+      type: Array as PropType<NavLinkObject[]>,
       required: false
     }
   },
   methods: {
-    getRouterLink(link: LinkObject): string | undefined {
+    getRouterLink(link: NavLinkObject): string | undefined {
       return mixinGetRouterLink(link)
     },
-    getLinkText(link: LinkObject): string | undefined {
+    getLinkText(link: NavLinkObject): string | undefined {
       return mixinGetLinkText(link)
     }
   },

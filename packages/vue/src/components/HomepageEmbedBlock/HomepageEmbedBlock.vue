@@ -21,7 +21,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
-import type { BlockData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
+import type { BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockVideoEmbed from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 
 export default defineComponent({
@@ -31,7 +31,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Array as PropType<BlockData[]>,
+      type: Array as PropType<BlockVideoEmbedData[]>,
       required: false
     }
   }

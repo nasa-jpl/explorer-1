@@ -46,6 +46,7 @@
 
 <script lang="ts">
 // @ts-nocheck
+import type { StreamfieldBlockData } from './../../interfaces.ts'
 import MissionDetailInlineImage from './../MissionDetailInlineImage/MissionDetailInlineImage.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BlockQuote from './../BlockQuote/BlockQuote.vue'
@@ -63,8 +64,9 @@ export default {
   },
   props: {
     data: {
-      type: Array,
-      required: false
+      type: Array as () => StreamfieldBlockData[],
+      required: false,
+      default: undefined
     }
   }
 }

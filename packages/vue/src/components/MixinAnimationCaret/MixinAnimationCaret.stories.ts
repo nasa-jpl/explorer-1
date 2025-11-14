@@ -3,6 +3,13 @@ import MixinAnimationCaret from './MixinAnimationCaret.vue'
 export default {
   title: 'Mixins/MixinAnimationCaret',
   component: MixinAnimationCaret,
+  argTypes: {
+    color: {
+      control: {
+        type: 'text'
+      }
+    }
+  },
   parameters: {
     slots: {
       default: 'BaseStory slot content'

@@ -1,7 +1,19 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { BlockData, ImageBlock, StreamfieldBlockData } from './../../interfaces.ts'
 import BlockImageStandard from './../BlockImage/BlockImageStandard.vue'
 import BlockText from './../BlockText/BlockText.vue'
+
+type HeadCell = {
+  text?: string
+}
+type RichTableObject = BlockData & {
+  tableCaption?: string
+  tableContent?: {
+    tableHead?: HeadCell[]
+    tableBody?: BlockData[][]
+  }
+}
 
 export default defineComponent({
   name: 'BlockRichTable',
@@ -11,7 +23,7 @@ export default defineComponent({
   },
   props: {
     table: {
-      type: Object,
+      type: Object as PropType<RichTableObject>,
       required: true
     }
   }
@@ -44,7 +56,9 @@ export default defineComponent({
               scope="col"
               class="min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b text-left"
             >
-              {{ headCell.text }}
+              <template v-if="headCell">
+                {{ (headCell as HeadCell).text }}
+              </template>
             </th>
           </tr>
         </thead>
@@ -60,22 +74,22 @@ export default defineComponent({
             >
               <template v-if="cell.blockType === 'CharBlock'">
                 <p class="">
-                  {{ cell.value }}
+                  {{ (cell as StreamfieldBlockData).value }}
                 </p>
               </template>
               <template v-else-if="cell.blockType === 'RichTextBlock'">
                 <BlockText
                   variant="small"
-                  :text="cell.value"
+                  :text="(cell as StreamfieldBlockData).value"
                 />
               </template>
               <template v-else-if="cell.blockType === 'ImageBlock'">
                 <BlockImageStandard
                   class=""
-                  :data="cell.image"
-                  :display-caption="cell.displayCaption"
-                  :caption="cell.caption"
-                  :constrain="cell.constrain"
+                  :data="(cell as ImageBlock).image"
+                  :display-caption="(cell as ImageBlock).displayCaption"
+                  :caption="(cell as ImageBlock).caption"
+                  :constrain="(cell as ImageBlock).constrain"
                 />
               </template>
             </td>

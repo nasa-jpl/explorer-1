@@ -5,24 +5,8 @@ import BlockLinkCard from './BlockLinkCard.vue'
 export default {
   title: 'Components/Cards/BlockLinkCard',
   component: BlockLinkCard,
-  tags: ['!autodocs'],
+  tags: ['cards'],
   excludeStories: /.*Data$/,
-  argTypes: {
-    size: {
-      control: {
-        type: 'select'
-      },
-      options: ['sm', 'md', 'lg']
-    },
-    headingLevel: {
-      description:
-        'Change the heading level for semantic markup. This does not affect the style of the heading.',
-      control: {
-        type: 'select',
-        options: [null, 'h1', 'h2', 'h3', 'h4', 'h5']
-      }
-    }
-  },
   parameters: {
     html: {
       root: '#storyRoot' // to omit decorators from html output
@@ -217,6 +201,7 @@ export const EduExplainerArticle = {
   globals: { theme: 'ThemeEdu' },
   args: {
     ...BlockLinkCardData,
+
     data: {
       page: {
         __typename: 'EDUExplainerArticlePage',
@@ -235,7 +220,9 @@ export const EduExplainerArticle = {
           { gradeLevel: '8' }
         ]
       }
-    }
+    },
+
+    size: 'md'
   }
 }
 export const LargeEduExplainerArticle = {

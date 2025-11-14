@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/** The metadata that should be displayed within `MetaPanel` */
 import { computed, reactive } from 'vue'
 import { rangeifyGrades } from './../../utils/rangeifyGrades'
 import {
@@ -13,6 +14,7 @@ import IconProfile from './../Icons/IconProfile.vue'
 import IconTime from './../Icons/IconTime.vue'
 
 interface MetaPanelProps {
+  /** Select color scheme */
   theme?: MetaPanelTheme
   primarySubject?: EduResourcesSubject
   additionalSubjects?: EduResourcesSubject[]

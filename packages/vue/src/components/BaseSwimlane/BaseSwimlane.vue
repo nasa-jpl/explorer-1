@@ -17,6 +17,8 @@
 </template>
 
 <script lang="ts">
+/** The BaseSwimlane component is expected to contain an array of words to create a 'swimlane' effect as the text swims through. */
+
 // @ts-nocheck
 import { defineComponent } from 'vue'
 

@@ -122,6 +122,7 @@
 </template>
 
 <script lang="ts">
+/** The SwimlaneCTA component combines BaseSwimlane with other elements (JPL logo, links, etc.) to create the component that is used on the WWW homepage. */
 import { defineComponent } from 'vue'
 import jplLogoSFFF from '@explorer-1/common/src/images/png/brand-jpl-logo-FFFFFF-S-94h28w@2x.png'
 import jplLogoFFF from '@explorer-1/common/src/images/png/brand-jpl-logo-FFFFFF-94h28w@2x.png'

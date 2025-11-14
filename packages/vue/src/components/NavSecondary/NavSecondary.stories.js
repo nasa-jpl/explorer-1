@@ -3,6 +3,7 @@ import NavSecondary from './NavSecondary.vue'
 export default {
   title: 'Navigation/Secondary Navigation',
   component: NavSecondary,
+  tags: ['navigation'],
   excludeStories: /.*Data$/,
   parameters: {
     docs: {

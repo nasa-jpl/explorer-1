@@ -14,64 +14,81 @@ export default {
           'Combines JPL, NASA and Caltech in a single logo as an SVG. Tailwind text size classes can be used with inlined SVG (first example), but not when loading the svg file via an `<img />` element'
       }
     }
+  },
+  render: (args) => ({
+    components: { LogoTribrand },
+    setup() {
+      return { args }
+    },
+    template: `<div :class="args.invert ? 'bg-black ' : 'bg-white '"><LogoTribrand :class="args.size" :invert="args.invert" />`
+  })
+}
+
+export const BaseStory = {
+  name: 'Logo Inline SVG',
+  args: { invert: false, size: 'text-base' },
+  argTypes: {
+    size: {
+      control: {
+        type: 'select'
+      },
+      description: 'Use TailwindCSS text size classes to control the size of the logo',
+      options: ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl']
+    },
+    invert: {
+      control: {
+        type: 'boolean'
+      }
+    }
   }
 }
-const LogoTribrandComponentTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { LogoTribrand },
-  template: `<LogoTribrand :class="size" :invert="invert" />`
-})
 
-const LogoTribrandImageTemplate = (args) => ({
-  props: Object.keys(args),
-  components: {},
-  template: `<img :src="src" alt="Logo Image" />`
-})
-
-export const BaseStory = LogoTribrandComponentTemplate.bind({})
-BaseStory.storyName = 'Logo Inline SVG'
-BaseStory.args = { invert: false, size: 'text-base' }
-BaseStory.argTypes = {
-  size: {
-    control: {
-      type: 'select',
-      options: ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl']
+export const LogoImageColor = {
+  args: { src: LogoColor },
+  argTypes: {
+    src: {
+      control: false
+    },
+    invert: {
+      control: false
     }
   },
-  invert: {
-    control: {
-      type: 'boolean'
+  parameters: {
+    docs: {
+      description: {
+        story: 'Demo of using an `<img />` element to render the .svg file'
+      }
     }
-  }
-}
-BaseStory.decorators = [
-  () => ({
-    template: `<div class="inline-block" :class="invert ? 'bg-black ' : 'bg-white '"><story/></div>`,
-    props: ['size', 'invert']
+  },
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    template: `<img :src="args.src" alt="Logo as Image" />`
   })
-]
-
-export const LogoImageColor = LogoTribrandImageTemplate.bind({})
-LogoImageColor.args = { src: LogoColor }
-LogoImageColor.parameters = {
-  docs: {
-    description: {
-      story: 'Demo of using an `<img />` element to render the .svg file'
-    }
-  }
 }
 
-export const LogoImageWhite = LogoTribrandImageTemplate.bind({})
-LogoImageWhite.args = { src: LogoWhite }
-LogoImageWhite.parameters = {
-  docs: {
-    description: {
-      story: 'Demo of using an `<img />` element to render the .svg file'
+export const LogoImageWhite = {
+  args: { src: LogoWhite },
+  argTypes: {
+    src: {
+      control: false
+    },
+    invert: {
+      control: false
     }
-  }
-}
-LogoImageWhite.decorators = [
-  () => ({
-    template: `<div class="inline-block bg-black"><story/></div>`
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Demo of using an `<img />` element to render the .svg file'
+      }
+    }
+  },
+  render: (args) => ({
+    setup() {
+      return { args }
+    },
+    template: `<div class="bg-black"><img :src="args.src" alt="Logo as Image" /></div>`
   })
-]
+}

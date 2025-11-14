@@ -19,22 +19,12 @@ import { BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.storie
 import { BlockNewsletterSignupData } from '../BlockNewsletterSignup/BlockNewsletterSignup.stories'
 import { MixedColumnWidths } from './../BlockRichTable/BlockRichTable.stories'
 import { BlockCsrTableData } from './../BlockCsrTable/BlockCsrTable.stories'
-import BlockStreamfield, { variants } from './BlockStreamfield.vue'
+import BlockStreamfield from './BlockStreamfield.vue'
 
 export default {
   title: 'Components/Blocks/BlockStreamfield',
   component: BlockStreamfield,
   tags: ['!autodocs'],
-  argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: Object.keys(variants)
-    },
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large']
-    }
-  },
   parameters: {
     layout: 'fullscreen'
   },

@@ -4,6 +4,7 @@
     class="BlockKeyPoints border-gray-light-mid lg:py-10 py-6 border-t border-b"
   >
     <BlockHeading
+      v-if="data.heading"
       class="mb-5"
       :data="{ heading: data.heading }"
     />
@@ -24,9 +25,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import { BlockData } from './../../interfaces.ts'
 import BlockHeading from './../BlockHeading/BlockHeading.vue'
 import BlockText from './../BlockText/BlockText.vue'
+
+export type BlockKeyPointsData = BlockData & {
+  listItem: {
+    text: string
+  }[]
+}
 
 export default defineComponent({
   name: 'BlockKeyPoints',
@@ -36,8 +44,9 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
-      required: false
+      type: Object as PropType<BlockKeyPointsData>,
+      required: false,
+      default: undefined
     }
   }
 })

@@ -14,6 +14,7 @@ import MetaPanelAccordion from './../MetaPanelAccordion/MetaPanelAccordion.vue'
 import MetaPanelItems from './../MetaPanelItems/MetaPanelItems.vue'
 
 interface MetaPanelProps {
+  /** Text for button that expands the panel */
   button?: string
   theme?: MetaPanelTheme
   primarySubject?: EduResourcesSubject
@@ -21,7 +22,9 @@ interface MetaPanelProps {
   gradeLevels?: EduResourcesGradeLevel[]
   time?: EduResourcesTime
   standards?: EduResourceStandardItem[]
+  /** If the top of the panel should overlay the area above it */
   negativeTop?: boolean
+  /** If the bottom of the panel should overlay the area below it */
   negativeBottom?: boolean
 }
 

@@ -71,26 +71,31 @@ import type { FormOption } from '../../interfaces'
 export default defineComponent({
   name: 'BaseCheckboxGroup',
   props: {
+    /** iContact group id */
     group: {
       type: String,
       default: null,
       required: false
     },
+    /** Heading */
     heading: {
       type: String,
       default: null,
       required: false
     },
+    /** Descriptive text or summary */
     subHeading: {
       type: String,
       default: null,
       required: false
     },
+    /** Fieldset title, for screen readers */
     title: {
       type: String,
       default: null,
       required: false
     },
+    /** Array of `{FormOption}s` */
     options: {
       type: Array as PropType<FormOption[]>,
       default: null,

@@ -4,7 +4,7 @@ import HomepageCarousel from './HomepageCarousel.vue'
 export default {
   title: 'Components/WWW/Homepage/HomepageCarousel',
   component: HomepageCarousel,
-  tags: ['!autodocs'],
+  tags: ['carousel'],
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'canvas'

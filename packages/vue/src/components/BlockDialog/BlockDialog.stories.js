@@ -1,8 +1,9 @@
 import BlockDialog from './BlockDialog.vue'
 
 export default {
-  title: 'Components/Blocks/BlockDialog',
+  title: 'Components/Utilities/BlockDialog',
   component: BlockDialog,
+  tags: ['!autodocs', 'deprecated'],
   argTypes: {
     overlayClose: { control: { type: 'boolean' } }
   }

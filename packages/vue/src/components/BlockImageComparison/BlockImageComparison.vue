@@ -27,17 +27,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { BlockData, ImageObject } from './../../interfaces.ts'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
+
+export type BlockImageComparisonData = BlockData & {
+  beforeImage: ImageObject
+  afterImage: ImageObject
+  constrain: boolean
+  caption: string
+}
 
 export default defineComponent({
   name: 'BlockImageComparison',
   components: { BaseImageCaption },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<BlockImageComparisonData>,
       required: true
     },
+    /** Link to more image details. Link text defaults to "Full image details" */
     customDetailUrl: {
       type: String,
       default: undefined

@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts">
+/** Use `ParallaxContainer` with a nested `ParallaxElement` to create a parallax scrolling effect. */
 // @ts-nocheck
 export default {
   name: `ParallaxContainer`,

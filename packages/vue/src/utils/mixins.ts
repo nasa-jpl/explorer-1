@@ -15,13 +15,13 @@ export interface SrcSetDataValue {
   width: number
 }
 // nav link object
-export type LinkObject = {
-  linkPage: {
+export type NavLinkObject = {
+  linkPage?: {
     title: string
     url: string
-  } | null
-  title: string | null
-  path: string | null
+  }
+  title?: string
+  path?: string
 }
 // breadcrumbs used for nav and secondary nav
 export type BreadcrumbObject = {
@@ -78,7 +78,7 @@ export const mixinTransparentHeader = () => {
       and provides a graceful fallback to use the page title
       if one exists.
     */
-export const mixinGetLinkText = (item: LinkObject): string => {
+export const mixinGetLinkText = (item: NavLinkObject): string => {
   if (item.title) {
     return item.title
   } else if (item.linkPage) {
@@ -96,7 +96,7 @@ export const mixinGetLinkText = (item: LinkObject): string => {
      TODO: need to modify this to work with breadcrumb-passed objects too
            strategy: check if path starts with a slash.
     */
-export const mixinGetRouterLink = (link: LinkObject): string | undefined => {
+export const mixinGetRouterLink = (link: NavLinkObject): string | undefined => {
   if (link.linkPage && link.linkPage.url) {
     return link.linkPage.url
   } else if (link.path) {

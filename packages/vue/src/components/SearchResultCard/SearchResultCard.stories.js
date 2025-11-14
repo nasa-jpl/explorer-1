@@ -3,16 +3,7 @@ import SearchResultCard from './SearchResultCard.vue'
 export default {
   title: 'Components/Cards/SearchResultCards',
   component: SearchResultCard,
-  argTypes: {
-    headingLevel: {
-      description:
-        'Change the heading level for semantic markup. This does not affect the style of the heading.',
-      control: {
-        type: 'select'
-      },
-      options: [null, 'h1', 'h2', 'h3', 'h4', 'h5']
-    }
-  },
+  tags: ['cards', 'search'],
   excludeStories: /.*Data$/
 }
 

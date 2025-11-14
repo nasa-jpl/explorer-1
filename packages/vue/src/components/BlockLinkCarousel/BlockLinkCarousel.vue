@@ -15,19 +15,18 @@
   </MixinCarousel>
 </template>
 <script lang="ts">
-import { defineComponent, resolveComponent } from 'vue'
+import { defineComponent, resolveComponent, type PropType } from 'vue'
+import type { Card } from './../../interfaces.ts'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
 import BlockLinkTile from './../BlockLinkTile/BlockLinkTile.vue'
 
-interface Variants {
-  [key: string]: string
-}
-
-export const itemTypes: Variants = {
+export const itemTypes = {
   cards: 'BlockLinkCard',
   tiles: 'BlockLinkTile'
 }
+
+type ItemTypesKey = keyof typeof itemTypes
 
 export default defineComponent({
   name: 'BlockLinkCarousel',
@@ -37,14 +36,15 @@ export default defineComponent({
     BlockLinkTile
   },
   props: {
+    /** Type of item used for each slide */
     itemType: {
-      type: String,
+      type: String as PropType<ItemTypesKey>,
       required: false,
       default: 'cards',
       validator: (prop: string): boolean => Object.keys(itemTypes).includes(prop)
     },
     items: {
-      type: Array,
+      type: Array as PropType<Card[]>,
       required: false,
       default: undefined
     },

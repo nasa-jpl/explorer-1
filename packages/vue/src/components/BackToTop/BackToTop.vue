@@ -24,18 +24,28 @@ export default defineComponent({
     IconDropdown
   },
   props: {
+    /**
+     * Threshold (px) of when the button should appear
+     */
     threshold: {
       type: Number,
       required: false,
       default: 300
     },
+    /**
+     * Pixel offset when scrolling to the top
+     */
     scrollTo: {
       type: Number,
       required: false,
       default: 0
     }
   },
+  emits: ['click'],
   data(): {
+    /**
+     * Dynamically altered value that determines when the button should appear
+     */
     showBackToTop: Boolean
     scrollHandler: DebouncedFunc<() => void> | null
   } {

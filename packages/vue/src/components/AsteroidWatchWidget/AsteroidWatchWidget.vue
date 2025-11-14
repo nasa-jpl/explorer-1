@@ -140,9 +140,13 @@ export default defineComponent({
     BaseUnitToggle
   },
   props: {
+    /**
+     * Array of next close approaches (structure provided by backend)
+     */
     nextCloseApproaches: {
       type: Array as PropType<NextCloseApproach[]>,
-      required: false
+      required: false,
+      default: undefined
     }
   }
 })

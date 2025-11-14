@@ -3,6 +3,7 @@ import BlockKeyPoints from './BlockKeyPoints.vue'
 export default {
   title: 'Components/Blocks/BlockKeyPoints',
   component: BlockKeyPoints,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

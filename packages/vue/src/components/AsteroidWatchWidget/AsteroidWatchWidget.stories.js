@@ -13,11 +13,6 @@ export default {
     html: {
       root: '#storyRoot' // to omit decorators from html output
     }
-  },
-  argTypes: {
-    status: {
-      control: { type: 'text' }
-    }
   }
 }
 

@@ -5,17 +5,17 @@ import BlockText from './../BlockText/BlockText.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 
-interface AboutTheAuthorProps {
+const props = defineProps({
+  /**
+   * Array of keyed `{AuthorObject}s`
+   */
   authors: {
-    author?: AuthorObject
-  }[]
-}
-
-// define props
-const props = withDefaults(defineProps<AboutTheAuthorProps>(), {
-  authors: undefined
+    type: Array as () => {
+      author?: AuthorObject
+    }[],
+    default: () => []
+  }
 })
-
 const { authors } = reactive(props)
 
 const headingString = computed(() => {

@@ -50,8 +50,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
+/** A big, fancy pull quote, with optional attribution and link. Can also be used for non-quotation callouts. */
+
+import { defineComponent, type PropType } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
 export interface BlockQuoteAttributes {

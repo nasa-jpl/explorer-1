@@ -2,7 +2,8 @@ import TextInput from './TextInput.vue'
 
 export default {
   title: 'Components/Forms/TextInput',
-  component: TextInput
+  component: TextInput,
+  tags: ['forms']
 }
 
 // stories

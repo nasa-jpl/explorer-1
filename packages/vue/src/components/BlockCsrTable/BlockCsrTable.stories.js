@@ -3,6 +3,7 @@ import BlockCsrTable from './BlockCsrTable.vue'
 export default {
   title: 'Components/FeatureFlags/BlockCsrTable',
   component: BlockCsrTable,
+  tags: ['!autodocs', 'wagtail-blocks', 'feature-flag'],
   excludeStories: /.*Data$/
 }
 

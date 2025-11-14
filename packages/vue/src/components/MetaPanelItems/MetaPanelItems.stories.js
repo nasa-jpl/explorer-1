@@ -1,9 +1,16 @@
 import MetaPanelItems from './MetaPanelItems.vue'
 
 export default {
-  title: 'Components/Utilities/MetaPanelItems',
+  title: 'Components/Utilities/MetaPanel/MetaPanelItems',
   component: MetaPanelItems,
-  tags: ['!autodocs']
+  tags: [],
+  parameters: {
+    docs: {
+      description: {
+        component: 'The metadata that should be displayed within `MetaPanel`'
+      }
+    }
+  }
 }
 
 // stories

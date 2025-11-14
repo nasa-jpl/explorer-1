@@ -3,6 +3,7 @@ import BlockTeaser from './BlockTeaser.vue'
 export default {
   title: 'Components/Blocks/BlockTeaser',
   component: BlockTeaser,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

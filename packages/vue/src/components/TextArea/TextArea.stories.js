@@ -2,7 +2,8 @@ import TextArea from './TextArea.vue'
 
 export default {
   title: 'Components/Forms/TextArea',
-  component: TextArea
+  component: TextArea,
+  tags: ['forms']
 }
 
 // stories

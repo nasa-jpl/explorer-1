@@ -4,19 +4,12 @@ import BlockCircleImageCard from './BlockCircleImageCard.vue'
 export default {
   title: 'Components/Cards/BlockCircleImageCard',
   component: BlockCircleImageCard,
-  tags: ['!autodocs'],
+  tags: ['!autodocs', 'cards'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="relative max-w-xl mx-auto container"><story/></div>`
     })
   ],
-  argTypes: {
-    imageOnRight: {
-      control: {
-        type: 'boolean'
-      }
-    }
-  },
   parameters: {
     html: { root: '#storyRoot' },
     slots: {

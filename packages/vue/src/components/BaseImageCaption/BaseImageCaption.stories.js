@@ -9,17 +9,6 @@ export default {
         component: 'Caption text used with both images and videos.'
       }
     }
-  },
-  argTypes: {
-    customLink: {
-      type: 'string',
-      description:
-        'Appends a link to the end of the caption. Overrides "Full Image Details" link, if it exists.'
-    },
-    customLinkText: {
-      type: 'string',
-      description: 'Text for the custom link.'
-    }
   }
 }
 

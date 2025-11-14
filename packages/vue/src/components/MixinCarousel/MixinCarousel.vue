@@ -97,7 +97,7 @@
 </template>
 <script lang="ts">
 // @ts-nocheck
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import Swiper from 'swiper'
 import { A11y, Navigation } from 'swiper/modules'
 import type { SwiperOptions } from 'swiper/types'
@@ -112,24 +112,18 @@ const MixinCarouselOptions = swiperOptions.MixinCarousel
 
 Swiper.use([Navigation, A11y])
 
-interface Variants {
-  [key: string]: string
-}
-
-export const variants: Variants = {
+const variants = {
   cards: '-cards',
   tiles: '-tiles'
 }
+type VariantsKeys = keyof typeof variants
 
-interface Indents {
-  [key: string]: string
-}
-
-export const indents: Indents = {
+const indents = {
   'col-1': '',
   'col-2': 'lg:col-start-2',
   'col-3': 'lg:col-start-3'
 }
+type IndentsKeys = keyof typeof indents
 
 export default defineComponent({
   name: 'MixinCarousel',
@@ -148,18 +142,21 @@ export default defineComponent({
     },
     heading: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     link: {
       type: [String, Object],
-      required: false
+      required: false,
+      default: undefined
     },
     linkTitle: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
     variant: {
-      type: String,
+      type: String as PropType<VariantsKeys>,
       required: false,
       default: 'cards',
       validator: (prop: string): boolean => Object.keys(variants).includes(prop)
@@ -170,7 +167,7 @@ export default defineComponent({
       default: 2
     },
     indent: {
-      type: String,
+      type: String as PropType<IndentsKeys>,
       required: false,
       default: 'col-2',
       validator: (prop: string): boolean => Object.keys(indents).includes(prop)

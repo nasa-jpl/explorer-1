@@ -3,6 +3,7 @@ import NavHighlight from './NavHighlight.vue'
 export default {
   title: 'Navigation/Elements/NavHighlight',
   component: NavHighlight,
+  tags: ['navigation'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="lg:BaseGrid container"><div class="col-span-5"><story/></div></div>`

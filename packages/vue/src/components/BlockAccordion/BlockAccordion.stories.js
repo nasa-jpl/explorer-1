@@ -4,7 +4,7 @@ import { BlockImageData } from './../BlockImage/BlockImage.stories'
 export default {
   title: 'Components/Blocks/BlockAccordion',
   component: BlockAccordion,
-  tags: ['!autodocs'],
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

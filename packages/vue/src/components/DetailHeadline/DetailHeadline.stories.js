@@ -1,27 +1,9 @@
-import DetailHeadline, { pillColorVariants } from './DetailHeadline.vue'
+import DetailHeadline from './DetailHeadline.vue'
 
 export default {
   title: 'Components/Utilities/DetailHeadline',
   component: DetailHeadline,
-  excludeStories: /.*Data$/,
-  argTypes: {
-    ariaLabel: {
-      type: 'string',
-      description:
-        "ARIA label. Recommended if your button label isn't descriptive, or if it only contains an icon."
-    },
-    pillColor: {
-      type: 'string',
-      description: 'Color of pill',
-      control: {
-        type: 'select'
-      },
-      options: pillColorVariants,
-      table: {
-        defaultValue: { summary: 'primary' }
-      }
-    }
-  }
+  excludeStories: /.*Data$/
 }
 
 export const DetailHeadlineData = {

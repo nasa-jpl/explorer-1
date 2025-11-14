@@ -1,7 +1,7 @@
 <template>
   <div
     class="bg-gray-dark fixed top-0 left-0 z-50 flex w-full h-full overflow-auto bg-opacity-75"
-    @click="bgCloseModal"
+    @click="bgClose ? closeModal() : null"
   >
     <div
       class="relative w-full p-8 m-auto bg-white"
@@ -54,11 +54,6 @@ export default defineComponent({
   methods: {
     closeModal() {
       this.$emit('close')
-    },
-    bgCloseModal() {
-      if (this.bgClose) {
-        this.closeModal()
-      }
     }
   }
 })

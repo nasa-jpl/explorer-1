@@ -3,6 +3,7 @@ import BlockImageComparison from './BlockImageComparison.vue'
 export default {
   title: 'Components/Blocks/BlockImageComparison',
   component: BlockImageComparison,
+  tags: ['wagtail-blocks'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="container mx-auto"><story/></div>`
@@ -41,6 +42,7 @@ export const BlockImageComparisonData = {
 export const BaseStory = {
   name: 'BlockImageComparison',
   args: {
-    data: BlockImageComparisonData
+    data: BlockImageComparisonData,
+    customDetailUrl: 'https://www.google.com'
   }
 }

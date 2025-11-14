@@ -1,52 +1,64 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
+/**
+ * The BaseImage component is a simple `<img />` tag wrapped in a `<div>`
+ * and is used to render an image with object-fit classes and lazy loading properties.
+ */
 
-export type ImageLoader = 'lazy' | 'eager' | undefined
+import { defineComponent, type PropType } from 'vue'
 
-interface ObjectFitClasses {
-  [key: string]: string
-}
-
-export const objectFitClasses: ObjectFitClasses = {
+type ImageLoader = 'lazy' | 'eager' | undefined
+const objectFitClasses = {
   none: 'object-none',
   contain: 'object-contain',
   cover: 'object-cover',
   fill: 'object-fill',
   scaleDown: 'object-scale-down'
-}
+} as const
+type ObjectFitClassesKey = keyof typeof objectFitClasses
 
 export default defineComponent({
   name: 'BaseImage',
   props: {
+    /** CSS classes to apply directory to the `<img>` element */
     imageClass: {
       type: String,
-      required: false
+      required: false,
+      default: ''
     },
+    /** Tailwind CSS object fit classes to specify how the image will scale within `BaseImagePlaceholder` */
     objectFitClass: {
-      type: String,
+      type: String as PropType<ObjectFitClassesKey>,
       required: false,
       default: 'contain',
       validator: (prop: string): boolean => Object.keys(objectFitClasses).includes(prop)
     },
+    /** `<img> src` attribute */
     src: {
       type: String,
       required: true
     },
+    /** `<img> srcset` attribute  */
     srcset: {
       type: String,
       required: false,
       default: ''
     },
+    /** `<img> alt` attribute */
     alt: {
-      type: String
+      type: String,
+      default: ''
     },
+    /** `<img> width` attribute */
     width: {
-      type: [Number, String]
+      type: [Number, String],
+      default: ''
     },
+    /** `<img> height` attribute */
     height: {
-      type: [Number, String]
+      type: [Number, String],
+      default: ''
     },
+    /** `<img> loading` attribute */
     loading: {
       type: String as PropType<ImageLoader>,
       required: false,

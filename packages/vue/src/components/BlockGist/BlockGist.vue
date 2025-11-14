@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import type { BlockData } from './../../interfaces.ts'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import GitHub404 from './GitHub404.vue'
+
+export interface BlockGistData extends BlockData {
+  caption?: string
+  id?: string
+  url?: string
+}
 interface BlockGistProps {
-  data: {
-    blockType?: string
-    caption?: string
-    id?: string
-    url?: string
-  }
+  data: BlockGistData
 }
 
 const props = defineProps<BlockGistProps>()

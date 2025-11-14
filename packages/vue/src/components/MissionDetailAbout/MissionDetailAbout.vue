@@ -45,7 +45,7 @@ import type { PropType } from 'vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 import BlockText from './../BlockText/BlockText.vue'
 
-interface Instrument {
+export interface Instrument {
   id: string
   instrument: string
 }

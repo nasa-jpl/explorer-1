@@ -3,7 +3,7 @@ import MetadataEvent from './MetadataEvent.vue'
 export default {
   title: 'Components/Utilities/MetadataEvent',
   component: MetadataEvent,
-  tags: ['!autodocs'],
+  tags: [],
   excludeStories: /.*Data$/
 }
 

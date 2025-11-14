@@ -6,21 +6,6 @@ import IconUser from './../Icons/IconUser.vue'
 export default {
   title: 'Components/Base/BaseHeading',
   component: BaseHeading,
-  argTypes: {
-    size: {
-      type: { name: 'string', required: true },
-      description: 'The display size of the heading.',
-      control: { type: 'select' },
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
-    },
-    level: {
-      type: { name: 'string', required: false },
-      description:
-        'The semantic heading tag if different from the display size (ex: a heading needs to look like an `h4`, but semantically, it is an `h1`.',
-      control: { type: 'select' },
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
-    }
-  },
   parameters: {
     slots: {
       default: 'The contents of the heading, usually text. Override with `<template #default>`'

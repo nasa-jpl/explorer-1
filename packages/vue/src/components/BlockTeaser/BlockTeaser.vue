@@ -75,39 +75,47 @@ export default defineComponent({
     BaseImage
   },
   props: {
-    // piecemeal props for reuse
-    customLabel: {
-      type: String,
-      required: false
-    },
+    /** Small text at the top of the teaser */
     label: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Large heading text */
     heading: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Short descriptive text */
     introduction: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Button text */
     buttonText: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** Background image */
     image: {
       type: Object,
-      required: false
+      required: false,
+      default: undefined
     },
+    /** If the background image should span the entire width of the block */
     fullWidth: {
       type: Boolean,
       default: false
     },
+    /** Option to pass a page data object as an object or as a single item in an array (for better compatibility with CMS mixed use) */
     // ideally can pass a page object (TopicDetailPage), but sometimes (e.g. streamfield teaserblock) this will be wrapped in an array
     teaserPage: {
       type: [Array, Object],
-      required: false
+      required: false,
+      default: undefined
     }
   },
   computed: {
@@ -115,7 +123,7 @@ export default defineComponent({
      * Fall back to the linked page’s label, if there is one.
      */
     theLabel(): string {
-      return this.customLabel || this.label || this.theTeaserPage?.label || ''
+      return this.label || this.theTeaserPage?.label || ''
     },
 
     /**

@@ -3,12 +3,12 @@ import SearchResultsList from './SearchResultsList.vue'
 export default {
   title: 'Components/Search/SearchResultsList',
   component: SearchResultsList,
+  tags: ['search', 'listings'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="max-w-screen-xl"><story/></div>`
     })
   ],
-  tags: ['!autodocs'],
   parameters: {
     html: {
       root: '#storyRoot'
