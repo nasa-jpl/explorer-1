@@ -74,6 +74,6 @@ export const PortraitImage = {
       }
     },
 
-    variant: 'medium'
+    variant: 'large'
   }
 }

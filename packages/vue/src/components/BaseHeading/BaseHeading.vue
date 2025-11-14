@@ -25,7 +25,7 @@ export default defineComponent({
     size: {
       type: String as PropType<HeadingLevel | '' | undefined>,
       required: false,
-      default: 'h2'
+      default: ''
     }
   },
   computed: {
