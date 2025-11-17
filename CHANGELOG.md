@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.4.2
+
+### Patch Changes
+
+- 827228b: Publishing latest version
+
 ## 3.4.1
 
 ### Patch Changes
