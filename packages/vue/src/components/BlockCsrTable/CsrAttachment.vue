@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, computed } from 'vue'
+import { reactive } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
 interface CsrAttachmentProps {
