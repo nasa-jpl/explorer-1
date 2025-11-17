@@ -1,5 +1,14 @@
 # @explorer-1/vue
 
+## 0.3.4
+
+### Patch Changes
+
+- 3c70ecc: Adding a fix to the CSR Table block for attachment links
+- 3e5b0c8: Fixing vanilla JS for BlockAccordion, fixing some minor errors discovered in vue components
+- Updated dependencies [3e5b0c8]
+  - @explorer-1/common@1.3.2
+
 ## 0.3.3
 
 ### Patch Changes
