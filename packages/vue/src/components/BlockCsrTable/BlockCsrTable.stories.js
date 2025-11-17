@@ -10,7 +10,7 @@ export const BlockCsrTableData = [
   {
     Id: 1,
     TestRecordId: 2765,
-    Attachment: 'attachment_filename.pdf',
+    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
     Status: 1,
     GenericPartNumber: 'OP467',
     Description: 'QUAD OP AMP Linear Device',
@@ -196,7 +196,7 @@ export const BlockCsrTableData = [
 export const BaseStory = {
   args: {
     rowData: BlockCsrTableData,
-    attachmentPrefix: 'https://www.jpl.nasa.gov',
+    attachmentPrefix: 'https://test-api.jpl.nasa.gov/attachments?key=',
     apiEndpoint: null
   }
 }
