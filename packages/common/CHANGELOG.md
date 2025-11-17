@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 1.3.2
+
+### Patch Changes
+
+- 3e5b0c8: Fixing vanilla JS for BlockAccordion, fixing some minor errors discovered in vue components
+
 ## 1.3.1
 
 ### Patch Changes
