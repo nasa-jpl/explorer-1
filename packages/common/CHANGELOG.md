@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 1.3.3
+
+### Patch Changes
+
+- c307f7b: Updates to internal theme
+
 ## 1.3.2
 
 ### Patch Changes

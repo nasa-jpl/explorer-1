@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.4.4
+
+### Patch Changes
+
+- be963d6: Publishing latest dependencies
+
 ## 3.4.3
 
 ### Patch Changes
