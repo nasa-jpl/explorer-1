@@ -1,5 +1,14 @@
 # @explorer-1/vue-storybook
 
+## 0.0.24
+
+### Patch Changes
+
+- 0a83db1: Documentation updates, Storybook improvements.
+- Updated dependencies [0a83db1]
+  - @explorer-1/common-storybook@0.0.4
+  - @explorer-1/vue@0.3.5
+
 ## 0.0.23
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.3.5
+
+### Patch Changes
+
+- 0a83db1: Documentation updates, Storybook improvements.
+
 ## 0.3.4
 
 ### Patch Changes

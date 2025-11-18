@@ -1,5 +1,12 @@
 # explorer-1
 
+## 3.4.3
+
+### Patch Changes
+
+- f4693d6: Publishing latest fixes
+- 0a83db1: Documentation updates, Storybook improvements.
+
 ## 3.4.2
 
 ### Patch Changes
