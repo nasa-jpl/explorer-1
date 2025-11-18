@@ -4,6 +4,14 @@ import BlockInlineImage from './BlockInlineImage.vue'
 export default {
   title: 'Components/Blocks/BlockInlineImage',
   component: BlockInlineImage,
+  argTypes: {
+    variant: {
+      type: 'string',
+      description: 'Text size variant',
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large']
+    }
+  },
   excludeStories: /.*(Data)$/
 }
 
@@ -30,7 +38,7 @@ export const BlockInlineImageData = {
 
 export const BaseStory = {
   name: 'Align Right',
-  args: { data: BlockInlineImageData.block }
+  args: { data: BlockInlineImageData.block, variant: 'large' }
 }
 
 export const CustomCaption = {
@@ -64,6 +72,8 @@ export const PortraitImage = {
           width: 500
         }
       }
-    }
+    },
+
+    variant: 'large'
   }
 }

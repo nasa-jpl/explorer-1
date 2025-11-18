@@ -15,7 +15,7 @@ export default {
   globals: { theme: 'ThemeEdu' },
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     layout: 'fullscreen'
   },

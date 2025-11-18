@@ -64,7 +64,7 @@
 
   ol,
   ul {
-    @apply mb-5 relative left-14 -ml-8 pr-14;
+    @apply mb-5 relative left-14 -ml-8 w-[96.5%];
     @screen sm {
       @apply left-9;
       li {

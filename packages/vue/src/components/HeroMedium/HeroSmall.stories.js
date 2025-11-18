@@ -1,18 +1,32 @@
 import { BaseVideoData } from './../BaseVideo/BaseVideo.stories'
 import { HeroMediumData } from './HeroMedium.stories'
 import HeroMedium from './HeroMedium.vue'
+import { eduMetadataDictionary } from './../../constants'
 
 export default {
   title: 'Components/Heroes/Small',
   component: HeroMedium,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="max-w-screen-3xl mx-auto"><story/></div>`
+      template: `<div id="storyRoot" class="max-w-screen-3xl mx-auto"><story/></div>`
     })
   ],
+  argTypes: {
+    customPill: {
+      type: { name: 'string', required: false },
+      description: 'Text for pill (overrides label)'
+    },
+    customPillType: {
+      type: { name: 'string', required: false },
+      control: { type: 'select' },
+      options: Object.keys(eduMetadataDictionary),
+      description:
+        'Maps to EDU resource types. Label is replaced with a color-themed "pill." Must use with `.ThemeEdu`'
+    }
+  },
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     themes: {
       clearable: false,
@@ -38,7 +52,7 @@ export default {
 export const BaseStory = {
   name: 'HeroMedium (compact)',
   args: {
-    customTag: 'News',
+    customPill: 'News',
     customLabel: HeroMediumData.label,
     feature: HeroMediumData.feature,
     cta: HeroMediumData.cta,
@@ -48,7 +62,7 @@ export const BaseStory = {
 }
 export const Video = {
   args: {
-    customTag: 'News',
+    customPill: 'News',
     customLabel: HeroMediumData.label,
     feature: HeroMediumData.feature,
     cta: HeroMediumData.cta,

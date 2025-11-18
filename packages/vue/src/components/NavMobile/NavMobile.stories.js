@@ -7,10 +7,15 @@ export default {
   title: 'Navigation/Headers/WWW/NavMobile',
   component: NavMobile,
   excludeStories: /.*Data$/,
+
   parameters: {
-    viewMode: 'canvas',
+    viewMode: 'canvas'
+  },
+
+  globals: {
     viewport: {
-      defaultViewport: 'mobile2'
+      value: 'mobile2',
+      isRotated: false
     }
   }
 }

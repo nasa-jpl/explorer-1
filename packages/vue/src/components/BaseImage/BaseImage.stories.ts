@@ -33,7 +33,12 @@ export const BaseImageData = {
 // stories
 export const BaseStory = {
   args: BaseImageData,
-  decorators: [() => ({ template: '<div class="max-w-full"><story /></div>' })]
+  decorators: [() => ({ template: '<div id="storyDecorator" class="max-w-full"><story /></div>' })],
+  parameters: {
+    html: {
+      root: '#storyDecorator'
+    }
+  }
 }
 
 export const LazyLoading = {
@@ -41,12 +46,12 @@ export const LazyLoading = {
   decorators: [
     () => ({
       template:
-        '<div class="max-w-full"><div style="height:3500px">Scroll down and watch the network tab ⬇️</div><div id="storyRoot"><story /></div></div>'
+        '<div class="max-w-full"><div style="height:3500px">Scroll down and watch the network tab ⬇️</div><div id="storyDecorator"><story /></div></div>'
     })
   ],
   parameters: {
     html: {
-      root: '#storyRoot'
+      root: '#storyDecorator'
     }
   }
 }

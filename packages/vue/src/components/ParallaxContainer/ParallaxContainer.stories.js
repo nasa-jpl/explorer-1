@@ -6,12 +6,12 @@ export default {
   component: ParallaxContainer,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" style="height:3000px"><story/></div>`
+      template: `<div id="storyRoot" style="height:3000px"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     },
     docs: {
       description: {

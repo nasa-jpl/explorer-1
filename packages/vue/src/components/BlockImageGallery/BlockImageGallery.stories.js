@@ -6,7 +6,7 @@ export default {
   component: BlockImageGallery,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="max-w-screen-3xl mx-auto"><story/></div>`
+      template: `<div id="storyRoot" class="max-w-screen-3xl mx-auto"><story/></div>`
     })
   ],
   argTypes: {
@@ -20,7 +20,7 @@ export default {
 
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

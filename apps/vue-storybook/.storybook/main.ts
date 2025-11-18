@@ -18,12 +18,12 @@ const config: StorybookConfig = {
   stories:
     process.env.NODE_ENV === 'production'
       ? [
-          './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)',
-          './../node_modules/@explorer-1/vue/src/**/*.docs.mdx'
+          './../node_modules/@explorer-1/vue/src/**/*.docs.mdx',
+          './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
         ]
       : [
-          './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)',
-          './../../../packages/vue/src/**/*.docs.mdx'
+          './../../../packages/vue/src/**/*.docs.mdx',
+          './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
         ],
 
   addons: [

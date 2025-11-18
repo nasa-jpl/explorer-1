@@ -5,12 +5,12 @@ export default {
   component: NavLinkList,
   decorators: [
     () => ({
-      template: `<div id="storyDecorator" class="bg-jpl-blue-darker p-8"><story/></div>`
+      template: `<div id="storyRoot" class="bg-jpl-blue-darker p-8"><story/></div>`
     })
   ],
   parameters: {
     html: {
-      root: '#storyDecorator'
+      root: '#storyRoot'
     }
   },
   excludeStories: /.*Data$/

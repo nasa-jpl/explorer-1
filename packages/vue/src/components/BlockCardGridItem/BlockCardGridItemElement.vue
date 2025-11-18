@@ -26,7 +26,7 @@
     </div>
     <div class="px-6 py-6 ThemeVariantLight">
       <template v-if="label">
-        <div class="text-primary text-subtitle">
+        <div class="text-primary text-subtitle internal:text-black">
           {{ label }}
         </div>
         <hr
