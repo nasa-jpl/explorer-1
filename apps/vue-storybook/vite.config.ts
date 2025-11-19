@@ -8,16 +8,7 @@ export default defineConfig({
   define: {
     ...packageVersions
   },
-  plugins: [
-    vue()
-    // TODO: Doesn't work
-    // Components({
-    //   dirs: [
-    //     './../node_modules/@explorer-1/vue/src/components',
-    //     './../node_modules/@explorer-1/vue/src/templates'
-    //   ]
-    // })
-  ],
+  plugins: [vue()],
   publicDir: './../public/',
   // because pnpm and stories are in node_modules
   resolve: {

@@ -1,5 +1,3 @@
-import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
-import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
 import LogoTribrand from './LogoTribrand.vue'
 
 export default {
@@ -20,7 +18,7 @@ export default {
     setup() {
       return { args }
     },
-    template: `<div :class="args.invert ? 'bg-black ' : 'bg-white '"><LogoTribrand :class="args.size" :invert="args.invert" />`
+    template: `<div :class="args.invert ? 'bg-black ' : 'bg-white '"><LogoTribrand :class="args.size" :invert="args.invert" /></div>`
   })
 }
 
@@ -44,7 +42,7 @@ export const BaseStory = {
 }
 
 export const LogoImageColor = {
-  args: { src: LogoColor },
+  args: { src: '/explorer-1/images/svg/logo-tribrand-color.svg' },
   argTypes: {
     src: {
       control: false
@@ -69,7 +67,7 @@ export const LogoImageColor = {
 }
 
 export const LogoImageWhite = {
-  args: { src: LogoWhite },
+  args: { src: '/explorer-1/images/svg/logo-tribrand-white.svg' },
   argTypes: {
     src: {
       control: false
