@@ -87,7 +87,7 @@ const remappedAccordionItems = computed((): AccordionItemObject[] | undefined =>
                 class="AccordionItemImage"
                 :data="block.image as ImageObject"
                 :caption="block.caption"
-                :display-bacpotion="block.displayCaption"
+                :display-caption="block.displayCaption"
               />
             </template>
             <template v-else-if="block.blockType === 'RichTextBlock'">

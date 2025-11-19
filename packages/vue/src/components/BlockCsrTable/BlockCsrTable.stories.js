@@ -11,7 +11,7 @@ export const BlockCsrTableData = [
   {
     Id: 1,
     TestRecordId: 2765,
-    Attachment: 'attachment_filename.pdf',
+    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
     Status: 1,
     GenericPartNumber: 'OP467',
     Description: 'QUAD OP AMP Linear Device',
@@ -39,7 +39,7 @@ export const BlockCsrTableData = [
   {
     Id: 2,
     TestRecordId: 2,
-    Attachment: 'attachment/1',
+    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
     Status: 0,
     GenericPartNumber: 'GPN123',
     Description: 'A description for part 1',
@@ -65,7 +65,7 @@ export const BlockCsrTableData = [
   {
     Id: 3,
     TestRecordId: 3,
-    Attachment: 'attachment/2',
+    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
     Status: 1,
     GenericPartNumber: 'GPN345',
     Description: 'A description for part 2',
@@ -91,7 +91,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'attachment/2',
+    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part. Lorem ipsum dolor sit amet consectatur.',
@@ -117,7 +117,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'attachment/2',
+    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part 2',
@@ -143,7 +143,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'attachment/2',
+    Attachment: undefined,
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part 2',
@@ -197,7 +197,7 @@ export const BlockCsrTableData = [
 export const BaseStory = {
   args: {
     rowData: BlockCsrTableData,
-    attachmentPrefix: 'https://www.jpl.nasa.gov',
+    attachmentPrefix: 'https://test-api.jpl.nasa.gov/attachments?key=',
     apiEndpoint: null
   }
 }

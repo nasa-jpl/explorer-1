@@ -1,5 +1,11 @@
 # @explorer-1/html-storybook
 
+## 2.0.3
+
+### Patch Changes
+
+- 0a83db1: Documentation updates, Storybook improvements.
+
 ## 2.0.2
 
 ### Patch Changes

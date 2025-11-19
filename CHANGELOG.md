@@ -1,5 +1,24 @@
 # explorer-1
 
+## 3.4.4
+
+### Patch Changes
+
+- be963d6: Publishing latest dependencies
+
+## 3.4.3
+
+### Patch Changes
+
+- f4693d6: Publishing latest fixes
+- 0a83db1: Documentation updates, Storybook improvements.
+
+## 3.4.2
+
+### Patch Changes
+
+- 827228b: Publishing latest version
+
 ## 3.4.1
 
 ### Patch Changes
