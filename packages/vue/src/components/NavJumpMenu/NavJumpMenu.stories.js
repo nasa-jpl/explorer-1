@@ -4,7 +4,10 @@ export default {
   title: 'Navigation/Jump Menu',
   component: NavJumpMenu,
   tags: ['navigation'],
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
+  decorators: () => ({
+    template: `<story style="visibility: visible!important;" />`
+  })
 }
 
 const JumpLinksData = [
