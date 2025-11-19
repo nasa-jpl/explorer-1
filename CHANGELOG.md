@@ -1,5 +1,12 @@
 # explorer-1
 
+## 3.4.5
+
+### Patch Changes
+
+- bc9dbbb: Documentation updates, Storybook improvements.
+- cb8e06c:
+
 ## 3.4.4
 
 ### Patch Changes
