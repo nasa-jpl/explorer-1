@@ -3,16 +3,17 @@ import MetadataEduResource from './MetadataEduResource.vue'
 export default {
   title: 'Components/Utilities/MetadataEduResource',
   component: MetadataEduResource,
-  tags: ['!autodocs'],
-  argTypes: {
-    variant: {
-      type: { name: 'string', required: false },
-      control: { type: 'select' },
-      options: ['primary', 'secondary']
-    }
-  },
+  tags: ['cards'],
   globals: { theme: 'ThemeEdu' },
-  excludeStories: /.*Data$/
+  excludeStories: /.*Data$/,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A row of metadata icons and text that displays key information about a post. Specifically for use with ThemeEdu'
+      }
+    }
+  }
 }
 
 // data
@@ -56,6 +57,7 @@ export const MultipleGradeLevels = {
         time: 'Under 30 mins'
       }
     },
-    variant: 'secondary'
+    variant: 'secondary',
+    showTime: true
   }
 }

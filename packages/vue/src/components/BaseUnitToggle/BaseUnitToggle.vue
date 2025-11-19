@@ -157,18 +157,22 @@ export default defineComponent({
       required: true,
       validator: (val: UnitName): boolean => Boolean(unitPairs[val])
     },
+    /** The initial value to be converted */
     value: {
       type: Number as PropType<number>,
       required: true
     },
+    /** Manually override the converted value */
     secondValue: {
       type: Number as PropType<number>,
       required: false
     },
+    /** The system of measurement that corresponds with the provided `value` */
     valueSystem: {
       type: String as PropType<UnitSystemName>,
       required: true
     },
+    /** If value and unit should appear on the same line */
     inline: {
       type: Boolean,
       default: false

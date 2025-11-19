@@ -123,7 +123,7 @@ import NavLogoLinks from './../NavLogoLinks/NavLogoLinks.vue'
 import NavSearchForm from './../NavSearchForm/NavSearchForm.vue'
 import IconSearch from './../Icons/IconSearch.vue'
 import IconClose from './../Icons/IconClose.vue'
-import type { LinkObject, BreadcrumbObject } from './../../utils/mixins'
+import type { NavLinkObject, BreadcrumbObject } from './../../utils/mixins'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
 import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
 import type { BreadcrumbPathObject } from '../../interfaces'
@@ -237,14 +237,14 @@ export default defineComponent({
   },
   methods: {
     // safe way to retrieve url key from nav items. used with breadcrumb to determine active class.
-    getUrlKey(item: LinkObject): string | null {
+    getUrlKey(item: NavLinkObject): string | null {
       if (item.linkPage) {
         return item.linkPage.url
       }
       return null
     },
     // to determine active class on menu links and 'more' menu links
-    checkActive(item: LinkObject) {
+    checkActive(item: NavLinkObject) {
       const urlKey = this.getUrlKey(item)
       if (urlKey && this.breadcrumb?.menu_links) {
         // key into the breadcrumbs for each section
@@ -292,7 +292,7 @@ export default defineComponent({
         this.$emit('openSearch')
       }
     },
-    getLinkText(item: LinkObject) {
+    getLinkText(item: NavLinkObject) {
       return mixinGetLinkText(item)
     }
   }

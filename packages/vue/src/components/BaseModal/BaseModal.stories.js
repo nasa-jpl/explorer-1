@@ -5,9 +5,6 @@ import BaseModalDialog from './BaseModalDialog.vue'
 export default {
   title: 'Components/Base/BaseModal',
   component: BaseModal,
-  argTypes: {
-    bgClose: { control: { type: 'boolean' } }
-  },
   excludeStories: /.*Data$/
 }
 
@@ -15,7 +12,7 @@ export default {
 const BaseModalTemplate = (args) => ({
   props: Object.keys(args),
   components: { BaseModal },
-  template: `<BaseModal :bg-close="bgClose"><div>Modal content. Lorem ipsum dolor sit amet.</div></BaseModal>`
+  template: `<BaseModal :bg-close="bgClose"><div>{{ bgClose }} Modal content. Lorem ipsum dolor sit amet.</div></BaseModal>`
 })
 const BaseModalWithTriggerTemplate = (args) => ({
   props: Object.keys(args),
@@ -72,13 +69,13 @@ export const BaseModalDialogData = {
 
 // stories
 export const BaseStory = BaseModalTemplate.bind({})
-BaseStory.args = { ...BaseModalData }
+BaseStory.args = BaseModalData
 
 export const CustomTrigger = BaseModalWithTriggerTemplate.bind({})
-CustomTrigger.args = { ...BaseModalData }
+CustomTrigger.args = BaseModalData
 
 export const Nested = BaseModalNested.bind({})
-Nested.args = { ...BaseModalData }
+Nested.args = BaseModalData
 
 export const Dialog = BaseModalDialogTemplate.bind({})
 Dialog.args = { ...BaseModalDialogData, modalHeaderSlot: '' }

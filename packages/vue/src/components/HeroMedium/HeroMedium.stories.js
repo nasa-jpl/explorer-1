@@ -5,6 +5,7 @@ import { eduMetadataDictionary } from './../../constants'
 export default {
   title: 'Components/Heroes/Medium',
   component: HeroMedium,
+  tags: ['heroes'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="max-w-screen-3xl mx-auto"><story/></div>`

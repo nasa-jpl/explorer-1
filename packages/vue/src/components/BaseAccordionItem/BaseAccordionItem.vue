@@ -1,25 +1,32 @@
 <script setup lang="ts">
+/**
+ * Component that includes an accessible clickable header that will expand a panel below it
+ */
+
 import { computed, reactive, ref } from 'vue'
-import type { AccordionItemObject } from './../../interfaces.ts'
+import type { AccordionItemObject, HeadingLevels } from './../../interfaces.ts'
 import { uniqueId } from 'lodash'
 import IconPlus from './../Icons/IconPlus.vue'
 import IconMinus from './../Icons/IconMinus.vue'
 
-export interface BaseAccordionItemProps {
-  headingLevel?: string
-  item: AccordionItemObject
-  backgroundClass?: string
-}
-
-// define props
-const props = withDefaults(defineProps<BaseAccordionItemProps>(), {
-  headingLevel: 'h2',
-  backgroundClass: undefined,
-  item(): AccordionItemObject {
-    return {
-      title: undefined,
-      body: undefined
-    }
+const props = defineProps({
+  /**
+   * Semantic heading level
+   */
+  headingLevel: {
+    type: String as () => HeadingLevels,
+    default: 'h2'
+  },
+  /**
+   * Data object that includes all content that should be rendered in the accordion item
+   */
+  item: {
+    type: Object as () => AccordionItemObject,
+    default: () =>
+      ({
+        title: undefined,
+        body: undefined
+      }) as AccordionItemObject
   }
 })
 
@@ -37,6 +44,18 @@ const headingId = computed(() => {
   return `block_accordion_heading_${itemId.value}`
 })
 
+const emit = defineEmits([
+  /**
+   * Fires when an item is opened
+   * @type {thing}
+   */
+  'accordionItemOpened',
+  /**
+   * Fires when an item is closed
+   */
+  'accordionItemClosed'
+])
+
 const handleClick = () => {
   ariaExpanded.value = !ariaExpanded.value
   isHidden.value = !isHidden.value
@@ -47,7 +66,27 @@ const handleClick = () => {
   }
 }
 
-const emit = defineEmits(['accordionItemOpened', 'accordionItemClosed'])
+defineSlots<{
+  /**
+   * The entire clickable area of the item, including `heading`.
+   * Override with `<template #header>` and requires reconstructing `handleClick()` behavior.
+   */
+  header(): void
+  /**
+   * The heading text within the item header. Override with `<template #heading>`
+   */
+  heading(): void
+  /**
+   * The entire contents of expanded item, including `panelContents`.
+   * Override with `<template #default>` and requires reconstructing `aria-labelledby` attributes.
+   */
+  default(): void // Use 'void' as the return type
+  /**
+   * Contents of expanded accordion item. There is no default template.
+   * Override with `<template #panelContents>`
+   */
+  panelContents(): void
+}>()
 </script>
 <template>
   <div

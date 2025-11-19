@@ -60,8 +60,9 @@
 </template>
 <script lang="ts">
 // @ts-nocheck
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
+import type { BlockData } from './../../interfaces.ts'
 import { useThemeStore } from '../../store/theme'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import BaseRadioGroup from './../BaseRadioGroup/BaseRadioGroup.vue'
@@ -115,7 +116,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
+      type: Object as PropType<BlockData>,
       required: true,
       default: () => ({})
     }

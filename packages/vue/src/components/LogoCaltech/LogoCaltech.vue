@@ -16,6 +16,7 @@
   </svg>
 </template>
 <script lang="ts">
+/** The Caltech logo as an SVG. Size and color can be specified via tailwind text classes. This will only work with inlined SVG. This will not work when rendering the svg file via an `<img />` element. */
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'LogoCaltech'

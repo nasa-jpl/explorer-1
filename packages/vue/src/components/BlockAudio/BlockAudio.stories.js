@@ -3,6 +3,7 @@ import BlockAudio from './BlockAudio.vue'
 export default {
   title: 'Components/Blocks/BlockAudio',
   component: BlockAudio,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

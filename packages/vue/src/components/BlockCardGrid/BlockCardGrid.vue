@@ -41,7 +41,7 @@ import type { ImageObject, LinkObject } from '../../interfaces'
 import BlockCardGridItem from './../BlockCardGridItem/BlockCardGridItem.vue'
 import MixinCarousel from './../MixinCarousel/MixinCarousel.vue'
 
-interface CardGridItem {
+export interface CardGridItem {
   title: string
   label: string
   description: string

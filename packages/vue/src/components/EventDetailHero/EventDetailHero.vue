@@ -30,7 +30,8 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
+import type { ImageObject } from './../../interfaces.ts'
 import BaseImage from '../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from '../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import CalendarChip from '../CalendarChip/CalendarChip.vue'
@@ -44,11 +45,6 @@ export default defineComponent({
     CalendarChip
   },
   props: {
-    data: {
-      type: Object,
-      required: false,
-      default: undefined
-    },
     startDate: {
       type: String,
       required: false,
@@ -63,10 +59,11 @@ export default defineComponent({
       default: false
     },
     image: {
-      type: Object,
+      type: Object as PropType<ImageObject>,
       required: false,
       default: undefined
     },
+    /** Constrain image to 16:9 */
     constrain: {
       type: Boolean,
       required: false,

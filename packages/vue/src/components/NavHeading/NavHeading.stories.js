@@ -4,6 +4,7 @@ import NavHeading from './NavHeading.vue'
 export default {
   title: 'Navigation/Elements/NavHeading',
   component: NavHeading,
+  tags: ['navigation'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="p-8 bg-jpl-blue-darker edu:bg-primary-dark"><story/></div>`

@@ -74,12 +74,24 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import IconArrows from './../Icons/IconArrows.vue'
 /**
- * Displays dsn widget data. API is parsed by the backend. Frontend retrieves via a graphQL query.
+ * Displays dsn widget data. API is parsed by the backend and passed to the frontend via GraphQL.
  */
+
+type DsnWidgetObject = {
+  heading: string
+  link: string
+  linkTarget: string
+  transmitTitle: string
+  transmitStatus: string
+  spacecraftName: string
+  location: string
+  __typename: string
+}
+
 export default defineComponent({
   name: 'DsnWidget',
   components: {
@@ -87,9 +99,11 @@ export default defineComponent({
     IconArrows
   },
   props: {
+    /** Backend retrieves data and passes it to the frontend as a DsnWidgetObject */
     data: {
-      type: Object,
-      required: false
+      type: Object as PropType<DsnWidgetObject>,
+      required: false,
+      default: undefined
     }
   }
 })

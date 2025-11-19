@@ -1,7 +1,6 @@
-import MissionDetailStats, { statuses, clockTypes } from './MissionDetailStats.vue'
+import MissionDetailStats from './MissionDetailStats.vue'
 import MissionDetailStatsMini from './MissionDetailStatsMini.vue'
 import MissionDetailStatsMicro from './MissionDetailStatsMicro.vue'
-import { distanceTypes } from './DistanceStats.vue'
 
 export default {
   title: 'Components/WWW/MissionDetail/MissionDetailStats',
@@ -17,23 +16,7 @@ export default {
       root: '#storyRoot'
     }
   },
-  excludeStories: /.*(Data)$/,
-  argTypes: {
-    status: {
-      control: { type: 'select' },
-      options: Object.keys(statuses)
-    },
-    clockType: {
-      control: { type: 'select' },
-      options: Object.keys(clockTypes)
-    },
-    distanceType: {
-      control: {
-        type: 'select'
-      },
-      options: Object.keys(distanceTypes).concat([''])
-    }
-  }
+  excludeStories: /.*(Data)$/
 }
 
 export const MissionDetailStatsData = {

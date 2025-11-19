@@ -3,6 +3,7 @@ import BlockNewsletterSignup from './BlockNewsletterSignup.vue'
 export default {
   title: 'Components/Blocks/BlockNewsletterSignup',
   component: BlockNewsletterSignup,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

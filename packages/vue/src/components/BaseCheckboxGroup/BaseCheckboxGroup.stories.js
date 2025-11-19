@@ -2,7 +2,8 @@ import BaseCheckboxGroup from './BaseCheckboxGroup.vue'
 
 export default {
   title: 'Components/Base/BaseCheckboxGroup',
-  component: BaseCheckboxGroup
+  component: BaseCheckboxGroup,
+  tags: ['forms']
 }
 
 // stories

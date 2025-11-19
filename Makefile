@@ -95,6 +95,10 @@ vue-storybook-test:
 vue-storybook-build:
 	pnpm --filter @explorer-1/vue-storybook build
 
+## Vue: start compiled Storybook
+vue-storybook-start:
+	pnpm --filter @explorer-1/vue-storybook start
+
 ## HTML: run Storybook with --force-build-preview
 vue-storybook-force:
 	pnpm --filter @explorer-1/vue-storybook dev --force-build-preview

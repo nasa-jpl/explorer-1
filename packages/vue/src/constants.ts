@@ -1,6 +1,4 @@
-import type { PillDictionaryInterface } from './interfaces'
-
-export const eduMetadataDictionary: PillDictionaryInterface = {
+export const eduMetadataDictionary = {
   EDUNewsPage: {
     label: 'News',
     variant: 'primary',
@@ -73,7 +71,7 @@ export const eduMetadataDictionary: PillDictionaryInterface = {
     icons: 'secondary',
     type: 'resource'
   }
-}
+} as const
 
 interface contentTypeObject {
   model: string
@@ -230,7 +228,7 @@ export const contentTypes: contentTypeObject[] = [
     model: 'edu_resources.EDUVideoDetailPage',
     label: 'EDU Videos'
   }
-]
+] as const
 
 interface contentAliasObject extends contentTypeObject {
   interface?: string

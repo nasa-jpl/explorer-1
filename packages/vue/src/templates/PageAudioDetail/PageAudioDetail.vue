@@ -50,7 +50,7 @@
         />
       </template>
     </LayoutHelper>
-    <BlockAudio :data="data" />
+    <BlockAudio :data="data as BlockAudioData" />
     <LayoutHelper
       indent="col-2"
       class="lg:pt-12 pt-4"
@@ -228,7 +228,7 @@ import DetailHeadline from './../../components/DetailHeadline/DetailHeadline.vue
 import BaseButton from './../../components/BaseButton/BaseButton.vue'
 import BlockRelatedLinks from './../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockText from './../../components/BlockText/BlockText.vue'
-import BlockAudio from './../../components/BlockAudio/BlockAudio.vue'
+import BlockAudio, { type BlockAudioData } from './../../components/BlockAudio/BlockAudio.vue'
 import IconDownload from './../../components/Icons/IconDownload.vue'
 import IconDropdown from './../../components/Icons/IconDropdown.vue'
 import BlockLinkCarousel from './../../components/BlockLinkCarousel/BlockLinkCarousel.vue'

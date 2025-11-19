@@ -67,7 +67,7 @@ import BlockRelatedLinks, {
 } from './../BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockImageGallery from './../BlockImageGallery/BlockImageGallery.vue'
 
-interface BlockData {
+export interface TopicDetailStreamfieldBlockData {
   blockType: string
   heading: string
   galleryTitle: string
@@ -86,7 +86,7 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Array as PropType<BlockData[]>,
+      type: Array as PropType<TopicDetailStreamfieldBlockData[]>,
       required: false
     },
     topic: {

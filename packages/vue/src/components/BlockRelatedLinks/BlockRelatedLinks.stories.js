@@ -3,6 +3,7 @@ import BlockRelatedLinks from './BlockRelatedLinks.vue'
 export default {
   title: 'Components/Blocks/BlockRelatedLinks',
   component: BlockRelatedLinks,
+  tags: ['wagtail-blocks', 'listings'],
   excludeStories: /.*Data$/,
   parameters: {
     docs: {

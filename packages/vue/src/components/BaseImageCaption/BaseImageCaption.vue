@@ -1,7 +1,8 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
-import type { ImageObject } from '../../interfaces'
+/** Caption text used with both images and videos. */
+
+import { defineComponent, type PropType } from 'vue'
+import type { ImageObject, VideoObject } from '../../interfaces'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
 export default defineComponent({
@@ -10,15 +11,18 @@ export default defineComponent({
     BaseLink
   },
   props: {
+    /** `{ImageObject}` data */
     data: {
-      type: Object as PropType<Partial<ImageObject>>,
-      required: true,
-      default: undefined
+      // type: Object as PropType<<PartialImageObject>>,
+      type: Object as PropType<Partial<ImageObject> | Partial<VideoObject> | any>,
+      required: true
     },
+    /** Appends a link to the end of the caption. Overrides "Full Image Details" link, if it exists. */
     customLink: {
       type: String,
       default: undefined
     },
+    /** Text for the custom link. Does not appear if `customLink` is blank */
     customLinkText: {
       type: String,
       default: 'Custom Link'

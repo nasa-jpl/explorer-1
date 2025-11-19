@@ -7,7 +7,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `The BaseSwimlane component is expected to contain an array of words to create a 'swimlane' effect as the text swims through.`
+        component:
+          "The BaseSwimlane component is expected to contain an array of words to create a 'swimlane' effect as the text swims through."
       }
     }
   }

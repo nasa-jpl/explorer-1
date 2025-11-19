@@ -4,6 +4,7 @@ import { eduMetadataDictionary } from './../../constants'
 export default {
   title: 'Components/Heroes/Large',
   component: HeroLarge,
+  tags: ['heroes'],
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'canvas'

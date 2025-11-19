@@ -43,11 +43,12 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
+/** A list of links formatted with background colors and icons indicating the type of link. */
+
+import { defineComponent, type PropType } from 'vue'
 import type { BlockData, RelatedLinkObject } from './../../interfaces'
 import RelatedLink from './../BlockRelatedLinks/RelatedLink.vue'
-import BaseHeading from './../BaseHeading/BaseHeading.vue'
+import BaseHeading, { type HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
 export interface BlockRelatedLinksObject extends BlockData {
   heading: string
@@ -66,8 +67,9 @@ export default defineComponent({
       required: true,
       default: () => ({})
     },
+    /** Semantic heading level. Does not affect appearance. */
     headingSize: {
-      type: String,
+      type: String as PropType<HeadingLevel>,
       required: false,
       default: undefined
     }

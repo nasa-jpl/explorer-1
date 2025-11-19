@@ -2,6 +2,7 @@ import BlockHeading from './BlockHeading.vue'
 export default {
   title: 'Components/Blocks/BlockHeading',
   component: BlockHeading,
+  tags: ['wagtail-blocks'],
   excludeStories: /.*Data$/
 }
 

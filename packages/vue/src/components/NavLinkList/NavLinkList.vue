@@ -32,7 +32,7 @@ import { defineComponent } from 'vue'
 import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import NavHeading from './../NavHeading/NavHeading.vue'
-import type { LinkObject } from './../../utils/mixins'
+import type { NavLinkObject } from './../../utils/mixins'
 export default defineComponent({
   name: 'NavLinkList',
   components: {
@@ -51,10 +51,10 @@ export default defineComponent({
     }
   },
   methods: {
-    getRouterLink(link: LinkObject): string | undefined {
+    getRouterLink(link: NavLinkObject): string | undefined {
       return mixinGetRouterLink(link)
     },
-    getLinkText(link: LinkObject): string | undefined {
+    getLinkText(link: NavLinkObject): string | undefined {
       return mixinGetLinkText(link)
     }
   }

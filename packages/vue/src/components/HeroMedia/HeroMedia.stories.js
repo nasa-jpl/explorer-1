@@ -4,6 +4,7 @@ import HeroMedia from './HeroMedia.vue'
 export default {
   title: 'Components/Heroes/Media Only',
   component: HeroMedia,
+  tags: ['heroes'],
   parameters: {
     html: {
       root: '#storyRoot'
@@ -77,21 +78,25 @@ export const HeroMediaData = {
   displayCaption: true
 }
 
+const LocalHeroMediaData = { ...HeroMediaData }
+delete LocalHeroMediaData.imageInline
+delete LocalHeroMediaData.blockType
+
 // stories
 export const BaseStory = {
   name: 'HeroMedia',
-  args: HeroMediaData
+  args: LocalHeroMediaData
 }
 export const CustomImageCaption = {
   args: {
-    ...HeroMediaData,
+    ...LocalHeroMediaData,
     caption: '<p>My custom caption.</p>'
   }
 }
 
 export const NoCaptionText = {
   args: {
-    ...HeroMediaData,
+    ...LocalHeroMediaData,
     caption: '<p>My custom caption.</p>',
     displayCaption: false
   }
@@ -100,7 +105,7 @@ export const NoCaptionText = {
 export const NoCaptionArea = {
   args: {
     image: {
-      src: HeroMediaData.image.src,
+      src: LocalHeroMediaData.image.src,
       alt: 'The hero image',
       caption: '\n', // a lot of prod data has this for caption
       credit: '',
@@ -113,10 +118,10 @@ export const NoCaptionArea = {
 export const NoLink = {
   args: {
     image: {
-      src: HeroMediaData.image.src,
-      alt: HeroMediaData.image.src,
-      caption: HeroMediaData.image.caption,
-      credit: HeroMediaData.image.credit,
+      src: LocalHeroMediaData.image.src,
+      alt: LocalHeroMediaData.image.src,
+      caption: LocalHeroMediaData.image.caption,
+      credit: LocalHeroMediaData.image.credit,
       detailUrl: ''
     },
     caption: '',

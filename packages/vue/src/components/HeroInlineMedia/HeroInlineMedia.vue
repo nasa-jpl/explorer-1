@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import BlockVideoEmbed from './../BlockVideoEmbed/BlockVideoEmbed.vue'
-import BlockIframeEmbed from './../BlockIframeEmbed/BlockIframeEmbed.vue'
-import BlockImageComparison from './../BlockImageComparison/BlockImageComparison.vue'
+import BlockVideoEmbed, { type BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
+import BlockIframeEmbed, {
+  type BlockIframeEmbedData
+} from './../BlockIframeEmbed/BlockIframeEmbed.vue'
+import BlockImageComparison, {
+  type BlockImageComparisonData
+} from './../BlockImageComparison/BlockImageComparison.vue'
 import BlockImageCarousel from './../BlockImageCarousel/BlockImageCarousel.vue'
 import BlockImageStandard from './../BlockImage/BlockImageStandard.vue'
-import BlockVideo from './../BlockVideo/BlockVideo.vue'
+import BlockVideo, { type BlockVideoData } from './../BlockVideo/BlockVideo.vue'
 import type { StreamfieldBlockData } from './../../interfaces'
 
 interface HeroInlineMediaProps {
@@ -36,19 +40,19 @@ const { heroBlocks, constrain } = reactive(props)
     />
     <BlockIframeEmbed
       v-else-if="heroBlocks[0].blockType === 'IframeEmbedBlock'"
-      :data="heroBlocks[0]"
+      :data="heroBlocks[0] as BlockIframeEmbedData"
     />
     <BlockVideo
       v-else-if="heroBlocks[0].blockType === 'VideoBlock'"
-      :data="heroBlocks[0]"
+      :data="heroBlocks[0] as BlockVideoData"
     />
     <BlockVideoEmbed
       v-else-if="heroBlocks[0].blockType === 'VideoEmbedBlock'"
-      :data="heroBlocks[0]"
+      :data="heroBlocks[0] as BlockVideoEmbedData"
     />
     <BlockImageComparison
       v-else-if="heroBlocks[0].blockType === 'ImageComparisonBlock'"
-      :data="heroBlocks[0]"
+      :data="heroBlocks[0] as BlockImageComparisonData"
     />
   </div>
 </template>

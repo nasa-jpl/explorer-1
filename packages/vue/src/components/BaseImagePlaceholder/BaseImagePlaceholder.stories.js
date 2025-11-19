@@ -1,5 +1,5 @@
 import BaseImage from './../BaseImage/BaseImage.vue'
-import BaseImagePlaceholder, { aspectRatios } from './BaseImagePlaceholder.vue'
+import BaseImagePlaceholder from './BaseImagePlaceholder.vue'
 export default {
   title: 'Components/Base/BaseImagePlaceholder',
   component: BaseImagePlaceholder,
@@ -21,20 +21,8 @@ export default {
     },
     docs: {
       description: {
-        component:
-          'Aspect ratio CSS class. View dropdown to see all options. More classes can be added in `/src/scss/_aspect-ratios.scss`'
+        component: 'Placeholder image component with aspect ratio and background controls'
       }
-    }
-  },
-  argTypes: {
-    aspectRatio: {
-      control: { type: 'select' },
-      options: Object.keys(aspectRatios)
-    },
-    responsiveAspectRatio: {
-      description:
-        'Custom tailwind classes to combine screen-size directives with aspect ratios. Example: `md:aspect-ratio-four-three lg:aspect-ratio-twelve-nine`. Overrides `aspectRatio` setting.',
-      control: { type: 'text' }
     }
   }
 }
@@ -76,8 +64,7 @@ export const BaseStory = {
       objectFitClass: 'scaleDown',
       loading: ''
     },
-
-    noLogo: true,
+    noLogo: false,
     aspectRatio: '16:9',
     responsiveAspectRatio: 'md:aspect-ratio-four-three lg:aspect-ratio-twelve-nine'
   }

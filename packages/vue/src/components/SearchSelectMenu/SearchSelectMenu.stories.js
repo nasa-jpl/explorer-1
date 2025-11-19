@@ -2,7 +2,8 @@ import SearchSelectMenu from './SearchSelectMenu.vue'
 
 export default {
   title: 'Components/Search/SearchSelectMenu',
-  component: SearchSelectMenu
+  component: SearchSelectMenu,
+  tags: ['search']
 }
 
 export const BaseStory = {

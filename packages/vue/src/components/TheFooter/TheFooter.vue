@@ -190,16 +190,41 @@
 </template>
 <script lang="ts">
 // @ts-nocheck
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from './../../store/theme'
-import { mixinGetRouterLink, mixinGetLinkText } from './../../utils/mixins'
+import { mixinGetRouterLink, mixinGetLinkText, type NavLinkObject } from './../../utils/mixins'
 import IconExternal from './../Icons/IconExternal.vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import NavSocial from './../NavSocial/NavSocial.vue'
 import TheFooterSignUp from './../TheFooter/TheFooterSignUp.vue'
 import LogoCaltech from './../LogoCaltech/LogoCaltech.vue'
+
+export type FooterNavItem = {
+  titleLink: {
+    linkPage: {
+      title: string
+      url: string
+    }
+    title: string
+  }
+  links: NavLinkObject[]
+}
+
+export type FooterData = {
+  footerMoreFromJpl: NavLinkObject[]
+  footerNavigation: FooterNavItem[]
+  footerLinks: NavLinkObject[]
+  relatedNasaSites: {
+    title: string
+    path: string
+  }[]
+  footerMeta: {
+    label: string
+    text: string
+  }[]
+}
 
 export default defineComponent({
   name: 'TheFooter',
@@ -213,13 +238,14 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object || null,
+      type: Object as PropType<FooterData>,
       required: false,
       default: null
     },
     commitSha: {
       type: String,
-      required: false
+      required: false,
+      default: undefined
     }
   },
   methods: {

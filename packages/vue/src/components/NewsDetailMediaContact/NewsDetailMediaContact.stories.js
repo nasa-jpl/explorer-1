@@ -2,7 +2,8 @@ import NewsDetailMediaContact from './NewsDetailMediaContact.vue'
 
 export default {
   title: 'Components/WWW/NewsDetail/NewsDetailMediaContact',
-  component: NewsDetailMediaContact
+  component: NewsDetailMediaContact,
+  tags: ['listings']
 }
 
 const contacts = [

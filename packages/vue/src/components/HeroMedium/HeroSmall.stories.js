@@ -6,6 +6,7 @@ import { eduMetadataDictionary } from './../../constants'
 export default {
   title: 'Components/Heroes/Small',
   component: HeroMedium,
+  tags: ['heroes'],
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="max-w-screen-3xl mx-auto"><story/></div>`
@@ -41,8 +42,7 @@ export default {
     },
     docs: {
       description: {
-        component:
-          '`HeroSmall` is the same component as `HeroMedium, but with `compact` set to `true`.'
+        component: 'This is the same component as `HeroMedium, but with `compact` set to `true`.'
       }
     }
   },

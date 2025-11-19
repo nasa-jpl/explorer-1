@@ -3,6 +3,7 @@ import HeroListingIndex from './HeroListingIndex.vue'
 export default {
   title: 'Components/Heroes/For Listing Pages',
   component: HeroListingIndex,
+  tags: ['heroes'],
   parameters: {
     viewMode: 'canvas'
   },

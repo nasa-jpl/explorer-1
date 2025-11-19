@@ -3,11 +3,7 @@ import BlockImage from './BlockImage.vue'
 export default {
   title: 'Components/Blocks/BlockImage',
   component: BlockImage,
-  argTypes: {
-    fullBleed: {
-      control: { type: 'boolean' }
-    }
-  },
+  tags: ['autodocs', 'wagtail-blocks'],
   excludeStories: /.*Data$/,
   parameters: {
     docs: {

@@ -6,17 +6,23 @@ import NavMobileLink from './NavMobileLink.vue'
 export default {
   title: 'Navigation/Headers/WWW/NavMobile',
   component: NavMobile,
+  tags: ['navigation'],
   excludeStories: /.*Data$/,
 
   parameters: {
-    viewMode: 'canvas'
+    viewMode: 'canvas',
+    docs: {
+      description: {
+        component: 'View story directly for correct rendering.'
+      }
+    }
   },
-
   globals: {
     viewport: {
       value: 'mobile2',
       isRotated: false
-    }
+    },
+    theme: 'defaultTheme'
   }
 }
 

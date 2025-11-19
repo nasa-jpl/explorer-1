@@ -189,7 +189,12 @@
 
 <script lang="ts">
 import type { PropType } from 'vue'
-import type { Card, EventCardObject, EduResourceCardObject } from '../../interfaces'
+import type {
+  ContentTypeKey,
+  Card,
+  EventCardObject,
+  EduResourceCardObject
+} from './../../interfaces.ts'
 import { defineComponent } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
@@ -223,88 +228,102 @@ export default defineComponent({
     BlockLinkCardCollectionLg
   },
   props: {
+    /** Card data (can accept page data with key `page`) */
     data: {
       type: Object as PropType<Card>,
       required: false,
       default: undefined
     },
-    // override props as needed
-    // so we can use this component in search results
+    /** Overrides `data` */
     url: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Overrides `data` */
     externalLink: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Overrides `data` */
     thumbnailImage: {
       type: Object,
       required: false,
       default: undefined
     },
+    /** Overrides `data` */
     label: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Overrides `data` */
     title: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Overrides `data` */
     date: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Events: overrides `data` */
     eventType: {
       type: String,
       default: undefined
     },
+    /** Events: overrides `data` */
     startDate: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Events: overrides `data` */
     endDate: {
       type: String,
       required: false,
       default: undefined
     },
+    /** Events: overrides `data` */
     ongoing: {
       type: Boolean,
       default: false
     },
+    /** Events: overrides `data` */
     startDatetime: {
       type: String,
       default: undefined
     },
+    /** Events: overrides `data` */
     endDatetime: {
       type: String,
       default: undefined
     },
+    /** Events: overrides `data` */
     location: {
       type: String,
       default: undefined
     },
-    // if styling should be compact
+    /** Compactness of styling. `sm` and `md` recommended for grids or horizontal lists. `lg` is a horizontal layout recommended for wide lists */
     size: {
-      type: String,
+      type: String as PropType<'sm' | 'md' | 'lg'>,
       default: 'md'
     },
-    // if a heading should be used and at what level
+    /** Heading level for semantic markup. This does not affect the style of the heading. No heading element is used if `undefined` */
     headingLevel: {
       type: (String as PropType<HeadingLevel>) || null,
       required: false,
       default: undefined
     },
+    /** Events: overrides `data` */
     showCalendarChip: {
       type: Boolean,
       default: false
     },
+    /** Currently only applies to EDU Collection cards. If "featured" styles are turned on, the card background and text colors will be inverted. */
     useFeaturedStyles: {
       type: Boolean,
       default: false
@@ -374,11 +393,11 @@ export default defineComponent({
       }
       return undefined
     },
-    metadataType() {
+    metadataType(): ContentTypeKey | undefined {
       // checks that this is a valid metadata type
       const validContentTypes = Object.keys(eduMetadataDictionary)
       return this.data?.page?.__typename && validContentTypes.includes(this.data?.page?.__typename)
-        ? this.data?.page?.__typename
+        ? (this.data?.page?.__typename as ContentTypeKey)
         : undefined
     },
     metadataAttrs() {

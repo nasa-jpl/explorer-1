@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import type { AccordionItemObject, ImageBlock, ImageObject } from '../../interfaces'
+import type { AccordionItemObject, ImageBlock, ImageObject, HeadingLevels } from '../../interfaces'
 import BaseAccordionItem from './../BaseAccordionItem/BaseAccordionItem.vue'
 import BlockImageStandard from './../BlockImage/BlockImageStandard.vue'
 import BlockText from './../BlockText/BlockText.vue'
@@ -37,8 +37,8 @@ const props = withDefaults(defineProps<BlockAccordionProps>(), {
 
 const { data } = reactive(props)
 
-const headingLevel = computed(() => {
-  return data ? `h${data?.accordionItemsHeadingLevel}` : undefined
+const headingLevel = computed((): HeadingLevels | undefined => {
+  return data ? (`h${data?.accordionItemsHeadingLevel}` as HeadingLevels) : undefined
 })
 
 const remappedAccordionItems = computed((): AccordionItemObject[] | undefined => {

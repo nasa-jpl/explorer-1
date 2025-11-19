@@ -55,13 +55,22 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
-import type { ImageObject } from '../../interfaces'
+import type { BlockData, ImageObject } from '../../interfaces'
 import { mixinGetSrcSet } from './../../utils/mixins'
 import MixinFancybox from './../MixinFancybox/MixinFancybox.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
-import BlockText from './../BlockText/BlockText.vue'
+import BlockText, { type VariantKey as BlockTextVariantKey } from './../BlockText/BlockText.vue'
+
+export type BlockInlineImageData = BlockData & {
+  /** rich text */
+  text?: string
+  caption?: string
+  displayCaption: boolean
+  image?: ImageObject
+  alignTo: 'left' | 'right'
+}
 
 export default defineComponent({
   name: 'BlockInlineImage',
@@ -74,11 +83,15 @@ export default defineComponent({
   },
   props: {
     data: {
-      type: Object,
-      required: false
+      type: Object as PropType<BlockInlineImageData>,
+      required: false,
+      default: undefined
     },
+    /**
+     * Adjusts text size and vertical spacing. Corresponds with the same variants in `BlockText`
+     */
     variant: {
-      type: String as PropType<'small' | 'medium' | 'large'>,
+      type: String as PropType<BlockTextVariantKey>,
       default: 'large'
     }
   },
@@ -93,7 +106,7 @@ export default defineComponent({
         return this.data.caption
       } else if (
         this.data &&
-        this.data.image.caption &&
+        this.data.image?.caption &&
         this.data.image.caption.length > 2 &&
         this.data.displayCaption
       ) {
@@ -111,7 +124,7 @@ export default defineComponent({
       }
       return null
     },
-    hasCaptionArea(): string | false {
+    hasCaptionArea(): string | false | undefined {
       if (this.data && this.data.image) {
         return this.theCaption || this.data.image.credit || this.data.image.detailUrl
       }

@@ -3,12 +3,7 @@ import MissionDetailInlineImage from './MissionDetailInlineImage.vue'
 
 export default {
   title: 'Components/WWW/MissionDetail/MissionDetailInlineImage',
-  component: MissionDetailInlineImage,
-  argTypes: {
-    alignTo: {
-      control: { type: 'select', options: ['left', 'right'] }
-    }
-  }
+  component: MissionDetailInlineImage
 }
 
 const MissionDetailInlineImageData = {

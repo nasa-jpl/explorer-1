@@ -5,18 +5,13 @@ export default {
   component: LogoCaltech,
   argTypes: {
     size: {
+      description: 'Use TailwindCSS text size classes to control the size of the logo',
       control: {
-        type: 'select',
-        options: ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl']
-      }
+        type: 'select'
+      },
+      options: ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl']
     }
   },
-  decorators: [
-    () => ({
-      template: `<div class="inline-block" :class="'bg-white '"><story/></div>`,
-      props: ['size', 'invert']
-    })
-  ],
   excludeStories: /.*Data$/,
   parameters: {
     viewMode: 'docs',
@@ -26,14 +21,15 @@ export default {
           'The Caltech logo as an SVG. Size and color can be specified via tailwind text classes. This will only work with inlined SVG. This will not work when rendering the svg file via an `<img />` element.'
       }
     }
-  }
+  },
+  // render function to apply arbitrary args
+  render: (args) => ({
+    components: { LogoCaltech },
+    setup() {
+      return { args }
+    },
+    template: '<LogoCaltech :class="args.size" />'
+  })
 }
-const LogoCaltechComponentTemplate = (args) => ({
-  props: Object.keys(args),
-  components: { LogoCaltech },
-  template: `<LogoCaltech :class="size" />`
-})
 
-export const BaseStory = LogoCaltechComponentTemplate.bind({})
-BaseStory.storyName = 'LogoCaltech' // single story hoisting
-BaseStory.args = { size: 'text-base' }
+export const BaseStory = { args: { size: 'text-base' } }

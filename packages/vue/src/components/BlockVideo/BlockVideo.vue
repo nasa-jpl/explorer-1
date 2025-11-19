@@ -21,12 +21,19 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
+import type { BlockData, VideoObject } from './../../interfaces.ts'
 import { useThemeStore } from '../../store/theme'
 import BaseVideo from './../BaseVideo/BaseVideo.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 
+export type BlockVideoData = BlockData & {
+  video: VideoObject
+  autoplay: boolean
+  caption: string
+  credit: string
+}
 export default defineComponent({
   name: 'BlockVideo',
   components: {
@@ -34,14 +41,18 @@ export default defineComponent({
     BaseImageCaption
   },
   props: {
+    /** BlockData is used to render an HTML5 video element */
     data: {
-      type: Object,
-      required: false
+      type: Object as PropType<BlockVideoData>,
+      required: false,
+      default: undefined
     },
+    /** If the video should autoplay */
     autoplay: {
       type: Boolean,
       default: false
     },
+    /** Adds a link. Link text defaults to "Full Video Details" */
     customDetailUrl: {
       type: String,
       default: undefined

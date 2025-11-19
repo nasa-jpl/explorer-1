@@ -52,14 +52,16 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+/** Hero with no text overlay, just an image or video with a caption below. */
+
+import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import MixinVideoBg from './../MixinVideoBg/MixinVideoBg.vue'
 import BaseImageCaption from './../BaseImageCaption/BaseImageCaption.vue'
 import IconInfo from './../Icons/IconInfo.vue'
 import IconClose from './../Icons/IconClose.vue'
-import type { ImageObject } from '../../interfaces'
+import type { ImageObject, VideoObject } from '../../interfaces'
 import { mixinGetSrcSet, mixinTransparentHeader } from './../../utils/mixins'
 
 export default defineComponent({
@@ -77,21 +79,20 @@ export default defineComponent({
     IconClose
   },
   props: {
-    // image object includes the image caption and credit
     image: {
-      type: Object,
+      type: Object as () => ImageObject,
       default: undefined
     },
     video: {
-      type: Object,
+      type: Object as PropType<VideoObject>,
       default: undefined
     },
-    // if a caption should even be visible
+    /** If a caption should even be visible */
     displayCaption: {
       type: Boolean,
       default: true
     },
-    // for video heroes that pass separate caption and credit data
+    /** For video heroes that pass separate caption and credit data, or to override the caption in `{ImageObject}` */
     caption: {
       type: String,
       default: undefined
@@ -152,7 +153,7 @@ export default defineComponent({
         return 'flex'
       }
     },
-    hasCaptionArea(): string | boolean {
+    hasCaptionArea(): string | boolean | undefined {
       if (this.theImageData) {
         if (this.themeStore.isEdu) {
           // For EDU, only show the caption area if there is a caption

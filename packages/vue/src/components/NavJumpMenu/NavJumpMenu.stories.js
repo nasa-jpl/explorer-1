@@ -3,8 +3,11 @@ import NavJumpMenu from './NavJumpMenu.vue'
 export default {
   title: 'Navigation/Jump Menu',
   component: NavJumpMenu,
-  tags: ['!autodocs'],
-  excludeStories: /.*Data$/
+  tags: ['navigation'],
+  excludeStories: /.*Data$/,
+  decorators: () => ({
+    template: `<story style="visibility: visible!important;" />`
+  })
 }
 
 const JumpLinksData = [

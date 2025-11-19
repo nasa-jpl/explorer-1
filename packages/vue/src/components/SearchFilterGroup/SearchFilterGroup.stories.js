@@ -3,6 +3,7 @@ import SearchFilterGroup from './SearchFilterGroup.vue'
 export default {
   title: 'Components/Search/SearchFilterGroup',
   component: SearchFilterGroup,
+  tags: ['search'],
   excludeStories: /.*Data$/
 }
 
