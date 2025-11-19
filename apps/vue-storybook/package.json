@@ -14,7 +14,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm storybook",
-    "prepare": "pnpm prepare:images && pnpm prepare:public && pnpm prepare:fontcss",
+    "prepare": "pnpm prepare:public && pnpm prepare:images && pnpm prepare:fontcss",
     "prepare:images": "cp -R ./node_modules/@explorer-1/common/src/images ./public/explorer-1/",
     "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1",
     "prepare:fontcss": "cp ./node_modules/@explorer-1/common/src/scss/_fonts.scss ./public/css/font-face.css",
