@@ -32,9 +32,9 @@ export default {
 
 export const HeroLargeData = {
   title: 'FreeClimber: LEMUR 3',
-  summary:
+  description:
     'Crawl, walk and even climb rock walls, this robot was designed to operate in extreme terrains.',
-  image: {
+  heroImage: {
     // beach
     src: {
       url: 'https://picsum.photos/id/973/1800/1200',
