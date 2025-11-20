@@ -1,14 +1,27 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import packageVersions from '@explorer-1/common-storybook/src/plugins/packageVersions.js'
+import path from 'path'
 
-// import Components from 'unplugin-vue-components/vite'
+const VUE_PACKAGE_SRC_PATH = path.join(process.cwd(), '../packages/vue/src')
 
 export default defineConfig({
   define: {
     ...packageVersions
   },
-  plugins: [vue()],
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          comments: true
+        }
+      },
+      vueDocgenOptions: {
+        // resolve co-located components in a monorepo.
+        root: VUE_PACKAGE_SRC_PATH
+      }
+    })
+  ],
   publicDir: './../public/',
   // because pnpm and stories are in node_modules
   resolve: {
@@ -20,7 +33,12 @@ export default defineConfig({
     }
   },
   build: {
-    // storybook-only
-    modulePreload: false
+    modulePreload: false, // storybook only
+    minify: 'terser',
+    terserOptions: {
+      format: {
+        comments: true
+      }
+    }
   }
 })
