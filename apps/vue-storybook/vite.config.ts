@@ -11,11 +11,6 @@ export default defineConfig({
   },
   plugins: [
     vue({
-      template: {
-        compilerOptions: {
-          comments: true
-        }
-      },
       vueDocgenOptions: {
         // resolve co-located components in a monorepo.
         root: VUE_PACKAGE_SRC_PATH
@@ -33,12 +28,6 @@ export default defineConfig({
     }
   },
   build: {
-    modulePreload: false, // storybook only
-    minify: 'terser',
-    terserOptions: {
-      format: {
-        comments: true
-      }
-    }
+    modulePreload: false // storybook only
   }
 })
