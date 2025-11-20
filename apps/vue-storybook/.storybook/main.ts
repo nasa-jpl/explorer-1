@@ -54,16 +54,16 @@ const config: StorybookConfig = {
   ],
 
   stories:
-    // necessary for pinia to work in compiled Storybook
-    process.env.NODE_ENV === 'production'
-      ? [
-          './../node_modules/@explorer-1/vue/src/**/*.docs.mdx',
-          './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
-        ]
-      : // TODO: vue-docgen only works with these paths though
-        [
-          './../../../packages/vue/src/**/*.docs.mdx',
-          './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
-        ]
+    // // necessary for pinia to work in compiled Storybook
+    // process.env.NODE_ENV === 'production'
+    //   ? [
+    //       './../node_modules/@explorer-1/vue/src/**/*.docs.mdx',
+    //       './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
+    //     ]
+    //   : // TODO: vue-component-meta only works with these paths though
+    [
+      './../../../packages/vue/src/**/*.docs.mdx',
+      './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
+    ]
 }
 export default config
