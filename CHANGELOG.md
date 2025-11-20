@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.4.6
+
+### Patch Changes
+
+- 8e2018b: Fixing docgen in storybook
+
 ## 3.4.5
 
 ### Patch Changes

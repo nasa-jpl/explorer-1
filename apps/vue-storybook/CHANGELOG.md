@@ -1,5 +1,11 @@
 # @explorer-1/vue-storybook
 
+## 0.0.27
+
+### Patch Changes
+
+- 3e6cd4b: Fixing docgen in compiled Storybook
+
 ## 0.0.26
 
 ### Patch Changes
