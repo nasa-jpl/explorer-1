@@ -4,6 +4,10 @@ import packageVersions from '@explorer-1/common-storybook/src/plugins/packageVer
 import path from 'path'
 
 const VUE_PACKAGE_SRC_PATH = path.join(process.cwd(), '../packages/vue/src')
+const VUE_PACKAGE_SRC_PATH_PROD = path.join(
+  process.cwd(),
+  '../apps/vue-storybook/node_modules/@explorer-1/vue/src'
+)
 
 export default defineConfig({
   define: {
@@ -13,7 +17,8 @@ export default defineConfig({
     vue({
       vueDocgenOptions: {
         // resolve co-located components in a monorepo.
-        root: VUE_PACKAGE_SRC_PATH
+        root:
+          process.env.NODE_ENV === 'production' ? VUE_PACKAGE_SRC_PATH_PROD : VUE_PACKAGE_SRC_PATH
       }
     })
   ],
