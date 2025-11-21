@@ -56,6 +56,7 @@ jobs:
           autoAcceptChanges: 'main'
           exitZeroOnChanges: true
           exitOnceUploaded: true
+          onlyChanged: true
 
   publish_html:
     timeout-minutes: 30
