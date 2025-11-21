@@ -4,8 +4,8 @@ import { create } from 'storybook/theming'
 
 export default create({
   base: 'light',
-  colorPrimary: '#E31937', // jpl red
-  colorSecondary: '#05809E', // jpl teal
+  colorPrimary: 'rgb(228, 0, 43)', // jpl red
+  colorSecondary: 'rgb(15, 126, 177)', // earth blue
 
   // Typography
   // fontBase: 'Metropolis, sans-serif',

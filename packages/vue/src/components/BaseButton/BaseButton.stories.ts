@@ -15,12 +15,6 @@ export default {
       description: {
         component: 'Simple button with style variations.'
       }
-    },
-    to: {
-      description: 'If populated, a router-link will be generated. Overrides `href`'
-    },
-    click: {
-      type: '@click emit'
     }
   }
 }
