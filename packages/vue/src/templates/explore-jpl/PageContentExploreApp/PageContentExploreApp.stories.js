@@ -25,10 +25,8 @@ export default {
 export const ExploreAppContentPageData = {
   url: '/slug',
   title: 'Sites',
-  displayLabel: 'Classroom Activity',
-  showShareLinks: true,
-  heroPosition: 'full_bleed',
-  heroImage: HeroMediaData.image,
+  displayLabel: 'Explore JPL',
+  showShareLinks: false,
   // heroImageInline: HeroMediaData.imageInline,
   body: [
     BlockKeyPointsData,
@@ -79,9 +77,18 @@ export const ExploreAppContentPageData = {
 
 // stories
 export const BaseStory = {
-  name: 'PageContentExploreApp',
   args: {
     pageData: ExploreAppContentPageData
+  }
+}
+
+export const WithHero = {
+  args: {
+    pageData: {
+      ...ExploreAppContentPageData,
+      heroPosition: 'full_bleed',
+      heroImage: HeroMediaData.image
+    }
   }
 }
 
