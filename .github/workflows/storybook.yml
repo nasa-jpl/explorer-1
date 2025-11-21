@@ -92,3 +92,4 @@ jobs:
           autoAcceptChanges: 'main'
           exitZeroOnChanges: true
           exitOnceUploaded: true
+          onlyChanged: true
