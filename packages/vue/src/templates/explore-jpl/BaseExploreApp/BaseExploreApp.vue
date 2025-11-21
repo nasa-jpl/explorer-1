@@ -1,37 +1,54 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
+/**
+ * Wrapper template for all Explore JPL App pages.
+ * Provides the sticky navigation.
+ */
+import { computed } from 'vue'
 import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
-import type { PageObject } from './../../../interfaces'
+import type { BreadcrumbPathObject } from './../../../interfaces'
 
-const route = useRoute()
+/** Fallback nav data until we finalize how this will be provided by the backend */
+const staticNavData = [
+  { path: '/explore-app/', title: 'Explore JPL', children: [] },
+  { path: '/explore-app/maps/', title: 'Map', children: [] },
+  { path: '/explore-app/sites/', title: 'Sites', children: [] },
+  { path: '/explore-app/info/', title: 'Info', children: [] }
+] as BreadcrumbPathObject[]
 
 const props = defineProps({
-  /**
-   * Wrapper template for all Explore JPL App pages.
-   * Provides the sticky navigation.
-   */
-  data: {
-    type: Object as () => PageObject,
+  /** If hero content appears above the navigation (provided by parent component) */
+  hasIntro: {
+    type: Boolean,
+    default: false
+  },
+  /** Override static navigation (provided by parent component) */
+  navData: {
+    type: Array as () => BreadcrumbPathObject[] | string,
     default: undefined
   }
 })
+
+const computedNavData = computed(() => {
+  // read prop data. use static data as a fallback
+  let data: string | BreadcrumbPathObject[] = props.navData || staticNavData
+  // convert to a string
+  if (typeof data != 'string') {
+    data = JSON.stringify(data)
+  }
+  return data
+})
 </script>
 <template>
-  <div
-    v-if="data"
-    class="ThemeVariantLight"
-    :class="{ '-nav-offset': $slots.hero }"
-  >
-    <slot name="hero"></slot>
-    <!-- secondary nav -->
-    <NavSecondary
-      :breadcrumb="data.breadcrumb"
-      :has-intro="$slots.hero as unknown as boolean"
-      show-on-mobile
-    />
-
-    <slot>
-      <p class="text-center">Default slot</p>
-    </slot>
-  </div>
+  <!-- @slot: hero content -->
+  <slot name="hero"></slot>
+  <!-- navigation -->
+  <NavSecondary
+    :breadcrumb="computedNavData"
+    :has-intro="hasIntro"
+    show-on-mobile
+  />
+  <!-- @slot: page body -->
+  <slot>
+    <p class="text-center"></p>
+  </slot>
 </template>

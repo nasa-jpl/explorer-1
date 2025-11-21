@@ -304,8 +304,14 @@ export interface PageObject {
   topper?: string
   seoTitle?: string
   searchDescription?: string
+  heroImage?: ImageObject
   heroPosition?: 'full_bleed' | 'inline'
+  heroImageInline?: ImageObject
+  displayTitleInHero?: boolean
+  heroImageCaption?: string
+  heroSummary?: string
   heroConstrain?: boolean
+  showShareLinks?: boolean
   publicationDate?: string
   body?: StreamfieldBlockData[]
   thumbnailImage?: ThumbnailObject

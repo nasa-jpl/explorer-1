@@ -7,22 +7,16 @@ export default {
     html: {
       root: '#storyRoot'
     },
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    slots: {
+      hero: 'Hero content (above the nav) `<template #hero>`',
+      default: 'Body content (below the nav) `<template #default>`'
+    }
   },
   excludeStories: /.*(Data)$/
 }
 
-// data
-export const BaseExploreAppData = {
-  url: '/slug',
-  breadcrumb:
-    '[{"path": "/explore-app/", "title": "Explore JPL", "children": []},{"path": "/explore-app/maps/", "title": "Map", "children": []},{"path": "/explore-app/sites/", "title": "Sites", "children": []},{"path": "/explore-app/info/", "title": "Info", "children": []}]'
-}
-
 // stories
 export const BaseStory = {
-  name: 'BaseExploreApp',
-  args: {
-    data: BaseExploreAppData
-  }
+  name: 'BaseExploreApp'
 }
