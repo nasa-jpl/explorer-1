@@ -5,7 +5,6 @@
 ### Patch Changes
 
 - 9c083c4: Fixing both pinia store and vue-component-meta docgen in Storybook. Making tags more consistent in Storybook.
-- 22daa79: Temporarily disabling vue-docgen to make sure all stories work
 - Updated dependencies [9c083c4]
   - @explorer-1/vue@0.3.8
 
