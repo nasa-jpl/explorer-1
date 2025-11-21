@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.4.7
+
+### Patch Changes
+
+- 9c083c4: Fixing both pinia store and vue-component-meta docgen in Storybook. Making tags more consistent in Storybook.
+
 ## 3.4.6
 
 ### Patch Changes
