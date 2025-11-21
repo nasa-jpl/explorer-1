@@ -10,7 +10,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
   if (!version) version = ''
 
   return `
-<footer class="FooterInternal bg-gray-dark text-white">
+<footer class="FooterInternal ThemeInternal ThemeVariantDark bg-gray-dark text-white">
   <div class="lg:BaseGrid container mx-auto pt-10">
     <div class="indent-col-base indent-col-2">
       ${
@@ -67,7 +67,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
               link: 'https://www.jpl.nasa.gov/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-baseline lg:hidden text-jpl-teal-light can-hover:hover:text-jpl-teal',
+                'flex flex-nowrap items-baseline lg:hidden text-jpl-action can-hover:hover:text-action-dark',
               target: '_blank'
             })}
           </li>
@@ -86,7 +86,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
               link: 'https://js.jpl.nasa.gov/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-center lg:hidden text-jpl-teal-light can-hover:hover:text-jpl-teal',
+                'flex flex-nowrap items-center lg:hidden text-jpl-action can-hover:hover:text-action-dark',
               target: '_blank'
             })}
           </li>
@@ -105,7 +105,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
               link: 'https://www.caltech.edu/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-center lg:hidden text-jpl-teal-light can-hover:hover:text-jpl-teal',
+                'flex flex-nowrap items-center lg:hidden text-action can-hover:hover:text-action-dark',
               target: '_blank'
             })}
           </li>
@@ -124,7 +124,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
               link: 'https://www.nasa.gov/',
               icon: 'external',
               linkClass:
-                'flex flex-nowrap items-center lg:hidden text-jpl-teal-light can-hover:hover:text-jpl-teal',
+                'flex flex-nowrap items-center lg:hidden text-jpl-action can-hover:hover:text-action-dark',
               target: '_blank'
             })}
           </li>
@@ -143,8 +143,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
             link: 'https://mh.jpl.nasa.gov',
             icon: 'external',
             wrapperClass: 'inline',
-            linkClass:
-              'flex flex-nowrap items-center text-jpl-teal-light can-hover:hover:text-jpl-teal',
+            linkClass: 'flex flex-nowrap items-center text-blue-300 can-hover:hover:text-action',
             target: '_blank'
           })}
         </div>
