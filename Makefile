@@ -71,7 +71,7 @@ html-storybook-force:
 
 ## HTML: build Storybook
 html-storybook-build:
-	pnpm --filter @explorer-1/html-storybook build
+	pnpm --filter @explorer-1/html-storybook build --webpack-stats-json
 
 ## HTML: run Vite
 html-dev:
@@ -93,7 +93,7 @@ vue-storybook-test:
 
 ## Vue: build Storybook
 vue-storybook-build:
-	pnpm --filter @explorer-1/vue-storybook build
+	pnpm --filter @explorer-1/vue-storybook build --webpack-stats-json
 
 ## Vue: start compiled Storybook
 vue-storybook-start:
