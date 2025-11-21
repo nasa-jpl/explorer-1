@@ -35,7 +35,7 @@ export default defineComponent({
     size: {
       type: String as PropType<HeadingLevel>,
       required: false,
-      default: 'h2'
+      default: ''
     }
   },
   computed: {

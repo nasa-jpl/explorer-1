@@ -1,5 +1,39 @@
 # @explorer-1/vue
 
+## 0.3.8
+
+### Patch Changes
+
+- 9c083c4: Fixing both pinia store and vue-component-meta docgen in Storybook. Making tags more consistent in Storybook.
+
+## 0.3.7
+
+### Patch Changes
+
+- bc9dbbb: Documentation updates, Storybook improvements.
+
+## 0.3.6
+
+### Patch Changes
+
+- Updated dependencies [c307f7b]
+  - @explorer-1/common@1.3.3
+
+## 0.3.5
+
+### Patch Changes
+
+- 0a83db1: Documentation updates, Storybook improvements.
+
+## 0.3.4
+
+### Patch Changes
+
+- 3c70ecc: Adding a fix to the CSR Table block for attachment links
+- 3e5b0c8: Fixing vanilla JS for BlockAccordion, fixing some minor errors discovered in vue components
+- Updated dependencies [3e5b0c8]
+  - @explorer-1/common@1.3.2
+
 ## 0.3.3
 
 ### Patch Changes

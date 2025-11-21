@@ -1,6 +1,7 @@
 name: Changeset
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main

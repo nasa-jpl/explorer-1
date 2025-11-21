@@ -3,6 +3,12 @@ import EventDetailHero from './EventDetailHero.vue'
 export default {
   title: 'Components/WWW/EventDetail/EventDetailHero',
   component: EventDetailHero,
+  tags: ['!autodocs'],
+  argTypes: {
+    constrain: {
+      description: 'Constrain image to 16:9'
+    }
+  },
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="max-w-screen-3xl mx-auto"><story/></div>`

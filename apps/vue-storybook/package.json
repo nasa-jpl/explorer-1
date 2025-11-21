@@ -1,6 +1,6 @@
 {
   "name": "@explorer-1/vue-storybook",
-  "version": "0.0.22",
+  "version": "0.0.28",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -14,7 +14,8 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm storybook",
-    "prepare": "pnpm prepare:public && pnpm prepare:fontcss",
+    "prepare": "pnpm prepare:public && pnpm prepare:images && pnpm prepare:fontcss",
+    "prepare:images": "cp -R ./node_modules/@explorer-1/common/src/images ./public/explorer-1/",
     "prepare:public": "cp -R ./node_modules/@explorer-1/common/src/public/explorer-1/ ./public/explorer-1",
     "prepare:fontcss": "cp ./node_modules/@explorer-1/common/src/scss/_fonts.scss ./public/css/font-face.css",
     "storybook": "storybook dev -c .storybook -p 6006 --ci",

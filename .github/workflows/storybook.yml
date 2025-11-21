@@ -3,6 +3,7 @@
 name: 'Storybook'
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -55,6 +56,7 @@ jobs:
           autoAcceptChanges: 'main'
           exitZeroOnChanges: true
           exitOnceUploaded: true
+          onlyChanged: true
 
   publish_html:
     timeout-minutes: 30
@@ -90,3 +92,4 @@ jobs:
           autoAcceptChanges: 'main'
           exitZeroOnChanges: true
           exitOnceUploaded: true
+          onlyChanged: true

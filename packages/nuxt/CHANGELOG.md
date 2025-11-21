@@ -1,5 +1,43 @@
 # @explorer-1/nuxt
 
+## 0.0.26
+
+### Patch Changes
+
+- Updated dependencies [9c083c4]
+  - @explorer-1/vue@0.3.8
+
+## 0.0.25
+
+### Patch Changes
+
+- Updated dependencies [bc9dbbb]
+  - @explorer-1/vue@0.3.7
+
+## 0.0.24
+
+### Patch Changes
+
+- Updated dependencies [c307f7b]
+  - @explorer-1/common@1.3.3
+  - @explorer-1/vue@0.3.6
+
+## 0.0.23
+
+### Patch Changes
+
+- Updated dependencies [0a83db1]
+  - @explorer-1/vue@0.3.5
+
+## 0.0.22
+
+### Patch Changes
+
+- Updated dependencies [3c70ecc]
+- Updated dependencies [3e5b0c8]
+  - @explorer-1/vue@0.3.4
+  - @explorer-1/common@1.3.2
+
 ## 0.0.21
 
 ### Patch Changes

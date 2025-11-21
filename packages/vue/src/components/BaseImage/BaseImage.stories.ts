@@ -36,7 +36,7 @@ export const LazyLoading = {
   decorators: [
     () => ({
       template:
-        '<div class="max-w-full"><div style="height:3500px">Scroll down and watch the network tab ⬇️</div><div id="storyRoot"><story /></div></div>'
+        '<div class="max-w-full"><div style="height:3500px">Scroll down and watch the network tab ⬇️</div><div id="storyDecorator"><story /></div></div>'
     })
   ]
 }

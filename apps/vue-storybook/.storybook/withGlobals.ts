@@ -102,7 +102,6 @@ export const withGlobals = (StoryFn: any, context: any) => {
   // handle variant method
   if (variantMethod === 'css') {
     useEffect(() => {
-      console.log(themeVariant)
       if (themeVariant) {
         const savedVariant = window.localStorage.getItem('data-variant')
         if (savedVariant) document.body.classList.remove(savedVariant)

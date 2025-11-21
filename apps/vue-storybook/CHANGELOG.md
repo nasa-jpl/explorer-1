@@ -1,5 +1,58 @@
 # @explorer-1/vue-storybook
 
+## 0.0.28
+
+### Patch Changes
+
+- 9c083c4: Fixing both pinia store and vue-component-meta docgen in Storybook. Making tags more consistent in Storybook.
+- Updated dependencies [9c083c4]
+  - @explorer-1/vue@0.3.8
+
+## 0.0.27
+
+### Patch Changes
+
+- 3e6cd4b: Fixing docgen in compiled Storybook
+
+## 0.0.26
+
+### Patch Changes
+
+- bc9dbbb: Documentation updates, Storybook improvements.
+- Updated dependencies [bc9dbbb]
+  - @explorer-1/common-storybook@0.0.5
+  - @explorer-1/vue@0.3.7
+
+## 0.0.25
+
+### Patch Changes
+
+- Updated dependencies [c307f7b]
+  - @explorer-1/common@1.3.3
+  - @explorer-1/common-storybook@0.0.4
+  - @explorer-1/html@0.1.1
+  - @explorer-1/vue@0.3.6
+
+## 0.0.24
+
+### Patch Changes
+
+- 0a83db1: Documentation updates, Storybook improvements.
+- Updated dependencies [0a83db1]
+  - @explorer-1/common-storybook@0.0.4
+  - @explorer-1/vue@0.3.5
+
+## 0.0.23
+
+### Patch Changes
+
+- Updated dependencies [3c70ecc]
+- Updated dependencies [3e5b0c8]
+  - @explorer-1/vue@0.3.4
+  - @explorer-1/common@1.3.2
+  - @explorer-1/common-storybook@0.0.3
+  - @explorer-1/html@0.1.1
+
 ## 0.0.22
 
 ### Patch Changes

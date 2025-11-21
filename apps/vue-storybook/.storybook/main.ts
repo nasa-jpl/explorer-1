@@ -44,8 +44,7 @@ const config: StorybookConfig = {
 
   features: {
     actions: false,
-    backgrounds: false,
-    outlines: false
+    backgrounds: false
   },
 
   staticDirs: [
@@ -54,15 +53,9 @@ const config: StorybookConfig = {
     './../node_modules/@explorer-1/common/src'
   ],
 
-  stories:
-    process.env.NODE_ENV === 'production'
-      ? [
-          './../node_modules/@explorer-1/vue/src/**/*.docs.mdx',
-          './../node_modules/@explorer-1/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
-        ]
-      : [
-          './../../../packages/vue/src/**/*.docs.mdx',
-          './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
-        ]
+  stories: [
+    './../../../packages/vue/src/**/*.docs.mdx',
+    './../../../packages/vue/src/**/*.stories.@(js|jsx|ts|tsx)'
+  ]
 }
 export default config
