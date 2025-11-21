@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.4.7
+
+### Patch Changes
+
+- 22daa79: Temporarily disabling vue-docgen to make sure all stories work
+
 ## 3.4.6
 
 ### Patch Changes
