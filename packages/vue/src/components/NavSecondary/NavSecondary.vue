@@ -8,7 +8,8 @@
       'has-intro': hasIntro,
       '!bg-transparent border-none': invert,
       '-scrolled-up': scrollDirection === 'up',
-      '-at-top': posY === 0
+      '-at-top': posY === 0,
+      'show-on-mobile': showOnMobile
     }"
   >
     <div
@@ -56,7 +57,7 @@ import type { BreadcrumbPathObject } from './../../interfaces'
 
 export default defineComponent({
   /**
-   * This component is only visible on large viewports. Mobile secondary nav is handled in the \`NavMobile\` component.
+   * This component is only visible on large viewports by default. Mobile secondary nav is handled in the \`NavMobile\` component.
    *
    * The complexity of this component is due to the need for it to be populated from multiple data sources
    * SecondaryNav will first check to see if there is a navigation override from the data fetched for this specific page (data.breadcrumb and store.header.secondaryNav)
@@ -75,17 +76,25 @@ export default defineComponent({
       required: false,
       default: undefined
     },
+    /** If hero content appears above the secondary navigation */
     hasIntro: {
       type: Boolean,
       required: false,
       default: false
     },
+    /** If colors should be inverted */
     invert: {
       type: Boolean,
       required: false,
       default: false
     },
+    /** If this should be in jump menu mode (changes color and store) */
     jumpMenu: {
+      type: Boolean,
+      default: false
+    },
+    /** Whether or not this should be visible on mobile devices */
+    showOnMobile: {
       type: Boolean,
       default: false
     }
