@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { computed, reactive, onMounted } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 
 interface CsrAttachmentProps {
@@ -15,14 +15,26 @@ interface CsrAttachmentProps {
 const props = withDefaults(defineProps<CsrAttachmentProps>(), {
   params: undefined
 })
-const { params } = reactive(props)
+
+const encodedAttachmentUrl = computed(() => {
+  let url = ''
+  if (props.params.data?.Attachment && props.params.attachmentPrefix) {
+    url = props.params.attachmentPrefix + props.params.data.Attachment
+  }
+  return encodeURI(url)
+})
+
+onMounted(() => {
+  console.log(encodedAttachmentUrl.value)
+})
 </script>
 <template>
   <BaseLink
-    v-if="params?.data?.Attachment"
-    :href="params.attachmentPrefix + params.data.Attachment"
+    v-if="props.params?.data?.Attachment"
+    :href="encodedAttachmentUrl"
     variant="default"
     target="_blank"
+    :add-slash="false"
     >Download</BaseLink
   >
 </template>
