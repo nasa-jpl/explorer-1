@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 0.3.9
+
+### Patch Changes
+
+- 604b717: Fixing url handling in BlockCsrTable, adding option to disable trailing slash in BaseLink.
+
 ## 0.3.8
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @explorer-1/vue-storybook
 
+## 0.0.29
+
+### Patch Changes
+
+- Updated dependencies [604b717]
+  - @explorer-1/vue@0.3.9
+
 ## 0.0.28
 
 ### Patch Changes
