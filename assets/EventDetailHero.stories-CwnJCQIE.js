@@ -1,7 +1,0 @@
-import{E as r}from"./EventDetailHero-BGrL1Vq9.js";import"./iframe-DU5B84vZ.js";import"./preload-helper-D6kgxu3v.js";import"./BaseImage-CBH9XDz1.js";import"./BaseImagePlaceholder-D4Wtjnqs.js";import"./CalendarChip-BY9hGnhi.js";import"./theme-BasJieFd.js";import"./mixins-XVBNVLze.js";const D={title:"Components/WWW/EventDetail/EventDetailHero",component:r,tags:["!autodocs"],argTypes:{constrain:{description:"Constrain image to 16:9"}},decorators:[()=>({template:'<div id="storyRoot" class="max-w-screen-3xl mx-auto"><story/></div>'})],parameters:{html:{root:"#storyRoot"},themes:{clearable:!1,list:[{name:"FullWidthDocs",class:"sbdocs-preview-full-width",default:!0,visible:!1}]},viewMode:"docs"},excludeStories:/.*Data$/},s={heroImage:{srcSet:"https://picsum.photos/320/200 320w, https://picsum.photos/1920/1200 1440w",src:{url:"https://picsum.photos/1920/1200",width:1920,height:1200},alt:"The hero image"}},t={args:{image:s.heroImage,startDate:"11-11-2025",endDate:"12-02-2025"}};var e,o,a;t.parameters={...t.parameters,docs:{...(e=t.parameters)==null?void 0:e.docs,source:{originalSource:`{
-  args: {
-    image: EventDetailHeroData.heroImage,
-    startDate: '11-11-2025',
-    endDate: '12-02-2025'
-  }
-}`,...(a=(o=t.parameters)==null?void 0:o.docs)==null?void 0:a.source}}};const u=["EventDetailHeroData","BaseStory"];export{t as BaseStory,s as EventDetailHeroData,u as __namedExportsOrder,D as default};
