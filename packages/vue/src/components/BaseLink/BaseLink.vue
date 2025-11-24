@@ -50,6 +50,11 @@ export default defineComponent({
       type: String,
       default: undefined
     },
+    /** Links are normalized to add a trailing slash (handles links to files, query params etc.). Set to false to disable. */
+    addSlash: {
+      type: Boolean,
+      default: true
+    },
     title: {
       type: String,
       default: undefined
@@ -196,46 +201,49 @@ export default defineComponent({
       eventBus.emit('linkClicked')
     },
     addTrailingSlash(path: string) {
-      let filteredPath = path
-      if (path && typeof path === 'string') {
-        const isFilePath = () => {
-          const afterLastSlash = path.split('/').pop()
-          if (afterLastSlash && afterLastSlash.includes('.')) {
-            return true
+      if (this.addSlash) {
+        let filteredPath = path
+        if (path && typeof path === 'string') {
+          const isFilePath = () => {
+            const afterLastSlash = path.split('/').pop()
+            if (afterLastSlash && afterLastSlash.includes('.')) {
+              return true
+            }
+            return false
           }
-          return false
+          const isQueryPath = path.includes('?')
+          const isAnchorPath = path.includes('#')
+          if (
+            !isQueryPath &&
+            !isAnchorPath &&
+            !isFilePath() &&
+            path !== '/' &&
+            !path.endsWith('/') &&
+            !path.startsWith('/preview')
+          ) {
+            // add a trailing slash if there isn't one
+            filteredPath += '/'
+          } else if (isQueryPath) {
+            if (!path.includes('/?')) {
+              // also add a trailing slash to paths with query params
+              const urlParts = filteredPath.split('?')
+              const pathWithSlash = `${urlParts[0]}/`
+              const queryParams = urlParts[1]
+              filteredPath = pathWithSlash + '?' + queryParams
+            }
+          } else if (isAnchorPath) {
+            if (!path.includes('/#')) {
+              // also add a trailing slash to paths with anchors
+              const urlParts = filteredPath.split('#')
+              const pathWithSlash = `${urlParts[0]}/`
+              const anchor = urlParts[1]
+              filteredPath = pathWithSlash + '#' + anchor
+            }
+          }
         }
-        const isQueryPath = path.includes('?')
-        const isAnchorPath = path.includes('#')
-        if (
-          !isQueryPath &&
-          !isAnchorPath &&
-          !isFilePath() &&
-          path !== '/' &&
-          !path.endsWith('/') &&
-          !path.startsWith('/preview')
-        ) {
-          // add a trailing slash if there isn't one
-          filteredPath += '/'
-        } else if (isQueryPath) {
-          if (!path.includes('/?')) {
-            // also add a trailing slash to paths with query params
-            const urlParts = filteredPath.split('?')
-            const pathWithSlash = `${urlParts[0]}/`
-            const queryParams = urlParts[1]
-            filteredPath = pathWithSlash + '?' + queryParams
-          }
-        } else if (isAnchorPath) {
-          if (!path.includes('/#')) {
-            // also add a trailing slash to paths with anchors
-            const urlParts = filteredPath.split('#')
-            const pathWithSlash = `${urlParts[0]}/`
-            const anchor = urlParts[1]
-            filteredPath = pathWithSlash + '#' + anchor
-          }
-        }
+        return filteredPath
       }
-      return filteredPath
+      return path
     }
   }
 })
