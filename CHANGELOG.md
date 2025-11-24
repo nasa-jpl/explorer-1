@@ -1,5 +1,11 @@
 # explorer-1
 
+## 3.4.8
+
+### Patch Changes
+
+- 604b717: Fixing url handling in BlockCsrTable, adding option to disable trailing slash in BaseLink.
+
 ## 3.4.7
 
 ### Patch Changes
