@@ -3,6 +3,7 @@ import Icon360 from './Icon360.vue'
 import IconArrows from './IconArrows.vue'
 import IconAudio from './IconAudio.vue'
 import IconBook from './IconBook.vue'
+import IconBookmark from './IconBookmark.vue'
 import IconBookUser from './IconBookUser.vue'
 import IconBriefcase from './IconBriefcase.vue'
 import IconCalendar from './IconCalendar.vue'
@@ -20,6 +21,7 @@ import IconFilter from './IconFilter.vue'
 import IconForwardTen from './IconForwardTen.vue'
 import IconGrid from './IconGrid.vue'
 import IconHand from './IconHand.vue'
+import IconHourglass from './IconHourglass.vue'
 import IconInfo from './IconInfo.vue'
 import IconLink from './IconLink.vue'
 import IconList from './IconList.vue'
@@ -160,6 +162,12 @@ export const Book = {
     template: '<IconBook />'
   })
 }
+export const Bookmark = {
+  render: () => ({
+    components: { IconBookmark },
+    template: '<IconBookmark />'
+  })
+}
 export const BookUser = {
   render: () => ({
     components: { IconBookUser },
@@ -260,6 +268,12 @@ export const Hand = {
   render: () => ({
     components: { IconHand },
     template: '<IconHand />'
+  })
+}
+export const Hourglass = {
+  render: () => ({
+    components: { IconHourglass },
+    template: '<IconHourglass />'
   })
 }
 export const Info = {
