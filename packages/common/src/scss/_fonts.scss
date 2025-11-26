@@ -101,3 +101,363 @@
   font-display: swap;
   src: url('../fonts/archivo-narrow/ArchivoNarrow-SemiBoldItalic.woff2') format('woff2');
 }
+
+// TODO: Optimize fonts needed after design is finalized
+/*
+|--------------------------------------------------------------------------
+| HELVETICA NOW DISPLAY (For Large Headings > 20px)
+|--------------------------------------------------------------------------
+| Font-Family: 'Helvetica Now Display', sans-serif;
+*/
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Hairline.otf')
+    format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap; /* Hairline */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Hair It.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap; /* Hairline Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Thin.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap; /* Thin */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Th It.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap; /* Thin Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap; /* Light */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Lt It.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap; /* Light Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display XLight.otf') format('opentype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap; /* Extra Light (350) */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display XLt It.otf') format('opentype');
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap; /* Extra Light Italic (350) */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Regular */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display It.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap; /* Regular Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; /* Medium */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Md It.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap; /* Medium Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap; /* Bold */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Bd It.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap; /* Bold Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display XBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap; /* Extra Bold */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display XBd It.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap; /* Extra Bold Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap; /* Black */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display Blk It.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap; /* Black Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display XBlack.otf') format('opentype');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap; /* Extra Black (950) */
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Display XBlk It.otf') format('opentype');
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap; /* Extra Black Italic (950) */
+}
+
+/*
+|--------------------------------------------------------------------------
+| HELVETICA NOW TEXT (For Body Copy 10px - 20px)
+|--------------------------------------------------------------------------
+| Font-Family: 'Helvetica Now Text', sans-serif;
+*/
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Thin.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap; /* Thin */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Th It.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap; /* Thin Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap; /* Light */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Lt It.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap; /* Light Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text ExtraLight.otf') format('opentype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap; /* Extra Light (350) */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text XLt It.otf') format('opentype');
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap; /* Extra Light Italic (350) */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Regular */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text It.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap; /* Regular Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; /* Medium */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Md It.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap; /* Medium Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap; /* Bold */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Bd It.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap; /* Bold Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap; /* Extra Bold */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text XBd It.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap; /* Extra Bold Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap; /* Black */
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Text Blk It.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap; /* Black Italic */
+}
+
+/*
+|-----------------------------------------------------------------------
+| HELVETICA NOW MICRO (For Captions and Small Text < 10px)
+|--------------------------------------------------------------------------
+| Font-Family: 'Helvetica Now Micro', sans-serif;
+*/
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap; /* Light */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro Lt It.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap; /* Light Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro ExtraLight.otf')
+    format('opentype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap; /* Extra Light (350) */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro XLt It.otf') format('opentype');
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap; /* Extra Light Italic (350) */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Regular */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro It.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap; /* Regular Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; /* Medium */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro Md It.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap; /* Medium Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap; /* Bold */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro Bd It.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap; /* Bold Italic */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap; /* Extra Bold */
+}
+@font-face {
+  font-family: 'Helvetica Now Micro';
+  src: url('../fonts/helvetica-now/Monotype - Helvetica Now Micro XBd It.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap; /* Extra Bold Italic */
+}

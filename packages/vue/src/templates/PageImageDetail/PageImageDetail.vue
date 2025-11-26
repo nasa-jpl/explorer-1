@@ -108,7 +108,7 @@
             v-if="data.relatedMission && data.relatedMission.length"
             class="lg:mb-16 mb-8"
           >
-            <span class="font-secondary w-full text-base tracking-wider uppercase"> Mission </span>
+            <span class="font-secondary w-full text-base uppercase"> Mission </span>
             <ul>
               <li
                 v-for="(block, index) in data.relatedMission"
@@ -150,7 +150,7 @@
             v-if="data.targets && data.targets.length"
             class="lg:mb-16 mb-8"
           >
-            <span class="font-secondary w-full text-base tracking-wider uppercase"> Target </span>
+            <span class="font-secondary w-full text-base uppercase"> Target </span>
             <ul>
               <li
                 v-for="(item, index) in data.targets"
@@ -170,9 +170,7 @@
             v-if="data.spacecraft && data.spacecraft.length"
             class="lg:mb-16 mb-8"
           >
-            <span class="font-secondary w-full text-base tracking-wider uppercase">
-              Spacecraft
-            </span>
+            <span class="font-secondary w-full text-base uppercase"> Spacecraft </span>
             <ul>
               <li
                 v-for="(item, index) in data.spacecraft"
@@ -188,9 +186,7 @@
             v-if="data.instruments && data.instruments.length"
             class="lg:mb-16 mb-8"
           >
-            <span class="font-secondary w-full text-base tracking-wider uppercase">
-              Instrument
-            </span>
+            <span class="font-secondary w-full text-base uppercase"> Instrument </span>
             <ul>
               <li
                 v-for="(item, index) in data.instruments"
@@ -207,7 +203,7 @@
             v-if="data.image.credit"
             class="lg:mb-16 mb-8"
           >
-            <span class="font-secondary w-full text-base tracking-wider uppercase"> Credit </span>
+            <span class="font-secondary w-full text-base uppercase"> Credit </span>
             <BlockText :text="data.image.credit" />
           </div>
         </aside>

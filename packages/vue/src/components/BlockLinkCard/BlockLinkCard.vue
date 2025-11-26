@@ -122,7 +122,7 @@
 
           <component
             :is="headingLevel || 'p'"
-            class="text-gray-dark text-xl font-medium leading-tight tracking-tight edu:font-extrabold"
+            class="text-gray-dark text-xl font-bold font-display leading-tight edu:font-extrabold"
             :class="{ 'lg:text-3xl': !small }"
           >
             {{ theItem.title }}
@@ -135,14 +135,14 @@
           </p>
           <p
             v-if="theItem.date && !themeStore.isEdu"
-            class="text-gray-mid-dark"
-            :class="{ 'mt-2': !large, 'mt-4': large }"
+            class="text-gray-mid-dark font-secondary"
+            :class="{ 'mt-2 text-xs': !large, 'mt-4 text-sm': large }"
           >
             {{ theItem.date }}
           </p>
           <p
             v-if="large && theItem.summary"
-            class="mt-4 text-gray-mid-dark"
+            class="mt-4 text-gray-mid-dark font-secondary text-sm"
             :class="{
               'line-clamp-2 sm:line-clamp-1 lg:line-clamp-2 xl:line-clamp-3': themeStore.isEdu
             }"
@@ -151,8 +151,8 @@
           </p>
           <p
             v-if="theItem.date && themeStore.isEdu"
-            class="text-gray-mid-dark"
-            :class="{ 'mt-2': !large, 'mt-4': large }"
+            class="text-gray-mid-dark font-secondary"
+            :class="{ 'mt-2 text-xs': !large, 'mt-4 text-sm': large }"
           >
             {{ theItem.date }}
           </p>

@@ -5,7 +5,7 @@
     class="border-gray-light-mid col-span-3 pb-4 mb-4 border-b"
   >
     <!-- bucket key param -->
-    <legend class="md:mb-3 text-body-md mb-2 font-bold leading-normal tracking-wide">
+    <legend class="md:mb-3 text-body-md mb-2 font-display font-bold leading-normal">
       {{ groupTitle }}
     </legend>
     <div

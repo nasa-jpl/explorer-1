@@ -54,7 +54,7 @@ export default defineComponent({
               v-for="(headCell, headIndex) in table.tableContent.tableHead[0]"
               :key="headIndex"
               scope="col"
-              class="min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white border-gray-light-mid lg:p-5 p-3 border-b text-left"
+              class="min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker font-display text-white border-gray-light-mid lg:p-5 p-3 border-b text-left"
             >
               <template v-if="headCell">
                 {{ (headCell as HeadCell).text }}
@@ -99,7 +99,7 @@ export default defineComponent({
     </div>
     <template v-if="table.tableCaption">
       <div
-        class="max-w-screen-3xl mx-auto block text-left px-0 text-gray-mid-dark text-body-sm mt-4"
+        class="max-w-screen-3xl mx-auto block text-left px-0 text-gray-mid-dark font-secondary text-sm mt-4"
         aria-hidden
       >
         {{ table.tableCaption }}

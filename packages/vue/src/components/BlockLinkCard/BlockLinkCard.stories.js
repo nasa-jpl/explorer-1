@@ -343,6 +343,7 @@ export const EduNewsItem = {
 }
 
 export const ExternalLink = {
+  globals: { theme: 'defaultTheme' },
   decorators: [
     () => ({
       template: `<div id="storyRoot" class="relative grid grid-cols-2 gap-3"><story/></div>`

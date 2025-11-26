@@ -7,7 +7,7 @@
       <template v-if="pill && pillLabel">
         <BasePill
           :variant="pillColor"
-          size="lg"
+          size="md"
           class="mr-3"
           :text="pillLabel"
         />
@@ -53,7 +53,7 @@
         >.</span
       >
       <span
-        :class="`${hasTag && !pill ? 'divide-gray-mid-dark border-l ml-3 pl-3 ' : ''} my-4  text-gray-mid-dark uppercase text-sm lg:text-base leading-none`"
+        :class="`${hasTag && !pill ? 'divide-gray-mid-dark border-l ml-3 pl-3 ' : ''} my-4 font-secondary text-gray-mid-dark text-sm uppercase leading-none`"
       >
         {{ readTime }}
       </span>

@@ -76,7 +76,7 @@ const location = computed(() => {
   <div
     class="MetadataEvent"
     :class="{
-      '-compact text-sm xl:text-base': props.compact,
+      '-compact text-xs xl:text-sm': props.compact,
       'text-body-lg': !props.compact,
       '-allow-break': props.allowBreak
     }"

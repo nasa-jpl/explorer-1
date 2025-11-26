@@ -245,7 +245,7 @@ const onFilterTextBoxChanged = () => {
               >
             </p>
           </div>
-          <h2 class="text-lg tracking-tight mb-3">Test Limits</h2>
+          <h2 class="text-lg mb-3">Test Limits</h2>
           <CsrTestLimitsTable :data="modalData.ExportPackageRates" />
         </div>
       </BaseModalDialog>

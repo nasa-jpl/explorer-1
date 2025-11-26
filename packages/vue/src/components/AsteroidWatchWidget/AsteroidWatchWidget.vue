@@ -78,9 +78,9 @@
               :href="item.externalLink"
               external-target-blank
             >
-              <span class="flex flex-nowrap items-center">
+              <span class="font-secondary text-base flex flex-nowrap items-center">
                 <span>{{ item.name }}</span>
-                <IconExternal class="text-jpl-red ml-3 text-lg" />
+                <IconExternal class="text-jpl-red ml-3 text-base" />
               </span>
             </BaseLink>
           </div>
@@ -89,10 +89,12 @@
             class="lg:col-span-4 col-span-full"
           >
             <p class="label text-subtitle text-jpl-red">Date</p>
-            {{
-              // @ts-ignore
-              $filters.displayDate(item.date)
-            }}
+            <div class="font-secondary text-base">
+              {{
+                // @ts-ignore
+                $filters.displayDate(item.date)
+              }}
+            </div>
           </div>
         </div>
       </div>

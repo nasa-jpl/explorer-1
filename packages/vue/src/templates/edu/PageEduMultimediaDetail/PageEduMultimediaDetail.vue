@@ -364,7 +364,7 @@ const { data } = reactive(props)
             v-if="creditText"
             class="lg:mb-16 mb-8"
           >
-            <span class="font-secondary w-full text-base tracking-wider uppercase"> Credit </span>
+            <span class="font-secondary w-full text-base uppercase"> Credit </span>
             <BlockText :text="creditText" />
           </div>
         </aside>

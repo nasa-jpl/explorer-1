@@ -47,7 +47,7 @@ const time = computed(() => {
   <div
     class="MetadataEduResource"
     :class="{
-      '-compact text-sm xl:text-base': props.compact,
+      '-compact text-xs xl:text-sm': props.compact,
       'text-body-lg': !props.compact
     }"
   >

@@ -66,7 +66,7 @@
             v-if="data.image.credit"
             class="lg:mb-16 mb-8"
           >
-            <span class="font-secondary w-full text-base tracking-wider uppercase"> Credit </span>
+            <span class="font-secondary w-full text-base uppercase"> Credit </span>
             <BlockText :text="data.image.credit" />
           </div>
         </aside>

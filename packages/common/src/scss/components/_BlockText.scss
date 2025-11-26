@@ -181,6 +181,9 @@
       @apply mb-0;
     }
   }
+  &.-large {
+    @apply font-display;
+  }
   &.-medium {
     ul {
       li {

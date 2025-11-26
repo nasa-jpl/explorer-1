@@ -42,7 +42,7 @@
           </span>
           <br v-if="!inline" />
           <span
-            class="unit text-body-xs uppercase"
+            class="unit font-secondary text-xs uppercase"
             data-chromatic="ignore"
           >
             {{ shortLabel(unit) }}
