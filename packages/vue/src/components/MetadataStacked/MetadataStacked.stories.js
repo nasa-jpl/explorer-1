@@ -11,7 +11,8 @@ export default {
 export const MetadataStackedData = {
   location: 'Building 179, Highbay 1',
   wait: '45 minute wait',
-  showMyList: true
+  showMyList: true,
+  icon: ''
 }
 
 export const BaseStory = {

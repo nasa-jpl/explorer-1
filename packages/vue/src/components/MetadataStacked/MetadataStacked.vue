@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import IconBookmark from '../Icons/IconBookmark.vue'
 import IconHourglass from '../Icons/IconHourglass.vue'
+import IconLocation from '../Icons/IconLocation.vue'
 
 interface MetadataStackedProps {
   location?: string
   wait?: string
   showMyList?: boolean
+  icon?: string
 }
 
 // define props
 const props = withDefaults(defineProps<MetadataStackedProps>(), {
   location: '',
   wait: '',
-  showMyList: false
+  showMyList: false,
+  icon: ''
 })
 </script>
 
@@ -20,6 +23,7 @@ const props = withDefaults(defineProps<MetadataStackedProps>(), {
   <div class="MetadataStacked inline-flex flex-col flex-start gap-2.5 text-body-md">
     <div class="flex flex-row gap-2.5 items-center self-stretch">
       <svg
+        v-if="icon === 'test'"
         xmlns="http://www.w3.org/2000/svg"
         width="28"
         height="28"
@@ -33,6 +37,10 @@ const props = withDefaults(defineProps<MetadataStackedProps>(), {
           fill="#7C6500"
         />
       </svg>
+      <IconLocation
+        v-else
+        class="MetadataStackedIcon text-jpl-red"
+      />
       <span>{{ props.location }}</span>
     </div>
     <div class="flex flex-row gap-2.5 items-center self-stretch">
