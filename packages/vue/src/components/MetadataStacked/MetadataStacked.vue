@@ -5,17 +5,17 @@ import IconLocation from '../Icons/IconLocation.vue'
 
 interface MetadataStackedProps {
   location?: string
+  locationIcon?: string
   wait?: string
   showMyList?: boolean
-  icon?: string
 }
 
 // define props
 const props = withDefaults(defineProps<MetadataStackedProps>(), {
   location: '',
+  locationIcon: '',
   wait: '',
-  showMyList: false,
-  icon: ''
+  showMyList: false
 })
 </script>
 
@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<MetadataStackedProps>(), {
   <div class="MetadataStacked inline-flex flex-col flex-start gap-2.5 text-body-md">
     <div class="flex flex-row gap-2.5 items-center self-stretch">
       <svg
-        v-if="icon === 'test'"
+        v-if="props.locationIcon === 'test'"
         xmlns="http://www.w3.org/2000/svg"
         width="28"
         height="28"
