@@ -51,12 +51,14 @@ export default defineComponent({
         ? this.data?.parent?.title
         : this.data?.displayLabel
     },
+    /** If the hero image is inline (treated as a regular block) */
     heroInline() {
       if (this.data?.heroPosition === 'inline') {
         return true
       }
       return false
     },
+    /** If the page title should overlay the hero image (does not apply to inline heroes) */
     heroTitle() {
       return this.data?.heroImage && !this.heroInline && this.data?.displayTitleInHero
     },
