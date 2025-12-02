@@ -12,7 +12,7 @@ import ShareButtons from './../../../components/ShareButtons/ShareButtons.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import BlockRelatedLinks from './../../../components/BlockRelatedLinks/BlockRelatedLinks.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
-import PageContentExploreApp from './../../explore-jpl/BaseExploreApp/BaseExploreApp.vue'
+import BaseExploreApp from './../../explore-jpl/BaseExploreApp/BaseExploreApp.vue'
 
 const themeStore = useThemeStore()
 
@@ -42,7 +42,7 @@ const heroTitle = computed(() => {
     class="ThemeVariantLight"
     :class="{ '-nav-offset': !heroInline && pageData.heroImage }"
   >
-    <PageContentExploreApp
+    <BaseExploreApp
       :has-intro="pageData.heroImage && !heroInline"
       :nav-data="pageData.breadcrumb"
     >
@@ -120,6 +120,6 @@ const heroTitle = computed(() => {
           :items="pageData.relatedContent"
         />
       </template>
-    </PageContentExploreApp>
+    </BaseExploreApp>
   </div>
 </template>
