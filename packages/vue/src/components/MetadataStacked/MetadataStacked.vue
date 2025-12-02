@@ -56,7 +56,3 @@ const props = withDefaults(defineProps<MetadataStackedProps>(), {
     </div>
   </div>
 </template>
-
-<style lang="scss">
-@import '@explorer-1/common/src/scss/components/MetadataStacked';
-</style>
