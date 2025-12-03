@@ -95,9 +95,7 @@
               </template>
             </div>
             <div class="lg:p-1 relative z-20 pt-2 pl-0">
-              <p
-                class="text-secondary text-white text-contrast lg:text-7xl mb-0 text-4xl font-medium"
-              >
+              <p class="text-white text-contrast lg:text-7xl mb-0 text-4xl font-bold font-display">
                 is a place for
               </p>
             </div>
