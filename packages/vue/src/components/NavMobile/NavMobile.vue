@@ -42,7 +42,7 @@
               class="-ml-1 pl-2 border-l border-white border-opacity-30 z-20 print:border-black"
             >
               <BaseLink
-                class="text-white font-bold text-xl pl-px"
+                class="text-white font-display font-bold text-xl pl-px"
                 to="/edu/"
                 variant="none"
               >

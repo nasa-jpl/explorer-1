@@ -29,7 +29,7 @@
           :key="`MenuDescriptionColumn${index}`"
           class="order-2 col-span-3"
         >
-          <p class="text-medium text-6xl">{{ item.title }}</p>
+          <p class="font-display text-6xl">{{ item.title }}</p>
           <p class="text-sm leading-relaxed">
             {{ item.description }}
           </p>

@@ -2,7 +2,7 @@
   <div v-if="item">
     <p
       v-if="item.date"
-      class="font-secondary text-jpl-red-light mb-4 font-semibold uppercase"
+      class="text-subtitle text-jpl-red-light mb-4"
     >
       {{
         // @ts-ignore
@@ -11,7 +11,7 @@
     </p>
     <p
       v-if="item.dateFreeform"
-      class="font-secondary text-jpl-red-light mb-4 font-semibold uppercase"
+      class="text-subtitle text-jpl-red-light mb-4"
     >
       {{ item.dateFreeform }}
     </p>

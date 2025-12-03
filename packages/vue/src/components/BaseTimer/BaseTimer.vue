@@ -43,6 +43,7 @@
           <br v-if="!inline" />
           <span
             class="unit font-secondary text-xs uppercase"
+            :class="{ 'pl-2': unit === 'seconds' }"
             data-chromatic="ignore"
           >
             {{ shortLabel(unit) }}

@@ -87,7 +87,7 @@
       </div>
       <component
         :is="headingLevel || 'p'"
-        class="text-lg leading-normal mt-2 lg:mt-3 font-normal tracking-normal text-gray-dark can-hover:group-hover:text-gray-mid-dark"
+        class="text-lg leading-tight mt-2 lg:mt-3 font-normal tracking-normal text-gray-dark can-hover:group-hover:text-gray-mid-dark"
       >
         <span>
           {{ title }}

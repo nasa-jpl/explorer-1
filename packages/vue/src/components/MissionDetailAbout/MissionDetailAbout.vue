@@ -16,7 +16,7 @@
       v-if="hasContent"
       class="col-span-3 col-start-9"
     >
-      <p class="font-secondary mb-5 text-base leading-tight uppercase">
+      <p class="text-subtitle mb-5">
         {{ sidebarTitle }}
       </p>
       <ul class="lg:mb-5 flex flex-wrap items-start mb-3">

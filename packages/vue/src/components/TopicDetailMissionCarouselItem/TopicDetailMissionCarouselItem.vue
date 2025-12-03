@@ -33,7 +33,7 @@
         <div class="text-contrast p-4 text-white">
           <p
             v-if="data.title"
-            class="mb-1 text-xl font-semibold leading-tight"
+            class="mb-1 text-h6 leading-tight"
           >
             {{ data.title }}
           </p>

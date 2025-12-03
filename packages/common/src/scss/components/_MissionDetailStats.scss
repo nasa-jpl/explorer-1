@@ -23,6 +23,11 @@
     @apply text-gray-mid-dark;
   }
 
+  .BaseTimer {
+    .unit {
+      @apply relative -top-1;
+    }
+  }
   .ThemeVariantDark & .legend {
     @apply text-white;
   }

@@ -2,11 +2,7 @@
   <div class="TopicDetailMore max-w-screen-3xl relative mx-auto">
     <template v-if="theData && theData.length">
       <div class="lg:BaseGrid mt-18 lg:px-0 container px-4 mx-auto mb-12">
-        <h2
-          class="font-primary text-gray-dark lg:text-6xl col-span-11 col-start-2 text-3xl font-semibold leading-normal tracking-normal uppercase"
-        >
-          More About {{ topic }}
-        </h2>
+        <h2 class="text-h3 text-gray-dark col-span-11 col-start-2">More About {{ topic }}</h2>
       </div>
       <template
         v-for="(item, index) in theData"

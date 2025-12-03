@@ -21,7 +21,7 @@
               v-for="(link, index_links) in item.links"
               :key="index_links"
               variant="none"
-              link-class="can-hover:hover:underline inline-block px-4 py-1 -ml-4"
+              link-class="text-base can-hover:hover:underline inline-block px-4 py-1 -ml-4"
               :href="link.path && !getRouterLink(link) ? link.path : null"
               :to="getRouterLink(link) ? getRouterLink(link) : null"
             >
@@ -70,7 +70,7 @@
           >
             <LogoCaltech class="lg:text-base text-sm text-white" />
           </BaseLink>
-          <p class="mb-12">
+          <p class="font-display text-lg mb-12">
             JPL is a federally funded research and development center managed for NASA by Caltech.
           </p>
         </template>

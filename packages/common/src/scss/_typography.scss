@@ -208,6 +208,7 @@
   }
 
   .text-body-md {
+    @apply font-primary;
     font-size: pxToRem(16); // Based on Tailwind's text-base
     line-height: 1.6667;
 
@@ -217,6 +218,7 @@
   }
 
   .text-body-sm {
+    @apply font-primary;
     font-size: pxToRem(14); // Based on Tailwind's text-sm
     line-height: 1.6667;
 
@@ -226,6 +228,7 @@
   }
 
   .text-body-xs {
+    @apply font-primary;
     font-size: pxToRem(14); // Based on Tailwind's text-sm, but doesn't scale up
     line-height: 1.6667;
   }

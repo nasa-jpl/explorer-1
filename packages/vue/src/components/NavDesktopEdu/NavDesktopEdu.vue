@@ -35,7 +35,7 @@
         <!-- site title -->
         <div class="ml-2 pl-3 xl:ml-3 xl:pl-5 border-l border-white border-opacity-30 z-20">
           <BaseLink
-            class="text-white font-bold text-2xl xl:text-3xl"
+            class="text-white font-display font-bold text-2xl xl:text-3xl"
             to="/edu/"
             link-class="py-2"
             variant="none"
@@ -69,7 +69,7 @@
             <BaseLink
               href="https://www.nasa.gov/learning-resources/"
               variant="none"
-              class="NavDesktopLink group relative z-20 font-medium border-t-2 border-transparent text-sm xl:text-base px-2 xl:px-4"
+              class="NavDesktopLink group relative z-20 font-display font-semibold border-t-2 border-transparent text-sm xl:text-base px-2 xl:px-4"
               link-class="inline-block py-2 transition-colors duration-100 ease-in border-b-2 border-transparent group-hover:border-white flex flex-wrap-none items-center"
               external-target-blank
             >

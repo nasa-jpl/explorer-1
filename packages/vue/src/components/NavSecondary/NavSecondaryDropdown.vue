@@ -1,7 +1,7 @@
 <template>
   <div
     v-click-outside="closeDropdown"
-    class="NavSecondaryDropdown relative"
+    class="NavSecondaryDropdown relative font-display"
     :class="{
       'mr-auto': index === 0
     }"

@@ -33,12 +33,10 @@
             class="lg:px-10 2xl:px-0 lg:pt-10 lg:pb-14 xl:col-end-6 col-start-1 col-end-10 px-4 pb-10"
           >
             <h2>
-              <span class="text-gray-light-mid text-contrast text-subtitle block mb-3">
+              <span class="text-white text-contrast text-subtitle block mb-3">
                 {{ eyebrow }}
               </span>
-              <div
-                class="lg:text-9xl md:text-8xl text-7xl lg:tracking-tight lg:leading-tighter text-contrast mb-4 font-medium leading-tight text-white"
-              >
+              <div class="text-h1 lg:leading-tighter text-contrast mb-4 leading-tight text-white">
                 {{ data.title }}
               </div>
             </h2>
