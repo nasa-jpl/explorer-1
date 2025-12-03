@@ -135,14 +135,14 @@
           </p>
           <p
             v-if="theItem.date && !themeStore.isEdu"
-            class="text-gray-mid-dark font-secondary"
-            :class="{ 'mt-2 text-xs': !large, 'mt-4 text-sm': large }"
+            class="text-gray-mid-dark"
+            :class="{ 'mt-2 text-sm font-secondary': !large, 'mt-4 text-base': large }"
           >
             {{ theItem.date }}
           </p>
           <p
             v-if="large && theItem.summary"
-            class="mt-4 text-gray-mid-dark font-secondary text-sm"
+            class="mt-4 text-gray-mid-dark text-base"
             :class="{
               'line-clamp-2 sm:line-clamp-1 lg:line-clamp-2 xl:line-clamp-3': themeStore.isEdu
             }"
@@ -151,8 +151,8 @@
           </p>
           <p
             v-if="theItem.date && themeStore.isEdu"
-            class="text-gray-mid-dark font-secondary"
-            :class="{ 'mt-2 text-xs': !large, 'mt-4 text-sm': large }"
+            class="text-gray-mid-dark"
+            :class="{ 'mt-2 text-sm font-secondary': !large, 'mt-4 text-base': large }"
           >
             {{ theItem.date }}
           </p>

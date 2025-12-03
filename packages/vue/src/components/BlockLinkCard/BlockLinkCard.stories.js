@@ -41,7 +41,8 @@ export const BaseStory = {
     })
   ],
   args: {
-    ...BlockLinkCardData
+    ...BlockLinkCardData,
+    size: 'lg'
   }
 }
 

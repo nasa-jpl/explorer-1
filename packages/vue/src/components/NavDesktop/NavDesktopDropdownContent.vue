@@ -30,7 +30,7 @@
           class="order-2 col-span-3"
         >
           <p class="font-display text-6xl">{{ item.title }}</p>
-          <p class="text-sm leading-relaxed">
+          <p class="text-base leading-relaxed">
             {{ item.description }}
           </p>
         </div>

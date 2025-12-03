@@ -57,13 +57,13 @@
             </div>
             <h1
               v-if="title"
-              class="lg:w-3/4 xl:w-3/5 xl:text-10xl lg:text-9xl md:text-8xl text-7xl lg:leading-tighter mb-5 font-bold leading-tight"
+              class="lg:w-3/4 xl:w-3/5 xl:text-10xl lg:text-9xl md:text-8xl text-7xl lg:leading-tighter mb-5 font-display font-bold leading-tight"
             >
               {{ title }}
             </h1>
             <p
               v-if="summary"
-              class="lg:w-1/2 2xl:w-2/5 xl:text-6xl lg:text-4xl md:text-2xl lg:leading-tight text-lg"
+              class="font-display lg:w-1/2 2xl:w-2/5 xl:text-6xl lg:text-4xl md:text-2xl lg:leading-tight text-lg"
             >
               {{ summary }}
             </p>

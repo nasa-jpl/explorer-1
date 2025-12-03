@@ -69,7 +69,7 @@ const theText = computed(() => {
 <template>
   <p
     :class="`${variantMap[metadataAttrs.variant || props.variant]} ${sizeMap[props.size]}`"
-    class="ThemeVariantLight text-contrast-none inline-block text-white font-bold edu:font-extrabold rounded-full leading-tight m-0 uppercase print:border-none print:px-0"
+    class="ThemeVariantLight text-contrast-none inline-block text-white !font-semibold rounded-full leading-tight m-0 uppercase print:border-none print:px-0"
   >
     {{ theText }}
     <span class="sr-only">.</span>

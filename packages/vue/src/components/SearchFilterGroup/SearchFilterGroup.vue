@@ -49,7 +49,7 @@
                 "
                 class="form-check-label pl-2 tracking-normal align-middle"
               >
-                <span class="font-extrabold">{{
+                <span class="font-bold font-display">{{
                   prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key)
                 }}</span>
                 <span class="text-gray-mid-dark font-normal text-sm">
@@ -103,7 +103,7 @@
                   : generateId(bucket.key, groupKey)
               "
               class="form-check-label pl-2 tracking-normal align-middle"
-              :class="{ 'font-extrabold': styleAsAccordion }"
+              :class="{ 'font-display font-bold': styleAsAccordion }"
             >
               {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
               <span class="text-gray-mid-dark text-sm font-normal">
