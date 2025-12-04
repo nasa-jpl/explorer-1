@@ -26,7 +26,7 @@
 
   > .quote {
     line-height: 1.4; // custom
-    @apply font-display italic text-xl font-medium py-4 text-primary edu:font-extrabold;
+    @apply font-display italic text-xl font-medium py-4 text-primary;
 
     @screen lg {
       font-size: 1.875rem; // custom  // 30px

@@ -3,7 +3,7 @@
     class="bg-gray-light edu:bg-stars edu:bg-primary md:mx-0 sm:py-8 md:py-10 md:px-0 sm:mx-20 px-6 py-6 text-center"
   >
     <div class="md:mx-16 xl:mx-24">
-      <p class="text-h6 edu:text-white edu:font-extrabold">{{ data.heading }}</p>
+      <p class="text-h6 edu:text-white">{{ data.heading }}</p>
     </div>
     <BaseButton
       v-if="data.page"

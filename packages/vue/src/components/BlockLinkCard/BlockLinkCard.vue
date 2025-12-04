@@ -122,7 +122,7 @@
 
           <component
             :is="headingLevel || 'p'"
-            class="text-gray-dark text-xl font-bold font-display leading-tight edu:font-extrabold"
+            class="text-gray-dark text-xl font-bold font-display leading-tight"
             :class="{ 'lg:text-3xl': !small }"
           >
             {{ theItem.title }}

@@ -35,7 +35,7 @@
       >
         <BasePill
           variant="primary"
-          size="lg"
+          size="md"
           :text="data.eventType"
         />
       </div>

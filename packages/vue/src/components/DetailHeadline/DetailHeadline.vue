@@ -60,7 +60,7 @@
     </div>
     <BaseHeading
       level="h1"
-      :size="themeStore.theme === 'ThemeEdu' ? 'h1' : 'h2'"
+      size="h1"
       :itemprop="schema ? 'headline' : undefined"
       >{{ title }}
     </BaseHeading>

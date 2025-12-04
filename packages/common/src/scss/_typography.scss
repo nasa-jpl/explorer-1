@@ -23,7 +23,7 @@
 
   /* stylelint-disable at-rule-empty-line-before, declaration-empty-line-before */
   .text-h1-alt {
-    @apply font-display font-bold edu:font-extrabold;
+    @apply font-display font-bold;
     font-size: pxToRem(45);
     line-height: 1;
 
@@ -43,7 +43,7 @@
 
   h1,
   .text-h1 {
-    @apply font-display font-bold edu:font-extrabold;
+    @apply font-display font-bold;
     font-size: pxToRem(42);
     line-height: 1.15;
 
@@ -63,7 +63,7 @@
 
   h2,
   .text-h2 {
-    @apply font-display font-bold edu:font-extrabold;
+    @apply font-display font-bold;
     font-size: pxToRem(36);
     line-height: 1.25;
 
@@ -83,7 +83,7 @@
 
   h3,
   .text-h3 {
-    @apply font-display font-bold edu:font-extrabold;
+    @apply font-display font-bold;
     font-size: pxToRem(27);
     line-height: 1.25;
 
@@ -103,7 +103,7 @@
 
   h4,
   .text-h4 {
-    @apply font-display font-bold edu:font-extrabold;
+    @apply font-display font-bold;
     font-size: pxToRem(22);
     line-height: 1.25;
 
@@ -123,7 +123,7 @@
 
   h5,
   .text-h5 {
-    @apply font-display font-bold edu:font-extrabold;
+    @apply font-display font-bold;
     font-size: pxToRem(20);
     line-height: 1.25;
 

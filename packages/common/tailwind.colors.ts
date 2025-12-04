@@ -6,6 +6,7 @@ export const colorLibrary = {
   /** Gray */
   gray: {
     100: 'rgb(249, 249, 249)', // #f9f9f9
+    150: 'rgb(243, 243, 243)', // #f3f3f3 // not official branding color yet
     200: 'rgb(232, 232, 232)', // #e8e8e8
     300: 'rgb(213, 213, 213)', // #d5d5d5
     400: 'rgb(134, 134, 134)', // #868686
@@ -236,7 +237,7 @@ export const foundationColors = {
 export const grayScaleColors = {
   // white: colorLibrary.white,
   'off-white': colorLibrary.gray[100],
-  'gray-light': colorLibrary.gray[100],
+  'gray-light': colorLibrary.gray[150],
   'gray-light-mid': colorLibrary.gray[300],
   'gray-mid': colorLibrary.gray[400],
   'gray-mid-dark': colorLibrary.gray[500],

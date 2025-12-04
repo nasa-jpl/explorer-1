@@ -3,7 +3,7 @@
     class="BlockNewsletterSignup bg-gray-light edu:bg-stars edu:bg-primary md:mx-0 sm:py-8 md:px-10 sm:mx-20 px-6 py-6 edu:text-white"
   >
     <div class="md:mx-16 xl:mx-24 text-center">
-      <p class="text-h6 edu:text-white edu:font-extrabold mb-3">{{ data.title }}</p>
+      <p class="text-h6 edu:text-white mb-3">{{ data.title }}</p>
       <p>{{ data.description }}</p>
     </div>
     <hr class="text-gray-mid mt-6 mb-5" />

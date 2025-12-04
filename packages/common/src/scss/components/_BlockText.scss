@@ -151,7 +151,7 @@
   }
   .richtext-caption {
     // mimic BaseImageCaption
-    @apply font-secondary pt-3 text-gray-mid-dark text-sm;
+    @apply font-secondary pt-3 text-gray-mid-dark text-sm -tracking-[0.03rem];
     div.caption {
       @apply inline #{!important};
     }

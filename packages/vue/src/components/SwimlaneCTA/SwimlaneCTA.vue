@@ -17,7 +17,7 @@
       >
         <div class="absolute inset-0 z-10 bg-black bg-opacity-25"></div>
         <div
-          class="lg:pr-12 lg:py-5 lg:flex-row relative z-20 flex flex-col justify-center w-full px-5 py-6 font-primary"
+          class="lg:pr-12 lg:py-5 lg:flex-row relative z-20 flex flex-col justify-center w-full px-5 py-6 font-display"
         >
           <div class="lg:flex-row lg:pr-3 lg:pb-0 flex flex-col items-center justify-center pb-2">
             <div class="text-contrast relative z-20 p-2 pl-0">
@@ -43,7 +43,7 @@
               </template>
             </div>
             <div class="lg:p-1 text-contrast relative z-20 pt-2 pl-0">
-              <p class="text-secondary text-white lg:text-7xl mb-0 text-4xl font-medium">
+              <p class="text-secondary text-white lg:text-7xl mb-0 text-4xl font-bold">
                 is a place for
               </p>
             </div>
@@ -69,7 +69,7 @@
         :class="'SwimlaneCTA lg:hidden block' + computedClass"
       >
         <div
-          class="lg:flex-row lg:pr-12 lg:py-5 flex flex-col justify-center w-full px-5 py-6 bg-black bg-opacity-25 font-primary"
+          class="lg:flex-row lg:pr-12 lg:py-5 flex flex-col justify-center w-full px-5 py-6 bg-black bg-opacity-25 font-display"
         >
           <div class="lg:flex-row lg:pr-3 lg:pb-0 flex flex-col items-center justify-center pb-2">
             <div class="relative z-20 p-2 pl-0">
@@ -95,7 +95,7 @@
               </template>
             </div>
             <div class="lg:p-1 relative z-20 pt-2 pl-0">
-              <p class="text-white text-contrast lg:text-7xl mb-0 text-4xl font-bold font-display">
+              <p class="text-white text-contrast lg:text-7xl mb-0 text-4xl font-bold">
                 is a place for
               </p>
             </div>
