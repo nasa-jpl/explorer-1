@@ -11,14 +11,14 @@ export const NavInternalHighlightTemplate = ({ title, description, image, link, 
   return `<div class="NavInternalHighlight mb-6 lg:mb-0 lg:w-5/6">
     ${
       title
-        ? `<p class="font-normal text-2xl lg:text-xl xl:text-2xl mb-4">
+        ? `<p class="font-display font-medium text-2xl lg:text-xl xl:text-2xl mb-4">
         ${title}
       </p>`
         : ''
     }
     ${
       description
-        ? `<p class="text-sm leading-relaxed ${image ? 'mb-4 lg:mb-6' : ''}">
+        ? `<p class="text-sm leading-normal ${image ? 'mb-4 lg:mb-6' : ''}">
         ${description}
       </p>`
         : ''
