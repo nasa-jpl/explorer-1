@@ -18,7 +18,7 @@ export const NavInternalHighlightTemplate = ({ title, description, image, link, 
     }
     ${
       description
-        ? `<p class="text-sm leading-normal ${image ? 'mb-4 lg:mb-6' : ''}">
+        ? `<p class="text-sm font-secondary -tracking-[0.03rem] leading-normal ${image ? 'mb-4 lg:mb-6' : ''}">
         ${description}
       </p>`
         : ''
