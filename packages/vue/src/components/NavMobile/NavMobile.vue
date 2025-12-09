@@ -16,7 +16,7 @@
               <template v-if="themeStore.theme === 'ThemeEdu'">
                 <img
                   class="print:hidden"
-                  :src="LogoWhite"
+                  :src="LogoOutline"
                   alt="JPL Logo"
                   width="324"
                   height="72"
@@ -146,6 +146,7 @@ import { mapStores } from 'pinia'
 import { eventBus } from './../../utils/eventBus'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
 import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
+import LogoOutline from '@explorer-1/common/src/images/svg/logo-tribrand-outline.svg'
 import { useHeaderStore } from './../../store/header'
 import { useThemeStore } from './../../store/theme'
 import IconMenu from './../Icons/IconMenu.vue'
@@ -219,7 +220,8 @@ export default defineComponent({
       menuVisible: false,
       searchQuery: null,
       LogoColor,
-      LogoWhite
+      LogoWhite,
+      LogoOutline
     }
   },
   computed: {
