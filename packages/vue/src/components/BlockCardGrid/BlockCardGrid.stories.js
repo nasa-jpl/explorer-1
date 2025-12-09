@@ -13,15 +13,15 @@ export const BlockCardGridData = [
     title: 'Nimble Limbs',
     description:
       'The robot has four limbs, each with seven degrees of freedom. The robot has four limbs, each with seven degrees of freedom. The robot has four limbs, each with seven degrees of freedom.',
-    image: {
-      alt: 'Fourth image',
-      src: {
-        height: 400,
-        url: 'https://picsum.photos/800/400',
-        width: 800
-      },
-      srcSet: 'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w'
-    },
+    // image: {
+    //   alt: 'Fourth image',
+    //   src: {
+    //     height: 400,
+    //     url: 'https://picsum.photos/800/400',
+    //     width: 800
+    //   },
+    //   srcSet: 'https://picsum.photos/400/200 320w, https://picsum.photos/800/400 1024w'
+    // },
     link: {
       page: null,
       externalLink: ''
