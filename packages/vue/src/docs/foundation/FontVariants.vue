@@ -82,14 +82,6 @@
             <code>.font-bold</code>
           </span>
         </li>
-        <li>
-          <span class="leading-loose">
-            <span class="capitalize font-primary font-extrabold">
-              Helvetica Now Text extra bold
-            </span>
-            <code>.font-extrabold</code>
-          </span>
-        </li>
       </ol>
     </div>
     <div>
@@ -104,16 +96,14 @@
       <ol class="list-none inline-block">
         <li>
           <span class="leading-loose">
-            <span class="capitalize font-secondary font-medium"> Helvetica Now Micro medium </span>
-            <code>.font-medium</code>
+            <span class="capitalize font-secondary font-normal"> Helvetica Now Micro normal </span>
+            <code>.font-normal</code>
           </span>
         </li>
         <li>
           <span class="leading-loose">
-            <span class="capitalize font-secondary font-semibold">
-              Helvetica Now Micro semi bold
-            </span>
-            <code>.font-semibold</code>
+            <span class="capitalize font-secondary font-medium"> Helvetica Now Micro medium </span>
+            <code>.font-medium</code>
           </span>
         </li>
         <li>
@@ -122,7 +112,6 @@
             <code>.font-bold</code>
           </span>
         </li>
-        <li></li>
       </ol>
     </div>
   </div>
