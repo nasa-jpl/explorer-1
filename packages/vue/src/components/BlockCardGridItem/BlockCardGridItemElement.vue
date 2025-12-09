@@ -1,7 +1,7 @@
 <template>
   <div
     class="shadow-jpl relative h-full bg-white"
-    :class="{ 'flex items-center min-h-32': !image }"
+    :class="{ 'flex items-start min-h-32': !image }"
   >
     <div
       v-if="image"
@@ -24,7 +24,7 @@
         />
       </BaseImagePlaceholder>
     </div>
-    <div class="px-6 py-6 ThemeVariantLight">
+    <div class="px-6 py-6 w-full ThemeVariantLight">
       <template v-if="label">
         <div class="text-primary text-subtitle internal:text-black">
           {{ label }}
