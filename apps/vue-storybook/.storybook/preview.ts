@@ -17,6 +17,23 @@ import VueObserveVisibility from 'vue3-observe-visibility'
 import beautify from 'js-beautify'
 import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/beautifyHtmlOptions.js'
 
+// --- Gracefully Handle Licensed Fonts ---
+const IS_CHROMATIC_BUILD = process.env.VITE_CHROMATIC_BUILD === 'true'
+
+// --- Conditional Import of Licensed Fonts ---
+if (IS_CHROMATIC_BUILD) {
+  try {
+    require('./../../licensed-fonts-base64.css') // artifact placed in root of repo
+    console.log('✅ Licensed Fonts loaded.')
+  } catch (error) {
+    console.error('❌ FATAL ERROR: Licensed Fonts file not found!')
+    console.error('The file must be present for a successful chromatic build.')
+    console.error('Error details:', error.message)
+    // don't continue with chromatic if the font file isn't found (wastes quota)
+    process.exit(1)
+  }
+}
+
 const pinia = createPinia()
 const router = createRouter({
   routes: [],

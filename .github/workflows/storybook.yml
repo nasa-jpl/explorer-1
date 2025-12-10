@@ -43,6 +43,14 @@ jobs:
       - name: Install dependencies 🧱
         run: pnpm i
 
+      - name: Download Licensed Font Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: explorer-1-licensed-fonts
+          path: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
+
       - name: Build Storybook
         run: make vue-storybook-build
 
@@ -79,6 +87,7 @@ jobs:
       - name: Install dependencies 🧱
         run: pnpm i
 
+      # TODO: add licensed fonts
       - name: Build HTML Storybook
         run: make html-storybook-build
 
