@@ -1,7 +1,76 @@
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
+import BaseLink from './../BaseLink/BaseLink.vue'
+import BaseHeading from './../BaseHeading/BaseHeading.vue'
+import BaseImage from './../BaseImage/BaseImage.vue'
+import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
+import MetadataStacked from '../MetadataStacked/MetadataStacked.vue'
+
+const props = defineProps({
+  /**
+   * The link for the listing card.
+   */
+  url: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The title text for the listing card. Plain text only.
+   */
+  title: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The text for location metadata. Plain text only.
+   */
+  location: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The text name for the location icon. Defaults to Explorer-1 location icon. Plain text only.
+   */
+  locationIcon: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The text for the wait time metadata. Plain text only.
+   */
+  wait: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The image for the listing card.
+   */
+  image: {
+    type: Object,
+  },
+  /**
+   * Controls the visibility of the Bookmark icon and its associated metadata.
+   */
+  showMyList: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * Change the heading level for semantic markup. This does not affect the style of the heading.
+   */
+  headingLevel: {
+    type: (String as PropType<HeadingLevel>) || null,
+    required: false,
+    default: 'h5'
+  }
+})
+</script>
+
 <template>
   <BaseLink
     variant="none"
-    :to="url"
+    :to="props.url"
     class="SearchResultCard AttractionCard"
     link-class="block"
   >
@@ -10,29 +79,29 @@
     >
       <div class="col-span-9">
         <BaseHeading
-          v-if="title"
-          :level="headingLevel"
+          v-if="props.title"
+          :level="props.headingLevel"
           size="h5"
           class="mb-5 font-semibold"
-          >{{ title }}
+          >{{ props.title }}
         </BaseHeading>
         <MetadataStacked
-          :location="location"
-          :wait="wait"
-          :show-my-list="showMyList"
-          :location-icon="locationIcon"
+          :location="props.location"
+          :wait="props.wait"
+          :show-my-list="props.showMyList"
+          :location-icon="props.locationIcon"
         />
       </div>
       <div
-        v-if="image"
+        v-if="props.image"
         class="SearchResultCard-image col-span-3"
       >
         <BaseImagePlaceholder aspect-ratio="square">
           <BaseImage
-            v-if="image.src"
-            :src="image.src.url"
-            :width="image.src.width"
-            :height="image.src.height"
+            v-if="props.image.src"
+            :src="props.image.src.url"
+            :width="props.image.src.width"
+            :height="props.image.src.height"
             alt=""
             object-fit-class="cover"
             loading="lazy"
@@ -42,71 +111,3 @@
     </div>
   </BaseLink>
 </template>
-
-<script lang="ts">
-import type { PropType } from 'vue'
-import { defineComponent } from 'vue'
-import { mapStores } from 'pinia'
-import { useThemeStore } from '../../store/theme'
-import BaseLink from './../BaseLink/BaseLink.vue'
-import BaseHeading from './../BaseHeading/BaseHeading.vue'
-import BaseImage from './../BaseImage/BaseImage.vue'
-import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
-import MetadataStacked from '../MetadataStacked/MetadataStacked.vue'
-
-import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
-
-export default defineComponent({
-  name: 'EventCard',
-  components: {
-    BaseLink,
-    BaseHeading,
-    BaseImage,
-    BaseImagePlaceholder,
-    MetadataStacked
-  },
-  props: {
-    url: {
-      type: String,
-      required: false,
-      default: '#'
-    },
-    title: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    location: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    wait: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    image: {
-      type: Object,
-      required: false
-    },
-    showMyList: {
-      type: Boolean,
-      required: false
-    },
-    locationIcon: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    headingLevel: {
-      type: (String as PropType<HeadingLevel>) || null,
-      required: false,
-      default: 'h5'
-    }
-  },
-  computed: {
-    ...mapStores(useThemeStore)
-  }
-})
-</script>
