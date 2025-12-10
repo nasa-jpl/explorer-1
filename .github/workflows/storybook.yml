@@ -31,6 +31,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Download Licensed Font Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: explorer-1-licensed-fonts
+          repository: nasa-jpl/explorer-1-fonts
+          path: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
@@ -42,15 +51,6 @@ jobs:
 
       - name: Install dependencies 🧱
         run: pnpm i
-
-      - name: Download Licensed Font Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: explorer-1-licensed-fonts
-          repository: nasa-jpl/explorer-1-fonts
-          path: ./
-        env:
-          GITHUB_TOKEN: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
 
       - name: Build Storybook
         run: make vue-storybook-build
