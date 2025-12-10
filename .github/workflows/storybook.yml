@@ -53,6 +53,8 @@ jobs:
 
       - name: Build Storybook
         run: make vue-storybook-build
+        env:
+          VITE_CHROMATIC_BUILD: true
 
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
