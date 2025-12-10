@@ -77,3 +77,14 @@ export const EduEventCard = {
     pageContentType: 'edu_events_edueventpage'
   }
 }
+
+export const AttractionCard = {
+  args: {
+    ...SearchResultCardData,
+    isAttraction: true,
+    location: 'Building 179, Highbay 1',
+    locationIcon: '',
+    wait: '45 minute wait',
+    showMyList: true
+  }
+}
