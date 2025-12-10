@@ -2,7 +2,7 @@
   <div class="BaseCheckboxGroup">
     <label
       v-if="heading"
-      class="text-lg font-semibold text-gray-900"
+      class="text-lg font-bold text-gray-900"
       >{{ heading }}</label
     >
     <p
@@ -45,7 +45,7 @@
             >
               <span
                 v-if="option.title"
-                class="font-semibold"
+                class="font-bold"
                 >{{ option.title }}</span
               >
               <span v-if="option.text"> - </span>

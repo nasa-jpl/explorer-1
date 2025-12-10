@@ -218,7 +218,7 @@
       indent="col-2"
     >
       <h2
-        class="font-primary text-gray-dark lg:mb-5 lg:text-6xl mb-6 text-3xl font-semibold leading-normal tracking-normal uppercase"
+        class="font-primary text-gray-dark lg:mb-5 lg:text-6xl mb-6 text-3xl font-bold leading-normal tracking-normal uppercase"
       >
         Keep Exploring
       </h2>

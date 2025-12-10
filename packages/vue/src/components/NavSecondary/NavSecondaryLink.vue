@@ -53,9 +53,9 @@ export default defineComponent({
       let rootClasses = 'mr-auto secondary-root'
       rootClasses = this.invert
         ? `${rootClasses} text-white font-bold -invert`
-        : `${rootClasses} text-primary font-semibold`
+        : `${rootClasses} text-primary font-bold`
       const regularClasses = this.invert
-        ? 'text-white -invert font-semibold'
+        ? 'text-white -invert font-bold'
         : 'text-gray-dark font-medium'
       return index === 0 ? rootClasses : regularClasses
     },

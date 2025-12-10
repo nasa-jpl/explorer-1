@@ -19,7 +19,7 @@
             </h1>
 
             <p
-              class="lg:text-xl text-base py-5 max-w-2xl mx-auto lg:mb-10 mb-6 font-semibold leading-normal tracking-normal"
+              class="lg:text-xl text-base py-5 max-w-2xl mx-auto lg:mb-10 mb-6 font-bold leading-normal tracking-normal"
             >
               {{
                 description ||

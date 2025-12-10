@@ -125,7 +125,7 @@
 
             <p
               v-if="data.summary"
-              class="BlockText text-body-lg mb-8 px-4 lg:px-0 font-semibold"
+              class="BlockText text-body-lg mb-8 px-4 lg:px-0 font-bold"
             >
               {{ data.summary }}
             </p>

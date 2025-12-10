@@ -69,7 +69,7 @@
             <BaseLink
               href="https://www.nasa.gov/learning-resources/"
               variant="none"
-              class="NavDesktopLink group relative z-20 font-display font-semibold border-t-2 border-transparent text-sm xl:text-base px-2 xl:px-4"
+              class="NavDesktopLink group relative z-20 font-display font-bold border-t-2 border-transparent text-sm xl:text-base px-2 xl:px-4"
               link-class="inline-block py-2 transition-colors duration-100 ease-in border-b-2 border-transparent group-hover:border-white flex flex-wrap-none items-center"
               external-target-blank
             >

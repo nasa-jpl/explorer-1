@@ -62,7 +62,7 @@
             class="text-xl font-bold font-display leading-tight transition-all duration-200 ease-in delay-200"
             :class="
               compact
-                ? 'font-semibold mb-0 lg:group-hover:mb-1'
+                ? 'font-bold mb-0 lg:group-hover:mb-1'
                 : 'font-medium mb-1 lg:group-hover:mb-3 sm:text-6xl md:text-3xl xl:text-6xl'
             "
           >

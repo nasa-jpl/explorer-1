@@ -24,14 +24,6 @@
         </li>
         <li>
           <span class="leading-loose">
-            <span class="capitalize font-display font-semibold">
-              Helvetica Now Display semi bold
-            </span>
-            <code>.font-semibold</code>
-          </span>
-        </li>
-        <li>
-          <span class="leading-loose">
             <span class="capitalize font-display font-bold">Helvetica Now Display bold</span>
             <code>.font-bold</code>
           </span>
@@ -66,14 +58,6 @@
           <span class="leading-loose">
             <span class="capitalize font-primary font-medium"> Helvetica Now Text medium </span>
             <code>.font-medium</code>
-          </span>
-        </li>
-        <li>
-          <span class="leading-loose">
-            <span class="capitalize font-primary font-semibold">
-              Helvetica Now Text semi bold
-            </span>
-            <code>.font-semibold</code>
           </span>
         </li>
         <li>

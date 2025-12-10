@@ -147,7 +147,7 @@ defineExpose({
         :text="data.topper"
       />
       <p
-        class="text-body-lg font-semibold"
+        class="text-body-lg font-bold"
         itemprop="abstract"
       >
         {{ data.summary }}

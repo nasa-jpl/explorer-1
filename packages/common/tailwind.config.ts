@@ -78,10 +78,10 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     // Commenting out anything Tailwind provides by default but we don’t use for this project.
     // thin: '100',
     // extralight: '200',
-    light: '300',
+    // light: '300',
     normal: '400',
     medium: '500',
-    semibold: '600',
+    // semibold: '700', // deprecated
     bold: '700',
     extrabold: '800'
     // black: 900,
