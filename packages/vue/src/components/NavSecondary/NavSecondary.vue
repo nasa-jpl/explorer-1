@@ -13,7 +13,7 @@
   >
     <div
       class="w-full mx-auto"
-      :class="{ 'bg-gradient-to-r from-black to-primary bg-transparent to-90% text-white': invert }"
+      :class="{ 'bg-primary-dark text-white': invert }"
     >
       <div
         :class="`nav-secondary-container edu:border-0 lg:container lg:px-0 lg:whitespace-normal lg:overflow-visible relative px-4 pb-0 mx-auto overflow-x-auto text-base font-medium whitespace-nowrap ${invert ? 'border-0' : 'border-t border-gray-mid text-gray-mid-dark border-opacity-50'}`"

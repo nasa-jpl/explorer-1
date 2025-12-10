@@ -12,7 +12,7 @@
     }"
   >
     <!-- navbar -->
-    <div class="header-bg z-10 absolute inset-0 mx-auto bg-purple-700"></div>
+    <div class="header-bg z-10 absolute inset-0 mx-auto bg-primary-dark"></div>
     <div class="px-4">
       <div class="h-18 container flex items-center justify-between mx-auto">
         <!-- branding -->

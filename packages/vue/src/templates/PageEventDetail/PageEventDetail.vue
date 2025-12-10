@@ -220,7 +220,7 @@
       <BlockLinkCarousel
         item-type="cards"
         class="print:!px-4"
-        heading="MORE EVENTS"
+        heading="More Events"
         :items="moreEvents"
       />
     </div>
