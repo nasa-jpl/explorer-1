@@ -47,14 +47,14 @@ const props = defineProps({
    * The image for the listing card.
    */
   image: {
-    type: Object,
+    type: Object
   },
   /**
    * Controls the visibility of the Bookmark icon and its associated metadata.
    */
   showMyList: {
     type: Boolean,
-    default: false,
+    default: false
   },
   /**
    * Change the heading level for semantic markup. This does not affect the style of the heading.
