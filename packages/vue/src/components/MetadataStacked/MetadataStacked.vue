@@ -3,19 +3,35 @@ import IconBookmark from '../Icons/IconBookmark.vue'
 import IconHourglass from '../Icons/IconHourglass.vue'
 import IconLocation from '../Icons/IconLocation.vue'
 
-interface MetadataStackedProps {
-  location?: string
-  locationIcon?: string
-  wait?: string
-  showMyList?: boolean
-}
-
-// define props
-const props = withDefaults(defineProps<MetadataStackedProps>(), {
-  location: '',
-  locationIcon: '',
-  wait: '',
-  showMyList: false
+const props = defineProps({
+  /**
+   * The text for location metadata. Plain text only.
+   */
+  location: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The text name for the location icon. Defaults to Explorer-1 location icon. Plain text only.
+   */
+  locationIcon: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The text for the wait time metadata. Plain text only.
+   */
+  wait: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * Controls the visibility of the Bookmark icon and its associated metadata.
+   */
+  showMyList: {
+    type: Boolean,
+    default: false
+  }
 })
 </script>
 
