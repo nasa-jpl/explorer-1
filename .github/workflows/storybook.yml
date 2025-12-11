@@ -36,8 +36,8 @@ jobs:
         with:
           name: explorer-1-licensed-fonts
           repository: nasa-jpl/explorer-1-fonts
-          run-id: 20115829058
           path: ./
+          run-id: 20115584770
         env:
           GITHUB_TOKEN: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
 
@@ -71,6 +71,7 @@ jobs:
           onlyChanged: true
 
   publish_html:
+    needs: [publish_vue]
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
