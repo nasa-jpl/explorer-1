@@ -1,16 +1,22 @@
 #!/bin/bash
 
+# This script runs in the CI shell environment to securely inject licensed font data.
+# It resolves path and execution errors by explicitly calling 'node'.
+
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-# --- Configuration (Passed as arguments from YAML) ---
+# --- Argument Mapping ---
+# Arguments are passed from the GitHub Actions YAML step
 BASE_DIR="$1"
 INPUT_PATH="$2"
 OUTPUT_DATA_FILE="$3"
 OUTPUT_FLAG_FILE="$4"
-BASE64_GENERATOR_SCRIPT="$5" # Path to your Node helper script
+BASE64_GENERATOR_SCRIPT="$5" # The path to the generate-base64-string.js file
 
+# --- Variables ---
 ARTIFACT_FILE="licensed-fonts-base64.css"
+FONT_FAMILY_NAME="Helvetica Now Display" # Adjust this to your font's name
 
 echo "Running shell injection script..."
 echo "Input Path Check: $INPUT_PATH"
@@ -19,21 +25,28 @@ echo "Input Path Check: $INPUT_PATH"
 if [ -f "$INPUT_PATH" ]; then
   
   # 1. READ BASE64 STRING using the helper script
-  # We run the node script and capture its output (the full Base64 string)
-  BASE64_CONTENT=$("$BASE64_GENERATOR_SCRIPT" "$INPUT_PATH")
+  # 🛑 FIX: Explicitly call the 'node' interpreter to run the JavaScript file 🛑
+  BASE64_CONTENT=$(node "$BASE64_GENERATOR_SCRIPT" "$INPUT_PATH")
   
-  # 2. GENERATE FONT DATA MODULE using a HEREDOC (the clean way to write multi-line strings)
+  # Check if the content is empty (indicating read failure in the Node script)
+  if [ -z "$BASE64_CONTENT" ]; then
+    echo "ERROR: Base64 content is empty. Cannot proceed."
+    exit 1
+  fi
+  
+  # 2. GENERATE FONT DATA MODULE (Using HEREDOC for clean multi-line JS output)
+  # The Base64 content is injected into the JavaScript module.
   cat > "$OUTPUT_DATA_FILE" <<EOF
 /** Generated with LICENSED FONT DATA. */
 export const licensedFontStyles = \`
 @font-face {
-  font-family: 'Helvetica Now Display';
+  font-family: '${FONT_FAMILY_NAME}';
   src: url('data:application/x-font-opentype;base64,${BASE64_CONTENT}') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap; 
 }
-/* You would include the rest of your combined @font-face rules here */
+/* ADD ALL other required @font-face rules for different weights/styles here */
 \`;
 
 export function injectLicensedFonts() {

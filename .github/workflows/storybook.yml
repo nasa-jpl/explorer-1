@@ -89,9 +89,6 @@ jobs:
           # Ensure the primary shell script is executable
           chmod +x packages/common-storybook/src/scripts/inject-fonts-shell.sh
 
-          # Ensure the helper script is executable
-          chmod +x packages/common-storybook/src/scripts/generate-base64-string.js
-
           # Execute the shell script, passing all necessary paths as arguments
           ./packages/common-storybook/src/scripts/inject-fonts-shell.sh \
             ./packages/common-storybook/src \
