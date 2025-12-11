@@ -8,7 +8,7 @@ const path = require('path')
 // --- Configuration ---
 const ARTIFACT_FILE_NAME = 'licensed-fonts-base64.css'
 // Output file that preview.ts will import, place in common-storybook/src/
-const OUTPUT_FILE = path.resolve(__dirname, '..')
+const OUTPUT_FILE = path.resolve(__dirname, '..', 'fonts-data.js')
 // artifact is downloaded to common-storybook/src/
 const LICENSED_CSS_PATH = path.resolve(__dirname, '..', ARTIFACT_FILE_NAME)
 console.log('LICENSED_CSS_PATH', LICENSED_CSS_PATH)
