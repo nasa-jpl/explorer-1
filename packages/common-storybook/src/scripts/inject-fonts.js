@@ -6,13 +6,12 @@ const fs = require('fs')
 const path = require('path')
 
 // --- Configuration ---
-const ARTIFACT_FOLDER_NAME = 'explorer-1-licensed-fonts'
 const ARTIFACT_FILE_NAME = 'licensed-fonts-base64.css'
 // Output file that preview.ts will import, place in common-storybook/src/
 const OUTPUT_FILE = path.resolve(__dirname, '..')
 // artifact is downloaded to common-storybook/src/
 const LICENSED_CSS_PATH = path.resolve(__dirname, '..', ARTIFACT_FILE_NAME)
-
+console.log('LICENSED_CSS_PATH', LICENSED_CSS_PATH)
 try {
   // 1. Read the raw CSS content
   const cssContent = fs.readFileSync(LICENSED_CSS_PATH, 'utf8')
