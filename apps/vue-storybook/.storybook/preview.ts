@@ -20,8 +20,9 @@ import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/be
 // --- Gracefully Handle Licensed Fonts ---
 const IS_CHROMATIC_BUILD = import.meta.env.VITE_CHROMATIC_BUILD === 'true'
 // artifact folder placed in .storybook folder
+// file must be inlined for vite to bundle it correctly for dynamic injection
 const ARTIFACT_FOLDER_NAME = 'explorer-1-licensed-fonts'
-const LICENSED_FONTS_PATH = `./${ARTIFACT_FOLDER_NAME}/licensed-fonts-base64.css`
+const LICENSED_FONTS_PATH = `./${ARTIFACT_FOLDER_NAME}/licensed-fonts-base64.css?inline`
 // --- Conditional Import of Licensed Fonts ---
 if (IS_CHROMATIC_BUILD) {
   try {
