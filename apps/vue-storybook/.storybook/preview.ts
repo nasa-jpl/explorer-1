@@ -18,24 +18,65 @@ import beautify from 'js-beautify'
 import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/beautifyHtmlOptions.js'
 
 // --- Gracefully Handle Licensed Fonts ---
+// const IS_CHROMATIC_BUILD = import.meta.env.VITE_CHROMATIC_BUILD === 'true'
+// // artifact folder placed in .storybook folder
+// // file must be inlined for vite to bundle it correctly for dynamic injection
+// const ARTIFACT_FOLDER_NAME = 'explorer-1-licensed-fonts'
+// const LICENSED_FONTS_PATH = `./${ARTIFACT_FOLDER_NAME}/licensed-fonts-base64.css?inline`
+import fs from 'fs'
+import path from 'path'
 const IS_CHROMATIC_BUILD = import.meta.env.VITE_CHROMATIC_BUILD === 'true'
-// artifact folder placed in .storybook folder
-// file must be inlined for vite to bundle it correctly for dynamic injection
-const ARTIFACT_FOLDER_NAME = 'explorer-1-licensed-fonts'
-const LICENSED_FONTS_PATH = `./${ARTIFACT_FOLDER_NAME}/licensed-fonts-base64.css?inline`
-// --- Conditional Import of Licensed Fonts ---
+
 if (IS_CHROMATIC_BUILD) {
   try {
-    import(/* @vite-ignore */ LICENSED_FONTS_PATH)
-    console.log('✅ Licensed Fonts loaded.')
+    // 🛑 NODE.JS INJECTION BLOCK 🛑
+    // 1. Define paths relative to the project root
+    const rootDir = path.resolve(__dirname, '..') // Assuming .storybook is one level deep
+    const ARTIFACT_FOLDER_NAME = 'explorer-1-licensed-fonts'
+
+    // 2. Define the exact file path on the CI runner's filesystem
+    const licensedCssPath = path.join(
+      rootDir,
+      '.storybook',
+      ARTIFACT_FOLDER_NAME,
+      'licensed-fonts-base64.css'
+    )
+
+    // 3. Synchronously read the file content using Node.js fs
+    const cssContent = fs.readFileSync(licensedCssPath, 'utf8')
+
+    // 4. Inject the content directly into the DOM using a new style tag
+    // This happens once when the Storybook environment loads.
+    const styleTag = document.createElement('style')
+    styleTag.textContent = cssContent
+    document.head.appendChild(styleTag)
+
+    console.log('✅ Licensed Fonts synchronously injected via Node/FS.')
   } catch (error) {
-    console.error('❌ FATAL ERROR: Licensed Fonts file not found!')
-    console.error('The file must be present for a successful chromatic build.')
+    console.error('❌ FATAL ERROR: Node FS injection failed! File not found or readable.')
+    // Check if the file is missing on CI
+    if (error.code === 'ENOENT') {
+      console.error(`File expected at ${licensedCssPath} was not found!`)
+    }
     console.error('Error details:', error.message)
-    // don't continue with chromatic if the font file isn't found (wastes quota)
+    // Hard fail the build process if the font is critical and IS_CHROMATIC_BUILD is true
     process.exit(1)
   }
 }
+
+// --- Conditional Import of Licensed Fonts ---
+// if (IS_CHROMATIC_BUILD) {
+//   try {
+//     import(/* @vite-ignore */ LICENSED_FONTS_PATH)
+//     console.log('✅ Licensed Fonts loaded.')
+//   } catch (error) {
+//     console.error('❌ FATAL ERROR: Licensed Fonts file not found!')
+//     console.error('The file must be present for a successful chromatic build.')
+//     console.error('Error details:', error.message)
+//     // don't continue with chromatic if the font file isn't found (wastes quota)
+//     process.exit(1)
+//   }
+// }
 
 const pinia = createPinia()
 const router = createRouter({
