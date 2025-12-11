@@ -18,12 +18,18 @@ import beautify from 'js-beautify'
 import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/beautifyHtmlOptions.js'
 
 // --- Gracefully Handle Licensed Fonts ---
-const IS_CHROMATIC_BUILD = process.env.VITE_CHROMATIC_BUILD === 'true'
-
+const IS_CHROMATIC_BUILD = import.meta.env.VITE_CHROMATIC_BUILD === 'true'
+// artifact placed in root of repo
+const LICENSED_FONTS_PATH = './../../licensed-fonts-base64.css'
 // --- Conditional Import of Licensed Fonts ---
 if (IS_CHROMATIC_BUILD) {
   try {
-    require('./../../licensed-fonts-base64.css') // artifact placed in root of repo
+    if (typeof require !== 'undefined') {
+      require(LICENSED_FONTS_PATH)
+    } else {
+      // Fallback for strict ESM environments (less likely in Storybook setup)
+      import(LICENSED_FONTS_PATH)
+    }
     console.log('✅ Licensed Fonts loaded.')
   } catch (error) {
     console.error('❌ FATAL ERROR: Licensed Fonts file not found!')
