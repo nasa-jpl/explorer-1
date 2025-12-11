@@ -64,7 +64,7 @@ jobs:
         with:
           name: explorer-1-licensed-fonts
           repository: nasa-jpl/explorer-1-fonts
-          path: ./
+          path: ./apps/vue-storybook/.storybook/
           run-id: ${{ steps.find_run.outputs.run_id }}
           github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
 
