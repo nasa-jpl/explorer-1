@@ -38,6 +38,7 @@ jobs:
           repository: nasa-jpl/explorer-1-fonts
           path: ./
           run-id: 20115584770
+          token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
         # env:
         #   GITHUB_TOKEN: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
 
