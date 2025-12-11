@@ -37,7 +37,6 @@ jobs:
           name: explorer-1-licensed-fonts
           repository: nasa-jpl/explorer-1-fonts
           path: ./
-          run-id: 20115584770
           github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
 
       - name: Setup pnpm
