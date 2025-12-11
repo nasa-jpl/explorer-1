@@ -17,7 +17,7 @@ import VueObserveVisibility from 'vue3-observe-visibility'
 import beautify from 'js-beautify'
 import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/beautifyHtmlOptions.js'
 import { injectLicensedFonts } from '@explorer-1/common-storybook/src/scripts/inject-fonts.js'
-import '@explorer-1/common-storybook/src/scripts/font-flag.js'
+import '@explorer-1/common-storybook/src/font-flag.js'
 // --- Gracefully Handle Licensed Fonts ---
 // const IS_CHROMATIC_BUILD = import.meta.env.VITE_CHROMATIC_BUILD === 'true'
 // // artifact folder placed in .storybook folder
