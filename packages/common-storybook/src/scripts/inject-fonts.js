@@ -11,7 +11,7 @@ const ARTIFACT_FILE_NAME = 'licensed-fonts-base64.css'
 // Output file that preview.ts will import, place in common-storybook/src/
 const OUTPUT_FILE = path.resolve(__dirname, '..')
 // artifact is downloaded to common-storybook/src/
-const LICENSED_CSS_PATH = path.resolve(__dirname, '..', ARTIFACT_FOLDER_NAME, ARTIFACT_FILE_NAME)
+const LICENSED_CSS_PATH = path.resolve(__dirname, '..', ARTIFACT_FILE_NAME)
 
 try {
   // 1. Read the raw CSS content
