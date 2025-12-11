@@ -64,7 +64,7 @@ jobs:
         with:
           name: explorer-1-licensed-fonts
           repository: nasa-jpl/explorer-1-fonts
-          path: ./apps/vue-storybook/.storybook/
+          path: ./packages/common-storybook/src/
           run-id: ${{ steps.find_run.outputs.run_id }}
           github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
 
@@ -76,6 +76,9 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
+
+      - name: Inject Base64 CSS into JS Module
+        run: node packages/common-storybook/src/scripts/inject-fonts.js
 
       - name: Install dependencies 🧱
         run: pnpm i
