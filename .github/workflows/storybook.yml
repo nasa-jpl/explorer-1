@@ -36,6 +36,8 @@ jobs:
         with:
           name: explorer-1-licensed-fonts
           repository: nasa-jpl/explorer-1-fonts
+          workflow: generate-css-artifact.yml
+          branch: main
           path: ./
           github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
 
