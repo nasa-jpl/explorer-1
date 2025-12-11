@@ -84,14 +84,15 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
 
-      # 🛑 Final CI Injection Step (Clean YAML) 🛑
       - name: Generate Font Data and Flag Modules (Shell Injection)
         run: |
-          # 1. Ensure the shell script is executable
+          # Ensure the primary shell script is executable
           chmod +x packages/common-storybook/src/scripts/inject-fonts-shell.sh
 
-          # 2. Execute the shell script, passing all necessary paths as arguments
-          # The execution is relative to the repository root.
+          # Ensure the helper script is executable
+          chmod +x packages/common-storybook/src/scripts/generate-base64-string.js
+
+          # Execute the shell script, passing all necessary paths as arguments
           ./packages/common-storybook/src/scripts/inject-fonts-shell.sh \
             ./packages/common-storybook/src \
             ./packages/common-storybook/src/licensed-fonts-base64.css \
@@ -99,8 +100,6 @@ jobs:
             ./packages/common-storybook/src/font-flag.js \
             ./packages/common-storybook/src/scripts/generate-base64-string.js
 
-          # - name: Inject Base64 CSS into JS Module
-      #   run: node packages/common-storybook/src/scripts/inject-fonts.js
       - name: Install dependencies 🧱
         run: pnpm i
 
