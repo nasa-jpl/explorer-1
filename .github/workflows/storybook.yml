@@ -71,20 +71,9 @@ jobs:
       - name: Verify Artifact Contents (Debug)
         run: |
           DOWNLOAD_PATH="./packages/common-storybook/src"
-          ARTIFACT_NAME="explorer-1-licensed-fonts"
 
           echo "--- 1. Listing contents of the download directory ---"
           ls -F "${DOWNLOAD_PATH}"
-
-          echo ""
-          echo "--- 2. Listing contents INSIDE the downloaded artifact folder ---"
-          ls -F "${DOWNLOAD_PATH}/${ARTIFACT_NAME}"
-
-          echo ""
-          echo "--- 3. Verifying the exact path Node is looking for (using find) ---"
-          # This command will explicitly search for the file your Node script expects
-          find "${DOWNLOAD_PATH}" -name "licensed-fonts-base64.css"
-
           echo "--- END DEBUG ---"
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
