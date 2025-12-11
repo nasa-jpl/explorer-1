@@ -19,8 +19,9 @@ import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/be
 
 // --- Gracefully Handle Licensed Fonts ---
 const IS_CHROMATIC_BUILD = import.meta.env.VITE_CHROMATIC_BUILD === 'true'
-// artifact placed in root of repo
-const LICENSED_FONTS_PATH = './licensed-fonts-base64.css'
+// artifact folder placed in .storybook folder
+const ARTIFACT_FOLDER_NAME = 'explorer-1-licensed-fonts'
+const LICENSED_FONTS_PATH = `./${ARTIFACT_FOLDER_NAME}/licensed-fonts-base64.css`
 // --- Conditional Import of Licensed Fonts ---
 if (IS_CHROMATIC_BUILD) {
   try {
