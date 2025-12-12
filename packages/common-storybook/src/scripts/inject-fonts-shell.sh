@@ -1,3 +1,8 @@
+# --- Inject Fonts Shell Script ---
+# Reads a github artifact that contains a font-face.css file that includes 
+# base64-encoded fonts, and injects that css as a raw string in CI/CD
+# Parameters are passed in the workflow yaml file
+
 #!/bin/bash
 
 # Exit immediately if a command exits with a non-zero status
@@ -5,10 +10,9 @@ set -e
 
 # --- Argument Mapping ---
 # Arguments are passed from the GitHub Actions YAML step
-INPUT_PATH="$2" # Path to the downloaded licensed-fonts-base64.css file
+INPUT_PATH="$2" # Path to the downloaded artifact handled in CI (licensed-fonts-base64.css)
 OUTPUT_DATA_FILE="$3"
 OUTPUT_FLAG_FILE="$4"
-# $5: BASE64_GENERATOR_SCRIPT is NO LONGER USED
 
 echo "Running shell injection script..."
 echo "Input Path Check: $INPUT_PATH"
