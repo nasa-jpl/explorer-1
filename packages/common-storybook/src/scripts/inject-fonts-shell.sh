@@ -1,9 +1,10 @@
+#!/bin/bash
+
 # --- Inject Fonts Shell Script ---
 # Reads a github artifact that contains a font-face.css file that includes 
 # base64-encoded fonts, and injects that css as a raw string in CI/CD
 # Parameters are passed in the workflow yaml file
 
-#!/bin/bash
 
 # Exit immediately if a command exits with a non-zero status
 set -e
