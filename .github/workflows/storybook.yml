@@ -95,7 +95,6 @@ jobs:
             ./packages/common-storybook/src/licensed-fonts-base64.css \
             ./packages/common-storybook/src/fonts-data.js \
             ./packages/common-storybook/src/font-flag.js \
-            ./packages/common-storybook/src/scripts/generate-base64-string.js
 
       - name: Install dependencies 🧱
         run: pnpm i

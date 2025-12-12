@@ -1,24 +1,14 @@
 #!/bin/bash
 
-# This script runs in the CI shell environment to securely inject licensed font data.
-# It resolves path and execution errors by explicitly calling 'node'.
-
 # Exit immediately if a command exits with a non-zero status
 set -e
 
 # --- Argument Mapping ---
 # Arguments are passed from the GitHub Actions YAML step
-# $1: BASE_DIR (e.g., ./packages/common-storybook/src) - Not strictly used, but passed for context
-# $2: INPUT_PATH (e.g., ./packages/common-storybook/src/licensed-fonts-base64.css)
-# $3: OUTPUT_DATA_FILE (e.g., ./packages/common-storybook/src/fonts-data.js)
-# $4: OUTPUT_FLAG_FILE (e.g., ./packages/common-storybook/src/font-flag.js)
-# $5: BASE64_GENERATOR_SCRIPT (e.g., ./packages/common-storybook/src/scripts/generate-base64-string.js)
-
-INPUT_PATH="$2"
+INPUT_PATH="$2" # Path to the downloaded licensed-fonts-base64.css file
 OUTPUT_DATA_FILE="$3"
 OUTPUT_FLAG_FILE="$4"
-BASE64_GENERATOR_SCRIPT="$5"
-FONT_FAMILY_NAME="Helvetica Now Display" # **Adjust this to your font's name**
+# $5: BASE64_GENERATOR_SCRIPT is NO LONGER USED
 
 echo "Running shell injection script..."
 echo "Input Path Check: $INPUT_PATH"
@@ -26,30 +16,23 @@ echo "Input Path Check: $INPUT_PATH"
 # --- CHECK FILE EXISTENCE ---
 if [ -f "$INPUT_PATH" ]; then
   
-  # 1. READ BASE64 STRING using the helper script
-  # We explicitly call the 'node' interpreter to run the JavaScript file.
-  BASE64_CONTENT=$(node "$BASE64_GENERATOR_SCRIPT" "$INPUT_PATH")
+  # 1. READ THE ENTIRE CSS FILE CONTENT
+  # Use 'cat' to read the content of the file and store it in a shell variable.
+  # The content is already CSS, so no further encoding is needed.
+  CSS_CONTENT=$(cat "$INPUT_PATH")
   
-  # Check if the content is empty (indicating read failure in the Node script)
-  if [ -z "$BASE64_CONTENT" ]; then
-    echo "ERROR: Base64 content is empty after Node script execution."
+  # Check if the content is empty 
+  if [ -z "$CSS_CONTENT" ]; then
+    echo "ERROR: CSS file is empty. Cannot proceed."
     exit 1
   fi
   
   # 2. GENERATE FONT DATA MODULE (Using HEREDOC)
-  # The Base64 content is injected into the JavaScript module.
+  # Inject the raw CSS_CONTENT string directly into the JavaScript module.
   cat > "$OUTPUT_DATA_FILE" <<EOF
 /** Generated with LICENSED FONT DATA. */
 export const licensedFontStyles = \`
-@font-face {
-  font-family: '${FONT_FAMILY_NAME}';
-  /* Assuming the Base64 content from the Node script is the full data URI payload */
-  src: url('data:application/x-font-opentype;base64,${BASE64_CONTENT}') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap; 
-}
-/* ADD ALL other required @font-face rules for different weights/styles here */
+${CSS_CONTENT}
 \`;
 
 export function injectLicensedFonts() {
@@ -57,7 +40,7 @@ export function injectLicensedFonts() {
         const styleTag = document.createElement('style');
         styleTag.textContent = licensedFontStyles;
         document.head.appendChild(styleTag);
-        console.log('✅ Licensed Fonts injected via Shell.');
+        console.log('✅ Licensed Fonts injected via Shell (Raw CSS).');
     }
 }
 EOF
