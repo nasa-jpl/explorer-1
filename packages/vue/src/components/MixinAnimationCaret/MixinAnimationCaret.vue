@@ -39,8 +39,20 @@ export default defineComponent({
       default: 'ml-1',
       required: false
     },
+    /** Default margin right class. Only appled when  when Only Use TailwindCSS classes */
+    marginRight: {
+      type: String,
+      default: 'mr-1',
+      required: false
+    },
     /** Appends .caret-inline to .MixinAnimationCaret */
     inline: {
+      type: Boolean,
+      default: false,
+      required: false
+    },
+    /** Modify the caret icon and animation to appear on the left of the slot text */
+    caretLeft: {
       type: Boolean,
       default: false,
       required: false
@@ -61,7 +73,7 @@ export default defineComponent({
 })
 </script>
 <template>
-  <span
+  <span v-if="!caretLeft"
     class="MixinAnimationCaret"
     :class="computedClass"
   >
@@ -79,6 +91,26 @@ export default defineComponent({
       <span class="arrow-fixed">
         <IconCaret />
       </span>
+    </span>
+  </span>
+  <span v-else
+    class="MixinAnimationCaret MixinAnimationCaretReverse"
+    :class="computedClass"
+  >
+    <span
+      class="arrow-wrapper"
+      :class="[arrowClass, color, marginRight]"
+      aria-hidden="true"
+    >
+      <span class="arrow right-0">
+        <IconCaret />
+      </span>
+      <span class="arrow-fixed right-0">
+        <IconCaret />
+      </span>
+    </span>
+    <span>
+      <slot></slot>
     </span>
   </span>
 </template>
