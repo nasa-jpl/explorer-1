@@ -73,7 +73,8 @@ export default defineComponent({
 })
 </script>
 <template>
-  <span v-if="!caretLeft"
+  <span
+    v-if="!caretLeft"
     class="MixinAnimationCaret"
     :class="computedClass"
   >
@@ -93,7 +94,8 @@ export default defineComponent({
       </span>
     </span>
   </span>
-  <span v-else
+  <span
+    v-else
     class="MixinAnimationCaret MixinAnimationCaretReverse"
     :class="computedClass"
   >
