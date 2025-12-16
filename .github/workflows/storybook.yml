@@ -68,13 +68,6 @@ jobs:
           run-id: ${{ steps.find_run.outputs.run_id }}
           github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
 
-      - name: Verify Artifact Contents (Debug)
-        run: |
-          DOWNLOAD_PATH="./packages/common-storybook/src"
-
-          echo "--- 1. Listing contents of the download directory ---"
-          ls -F "${DOWNLOAD_PATH}"
-          echo "--- END DEBUG ---"
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
@@ -126,6 +119,43 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Find Latest Licensed Font Run ID
+        id: find_run
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+
+            // Query the private repo for the latest successful workflow run
+            const runs = await github.rest.actions.listWorkflowRuns({
+              owner: 'nasa-jpl',
+              repo: 'explorer-1-fonts',
+              workflow_id: 'generate-css-artifact.yml',
+              branch: 'main',
+              status: 'success',
+              per_page: 1
+            });
+
+            const runId = runs.data.workflow_runs[0]?.id;
+
+            if (!runId) {
+              core.setFailed("Could not find a successful run for the licensed font workflow.");
+              return;
+            }
+
+            console.log(`Found Run ID: ${runId}`);
+            core.setOutput('run_id', runId);
+
+      - name: Download Licensed Font Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: explorer-1-licensed-fonts
+          repository: nasa-jpl/explorer-1-fonts
+          path: ./packages/common-storybook/src/
+          run-id: ${{ steps.find_run.outputs.run_id }}
+          github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
@@ -138,7 +168,18 @@ jobs:
       - name: Install dependencies 🧱
         run: pnpm i
 
-      # TODO: add licensed fonts
+      - name: Generate Font Data and Flag Modules (Shell Injection)
+        run: |
+          # Ensure the primary shell script is executable
+          chmod +x packages/common-storybook/src/scripts/inject-fonts-shell.sh
+
+          # Execute the shell script, passing all necessary paths as arguments
+          ./packages/common-storybook/src/scripts/inject-fonts-shell.sh \
+            ./packages/common-storybook/src \
+            ./packages/common-storybook/src/licensed-fonts-base64.css \
+            ./packages/common-storybook/src/fonts-data.js \
+            ./packages/common-storybook/src/font-flag.js \
+
       - name: Build HTML Storybook
         run: make html-storybook-build
 
