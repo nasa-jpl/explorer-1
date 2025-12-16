@@ -192,6 +192,7 @@
     @apply font-display;
     font-size: pxToRem(18); // Based on Tailwind's text-lg
     line-height: 1.6667;
+    letter-spacing: 0.4px;
 
     @screen sm {
       font-size: pxToRem(19);

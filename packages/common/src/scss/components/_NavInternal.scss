@@ -250,7 +250,7 @@
     /* stylelint-disable no-duplicate-selectors */
     .NavInternalSection {
       a:not(.text-subtitle) {
-        @apply text-gray-mid-dark leading-tight transition-colors text-lg font-medium;
+        @apply text-gray-700 leading-tight transition-colors text-lg font-medium;
         @screen lg {
           @apply text-base font-normal;
         }

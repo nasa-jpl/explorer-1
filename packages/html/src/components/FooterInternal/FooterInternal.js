@@ -143,7 +143,7 @@ export const FooterInternalTemplate = ({ siteEditors, siteManagers, dateUpdated,
             link: 'https://mh.jpl.nasa.gov',
             icon: 'external',
             wrapperClass: 'inline',
-            linkClass: 'flex flex-nowrap items-center text-blue-300 can-hover:hover:text-action',
+            linkClass: 'flex flex-nowrap items-center text-blue-200 can-hover:hover:text-action',
             target: '_blank'
           })}
         </div>

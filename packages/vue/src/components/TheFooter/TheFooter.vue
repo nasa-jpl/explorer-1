@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="TheFooter bg-jpl-blue-darker edu:bg-stars edu:bg-primary text-white relative z-20 print:px-4 print:border-t print:border-black"
+    class="TheFooter bg-jpl-blue-darker edu:bg-stars edu:bg-primary-dark text-white relative z-20 print:px-4 print:border-t print:border-black"
   >
     <div class="footer-main lg:BaseGrid 3xl:px-0 lg:pt-20 container px-4 pt-10 mx-auto">
       <div class="footer-navigation lg:block lg:col-span-9 hidden col-span-12">

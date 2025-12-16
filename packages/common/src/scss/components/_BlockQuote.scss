@@ -26,7 +26,7 @@
 
   > .quote {
     line-height: 1.4; // custom
-    @apply font-display italic text-xl font-medium py-4 text-primary;
+    @apply font-display italic text-xl font-medium py-4;
 
     @screen lg {
       font-size: 1.875rem; // custom  // 30px
@@ -52,10 +52,6 @@
   .BlockQuote {
     > hr {
       @apply border-primary;
-    }
-
-    > .quote {
-      @apply text-primary;
     }
 
     > div > div > .attribution-text {
