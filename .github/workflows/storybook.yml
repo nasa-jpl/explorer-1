@@ -182,6 +182,8 @@ jobs:
 
       - name: Build HTML Storybook
         run: make html-storybook-build
+        env:
+          VITE_CHROMATIC_BUILD: true
 
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
