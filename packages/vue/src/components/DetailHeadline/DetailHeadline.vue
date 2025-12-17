@@ -53,7 +53,7 @@
         >.</span
       >
       <span
-        :class="`${hasTag && !pill ? 'divide-gray-mid-dark border-l ml-3 pl-3 ' : ''} my-4 font-secondary text-gray-mid-dark text-sm uppercase leading-none`"
+        :class="`${hasTag && !pill ? 'divide-gray-mid-dark border-l ml-3 pl-3 ' : ''} pt-px font-secondary text-gray-mid-dark text-sm uppercase leading-none`"
       >
         {{ readTime }}
       </span>

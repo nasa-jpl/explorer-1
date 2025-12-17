@@ -51,7 +51,7 @@
           >
             <div class="xl:-ml-22 top-1/2 absolute left-0 z-30 -ml-20">
               <BaseButton
-                class="swiper-prev xl:text-xl"
+                class="swiper-prev !text-lg xl:!text-xl"
                 :aria-label="heading + ' - Previous slide'"
               >
                 <template #icon>
@@ -71,7 +71,7 @@
             </div>
             <div class="xl:-mr-22 top-1/2 absolute right-0 z-30 -mr-20">
               <BaseButton
-                class="swiper-next xl:text-xl"
+                class="swiper-next !text-lg xl:!text-xl"
                 :aria-label="heading + ' - Next slide'"
               >
                 <template #icon>

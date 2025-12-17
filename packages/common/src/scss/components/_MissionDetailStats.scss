@@ -12,11 +12,11 @@
   }
 
   .label {
-    @apply font-bold mb-3 text-jpl-red-dark;
+    @apply mb-3 text-jpl-red-dark;
   }
 
   .ThemeVariantDark & .label {
-    @apply text-jpl-blue-light;
+    @apply text-blue-200;
   }
 
   .legend {

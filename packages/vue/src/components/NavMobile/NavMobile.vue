@@ -7,9 +7,7 @@
     >
       <!-- navbar -->
       <div class="relative w-full">
-        <div
-          class="h-18 flex w-full justify-between items-center px-5 edu:bg-gradient-to-r edu:from-black edu:to-primary edu:to-90% edu:bg-black"
-        >
+        <div class="h-18 flex w-full justify-between items-center px-5 edu:bg-primary-dark">
           <!-- branding -->
           <div class="flex items-center">
             <NavLogoLinks class="lg:p-0 w-72 z-20 p-2 pl-0 -ml-3 edu:w-[12rem]">

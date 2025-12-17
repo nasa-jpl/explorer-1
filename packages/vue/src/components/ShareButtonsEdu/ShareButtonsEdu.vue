@@ -112,7 +112,7 @@ const buttonClass = computed(() => {
         @click="toggle()"
         @keydown.esc="toggle()"
       >
-        <span class="flex flex-row flex-wrap-none items-start xl:items-center">
+        <span class="flex flex-row flex-wrap-none items-center">
           <IconShare class="text-lg mr-2" />
           <span class="text-sm">Share…</span>
         </span>

@@ -24,7 +24,7 @@
         <div class="absolute inset-0">
           <div class="absolute bottom-0 right-0 z-10 flex">
             <BaseButton
-              class="swiper-prev xl:text-xl border-collapse"
+              class="swiper-prev !text-lg xl:!text-xl border-collapse"
               aria-label="Previous slide"
             >
               <template #icon>
@@ -32,7 +32,7 @@
               </template>
             </BaseButton>
             <BaseButton
-              class="swiper-next xl:text-xl border-collapse"
+              class="swiper-next !text-lg xl:!text-xl border-collapse"
               aria-label="Next slide"
             >
               <template #icon>

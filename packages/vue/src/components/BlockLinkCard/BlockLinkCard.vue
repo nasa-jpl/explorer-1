@@ -54,7 +54,7 @@
         >
           <template v-if="metadataAttrs">
             <BasePill
-              :class="{ 'mb-2': !large, 'mb-4': large }"
+              :class="{ 'mb-2': !large, 'mb-4': large, 'text-xs': true }"
               size="sm"
               :content-type="metadataType"
               :text="(theItem as EventCardObject).eventType"
@@ -114,7 +114,7 @@
               >
                 <IconExternal
                   class="text-primary ml-2"
-                  :class="{ 'text-sm mt-1px': small, '-mt-1px': medium, '-mt-.5': large }"
+                  :class="{ 'text-sm mt-1px': small, 'text-sm -mt-1px': medium, '-mt-.5': large }"
                 />
               </template>
             </div>
