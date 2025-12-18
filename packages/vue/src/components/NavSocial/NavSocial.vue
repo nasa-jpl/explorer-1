@@ -16,7 +16,7 @@
       target="_blank"
       rel="noopener"
     >
-      <template #icon>
+      <template #iconRight>
         <IconSocialFacebook v-if="item.facebook" />
         <IconSocialTwitter v-else-if="item.twitter" />
         <IconSocialInstagram v-else-if="item.instagram" />
