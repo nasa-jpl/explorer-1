@@ -27,7 +27,7 @@
           </div>
           <div class="flex flex-col w-full z-20">
             <div
-              class="BaseAudio__playback-time-wrapper cursor-pointer relative inline-block w-full border-t border-jpl-red bg-gray-mid-dark bg-opacity-25 h-2"
+              class="BaseAudio__playback-time-wrapper cursor-pointer relative inline-block w-full border-t border-jpl-red bg-gray-mid bg-opacity-25 h-2"
               title="Playback Position"
               @click="setPosition"
             >
