@@ -39,7 +39,7 @@
           />
           <label
             :for="`${group}_${option.id}`"
-            class="ml-3 block text-md text-gray-700"
+            class="ml-3 block text-md text-gray-mid-dark"
           >
             <span
               v-if="option.title"

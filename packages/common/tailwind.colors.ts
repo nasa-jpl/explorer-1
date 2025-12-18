@@ -240,7 +240,7 @@ export const grayScaleColors = {
   'gray-light': colorLibrary.gray[150],
   'gray-light-mid': colorLibrary.gray[300],
   'gray-mid': colorLibrary.gray[400],
-  'gray-mid-dark': colorLibrary.gray[700],
+  'gray-mid-dark': colorLibrary.gray[600],
   'gray-dark': colorLibrary.gray[800]
   // black: colorLibrary.black
 }
