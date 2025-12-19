@@ -8,10 +8,10 @@
       @apply mr-1 w-10 md:w-12;
     }
     .MetaPanelItem-heading {
-      @apply text-subtitle text-base md:mb-[.2em] whitespace-nowrap;
+      @apply text-subtitle md:mb-[.2em] whitespace-nowrap;
     }
     .MetaPanelItem-content {
-      @apply font-primary font-bold lg:text-xl;
+      @apply font-display font-bold lg:text-xl;
     }
   }
 }
