@@ -23,7 +23,7 @@
 
   /* stylelint-disable at-rule-empty-line-before, declaration-empty-line-before */
   .text-h1-alt {
-    @apply font-bold tracking-tighter edu:font-extrabold;
+    @apply font-display font-bold;
     font-size: pxToRem(45);
     line-height: 1;
 
@@ -31,7 +31,6 @@
       font-size: pxToRem(54.5);
     }
     @screen md {
-      @apply tracking-tightest;
       font-size: pxToRem(65.5);
     }
     @screen lg {
@@ -44,7 +43,7 @@
 
   h1,
   .text-h1 {
-    @apply font-medium edu:font-extrabold tracking-tighter;
+    @apply font-display font-bold;
     font-size: pxToRem(42);
     line-height: 1.15;
 
@@ -53,7 +52,6 @@
     }
     @screen md {
       font-size: pxToRem(50);
-      letter-spacing: -1.5px;
     }
     @screen lg {
       font-size: pxToRem(54);
@@ -65,7 +63,7 @@
 
   h2,
   .text-h2 {
-    @apply font-medium edu:font-extrabold tracking-tight;
+    @apply font-display font-bold;
     font-size: pxToRem(36);
     line-height: 1.25;
 
@@ -73,7 +71,6 @@
       font-size: pxToRem(38);
     }
     @screen md {
-      @apply tracking-tighter;
       font-size: pxToRem(40);
     }
     @screen lg {
@@ -86,7 +83,7 @@
 
   h3,
   .text-h3 {
-    @apply font-medium edu:font-extrabold tracking-tight;
+    @apply font-display font-bold;
     font-size: pxToRem(27);
     line-height: 1.25;
 
@@ -94,7 +91,6 @@
       font-size: pxToRem(28.25);
     }
     @screen md {
-      @apply tracking-tighter;
       font-size: pxToRem(30);
     }
     @screen lg {
@@ -107,8 +103,7 @@
 
   h4,
   .text-h4 {
-    // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h4
-    @apply font-medium edu:font-extrabold tracking-normal;
+    @apply font-display font-bold;
     font-size: pxToRem(22);
     line-height: 1.25;
 
@@ -116,7 +111,6 @@
       font-size: pxToRem(23.25);
     }
     @screen md {
-      @apply tracking-tight;
       font-size: pxToRem(24.75);
     }
     @screen lg {
@@ -129,8 +123,7 @@
 
   h5,
   .text-h5 {
-    // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h5
-    @apply font-medium edu:font-extrabold tracking-normal;
+    @apply font-display font-bold;
     font-size: pxToRem(20);
     line-height: 1.25;
 
@@ -150,8 +143,7 @@
 
   h6,
   .text-h6 {
-    // tracking-normal set explicitly to override tighter tracking when an h1, h2, or h3 is used with .text-h6
-    @apply font-bold edu:font-bold tracking-normal;
+    @apply font-display font-bold edu:font-bold;
     font-size: pxToRem(18);
     line-height: 1.6667;
 
@@ -188,17 +180,19 @@
 
   // moved to a tailwind plugin in tailwind.config.js which allows us to @apply text-subtitle
   // .text-subtitle {
-  //   @apply font-secondary uppercase text-base leading-tight tracking-wider;
+  //   @apply font-secondary uppercase text-base leading-tight;
   // }
 
   // moved to a tailwind plugin in tailwind.config.js which allows us to @apply text-subtitle
   // .text-subtitle-sm {
-  //   @apply font-secondary uppercase text-sm leading-tight tracking-wider;
+  //   @apply font-secondary uppercase text-sm leading-tight;
   // }
 
   .text-body-lg {
+    @apply font-display;
     font-size: pxToRem(18); // Based on Tailwind's text-lg
     line-height: 1.6667;
+    letter-spacing: 0.4px;
 
     @screen sm {
       font-size: pxToRem(19);
@@ -215,6 +209,7 @@
   }
 
   .text-body-md {
+    @apply font-primary;
     font-size: pxToRem(16); // Based on Tailwind's text-base
     line-height: 1.6667;
 
@@ -224,6 +219,7 @@
   }
 
   .text-body-sm {
+    @apply font-primary;
     font-size: pxToRem(14); // Based on Tailwind's text-sm
     line-height: 1.6667;
 
@@ -233,13 +229,14 @@
   }
 
   .text-body-xs {
+    @apply font-primary;
     font-size: pxToRem(14); // Based on Tailwind's text-sm, but doesn't scale up
     line-height: 1.6667;
   }
 
   // for stats areas (i.e. missions and robotics)
   .text-stats-xl {
-    @apply font-extrabold leading-none;
+    @apply font-display font-extrabold leading-none;
 
     font-size: 2.125rem; // 34px
 
@@ -253,7 +250,7 @@
   }
 
   .text-stats-lg {
-    @apply font-extrabold leading-none;
+    @apply font-display font-extrabold leading-none;
 
     font-size: 2.125rem; // 34px
 

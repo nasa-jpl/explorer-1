@@ -150,7 +150,7 @@
               <div
                 v-if="missionTitle"
                 ref="missionHighlightsTitle"
-                class="sm:mt-16 relative mt-10 text-white transform -translate-x-1/2 opacity-0"
+                class="sm:mt-16 relative mt-10 text-white font-secondary transform -translate-x-1/2 opacity-0"
               >
                 {{ missionTitle }}
               </div>

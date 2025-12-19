@@ -17,6 +17,7 @@ export default {
       }
     }
   },
+
   globals: {
     viewport: {
       value: 'mobile2',

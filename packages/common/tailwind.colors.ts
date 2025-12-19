@@ -1,66 +1,199 @@
 // Dedicated file for managing tailwind theme colors
 
+export const colorLibrary = {
+  white: 'rgb(255, 255, 255)', // #ffffff
+  black: 'rgb(0, 0, 0)', // #000000
+  /** Gray */
+  gray: {
+    100: 'rgb(249, 249, 249)', // #f9f9f9
+    150: 'rgb(243, 243, 243)', // #f3f3f3 // not official branding color yet
+    200: 'rgb(232, 232, 232)', // #e8e8e8
+    300: 'rgb(213, 213, 213)', // #d5d5d5
+    400: 'rgb(134, 134, 134)', // #868686
+    500: 'rgb(118, 118, 118)', // #767676
+    600: 'rgb(103, 103, 103)', // #676767
+    700: 'rgb(44, 44, 44)', // #2c2c2c
+    800: 'rgb(31, 31, 31)', // #1f1f1f
+    900: 'rgb(20, 20, 20)' // #141414
+  },
+  /** JPL Red (hue 349) */
+  red: {
+    100: 'rgb(253, 245, 246)', // #fdf5f6
+    200: 'rgb(251, 226, 231)', // #fbe2e7
+    300: 'rgb(252, 200, 209)', // #fcc8d1
+    400: 'rgb(255, 46, 84)', // #ff2e54
+    500: 'rgb(228, 0, 43)', // #e4002b
+    600: 'rgb(206, 0, 38)', // #ce0026
+    700: 'rgb(92, 5, 21)', // #5c0515
+    800: 'rgb(67, 6, 17)', // #430611
+    900: 'rgb(45, 5, 12)' // #2d050c
+  },
+  /** Mars Orange (hue 19) */
+  orange: {
+    100: 'rgb(253, 248, 246)', // #fdf8f6
+    200: 'rgb(250, 226, 216)', // #fae2d8
+    300: 'rgb(249, 196, 171)', // #f9c4ab
+    400: 'rgb(232, 87, 20)', // #e85714
+    500: 'rgb(204, 76, 17)', // #cc4c11
+    600: 'rgb(179, 65, 13)', // #b3410d
+    700: 'rgb(76, 30, 8)', // #4c1e08
+    800: 'rgb(54, 22, 7)', // #361607
+    900: 'rgb(34, 15, 6)' // #220f06
+  },
+  /** Mylar Gold (hue 49) */
+  gold: {
+    100: 'rgb(253, 249, 231)', // #fdf9e7
+    200: 'rgb(252, 235, 157)', // #fceb9d
+    300: 'rgb(246, 209, 43)', // #f6d12b
+    400: 'rgb(162, 132, 0)', // #a28400
+    500: 'rgb(142, 116, 0)', // #8e7400
+    600: 'rgb(124, 101, 0)', // #7c6500
+    700: 'rgb(52, 43, 3)', // #342b03
+    800: 'rgb(37, 31, 4)', // #251f04
+    900: 'rgb(24, 21, 5)' // #181505
+  },
+  /** Vegetation Green (hue 157) */
+  green: {
+    100: 'rgb(236, 253, 246)', // #ecfdf6
+    200: 'rgb(160, 251, 216)', // #a0fbd8
+    300: 'rgb(67, 241, 174)', // #43f1ae
+    400: 'rgb(16, 154, 101)', // #109a65
+    500: 'rgb(13, 135, 88)', // #0d8758
+    600: 'rgb(9, 119, 77)', // #09774d
+    700: 'rgb(5, 51, 33)', // #053321
+    800: 'rgb(5, 36, 24)', // #052418
+    900: 'rgb(5, 24, 17)' // #051811
+  },
+  /** Earth Blue (hue 199) */
+  blue: {
+    100: 'rgb(244, 250, 253)', // #f4fafd
+    200: 'rgb(208, 237, 251)', // #d0edfb
+    300: 'rgb(162, 223, 251)', // #a2dffb
+    400: 'rgb(19, 144, 202)', // #1390ca
+    500: 'rgb(15, 126, 177)', // #0f7eb1
+    600: 'rgb(13, 110, 156)', // #0d6e9c
+    700: 'rgb(6, 48, 67)', // #063043
+    800: 'rgb(6, 34, 47)', // #06222f
+    900: 'rgb(5, 22, 30)' // #05161e
+  },
+  /** Universe Purple (hue 259) */
+  purple: {
+    100: 'rgb(249, 248, 252)', // #f9f8fc
+    200: 'rgb(236, 229, 250)', // #ece5fa
+    300: 'rgb(221, 208, 249)', // #ddd0f9
+    400: 'rgb(153, 110, 245)', // #996ef5
+    500: 'rgb(135, 85, 243)', // #8755f3
+    600: 'rgb(119, 62, 242)', // #773ef2
+    700: 'rgb(52, 12, 137)', // #340c89
+    800: 'rgb(35, 8, 94)', // #23085e
+    900: 'rgb(26, 7, 68)' // #1a0744
+  },
+  /** Cosmic Magenta (hue 319) */
+  magenta: {
+    100: 'rgb(253, 247, 251)', // #fdf7fb
+    200: 'rgb(251, 225, 243)', // #fbe1f3
+    300: 'rgb(251, 199, 235)', // #fbc7eb
+    400: 'rgb(247, 33, 181)', // #f721b5
+    500: 'rgb(219, 18, 156)', // #db129c
+    600: 'rgb(194, 14, 138)', // #c20e8a
+    700: 'rgb(86, 7, 61)', // #56073d
+    800: 'rgb(63, 7, 45)', // #3f072d
+    900: 'rgb(42, 6, 31)' // #2a061f
+  }
+}
+type ColorLibrary = typeof colorLibrary
+
+/**
+ * Flattens the a color library object into a single-level
+ * object with keys like 'color-shade' (e.g., 'gray-100').
+ * @param {object} library - The colorLibrary object.
+ * @returns {object} A new flat object.
+ */
+export function flattenColorLibrary(library: ColorLibrary): Record<string, string> {
+  const colors: Record<string, string> = {}
+  ;(Object.keys(library) as Array<keyof ColorLibrary>).forEach((colorName) => {
+    const value = library[colorName]
+    // If the value is a string, it's a top-level color (like white, black)
+    if (typeof value === 'string') {
+      colors[colorName] = value
+    }
+    // If it's an object, it's a color category with shades
+    else if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      ;(Object.keys(value) as unknown as Array<keyof typeof value>).forEach((shade) => {
+        // Create the new key, e.g., "gray-100"
+        const newKey = `${colorName}-${shade}`
+        colors[newKey] = value[shade]
+      })
+    }
+  })
+  return colors
+}
+export const flattenedColorLibrary = flattenColorLibrary(colorLibrary)
+
+/**
+ * Aliased Colors used for theming
+ * */
+
 export const jplRed = {
-  lighter: '#FDCFD5',
-  light: '#EA435B',
-  base: '#E31937',
-  dark: '#BD142E',
-  darker: '#900B1F',
-  darkest: '#3A040C'
+  lightest: colorLibrary.red[200],
+  lighter: colorLibrary.red[300],
+  light: colorLibrary.red[400],
+  base: colorLibrary.red[500],
+  dark: colorLibrary.red[600],
+  darker: colorLibrary.red[700],
+  darkest: colorLibrary.red[800]
 }
 
 export const jplOrange = {
-  lighter: '#FCDECF',
-  light: '#EC905F',
-  base: '#E36019',
-  dark: '#AB3C00',
-  darker: '#732800',
-  darkest: '#3B1500'
+  lightest: colorLibrary.orange[200],
+  lighter: colorLibrary.orange[300],
+  light: colorLibrary.orange[400],
+  base: colorLibrary.orange[500],
+  dark: colorLibrary.orange[600],
+  darker: colorLibrary.orange[700],
+  darkest: colorLibrary.orange[800]
 }
 
 export const jplYellow = {
-  lighter: '#FCF6CF', // intentionally the same as 'light'
-  light: '#FCF6CF',
-  base: '#E3C519',
-  dark: '#B69B00',
-  darker: '#897500',
-  darkest: '#5C4F00'
+  lightest: colorLibrary.gold[200],
+  lighter: colorLibrary.gold[300],
+  light: colorLibrary.gold[400],
+  base: colorLibrary.gold[500],
+  dark: colorLibrary.gold[600],
+  darker: colorLibrary.gold[700],
+  darkest: colorLibrary.gold[800]
 }
 
 export const jplTeal = {
-  lighter: '#CFF3FC',
-  light: '#4BA7BE',
-  base: '#0F7E99',
-  dark: '#006077',
-  darker: '#004050',
-  darkest: '#002129'
+  lightest: colorLibrary.blue[200],
+  lighter: colorLibrary.blue[300],
+  light: colorLibrary.blue[400],
+  base: colorLibrary.blue[500],
+  dark: colorLibrary.blue[600],
+  darker: colorLibrary.blue[700],
+  darkest: colorLibrary.blue[800]
 }
 
-export const jplBlue = {
-  lighter: '#CFECFC',
-  light: '#199CE3',
-  base: '#0076B6',
-  dark: '#005989',
-  darker: '#003C5C',
-  darkest: '#001F2F'
-}
+export const jplBlue = jplTeal
 
 export const jplViolet = {
-  lighter: '#EBE0FE',
-  light: '#854FEC',
-  base: '#6019E3',
-  dark: '#3C00AB',
-  darker: '#280073',
-  darkest: '#15003B'
+  lightest: colorLibrary.purple[300],
+  lighter: colorLibrary.purple[400],
+  light: colorLibrary.purple[500],
+  base: colorLibrary.purple[600],
+  dark: colorLibrary.purple[700],
+  darker: colorLibrary.purple[800],
+  darkest: colorLibrary.purple[900]
 }
 
 export const jplMagenta = {
-  lighter: '#FEDFF3', // intentionally the same as 'light'
-  light: '#FEDFF3',
-  base: '#E3199C',
-  dark: '#B60076',
-  darker: '#890059',
-  darkest: '#5C003C'
+  lightest: colorLibrary.magenta[200],
+  lighter: colorLibrary.magenta[300],
+  light: colorLibrary.magenta[400],
+  base: colorLibrary.magenta[500],
+  dark: colorLibrary.magenta[600],
+  darker: colorLibrary.magenta[700],
+  darkest: colorLibrary.magenta[800]
 }
 
 export const foundationColors = {
@@ -98,19 +231,18 @@ export const foundationColors = {
   'jpl-magenta-light': jplMagenta.light,
   'jpl-magenta': jplMagenta.base,
   'jpl-magenta-dark': jplMagenta.dark,
-  'jpl-magenta-darker': jplMagenta.darker,
-  green: '#14C97A'
+  'jpl-magenta-darker': jplMagenta.darker
 }
 
 export const grayScaleColors = {
-  white: '#FFFFFF',
-  'off-white': '#FAFAFA',
-  'gray-light': '#F5F5F5',
-  'gray-light-mid': '#D8D8D8',
-  'gray-mid': '#949494',
-  'gray-mid-dark': '#6F6F6F',
-  'gray-dark': '#222222',
-  black: '#000000'
+  // white: colorLibrary.white,
+  'off-white': colorLibrary.gray[100],
+  'gray-light': colorLibrary.gray[150],
+  'gray-light-mid': colorLibrary.gray[300],
+  'gray-mid': colorLibrary.gray[400],
+  'gray-mid-dark': colorLibrary.gray[600],
+  'gray-dark': colorLibrary.gray[800]
+  // black: colorLibrary.black
 }
 
 export const semanticColors = {
@@ -317,7 +449,5 @@ export default {
   ...grayScaleColors,
   ...semanticColors,
   ...socialColors,
-  ...themeVariantColors,
-  transparent: 'transparent',
-  current: 'currentColor'
+  ...themeVariantColors
 }

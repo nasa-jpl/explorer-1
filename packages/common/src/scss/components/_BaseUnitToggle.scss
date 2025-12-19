@@ -2,7 +2,7 @@
   .unit {
     // - Make the clickable areas much bigger than they appear for ease of interaction.
     // - Hide the un-selected units from text selection, so copy-pasted text shows the correct unit.
-    @apply inline-block pt-3 pb-2 px-1 -my-2 -mx-1 leading-relaxed select-none;
+    @apply font-secondary text-xs inline-block pt-3 pb-2 px-1 -my-2 -mx-1 leading-relaxed select-none;
 
     // Make the units dimmer than the numbers, regardless of which color it’s displayed with.
     --text-opacity: 0.84;

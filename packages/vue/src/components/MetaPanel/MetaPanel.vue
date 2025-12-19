@@ -191,7 +191,7 @@ const standardsIste = computed(() => {
                 </div>
                 <div class="w-full lg:grid grid-cols-2 lg:gap-6 xl:gap-10">
                   <div v-if="standardsEla">
-                    <div class="text-base font-semibold text-gray-dark mb-4">
+                    <div class="font-display text-lg font-bold text-gray-dark mb-4">
                       English Language Arts Standards (CCSS - ELA)
                     </div>
                     <span class="sr-only">.</span>
@@ -201,7 +201,7 @@ const standardsIste = computed(() => {
                     />
                   </div>
                   <div v-if="standardsMath">
-                    <div class="text-base font-semibold text-gray-dark mb-4">
+                    <div class="font-display text-lg font-bold text-gray-dark mb-4">
                       Math Standards (CCSS - Math)
                     </div>
                     <span class="sr-only">.</span>
@@ -211,7 +211,7 @@ const standardsIste = computed(() => {
                     />
                   </div>
                   <div v-if="standardsNgss">
-                    <div class="text-base font-semibold text-gray-dark mb-4">
+                    <div class="font-display text-lg font-bold text-gray-dark mb-4">
                       Science Standards (NGSS)
                     </div>
                     <span class="sr-only">.</span>
@@ -221,7 +221,7 @@ const standardsIste = computed(() => {
                     />
                   </div>
                   <div v-if="standardsIste">
-                    <div class="text-base font-semibold text-gray-dark mb-4">
+                    <div class="font-display text-lg font-bold text-gray-dark mb-4">
                       Technology Standards (ISTE)
                     </div>
                     <span class="sr-only">.</span>

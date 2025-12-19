@@ -6,7 +6,7 @@
   >
     <h2
       v-if="data[0].heading"
-      class="font-primary text-gray-dark lg:text-6xl mb-5 text-3xl font-semibold leading-normal tracking-normal uppercase"
+      class="text-h3 text-gray-dark mb-5"
     >
       {{ data[0].heading }}
     </h2>

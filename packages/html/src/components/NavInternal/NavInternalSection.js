@@ -13,7 +13,7 @@ export const NavInternalSectionTemplate = ({ title, url, menuItems, isActive }) 
 
   const headingTemplate = title
     ? url
-      ? `<a href="${url}" class="inline-block w-full p-2 pl-0 ${
+      ? `<a href="${url}" class="inline-block w-full p-2 pl-0 text-action hover:text-action-dark ${
           isActive ? ' active' : ''
         } ${hasMenuItems ? 'text-subtitle' : ''}">
   <span>

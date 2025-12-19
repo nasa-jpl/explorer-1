@@ -227,7 +227,7 @@
 
     .repeated-item {
       a {
-        @apply text-jpl-teal-dark leading-tight transition-colors text-lg font-medium;
+        @apply text-jpl-teal-dark leading-tight transition-colors text-lg font-medium font-display;
 
         span {
           @apply border-b border-transparent;
@@ -249,9 +249,8 @@
 
     /* stylelint-disable no-duplicate-selectors */
     .NavInternalSection {
-      a {
+      a:not(.text-subtitle) {
         @apply text-gray-mid-dark leading-tight transition-colors text-lg font-medium;
-
         @screen lg {
           @apply text-base font-normal;
         }
@@ -315,14 +314,6 @@
           &.IconExternal {
             @apply text-xs ml-1;
           }
-        }
-      }
-
-      > .text-subtitle {
-        @apply text-lg;
-
-        @screen lg {
-          @apply text-base;
         }
       }
 

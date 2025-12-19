@@ -16,7 +16,7 @@ export default defineComponent({
     role="presentation"
   >
     <div class="BaseButton -primary -icon-only pointer-events-none">
-      <span class="icon">
+      <span class="icon !text-lg xl:!text-xl">
         <IconExpand />
       </span>
     </div>

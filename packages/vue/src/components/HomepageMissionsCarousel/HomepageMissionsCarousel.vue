@@ -23,7 +23,7 @@
           </BaseHeading>
           <p
             v-if="data.summary"
-            class="text-body-md"
+            class="text-body-lg"
           >
             {{ data.summary }}
           </p>

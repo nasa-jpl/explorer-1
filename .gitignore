@@ -68,6 +68,9 @@ storybook_compiled
 # Tailwind
 dist
 
+# Licensed Fonts
+helvetica-now/
+
 # copied assets when preparing builds
 apps/**/.storybook/static/dist
 packages/**/src/assets/fonts
@@ -79,3 +82,7 @@ packages/**/public/edu/explorer-1/
 !packages/common/src/public/explorer-1
 apps/vue-storybook/public/fonts
 apps/vue-storybook/public/css
+
+# ci-generated files
+packages/common-storybook/src/fonts-data.js
+packages/common-storybook/src/font-flag.js

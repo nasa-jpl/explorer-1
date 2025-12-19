@@ -19,7 +19,7 @@
   .secondary-root {
     .nuxt-link-exact-active {
       span {
-        @apply text-primary font-semibold #{!important};
+        @apply text-primary font-bold #{!important};
       }
     }
   }

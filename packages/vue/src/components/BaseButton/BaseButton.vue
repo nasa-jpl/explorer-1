@@ -125,7 +125,7 @@ export default defineComponent({
 <template>
   <component
     :is="tag"
-    class="BaseButton text-contrast-none print:border print:!border-gray-dark print:text-center"
+    class="BaseButton text-sm text-contrast-none print:border print:!border-gray-dark print:text-center"
     :class="variantClass"
     :aria-label="ariaLabel"
     :disabled="disabled"

@@ -7,7 +7,7 @@
     @hide="() => $emit('hide')"
   >
     <div class="p-3 sm:p-10">
-      <p class="font-primary text-xl sm:text-4xl font-bold leading-relaxed">
+      <p class="text-h4">
         <template v-if="data.displayDate">
           {{ data.displayDate }}
         </template>
@@ -21,17 +21,17 @@
       />
       <div
         tabindex="0"
-        class="dialog-main py-3 overflow-auto relative"
+        class="dialog-main pb-3 overflow-auto relative"
       >
         <h2
           :id="`${data.id}-heading`"
-          class="mt-4 mb-2 font-primary text-xl sm:text-2xl font-bold sm:leading-normal"
+          class="mt-4 mb-3 text-h5"
         >
           {{ data.heading }}
         </h2>
         <p
           v-if="data.milestoneLabel"
-          class="font-primary text-gray-mid-dark text-lg sm:text-2xl font-normal leading-relaxed uppercase my-3"
+          class="text-subtitle text-gray-mid-dark"
         >
           {{ data.milestoneLabel }}
         </p>
@@ -39,7 +39,7 @@
           v-if="data.image"
           aspect-ratio="16:9"
           transparent-mode
-          class="sm:mx-20 mb-5 sm:mb-8"
+          class="sm:mx-20 my-5"
         >
           <BaseImage
             :src="data.image.src.url"
@@ -61,10 +61,10 @@
       <div class="my-3">
         <BaseLink
           v-if="data.milestoneLink"
-          variant="default"
+          variant="primary"
           :to="data.milestoneLink.page ? data.milestoneLink.page.url : undefined"
           :href="data.milestoneLink.externalLink"
-          link-class="block mt-3 text-center sm:text-left text-2xl"
+          link-class="block mt-3"
         >
           {{ getLinkLabel() }}
         </BaseLink>

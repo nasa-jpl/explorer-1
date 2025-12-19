@@ -54,7 +54,7 @@
         >
           <template v-if="metadataAttrs">
             <BasePill
-              :class="{ 'mb-2': !large, 'mb-4': large }"
+              :class="{ 'mb-2': !large, 'mb-4': large, 'text-xs': true }"
               size="sm"
               :content-type="metadataType"
               :text="(theItem as EventCardObject).eventType"
@@ -114,7 +114,7 @@
               >
                 <IconExternal
                   class="text-primary ml-2"
-                  :class="{ 'text-sm mt-1px': small, '-mt-1px': medium, '-mt-.5': large }"
+                  :class="{ 'text-sm mt-1px': small, 'text-sm -mt-1px': medium, '-mt-.5': large }"
                 />
               </template>
             </div>
@@ -122,7 +122,7 @@
 
           <component
             :is="headingLevel || 'p'"
-            class="text-gray-dark text-xl font-medium leading-tight tracking-tight edu:font-extrabold"
+            class="text-gray-dark text-xl font-bold font-display leading-tight"
             :class="{ 'lg:text-3xl': !small }"
           >
             {{ theItem.title }}
@@ -136,13 +136,13 @@
           <p
             v-if="theItem.date && !themeStore.isEdu"
             class="text-gray-mid-dark"
-            :class="{ 'mt-2': !large, 'mt-4': large }"
+            :class="{ 'mt-2 text-sm font-secondary': !large, 'mt-4 text-base': large }"
           >
             {{ theItem.date }}
           </p>
           <p
             v-if="large && theItem.summary"
-            class="mt-4 text-gray-mid-dark"
+            class="mt-4 text-gray-mid-dark text-base"
             :class="{
               'line-clamp-2 sm:line-clamp-1 lg:line-clamp-2 xl:line-clamp-3': themeStore.isEdu
             }"
@@ -152,7 +152,7 @@
           <p
             v-if="theItem.date && themeStore.isEdu"
             class="text-gray-mid-dark"
-            :class="{ 'mt-2': !large, 'mt-4': large }"
+            :class="{ 'mt-2 text-sm font-secondary': !large, 'mt-4 text-base': large }"
           >
             {{ theItem.date }}
           </p>

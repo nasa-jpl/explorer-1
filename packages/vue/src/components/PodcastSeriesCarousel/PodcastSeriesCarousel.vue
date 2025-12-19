@@ -5,11 +5,7 @@
   >
     <!-- tabs -->
     <LayoutHelper indent="col-2">
-      <h2
-        class="text-gray-dark text-3xl lg:text-6xl font-semibold leading-normal tracking-normal uppercase mb-2 lg:mb-5"
-      >
-        More {{ series.title }} Episodes
-      </h2>
+      <h2 class="text-gray-dark text-h3 mb-2 lg:mb-5">More {{ series.title }} Episodes</h2>
 
       <ul class="flex flex-wrap mb-6 lg:mb-10">
         <li

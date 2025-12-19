@@ -101,7 +101,7 @@ defineSlots<{
         >
           <component
             :is="headingLevel"
-            class="!font-normal !tracking-normal"
+            class="!font-normal"
           >
             <button
               v-bind-once="{ id: headingId, 'aria-controls': panelId }"

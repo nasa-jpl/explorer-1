@@ -255,7 +255,7 @@ export default defineComponent({
 
         if (slide.type === 'image') {
           caption = `<div class="mx-auto container">
-              ${slide.title ? `<h6 class="font-semibold text-4xl mb-1">${slide.title}</h6>` : ''}
+              ${slide.title ? `<h6 class="font-bold text-4xl mb-1">${slide.title}</h6>` : ''}
               ${
                 caption.length
                   ? `<div class="caption inline sm:flex text-body-md pb-2 mr-2 sm:mr-0"><div class="inline">${caption}</div></div>`

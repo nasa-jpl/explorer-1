@@ -8,7 +8,7 @@
       class="mb-5"
       :data="{ heading: data.heading }"
     />
-    <ul class="print:!list-disc">
+    <ul class="print:!list-disc font-text">
       <li
         v-for="(item, index) in data.listItem"
         :key="index"

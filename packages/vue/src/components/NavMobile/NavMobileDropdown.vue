@@ -5,7 +5,7 @@
   >
     <NavDropdownToggle
       :aria-expanded="dropdownVisible ? true : false"
-      class="group relative block w-full px-4 py-2 text-xl font-medium text-left"
+      class="group relative block w-full px-4 py-2 text-xl font-bold font-display text-left"
       :class="{
         '-open': dropdownVisible
       }"

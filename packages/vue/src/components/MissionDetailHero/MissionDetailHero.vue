@@ -42,15 +42,17 @@
             >
               <p
                 v-if="subtitle"
-                class="text-body-sm mb-3 font-normal tracking-normal"
+                class="text-body-sm mb-3"
               >
                 {{ subtitle }}
               </p>
-              <h1 class="text-h1-alt break-normal">
+              <h1 class="text-h1-alt break-normal mb-2">
                 {{ title }}
               </h1>
 
-              <p class="xl:text-2xl lg:text-md xl:pr-26 xl:leading-normal text-xl leading-relaxed">
+              <p
+                class="font-display xl:text-2xl lg:text-md xl:pr-26 xl:leading-normal text-xl leading-relaxed"
+              >
                 {{ summary }}
               </p>
               <BaseButton

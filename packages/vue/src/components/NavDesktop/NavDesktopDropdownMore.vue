@@ -36,7 +36,7 @@
         <div class="row-span-1 row-start-2">
           <p
             v-if="data.strapline"
-            class="text-medium pr-5 mb-8 text-6xl leading-tight"
+            class="text-medium pr-5 mb-8 text-6xl font-display leading-tight"
           >
             {{ data.strapline }}
           </p>

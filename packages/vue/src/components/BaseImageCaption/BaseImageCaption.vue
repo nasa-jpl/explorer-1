@@ -33,7 +33,7 @@ export default defineComponent({
 <template>
   <div
     v-if="data"
-    class="BaseImageCaption text-body-sm"
+    class="BaseImageCaption text-body-sm -tracking-[0.03rem]"
   >
     <div
       v-if="data.caption || data.credit"

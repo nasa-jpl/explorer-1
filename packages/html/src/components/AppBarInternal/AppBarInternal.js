@@ -53,7 +53,7 @@ export const AppBarInternalTemplate = ({
         </a>
       `
       : `
-      <a href="${logInUrl}" class="flex flex-nowrap items-center focus:outline-none focus:ring-2 mr-2 py-1">
+      <a href="${logInUrl}" class="flex flex-nowrap items-center focus:outline-none focus:ring-2 mr-2 py-1 font-display font-medium">
         <span class="hidden lg:block mr-2">
           Sign In
         </span>
@@ -66,13 +66,13 @@ export const AppBarInternalTemplate = ({
 
   return `
   <div class="AppBarInternal sticky lg:relative top-0 z-30">
-    <div class="bg-gradient-to-r from-jpl-red to-jpl-red-darker text-white font-medium relative z-10">
+    <div class="bg-red-600 text-white font-medium relative z-10">
       <div class="flex flex-row px-4 lg:container mx-auto py-2 items-center justify-between">
         <div class="flex flex-row items-center py-px">
           <a href="//js.jpl.nasa.gov" aria-label="JPL Space" class="block mr-10">
             ${LogoJPLTemplate({ colorClass: 'text-white lg:w-14.5' })}
           </a>
-          <a class="hidden lg:flex flex-row items-center text-3xl py-px leading-tighter tracking-wide" href="/" title="${siteTitle}">
+          <a class="hidden lg:flex flex-row items-center text-3xl py-px leading-tighter font-display font-medium" href="/" title="${siteTitle}">
             <span>
               ${orgNumber}
             </span>
