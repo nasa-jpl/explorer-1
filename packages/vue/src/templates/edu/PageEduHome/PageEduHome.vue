@@ -89,7 +89,7 @@ const submitSearch = () => {
                 class="md:flex flex-row mt-10"
               >
                 <h2
-                  class="text-subtitle mt-1 text-white font-semibold whitespace-nowrap mr-5 mb-3 md:mb-0 lg:mr-8"
+                  class="text-subtitle mt-1 text-white font-bold whitespace-nowrap mr-5 mb-3 md:mb-0 lg:mr-8"
                 >
                   Hot Topics
                 </h2>

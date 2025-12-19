@@ -12,13 +12,13 @@
     }"
   >
     <!-- navbar -->
-    <div class="header-bg z-10 absolute inset-0 mx-auto"></div>
+    <div class="header-bg z-10 absolute inset-0 mx-auto bg-primary-dark"></div>
     <div class="px-4">
       <div class="h-18 container flex items-center justify-between mx-auto">
         <!-- branding -->
         <NavLogoLinks class="w-[17rem] z-20 flex flex-shrink-0 my-2 -ml-1">
           <img
-            :src="LogoWhite"
+            :src="LogoOutline"
             class="print:hidden"
             alt="JPL Logo"
             width="324"
@@ -33,9 +33,9 @@
           />
         </NavLogoLinks>
         <!-- site title -->
-        <div class="ml-2 pl-3 xl:ml-3 xl:pl-5 border-l border-white border-opacity-30 z-20">
+        <div class="ml-3 pl-3 md:ml-1 xl:ml-3 xl:pl-5 border-l border-white border-opacity-30 z-20">
           <BaseLink
-            class="text-white font-bold text-2xl xl:text-3xl"
+            class="text-white font-display font-bold text-2xl xl:text-3xl"
             to="/edu/"
             link-class="py-2"
             variant="none"
@@ -69,7 +69,7 @@
             <BaseLink
               href="https://www.nasa.gov/learning-resources/"
               variant="none"
-              class="NavDesktopLink group relative z-20 font-medium border-t-2 border-transparent text-sm xl:text-base px-2 xl:px-4"
+              class="NavDesktopLink group relative z-20 font-display font-bold border-t-2 border-transparent text-sm xl:text-base px-2 xl:px-4"
               link-class="inline-block py-2 transition-colors duration-100 ease-in border-b-2 border-transparent group-hover:border-white flex flex-wrap-none items-center"
               external-target-blank
             >
@@ -129,7 +129,7 @@ import IconSearch from './../Icons/IconSearch.vue'
 import IconClose from './../Icons/IconClose.vue'
 import type { NavLinkObject, BreadcrumbObject } from './../../utils/mixins'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
-import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
+import LogoOutline from '@explorer-1/common/src/images/svg/logo-tribrand-outline.svg'
 import type { BreadcrumbPathObject } from '../../interfaces'
 import {
   mixinIsActivePath,
@@ -189,8 +189,8 @@ export default defineComponent({
       // This is used in transition logic to avoid distracting animations on route changes
       // without this check, the nav would swoop in/out on a route change if it was visible before the route change occured (e.g. partially scrolled up on a page)
       scrolledCurrentPage: false,
-      LogoWhite: LogoWhite,
-      LogoColor: LogoColor
+      LogoColor,
+      LogoOutline
     }
   },
   computed: {

@@ -35,7 +35,7 @@ const splitDate = computed(() => {
     <template v-else-if="themeStore.isEdu && splitDate">
       <div
         v-if="splitDate.month"
-        class="font-extrabold text-6xl leading-tight tracking-wider uppercase"
+        class="font-display font-extrabold text-6xl leading-tight uppercase"
       >
         {{ splitDate.month.substring(0, 3) }}
       </div>
@@ -44,7 +44,7 @@ const splitDate = computed(() => {
       </div>
     </template>
     <template v-else-if="splitDate">
-      <div class="font-extrabold text-6xl leading-tight tracking-wider">
+      <div class="font-display font-extrabold text-6xl leading-tight tracking-wider">
         {{ splitDate.day }}
       </div>
       <div class="text-subtitle">

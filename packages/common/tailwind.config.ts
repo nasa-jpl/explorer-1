@@ -68,18 +68,20 @@ const defaultTheme: Partial<CustomThemeConfig> = {
     ...fullColorLibrary
   },
   fontFamily: {
-    primary: ['Metropolis', ...fallbackFontStack],
-    secondary: ['Archivo Narrow', 'Metropolis', ...fallbackFontStack],
+    primary: ['Helvetica Now Text', ...fallbackFontStack],
+    secondary: ['Helvetica Now Micro', 'Metropolis', ...fallbackFontStack],
+    display: ['Helvetica Now Display', ...fallbackFontStack],
+    text: ['Helvetica Now Text', ...fallbackFontStack],
     serif: ['ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif']
   },
   fontWeight: {
     // Commenting out anything Tailwind provides by default but we don’t use for this project.
     // thin: '100',
     // extralight: '200',
-    light: '300',
+    // light: '300',
     normal: '400',
     medium: '500',
-    semibold: '600',
+    // semibold: '700', // deprecated
     bold: '700',
     extrabold: '800'
     // black: 900,
@@ -297,10 +299,10 @@ export default {
       addBase({
         // reusable typography classes TODO: write a more robust way to include most typography classes
         '.text-subtitle': {
-          '@apply font-secondary uppercase text-base leading-tight tracking-wider': {}
+          '@apply font-secondary uppercase text-sm leading-tight font-medium edu:font-medium': {}
         },
         '.text-subtitle-sm': {
-          '@apply font-secondary uppercase text-sm leading-tight tracking-wider': {}
+          '@apply font-secondary uppercase text-xs leading-tight font-medium edu:font-medium': {}
         },
         // www theme selectors
         ':root, .ThemeVariantLight': ThemeWww.default,

@@ -31,7 +31,7 @@
         <component
           :is="theLabel || (theTeaserPage && theTeaserPage.label) ? 'h3' : 'h2'"
           v-if="theHeading"
-          class="text-h3 font-semibold tracking-normal lg:mt-2 mt-3"
+          class="text-h3 font-bold tracking-normal lg:mt-2 mt-3"
         >
           {{ theHeading }}
         </component>

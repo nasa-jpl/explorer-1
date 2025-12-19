@@ -76,7 +76,7 @@ const theme = themeMaterial.withParams({
 })
 
 const headerClass = [
-  'min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white text-sm border-gray-light-mid lg:p-5 p-3 border-b text-left'
+  'min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker font-display text-white text-sm border-gray-light-mid lg:p-5 p-3 border-b text-left'
 ]
 const defaultcolDef = {
   flex: 1,
@@ -245,7 +245,7 @@ const onFilterTextBoxChanged = () => {
               >
             </p>
           </div>
-          <h2 class="text-lg tracking-tight mb-3">Test Limits</h2>
+          <h2 class="text-lg mb-3">Test Limits</h2>
           <CsrTestLimitsTable :data="modalData.ExportPackageRates" />
         </div>
       </BaseModalDialog>

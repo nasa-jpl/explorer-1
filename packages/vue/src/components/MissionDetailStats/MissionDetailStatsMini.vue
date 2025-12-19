@@ -7,7 +7,7 @@
           v-if="showClock && startDateTime"
           class="theme-inner lg:col-span-4 xl:col-span-4 2xl:col-span-3 sm:col-span-7 col-span-11"
         >
-          <p class="text-jpl-blue-lighter text-subtitle mb-3">
+          <p class="text-blue-200 text-subtitle mb-3">
             {{ clockTypeLabel }}
           </p>
           <BaseTimer
@@ -25,7 +25,7 @@
           :distance-api-urls="distanceApiUrls"
         >
           <template #label="slotProps">
-            <p class="text-jpl-blue-lighter text-subtitle mb-3">
+            <p class="text-blue-200 text-subtitle mb-3">
               {{ slotProps.label }}
             </p>
           </template>

@@ -20,7 +20,11 @@
       }
     }
   }
-
+  .BaseTimer {
+    .unit {
+      @apply relative -top-2;
+    }
+  }
   .legend {
     @apply text-white;
   }

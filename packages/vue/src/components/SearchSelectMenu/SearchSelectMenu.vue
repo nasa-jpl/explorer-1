@@ -8,7 +8,7 @@
     <select
       :id="generateId()"
       v-model="selectValueHandler"
-      class="border-0 text-action can-hover:hover:text-action-dark font-secondary font-semibold tracking-wider uppercase align-middle"
+      class="border-0 text-action can-hover:hover:text-action-dark text-subtitle align-middle"
     >
       <option
         disabled

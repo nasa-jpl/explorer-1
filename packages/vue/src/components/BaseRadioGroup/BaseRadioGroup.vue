@@ -2,12 +2,12 @@
   <div class="BaseRadioGroup">
     <label
       v-if="heading"
-      class="text-lg font-semibold text-gray-900"
+      class="font-display text-lg font-bold text-gray-900"
       >{{ heading }}</label
     >
     <p
       v-if="subHeading"
-      class="text-lg pt-4 pb-2 pr-4"
+      class="text-body-md pt-4 pb-2 pr-4"
     >
       {{ subHeading }}
     </p>
@@ -39,18 +39,17 @@
           />
           <label
             :for="`${group}_${option.id}`"
-            class="ml-3 block text-md text-gray-700"
+            class="ml-3 block text-md text-gray-mid-dark"
           >
             <span
               v-if="option.title"
-              :class="option.text ? 'font-semibold' : ''"
+              :class="option.text ? 'font-medium' : ''"
               >{{ option.title }}</span
             >
             <span v-if="option.text"> - </span>
             <span
               v-if="option.text"
               :id="`${group}_${option.id}_description`"
-              class="font-light"
               >{{ option.text }}</span
             >
           </label>

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * A somewhat generic component that can be used for handling search input
+ * We do this in at least two places:
+ * -  on pages (such as the search page and listing pages)
+ * -  for site-wide search
+ */
 import { onMounted, ref } from 'vue'
 import IconSearch from './../Icons/IconSearch.vue'
 
@@ -36,11 +42,6 @@ onMounted(() => {
 })
 </script>
 <template>
-  <!--
-    A somewhat generic component that can be used for handling search input
-    We do this in at least two places:
-      * on pages (such as the search page and listing pages)
-      * for site-wide search -->
   <div
     class="relative flex items-center SearchInput"
     :class="{
@@ -69,7 +70,7 @@ onMounted(() => {
     <input
       ref="searchQueryRef"
       v-model="model"
-      class="pl-14 h-full focus:ring-2 relative z-10 w-full px-5 text-base lg:text-lg bg-transparent border-0"
+      class="pl-14 h-full focus:ring-2 relative z-10 w-full px-5 text-base bg-transparent border-0"
       :class="{
         'text-gray-dark': defaultColors,
         'py-1': underlinedInput,

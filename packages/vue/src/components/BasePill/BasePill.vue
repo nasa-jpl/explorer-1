@@ -13,9 +13,9 @@ const variantMap = {
 type VariantMapKey = keyof typeof variantMap
 
 const sizeMap = {
-  sm: 'text-xs border-t-2 py-1 px-2.5',
-  md: 'text-xs lg:text-base border-t py-1.5 px-3.5',
-  lg: 'text-base lg:text-lg border-t pt-1.5 pb-1 px-5'
+  sm: 'text-subtitle border-t-2 py-1 px-2.5',
+  md: 'text-subtitle lg:text-base border-t py-1.5 px-3.5',
+  lg: 'text-subtitle lg:text-lg border-t py-1.5 px-5'
 } as const
 type SizeMapKey = keyof typeof sizeMap
 
@@ -69,7 +69,7 @@ const theText = computed(() => {
 <template>
   <p
     :class="`${variantMap[metadataAttrs.variant || props.variant]} ${sizeMap[props.size]}`"
-    class="ThemeVariantLight text-contrast-none inline-block text-white font-bold edu:font-extrabold rounded-full leading-tight m-0 uppercase print:border-none print:px-0"
+    class="ThemeVariantLight text-contrast-none inline-block text-white !font-bold rounded-full leading-tight m-0 uppercase print:border-none print:px-0"
   >
     {{ theText }}
     <span class="sr-only">.</span>

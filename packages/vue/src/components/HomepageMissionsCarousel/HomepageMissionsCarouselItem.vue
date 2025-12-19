@@ -65,11 +65,11 @@ export default defineComponent({
       <div
         class="shifted-text can-hover:group-hover:-mt-3 lg:mt-0 -mt-3 transition-all duration-500 ease-in-out"
       >
-        <p class="mb-1 text-3xl font-semibold">{{ data.name }}</p>
-        <p class="text-gray-light-mid mb-1 text-lg whitespace-nowrap">
+        <p class="mb-1 text-h4">{{ data.name }}</p>
+        <p class="text-gray-light-mid text-body-md whitespace-nowrap">
           Current missions: {{ data.currentMissions }}
         </p>
-        <p class="text-gray-light-mid mb-2 text-lg whitespace-nowrap">
+        <p class="text-gray-light-mid mb-1 text-body-md whitespace-nowrap">
           Past missions: {{ data.pastMissions }}
         </p>
         <div

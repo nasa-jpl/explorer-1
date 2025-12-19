@@ -151,7 +151,7 @@
   }
   .richtext-caption {
     // mimic BaseImageCaption
-    @apply pt-3 text-gray-mid-dark text-sm lg:text-base;
+    @apply font-secondary pt-3 text-gray-mid-dark text-sm -tracking-[0.03rem];
     div.caption {
       @apply inline #{!important};
     }
@@ -180,6 +180,9 @@
     &:last-child {
       @apply mb-0;
     }
+  }
+  &.-large {
+    @apply font-display;
   }
   &.-medium {
     ul {

@@ -107,7 +107,7 @@
                       h-full
                       px-5
                       -ml-5
-                      font-semibold
+                      font-medium
                       text-base text-left text-white text-opacity-75
                       transition-all duration-200 ease-in
                       ${index === 0 ? '!text-white' : ''}

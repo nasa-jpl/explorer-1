@@ -12,17 +12,22 @@
   }
 
   .label {
-    @apply font-semibold mb-3 text-jpl-red-dark;
+    @apply mb-3 text-jpl-red-dark;
   }
 
   .ThemeVariantDark & .label {
-    @apply text-jpl-blue-light;
+    @apply text-blue-200;
   }
 
   .legend {
     @apply text-gray-mid-dark;
   }
 
+  .BaseTimer {
+    .unit {
+      @apply relative -top-1;
+    }
+  }
   .ThemeVariantDark & .legend {
     @apply text-white;
   }

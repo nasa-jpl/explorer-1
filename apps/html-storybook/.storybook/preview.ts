@@ -7,7 +7,16 @@ import '@explorer-1/common-storybook/src/config/canvas.css'
 import { withGlobals } from './withGlobals'
 import beautify from 'js-beautify'
 import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/beautifyHtmlOptions.js'
-
+import { injectLicensedFonts } from '@explorer-1/common-storybook/src/fonts-data.js'
+import '@explorer-1/common-storybook/src/font-flag.js'
+/* Handle Licensed Fonts in CI */
+// @ts-ignore
+const IS_CHROMATIC_BUILD = import.meta.env.VITE_CHROMATIC_BUILD === 'true'
+// @ts-ignore
+if (IS_CHROMATIC_BUILD && window.__IS_LICENSED_FONT_AVAILABLE__) {
+  console.log('✅ Licensed Fonts loaded.')
+  injectLicensedFonts()
+}
 // viewports that match our tailwind config
 const customViewports = {
   screenSm: {

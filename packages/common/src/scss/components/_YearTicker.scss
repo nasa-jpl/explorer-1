@@ -1,5 +1,5 @@
 .YearTicker {
-  @apply sticky transform text-gray-light-mid translate-x-0.5 md:translate-x-0 ml-7 md:ml-8 lg:ml-30 pt-10 md:pt-5;
+  @apply sticky transform text-gray-light-mid translate-x-0.5 md:translate-x-0 ml-7 md:ml-8 lg:ml-30 pt-10 md:pt-5 font-display;
 
   // Unitless 0 isn’t supported in a `calc` operation.
   // stylelint-disable-next-line length-zero-no-unit

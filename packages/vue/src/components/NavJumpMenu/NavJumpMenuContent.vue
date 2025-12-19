@@ -3,7 +3,7 @@
     <li
       v-for="(child, index) in item.children"
       :key="index"
-      class="text-base border-b border-gray-light"
+      class="text-base border-b border-gray-300"
     >
       <BaseLink
         :href="child.path"
