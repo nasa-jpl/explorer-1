@@ -20,7 +20,7 @@
       class="md:mt-5 md:mb-2 mt-4 mb-1"
     >
       {{ data.text }}
-      <template #icon><IconExternal class="ml-2 text-sm" /></template>
+      <template #iconRight><IconExternal class="ml-2 text-sm" /></template>
       <!-- TODO: replace with external link icon once icons are available -->
     </BaseButton>
   </div>

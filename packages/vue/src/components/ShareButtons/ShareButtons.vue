@@ -11,7 +11,7 @@
       target="_blank"
       rel="noopener"
     >
-      <template #icon>
+      <template #iconRight>
         <IconSocialFacebook />
       </template>
     </BaseButton>
@@ -25,7 +25,7 @@
       target="_blank"
       rel="noopener"
     >
-      <template #icon>
+      <template #iconRight>
         <IconSocialTwitter />
       </template>
     </BaseButton>
@@ -39,7 +39,7 @@
       target="_blank"
       rel="noopener"
     >
-      <template #icon>
+      <template #iconRight>
         <IconSocialReddit />
       </template>
     </BaseButton>
@@ -53,7 +53,7 @@
       target="_blank"
       rel="noopener"
     >
-      <template #icon>
+      <template #iconRight>
         <IconSocialEmail />
       </template>
     </BaseButton>

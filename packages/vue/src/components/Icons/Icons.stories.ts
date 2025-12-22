@@ -26,6 +26,7 @@ import IconInfo from './IconInfo.vue'
 import IconLink from './IconLink.vue'
 import IconList from './IconList.vue'
 import IconLocation from './IconLocation.vue'
+import IconMap from './IconMap.vue'
 import IconMagnifyingGlass from './IconMagnifyingGlass.vue'
 import IconMedal from './IconMedal.vue'
 import IconMenu from './IconMenu.vue'
@@ -91,6 +92,7 @@ export default {
     IconLink,
     IconList,
     IconLocation,
+    IconMap,
     IconMagnifyingGlass,
     IconMedal,
     IconMenu,
@@ -298,6 +300,12 @@ export const Location = {
   render: () => ({
     components: { IconLocation },
     template: '<IconLocation />'
+  })
+}
+export const Map = {
+  render: () => ({
+    components: { IconMap },
+    template: '<IconMap />'
   })
 }
 export const MagnifyingGlass = {

@@ -9,7 +9,7 @@
       :disabled="currentPage === 1"
       @click="previousPage()"
     >
-      <template #icon> <IconPrev /> </template
+      <template #iconRight> <IconPrev /> </template
     ></BaseButton>
 
     <div class="sm:hidden px-4 pt-1">Page {{ currentPage }} of {{ totalPages }}</div>
@@ -51,7 +51,7 @@
       aria-label="Next"
       @click="nextPage()"
     >
-      <template #icon> <IconNext /> </template
+      <template #iconRight> <IconNext /> </template
     ></BaseButton>
   </div>
 </template>

@@ -152,7 +152,7 @@ const standardsIste = computed(() => {
                 @click="handleMetaPanel"
               >
                 {{ buttonText }}
-                <template #icon>
+                <template #iconRight>
                   <IconPlus
                     v-if="!metaPanelOpen"
                     class="text-xs ml-2"

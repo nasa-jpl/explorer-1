@@ -8,8 +8,8 @@ export default {
   parameters: {
     slots: {
       default: 'The contents of the button, usually text. Override with `<template #default>`',
-      icon: 'Appears to the right of the `default` slot. Override with `<template #icon>`',
-      afterIcon: 'Appears to the right of the `icon` slot. Override with `<template #afterIcon>`'
+      iconLeft: 'Appears to the left of the `default` slot. Override with `<template #iconLeft>`',
+      iconRight: 'Appears to the right of the `default` slot. Override with `<template #iconRight>`'
     },
     docs: {
       description: {
