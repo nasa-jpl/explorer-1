@@ -47,3 +47,11 @@ export const Unstyled = {
     variant: 'none'
   }
 }
+
+export const WithLeadingIcon = {
+  args: {
+    ...BaseLinkData,
+    variant: 'primary',
+    caretLeft: true
+  }
+}
