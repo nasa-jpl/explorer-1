@@ -2,3 +2,6 @@
 *.woff2
 *.otf
 *.ttf
+*.log
+storybook_compiled
+node_modules
