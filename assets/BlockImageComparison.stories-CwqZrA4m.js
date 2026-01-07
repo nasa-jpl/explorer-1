@@ -1,0 +1,7 @@
+import{B as r}from"./BlockImageComparison-4d8XcO-c.js";import"./iframe-bnomvYc_.js";import"./preload-helper-D6kgxu3v.js";import"./BaseImageCaption-CzeNq1a-.js";import"./BaseLink--QKwlp_B.js";import"./theme-a6J_Dz-m.js";import"./MixinAnimationCaret-DEJyxRUU.js";import"./IconCaret-BPvMdFux.js";const d={title:"Components/Blocks/BlockImageComparison",component:r,tags:["wagtail-blocks"],decorators:[()=>({template:'<div id="storyRoot" class="container mx-auto"><story/></div>'})],parameters:{html:{root:"#storyRoot"}},excludeStories:/.*Data$/},e={blockType:"ImageComparisonBlock",beforeImage:{src:{url:"https://picsum.photos/800/450?image=1"},srcCropped:{url:"https://picsum.photos/1320/1320?image=1"}},afterImage:{src:{url:"https://picsum.photos/800/450?image=4"},srcCropped:{url:"https://picsum.photos/1320/1320?image=4"}},caption:"<p>Catnip test subjects from the JPL Mars Cultivation Lab</p>"},o={name:"BlockImageComparison",args:{data:e,customDetailUrl:"https://www.google.com"}};var t,a,s;o.parameters={...o.parameters,docs:{...(t=o.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  name: 'BlockImageComparison',
+  args: {
+    data: BlockImageComparisonData,
+    customDetailUrl: 'https://www.google.com'
+  }
+}`,...(s=(a=o.parameters)==null?void 0:a.docs)==null?void 0:s.source}}};const C=["BlockImageComparisonData","BaseStory"];export{o as BaseStory,e as BlockImageComparisonData,C as __namedExportsOrder,d as default};

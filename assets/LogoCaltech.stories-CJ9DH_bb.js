@@ -1,0 +1,5 @@
+import{L as t}from"./LogoCaltech-BF8HD6T9.js";import"./iframe-bnomvYc_.js";import"./preload-helper-D6kgxu3v.js";const c={title:"Foundations/Logos/LogoCaltech",component:t,argTypes:{size:{description:"Use TailwindCSS text size classes to control the size of the logo",control:{type:"select"},options:["text-xs","text-sm","text-base","text-lg","text-xl","text-2xl"]}},excludeStories:/.*Data$/,parameters:{viewMode:"docs",docs:{description:{component:"The Caltech logo as an SVG. Size and color can be specified via tailwind text classes. This will only work with inlined SVG. This will not work when rendering the svg file via an `<img />` element."}}},render:r=>({components:{LogoCaltech:t},setup(){return{args:r}},template:'<LogoCaltech :class="args.size" />'})},e={args:{size:"text-base"}};var o,s,a;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    size: 'text-base'
+  }
+}`,...(a=(s=e.parameters)==null?void 0:s.docs)==null?void 0:a.source}}};const p=["BaseStory"];export{e as BaseStory,p as __namedExportsOrder,c as default};
