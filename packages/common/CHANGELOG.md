@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 2.0.1
+
+### Patch Changes
+
+- 9655fc2: Switching from temporary `otf` fonts to `woff2`
+
 ## 2.0.0
 
 ### Major Changes

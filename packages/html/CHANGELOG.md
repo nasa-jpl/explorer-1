@@ -1,5 +1,11 @@
 # @explorer-1/html
 
+## 1.0.1
+
+### Patch Changes
+
+- 9655fc2: Switching from temporary `otf` fonts to `woff2`
+
 ## 1.0.0
 
 ### Major Changes

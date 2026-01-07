@@ -1,5 +1,12 @@
 # @explorer-1/vue
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [9655fc2]
+  - @explorer-1/common@2.0.1
+
 ## 1.0.0
 
 ### Major Changes
