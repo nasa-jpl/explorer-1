@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.0.2
+
+### Patch Changes
+
+- 02d9608: Updating npmignore
+
 ## 1.0.1
 
 ### Patch Changes
