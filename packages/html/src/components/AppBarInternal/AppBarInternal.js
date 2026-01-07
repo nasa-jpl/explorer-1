@@ -88,7 +88,7 @@ export const AppBarInternalTemplate = ({
       </div>
     </div>
     <div class="lg:hidden block relative z-30 bg-white shadow-lg py-4">
-      <a class=" px-4 lg:px-0 lg:container mx-auto flex flex-row items-center leading-tight tracking-wide font-medium text-gray-dark" href="/" title="${siteTitle}">
+      <a class=" px-4 lg:px-0 lg:container mx-auto flex flex-row items-baseline leading-tighter font-display font-medium" href="/" title="${siteTitle}">
         <span class="text-3xl">
           ${orgNumber}
         </span>
