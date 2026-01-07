@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.0.2
+
+### Patch Changes
+
+- 02d9608: Updating npmignore
+
 ## 4.0.1
 
 ### Patch Changes
