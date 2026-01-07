@@ -1,1 +1,4 @@
 !packages/common/dist/
+*.woff2
+*.otf
+*.ttf
