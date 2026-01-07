@@ -1,5 +1,13 @@
 # @explorer-1/nuxt
 
+## 0.0.30
+
+### Patch Changes
+
+- Updated dependencies [796c6ff]
+  - @explorer-1/common@2.0.2
+  - @explorer-1/vue@1.0.2
+
 ## 0.0.29
 
 ### Patch Changes

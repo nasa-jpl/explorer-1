@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 2.0.2
+
+### Patch Changes
+
+- 796c6ff: Fixing font availability
+
 ## 2.0.1
 
 ### Patch Changes
