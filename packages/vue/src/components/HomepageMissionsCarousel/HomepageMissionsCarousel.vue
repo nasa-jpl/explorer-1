@@ -62,7 +62,7 @@
                   class="swiper-prev xl:text-base -ml-16"
                   :aria-label="data.heading + ' - Previous slide'"
                 >
-                  <template #icon>
+                  <template #iconRight>
                     <span
                       class="arrow-wrapper"
                       aria-hidden="true"
@@ -82,7 +82,7 @@
                   class="swiper-next xl:text-base -mr-16"
                   :aria-label="data.heading + ' - Next slide'"
                 >
-                  <template #icon>
+                  <template #iconRight>
                     <span
                       class="arrow-wrapper"
                       aria-hidden="true"

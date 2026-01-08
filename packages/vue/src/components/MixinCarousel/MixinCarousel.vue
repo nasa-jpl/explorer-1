@@ -54,7 +54,7 @@
                 class="swiper-prev xl:text-xl"
                 :aria-label="heading + ' - Previous slide'"
               >
-                <template #icon>
+                <template #iconRight>
                   <span
                     class="arrow-wrapper"
                     aria-hidden="true"
@@ -74,7 +74,7 @@
                 class="swiper-next xl:text-xl"
                 :aria-label="heading + ' - Next slide'"
               >
-                <template #icon>
+                <template #iconRight>
                   <span
                     class="arrow-wrapper"
                     aria-hidden="true"

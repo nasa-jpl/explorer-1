@@ -27,7 +27,7 @@
               class="swiper-prev xl:text-xl border-collapse"
               aria-label="Previous slide"
             >
-              <template #icon>
+              <template #iconRight>
                 <IconPrev />
               </template>
             </BaseButton>
@@ -35,7 +35,7 @@
               class="swiper-next xl:text-xl border-collapse"
               aria-label="Next slide"
             >
-              <template #icon>
+              <template #iconRight>
                 <IconNext />
               </template>
             </BaseButton>

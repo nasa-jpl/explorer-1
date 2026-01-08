@@ -97,13 +97,14 @@
               :aria-expanded="collapseTranscript ? 'false' : 'true'"
               @click="toggleTranscript()"
             >
-              <template v-if="collapseTranscript">
-                <span>Read more</span>
-                <IconDropdown class="text-sm ml-2" />
+              <template #default>
+                <span>{{ collapseTranscript ? 'Read More' : 'Collapse' }}</span>
               </template>
-              <template v-else>
-                <span>Collapse</span>
-                <IconDropdown class="transform rotate-180 text-sm ml-2" />
+              <template #iconRight>
+                <IconDropdown
+                  class="text-sm ml-2 transform"
+                  :class="{ 'rotate-180': !collapseTranscript }"
+                />
               </template>
             </BaseButton>
           </template>
@@ -178,9 +179,9 @@
                   Download
                   {{ data.uploadedMedia.fileExtension || 'Audio' }}
                 </span>
-                <slot name="icon">
+                <template #iconRight>
                   <IconDownload />
-                </slot>
+                </template>
               </BaseButton>
             </div>
           </div>
