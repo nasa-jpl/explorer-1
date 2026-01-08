@@ -68,3 +68,54 @@
     }
   }
 }
+
+.MixinAnimationCaret.MixinAnimationCaretReverse {
+  > .arrow-wrapper {
+    > .arrow,
+    > .arrow-fixed {
+      @apply right-0 left-auto;
+      > .IconCaret {
+        @apply rotate-180;
+      }
+    }
+  }
+
+  &:hover {
+    > .arrow-wrapper > .arrow {
+      animation: arrow-anim-reverse 0.25s ease-in normal;
+    }
+
+    > .arrow-wrapper > .arrow-fixed {
+      animation: arrow-fixed-anim-reverse 0.25s ease-in normal;
+    }
+  }
+
+  @keyframes arrow-anim-reverse {
+    0% {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+
+    50% {
+      transform: translate(-1rem, -50%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate(-1rem, -50%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes arrow-fixed-anim-reverse {
+    0% {
+      opacity: 0;
+      transform: translate(0.5rem, -50%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+  }
+}
