@@ -26,6 +26,7 @@ import IconInfo from './IconInfo.vue'
 import IconLink from './IconLink.vue'
 import IconList from './IconList.vue'
 import IconLocation from './IconLocation.vue'
+import IconLocationCrosshairs from './IconLocationCrosshairs.vue'
 import IconMap from './IconMap.vue'
 import IconMagnifyingGlass from './IconMagnifyingGlass.vue'
 import IconMedal from './IconMedal.vue'
@@ -300,6 +301,12 @@ export const Location = {
   render: () => ({
     components: { IconLocation },
     template: '<IconLocation />'
+  })
+}
+export const LocationCrosshairs = {
+  render: () => ({
+    components: { IconLocationCrosshairs },
+    template: '<IconLocationCrosshairs />'
   })
 }
 export const Map = {

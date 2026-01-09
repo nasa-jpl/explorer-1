@@ -1,0 +1,26 @@
+<template>
+  <svg
+    class="IconLocationCrosshairs"
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M18 0V2V4.16875C23.025 5.00625 26.9937 8.975 27.8312 14H30H32V18H30H27.8312C26.9937 23.025 23.025 26.9937 18 27.8312V30V32H14V30V27.8312C8.975 26.9937 5.00625 23.025 4.16875 18H2H0V14H2H4.16875C5.00625 8.975 8.975 5.00625 14 4.16875V2V0H18ZM8 16C8 18.1217 8.84285 20.1566 10.3431 21.6569C11.8434 23.1571 13.8783 24 16 24C18.1217 24 20.1566 23.1571 21.6569 21.6569C23.1571 20.1566 24 18.1217 24 16C24 13.8783 23.1571 11.8434 21.6569 10.3431C20.1566 8.84285 18.1217 8 16 8C13.8783 8 11.8434 8.84285 10.3431 10.3431C8.84285 11.8434 8 13.8783 8 16ZM16 11C17.3261 11 18.5979 11.5268 19.5355 12.4645C20.4732 13.4021 21 14.6739 21 16C21 17.3261 20.4732 18.5979 19.5355 19.5355C18.5979 20.4732 17.3261 21 16 21C14.6739 21 13.4021 20.4732 12.4645 19.5355C11.5268 18.5979 11 17.3261 11 16C11 14.6739 11.5268 13.4021 12.4645 12.4645C13.4021 11.5268 14.6739 11 16 11Z"
+      fill="currentColor"
+    />
+  </svg>
+</template>
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'IconLocationCrosshairs'
+})
+</script>
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/IconLocationCrosshairs';
+</style>
