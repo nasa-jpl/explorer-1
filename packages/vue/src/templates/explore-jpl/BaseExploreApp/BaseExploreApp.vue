@@ -23,7 +23,7 @@ const props = defineProps({
   },
   /** Override static navigation (provided by parent component) */
   navData: {
-    type: Array as () => BreadcrumbPathObject[] | string,
+    type: [Array as () => BreadcrumbPathObject[], String as () => string],
     default: undefined
   }
 })
