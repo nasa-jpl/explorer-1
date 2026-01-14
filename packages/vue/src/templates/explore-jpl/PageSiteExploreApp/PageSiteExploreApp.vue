@@ -2,10 +2,10 @@
 /** Explore JPL App's equivalent to PageContent */
 import { computed, defineProps, reactive } from 'vue'
 import type { PageObject } from '../../../interfaces'
-import { useThemeStore } from '../../../store/theme'
+// import { useThemeStore } from '../../../store/theme'
 import BaseExploreApp from './../../explore-jpl/BaseExploreApp/BaseExploreApp.vue'
 
-const themeStore = useThemeStore()
+// const themeStore = useThemeStore()
 
 const props = defineProps({
   data: {
@@ -23,9 +23,9 @@ const heroInline = computed(() => {
   return false
 })
 /** If the page title should overlay the hero image (does not apply to inline heroes) */
-const heroTitle = computed(() => {
-  return data?.heroImage && !heroInline.value && data?.displayTitleInHero
-})
+// const heroTitle = computed(() => {
+//   return data?.heroImage && !heroInline.value && data?.displayTitleInHero
+// })
 </script>
 <template>
   <div
