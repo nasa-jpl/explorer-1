@@ -12,7 +12,7 @@ const props = defineProps({
     default: false
   },
   navData: {
-    type: [Array as () => BreadcrumbPathObject[], String as () => string],
+    type: String,
     default: undefined
   }
 })
