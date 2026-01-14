@@ -17,50 +17,50 @@ import BaseExploreApp from './../../explore-jpl/BaseExploreApp/BaseExploreApp.vu
 const themeStore = useThemeStore()
 
 const props = defineProps({
-  pageData: {
+  data: {
     type: Object as () => PageObject,
     default: undefined
   }
 })
-const { pageData } = reactive(props)
+const { data } = reactive(props)
 
 /** If the hero image is inline (treated as a regular block) */
 const heroInline = computed(() => {
-  if (pageData?.heroPosition === 'inline') {
+  if (data?.heroPosition === 'inline') {
     return true
   }
   return false
 })
 /** If the page title should overlay the hero image (does not apply to inline heroes) */
 const heroTitle = computed(() => {
-  return pageData?.heroImage && !heroInline.value && pageData?.displayTitleInHero
+  return data?.heroImage && !heroInline.value && data?.displayTitleInHero
 })
 </script>
 <template>
   <div
-    v-if="pageData"
+    v-if="data"
     class="ThemeVariantLight"
-    :class="{ '-nav-offset': !heroInline && pageData.heroImage }"
+    :class="{ '-nav-offset': !heroInline && data.heroImage }"
   >
     <BaseExploreApp
-      :has-intro="pageData.heroImage && !heroInline"
-      :nav-data="pageData.breadcrumb"
+      :has-intro="data.heroImage && !heroInline"
+      :nav-data="data.breadcrumb"
     >
       <template #hero>
         <!-- hero image -->
         <HeroLarge
           v-if="heroTitle"
-          :title="pageData.title"
-          :image="pageData.heroImage"
-          :summary="pageData.heroSummary"
+          :title="data.title"
+          :image="data.heroImage"
+          :summary="data.heroSummary"
         />
         <HeroMedia
-          v-else-if="!heroTitle && pageData.heroImage && !heroInline"
+          v-else-if="!heroTitle && data.heroImage && !heroInline"
           class="md:mb-0 mb-10"
-          :image="pageData.heroImage"
-          :caption="pageData.heroImageCaption"
-          :display-caption="!pageData.heroImageCaption ? false : true"
-          :constrain="pageData.heroConstrain"
+          :image="data.heroImage"
+          :caption="data.heroImageCaption"
+          :display-caption="!data.heroImageCaption ? false : true"
+          :constrain="data.heroConstrain"
         />
       </template>
 
@@ -69,21 +69,21 @@ const heroTitle = computed(() => {
         <LayoutHelper indent="col-2">
           <DetailHeadline
             v-if="!heroTitle"
-            :title="pageData.title"
+            :title="data.title"
           />
         </LayoutHelper>
 
         <!-- inline hero -->
         <LayoutHelper
-          v-if="pageData.heroImageInline && heroInline"
+          v-if="data.heroImageInline && heroInline"
           indent="col-2"
           class="mb-22 mt-10"
         >
           <BlockImageStandard
-            :data="pageData.heroImageInline"
-            :caption="pageData.heroImageCaption"
-            :display-caption="!pageData.heroImageCaption ? false : true"
-            :constrain="pageData.heroConstrain"
+            :data="data.heroImageInline"
+            :caption="data.heroImageCaption"
+            :display-caption="!data.heroImageCaption ? false : true"
+            :constrain="data.heroConstrain"
           />
         </LayoutHelper>
 
@@ -94,30 +94,30 @@ const heroTitle = computed(() => {
           class="lg:mb-0 relative mb-8"
         >
           <ShareButtons
-            v-if="pageData.showShareLinks && pageData.title && pageData.url && !themeStore.isEdu"
-            :title="pageData.title"
-            :url="pageData.url"
+            v-if="data.showShareLinks && data.title && data.url && !themeStore.isEdu"
+            :title="data.title"
+            :url="data.url"
           />
         </LayoutHelper>
 
         <!-- Body Streamfield -->
-        <BlockStreamfield :data="pageData.body" />
+        <BlockStreamfield :data="data.body" />
 
         <!-- related links -->
         <LayoutHelper
-          v-if="pageData.relatedLinks && pageData.relatedLinks.length"
+          v-if="data.relatedLinks && data.relatedLinks.length"
           indent="col-3"
           class="lg:my-18 my-10"
         >
-          <BlockRelatedLinks :data="pageData.relatedLinks[0]" />
+          <BlockRelatedLinks :data="data.relatedLinks[0]" />
         </LayoutHelper>
 
         <!-- related content -->
         <BlockLinkCarousel
           item-type="cards"
           class="lg:my-24 my-12"
-          :heading="pageData.relatedContentHeading"
-          :items="pageData.relatedContent"
+          :heading="data.relatedContentHeading"
+          :items="data.relatedContent"
         />
       </template>
     </BaseExploreApp>

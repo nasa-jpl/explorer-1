@@ -78,13 +78,13 @@ export const ExploreAppContentPageData = {
 // stories
 export const BaseStory = {
   args: {
-    pageData: ExploreAppContentPageData
+    data: ExploreAppContentPageData
   }
 }
 
 export const WithHero = {
   args: {
-    pageData: {
+    data: {
       ...ExploreAppContentPageData,
       heroPosition: 'full_bleed',
       heroImage: HeroMediaData.image
@@ -94,7 +94,7 @@ export const WithHero = {
 
 export const CustomNav = {
   args: {
-    pageData: {
+    data: {
       ...ExploreAppContentPageData,
       breadcrumb: NavSecondaryData.breadcrumb
     }
