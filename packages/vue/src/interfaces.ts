@@ -102,6 +102,29 @@ export interface ImageBlock extends BlockData, ImageObject {
   constrain: boolean
 }
 
+export interface SearchBucket {
+  key: string
+  doc_count: number
+}
+
+export interface SearchAggregation {
+  buckets: SearchBucket[]
+  doc_count_error_upper_bound: number
+  sum_other_doc_count: number
+}
+
+export type SearchAggregations = Record<string, SearchAggregation>
+
+export interface SearchData {
+  hits: {
+    total: {
+      value: number
+    }
+    hits: ElasticSearchPage[]
+  }
+  aggregations: SearchAggregations
+}
+
 export interface ElasticSearchPage {
   _source: Record<string, any>
   id: string | number

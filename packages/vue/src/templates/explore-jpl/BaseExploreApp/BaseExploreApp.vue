@@ -18,16 +18,25 @@ const props = defineProps({
 })
 </script>
 <template>
-  <!-- @slot: hero content -->
-  <slot name="hero"></slot>
-  <!-- navigation -->
-  <NavSecondary
-    :breadcrumb="navData"
-    :has-intro="hasIntro"
-    show-on-mobile
-  />
-  <!-- @slot: page body -->
-  <slot>
-    <p class="text-center"></p>
-  </slot>
+  <div class="BaseExploreApp">
+    <!-- @slot: hero content -->
+    <slot name="hero"></slot>
+    <!-- navigation -->
+    <NavSecondary
+      :breadcrumb="navData"
+      :has-intro="hasIntro"
+      show-on-mobile
+    />
+    <!-- @slot: page body -->
+    <slot>
+      <p class="text-center"></p>
+    </slot>
+  </div>
 </template>
+<style lang="scss">
+.BaseExploreApp {
+  .text-h1 {
+    @apply text-h2;
+  }
+}
+</style>
