@@ -103,7 +103,7 @@ export interface ImageBlock extends BlockData, ImageObject {
 }
 
 export interface ElasticSearchPage {
-  _source: string
+  _source: Record<string, any>
   id: string | number
   content_type: string
   url: string
