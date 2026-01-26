@@ -82,7 +82,7 @@ const props = defineProps({
           v-if="props.title"
           :level="props.headingLevel"
           size="h5"
-          class="mb-5 font-semibold"
+          class="mb-5"
           >{{ props.title }}
         </BaseHeading>
         <MetadataStacked
