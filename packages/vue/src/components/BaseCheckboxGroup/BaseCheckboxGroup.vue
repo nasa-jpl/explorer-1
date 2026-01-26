@@ -2,7 +2,7 @@
   <div class="BaseCheckboxGroup">
     <label
       v-if="heading"
-      class="text-lg font-semibold text-gray-900"
+      class="text-lg font-bold text-gray-900"
       >{{ heading }}</label
     >
     <p
@@ -41,11 +41,11 @@
           <div class="mb-1">
             <label
               :for="`${group}_${option.id}`"
-              class="ml-3 block text-md text-gray-700"
+              class="ml-3 block text-md text-gray-mid-dark"
             >
               <span
                 v-if="option.title"
-                class="font-semibold"
+                class="font-bold"
                 >{{ option.title }}</span
               >
               <span v-if="option.text"> - </span>

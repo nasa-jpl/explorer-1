@@ -13,6 +13,7 @@ export default defineConfig({
   },
   plugins: [
     vue({
+      // @ts-ignore
       vueDocgenOptions: {
         // resolve co-located components in a monorepo.
         root: VUE_PACKAGE_SRC_PATH

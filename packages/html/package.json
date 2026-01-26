@@ -1,7 +1,7 @@
 {
   "name": "@explorer-1/html",
   "private": true,
-  "version": "0.1.1",
+  "version": "1.0.2",
   "type": "module",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build:fontfiles && pnpm build:vite && pnpm build:fontcss",
+    "build": "pnpm build:vite && pnpm build:fontcss",
     "build:vite": "vite build --emptyOutDir",
     "build:fontfiles": "cp -R ./../common/src/fonts/ ./src/assets/fonts/",
     "build:fontcss": "cp ./../common/src/scss/_fonts.scss ./../common/dist/assets/css/font-face.css",

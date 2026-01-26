@@ -77,7 +77,7 @@
               </template>
             </div>
             <div class="px-6 pt-6 pb-4">
-              <div class="mb-2 text-3xl font-medium">
+              <div class="mb-2 text-h5">
                 {{ theCard.heading }}
               </div>
               <p

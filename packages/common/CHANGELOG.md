@@ -1,5 +1,17 @@
 # @explorer-1/common
 
+## 2.0.1
+
+### Patch Changes
+
+- 9655fc2: Switching from temporary `otf` fonts to `woff2`
+
+## 2.0.0
+
+### Major Changes
+
+- 27c013c: Updating Explorer-1 with JPL's new branding colors and typefaces.
+
 ## 1.3.3
 
 ### Patch Changes

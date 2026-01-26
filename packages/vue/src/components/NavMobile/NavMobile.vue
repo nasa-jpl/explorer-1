@@ -7,16 +7,14 @@
     >
       <!-- navbar -->
       <div class="relative w-full">
-        <div
-          class="h-18 flex w-full justify-between items-center px-5 edu:bg-gradient-to-r edu:from-black edu:to-primary edu:to-90% edu:bg-black"
-        >
+        <div class="h-18 flex w-full justify-between items-center px-5 edu:bg-primary-dark">
           <!-- branding -->
           <div class="flex items-center">
             <NavLogoLinks class="lg:p-0 w-72 z-20 p-2 pl-0 -ml-3 edu:w-[12rem]">
               <template v-if="themeStore.theme === 'ThemeEdu'">
                 <img
                   class="print:hidden"
-                  :src="LogoWhite"
+                  :src="LogoOutline"
                   alt="JPL Logo"
                   width="324"
                   height="72"
@@ -42,7 +40,7 @@
               class="-ml-1 pl-2 border-l border-white border-opacity-30 z-20 print:border-black"
             >
               <BaseLink
-                class="text-white font-bold text-xl pl-px"
+                class="text-white font-display font-bold text-xl pl-px"
                 to="/edu/"
                 variant="none"
               >
@@ -146,6 +144,7 @@ import { mapStores } from 'pinia'
 import { eventBus } from './../../utils/eventBus'
 import LogoColor from '@explorer-1/common/src/images/svg/logo-tribrand-color.svg'
 import LogoWhite from '@explorer-1/common/src/images/svg/logo-tribrand-white.svg'
+import LogoOutline from '@explorer-1/common/src/images/svg/logo-tribrand-outline.svg'
 import { useHeaderStore } from './../../store/header'
 import { useThemeStore } from './../../store/theme'
 import IconMenu from './../Icons/IconMenu.vue'
@@ -219,7 +218,8 @@ export default defineComponent({
       menuVisible: false,
       searchQuery: null,
       LogoColor,
-      LogoWhite
+      LogoWhite,
+      LogoOutline
     }
   },
   computed: {

@@ -63,13 +63,13 @@ const headingString = computed(() => {
           <div class="mb-4">
             <h3
               v-if="author.author.name"
-              class="!font-medium !tracking-normal !text-lg mb-1"
+              class="!text-lg mb-1"
             >
               {{ author.author.name }}
             </h3>
             <p
               v-if="author.author.jobTitle || author.author.organization"
-              class="text-lg"
+              class="font-display text-lg"
             >
               {{
                 (author.author.jobTitle ? author.author.jobTitle : '') +

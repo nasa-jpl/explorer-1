@@ -4,12 +4,13 @@
       v-for="(item, index) in socialLinks"
       :key="index"
       :variant="dark ? 'dark' : 'social'"
-      class="-facebook w-12 h-12 text-2xl"
+      class="-facebook w-12 h-12 !text-2xl"
       :class="{
         '-facebook': item.facebook,
         '-twitter': item.twitter,
         '-instagram': item.instagram,
-        '-youtube': item.youtube
+        '-youtube': item.youtube,
+        '-mr-px': index !== socialLinks.length - 1
       }"
       :href="item.url"
       :aria-label="item.label"

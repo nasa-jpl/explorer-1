@@ -4,6 +4,7 @@
     class="SearchPagination flex items-center justify-center"
   >
     <BaseButton
+      class="xl:!text-base"
       aria-label="Previous"
       rel="prev"
       :disabled="currentPage === 1"
@@ -46,6 +47,7 @@
     </div>
 
     <BaseButton
+      class="xl:!text-base"
       :disabled="currentPage === totalPages"
       rel="next"
       aria-label="Next"

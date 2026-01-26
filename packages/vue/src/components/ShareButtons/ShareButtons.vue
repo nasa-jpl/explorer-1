@@ -5,7 +5,7 @@
   >
     <BaseButton
       variant="social"
-      class="-facebook w-12 h-12 text-2xl"
+      class="-facebook w-12 h-12 !text-2xl"
       :href="facebookLink"
       aria-label="Share to Facebook"
       target="_blank"
@@ -18,7 +18,7 @@
 
     <BaseButton
       variant="social"
-      class="-twitter w-12 h-12 -ml-px text-2xl"
+      class="-twitter w-12 h-12 -ml-px !text-2xl"
       :class="{ 'lg:ml-0 lg:-mt-px': !inline }"
       :href="twitterLink"
       aria-label="Share to X"
@@ -32,7 +32,7 @@
 
     <BaseButton
       variant="social"
-      class="-reddit w-12 h-12 -ml-px text-2xl"
+      class="-reddit w-12 h-12 -ml-px !text-2xl"
       :class="{ 'lg:ml-0 lg:-mt-px': !inline }"
       :href="redditLink"
       aria-label="Share to Reddit"
@@ -46,7 +46,7 @@
 
     <BaseButton
       variant="social"
-      class="w-12 h-12 -ml-px text-2xl"
+      class="w-12 h-12 -ml-px !text-2xl"
       :class="{ 'lg:ml-0 lg:-mt-px': !inline }"
       :href="mailLink"
       aria-label="Share via Email"

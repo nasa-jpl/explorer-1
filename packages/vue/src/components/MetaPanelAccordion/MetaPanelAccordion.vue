@@ -22,11 +22,11 @@ const { standards } = reactive(props)
       :item="item.standard as AccordionItemObject"
     >
       <template #heading>
-        <div class="w-full text-left pr-5">
-          <div class="text-sm tracking-normal text-action mb-0 can-hover:group-hover:underline">
+        <div class="font-primary w-full text-left pr-5">
+          <div class="text-sm text-action mb-0 can-hover:group-hover:underline">
             {{ item.standard.domain?.domain }}
           </div>
-          <div class="text-sm text-gray-mid-dark font-normal tracking-normal">
+          <div class="text-sm text-gray-mid-dark font-normal">
             {{ item.standard.code }}
           </div>
         </div>

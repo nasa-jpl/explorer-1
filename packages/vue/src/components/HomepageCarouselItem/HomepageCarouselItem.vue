@@ -58,7 +58,7 @@
         <div class="lg:w-3/4 xl:w-1/2 block">
           <p
             v-if="item.heading"
-            class="font-primary text-jpl-red-light lg:text-3xl lg:mb-0 mb-2 text-xl font-semibold tracking-normal uppercase"
+            class="text-subtitle text-jpl-red-light mb-2 text-xl uppercase"
           >
             {{ item.heading }}
             <span class="sr-only">.</span>
@@ -73,7 +73,7 @@
           >
             <p
               v-if="item.slideTitle"
-              class="lg:text-9xl leading-tighter text-5xl font-extrabold tracking-tighter"
+              class="font-display lg:text-9xl leading-tighter text-5xl font-extrabold mb-1"
             >
               <span class="mr-2">{{ item.slideTitle }}</span>
               <span

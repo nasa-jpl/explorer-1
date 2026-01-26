@@ -35,7 +35,12 @@
         {{ customLabel || highlight.label }}
       </p>
       <span class="sr-only">.</span>
-      <p v-if="highlight.title">{{ highlight.title }}</p>
+      <p
+        v-if="highlight.title"
+        class="text-base"
+      >
+        {{ highlight.title }}
+      </p>
     </BaseLink>
   </div>
 </template>

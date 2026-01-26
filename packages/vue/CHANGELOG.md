@@ -1,5 +1,30 @@
 # @explorer-1/vue
 
+## 1.0.2
+
+### Patch Changes
+
+- 02d9608: Updating npmignore
+
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [9655fc2]
+  - @explorer-1/common@2.0.1
+
+## 1.0.0
+
+### Major Changes
+
+- 27c013c: Updating Explorer-1 with JPL's new branding colors and typefaces.
+
+### Patch Changes
+
+- 27c013c: Documentation updates, Storybook improvements.
+- Updated dependencies [27c013c]
+  - @explorer-1/common@2.0.0
+
 ## 0.3.9
 
 ### Patch Changes

@@ -30,9 +30,9 @@
     @apply list-none overflow-hidden transition-transform;
 
     li {
-      @apply text-center p-0 m-0;
+      @apply font-display font-bold text-center p-0 m-0;
       @screen lg {
-        @apply text-left font-medium;
+        @apply text-left;
       }
     }
   }

@@ -88,7 +88,7 @@ const isSmall = computed(() => {
 
         <component
           :is="headingLevel || 'p'"
-          class="text-white text-xl font-medium leading-tight tracking-tight edu:font-extrabold"
+          class="text-white text-xl font-medium leading-tight tracking-tight"
           :class="{
             'lg:text-3xl': !isSmall
           }"

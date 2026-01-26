@@ -1,5 +1,23 @@
 # @explorer-1/html
 
+## 1.0.2
+
+### Patch Changes
+
+- 02d9608: Updating npmignore
+
+## 1.0.1
+
+### Patch Changes
+
+- 9655fc2: Switching from temporary `otf` fonts to `woff2`
+
+## 1.0.0
+
+### Major Changes
+
+- 27c013c: Updating Explorer-1 with JPL's new branding colors and typefaces.
+
 ## 0.1.1
 
 ### Patch Changes

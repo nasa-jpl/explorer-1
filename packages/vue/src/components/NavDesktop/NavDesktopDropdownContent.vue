@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="NavDesktopDropdownContent bg-jpl-blue-darker bg-opacity-98 edu:bg-gradient-to-r edu:bg-transparent edu:from-black/[.98] edu:to-jpl-violet/[.98] edu:to-90% 3xl:px-0 px-4 py-10 text-white"
+    class="NavDesktopDropdownContent bg-jpl-blue-darker bg-opacity-98 edu:bg-primary-dark 3xl:px-0 px-4 py-10 text-white"
   >
     <div
       v-if="data.menuColumns"
@@ -29,8 +29,8 @@
           :key="`MenuDescriptionColumn${index}`"
           class="order-2 col-span-3"
         >
-          <p class="text-medium text-6xl">{{ item.title }}</p>
-          <p class="text-sm leading-relaxed">
+          <p class="font-display text-6xl">{{ item.title }}</p>
+          <p class="text-base leading-relaxed">
             {{ item.description }}
           </p>
         </div>

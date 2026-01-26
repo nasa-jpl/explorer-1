@@ -2,7 +2,7 @@
   <BaseLink
     :href="isExternal(item.path) ? item.path : undefined"
     :to="!isExternal(item.path) ? item.path : undefined"
-    link-class="block px-3 py-2"
+    link-class="block px-3 py-2 font-display"
     variant="none"
     class="NavSecondaryLink border-t-2 border-transparent"
     :class="baseLinkClasses(index)"
@@ -53,9 +53,9 @@ export default defineComponent({
       let rootClasses = 'mr-auto secondary-root'
       rootClasses = this.invert
         ? `${rootClasses} text-white font-bold -invert`
-        : `${rootClasses} text-primary font-semibold`
+        : `${rootClasses} text-primary font-bold`
       const regularClasses = this.invert
-        ? 'text-white -invert font-semibold'
+        ? 'text-white -invert font-bold'
         : 'text-gray-dark font-medium'
       return index === 0 ? rootClasses : regularClasses
     },

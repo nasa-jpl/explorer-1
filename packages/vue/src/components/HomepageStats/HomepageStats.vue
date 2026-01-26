@@ -197,7 +197,7 @@
                 inline
                 class="text-gray-mid-dark mt-2"
               >
-                <span class="text-sm"> Proximity {{ slotProps.formattedValue }} </span>
+                <span class="text-sm font-primary"> Proximity {{ slotProps.formattedValue }} </span>
               </BaseUnitToggle>
               <BaseLink
                 link-class="block"

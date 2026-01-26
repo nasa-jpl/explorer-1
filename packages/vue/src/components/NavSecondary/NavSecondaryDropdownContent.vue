@@ -1,5 +1,5 @@
 <template>
-  <ul class="NavSecondaryDropdownContent">
+  <ul class="NavSecondaryDropdownContent text-base">
     <li v-if="includeOverview">
       <BaseLink
         :to="item.path"
@@ -91,13 +91,13 @@ export default defineComponent({
   methods: {
     linkClass(item?: NavItemObject, isLast?: Boolean) {
       // default
-      let computedClass = 'py-2 lg:py-4'
+      let computedClass = 'pt-2 lg:pt-4'
       if (!item) {
         // if first (aka Overview)
-        computedClass = 'py-2 lg:pt-4 lg:pb-4'
+        computedClass = 'pt-2 lg:pt-4'
       } else if (item.children && item.children.length > 0) {
         // if has children
-        computedClass = 'pt-2 pb-1 lg:pt-4 lg:pb-2'
+        computedClass = 'pt-2 lg:pt-4'
       } else if (isLast) {
         // if the very last
         computedClass = 'py-2 lg:pt-4 lg:pb-6'
@@ -106,11 +106,11 @@ export default defineComponent({
     },
     nestedLinkClass(isLast: Boolean, parentIsLast: Boolean) {
       // default
-      let computedClass = 'pt-2 pb-1 lg:py-2'
+      let computedClass = 'pt-2 lg:pt-2'
       if (isLast) {
         // if the last
         if (!parentIsLast) {
-          computedClass = 'py-2 lg:pt-2 lg:pb-4'
+          computedClass = 'pt-2 lg:pt-2'
         } else {
           // the last of the last parent
           computedClass = 'pt-2 pb-3 lg:pt-2 lg:pb-6'

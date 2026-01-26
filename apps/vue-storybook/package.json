@@ -1,6 +1,6 @@
 {
   "name": "@explorer-1/vue-storybook",
-  "version": "0.0.29",
+  "version": "0.1.3",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -24,6 +24,7 @@
     "percy": "percy storybook ./storybook_compiled --verbose",
     "percy:debug": "percy storybook ./storybook_compiled --debug --shard-count=2 --shard-index=1",
     "percy:dry-run": "percy storybook ./storybook_compiled --dry-run",
+    "postinstall": "node ./../../packages/common-storybook/src/scripts/inject-fonts-local-placeholders.js",
     "lint:app": "eslint './.storybook/**/*.@(js|ts)'",
     "lint:app:fix": "eslint './.storybook/**/*.@(js|ts)' --fix",
     "lint": "eslint './../../packages/vue/src/**/*.stories.@(js|ts|mdx)' && pnpm lint:app",
