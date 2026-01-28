@@ -105,6 +105,7 @@ export interface ImageBlock extends BlockData, ImageObject {
 export interface SearchBucket {
   key: string
   doc_count: number
+  label?: string
 }
 
 export interface SearchAggregation {
