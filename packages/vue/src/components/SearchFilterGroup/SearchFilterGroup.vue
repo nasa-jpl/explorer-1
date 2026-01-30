@@ -49,9 +49,12 @@
                 "
                 class="form-check-label pl-2 tracking-normal align-middle"
               >
-                <span class="font-bold font-display">{{
-                  prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key)
-                }}</span>
+                <span class="font-bold font-display">
+                  {{
+                    bucket.label ||
+                    prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key)
+                  }}
+                </span>
                 <span class="text-gray-mid-dark font-normal text-sm">
                   ({{ bucket.doc_count.toLocaleString() }})
                 </span>
@@ -105,7 +108,10 @@
               class="form-check-label pl-2 tracking-normal align-middle"
               :class="{ 'font-display font-bold': styleAsAccordion }"
             >
-              {{ prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key) }}
+              {{
+                bucket.label ||
+                prettyFilterNames(bucket.key_as_string ? bucket.key_as_string : bucket.key)
+              }}
               <span class="text-gray-mid-dark text-sm font-normal">
                 ({{ bucket.doc_count.toLocaleString() }})
               </span>
