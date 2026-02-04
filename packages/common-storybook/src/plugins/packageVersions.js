@@ -13,7 +13,7 @@ function getVersionInfo(path) {
   const { name, version } = JSON.parse(fs.readFileSync(path, 'utf8'))
   const constName = filterName(name)
   // Create a global constant name, e.g., 'VERSION_LIBRARY_A'
-  versions[`__VERSION_${constName}__`] = version
+  versions[`__VERSION_${constName}__`] = JSON.stringify(version)
 }
 
 // Helper function to read versions from all packages
