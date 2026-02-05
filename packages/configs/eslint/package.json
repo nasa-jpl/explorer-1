@@ -23,7 +23,7 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-storybook": "^9.1.17",
+    "eslint-plugin-storybook": "^10.2.7",
     "eslint-plugin-vue": "^10.7.0",
     "prettier": "^3.8.1",
     "vue-eslint-parser": "^10.2.0"

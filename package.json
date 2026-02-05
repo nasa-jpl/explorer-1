@@ -45,7 +45,7 @@
     "yarn": "please-use-pnpm"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^4.1.1",
+    "@chromatic-com/storybook": "^5.0.0",
     "@explorer-1/eslint-config": "workspace:^",
     "@explorer-1/html": "workspace:^",
     "@explorer-1/html-storybook": "workspace:^",
