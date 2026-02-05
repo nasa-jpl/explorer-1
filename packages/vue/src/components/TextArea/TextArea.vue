@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-interface TextAreaProps {
+export interface TextAreaProps {
   inputName: string
   label: string
   cols?: number
@@ -25,6 +25,7 @@ const props = withDefaults(defineProps<TextAreaProps>(), {
 const emit = defineEmits(['input', 'esc'])
 
 const model = defineModel({ type: String })
+// @ts-ignore
 const TextAreaRef = ref(undefined)
 const isFocused = ref(false)
 

@@ -9,7 +9,7 @@ import IconLocation from './../Icons/IconLocation.vue'
 import { mixinFormatEventDates, mixinFormatEventTimeInHoursAndMinutes } from './../../utils/mixins'
 const themeStore = useThemeStore()
 
-interface MetadataEventProps {
+export interface MetadataEventProps {
   event: EventCardObject
   compact?: boolean
   allowBreak?: boolean

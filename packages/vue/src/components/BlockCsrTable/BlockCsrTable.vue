@@ -18,7 +18,7 @@ import { AgGridVue } from 'ag-grid-vue3'
 ModuleRegistry.registerModules([AllCommunityModule])
 ModuleRegistry.registerModules([ValidationModule])
 
-interface BlockCsrTableProps {
+export interface BlockCsrTableProps {
   rowData?: BlockCsrTableRow[]
   attachmentPrefix?: string
   apiEndpoint?: string

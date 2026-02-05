@@ -173,9 +173,7 @@ import {
   createDrawable,
   createMotionPath,
   createTimeline,
-  type TweenParamValue,
-  type TargetsParam,
-  Tween
+  type TargetsParam
 } from 'animejs'
 import MissionDetailHighlightsCarousel from './MissionDetailHighlightsCarousel.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
@@ -266,8 +264,8 @@ export default defineComponent({
         draw: '0 1',
         ease: 'easeInOutSine',
         duration: 2000,
-        delay(_: HTMLElement, i: number) {
-          return (i * 250) as TweenParamValue
+        delay(_: any, i: number) {
+          return (i * 250) as any
         },
         alternate: true,
         loop: false
