@@ -15,7 +15,7 @@
             v-if="$attrs['steps-numbering']"
             :class="$attrs['steps-classes']"
             aria-hidden
-            >{{ `Step ${index + 1}:` }}</span
+            >{{ `Step ${Number(index) + 1}:` }}</span
           >
           {{ child.title }}
         </span>

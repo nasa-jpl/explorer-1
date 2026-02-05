@@ -9,11 +9,12 @@ export interface BlockGistData extends BlockData {
   id?: string
   url?: string
 }
-interface BlockGistProps {
+export interface BlockGistProps {
   data: BlockGistData
 }
 
 const props = defineProps<BlockGistProps>()
+// @ts-ignore
 const frame = ref()
 const loaded = ref(false)
 const checkGistLoaded = async () => {

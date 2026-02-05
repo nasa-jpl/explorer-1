@@ -26,7 +26,7 @@ export interface AccordionBlockObject {
   accordionItemsHeadingLevel: string
   accordionItems: AccordionItemBlock[]
 }
-interface BlockAccordionProps {
+export interface BlockAccordionProps {
   data: AccordionBlockObject
 }
 

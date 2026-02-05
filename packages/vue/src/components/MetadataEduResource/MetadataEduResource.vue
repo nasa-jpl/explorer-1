@@ -8,7 +8,7 @@ import IconProfile from './../Icons/IconProfile.vue'
 import IconTime from './../Icons/IconTime.vue'
 import { rangeifyGrades } from './../../utils/rangeifyGrades'
 
-interface MetadataEduResourceProps {
+export interface MetadataEduResourceProps {
   resource: EduResourceCardObject
   /** If compact styling should be used */
   compact?: boolean

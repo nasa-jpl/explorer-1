@@ -53,7 +53,7 @@
         <div
           v-for="(highlight, index) in highlightsColumn.highlights"
           :key="index"
-          :class="{ 'mb-10': index + 1 !== highlightsColumn.highlights.length }"
+          :class="{ 'mb-10': Number(index) + 1 !== highlightsColumn.highlights.length }"
         >
           <NavHighlight :highlight="highlight.highlight" />
         </div>

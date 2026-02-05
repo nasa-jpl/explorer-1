@@ -116,7 +116,7 @@ export default defineComponent({
     }
   },
   computed: {
-    results(): ElasticSearchPage[] {
+    results(): ElasticSearchPage[] | undefined {
       function parseType(type: string): string {
         return type.toLowerCase().replace('.', '_')
       }

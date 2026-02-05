@@ -8,7 +8,7 @@ import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder
 import BasePill from './../BasePill/BasePill.vue'
 import MetadataEduResource from './../MetadataEduResource/MetadataEduResource.vue'
 
-interface BlockLinkCardCollectionLgProps {
+export interface BlockLinkCardCollectionLgProps {
   theItem?: EduResourceCardObject
   metadataType?: ContentTypeKey
   metadataAttrs?: any

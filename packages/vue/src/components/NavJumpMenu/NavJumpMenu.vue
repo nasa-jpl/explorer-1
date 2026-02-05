@@ -37,7 +37,7 @@
   </NavSecondary>
 </template>
 <script setup lang="ts">
-import { computed, defineExpose, ref, onMounted, onUnmounted, watch } from 'vue'
+import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { mixinUpdateSecondary } from './../../utils/mixins'
 import { useRoute } from 'vue-router'
 import NavSecondary from './../NavSecondary/NavSecondary.vue'
@@ -49,7 +49,7 @@ import type { BlockTextObject } from './../BlockText/BlockText.vue'
 import type { BlockData, BreadcrumbPathObject, StreamfieldBlockData } from './../../interfaces'
 import { getHeadingId } from '../../utils/getHeadingId'
 
-interface NavJumpMenuProps {
+export interface NavJumpMenuProps {
   title?: string
   jumpLinks?: BreadcrumbPathObject[]
   blocks?: (StreamfieldBlockData | BlockData | BlockHeadingObject | BlockTextObject)[]

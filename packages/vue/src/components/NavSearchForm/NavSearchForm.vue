@@ -6,7 +6,7 @@ import SearchInput from './../SearchInput/SearchInput.vue'
 const router = useRouter()
 const themeStore = useThemeStore()
 
-interface NavSearchFormProps {
+export interface NavSearchFormProps {
   mobile?: boolean
   placeholder?: string
 }

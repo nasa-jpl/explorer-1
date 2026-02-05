@@ -23,6 +23,7 @@ withDefaults(defineProps<CsrTestLimitsTableProps>(), {
 const headerClass = [
   'bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white text-xs border-gray-light-mid px-3 border-b text-left'
 ]
+// @ts-ignore
 const CsrTestLimitsTableRef = ref()
 const theme = themeMaterial.withParams({
   accentColor: 'rgb(25 156 227)', // jpl-blue-light

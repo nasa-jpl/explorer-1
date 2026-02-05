@@ -64,7 +64,7 @@ const defaultTheme: Partial<CustomThemeConfig> = {
   },
   /** Override Tailwind's defaults */
   colors: {
-    ...defaultColors,
+    transparent: defaultColors.transparent,
     ...fullColorLibrary
   },
   fontFamily: {
