@@ -64,7 +64,7 @@
                 compact
               >
                 Visit Mission Website
-                <template #icon>
+                <template #iconRight>
                   <IconExternal class="ml-2 text-base" />
                 </template>
               </BaseButton>

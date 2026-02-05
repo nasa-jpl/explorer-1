@@ -60,6 +60,17 @@
       :topic="topic"
       :title="title"
     />
+    <AttractionCard
+      v-else-if="isAttraction"
+      :url="url"
+      :image="image"
+      :heading-level="headingLevel"
+      :title="title"
+      :location="location"
+      :wait="wait"
+      :show-my-list="showMyList"
+      :location-icon="locationIcon"
+    />
     <BaseLink
       v-else
       variant="none"
@@ -229,6 +240,7 @@ import BaseImage from './../BaseImage/BaseImage.vue'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import EventCard from './../EventCard/EventCard.vue'
 import BlockLinkCard from './../BlockLinkCard/BlockLinkCard.vue'
+import AttractionCard from './../AttractionCard/AttractionCard.vue'
 import { lookupContentType } from '../../utils/lookupContentType'
 import type { HeadingLevel } from './../BaseHeading/BaseHeading.vue'
 
@@ -241,7 +253,8 @@ export default defineComponent({
     BaseImagePlaceholder,
     EventCard,
     BlockLinkCard,
-    PodcastEpisodeCard
+    PodcastEpisodeCard,
+    AttractionCard
   },
   props: {
     url: {
@@ -306,6 +319,10 @@ export default defineComponent({
     isProfiles: {
       type: Boolean,
       default: false
+    },
+    isAttraction: {
+      type: Boolean,
+      required: false
     },
     media: {
       type: String,
@@ -375,6 +392,19 @@ export default defineComponent({
     time: {
       type: Object as PropType<EduResourcesTime>,
       default: undefined
+    },
+    wait: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    showMyList: {
+      type: Boolean,
+      default: false
+    },
+    locationIcon: {
+      type: String,
+      default: ''
     }
   },
   computed: {

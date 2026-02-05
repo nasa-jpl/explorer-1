@@ -3,6 +3,7 @@ import Icon360 from './Icon360.vue'
 import IconArrows from './IconArrows.vue'
 import IconAudio from './IconAudio.vue'
 import IconBook from './IconBook.vue'
+import IconBookmark from './IconBookmark.vue'
 import IconBookUser from './IconBookUser.vue'
 import IconBriefcase from './IconBriefcase.vue'
 import IconCalendar from './IconCalendar.vue'
@@ -20,10 +21,13 @@ import IconFilter from './IconFilter.vue'
 import IconForwardTen from './IconForwardTen.vue'
 import IconGrid from './IconGrid.vue'
 import IconHand from './IconHand.vue'
+import IconHourglass from './IconHourglass.vue'
 import IconInfo from './IconInfo.vue'
 import IconLink from './IconLink.vue'
 import IconList from './IconList.vue'
 import IconLocation from './IconLocation.vue'
+import IconLocationCrosshairs from './IconLocationCrosshairs.vue'
+import IconMap from './IconMap.vue'
 import IconMagnifyingGlass from './IconMagnifyingGlass.vue'
 import IconMedal from './IconMedal.vue'
 import IconMenu from './IconMenu.vue'
@@ -89,6 +93,7 @@ export default {
     IconLink,
     IconList,
     IconLocation,
+    IconMap,
     IconMagnifyingGlass,
     IconMedal,
     IconMenu,
@@ -158,6 +163,12 @@ export const Book = {
   render: () => ({
     components: { IconBook },
     template: '<IconBook />'
+  })
+}
+export const Bookmark = {
+  render: () => ({
+    components: { IconBookmark },
+    template: '<IconBookmark />'
   })
 }
 export const BookUser = {
@@ -262,6 +273,12 @@ export const Hand = {
     template: '<IconHand />'
   })
 }
+export const Hourglass = {
+  render: () => ({
+    components: { IconHourglass },
+    template: '<IconHourglass />'
+  })
+}
 export const Info = {
   render: () => ({
     components: { IconInfo },
@@ -284,6 +301,18 @@ export const Location = {
   render: () => ({
     components: { IconLocation },
     template: '<IconLocation />'
+  })
+}
+export const LocationCrosshairs = {
+  render: () => ({
+    components: { IconLocationCrosshairs },
+    template: '<IconLocationCrosshairs />'
+  })
+}
+export const Map = {
+  render: () => ({
+    components: { IconMap },
+    template: '<IconMap />'
   })
 }
 export const MagnifyingGlass = {

@@ -42,7 +42,7 @@
         :to="`/search?topics=${topic}`"
       >
         More
-        <template #icon><IconCaret class="ml-1 text-sm" /></template>
+        <template #iconRight><IconCaret class="ml-1 text-sm" /></template>
       </BaseButton>
     </div>
   </div>
