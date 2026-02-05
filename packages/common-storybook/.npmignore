@@ -1,0 +1,8 @@
+# don't include font files
+**/*.woff2
+**/*.otf
+**/*.ttf
+
+# Other ignores
+*.log
+node_modules
