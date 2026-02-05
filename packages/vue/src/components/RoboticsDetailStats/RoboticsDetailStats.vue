@@ -127,9 +127,9 @@ export default defineComponent({
     hasContent(): boolean {
       return Boolean(
         this.allStats.length > 0 ||
-          this.status !== '' ||
-          this.robotDestinations.length > 0 ||
-          this.animalAnalogIcon
+        this.status !== '' ||
+        this.robotDestinations.length > 0 ||
+        this.animalAnalogIcon
       )
     },
     allStats(): AlternativeStat[] {

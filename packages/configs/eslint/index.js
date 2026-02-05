@@ -2,6 +2,7 @@
 // imports into root eslint.config.js
 
 import vueParser from 'vue-eslint-parser'
+import pluginVue from 'eslint-plugin-vue'
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
@@ -23,7 +24,7 @@ const compat = new FlatCompat({
 
 export default [
   js.configs.recommended,
-  ...compat.extends('plugin:vue/vue3-recommended'),
+  ...pluginVue.configs['flat/recommended'],
   {
     files: [
       '**/*.vue',

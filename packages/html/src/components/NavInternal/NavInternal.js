@@ -50,8 +50,8 @@ export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
           `
             : `
           <a href="${item.url}" class="block font-display"${
-                item.url.startsWith('h') ? ` target="_blank" rel="noopener"` : ''
-              }>
+            item.url.startsWith('h') ? ` target="_blank" rel="noopener"` : ''
+          }>
             <span class="inline-block" data-text="${item.title}">
               ${item.title}
             </span>
