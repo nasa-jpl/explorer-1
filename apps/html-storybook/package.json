@@ -21,8 +21,6 @@
     "lint": "eslint .storybook",
     "lint:fix": "eslint .storybook --fix",
     "build": "pnpm run setup && storybook build -c .storybook -o storybook_compiled",
-    "percy": "percy storybook http://localhost:7007",
-    "percy:dry-run": "percy storybook http://localhost:7007 --dry-run",
     "storybook:update": "npx storybook@latest upgrade --package-manager pnpm"
   },
   "dependencies": {
