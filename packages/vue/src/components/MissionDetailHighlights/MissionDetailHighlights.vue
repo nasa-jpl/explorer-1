@@ -168,7 +168,15 @@ import _throttle from 'lodash/throttle.js'
 import type { DebouncedFunc } from 'lodash'
 import type { Slide } from './MissionDetailHighlightsCarouselItem.vue'
 // @ts-ignore
-import anime from 'animejs'
+import {
+  animate,
+  createDrawable,
+  createMotionPath,
+  createTimeline,
+  type TweenParamValue,
+  type TargetsParam,
+  Tween
+} from 'animejs'
 import MissionDetailHighlightsCarousel from './MissionDetailHighlightsCarousel.vue'
 import BaseHeading from './../BaseHeading/BaseHeading.vue'
 
@@ -254,32 +262,31 @@ export default defineComponent({
       this.lineFollower()
     },
     drawLine() {
-      anime({
-        targets: this.$refs.missionHighlightsPath,
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: 'easeInOutSine',
+      animate(createDrawable(this.$refs.missionHighlightsPath as TargetsParam), {
+        draw: '0 1',
+        ease: 'easeInOutSine',
         duration: 2000,
         delay(_: HTMLElement, i: number) {
-          return i * 250
+          return (i * 250) as TweenParamValue
         },
-        direction: 'alternate',
+        alternate: true,
         loop: false
       })
     },
     lineFollower() {
-      const path = anime.path(this.$refs.missionHighlightsPath as SVGElement)
-      const tl = anime.timeline()
-      tl.add({
-        targets: this.$refs.missionHighlightsMovingDot,
-        translateX: path('x'),
-        translateY: path('y'),
-        easing: 'easeInOutSine',
+      const { translateX, translateY } = createMotionPath(
+        this.$refs.missionHighlightsPath as SVGElement
+      )
+      const tl = createTimeline()
+      tl.add(this.$refs.missionHighlightsMovingDot as TargetsParam, {
+        ease: 'easeInOutSine',
         duration: 2000,
-        loop: false
+        loop: false,
+        x: translateX,
+        y: translateY
       })
-      tl.add({
-        targets: this.$refs.missionHighlightsTitle,
-        easing: 'easeInOutSine',
+      tl.add(this.$refs.missionHighlightsTitle as TargetsParam, {
+        ease: 'easeInOutSine',
         duration: 250,
         opacity: ['0', '1'],
         loop: false
