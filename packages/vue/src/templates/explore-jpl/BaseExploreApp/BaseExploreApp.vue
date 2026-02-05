@@ -5,7 +5,7 @@
  */
 import NavSecondary from './../../../components/NavSecondary/NavSecondary.vue'
 
-const props = defineProps({
+defineProps({
   /** If hero content appears above the navigation (provided by parent component) */
   hasIntro: {
     type: Boolean,
