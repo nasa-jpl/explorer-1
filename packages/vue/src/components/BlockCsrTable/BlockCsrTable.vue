@@ -53,7 +53,7 @@ const props = withDefaults(defineProps<BlockCsrTableProps>(), {
   attachmentPrefix: '',
   apiEndpoint: undefined
 })
-const { rowData, apiEndpoint, attachmentPrefix } = reactive(props)
+const { rowData, apiEndpoint } = reactive(props)
 
 const BlockCsrTableRef = ref()
 const fetchedRowData = ref()
