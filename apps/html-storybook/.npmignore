@@ -1,0 +1,9 @@
+# don't include font files
+**/*.woff2
+**/*.otf
+**/*.ttf
+
+# Other ignores
+*.log
+storybook_compiled
+node_modules
