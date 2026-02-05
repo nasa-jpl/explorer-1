@@ -118,7 +118,7 @@
                     <span
                       class="motion-safe:animate-ping bg-green absolute inline-flex w-full h-full rounded-full opacity-75"
                     ></span>
-                    <span class="bg-green relative inline-flex w-3 h-3 rounded-full"></span>
+                    <span class="bg-green-400 relative inline-flex w-3 h-3 rounded-full"></span>
                   </span>
                   <span>Watch Live</span>
                 </p>
