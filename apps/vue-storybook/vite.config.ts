@@ -11,6 +11,14 @@ export default defineConfig({
   define: {
     packageVersions
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // silence @import deprecation warnings
+        silenceDeprecations: ['import']
+      }
+    }
+  },
   plugins: [
     vue({
       // @ts-ignore

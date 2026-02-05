@@ -46,7 +46,6 @@ export const packageVersions = getPackageVersions()
 //   __VERSION__EXPLORER_1_COMMON__: '1.3.1',
 //   __VERSION__EXPLORER_1_COMMON_STORYBOOK__: '0.0.3',
 //   __VERSION__EXPLORER_1_HTML__: '0.1.1',
-//   __VERSION__EXPLORER_1_NUXT__: '0.0.21',
 //   __VERSION__EXPLORER_1_VUE__: '0.3.3',
 //   __VERSION__NASA_JPL_EXPLORER_1__: '3.4.1'
 // }

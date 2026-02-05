@@ -36,7 +36,7 @@ export default [
       '**/*.cts',
       '**/*.mts'
     ],
-    ignores: ['**/*.d.ts', '**/dist/**/*', '**/.nuxt/*', '**/node_modules/**/*', '.gitignore'],
+    ignores: ['**/*.d.ts', '**/dist/**/*', '**/node_modules/**/*', '.gitignore'],
     plugins: {
       '@typescript-eslint': tsPlugin,
       '@stylistic': stylistic
