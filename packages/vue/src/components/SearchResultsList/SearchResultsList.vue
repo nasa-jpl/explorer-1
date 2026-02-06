@@ -17,6 +17,7 @@
         <SearchResultCard
           :is-events="isEvents"
           :is-profiles="isProfiles"
+          :is-attraction="isAttraction"
           :page-content-type="page.content_type"
           :url="page.url"
           :type="page.type"
@@ -34,6 +35,8 @@
           :ongoing="page.ongoing"
           :target-audience="page.targetAudience"
           :location="page.location"
+          :location-icon="page.locationIcon"
+          :wait="page.wait"
           :primary-subject="page.primarySubject as unknown as PrimarySubjectObject"
           :grade-levels="page.gradeLevels as unknown as GradeLevelsObject[]"
           :time="page.time as unknown as EduResourcesTime"
@@ -94,6 +97,10 @@ export default defineComponent({
       default: false
     },
     isProfiles: {
+      type: Boolean,
+      default: false
+    },
+    isAttraction: {
       type: Boolean,
       default: false
     },
@@ -207,7 +214,9 @@ export default defineComponent({
               page.topic = topic
               // properties for event's page
               page.location =
-                handle === 'events_eventpage' ? page._source[handle + '__location'] : location
+                handle === 'events_eventpage' || handle === 'explore_jpl_sites_explorejplsite'
+                  ? page._source[handle + '__location']
+                  : location
               page.startDate =
                 handle === 'events_eventpage' || handle === 'edu_events_edueventpage'
                   ? page._source[handle + '__start_date']
@@ -258,6 +267,14 @@ export default defineComponent({
                   ? page._source[handle + '__job_title']
                   : page._source[handle + '__summary']
               page.date = date
+              page.wait =
+                handle === 'explore_jpl_sites_explorejplsite'
+                  ? page._source[handle + '__wait_time_filter']
+                  : undefined
+              page.locationIcon =
+                handle === 'explore_jpl_sites_explorejplsite'
+                  ? page._source[handle + '__map_icon']?.thumbnail_image
+                  : undefined
               if (image) {
                 page.image = {
                   src: {
