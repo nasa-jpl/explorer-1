@@ -2,7 +2,7 @@
 import { reactive } from 'vue'
 import { type ExportPackageRate } from './BlockCsrTable.vue'
 
-interface CsrTestLimitsProps {
+interface CsrDetailsProps {
   params: {
     data: {
       ExportPackageRates: ExportPackageRate[]
@@ -10,7 +10,7 @@ interface CsrTestLimitsProps {
   }
 }
 
-const props = withDefaults(defineProps<CsrTestLimitsProps>(), {
+const props = withDefaults(defineProps<CsrDetailsProps>(), {
   params: undefined
 })
 const { params } = reactive(props)
@@ -21,13 +21,12 @@ const openModal = () => {
 }
 </script>
 <template>
-  <div class="CsrTestLimits">
+  <div class="CsrDetails">
     <p
-      v-if="params.data.ExportPackageRates?.length"
       class="text-action hover:text-action-hover hover:cursor-pointer underline"
       @click="openModal()"
     >
-      <span class="hidden lg:inline">View Test Limits</span>
+      <span class="hidden lg:inline">View Details</span>
       <span class="inline lg:hidden">View</span>
     </p>
   </div>
