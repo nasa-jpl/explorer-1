@@ -19,19 +19,19 @@
       >
         <template v-if="data.fileWebm">
           <source
-            :src="data.fileWebm"
+            :src="`${data.fileWebm}#t=0.1`"
             type="video/webm"
           />
         </template>
         <template v-if="data.file">
           <source
-            :src="data.file"
+            :src="`${data.file}#t=0.1`"
             type="video/mp4"
           />
         </template>
         <template v-if="data.fileOgg">
           <source
-            :src="data.fileOgg"
+            :src="`${data.fileOgg}#t=0.1`"
             type="video/ogg"
           />
         </template>
@@ -41,6 +41,10 @@
   </div>
 </template>
 <script lang="ts">
+/**
+ * Uses the Media Fragments URI (#t=0.1) to make sure iOS loads the first frame as a thumbnail
+ * TODO: remove #t=0.1 once we have implemented the video thumbnail/postcard
+ */
 import { defineComponent, type PropType } from 'vue'
 import type { VideoObject } from './../../interfaces'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
