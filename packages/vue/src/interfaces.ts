@@ -143,6 +143,8 @@ export interface ElasticSearchPage {
   startDatetime?: string
   endDatetime?: string
   location?: string
+  locationIcon?: string
+  wait?: string
   title: string
   summary?: string
   eventType?: string
