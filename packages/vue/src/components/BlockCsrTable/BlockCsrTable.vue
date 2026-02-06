@@ -120,7 +120,7 @@ const colDefs = ref([
     }
   },
   {
-    headerName: '',
+    headerName: 'View Details',
     filter: false,
     cellRenderer: CsrDetails,
     cellRendererParams: {
