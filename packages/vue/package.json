@@ -39,7 +39,7 @@
     "swiper": "^12.1.0",
     "tailwindcss": "^3.4.19",
     "twitter-widgets": "^2.0.0",
-    "vue": "^3.5.27",
+    "vue": "^3.5.28",
     "vue-bind-once": "^0.2.1",
     "vue-router": "^5.0.2",
     "vue3-compare-image": "^1.2.5",
@@ -48,7 +48,7 @@
   "devDependencies": {
     "@explorer-1/prettier-config": "workspace:*",
     "@vitejs/plugin-vue": "^6.0.4",
-    "a11y-dialog": "^8.1.4",
+    "a11y-dialog": "^8.1.5",
     "autoprefixer": "^10.4.24",
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
