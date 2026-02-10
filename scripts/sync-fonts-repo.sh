@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$CI" = "true" ]; then
-  echo "Skipping sync: CI environment detected."
+  echo "Skipping font sync: CI environment detected."
   exit 0
 fi
 
