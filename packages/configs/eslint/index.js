@@ -59,7 +59,8 @@ export default [
       'one-var': 'off',
       'no-void': 'off',
       'multiline-ternary': 'off',
-      'no-unused-vars': 'warn',
+      'no-unused-vars': 'off',
+      'no-useless-assignment': 'off',
 
       'no-undef': 'warn',
 
