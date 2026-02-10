@@ -51,7 +51,7 @@
     "@explorer-1/html-storybook": "workspace:^",
     "@explorer-1/vue": "workspace:^",
     "@explorer-1/vue-storybook": "workspace:^",
-    "@types/node": "^25.2.2"
+    "@types/node": "^25.2.3"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.5.0",

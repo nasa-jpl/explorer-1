@@ -25,7 +25,7 @@
   "devDependencies": {
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
-    "stylelint": "^17.1.1",
+    "stylelint": "^17.2.0",
     "stylelint-config-standard-scss": "^17.0.0"
   }
 }
