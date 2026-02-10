@@ -23,6 +23,7 @@
   },
   "scripts": {
     "build": "pnpm --filter @explorer-1/html build",
+    "sync-fonts": "./scripts/sync-fonts-repo.sh",
     "changeset": "pnpm exec changeset",
     "clean": "pnpm clean:nodemodules && pnpm clean:dist",
     "clean:nodemodules": "rimraf \"**/node_modules\"",
@@ -31,7 +32,7 @@
     "refresh": "pnpm clean && pnpm i",
     "nuke-frontend": "rimraf pnpm-lock.yaml && pnpm run refresh",
     "nuke": "pnpm run clean:nodemodules && pnpm run nuke-frontend",
-    "preinstall": "npx --yes only-allow pnpm",
+    "preinstall": "npx --yes only-allow pnpm && ./scripts/sync-fonts-repo.sh",
     "prepublishOnly": "pnpm build",
     "preupdate": "npx --yes only-allow pnpm",
     "postinstall": "pnpm build",
