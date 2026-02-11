@@ -253,6 +253,7 @@ const preview: Preview = {
               'PageEduMultimediaDetail',
               '*'
             ],
+            'ExploreJPL',
             'PageContent'
           ]
         ]

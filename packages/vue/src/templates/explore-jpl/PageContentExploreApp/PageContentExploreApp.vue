@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /** Explore JPL App's equivalent to PageContent */
-import { computed, defineProps, reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import type { PageObject } from '../../../interfaces'
 import { useThemeStore } from '../../../store/theme'
 import HeroLarge from './../../../components/HeroLarge/HeroLarge.vue'
@@ -35,6 +35,7 @@ const heroInline = computed(() => {
 const heroTitle = computed(() => {
   return data?.heroImage && !heroInline.value && data?.displayTitleInHero
 })
+
 </script>
 <template>
   <div
@@ -66,7 +67,7 @@ const heroTitle = computed(() => {
 
       <template #default>
         <!-- page title area -->
-        <LayoutHelper indent="col-2">
+        <LayoutHelper indent="col-2" class="my-5 lg:mt-10 lg:mb-10">
           <DetailHeadline
             v-if="!heroTitle"
             :title="data.title"
