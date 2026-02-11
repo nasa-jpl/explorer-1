@@ -35,7 +35,6 @@ const heroInline = computed(() => {
 const heroTitle = computed(() => {
   return data?.heroImage && !heroInline.value && data?.displayTitleInHero
 })
-
 </script>
 <template>
   <div
@@ -67,7 +66,10 @@ const heroTitle = computed(() => {
 
       <template #default>
         <!-- page title area -->
-        <LayoutHelper indent="col-2" class="my-5 lg:mt-10 lg:mb-10">
+        <LayoutHelper
+          indent="col-2"
+          class="my-5 lg:mt-10 lg:mb-10"
+        >
           <DetailHeadline
             v-if="!heroTitle"
             :title="data.title"
