@@ -1,0 +1,12 @@
+import{S as n}from"./SwimlaneCTA-BcR7Yjzn.js";import"./iframe-G_CakBWE.js";import"./preload-helper-D6kgxu3v.js";import"./BaseLink-CcTNfetl.js";import"./theme-Bkca4b8i.js";import"./MixinAnimationCaret-D3tm0V1z.js";import"./IconCaret-te7yS8v9.js";import"./BaseSwimlane-Cl8fWlge.js";const d={title:"Components/WWW/SwimlaneCTA",component:n,parameters:{docs:{description:{component:"The SwimlaneCTA component combines BaseSwimlane with other elements (JPL logo, links, etc.) to create the component that is used on the WWW homepage."}}}},s={args:{darkMode:!0,targetLink:"https://jpl.nasa.gov/about",backgroundImages:["https://picsum.photos/1380/540?random=1","https://picsum.photos/1380/540?random=2","https://picsum.photos/1380/540?random=3","https://picsum.photos/1380/540?random=4","https://picsum.photos/1380/540?random=5"],backgroundImagesSmall:["https://picsum.photos/1380/540?random=1","https://picsum.photos/1380/540?random=2","https://picsum.photos/1380/540?random=3","https://picsum.photos/1380/540?random=4","https://picsum.photos/1380/540?random=5"],words:["Artists","Communicators","Designers","Disruptors","Dreamers","Developers","Educators","Engineers","Innovators","Inventors","Makers","Problem Solvers","Roboticists","Scientists","Software Engineers","Thinkers","Visualizers"],rows:9,transitionDuration:1800,transitionDelay:800}};var o,t,r;s.parameters={...s.parameters,docs:{...(o=s.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    darkMode: true,
+    targetLink: 'https://jpl.nasa.gov/about',
+    backgroundImages: ['https://picsum.photos/1380/540?random=1', 'https://picsum.photos/1380/540?random=2', 'https://picsum.photos/1380/540?random=3', 'https://picsum.photos/1380/540?random=4', 'https://picsum.photos/1380/540?random=5'],
+    backgroundImagesSmall: ['https://picsum.photos/1380/540?random=1', 'https://picsum.photos/1380/540?random=2', 'https://picsum.photos/1380/540?random=3', 'https://picsum.photos/1380/540?random=4', 'https://picsum.photos/1380/540?random=5'],
+    words: ['Artists', 'Communicators', 'Designers', 'Disruptors', 'Dreamers', 'Developers', 'Educators', 'Engineers', 'Innovators', 'Inventors', 'Makers', 'Problem Solvers', 'Roboticists', 'Scientists', 'Software Engineers', 'Thinkers', 'Visualizers'],
+    rows: 9,
+    transitionDuration: 1800,
+    transitionDelay: 800
+  }
+}`,...(r=(t=s.parameters)==null?void 0:t.docs)==null?void 0:r.source}}};const l=["BaseStory"];export{s as BaseStory,l as __namedExportsOrder,d as default};
