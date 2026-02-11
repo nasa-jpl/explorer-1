@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.0.3
+
+### Patch Changes
+
+- ab47803: Modifying layout on BlockCsrTable
+
 ## 1.0.2
 
 ### Patch Changes
