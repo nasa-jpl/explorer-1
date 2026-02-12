@@ -269,7 +269,7 @@ export default defineComponent({
               page.date = date
               page.wait =
                 handle === 'explore_jpl_sites_explorejplsite'
-                  ? page._source[handle + '__wait_time_label']
+                  ? page._source[handle + '__wait_time_label_filter']
                   : undefined
               page.locationIcon =
                 handle === 'explore_jpl_sites_explorejplsite'
