@@ -18,7 +18,7 @@
     text-size-adjust: 100%;
 
     /* Enable kerning and optional ligatures */
-    text-rendering: optimizelegibility;
+    // text-rendering: optimizelegibility;
   }
 
   /* stylelint-disable at-rule-empty-line-before, declaration-empty-line-before */
@@ -189,10 +189,9 @@
   // }
 
   .text-body-lg {
-    @apply font-display;
     font-size: pxToRem(18); // Based on Tailwind's text-lg
     line-height: 1.6667;
-    letter-spacing: 0.4px;
+    @apply tracking-[-.2px];
 
     @screen sm {
       font-size: pxToRem(19);
