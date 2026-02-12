@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.0.4
+
+### Patch Changes
+
+- 3553695: Adjusting use of font-display
+
 ## 4.0.3
 
 ### Patch Changes
