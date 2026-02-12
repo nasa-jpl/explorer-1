@@ -53,7 +53,7 @@ export const AppBarInternalTemplate = ({
         </a>
       `
       : `
-      <a href="${logInUrl}" class="flex flex-nowrap items-center focus:outline-none focus:ring-2 mr-2 py-1 font-display font-medium">
+      <a href="${logInUrl}" class="flex flex-nowrap items-center focus:outline-none focus:ring-2 mr-2 py-1 font-text tracking-[-.2px] font-medium">
         <span class="hidden lg:block mr-2">
           Sign In
         </span>

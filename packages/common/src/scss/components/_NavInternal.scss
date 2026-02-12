@@ -227,7 +227,7 @@
 
     .repeated-item {
       a {
-        @apply text-jpl-teal-dark leading-tight transition-colors text-lg font-medium font-display;
+        @apply text-jpl-teal-dark leading-tight transition-colors text-lg font-medium font-text tracking-[-.2px];
 
         span {
           @apply border-b border-transparent;
