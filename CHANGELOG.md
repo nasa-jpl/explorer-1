@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.0.5
+
+### Patch Changes
+
+- 7230e1f: Adjusting use of font-display in mobile nav
+
 ## 4.0.4
 
 ### Patch Changes
