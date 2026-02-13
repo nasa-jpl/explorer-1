@@ -26,6 +26,29 @@ const props = defineProps({
 })
 const { data } = reactive(props)
 
+// Wait time display values
+const waitTimeChoices: Record<string, string> = {
+  0: 'No wait',
+  15: '15 minute wait',
+  30: '30 minute wait',
+  45: '45 minute wait',
+  60: '60 minute wait',
+  75: '1 hour, 15 minute wait',
+  90: '1 hour, 30 minute wait',
+  105: '1 hour, 45 minute wait',
+  120: '2 hour wait',
+  135: 'more than 2 hour wait',
+  140: 'CLOSED'
+}
+
+// Update current wait time display text
+const displayWaitTime = computed(() => {
+  if (!data?.waitTime) {
+    return ''
+  }
+  return waitTimeChoices[data.waitTime!] ?? ''
+})
+
 // Convert thumbnailImage data for BlockImageStandard compatibility
 const detailImage = computed(() => {
   return {
@@ -126,7 +149,7 @@ const mapPath = computed(() => {
           <MetadataStacked
             :location="data.location"
             :location-icon="data?.mapIcon?.url"
-            :wait="data.waitTime ? data.waitTime + ' minutes' : ''"
+            :wait="displayWaitTime"
           />
         </LayoutHelper>
 
