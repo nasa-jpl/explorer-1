@@ -2,8 +2,7 @@
 import { computed, reactive, ref, onMounted } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
 import BaseModalDialog from '../BaseModal/BaseModalDialog.vue'
-import CsrAttachment from './CsrAttachment.vue'
-import CsrTestLimits from './CsrTestLimits.vue'
+import CsrDetails from './CsrDetails.vue'
 import CsrTestLimitsTable from './CsrTestLimitsTable.vue'
 import SearchInput from './../SearchInput/SearchInput.vue'
 
@@ -54,7 +53,7 @@ const props = withDefaults(defineProps<BlockCsrTableProps>(), {
   attachmentPrefix: '',
   apiEndpoint: undefined
 })
-const { rowData, apiEndpoint, attachmentPrefix } = reactive(props)
+const { rowData, apiEndpoint } = reactive(props)
 
 const BlockCsrTableRef = ref()
 const fetchedRowData = ref()
@@ -121,37 +120,11 @@ const colDefs = ref([
     }
   },
   {
-    field: 'Description',
-    headerName: 'Description',
-    wrapText: true,
-    autoHeight: true,
-    filterParams: {
-      buttons: ['reset', 'apply'],
-      closeOnApply: true
-    }
-  },
-  {
-    field: 'ExportPackageRates',
-    headerName: 'Test Limits',
-    cellDataType: 'object',
+    headerName: 'View Details',
     filter: false,
-    cellRenderer: CsrTestLimits,
+    cellRenderer: CsrDetails,
     cellRendererParams: {
       openModal: openModal.bind(this)
-    }
-  },
-  {
-    field: 'Attachment',
-    filter: true,
-    filterParams: {
-      filterOptions: ['blank', 'notBlank'],
-      defaultOption: 'notBlank',
-      buttons: ['reset', 'apply'],
-      closeOnApply: true
-    },
-    cellRenderer: CsrAttachment,
-    cellRendererParams: {
-      attachmentPrefix
     }
   }
 ])
