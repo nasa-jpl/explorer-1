@@ -3,7 +3,7 @@
     v-if="data"
     variant="none"
     class="NavMobileLink"
-    :link-class="`flex items-center py-2 text-lg font-display leading-tight ${linkClass}`"
+    :link-class="`flex items-center py-2 text-lg font-text leading-tight ${linkClass}`"
     :href="data.path && !getRouterLink(data) ? data.path : undefined"
     :to="getRouterLink(data) ? getRouterLink(data) : undefined"
     :exact="exact"

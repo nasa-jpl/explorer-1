@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 2.0.3
+
+### Patch Changes
+
+- 3553695: Adjusting use of font-display
+
 ## 2.0.1
 
 ### Patch Changes

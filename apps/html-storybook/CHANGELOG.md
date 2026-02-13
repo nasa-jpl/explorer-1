@@ -1,5 +1,11 @@
 # @explorer-1/html-storybook
 
+## 2.0.8
+
+### Patch Changes
+
+- 3553695: Adjusting use of font-display
+
 ## 2.0.6
 
 ### Patch Changes

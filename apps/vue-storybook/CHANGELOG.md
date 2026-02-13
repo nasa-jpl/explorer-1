@@ -1,5 +1,30 @@
 # @explorer-1/vue-storybook
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [7230e1f]
+  - @explorer-1/vue@1.0.5
+
+## 0.1.5
+
+### Patch Changes
+
+- 3553695: Adjusting use of font-display
+- Updated dependencies [3553695]
+  - @explorer-1/common@2.0.3
+  - @explorer-1/common-storybook@0.1.0
+  - @explorer-1/html@1.0.2
+  - @explorer-1/vue@1.0.4
+
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [ab47803]
+  - @explorer-1/vue@1.0.3
+
 ## 0.1.2
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # explorer-1
 
+## 4.0.5
+
+### Patch Changes
+
+- 7230e1f: Adjusting use of font-display in mobile nav
+
+## 4.0.4
+
+### Patch Changes
+
+- 3553695: Adjusting use of font-display
+
+## 4.0.3
+
+### Patch Changes
+
+- ab47803: Modifying layout on BlockCsrTable
+
 ## 4.0.2
 
 ### Patch Changes
