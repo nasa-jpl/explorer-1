@@ -31,6 +31,7 @@ export const ExploreAppSitePageData = {
   },
   location: 'Cafe 186',
   waitTime: '60',
+  waitTimeLabel: '60 minute wait',
   locationIcon: '',
   body: [
     {

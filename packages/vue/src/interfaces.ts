@@ -346,6 +346,7 @@ export interface PageObject {
   location?: string
   mapIcon?: Record<string, any>
   waitTime?: string
+  waitTimeLabel?: string
   relatedPagesForMoreSection?: any
   id?: string
 }
