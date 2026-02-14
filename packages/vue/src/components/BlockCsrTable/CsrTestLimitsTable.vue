@@ -36,15 +36,9 @@ const colDefs = ref([
     flex: 0,
     width: 50
   },
-  { field: 'TotalDose',
-    wrapText: true,
-    autoHeight: true, },
-  { field: 'DoseRate',
-    wrapText: true,
-    autoHeight: true, },
-  { field: 'TotalFluence',
-    wrapText: true,
-    autoHeight: true, },
+  { field: 'TotalDose', wrapText: true, autoHeight: true },
+  { field: 'DoseRate', wrapText: true, autoHeight: true },
+  { field: 'TotalFluence', wrapText: true, autoHeight: true },
   {
     field: 'LETthOrEnergy',
     wrapText: true,
@@ -54,11 +48,9 @@ const colDefs = ref([
   {
     field: 'Fluence',
     wrapText: true,
-    autoHeight: true,
+    autoHeight: true
   },
-  { field: 'Energy',
-    wrapText: true,
-    autoHeight: true, }
+  { field: 'Energy', wrapText: true, autoHeight: true }
 ])
 const defaultcolDef = {
   flex: 1,
