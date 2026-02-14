@@ -1,7 +1,7 @@
 <template>
   <div
     v-click-outside="closeDropdown"
-    class="NavSecondaryDropdown relative font-display"
+    class="NavSecondaryDropdown relative font-primary tracking-[-.03rem]"
     :class="{
       'mr-auto': index === 0
     }"
