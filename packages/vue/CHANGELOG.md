@@ -1,5 +1,13 @@
 # @explorer-1/vue
 
+## 1.0.6
+
+### Patch Changes
+
+- 496d4fe: Adjusting usage of font-display in tables and secondary nav. Adjusting layout of Block CSR Table.
+- Updated dependencies [496d4fe]
+  - @explorer-1/common@2.0.4
+
 ## 1.0.5
 
 ### Patch Changes
