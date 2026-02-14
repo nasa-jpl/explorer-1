@@ -75,7 +75,7 @@ const theme = themeMaterial.withParams({
 })
 
 const headerClass = [
-  'min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker font-display text-white text-sm border-gray-light-mid lg:p-5 p-3 border-b text-left'
+  'min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker font-secondary text-white text-sm border-gray-light-mid lg:p-5 p-3 border-b text-left'
 ]
 const defaultcolDef = {
   flex: 1,

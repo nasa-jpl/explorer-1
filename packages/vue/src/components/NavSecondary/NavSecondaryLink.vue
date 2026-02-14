@@ -2,7 +2,7 @@
   <BaseLink
     :href="isExternal(item.path) ? item.path : undefined"
     :to="!isExternal(item.path) ? item.path : undefined"
-    link-class="block px-3 py-2 font-display"
+    link-class="block px-3 py-2 font-primary tracking-[-.03rem]"
     variant="none"
     class="NavSecondaryLink border-t-2 border-transparent"
     :class="baseLinkClasses(index)"
