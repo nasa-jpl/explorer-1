@@ -1,5 +1,16 @@
 # @explorer-1/vue
 
+## 1.1.0
+
+### Minor Changes
+
+- 582fa5e: Updating to Node 24. Updating dependencies.
+
+### Patch Changes
+
+- Updated dependencies [582fa5e]
+  - @explorer-1/common@2.1.0
+
 ## 1.0.6
 
 ### Patch Changes
