@@ -17,11 +17,11 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Find Latest Licensed Font Run ID
         id: find_run
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
           script: |
@@ -48,7 +48,7 @@ jobs:
             core.setOutput('run_id', runId);
 
       - name: Download Licensed Font Artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: explorer-1-licensed-fonts
           repository: nasa-jpl/explorer-1-fonts
@@ -60,7 +60,7 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Set up Node ⬢
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
