@@ -1,6 +1,0 @@
-import{B as a}from"./BlockKeyPoints-Cqebn0aX.js";import"./iframe-DI0ok8AA.js";import"./preload-helper-D6kgxu3v.js";import"./BlockHeading-VhLB6wx-.js";import"./getHeadingId-B6tftBIN.js";import"./lodash-Cla5RKlP.js";import"./BaseHeading-BA8y4J-v.js";import"./BlockText-jlYiqlIh.js";const g={title:"Components/Blocks/BlockKeyPoints",component:a,tags:["wagtail-blocks"],excludeStories:/.*Data$/},r={blockType:"KeyPointBlock",heading:"Key Points",listItem:[{text:"<p>Understanding how greenhouse gases will affect clouds is crucial to forecasting climate change.</p><p>But current computer climate models can’t handle the high resolution needed to simulate cloud dynamics worldwide.</p>"},{text:"<p>A recent study suggests that if greenhouse gases raise the atmosphere’s temperature enough, stratocumulus clouds could disappear, causing a large spike in global temperature.</p>"}]},e={name:"BlockKeyPoints",args:{data:r}};var t,o,s;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:`{
-  name: 'BlockKeyPoints',
-  args: {
-    data: BlockKeyPointsData
-  }
-}`,...(s=(o=e.parameters)==null?void 0:o.docs)==null?void 0:s.source}}};const y=["BlockKeyPointsData","BaseStory"];export{e as BaseStory,r as BlockKeyPointsData,y as __namedExportsOrder,g as default};
