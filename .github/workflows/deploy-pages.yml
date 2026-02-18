@@ -48,7 +48,7 @@ jobs:
             core.setOutput('run_id', runId);
 
       - name: Download Licensed Font Artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: explorer-1-licensed-fonts
           repository: nasa-jpl/explorer-1-fonts
