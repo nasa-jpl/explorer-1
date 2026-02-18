@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.0
+
+### Minor Changes
+
+- 582fa5e: Updating to Node 24. Updating dependencies.
+
 ## 4.0.6
 
 ### Patch Changes

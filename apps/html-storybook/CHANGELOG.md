@@ -1,5 +1,11 @@
 # @explorer-1/html-storybook
 
+## 2.1.0
+
+### Minor Changes
+
+- 582fa5e: Updating to Node 24. Updating dependencies.
+
 ## 2.0.8
 
 ### Patch Changes
