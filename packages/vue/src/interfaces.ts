@@ -58,6 +58,7 @@ export interface ThumbnailObject {
   original: string
   width: number
   height: number
+  url: string
 }
 export interface ImageObject {
   title?: string
@@ -344,6 +345,12 @@ export interface PageObject {
   relatedLinks?: BlockRelatedLinksObject[]
   relatedContentHeading: string
   relatedContent?: any
+  location?: string
+  mapIcon?: Record<string, any>
+  waitTime?: string
+  waitTimeLabel?: string
+  relatedPagesForMoreSection?: any
+  id?: string
 }
 
 export interface EduResourcesSubject {
