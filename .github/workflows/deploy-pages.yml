@@ -21,7 +21,7 @@ jobs:
 
       - name: Find Latest Licensed Font Run ID
         id: find_run
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.EXPLORER_1_FONTS_TOKEN }}
           script: |
