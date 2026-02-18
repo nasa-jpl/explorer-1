@@ -18,14 +18,14 @@
     "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.7.1",
-    "@typescript-eslint/eslint-plugin": "^8.54.0",
-    "@typescript-eslint/parser": "^8.54.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-storybook": "^10.2.8",
-    "eslint-plugin-vue": "^10.7.0",
+    "eslint-plugin-storybook": "^10.2.10",
+    "eslint-plugin-vue": "^10.8.0",
     "prettier": "^3.8.1",
-    "vue-eslint-parser": "^10.2.0"
+    "vue-eslint-parser": "^10.4.0"
   }
 }
