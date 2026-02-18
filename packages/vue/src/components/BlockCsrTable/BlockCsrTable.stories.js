@@ -28,7 +28,8 @@ export const BlockCsrTableData = [
         TotalDose: '200',
         DoseRate: null,
         TotalFluence: null,
-        LETthOrEnergy: null,
+        LETthOrEnergy:
+          ' >= Single Event Gate Rupture (SEGR), Single Event Latchup (SEL) - Screen, Single Event Transient (SET), Single Event Burnout (SEB), Single Event Function Interrupt (SEFI) <= 61.6',
         Rates: null,
         Fluence: null,
         Energy: null,

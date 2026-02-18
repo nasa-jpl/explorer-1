@@ -21,7 +21,7 @@ withDefaults(defineProps<CsrTestLimitsTableProps>(), {
 })
 
 const headerClass = [
-  'bg-jpl-blue-darker edu:bg-jpl-violet-darker text-subtitle text-white text-xs border-gray-light-mid px-3 border-b text-left'
+  'bg-jpl-blue-darker edu:bg-jpl-violet-darker font-secondary text-white text-sm border-gray-light-mid px-3 border-b text-left'
 ]
 // @ts-ignore
 const CsrTestLimitsTableRef = ref()
@@ -37,17 +37,21 @@ const colDefs = ref([
     flex: 0,
     width: 50
   },
-  { field: 'TotalDose' },
-  { field: 'DoseRate' },
-  { field: 'TotalFluence' },
+  { field: 'TotalDose', wrapText: true, autoHeight: true },
+  { field: 'DoseRate', wrapText: true, autoHeight: true },
+  { field: 'TotalFluence', wrapText: true, autoHeight: true },
   {
     field: 'LETthOrEnergy',
+    wrapText: true,
+    autoHeight: true,
     headerName: 'LETth or Energy Range'
   },
   {
-    field: 'Fluence'
+    field: 'Fluence',
+    wrapText: true,
+    autoHeight: true
   },
-  { field: 'Energy' }
+  { field: 'Energy', wrapText: true, autoHeight: true }
 ])
 const defaultcolDef = {
   flex: 1,
