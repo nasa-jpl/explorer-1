@@ -42,26 +42,6 @@ const detailImage = computed(() => {
   }
 })
 
-// Convert relatedPagesForMoreSection data for BlockLinkCarousel compatibility
-const relatedContent = computed(() => {
-  const pages: Record<string, any>[] = []
-  data?.relatedPagesForMoreSection.forEach((page: Record<string, any>) => {
-    const card = {
-      url: page.url,
-      title: page.title,
-      thumbnailImage: {
-        src: {
-          url: page.thumbnailImage.url,
-          widht: page.thumbnailImage.width,
-          height: page.thumbnailImage.height
-        }
-      }
-    }
-    pages.push(card)
-  })
-  return pages
-})
-
 // Handle navigating back to Sites page
 const previousPath = computed(() => {
   try {
@@ -168,11 +148,11 @@ const mapPath = computed(() => {
 
         <!-- related content -->
         <BlockLinkCarousel
-          v-if="relatedContent"
+          v-if="data?.relatedPagesForMoreSection"
           item-type="cards"
           class="lg:my-24 my-12"
           heading="More Like This"
-          :items="relatedContent"
+          :items="data.relatedPagesForMoreSection"
         />
       </template>
     </BaseExploreApp>

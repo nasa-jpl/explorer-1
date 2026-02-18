@@ -1,4 +1,3 @@
-import { BlockRelatedLinksData } from './../../../components/BlockRelatedLinks/BlockRelatedLinks.stories.js'
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
 
 import PageSiteExploreApp from './PageSiteExploreApp.vue'
@@ -50,29 +49,36 @@ export const ExploreAppSitePageData = {
       title: 'Cafeteria 303',
       url: 'https://www.nasa.gov',
       thumbnailImage: {
-        url: 'https://picsum.photos/512/288?random=1',
-        width: 512,
-        height: 288
+        src: {
+          url: 'https://picsum.photos/512/288?random=1',
+          width: 512,
+          height: 288
+        }
       }
     },
     {
       title: 'Highbay 1',
       url: 'https://www.nasa.gov',
       thumbnailImage: {
-        url: 'https://picsum.photos/512/288?random=2',
-        width: 512,
-        height: 288
+        src: {
+          url: 'https://picsum.photos/512/288?random=2',
+          width: 512,
+          height: 288
+        }
       }
     },
     {
       title: 'Building 111',
       url: 'https://www.nasa.gov',
       thumbnailImage: {
-        url: 'https://picsum.photos/512/288?random=3',
-        width: 512,
-        height: 288
+        src: {
+          url: 'https://picsum.photos/512/288?random=3',
+          width: 512,
+          height: 288
+        }
       }
-    }
+    },
+    ...BlockLinkCardCarouselData
   ]
 }
 
