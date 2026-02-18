@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import packageVersions from '@explorer-1/common-storybook/src/plugins/packageVersions.js'
+import { packageVersions } from '@explorer-1/common-storybook/src/plugins/packageVersions.js'
 import path from 'path'
 
 const getModulePath = (packageName) => path.join(process.cwd(), 'node_modules', packageName)
@@ -9,7 +9,15 @@ const VUE_PACKAGE_SRC_PATH = path.join(process.cwd(), '../packages/vue/src')
 
 export default defineConfig({
   define: {
-    ...packageVersions
+    packageVersions
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // silence @import deprecation warnings
+        silenceDeprecations: ['import']
+      }
+    }
   },
   plugins: [
     vue({

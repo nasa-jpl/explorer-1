@@ -19,8 +19,6 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         silenceDeprecations: [
-          // Deprecation Warning: https://sass-lang.com/d/mixed-decls
-          'mixed-decls',
           // Deprecation Warning: https://sass-lang.com/d/import
           'import',
           // Deprecation Warning: https://sass-lang.com/d/legacy-js-api

@@ -11,10 +11,6 @@
     "type": "git",
     "url": "https://github.com/nasa-jpl/explorer-1"
   },
-  "engines": {
-    "node": "^20.13.1",
-    "npm": "^10.5.2"
-  },
   "prettier": "@explorer-1/prettier-config",
   "scripts": {
     "dev": "pnpm run storybook",
@@ -25,43 +21,39 @@
     "lint": "eslint .storybook",
     "lint:fix": "eslint .storybook --fix",
     "build": "pnpm run setup && storybook build -c .storybook -o storybook_compiled",
-    "percy": "percy storybook http://localhost:7007",
-    "percy:dry-run": "percy storybook http://localhost:7007 --dry-run",
     "storybook:update": "npx storybook@latest upgrade --package-manager pnpm"
   },
   "dependencies": {
-    "@fancyapps/ui": "^4.0.26",
-    "@tailwindcss/forms": "^0.5.7",
-    "swiper": "^11.1.3"
+    "@fancyapps/ui": "^6.1.11",
+    "@tailwindcss/forms": "^0.5.11",
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^4.1.1",
+    "@chromatic-com/storybook": "^5.0.1",
     "@explorer-1/common-storybook": "workspace:*",
     "@explorer-1/html": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
-    "@percy/cli": "^1.28.7",
-    "@percy/storybook": "^9.1.0",
-    "@rushstack/eslint-patch": "^1.2.0",
-    "@storybook/addon-a11y": "9.1.17",
-    "@storybook/addon-docs": "9.1.17",
-    "@storybook/addon-links": "9.1.17",
-    "@storybook/html-vite": "9.1.17",
-    "@whitespace/storybook-addon-html": "^8.0.2",
-    "autoprefixer": "^10.4.19",
-    "eslint-plugin-storybook": "9.1.17",
+    "@rushstack/eslint-patch": "^1.15.0",
+    "@storybook/addon-a11y": "10.2.10",
+    "@storybook/addon-docs": "10.2.10",
+    "@storybook/addon-links": "10.2.10",
+    "@storybook/html-vite": "10.2.10",
+    "@whitespace/storybook-addon-html": "^9.0.0",
+    "autoprefixer": "^10.4.24",
+    "eslint-plugin-storybook": "10.2.10",
     "js-beautify": "^1.15.4",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.38",
-    "postcss-import": "^16.1.0",
-    "remark-gfm": "^4.0.0",
-    "rimraf": "^5.0.5",
-    "storybook": "9.1.17",
-    "tailwindcss": "^3.4.3",
+    "postcss": "^8.5.6",
+    "postcss-import": "^16.1.1",
+    "remark-gfm": "^4.0.1",
+    "rimraf": "^6.1.3",
+    "storybook": "10.2.10",
+    "tailwindcss": "^3.4.19",
     "ts-node": "^10.9.2",
-    "tslib": "^2.6.2",
-    "typescript": "^5.4.5",
-    "vite": "^5.3.1"
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   },
   "overrides": {
     "react-remove-scroll": {

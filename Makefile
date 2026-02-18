@@ -113,16 +113,6 @@ vue: vue-dev
 vue-build:
 	pnpm --filter @explorer-1/vue build
 
-## Nuxt: run module playground
-nuxt-dev:
-	pnpm --filter @explorer-1/nuxt dev
-
-nuxt: nuxt-dev
-
-## Nuxt: build module
-nuxt-build:
-	pnpm --filter @explorer-1/nuxt build
-
 ## Lint: run ESLint
 lint:
 	pnpm run lint

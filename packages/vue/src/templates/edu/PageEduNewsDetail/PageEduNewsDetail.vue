@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, defineExpose } from 'vue'
+import { computed, ref } from 'vue'
 import isEmpty from 'lodash/isEmpty.js'
 import type { AuthorObject, ImageObject, PageObject } from './../../../interfaces'
 import HeroMedia from './../../../components/HeroMedia/HeroMedia.vue'
