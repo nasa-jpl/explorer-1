@@ -108,7 +108,7 @@ export default defineComponent({
     },
     variantClass(): string {
       let classes = variants[this.variant]
-      if (!this.$slots.default && this.$slots.icon) {
+      if (!this.$slots.default && (this.$slots.iconRight || this.$slots.iconLeft)) {
         classes = classes + ' -icon-only'
       } else if (this.compact) {
         classes = classes + ' -compact'
@@ -133,11 +133,11 @@ export default defineComponent({
     :to="computedTo ? computedTo : undefined"
     @click="$emit('click')"
   >
-    <span class="label block">
-      <slot name="default"></slot>
-      <slot name="icon"></slot>
-      <slot name="afterIcon"></slot>
-    </span>
+    <div class="label flex">
+      <span><slot name="iconLeft"></slot></span>
+      <span><slot name="default"></slot></span>
+      <span><slot name="iconRight"></slot></span>
+    </div>
   </component>
 </template>
 <style lang="scss">

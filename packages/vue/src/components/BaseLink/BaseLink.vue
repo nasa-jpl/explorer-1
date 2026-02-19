@@ -108,11 +108,23 @@ export default defineComponent({
       required: false,
       default: ''
     },
-    /** Customize the left margin of the caret using Tailwind classes */
+    /** Customize the left margin of the caret using Tailwind classes. Only applied when caretLeft is set to false. */
     caretMarginLeft: {
       type: String,
       required: false,
       default: ''
+    },
+    /** Customize the right margin of the caret using Tailwind classes. Only applied when caretLeft is set to true. */
+    caretMarginRight: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    /** Modifies the icon and animation to appear on the left of the text slot */
+    caretLeft: {
+      type: Boolean,
+      required: false,
+      default: false
     },
     /** Overrides the theme's `active` color and uses the `primary` color instead. */
     usePrimaryColor: {
@@ -270,6 +282,8 @@ export default defineComponent({
           :arrow-class="caretClass"
           :color="caretColor"
           :margin-left="caretMarginLeft"
+          :margin-right="caretMarginRight"
+          :caret-left="caretLeft"
         >
           <slot></slot>
         </MixinAnimationCaret>
@@ -280,6 +294,8 @@ export default defineComponent({
         :arrow-class="caretClass"
         :color="caretColor"
         :margin-left="caretMarginLeft"
+        :margin-right="caretMarginRight"
+        :caret-left="caretLeft"
       >
         <slot></slot>
       </MixinAnimationCaret>
@@ -305,6 +321,8 @@ export default defineComponent({
           :arrow-class="caretClass"
           :color="caretColor"
           :margin-left="caretMarginLeft"
+          :margin-right="caretMarginRight"
+          :caret-left="caretLeft"
         >
           <slot></slot>
         </MixinAnimationCaret>
@@ -315,6 +333,8 @@ export default defineComponent({
         :arrow-class="caretClass"
         :color="caretColor"
         :margin-left="caretMarginLeft"
+        :margin-right="caretMarginRight"
+        :caret-left="caretLeft"
       >
         <slot></slot>
       </MixinAnimationCaret>

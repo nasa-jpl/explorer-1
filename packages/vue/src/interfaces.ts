@@ -58,6 +58,7 @@ export interface ThumbnailObject {
   original: string
   width: number
   height: number
+  url: string
 }
 export interface ImageObject {
   title?: string
@@ -102,8 +103,32 @@ export interface ImageBlock extends BlockData, ImageObject {
   constrain: boolean
 }
 
+export interface SearchBucket {
+  key: string
+  doc_count: number
+  label?: string
+}
+
+export interface SearchAggregation {
+  buckets: SearchBucket[]
+  doc_count_error_upper_bound: number
+  sum_other_doc_count: number
+}
+
+export type SearchAggregations = Record<string, SearchAggregation>
+
+export interface SearchData {
+  hits: {
+    total: {
+      value: number
+    }
+    hits: ElasticSearchPage[]
+  }
+  aggregations: SearchAggregations
+}
+
 export interface ElasticSearchPage {
-  _source: string
+  _source: Record<string, any>
   id: string | number
   content_type: string
   url: string
@@ -119,6 +144,8 @@ export interface ElasticSearchPage {
   startDatetime?: string
   endDatetime?: string
   location?: string
+  locationIcon?: string
+  wait?: string
   title: string
   summary?: string
   eventType?: string
@@ -304,14 +331,26 @@ export interface PageObject {
   topper?: string
   seoTitle?: string
   searchDescription?: string
+  heroImage?: ImageObject
   heroPosition?: 'full_bleed' | 'inline'
+  heroImageInline?: ImageObject
+  displayTitleInHero?: boolean
+  heroImageCaption?: string
+  heroSummary?: string
   heroConstrain?: boolean
+  showShareLinks?: boolean
   publicationDate?: string
   body?: StreamfieldBlockData[]
   thumbnailImage?: ThumbnailObject
   relatedLinks?: BlockRelatedLinksObject[]
   relatedContentHeading: string
   relatedContent?: any
+  location?: string
+  mapIcon?: Record<string, any>
+  waitTime?: string
+  waitTimeLabel?: string
+  relatedPagesForMoreSection?: any
+  id?: string
 }
 
 export interface EduResourcesSubject {
