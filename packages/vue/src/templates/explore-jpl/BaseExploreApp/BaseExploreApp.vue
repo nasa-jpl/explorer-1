@@ -34,11 +34,17 @@ defineProps({
   </div>
 </template>
 <style lang="scss">
+// Conversion util for easier definition of font sizes by pixel size
+@function pxToRem($pxValue) {
+  // Assumes font-size for body element is a constant 16px
+  @return math.div($pxValue, 16) * 1rem;
+}
+
 .BaseExploreApp {
   .text-h1 {
     // mimic text-h2
     @apply font-display font-bold;
-    font-size: 2.25rem;
+    font-size: pxToRem(36);
     line-height: 1.25;
 
     @screen sm {
