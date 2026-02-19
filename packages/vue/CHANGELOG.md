@@ -1,5 +1,13 @@
 # @explorer-1/vue
 
+## 1.1.1
+
+### Patch Changes
+
+- cc79897: Adding Explore JPL components
+- Updated dependencies [cc79897]
+  - @explorer-1/common@2.1.1
+
 ## 1.1.0
 
 ### Minor Changes
