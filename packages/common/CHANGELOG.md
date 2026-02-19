@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 2.1.1
+
+### Patch Changes
+
+- cc79897: Adding Explore JPL components
+
 ## 2.1.0
 
 ### Minor Changes
