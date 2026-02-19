@@ -34,6 +34,7 @@ defineProps({
   </div>
 </template>
 <style lang="scss">
+@use 'sass:math';
 // Conversion util for easier definition of font sizes by pixel size
 @function pxToRem($pxValue) {
   // Assumes font-size for body element is a constant 16px
