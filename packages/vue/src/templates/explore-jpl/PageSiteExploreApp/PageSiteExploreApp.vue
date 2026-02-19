@@ -110,12 +110,13 @@ const mapPath = computed(() => {
           />
         </LayoutHelper>
 
-        <!-- inline image (full bleed) -->
-        <BlockImageStandard
-          class="mb-22 mt-10"
-          :data="detailImage"
-          :full-bleed="true"
-        />
+        <!-- inline hero image -->
+        <LayoutHelper
+          indent="col-2"
+          class="lg:mb-22 mt-10 mb-10"
+        >
+          <BlockImageStandard :data="detailImage" />
+        </LayoutHelper>
 
         <!-- share buttons -->
         <LayoutHelper
