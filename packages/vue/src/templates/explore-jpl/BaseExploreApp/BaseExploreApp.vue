@@ -38,7 +38,7 @@ defineProps({
   .text-h1 {
     // mimic text-h2
     @apply font-display font-bold;
-    font-size: pxToRem(36);
+    font-size: 2.25rem;
     line-height: 1.25;
 
     @screen sm {
