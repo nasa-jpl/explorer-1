@@ -1,9 +1,8 @@
 <script lang="ts">
 // @ts-nocheck
 import { defineComponent } from 'vue'
-import { Fancybox } from '@fancyapps/ui'
-import { Fullscreen } from '@fancyapps/ui/src/shared/utils/Fullscreen.js'
-import '@fancyapps/ui/dist/fancybox.css'
+import { Fancybox, Fullscreen } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
 import MixinFancyboxOpenButton from './MixinFancyboxOpenButton.vue'
 
 export const fancyboxThemes = {

@@ -34,9 +34,32 @@ defineProps({
   </div>
 </template>
 <style lang="scss">
+@use 'sass:math';
+// Conversion util for easier definition of font sizes by pixel size
+@function pxToRem($pxValue) {
+  // Assumes font-size for body element is a constant 16px
+  @return math.div($pxValue, 16) * 1rem;
+}
+
 .BaseExploreApp {
   .text-h1 {
-    @apply text-h2;
+    // mimic text-h2
+    @apply font-display font-bold;
+    font-size: pxToRem(36);
+    line-height: 1.25;
+
+    @screen sm {
+      font-size: pxToRem(38);
+    }
+    @screen md {
+      font-size: pxToRem(40);
+    }
+    @screen lg {
+      font-size: pxToRem(42);
+    }
+    @screen xl {
+      font-size: pxToRem(44);
+    }
   }
 }
 </style>

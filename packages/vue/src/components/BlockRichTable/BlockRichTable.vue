@@ -54,7 +54,7 @@ export default defineComponent({
               v-for="(headCell, headIndex) in table.tableContent.tableHead[0]"
               :key="headIndex"
               scope="col"
-              class="min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker font-display text-white border-gray-light-mid lg:p-5 p-3 border-b text-left"
+              class="min-w-[6rem] bg-jpl-blue-darker edu:bg-jpl-violet-darker font-secondary text-sm text-white border-gray-light-mid lg:p-5 p-3 border-b text-left"
             >
               <template v-if="headCell">
                 {{ (headCell as HeadCell).text }}

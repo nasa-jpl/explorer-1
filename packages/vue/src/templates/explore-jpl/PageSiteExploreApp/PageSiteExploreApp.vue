@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineProps, reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PageObject } from '../../../interfaces'
 import { useThemeStore } from '../../../store/theme'

@@ -7,7 +7,7 @@ import filters from './utils/filters'
 import vClickOutside from 'click-outside-vue3'
 import VueCompareImage from 'vue3-compare-image'
 import { BindOncePlugin } from 'vue-bind-once'
-import './assets/scss/styles-with-fonts.scss'
+import '@explorer-1/common/src/scss/styles-with-fonts.scss'
 import App from './App.vue'
 
 const pinia = createPinia()

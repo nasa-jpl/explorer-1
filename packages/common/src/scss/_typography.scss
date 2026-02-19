@@ -191,7 +191,7 @@
   .text-body-lg {
     font-size: pxToRem(18); // Based on Tailwind's text-lg
     line-height: 1.6667;
-    @apply tracking-[-.2px];
+    @apply tracking-[-.03rem];
 
     @screen sm {
       font-size: pxToRem(19);

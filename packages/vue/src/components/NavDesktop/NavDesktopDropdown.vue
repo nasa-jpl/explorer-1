@@ -3,7 +3,7 @@
     <NavDropdownToggle
       v-click-outside="closeDropdown"
       :aria-expanded="dropdownVisible ? true : false"
-      class="group relative z-20 px-4 font-bold font-text tracking-[-.2px] border-t-2 border-transparent edu:text-sm edu:xl:text-base edu:px-2 edu:xl:px-4"
+      class="group relative z-20 px-4 font-bold font-text tracking-[-.03rem] border-t-2 border-transparent edu:text-sm edu:xl:text-base edu:px-2 edu:xl:px-4"
       :class="{
         '-open': dropdownVisible
       }"
