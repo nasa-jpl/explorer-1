@@ -45,6 +45,7 @@ const props = defineProps({
         v-if="props.locationIcon"
         :src="props.locationIcon"
         class="w-4 h-4"
+        alt=""
       />
       <IconLocation
         v-else
