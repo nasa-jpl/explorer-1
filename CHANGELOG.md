@@ -1,5 +1,17 @@
 # explorer-1
 
+## 4.1.0
+
+### Minor Changes
+
+- 582fa5e: Updating to Node 24. Updating dependencies.
+
+## 4.0.6
+
+### Patch Changes
+
+- 496d4fe: Adjusting usage of font-display in tables and secondary nav. Adjusting layout of Block CSR Table.
+
 ## 4.0.5
 
 ### Patch Changes

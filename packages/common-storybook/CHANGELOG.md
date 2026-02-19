@@ -1,5 +1,11 @@
 # @explorer-1/common-storybook
 
+## 0.2.0
+
+### Minor Changes
+
+- 582fa5e: Updating to Node 24. Updating dependencies.
+
 ## 0.1.0
 
 ### Minor Changes

@@ -244,7 +244,7 @@ const computedClass = computed((): string => {
   >
     <NavJumpMenu
       v-if="stepHeadings?.length"
-      :key="route.fullPath"
+      :key="route ? route.fullPath : undefined"
       ref="PageEduStudentProjectJumpMenu"
       :title="data.title"
       :blocks="stepHeadings"

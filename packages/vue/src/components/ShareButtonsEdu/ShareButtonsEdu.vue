@@ -11,7 +11,7 @@ import IconSocialPinterest from './../Icons/IconSocialPinterest.vue'
 import IconSocialTwitter from './../Icons/IconSocialTwitter.vue'
 import { mixinCanonicalUrl } from '../../utils/mixins'
 
-interface ShareButtonsEduProps {
+export interface ShareButtonsEduProps {
   title: string
   url: string
   image?: string

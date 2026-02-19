@@ -1,5 +1,17 @@
 # @explorer-1/common
 
+## 2.1.0
+
+### Minor Changes
+
+- 582fa5e: Updating to Node 24. Updating dependencies.
+
+## 2.0.4
+
+### Patch Changes
+
+- 496d4fe: Adjusting usage of font-display in tables and secondary nav. Adjusting layout of Block CSR Table.
+
 ## 2.0.3
 
 ### Patch Changes

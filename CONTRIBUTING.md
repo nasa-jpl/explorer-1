@@ -50,8 +50,6 @@ make html-storybook
 # Start a Vue app to test components directly (optional)
 make vue
 
-# Start a Nuxt app to test the nuxt module (currently broken)
-make nuxt
 ```
 
 ## Developing Vue components

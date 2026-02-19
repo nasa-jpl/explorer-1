@@ -12,7 +12,7 @@ import BlockImageStandard from './../BlockImage/BlockImageStandard.vue'
 import BlockVideo, { type BlockVideoData } from './../BlockVideo/BlockVideo.vue'
 import type { StreamfieldBlockData } from './../../interfaces'
 
-interface HeroInlineMediaProps {
+export interface HeroInlineMediaProps {
   heroBlocks: StreamfieldBlockData[]
   constrain?: boolean
 }

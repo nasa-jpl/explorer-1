@@ -1,5 +1,11 @@
 # @explorer-1/html
 
+## 1.1.0
+
+### Minor Changes
+
+- 582fa5e: Updating to Node 24. Updating dependencies.
+
 ## 1.0.2
 
 ### Patch Changes

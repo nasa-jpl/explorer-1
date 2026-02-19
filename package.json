@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.0.5",
+  "version": "4.1.0",
   "type": "module",
   "description": "Monorepo for JPL's design system, Explorer 1",
   "keywords": [
@@ -23,16 +23,16 @@
   },
   "scripts": {
     "build": "pnpm --filter @explorer-1/html build",
+    "sync-fonts": "./scripts/sync-fonts-repo.sh",
     "changeset": "pnpm exec changeset",
-    "clean": "pnpm clean:nodemodules && pnpm clean:dist && pnpm clean:nuxt",
+    "clean": "pnpm clean:nodemodules && pnpm clean:dist",
     "clean:nodemodules": "rimraf \"**/node_modules\"",
     "clean:cache": "rimraf \"**/.cache\"",
     "clean:dist": "rimraf \"**/dist\"",
-    "clean:nuxt": "rimraf \"**/.nuxt\"",
     "refresh": "pnpm clean && pnpm i",
     "nuke-frontend": "rimraf pnpm-lock.yaml && pnpm run refresh",
     "nuke": "pnpm run clean:nodemodules && pnpm run nuke-frontend",
-    "preinstall": "npx --yes only-allow pnpm",
+    "preinstall": "npx --yes only-allow pnpm && ./scripts/sync-fonts-repo.sh",
     "prepublishOnly": "pnpm build",
     "preupdate": "npx --yes only-allow pnpm",
     "postinstall": "pnpm build",
@@ -40,23 +40,23 @@
     "lint:fix": "pnpm run -r --if-present lint:fix"
   },
   "engines": {
-    "node": "^20.13.1",
+    "node": "^24.13.0",
     "pnpm": ">=9.1.1",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^4.1.1",
+    "@chromatic-com/storybook": "^5.0.1",
     "@explorer-1/eslint-config": "workspace:^",
     "@explorer-1/html": "workspace:^",
     "@explorer-1/html-storybook": "workspace:^",
     "@explorer-1/vue": "workspace:^",
     "@explorer-1/vue-storybook": "workspace:^",
-    "@types/node": "^20.12.12"
+    "@types/node": "^25.2.3"
   },
   "dependencies": {
-    "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.9"
+    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/cli": "^2.29.8"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
