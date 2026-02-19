@@ -1,1 +1,0 @@
-import{r as b,a as m}from"./isObjectLike-m13Kz0sT.js";var e,o;function n(){if(o)return e;o=1;var s=b(),i=m(),t="[object Symbol]";function a(r){return typeof r=="symbol"||i(r)&&s(r)==t}return e=a,e}export{n as r};

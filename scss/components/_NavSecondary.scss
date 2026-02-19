@@ -5,7 +5,9 @@
   @screen lg {
     @apply block;
   }
-
+  &.show-on-mobile {
+    @apply visible block;
+  }
   &.has-intro {
     .nav-secondary-container {
       @apply border-gray-mid border-opacity-0;
