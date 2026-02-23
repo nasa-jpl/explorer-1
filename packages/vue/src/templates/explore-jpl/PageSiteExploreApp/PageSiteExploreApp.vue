@@ -6,6 +6,7 @@ import { useThemeStore } from '../../../store/theme'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
 import BlockImageStandard from './../../../components/BlockImage/BlockImageStandard.vue'
+import BlockImageFullBleed from './../../../components/BlockImage/BlockImageFullBleed.vue'
 import ShareButtons from './../../../components/ShareButtons/ShareButtons.vue'
 import BlockStreamfield from './../../../components/BlockStreamfield/BlockStreamfield.vue'
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
@@ -113,10 +114,15 @@ const mapPath = computed(() => {
         <!-- inline hero image -->
         <LayoutHelper
           indent="col-2"
-          class="lg:mb-22 mt-10 mb-10"
+          class="mt-10 mb-22 hidden lg:block"
         >
           <BlockImageStandard :data="detailImage" />
         </LayoutHelper>
+
+        <BlockImageFullBleed
+          :data="detailImage"
+          class="lg:hidden mt-10 mb-10"
+        />
 
         <!-- share buttons -->
         <LayoutHelper
