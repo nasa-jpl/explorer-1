@@ -44,7 +44,7 @@ importers:
     dependencies:
       '@fancyapps/ui':
         specifier: ^6.1.11
-        version: 6.1.11
+        version: 6.1.12
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19(yaml@2.8.2))
@@ -144,7 +144,7 @@ importers:
         version: link:../../packages/vue
       '@fancyapps/ui':
         specifier: ^6.1.11
-        version: 6.1.11
+        version: 6.1.12
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19(yaml@2.8.2))
@@ -277,7 +277,7 @@ importers:
     dependencies:
       '@fancyapps/ui':
         specifier: ^6.1.11
-        version: 6.1.11
+        version: 6.1.12
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19(yaml@2.8.2))
@@ -372,7 +372,7 @@ importers:
     dependencies:
       '@fancyapps/ui':
         specifier: ^6.1.11
-        version: 6.1.11
+        version: 6.1.12
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19(yaml@2.8.2))
@@ -409,7 +409,7 @@ importers:
         version: link:../common
       '@fancyapps/ui':
         specifier: ^6.1.11
-        version: 6.1.11
+        version: 6.1.12
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19(yaml@2.8.2))
@@ -1138,8 +1138,8 @@ packages:
     resolution: {integrity: sha512-bIZEUzOI1jkhviX2cp5vNyXQc6olzb2ohewQubuYlMXZ2Q/XjBO0x0XhGPvc9fjSIiUN0vw+0hq53BJ4eQSJKQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@fancyapps/ui@6.1.11':
-    resolution: {integrity: sha512-6MrKw47k5vATlMewFj36TK3vZvpLyjcJ9wb0R+X8CH1QzG60rhqCC+llclnp85JhHIlw4pC7ILfh1hy7xDqNtA==}
+  '@fancyapps/ui@6.1.12':
+    resolution: {integrity: sha512-uEXC4T972Un+/7nZdx65Ec3iHvG8FsLRGQrVNOnBc4XsvldAw5lMl2kLJStmJjKry3QepjAM6X5kGSqjM7DYIA==}
 
   '@floating-ui/core@1.7.4':
     resolution: {integrity: sha512-C3HlIdsBxszvm5McXlB8PeOEWfBhcGBTZGkGlWc2U0KFY5IwG5OQEuQ8rq52DZmcHDlPLd+YFBK+cZcytwIFWg==}
@@ -2443,8 +2443,8 @@ packages:
   '@types/junit-report-builder@3.0.2':
     resolution: {integrity: sha512-R5M+SYhMbwBeQcNXYWNCZkl09vkVfAtcPIaCGdzIkkbeaTrVbGQ7HVgi4s+EmM/M1K4ZuWQH0jGcvMvNePfxYA==}
 
-  '@types/lodash@4.17.23':
-    resolution: {integrity: sha512-RDvF6wTulMPjrNdCoYRC8gNR880JNGT8uB+REUpC2Ns4pRqQJhGz90wh7rgdXDPpCczF3VGktDuFGVnz8zP7HA==}
+  '@types/lodash@4.17.24':
+    resolution: {integrity: sha512-gIW7lQLZbue7lRSWEFql49QJJWThrTFFeIMJdp3eH4tKoxm1OvEPg02rm4wCCSHS0cL3/Fizimb35b7k8atwsQ==}
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
@@ -6537,8 +6537,8 @@ packages:
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
-  vue-component-type-helpers@3.2.4:
-    resolution: {integrity: sha512-05lR16HeZDcDpB23ku5b5f1fBOoHqFnMiKRr2CiEvbG5Ux4Yi0McmQBOET0dR0nxDXosxyVqv67q6CzS3AK8rw==}
+  vue-component-type-helpers@3.2.5:
+    resolution: {integrity: sha512-tkvNr+bU8+xD/onAThIe7CHFvOJ/BO6XCOrxMzeytJq40nTfpGDJuVjyCM8ccGZKfAbGk2YfuZyDMXM56qheZQ==}
 
   vue-docgen-api@4.79.2:
     resolution: {integrity: sha512-n9ENAcs+40awPZMsas7STqjkZiVlIjxIKgiJr5rSohDP0/JCrD9VtlzNojafsA1MChm/hz2h3PDtUedx3lbgfA==}
@@ -7381,7 +7381,7 @@ snapshots:
       '@eslint/core': 1.1.0
       levn: 0.4.1
 
-  '@fancyapps/ui@6.1.11': {}
+  '@fancyapps/ui@6.1.12': {}
 
   '@floating-ui/core@1.7.4':
     dependencies:
@@ -8426,7 +8426,7 @@ snapshots:
       '@storybook/preview-api': 7.6.23
       '@storybook/theming': 7.6.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@storybook/types': 7.6.23
-      '@types/lodash': 4.17.23
+      '@types/lodash': 4.17.24
       color-convert: 2.0.1
       dequal: 2.0.3
       lodash: 4.17.23
@@ -8714,7 +8714,7 @@ snapshots:
       storybook: 10.2.10(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       type-fest: 2.19.0
       vue: 3.5.28(typescript@5.9.3)
-      vue-component-type-helpers: 3.2.4
+      vue-component-type-helpers: 3.2.5
 
   '@stylistic/eslint-plugin@5.9.0(eslint@10.0.0(jiti@1.21.7))':
     dependencies:
@@ -8910,7 +8910,7 @@ snapshots:
 
   '@types/junit-report-builder@3.0.2': {}
 
-  '@types/lodash@4.17.23': {}
+  '@types/lodash@4.17.24': {}
 
   '@types/mdast@4.0.4':
     dependencies:
@@ -13657,7 +13657,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.12: {}
 
-  vue-component-type-helpers@3.2.4: {}
+  vue-component-type-helpers@3.2.5: {}
 
   vue-docgen-api@4.79.2(vue@3.5.28(typescript@5.9.3)):
     dependencies:
