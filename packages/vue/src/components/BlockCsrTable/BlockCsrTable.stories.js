@@ -40,7 +40,7 @@ export const BlockCsrTableData = [
   {
     Id: 2,
     TestRecordId: 2,
-    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
+    Attachment: 'Test/123/ExportFiles.zip',
     Status: 0,
     GenericPartNumber: 'GPN123',
     Description: 'A description for part 1',
@@ -66,7 +66,7 @@ export const BlockCsrTableData = [
   {
     Id: 3,
     TestRecordId: 3,
-    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
+    Attachment: 'Test/456/ExportFiles.zip',
     Status: 1,
     GenericPartNumber: 'GPN345',
     Description: 'A description for part 2',
@@ -92,7 +92,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
+    Attachment: 'Test/789/ExportFiles.zip',
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part. Lorem ipsum dolor sit amet consectatur.',
@@ -118,7 +118,7 @@ export const BlockCsrTableData = [
   {
     Id: 4,
     TestRecordId: 4,
-    Attachment: 'Test/4816f146-e517-447d-812b-d2c7c200cb74/ExportFiles.zip',
+    Attachment: 'Test/123/ExportFiles.zip',
     Status: 1,
     GenericPartNumber: 'TEST',
     Description: 'A description for part 2',
