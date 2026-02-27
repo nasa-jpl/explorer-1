@@ -222,6 +222,7 @@ const onFilterTextBoxChanged = () => {
                 class="inline"
                 variant="default"
                 target="_blank"
+                :add-slash="false"
                 >Download</BaseLink
               >
             </p>
