@@ -11,9 +11,19 @@
     "url": "https://github.com/nasa-jpl/explorer-1/tree/main/packages/vue"
   },
   "type": "module",
+  "main": "./dist/explorer-1-vue.js",
+  "module": "./dist/explorer-1-vue.js",
+  "types": "./dist/explorer-1-vue.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/explorer-1-vue.d.ts",
+      "import": "./dist/explorer-1-vue.js"
+    }
+  },
   "scripts": {
+    "prebuild": "node scripts/generate-exports.mjs",
     "dev": "pnpm prepare && vite",
-    "build": "pnpm prepare && vue-tsc && vite build",
+    "build": "pnpm prebuild && pnpm prepare && vue-tsc && vite build",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "preview": "vite preview",

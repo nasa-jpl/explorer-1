@@ -6,7 +6,7 @@ import { defineStore } from 'pinia'
  ** secondayNav: breadcrumb items that are overridden from content pages or similar
  */
 
-export interface State {
+export interface HeaderState {
   headerTransparent: boolean
   highlightPrimary: boolean
   globalChildren?: any | null
@@ -15,7 +15,7 @@ export interface State {
 }
 
 export const useHeaderStore = defineStore('header', {
-  state: (): State => {
+  state: (): HeaderState => {
     return {
       headerTransparent: false,
       highlightPrimary: true,

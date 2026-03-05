@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 /** Stores the state of various user preferences on listing and search pages
  */
 
-export interface State {
+export interface SearchState {
   showSidebar: boolean | undefined
   showGridView: boolean | undefined
   showSidebarForGalleries: boolean | undefined
@@ -12,7 +12,7 @@ export interface State {
 
 // @ts-expect-error
 export const useSearchStore = defineStore('search', {
-  state: (): State => {
+  state: (): SearchState => {
     return {
       showSidebar: undefined,
       showGridView: undefined,

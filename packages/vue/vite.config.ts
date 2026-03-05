@@ -9,7 +9,11 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      insertTypesEntry: true
+      entryRoot: 'src',
+      include: ['src/**', 'lib/**'],
+      insertTypesEntry: true,
+      staticImport: true,
+      cleanVueFileName: true
     }),
     Components({
       dirs: ['./src/components', './src/templates']
@@ -33,19 +37,12 @@ export default defineConfig({
       entry: resolve(__dirname, 'lib/main.ts'),
       name: 'Explorer1Vue',
       // the proper extensions will be added
-      fileName: 'explorer-1-vue'
+      fileName: 'explorer-1-vue',
+      formats: ['es']
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
-      external: ['vue', 'lodash'],
-      output: {
-        // Provide global variables to use in the UMD build for externalized deps
-        globals: {
-          vue: 'Vue',
-          lodash: 'lodash',
-          'lodash/throttle': '_throttle'
-        }
-      }
+      external: ['vue', 'vue-router']
     }
   }
 })

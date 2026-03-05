@@ -8,7 +8,7 @@ import type {
   ImageObject,
   ImageSrcObject,
   RelatedLinkObject
-} from '@explorer-1/vue/src/interfaces'
+} from './../interfaces'
 // srcSet data structure
 export interface SrcSetDataValue {
   url: string

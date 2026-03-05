@@ -4,12 +4,12 @@ import { type Explorer1Theme } from './../interfaces'
 /** Sets the Explorer-1 theme
  */
 
-export interface State {
+export interface ThemeState {
   theme: Explorer1Theme | null
 }
 
 export const useThemeStore = defineStore('theme', {
-  state: (): State => {
+  state: (): ThemeState => {
     return {
       theme: null
     }
