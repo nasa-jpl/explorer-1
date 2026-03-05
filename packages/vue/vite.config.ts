@@ -9,7 +9,6 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      entryRoot: 'src',
       include: ['src/**', 'lib/**'],
       insertTypesEntry: true,
       staticImport: true,

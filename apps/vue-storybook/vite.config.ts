@@ -37,7 +37,7 @@ export default defineConfig({
       // Force all Vue and Pinia imports to resolve to the TOP-LEVEL node_modules
       vue: getModulePath('vue'),
       pinia: getModulePath('pinia'),
-      dayjs: getModulePath('dayjs')
+      // dayjs: getModulePath('dayjs')
     }
   },
   server: {

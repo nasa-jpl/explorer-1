@@ -1,15 +1,16 @@
 import dayjs from 'dayjs'
-import updateLocale from 'dayjs/plugin/updateLocale.js'
-import localizedFormat from 'dayjs/plugin/localizedFormat.js'
-import timezone from 'dayjs/plugin/timezone.js'
-import utc from 'dayjs/plugin/utc.js'
-import advancedFormat from 'dayjs/plugin/advancedFormat.js'
-import duration from 'dayjs/plugin/duration.js'
-import minMax from 'dayjs/plugin/minMax.js'
+import updateLocale from 'dayjs/plugin/updateLocale'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+import duration from 'dayjs/plugin/duration'
+import minMax from 'dayjs/plugin/minMax'
 // Locales must be imported manually
 // see https://github.com/iamkun/dayjs/tree/dev/src/locale
-import 'dayjs/locale/en-gb.js'
+import enGb from 'dayjs/locale/en-gb'
 
+dayjs.locale(enGb)
 dayjs.extend(timezone)
 dayjs.extend(utc)
 dayjs.extend(advancedFormat)
@@ -35,4 +36,4 @@ dayjs.updateLocale('en', {
 dayjs.extend(duration)
 dayjs.extend(minMax)
 
-export default dayjs
+export { dayjs }

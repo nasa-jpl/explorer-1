@@ -64,8 +64,9 @@ storybook_compiled
 
 # Typescript
 *.d.ts
+!packages/vue/src/shims-modules.d.ts
 
-# Tailwind
+# Package Builds
 dist
 
 # Licensed Fonts

@@ -7,6 +7,7 @@ const DIRS_TO_SCAN = [
   { path: './src/templates', type: 'default' }
 ]
 const STORE_DIR = './src/store'
+const UTILS_DIR = './src/utils'
 
 // 1. Handle Components & Templates (Default Exports)
 let exportLines = ['// --- Components & Templates ---']
@@ -27,27 +28,26 @@ DIRS_TO_SCAN.forEach(({ path, type }) => {
   getFiles(path)
 })
 
-// 2. Handle Mixins (Named Exports)
-// Instead of listing them all, we "proxy" them
-exportLines.push('\n// --- Utilities & Mixins ---')
-exportLines.push("export * from '../src/utils/mixins'")
-exportLines.push("export { default as filters } from '../src/utils/filters'")
-exportLines.push("export { default as dayjs } from '../src/utils/dayjs'")
+// Handle Utilities (Named Exports)
+exportLines.push('\n// --- Utilities ---')
+try {
+  const utilFiles = readdirSync(UTILS_DIR).filter(
+    (file) => (file.endsWith('.ts') || file.endsWith('.js')) && !file.endsWith('.d.ts')
+  )
+  utilFiles.forEach((file) => {
+    const fileName = file.replace(/\.(ts|js)$/, '')
+    exportLines.push(`export * from '../src/utils/${fileName}'`)
+  })
+} catch (err) {
+  console.warn('⚠️ No utils directory found or error reading it:', err.message)
+}
 
-// 3. Handle 3rd Party re-exports (for the "Bundled" strategy)
-// exportLines.push('\n// --- 3rd Party Re-exports ---')
-// exportLines.push("export { default as vClickOutside } from 'click-outside-vue3'")
-// exportLines.push("export { Swiper, SwiperSlide } from 'swiper/vue'")
-// exportLines.push("export { default as VueCompareImage } from 'vue3-compare-image'")
-
-// 4. Handle Stores (Automated for the whole directory)
+// Handle Stores
 exportLines.push('\n// --- Stores ---')
-
 try {
   const storeFiles = readdirSync(STORE_DIR).filter(
     (file) => (file.endsWith('.ts') || file.endsWith('.js')) && !file.endsWith('.d.ts') // exclude type declaration files
   )
-
   storeFiles.forEach((file) => {
     // Remove the extension for the import path
     const fileName = file.replace('src/', '../src/').replace(/\.(ts|js)$/, '')
@@ -57,14 +57,21 @@ try {
   console.warn('⚠️ No store directory found or error reading it:', err.message)
 }
 
-// 5. Handle TypeScript Interfaces/Types
+// Handle TypeScript Interfaces/Types
 exportLines.push('\n// --- Types ---')
-// This is critical for consumer apps using TypeScript
 exportLines.push("export type * from '../src/interfaces'")
 
-// 6. Handle Constants (Values like eduMetadataDictionary, contentAliases)
+// Handle Constants (Values like eduMetadataDictionary, contentAliases)
 exportLines.push('\n// --- Constants ---')
 exportLines.push("export * from '../src/constants'")
+
+// Handle 3rd Party re-exports
+exportLines.push('\n// --- 3rd Party Re-exports ---')
+exportLines.push("export { default as vClickOutside } from 'click-outside-vue3'")
+exportLines.push("export { Swiper, SwiperSlide } from 'swiper/vue'")
+exportLines.push("export { default as VueCompareImage } from 'vue3-compare-image'")
+exportLines.push("export { BindOncePlugin } from 'vue-bind-once'")
+exportLines.push("export { default as VueObserveVisibility } from 'vue3-observe-visibility'")
 
 const content = `// ⚠️ AUTO-GENERATED FILE - DO NOT EDIT MANUALLY\n// Generated on: ${new Date().toLocaleString()}\n\n${exportLines.join('\n')}\n`
 

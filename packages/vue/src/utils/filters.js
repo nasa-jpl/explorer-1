@@ -1,7 +1,7 @@
 // must include `.js`
-import dayjs from './dayjs.js'
+import { dayjs } from './dayjs.js'
 
-const filters = {
+export const filters = {
   // To support more locales update add imports to dayjs.js'
   displayDate(value, format, locale = 'en') {
     if (value) {
@@ -30,5 +30,3 @@ const filters = {
     }
   }
 }
-
-export default filters

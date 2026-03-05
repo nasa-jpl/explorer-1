@@ -1,7 +1,7 @@
 // import and assign mock components
 import { action } from 'storybook/actions'
-import DsnWidget from '@explorer-1/vue/src/components/DsnWidget/DsnWidget.vue'
-import AsteroidWatchWidget from '@explorer-1/vue/src/components/AsteroidWatchWidget/AsteroidWatchWidget.vue'
+import DsnWidget from '@explorer-1/vue'
+import AsteroidWatchWidget from '@explorer-1/vue'
 
 export default (app) => {
   // nuxt-link mock component

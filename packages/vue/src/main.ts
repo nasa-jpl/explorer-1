@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { RouterLink } from 'vue-router'
-import filters from './utils/filters'
+import { filters } from './utils/filters'
 // @ts-ignore
 import vClickOutside from 'click-outside-vue3'
 import VueCompareImage from 'vue3-compare-image'

@@ -1,5 +1,5 @@
 // ⚠️ AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
-// Generated on: 3/4/2026, 4:15:08 PM
+// Generated on: 3/5/2026, 1:17:15 PM
 
 // --- Components & Templates ---
 export { default as AboutTheAuthor } from '../src/components/AboutTheAuthor/AboutTheAuthor.vue'
@@ -278,10 +278,18 @@ export { default as BlockMilestone } from '../src/templates/www/PageTimeline/Blo
 export { default as PageTimeline } from '../src/templates/www/PageTimeline/PageTimeline.vue'
 export { default as PageTopicDetail } from '../src/templates/www/PageTopicDetail/PageTopicDetail.vue'
 
-// --- Utilities & Mixins ---
+// --- Utilities ---
+export * from '../src/utils/anchorizeBlock'
+export * from '../src/utils/anchorizeStreamfield'
+export * from '../src/utils/dayjs'
+export * from '../src/utils/eventBus'
+export * from '../src/utils/filters'
+export * from '../src/utils/generateHash'
+export * from '../src/utils/getHeadingId'
+export * from '../src/utils/isEduExternalLink'
+export * from '../src/utils/lookupContentType'
 export * from '../src/utils/mixins'
-export { default as filters } from '../src/utils/filters'
-export { default as dayjs } from '../src/utils/dayjs'
+export * from '../src/utils/rangeifyGrades'
 
 // --- Stores ---
 export * from '../src/store/curatedGallery'
@@ -294,3 +302,10 @@ export type * from '../src/interfaces'
 
 // --- Constants ---
 export * from '../src/constants'
+
+// --- 3rd Party Re-exports ---
+export { default as vClickOutside } from 'click-outside-vue3'
+export { Swiper, SwiperSlide } from 'swiper/vue'
+export { default as VueCompareImage } from 'vue3-compare-image'
+export { BindOncePlugin } from 'vue-bind-once'
+export { default as VueObserveVisibility } from 'vue3-observe-visibility'

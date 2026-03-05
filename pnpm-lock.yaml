@@ -145,12 +145,12 @@ importers:
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19(yaml@2.8.2))
-      tailwindcss:
-        specifier: ^3.4.19
-        version: 3.4.19(yaml@2.8.2)
       vue:
         specifier: ^3.5.28
         version: 3.5.28(typescript@5.9.3)
+      vue-router:
+        specifier: ^5.0.2
+        version: 5.0.2(@vue/compiler-sfc@3.5.28)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))(vue@3.5.28(typescript@5.9.3))
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^5.0.1
@@ -230,6 +230,9 @@ importers:
       storybook-addon-vue-slots:
         specifier: ^0.9.29
         version: 0.9.29(@storybook/blocks@7.6.23(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(@storybook/components@7.6.23(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(@storybook/core-events@7.6.23)(@storybook/preview-api@7.6.23)(@storybook/theming@7.6.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(@storybook/types@7.6.23)(@storybook/vue3@10.2.10(storybook@10.2.10(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vue@3.5.28(typescript@5.9.3)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vue@3.5.28(typescript@5.9.3))
+      tailwindcss:
+        specifier: ^3.4.19
+        version: 3.4.19(yaml@2.8.2)
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@swc/core@1.15.11)(@types/node@25.3.0)(typescript@5.9.3)

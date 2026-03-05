@@ -20,22 +20,6 @@ Install `@explorer-1/vue` and `@explorer-1/common` with [npm](https://www.npmjs.
 npm install --save @explorer-1/vue @explorer-1/common
 ```
 
-Install secondary dependencies:
-
-- @tailwindcss/forms
-- click-outside-vue3
-- dayjs
-- mitt
-- swiper
-- vue
-- vue-bind-once
-- vue3-compare-image
-- vue3-observe-visibility
-
-```bash
-npm install --save @tailwindcss/forms click-outside-vue3 dayjs mitt swiper vue vue-bind-once vue3-compare-image vue3-observe-visibility
-```
-
 ### Configuration (Vite)
 
 View files in the `@explorer-1/vue` package for examples on how to configure your Vue app with Vite.

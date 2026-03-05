@@ -1,20 +1,23 @@
 /** @type { import('@storybook/vue3-vite').Preview } */
 import { MINIMAL_VIEWPORTS } from 'storybook/viewport'
-import useMockComponents from './_mock-components.js'
 import { setup, type Preview } from '@storybook/vue3-vite'
 import { createRouter, createWebHashHistory, type RouterOptions } from 'vue-router'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import vClickOutside from 'click-outside-vue3'
-import VueCompareImage from 'vue3-compare-image'
-import { BindOncePlugin } from 'vue-bind-once'
 import { createPinia } from 'pinia'
-import filters from '@explorer-1/vue/src/utils/filters'
+import beautify from 'js-beautify'
+import Explorer1Vue, {
+  filters,
+  BindOncePlugin,
+  Swiper,
+  SwiperSlide,
+  vClickOutside,
+  VueCompareImage,
+  VueObserveVisibility
+} from '@explorer-1/vue'
 import '@explorer-1/common/src/scss/styles-with-fonts.scss'
+import '@explorer-1/common-storybook/src/config/canvas.css'
+import useMockComponents from './_mock-components.js'
 import { withGlobals, globalTypes } from './withGlobals'
 import customTheme from '@explorer-1/common-storybook/src/config/customTheme'
-import '@explorer-1/common-storybook/src/config/canvas.css'
-import VueObserveVisibility from 'vue3-observe-visibility'
-import beautify from 'js-beautify'
 import { beautifyHtmlOptions } from '@explorer-1/common-storybook/src/plugins/beautifyHtmlOptions.js'
 import { injectLicensedFonts } from '@explorer-1/common-storybook/src/fonts-data.js'
 import '@explorer-1/common-storybook/src/font-flag.js'

@@ -1,6 +1,6 @@
 // import Vue from 'vue'
 // @ts-ignore
-import dayjs from './dayjs'
+import { dayjs } from './dayjs'
 import { useHeaderStore } from './../store/header'
 import { useRoute } from 'vue-router'
 import type {
