@@ -146,6 +146,14 @@ const computedRowData = computed(() => {
   return fetchedRowData.value || rowData
 })
 
+const getEncodedAttachmentUrl = (attachment: string) => {
+  let url = ''
+  if (props.attachmentPrefix && attachment) {
+    url = props.attachmentPrefix + attachment
+  }
+  return encodeURI(url)
+}
+
 onMounted(async () => {
   await getRowData()
 })
@@ -210,10 +218,11 @@ const onFilterTextBoxChanged = () => {
             <p v-if="modalData.Attachment">
               <strong class="pr-1">Attachment:</strong>
               <BaseLink
-                :href="modalData.Attachment"
+                :href="getEncodedAttachmentUrl(modalData.Attachment)"
                 class="inline"
                 variant="default"
                 target="_blank"
+                :add-slash="false"
                 >Download</BaseLink
               >
             </p>
