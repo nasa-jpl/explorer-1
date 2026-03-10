@@ -1,5 +1,12 @@
 # @explorer-1/vue
 
+## 1.1.2
+
+### Patch Changes
+
+- 4789384: Fixing CSR table block attachment link.
+- c9cb4e4: Changing background color of main footer
+
 ## 1.1.1
 
 ### Patch Changes
