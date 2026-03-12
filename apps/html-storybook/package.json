@@ -21,7 +21,8 @@
     "lint": "eslint .storybook",
     "lint:fix": "eslint .storybook --fix",
     "build": "pnpm run setup && storybook build -c .storybook -o storybook_compiled",
-    "storybook:update": "npx storybook@latest upgrade --package-manager pnpm"
+    "storybook:update": "npx storybook@latest upgrade --package-manager pnpm",
+    "start": "http-server storybook_compiled -p 7007 -c-1 -s"
   },
   "dependencies": {
     "@fancyapps/ui": "^6.1.13",

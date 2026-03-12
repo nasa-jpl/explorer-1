@@ -25,6 +25,7 @@
   "dependencies": {
     "@explorer-1/common": "workspace:*",
     "@fancyapps/ui": "^6.1.13",
+    "@storybook/addon-docs": "10.2.17",
     "@tailwindcss/forms": "^0.5.11",
     "a11y-dialog": "^8.1.5",
     "ag-grid-vue3": "^35.1.0",

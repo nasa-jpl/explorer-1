@@ -39,6 +39,7 @@
   "devDependencies": {
     "@explorer-1/common": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
+    "@storybook/addon-docs": "10.2.17",
     "autoprefixer": "^10.4.27",
     "postcss-import": "^16.1.1",
     "typescript": "^5.9.3",

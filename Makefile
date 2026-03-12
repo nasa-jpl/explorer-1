@@ -73,6 +73,10 @@ html-storybook-force:
 html-storybook-build:
 	pnpm --filter @explorer-1/html-storybook build --webpack-stats-json
 
+## HTML: start compiled Storybook
+html-storybook-start:
+	pnpm --filter @explorer-1/html-storybook start
+
 ## HTML: run Vite
 html-dev:
 	pnpm --filter @explorer-1/html dev
@@ -99,7 +103,7 @@ vue-storybook-build:
 vue-storybook-start:
 	pnpm --filter @explorer-1/vue-storybook start
 
-## HTML: run Storybook with --force-build-preview
+## Vue: run Storybook with --force-build-preview
 vue-storybook-force:
 	pnpm --filter @explorer-1/vue-storybook dev --force-build-preview
 
