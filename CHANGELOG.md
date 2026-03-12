@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.4
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+
 ## 4.1.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @explorer-1/vue
 
+## 1.1.4
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+- Updated dependencies [070d9e6]
+  - @explorer-1/common@2.1.3
+
 ## 1.1.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @explorer-1/common-storybook
 
+## 0.2.1
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+
 ## 0.2.0
 
 ### Minor Changes
