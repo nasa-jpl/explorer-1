@@ -13,7 +13,7 @@
         <span>
           <span
             v-if="$attrs['steps-numbering']"
-            :class="$attrs['steps-classes']"
+            :class="$attrs['steps-classes'] as string"
             aria-hidden
             >{{ `Step ${Number(index) + 1}:` }}</span
           >
