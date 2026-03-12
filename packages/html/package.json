@@ -1,7 +1,11 @@
 {
   "name": "@explorer-1/html",
-  "private": true,
   "version": "1.1.1",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "JPL CreativeServices",
   "type": "module",
   "repository": {
     "type": "git",
