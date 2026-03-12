@@ -1,0 +1,6 @@
+import{B as o}from"./BlockVideoEmbed-BymA1hiE.js";import"./iframe-BrzZ320N.js";import"./preload-helper-PPVm8Dsz.js";import"./BaseImagePlaceholder-bWT0DGgR.js";import"./BaseImageCaption-CFz8Vvzw.js";import"./BaseLink-pRotQKBd.js";import"./theme-DF05onQk.js";import"./MixinAnimationCaret-DCWRc0t9.js";import"./IconCaret-B-0LWV9T.js";const p={title:"Components/Blocks/BlockVideoEmbed",component:o,tags:["wagtail-blocks"],excludeStories:/.*Data$/},t={data:{blockType:"VideoEmbedBlock",embed:{embed:`<iframe title="Meet NASA's Diana Trujillo" width="480" height="270" src="https://www.youtube.com/embed/vUuUyYqI83Q?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`},caption:"<p>Get to know some of the diverse team of engineers and scientists working on NASA's next Mars rover, Perseverance.</p>",credit:"ISRO/NASA/JPL-Caltech/Brown University/USGS"}},e={name:"BlockVideoEmbed",args:{data:t.data}};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  name: 'BlockVideoEmbed',
+  args: {
+    data: BlockVideoEmbedData.data
+  }
+}`,...e.parameters?.docs?.source}}};const b=["BlockVideoEmbedData","BaseStory"];export{e as BaseStory,t as BlockVideoEmbedData,b as __namedExportsOrder,p as default};
