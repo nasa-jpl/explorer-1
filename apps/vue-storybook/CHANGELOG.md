@@ -1,5 +1,16 @@
 # @explorer-1/vue-storybook
 
+## 0.2.5
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+- Updated dependencies [93b7e7d]
+  - @explorer-1/common-storybook@0.2.2
+  - @explorer-1/common@2.1.4
+  - @explorer-1/html@1.1.3
+  - @explorer-1/vue@1.1.5
+
 ## 0.2.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.5
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+
 ## 4.1.4
 
 ### Patch Changes

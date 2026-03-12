@@ -1,5 +1,13 @@
 # @explorer-1/vue
 
+## 1.1.5
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+- Updated dependencies [93b7e7d]
+  - @explorer-1/common@2.1.4
+
 ## 1.1.4
 
 ### Patch Changes
