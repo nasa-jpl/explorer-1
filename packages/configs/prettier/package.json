@@ -6,7 +6,7 @@
     "access": "public"
   },
   "description": "Shared prettier config",
-  "author": "JPL CreativeServices",
+  "author": "JPL CreativeStudio",
   "repository": {
     "type": "git",
     "url": "https://github.com/nasa-jpl/explorer-1"

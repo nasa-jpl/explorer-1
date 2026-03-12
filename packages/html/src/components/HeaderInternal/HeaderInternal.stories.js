@@ -3,7 +3,7 @@ import { NavInternalData } from './../NavInternal/NavInternal.stories'
 
 export const HeaderInternalData = {
   orgNumber: '55x',
-  siteTitle: 'CreativeServices',
+  siteTitle: 'CreativeStudio',
   includeSignIn: false,
   includeSearch: true,
   menuItems: NavInternalData.menuItems

@@ -1,6 +1,6 @@
 const AppBarInternalData = {
   orgNumber: '55x',
-  siteTitle: 'CreativeServices',
+  siteTitle: 'CreativeStudio',
   includeSignIn: true,
   signedIn: false,
   userData: {
