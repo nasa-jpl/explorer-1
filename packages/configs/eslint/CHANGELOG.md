@@ -1,5 +1,11 @@
 # @explorer-1/eslint-config
 
+## 1.1.2
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+
 ## 1.1.1
 
 ### Patch Changes

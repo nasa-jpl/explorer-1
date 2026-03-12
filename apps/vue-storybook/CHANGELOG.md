@@ -1,5 +1,16 @@
 # @explorer-1/vue-storybook
 
+## 0.2.4
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+- Updated dependencies [070d9e6]
+  - @explorer-1/common-storybook@0.2.1
+  - @explorer-1/html@1.1.2
+  - @explorer-1/vue@1.1.4
+  - @explorer-1/common@2.1.3
+
 ## 0.2.3
 
 ### Patch Changes

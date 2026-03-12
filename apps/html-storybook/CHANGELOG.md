@@ -1,5 +1,11 @@
 # @explorer-1/html-storybook
 
+## 2.1.2
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+
 ## 2.1.1
 
 ### Patch Changes
