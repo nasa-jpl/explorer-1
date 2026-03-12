@@ -1,5 +1,11 @@
 # @explorer-1/html-storybook
 
+## 2.1.3
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+
 ## 2.1.2
 
 ### Patch Changes

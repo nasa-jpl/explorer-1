@@ -1,5 +1,11 @@
 # @explorer-1/eslint-config
 
+## 1.1.3
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+
 ## 1.1.2
 
 ### Patch Changes
