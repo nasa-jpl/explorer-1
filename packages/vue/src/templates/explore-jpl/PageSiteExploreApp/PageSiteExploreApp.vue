@@ -31,12 +31,12 @@ const { data } = reactive(props)
 const detailImage = computed(() => {
   return {
     src: {
-      url: data?.thumbnailImage?.url!,
+      url: data?.thumbnailImage?.original!,
       width: data?.thumbnailImage?.width!,
       height: data?.thumbnailImage?.height!
     },
     srcCropped: {
-      url: data?.thumbnailImage?.url!,
+      url: data?.thumbnailImage?.original!,
       width: data?.thumbnailImage?.width!,
       height: data?.thumbnailImage?.height!
     }

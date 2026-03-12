@@ -23,7 +23,7 @@ export const ExploreAppSitePageData = {
   displayLabel: 'Explore JPL',
   showShareLinks: false,
   thumbnailImage: {
-    url: 'https://picsum.photos/512/288',
+    original: 'https://picsum.photos/512/288',
     width: 512,
     height: 288,
     id: 12345
