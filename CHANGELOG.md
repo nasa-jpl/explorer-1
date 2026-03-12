@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.3
+
+### Patch Changes
+
+- efc1a49: Dependency updates. Fixing storybook docs pages bug.
+
 ## 4.1.1
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @explorer-1/vue-storybook
 
+## 0.2.3
+
+### Patch Changes
+
+- efc1a49: Dependency updates. Fixing storybook docs pages bug.
+- Updated dependencies [efc1a49]
+  - @explorer-1/common@2.1.2
+  - @explorer-1/html@1.1.1
+  - @explorer-1/vue@1.1.3
+  - @explorer-1/common-storybook@0.2.0
+
 ## 0.2.2
 
 ### Patch Changes

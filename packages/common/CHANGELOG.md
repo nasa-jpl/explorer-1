@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 2.1.2
+
+### Patch Changes
+
+- efc1a49: Dependency updates. Fixing storybook docs pages bug.
+
 ## 2.1.1
 
 ### Patch Changes
