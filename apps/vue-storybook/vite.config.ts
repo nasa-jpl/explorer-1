@@ -32,6 +32,7 @@ export default defineConfig({
   // because pnpm and stories are in node_modules
   resolve: {
     preserveSymlinks: true,
+    dedupe: ['@storybook/addon-docs'],
     // Brute force deduping (only necessary for Storybook)
     alias: {
       // Force all Vue and Pinia imports to resolve to the TOP-LEVEL node_modules
