@@ -1,6 +1,6 @@
 const AppBarInternalData = {
-  orgNumber: '18x',
-  siteTitle: 'DesignLab',
+  orgNumber: '55x',
+  siteTitle: 'CreativeServices',
   includeSignIn: true,
   signedIn: false,
   userData: {
