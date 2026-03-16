@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 2.1.5
+
+### Patch Changes
+
+- 8ab5d03: Fixing fancybox for vanilla JS implementations
+
 ## 2.1.4
 
 ### Patch Changes

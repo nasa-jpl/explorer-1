@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.6
+
+### Patch Changes
+
+- 8ab5d03: Fixing fancybox for vanilla JS implementations
+
 ## 4.1.5
 
 ### Patch Changes
