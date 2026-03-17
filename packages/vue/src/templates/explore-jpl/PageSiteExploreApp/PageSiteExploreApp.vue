@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
-import type { PageObject } from '../../../interfaces'
+import type { PageObject, ImageObject } from '../../../interfaces'
 import { useThemeStore } from '../../../store/theme'
 import LayoutHelper from './../../../components/LayoutHelper/LayoutHelper.vue'
 import DetailHeadline from './../../../components/DetailHeadline/DetailHeadline.vue'
@@ -26,22 +26,6 @@ const props = defineProps({
   }
 })
 const { data } = reactive(props)
-
-// Convert thumbnailImage data for BlockImageStandard compatibility
-const detailImage = computed(() => {
-  return {
-    src: {
-      url: data?.thumbnailImage?.original!,
-      width: data?.thumbnailImage?.width!,
-      height: data?.thumbnailImage?.height!
-    },
-    srcCropped: {
-      url: data?.thumbnailImage?.original!,
-      width: data?.thumbnailImage?.width!,
-      height: data?.thumbnailImage?.height!
-    }
-  }
-})
 
 // Handle navigating back to Sites page
 const previousPath = computed(() => {
@@ -113,14 +97,16 @@ const mapPath = computed(() => {
 
         <!-- inline hero image -->
         <LayoutHelper
+          v-if="data.thumbnailImage?.src"
           indent="col-2"
           class="mt-10 mb-22 hidden lg:block"
         >
-          <BlockImageStandard :data="detailImage" />
+          <BlockImageStandard :data="data.thumbnailImage as ImageObject" />
         </LayoutHelper>
 
         <BlockImageFullBleed
-          :data="detailImage"
+          v-if="data.thumbnailImage?.src"
+          :data="data.thumbnailImage as ImageObject"
           class="lg:hidden mt-10 mb-10"
         />
 

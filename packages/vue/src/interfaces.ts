@@ -58,7 +58,8 @@ export interface ThumbnailObject {
   original: string
   width: number
   height: number
-  url: string
+  src?: ImageSrcObject
+  srcCropped?: ImageSrcObject
 }
 export interface ImageObject {
   title?: string

@@ -24,8 +24,16 @@ export const ExploreAppSitePageData = {
   showShareLinks: false,
   thumbnailImage: {
     original: 'https://picsum.photos/512/288',
-    width: 512,
-    height: 288,
+    src: {
+      url: 'https://picsum.photos/512/288',
+      width: 512,
+      height: 288
+    },
+    srcCropped: {
+      url: 'https://picsum.photos/512/288',
+      width: 512,
+      height: 288
+    },
     id: 12345
   },
   location: 'Cafe 186',
