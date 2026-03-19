@@ -59,6 +59,23 @@ export const DateFilter = {
     truncateFilters: true
   }
 }
+
+export const RadioInput = {
+  name: 'Radio Group',
+  args: {
+    inputType: 'radio',
+    filterBy: [],
+    buckets: [
+      { key: 'Solar System', doc_count: 3308 },
+      { key: 'Earth', doc_count: 1179 },
+      { key: 'Stars and Galaxies', doc_count: 979 },
+      { key: 'Technology', doc_count: 480 }
+    ],
+    groupKey: 'topics',
+    groupTitle: 'Topic',
+    truncateFilters: false
+  }
+}
 export const SubFilters = {
   decorators: [
     () => ({
