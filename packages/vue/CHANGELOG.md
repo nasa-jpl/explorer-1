@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.7
+
+### Patch Changes
+
+- 391a6be: Adds option to use radio input in SearchFilterGroup
+
 ## 1.1.6
 
 ### Patch Changes

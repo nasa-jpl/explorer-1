@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.7
+
+### Patch Changes
+
+- 17386f4: Preparing for release
+
 ## 4.1.6
 
 ### Patch Changes
