@@ -64,7 +64,7 @@ export const RadioInput = {
   name: 'Radio Group',
   args: {
     inputType: 'radio',
-    filterBy: [],
+    filterBy: '',
     buckets: [
       { key: 'Solar System', doc_count: 3308 },
       { key: 'Earth', doc_count: 1179 },
