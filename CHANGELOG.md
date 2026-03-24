@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.8
+
+### Patch Changes
+
+- 3f9ba6c: Version bump
+
 ## 4.1.7
 
 ### Patch Changes
