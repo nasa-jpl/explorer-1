@@ -2,8 +2,8 @@ import { HeaderInternalTemplate } from './HeaderInternal'
 import { NavInternalData } from './../NavInternal/NavInternal.stories'
 
 export const HeaderInternalData = {
-  orgNumber: '18x',
-  siteTitle: 'DesignLab',
+  orgNumber: '55x',
+  siteTitle: 'CreativeStudio',
   includeSignIn: false,
   includeSearch: true,
   menuItems: NavInternalData.menuItems

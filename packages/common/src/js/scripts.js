@@ -1,4 +1,4 @@
-import '@fancyapps/ui'
+import { Fancybox } from '@fancyapps/ui/dist/fancybox/'
 import { initMixinCarousel, initBlockImageCarousel } from './vendors/_swiper.js'
 import initBlockAccordion from './components/_BlockAccordion.js'
 import initBackToTop from './components/_BackToTop.js'
@@ -11,3 +11,5 @@ initHeaderInternal()
 initHeroMedia()
 initMixinCarousel()
 initBlockImageCarousel()
+
+Fancybox.bind('[data-fancybox]', {})

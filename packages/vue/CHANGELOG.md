@@ -1,5 +1,49 @@
 # @explorer-1/vue
 
+## 1.1.7
+
+### Patch Changes
+
+- 391a6be: Adds option to use radio input in SearchFilterGroup
+
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies [8ab5d03]
+  - @explorer-1/common@2.1.5
+
+## 1.1.5
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+- Updated dependencies [93b7e7d]
+  - @explorer-1/common@2.1.4
+
+## 1.1.4
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+- Updated dependencies [070d9e6]
+  - @explorer-1/common@2.1.3
+
+## 1.1.3
+
+### Patch Changes
+
+- efc1a49: Dependency updates. Fixing storybook docs pages bug.
+- Updated dependencies [efc1a49]
+  - @explorer-1/common@2.1.2
+
+## 1.1.2
+
+### Patch Changes
+
+- 4789384: Fixing CSR table block attachment link.
+- c9cb4e4: Changing background color of main footer
+
 ## 1.1.1
 
 ### Patch Changes

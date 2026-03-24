@@ -1,5 +1,29 @@
 # @explorer-1/common
 
+## 2.1.5
+
+### Patch Changes
+
+- 8ab5d03: Fixing fancybox for vanilla JS implementations
+
+## 2.1.4
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+
+## 2.1.3
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+
+## 2.1.2
+
+### Patch Changes
+
+- efc1a49: Dependency updates. Fixing storybook docs pages bug.
+
 ## 2.1.1
 
 ### Patch Changes

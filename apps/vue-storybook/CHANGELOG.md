@@ -1,5 +1,63 @@
 # @explorer-1/vue-storybook
 
+## 0.2.7
+
+### Patch Changes
+
+- Updated dependencies [391a6be]
+  - @explorer-1/vue@1.1.7
+
+## 0.2.6
+
+### Patch Changes
+
+- Updated dependencies [8ab5d03]
+  - @explorer-1/common@2.1.5
+  - @explorer-1/common-storybook@0.2.2
+  - @explorer-1/html@1.1.3
+  - @explorer-1/vue@1.1.6
+
+## 0.2.5
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+- Updated dependencies [93b7e7d]
+  - @explorer-1/common-storybook@0.2.2
+  - @explorer-1/common@2.1.4
+  - @explorer-1/html@1.1.3
+  - @explorer-1/vue@1.1.5
+
+## 0.2.4
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+- Updated dependencies [070d9e6]
+  - @explorer-1/common-storybook@0.2.1
+  - @explorer-1/html@1.1.2
+  - @explorer-1/vue@1.1.4
+  - @explorer-1/common@2.1.3
+
+## 0.2.3
+
+### Patch Changes
+
+- efc1a49: Dependency updates. Fixing storybook docs pages bug.
+- Updated dependencies [efc1a49]
+  - @explorer-1/common@2.1.2
+  - @explorer-1/html@1.1.1
+  - @explorer-1/vue@1.1.3
+  - @explorer-1/common-storybook@0.2.0
+
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies [4789384]
+- Updated dependencies [c9cb4e4]
+  - @explorer-1/vue@1.1.2
+
 ## 0.2.1
 
 ### Patch Changes

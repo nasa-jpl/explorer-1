@@ -1,5 +1,23 @@
 # @explorer-1/html-storybook
 
+## 2.1.3
+
+### Patch Changes
+
+- 93b7e7d: Fixing name of repo author (typo)
+
+## 2.1.2
+
+### Patch Changes
+
+- 070d9e6: Updating author information
+
+## 2.1.1
+
+### Patch Changes
+
+- efc1a49: Dependency updates. Fixing storybook docs pages bug.
+
 ## 2.1.0
 
 ### Minor Changes

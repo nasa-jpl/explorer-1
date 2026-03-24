@@ -1,10 +1,10 @@
 {
   "name": "@explorer-1/eslint-config",
-  "version": "1.1.0",
+  "version": "1.1.3",
   "description": "Shared eslint config",
   "main": "index.js",
   "private": false,
-  "author": "DesignLab",
+  "author": "JPL CreativeStudio",
   "repository": {
     "type": "git",
     "url": "https://github.com/nasa-jpl/explorer-1"
@@ -15,15 +15,15 @@
   },
   "prettier": "@explorer-1/prettier-config",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
-    "@stylistic/eslint-plugin": "^5.7.1",
-    "@typescript-eslint/eslint-plugin": "^8.56.0",
-    "@typescript-eslint/parser": "^8.56.0",
-    "eslint": "^10.0.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
+    "@typescript-eslint/parser": "^8.57.0",
+    "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-storybook": "^10.2.10",
+    "eslint-plugin-storybook": "^10.2.17",
     "eslint-plugin-vue": "^10.8.0",
     "prettier": "^3.8.1",
     "vue-eslint-parser": "^10.4.0"
