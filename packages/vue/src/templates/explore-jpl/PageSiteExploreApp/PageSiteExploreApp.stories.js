@@ -23,9 +23,17 @@ export const ExploreAppSitePageData = {
   displayLabel: 'Explore JPL',
   showShareLinks: false,
   thumbnailImage: {
-    url: 'https://picsum.photos/512/288',
-    width: 512,
-    height: 288,
+    original: 'https://picsum.photos/512/288',
+    src: {
+      url: 'https://picsum.photos/512/288',
+      width: 512,
+      height: 288
+    },
+    srcCropped: {
+      url: 'https://picsum.photos/512/288',
+      width: 512,
+      height: 288
+    },
     id: 12345
   },
   location: 'Cafe 186',
