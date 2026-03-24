@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.8
+
+### Patch Changes
+
+- a8c2efe: Updating types of SearchFilterGroup to be compatible with radio inputs.
+
 ## 1.1.7
 
 ### Patch Changes
