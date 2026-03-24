@@ -164,8 +164,15 @@ export default {
       default: 'checkbox'
     },
     filterBy: {
-      type: Array,
-      default: undefined
+      /* array for checkbox, string for radio */
+      type: [Array, String] as PropType<string[] | string>,
+      required: true,
+      validator: (value: string[] | string, props: any) => {
+        if (props.inputType === 'radio') {
+          return typeof value === 'string'
+        }
+        return Array.isArray(value)
+      }
     },
     buckets: {
       type: Object,
