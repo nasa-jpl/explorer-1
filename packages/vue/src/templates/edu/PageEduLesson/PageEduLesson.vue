@@ -316,12 +316,22 @@ const computedClass = computed((): string => {
       <DetailHeadline
         v-if="data.title && !heroTitle"
         :title="data.title"
+        :last-published-date="data.lastPublishedAt"
         label="Lesson"
         pill
       />
+      <template v-if="heroTitle && data.lastPublishedAt">
+        <p class="text-gray-mid-dark mt-10">
+          Last Updated:
+          {{
+            // @ts-ignore
+            $filters.displayDate(data.lastPublishedAt)
+          }}
+        </p>
+      </template>
       <ShareButtonsEdu
         v-if="data?.url"
-        :class="heroTitle ? 'mt-10' : 'mt-4'"
+        :class="heroTitle && data.lastPublishedAt ? 'mt-4' : heroTitle ? 'mt-10' : 'mt-4'"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
@@ -426,20 +436,6 @@ const computedClass = computed((): string => {
       indent="col-3"
     >
       <AboutTheAuthor :authors="data.authors" />
-    </LayoutHelper>
-
-    <LayoutHelper
-      v-if="data.lastPublishedAt"
-      indent="col-3"
-      class="lg:my-18 my-10"
-    >
-      <p class="border-t border-gray-light-mid pt-8">
-        <strong>Lesson Last Updated:</strong>
-        {{
-          // @ts-ignore
-          $filters.displayDate(data.lastPublishedAt)
-        }}
-      </p>
     </LayoutHelper>
   </div>
 </template>

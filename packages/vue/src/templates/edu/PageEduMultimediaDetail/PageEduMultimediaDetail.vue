@@ -36,7 +36,7 @@ interface PageEduMultimediaObject extends PageEduResourcesObject {
 }
 
 interface PageEduMultimediaDetailProps {
-  data: PageEduMultimediaObject
+  data?: PageEduMultimediaObject
 }
 
 // define props
@@ -178,9 +178,9 @@ const { data } = reactive(props)
         :title="data.title"
         :label="mediaLabel"
         :publication-date="data.publicationDate"
+        :last-published-date="data.lastPublishedAt"
         schema
         pill
-        hide-date
       />
       <ShareButtonsEdu
         v-if="data?.url"

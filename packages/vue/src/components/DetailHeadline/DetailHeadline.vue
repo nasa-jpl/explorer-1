@@ -105,13 +105,22 @@
         itemprop="datePublished"
         :content="pubDatetime"
       />
-
-      <span v-if="publicationDate && !hideDate">
-        {{
-          // @ts-ignore
-          $filters.displayDate(publicationDate)
-        }}
-      </span>
+      <template v-if="!hideDate">
+        <span v-if="publicationDate">
+          {{
+            // @ts-ignore
+            $filters.displayDate(publicationDate)
+          }}
+        </span>
+        <span v-if="publicationDate && lastPublishedDate"> | </span>
+        <span v-if="lastPublishedDate">
+          Last Updated:
+          {{
+            // @ts-ignore
+            $filters.displayDate(lastPublishedDate)
+          }}
+        </span>
+      </template>
     </div>
   </div>
 </template>
@@ -155,6 +164,12 @@ export default defineComponent({
     },
     /** Publication time */
     publicationTime: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    /** Last published date */
+    lastPublishedDate: {
       type: String,
       required: false,
       default: undefined
@@ -214,7 +229,7 @@ export default defineComponent({
       return this.hasTag || this.readTime ? true : false
     },
     hasByline(): boolean {
-      return this.authors?.length || this.publicationDate ? true : false
+      return this.authors?.length || this.publicationDate || this.lastPublishedDate ? true : false
     },
     hasData(): boolean {
       return this.title || this.hasEyebrow || this.hasByline ? true : false

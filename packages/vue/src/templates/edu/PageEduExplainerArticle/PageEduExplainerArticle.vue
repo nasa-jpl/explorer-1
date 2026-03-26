@@ -146,12 +146,14 @@ export default defineComponent({
         :read-time="data.readTime"
         :publication-date="data.publicationDate"
         :publication-time="data.publicationTime"
+        :last-published-date="data.lastPublishedAt"
         :author="data.author"
         label="Explainer Article"
         pill-color="secondary"
         schema
         pill
       />
+
       <ShareButtonsEdu
         v-if="data?.url"
         :class="heroTitle ? 'mt-10' : 'mt-4'"
@@ -219,13 +221,6 @@ export default defineComponent({
       indent="col-3"
       class="lg:my-18 my-10"
     >
-      <p class="border-t border-gray-light-mid pt-8">
-        <strong>Explainer Article Last Updated:</strong>
-        {{
-          // @ts-ignore
-          $filters.displayDate(data.lastPublishedAt)
-        }}
-      </p>
     </LayoutHelper>
   </div>
 </template>
