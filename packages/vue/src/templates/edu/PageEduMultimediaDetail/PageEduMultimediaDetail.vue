@@ -84,7 +84,7 @@ const typeMapping: {
   }
 }
 const mediaType = computed(() => {
-  const type = data.__typename
+  const type = data?.__typename
   if (type) {
     return typeMapping[type]?.type
   }
@@ -92,7 +92,7 @@ const mediaType = computed(() => {
 })
 
 const mediaLabel = computed(() => {
-  const type = data.__typename
+  const type = data?.__typename
   if (type) {
     return typeMapping[type]?.label
   }
@@ -100,7 +100,7 @@ const mediaLabel = computed(() => {
 })
 
 const schemaType = computed(() => {
-  const type = data.__typename
+  const type = data?.__typename
   if (type) {
     return typeMapping[type]?.schema
   }
@@ -110,17 +110,17 @@ const schemaType = computed(() => {
 const heroImage = computed(() => {
   switch (mediaType.value) {
     case 'image':
-      return data.imageAsHero
+      return data?.imageAsHero
     case 'document':
-      return data.heroImage
+      return data?.heroImage
     default:
       return undefined
   }
 })
 
 const videoBlock = computed(() => {
-  if (mediaType.value === 'video' && data.video?.length) {
-    return data.video[0]
+  if (mediaType.value === 'video' && data?.video?.length) {
+    return data?.video[0]
   }
   return undefined
 })
@@ -132,7 +132,7 @@ const downloadUrl = computed(() => {
     case 'video':
       return videoBlock.value?.video?.file
     case 'document':
-      return data.document?.url
+      return data?.document?.url
     default:
       return undefined
   }
@@ -145,15 +145,15 @@ const creditText = computed(() => {
     case 'video':
       return videoBlock.value?.credit
     case 'document':
-      return data.credit
+      return data?.credit
     default:
       return undefined
   }
 })
 
 const relatedContentHeading = computed(() => {
-  const type = data.__typename
-  let text = data.relatedContentHeading
+  const type = data?.__typename
+  let text = data?.relatedContentHeading
   if (type && !text) {
     text = typeMapping[type]?.relatedContentHeading
   }
@@ -396,19 +396,6 @@ const { data } = reactive(props)
       <AboutTheAuthor :authors="data.authors" />
     </LayoutHelper>
 
-    <LayoutHelper
-      v-if="data.lastPublishedAt"
-      indent="col-3"
-      class="lg:my-18 my-10"
-    >
-      <p class="border-t border-gray-light-mid pt-8">
-        <strong class="capitalize">{{ mediaLabel }} Last Updated:</strong>
-        {{
-          // @ts-ignore
-          $filters.displayDate(data.lastPublishedAt)
-        }}
-      </p>
-    </LayoutHelper>
     <!-- Explore More -->
     <!-- <div
       v-if="data.relatedContent?.length"
