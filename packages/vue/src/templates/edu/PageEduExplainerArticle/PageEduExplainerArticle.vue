@@ -153,10 +153,18 @@ export default defineComponent({
         schema
         pill
       />
-
+      <template v-if="heroTitle && data.lastPublishedAt">
+        <p class="text-gray-mid-dark mt-10">
+          Last Updated:
+          {{
+            // @ts-ignore
+            $filters.displayDate(data.lastPublishedAt)
+          }}
+        </p>
+      </template>
       <ShareButtonsEdu
         v-if="data?.url"
-        :class="heroTitle ? 'mt-10' : 'mt-4'"
+        :class="heroTitle && data.lastPublishedAt ? 'mt-4' : heroTitle ? 'mt-10' : 'mt-4'"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
