@@ -93,13 +93,14 @@ const computedClass = computed((): string => {
     >
       <DetailHeadline
         :title="data.title"
+        :last-published-date="data.lastPublishedAt"
         label="Collection"
         pill
         pill-color="primary-inverted"
       />
 
       <ShareButtonsEdu
-        class="mt-4"
+        class="mt-5"
         :title="data.title"
         :url="data.url"
       />
@@ -135,6 +136,13 @@ const computedClass = computed((): string => {
       class="mb-6 lg:mb-12"
       :class="{ '-mt-4': data.showMetaPanel }"
     >
+      <p class="text-gray-mid-dark">
+        Last Updated:
+        {{
+          // @ts-ignore
+          $filters.displayDate(data.lastPublishedAt)
+        }}
+      </p>
       <ShareButtonsEdu
         class="mt-4"
         :title="data.title"
@@ -154,19 +162,6 @@ const computedClass = computed((): string => {
       <BlockRelatedLinks :data="data.relatedLinks[0]" />
     </LayoutHelper>
 
-    <LayoutHelper
-      v-if="data.lastPublishedAt"
-      indent="col-3"
-      class="lg:my-18 my-10"
-    >
-      <p class="border-t border-gray-light-mid pt-8">
-        <strong>Collection Last Updated:</strong>
-        {{
-          // @ts-ignore
-          $filters.displayDate(data.lastPublishedAt)
-        }}
-      </p>
-    </LayoutHelper>
     <!-- explore more -->
     <div
       v-if="data.relatedContent?.length"

@@ -89,10 +89,10 @@ const { data } = reactive(props)
         :title="data.title"
         label="Gallery"
         :publication-date="data.publicationDate"
+        :last-published-date="data.lastPublishedAt"
         pill-color="secondary"
         schema
         pill
-        hide-date
       />
       <ShareButtonsEdu
         v-if="data?.url"
@@ -215,23 +215,11 @@ const { data } = reactive(props)
     <LayoutHelper
       v-if="data.authors?.length"
       indent="col-3"
+      class="lg:mb-18 mb-10"
     >
       <AboutTheAuthor :authors="data.authors" />
     </LayoutHelper>
 
-    <LayoutHelper
-      v-if="data.lastPublishedAt"
-      indent="col-3"
-      class="lg:my-18 my-10"
-    >
-      <p class="border-t border-gray-light-mid pt-8">
-        <strong class="capitalize">Gallery Last Updated:</strong>
-        {{
-          // @ts-ignore
-          $filters.displayDate(data.lastPublishedAt)
-        }}
-      </p>
-    </LayoutHelper>
     <!-- Explore More -->
     <!-- <div
       v-if="data.relatedContent?.length"
