@@ -283,13 +283,23 @@ const computedClass = computed((): string => {
       <DetailHeadline
         v-if="data.title && !heroTitle"
         :title="data.title"
+        :last-published-date="data.lastPublishedAt"
         label="Student Project"
         pill
         pill-color="secondary"
       />
+      <template v-if="heroTitle && data.lastPublishedAt">
+        <p class="text-gray-mid-dark mt-10">
+          Last Updated:
+          {{
+            // @ts-ignore
+            $filters.displayDate(data.lastPublishedAt)
+          }}
+        </p>
+      </template>
       <ShareButtonsEdu
         v-if="data?.url"
-        :class="heroTitle ? 'mt-10' : 'mt-4'"
+        :class="heroTitle && data.lastPublishedAt ? 'mt-4' : heroTitle ? 'mt-10' : 'mt-4'"
         :url="data.url"
         :title="data.title"
         :image="data.thumbnailImage?.original"
