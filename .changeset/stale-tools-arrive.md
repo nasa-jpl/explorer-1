@@ -1,5 +1,5 @@
 ---
-"@explorer-1/vue": patch
+'@explorer-1/vue': patch
 ---
 
-Changing desktop nav dropdown background color to match the footer (switches from blue to gray).
+Changing desktop nav dropdown background color to 95% black.
