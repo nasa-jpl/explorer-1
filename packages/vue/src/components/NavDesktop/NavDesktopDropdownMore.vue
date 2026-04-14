@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="NavDesktopDropdownMore bg-gray-dark bg-opacity-95 3xl:px-0 w-full px-4 py-10 text-white"
+    class="NavDesktopDropdownMore bg-black bg-opacity-95 3xl:px-0 w-full px-4 py-10 text-white"
   >
     <div class="BaseGrid container mx-auto">
       <div

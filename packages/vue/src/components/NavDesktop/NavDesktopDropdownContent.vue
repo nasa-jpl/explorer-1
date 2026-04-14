@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="data"
-    class="NavDesktopDropdownContent bg-gray-dark bg-opacity-95 edu:bg-primary-dark 3xl:px-0 px-4 py-10 text-white"
+    class="NavDesktopDropdownContent bg-black bg-opacity-95 edu:bg-primary-dark 3xl:px-0 px-4 py-10 text-white"
   >
     <div
       v-if="data.menuColumns"
