@@ -64,7 +64,7 @@
     "a11y-dialog": "^8.1.5",
     "autoprefixer": "^10.4.27",
     "axe-playwright": "^2.2.2",
-    "chromatic": "^15.2.0",
+    "chromatic": "^16.3.0",
     "eslint-plugin-storybook": "10.2.17",
     "http-server": "^14.1.1",
     "js-beautify": "^1.15.4",
