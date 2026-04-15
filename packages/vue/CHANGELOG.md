@@ -1,5 +1,13 @@
 # @explorer-1/vue
 
+## 1.1.9
+
+### Patch Changes
+
+- af34894: Updating background color of a featured search result.
+- 78f717a: Changing desktop nav dropdown background color to 95% black.
+- 1d12008: Showing last publish date on EDU resource page templates.
+
 ## 1.1.8
 
 ### Patch Changes
