@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.9
+
+### Patch Changes
+
+- 23d618c: Updates to areas that used blue-darker
+
 ## 4.1.8
 
 ### Patch Changes
