@@ -194,7 +194,7 @@ export const NavInverted = {
       return { args }
     },
     template: `<div class="absolute inset-0">
-  <div style="height:2500px" class="nav-offset bg-jpl-blue-darker">
+  <div style="height:2500px" class="nav-offset bg-gray-dark">
     <NavDesktop v-bind="args" />
     <div v-if="invertOverride" class="-nav-offset max-w-screen-3xl mx-auto">
       <img class="w-full h-auto block" src="https://picsum.photos/1600/900" alt="Example Hero" />

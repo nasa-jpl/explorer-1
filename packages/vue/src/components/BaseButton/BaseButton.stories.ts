@@ -44,6 +44,11 @@ export const DarkButton = {
   args: {
     ...BaseButtonData,
     variant: 'dark'
-  }
+  },
+  decorators: [
+    () => ({
+      template: `<div id="storyRoot" class="p-8 bg-gray-dark edu:bg-primary-dark"><story/></div>`
+    })
+  ]
   // globals: { themeVariant: 'ThemeVariantDark' }
 }

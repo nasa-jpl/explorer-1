@@ -7,7 +7,7 @@ export default {
   tags: ['navigation'],
   decorators: [
     () => ({
-      template: `<div id="storyRoot" class="p-8 bg-jpl-blue-darker edu:bg-primary-dark"><story/></div>`
+      template: `<div id="storyRoot" class="p-8 bg-gray-dark edu:bg-primary-dark"><story/></div>`
     })
   ],
   parameters: {
