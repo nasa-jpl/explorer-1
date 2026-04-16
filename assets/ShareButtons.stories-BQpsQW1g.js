@@ -1,3 +1,0 @@
-import{S as o}from"./ShareButtons-AdeiF3Hk.js";import"./iframe-Cd4oaOVZ.js";import"./preload-helper-PPVm8Dsz.js";import"./mixins-Bb7d7zEq.js";import"./useApi-j1E6pMaV-Xh5VcrA2.js";import"./BaseButton-DeaMylDg.js";import"./IconSocialTwitter-8RADY3Jo.js";import"./IconSocialReddit-Cn3n3-U4.js";import"./IconSocialEmail-D7wOiIRt.js";const u={title:"Components/Utilities/ShareButtons",component:o,excludeStories:/.*Data$/},r={title:"Title of the story",url:"/news/slug",inline:!1},t={args:r};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
-  args: BlockShareButtonsData
-}`,...t.parameters?.docs?.source}}};const B=["BlockShareButtonsData","BaseStory"];export{t as BaseStory,r as BlockShareButtonsData,B as __namedExportsOrder,u as default};
