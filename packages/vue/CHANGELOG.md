@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.10
+
+### Patch Changes
+
+- eceeea8: Changing color of nav heading to grayscale
+
 ## 1.1.9
 
 ### Patch Changes
