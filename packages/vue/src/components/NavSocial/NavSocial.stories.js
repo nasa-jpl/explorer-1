@@ -16,6 +16,6 @@ export const Dark = {
     setup() {
       return { args }
     },
-    template: `<div class="bg-jpl-blue-darker p-8"><NavSocial v-bind="args" /></div>`
+    template: `<div class="bg-gray-dark p-8"><NavSocial v-bind="args" /></div>`
   })
 }
