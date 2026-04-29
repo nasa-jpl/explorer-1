@@ -95,7 +95,7 @@ export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
         ${
           includeSearch
             ? `<div class="hidden lg:block border-t-3 border-transparent relative z-10">
-          <button id="NavSearchOpen" aria-label="Open search" class="flex flex-nowrap items-center py-6 px-1 border-b-3 can-hover:hover:text-gray-mid-dark focus:border-gray-dark/20 focus:outline-none border-transparent">
+          <button id="NavSearchOpen" aria-label="Open search" class="flex flex-nowrap items-center py-6 px-1 border-b-3 can-hover:hover:text-gray-mid-dark -outline-offset-4 border-transparent">
             <span class="font-text font-medium leading-tight tracking-[-.03rem] pr-2">
               Search
             </span>
