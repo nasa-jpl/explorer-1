@@ -1,5 +1,12 @@
 # @explorer-1/common
 
+## 2.1.7
+
+### Patch Changes
+
+- cffc929: Fixes outlines for NavInternal focus states
+- b14b6f9: Updating JS for NavInternal to close the nav dropdown if the item clicked is a link.
+
 ## 2.1.5
 
 ### Patch Changes

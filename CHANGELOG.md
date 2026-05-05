@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.11
+
+### Patch Changes
+
+- 7471c4d: Fixes to NavInternal
+
 ## 4.1.10
 
 ### Patch Changes
