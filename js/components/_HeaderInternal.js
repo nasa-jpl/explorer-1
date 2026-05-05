@@ -61,7 +61,8 @@ export default function () {
   const handleNavClickInsideDropdown = (e) => {
     if (navOpened) {
       const openItemPanel = document.getElementById('target_' + navOpened.id)
-      if (!openItemPanel.contains(e.target)) {
+      if (!openItemPanel.contains(e.target) || e.target.closest('a')) {
+        // if the opened nav item doesn't contain the clicked item, OR if the clicked item is a link, close the dropdown
         toggleNavDropdownVisibility(navOpened)
         navOpened = null
       }
