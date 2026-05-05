@@ -1,5 +1,11 @@
 # @explorer-1/html
 
+## 1.1.4
+
+### Patch Changes
+
+- cffc929: Fixes outlines for NavInternal focus states
+
 ## 1.1.3
 
 ### Patch Changes
