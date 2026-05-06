@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.12
+
+### Patch Changes
+
+- 2f780ef: Typography fixes in Accordion
+
 ## 4.1.11
 
 ### Patch Changes
