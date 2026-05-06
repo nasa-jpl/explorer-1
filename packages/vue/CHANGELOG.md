@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.12
+
+### Patch Changes
+
+- e86b09b: Fixing typeface for accordion headings
+
 ## 1.1.11
 
 ### Patch Changes
