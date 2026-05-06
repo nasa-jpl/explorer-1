@@ -106,7 +106,7 @@ defineSlots<{
             <button
               v-bind-once="{ id: headingId, 'aria-controls': panelId }"
               :aria-expanded="ariaExpanded"
-              class="BaseAccordion-trigger group flex flex-nowrap justify-between items-center w-full can-hover:hover:underline text-body-lg"
+              class="BaseAccordion-trigger group flex flex-nowrap justify-between items-center w-full can-hover:hover:underline text-body-lg font-primary"
               @click="handleClick()"
             >
               <slot name="heading">
