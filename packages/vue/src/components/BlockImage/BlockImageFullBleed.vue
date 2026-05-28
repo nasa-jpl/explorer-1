@@ -81,7 +81,7 @@ export default defineComponent({
           ...this.data,
           caption: this.theCaption,
           credit: this.theCredit,
-          detailUrl: this.customDetailUrl
+          detailUrl: this.customDetailUrl || this.data?.detailUrl
         }
       }
       return undefined
