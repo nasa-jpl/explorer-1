@@ -1,6 +1,8 @@
 <template>
   <div v-if="hasContent">
-    <h2 class="text-h6 pt-5 md:pt-8 border-t border-gray-mid md:mb-8 mb-5">News Media Contact</h2>
+    <h2 class="text-h6 pt-5 md:pt-8 border-t border-gray-mid md:mb-8 mb-5">
+      {{ mediaContactsHeading || 'Media Contacts' }}
+    </h2>
     <address
       v-for="(contact, index) in contacts"
       :key="index"
@@ -38,6 +40,10 @@ export default defineComponent({
       type: Array as PropType<Contact[]>,
       required: true,
       default: () => []
+    },
+    mediaContactsHeading: {
+      type: String,
+      default: ''
     }
   },
   computed: {
