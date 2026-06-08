@@ -1,5 +1,12 @@
 # @explorer-1/vue
 
+## 1.1.13
+
+### Patch Changes
+
+- d867753: - Fixing display of image detail URL in BlockImage.
+  - Adding prop for Media Contacts heading with fallback.
+
 ## 1.1.12
 
 ### Patch Changes
