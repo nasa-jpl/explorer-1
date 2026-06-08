@@ -17,10 +17,11 @@ const contacts = [
   }
 ]
 
-export const BaseStory = { args: { contacts, releaseNumber: '2020-140' } }
+export const BaseStory = { args: { mediaContactsHeading: '', contacts, releaseNumber: '2020-140' } }
 
 export const Multiple = {
   args: {
+    mediaContactsHeading: '',
     contacts: [
       ...contacts,
       {

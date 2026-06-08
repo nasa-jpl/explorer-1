@@ -109,7 +109,10 @@
       indent="col-3"
       class="lg:my-18 my-10"
     >
-      <NewsDetailMediaContact :contacts="data.mediaContacts" />
+      <NewsDetailMediaContact
+        :contacts="data.mediaContacts"
+        :media-contacts-heading="data.mediaContactsHeading"
+      />
       <p
         v-if="data.releaseNumber"
         class="text-body-sm text-gray-mid-dark"

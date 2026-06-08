@@ -59,6 +59,7 @@ export const BaseStory = {
       ...BlockStreamfieldTruncatedData,
       releaseNumber: '2020-157',
       relatedLinks: [BlockRelatedLinksData.data],
+      mediaContactsHeading: '',
       mediaContacts: [
         {
           contact: {
