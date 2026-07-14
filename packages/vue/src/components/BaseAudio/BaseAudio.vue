@@ -215,6 +215,8 @@ export default defineComponent({
       this.audio.removeEventListener('loadeddata', this._handleLoaded)
       this.audio.removeEventListener('pause', this._handlePlayPause)
       this.audio.removeEventListener('play', this._handlePlayPause)
+      this.audio.removeEventListener('durationchange', this._handleDurationChange)
+      this.audio.removeEventListener('loadedmetadata', this._handleDurationChange)
     }
   },
   methods: {
@@ -259,6 +261,9 @@ export default defineComponent({
       if (this.playing && !this.paused) {
         return
       } else if (this.audio) {
+        if (this.totalDuration === 0 && !isNaN(this.audio.duration)) {
+          this.totalDuration = this.audio.duration
+        }
         this.paused = false
         this.audio.play()
         this.playing = true
@@ -295,7 +300,7 @@ export default defineComponent({
         if (this.autoPlay) this.play()
 
         this.loaded = true
-        this.totalDuration = this.audio.duration
+        this.totalDuration = isNaN(this.audio.duration) ? 0 : this.audio.duration
       } else {
         throw new Error('Failed to load audio file')
       }
@@ -325,6 +330,11 @@ export default defineComponent({
     _handleEnded() {
       this.paused = this.playing = false
     },
+    _handleDurationChange() {
+      if (this.audio) {
+        this.totalDuration = isNaN(this.audio.duration) ? 0 : this.audio.duration
+      }
+    },
     init() {
       if (this.audio) {
         this.audio.addEventListener('timeupdate', this._handlePlayingUI)
@@ -332,6 +342,13 @@ export default defineComponent({
         this.audio.addEventListener('pause', this._handlePlayPause)
         this.audio.addEventListener('play', this._handlePlayPause)
         this.audio.addEventListener('ended', this._handleEnded)
+        this.audio.addEventListener('loadedmetadata', this._handleDurationChange)
+        this.audio.addEventListener('durationchange', this._handleDurationChange)
+
+        // Fallback: metadata already available before calling init() (e.g. cached audio)
+        if (this.totalDuration === 0 && !isNaN(this.audio.duration)) {
+          this.totalDuration = this.audio.duration
+        }
       }
       // TODO: VUE3: pass uuID to pauseOthers() method
       // eventBus.on('play', () => this.pauseOthers())
