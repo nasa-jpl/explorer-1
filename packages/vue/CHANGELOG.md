@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.14
+
+### Patch Changes
+
+- 215a70a: Fixed audio scrubber in BaseAudio.vue
+
 ## 1.1.13
 
 ### Patch Changes
