@@ -3,7 +3,7 @@
     v-if="data && data.image"
     class="relative h-auto"
   >
-    <div class="bg-jpl-red absolute bottom-0 right-0 z-10 text-white">
+    <div class="bg-jpl-red absolute bottom-0 right-0 z-10 text-white p-[4px]">
       <Icon360 />
     </div>
 
