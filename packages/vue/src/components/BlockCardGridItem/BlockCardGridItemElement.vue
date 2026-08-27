@@ -37,7 +37,7 @@
       <BaseHeading
         size="h5"
         level="h3"
-        class="mt-4 mb-2"
+        class="mt-4 mb-2 text-primary"
       >
         {{ title }}
       </BaseHeading>
