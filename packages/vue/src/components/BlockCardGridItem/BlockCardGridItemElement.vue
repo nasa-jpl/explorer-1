@@ -41,6 +41,13 @@
       >
         {{ title }}
       </BaseHeading>
+      <BaseHeading
+        size="h5"
+        level="h4"
+        class="mt-4 mb-2"
+      >
+        Information
+      </BaseHeading>
       <p class="text-body-sm">{{ description }}</p>
       <div
         v-if="link"
