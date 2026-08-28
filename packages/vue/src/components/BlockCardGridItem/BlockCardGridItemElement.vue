@@ -36,7 +36,7 @@
       </template>
       <BaseHeading
         size="h5"
-        level="h3"
+        level="h4"
         class="mt-4 mb-2"
       >
         {{ title }}
