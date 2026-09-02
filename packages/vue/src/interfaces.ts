@@ -147,6 +147,7 @@ export interface ElasticSearchPage {
   location?: string
   locationIcon?: string
   wait?: string
+  theme?: string
   title: string
   summary?: string
   eventType?: string
