@@ -69,3 +69,7 @@ const props = defineProps({
     </div>
   </div>
 </template>
+
+<style lang="scss">
+@import '@explorer-1/common/src/scss/components/MetadataStacked';
+</style>
