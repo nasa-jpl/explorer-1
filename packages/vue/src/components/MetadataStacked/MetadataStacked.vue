@@ -44,7 +44,7 @@ const props = defineProps({
       <img
         v-if="props.locationIcon"
         :src="props.locationIcon"
-        class="w-4 h-4"
+        class="w-5 h-5"
         alt=""
       />
       <IconLocation
