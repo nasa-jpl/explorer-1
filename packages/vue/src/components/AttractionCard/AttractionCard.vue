@@ -44,6 +44,13 @@ const props = defineProps({
     default: undefined
   },
   /**
+   * The text for meta description. Plain text only.
+   */
+  searchDescription: {
+    type: String,
+    default: undefined
+  },
+  /**
    * The theme text. Plain text only.
    */
   theme: {
@@ -96,6 +103,7 @@ const props = defineProps({
         <MetadataStacked
           :location="props.location"
           :wait="props.wait"
+          :search-description="props.searchDescription"
           :show-my-list="props.showMyList"
           :location-icon="props.locationIcon"
         />
