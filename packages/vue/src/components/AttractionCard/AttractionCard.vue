@@ -90,6 +90,7 @@ const props = defineProps({
           :wait="props.wait"
           :show-my-list="props.showMyList"
           :location-icon="props.locationIcon"
+          :url="props.url"
         />
       </div>
       <div
