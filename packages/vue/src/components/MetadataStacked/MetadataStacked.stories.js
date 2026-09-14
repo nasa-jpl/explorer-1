@@ -12,10 +12,20 @@ export const MetadataStackedData = {
   location: 'Building 179, Highbay 1',
   locationIcon: '',
   wait: '45 minute wait',
-  showMyList: true
+  showMyList: true,
+  url: '/sites/building-179'
 }
 
 export const BaseStory = {
   name: 'MetadataStacked',
   args: MetadataStackedData
+}
+
+// Rendered on detail pages (hides "LEARN MORE" link)
+export const WithoutLink = {
+  name: 'Without Link',
+  args: {
+    ...MetadataStackedData,
+    url: undefined
+  }
 }
