@@ -71,10 +71,6 @@ const props = defineProps({
       </div>
       <span class="italic">Added to my list</span>
     </div>
-    <div
-      v-if="props.url"
-      class="flex flex-row gap-2.5 items-center self-stretch text-jpl-red text-body-sm"
-    ></div>
   </div>
 </template>
 
