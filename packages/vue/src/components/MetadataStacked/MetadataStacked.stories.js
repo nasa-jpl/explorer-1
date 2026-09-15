@@ -1,4 +1,5 @@
 import MetadataStacked from './MetadataStacked.vue'
+import ExploreJplIconImage from '@explorer-1/common-storybook/src/story-data/images/2026-Explore-JPL-Site-Number-1-Missions-in-Flight.png'
 
 export default {
   title: 'Components/Utilities/MetadataStacked',
@@ -10,7 +11,7 @@ export default {
 // data
 export const MetadataStackedData = {
   location: 'Building 179, Highbay 1',
-  locationIcon: '',
+  locationIcon: ExploreJplIconImage,
   wait: '45 minute wait',
   searchDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   showMyList: true
