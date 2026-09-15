@@ -1,5 +1,5 @@
 import { BlockLinkCardCarouselData } from './../../../components/BlockLinkCarousel/BlockLinkCarousel.stories.js'
-
+import ExploreJplIconImage from '@explorer-1/common-storybook/src/story-data/images/2026-Explore-JPL-Site-Number-1-Missions-in-Flight.png'
 import PageSiteExploreApp from './PageSiteExploreApp.vue'
 
 export default {
@@ -39,7 +39,9 @@ export const ExploreAppSitePageData = {
   location: 'Cafe 186',
   waitTime: '60',
   waitTimeLabel: '60 minute wait',
-  locationIcon: '',
+  mapIcon: {
+    url: ExploreJplIconImage
+  },
   body: [
     {
       blockType: 'RichTextBlock',
