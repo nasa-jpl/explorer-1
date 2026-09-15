@@ -13,7 +13,6 @@ export const MetadataStackedData = {
   location: 'Building 179, Highbay 1',
   locationIcon: ExploreJplIconImage,
   wait: '45 minute wait',
-  searchDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   showMyList: true
 }
 

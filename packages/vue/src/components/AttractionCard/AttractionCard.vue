@@ -44,9 +44,9 @@ const props = defineProps({
     default: undefined
   },
   /**
-   * The text for meta description. Plain text only.
+   * The description for use as card text. Plain text only.
    */
-  searchDescription: {
+  description: {
     type: String,
     default: undefined
   },
@@ -103,18 +103,25 @@ const props = defineProps({
         <MetadataStacked
           :location="props.location"
           :wait="props.wait"
-          :search-description="props.searchDescription"
           :show-my-list="props.showMyList"
           :location-icon="props.locationIcon"
         />
-        <BaseLink
-          v-if="props.url"
-          class="mt-5"
-          variant="primary"
-          :href="props.url"
-        >
-          Learn more
-        </BaseLink>
+        <div class="hidden md:block">
+          <div
+            v-if="props.description"
+            class="w-full mt-5 body-sm"
+          >
+            {{ props.description }}
+          </div>
+          <BaseLink
+            v-if="props.url"
+            class="mt-5"
+            variant="primary"
+            :href="props.url"
+          >
+            Learn more
+          </BaseLink>
+        </div>
       </div>
       <div
         v-if="props.image"
@@ -131,6 +138,22 @@ const props = defineProps({
             loading="lazy"
           />
         </BaseImagePlaceholder>
+      </div>
+      <div class="col-span-full md:hidden">
+        <div
+          v-if="props.description"
+          class="w-full body-sm"
+        >
+          {{ props.description }}
+        </div>
+        <BaseLink
+          v-if="props.url"
+          class="mt-5"
+          variant="primary"
+          :href="props.url"
+        >
+          Learn more
+        </BaseLink>
       </div>
     </div>
   </BaseLink>

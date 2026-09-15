@@ -31,13 +31,6 @@ const props = defineProps({
   showMyList: {
     type: Boolean,
     default: false
-  },
-  /**
-   * The text for the description. Plain text only.
-   */
-  searchDescription: {
-    type: String,
-    default: undefined
   }
 })
 </script>
@@ -77,12 +70,6 @@ const props = defineProps({
         <IconBookmark class="MetadataStackedIcon text-gray-mid" />
       </div>
       <span class="italic">Added to my list</span>
-    </div>
-    <div
-      v-if="props.searchDescription"
-      class="flex flex-row gap-2.5 items-center self-stretch"
-    >
-      <span>{{ props.searchDescription }}</span>
     </div>
   </div>
 </template>

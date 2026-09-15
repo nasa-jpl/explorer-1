@@ -85,6 +85,8 @@ export const AttractionCard = {
     location: 'Building 179, Highbay 1',
     locationIcon: '',
     wait: '45 minute wait',
-    showMyList: true
+    showMyList: true,
+    searchDescription:
+      'This is the card description lorem ipsum dolor sit amet. Consectatur adipscing this is the card description. Lorem ipsum dolor sit amet.'
   }
 }
