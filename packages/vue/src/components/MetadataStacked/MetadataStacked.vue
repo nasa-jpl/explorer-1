@@ -2,7 +2,6 @@
 import IconBookmark from '../Icons/IconBookmark.vue'
 import IconHourglass from '../Icons/IconHourglass.vue'
 import IconLocation from '../Icons/IconLocation.vue'
-import BaseLink from '../BaseLink/BaseLink.vue'
 
 const props = defineProps({
   /**
@@ -32,13 +31,6 @@ const props = defineProps({
   showMyList: {
     type: Boolean,
     default: false
-  },
-  /**
-   * The link for the listing card.
-   */
-  url: {
-    type: String,
-    default: undefined
   }
 })
 </script>
@@ -82,18 +74,7 @@ const props = defineProps({
     <div
       v-if="props.url"
       class="flex flex-row gap-2.5 items-center self-stretch text-jpl-red text-body-sm"
-    >
-      <BaseLink
-        variant="none"
-        :href="props.url"
-        class="attribution-text"
-        caret-margin-left="ml-1"
-        caret-color="text-primary"
-        caret
-      >
-        LEARN MORE
-      </BaseLink>
-    </div>
+    ></div>
   </div>
 </template>
 

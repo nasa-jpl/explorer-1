@@ -21,12 +21,3 @@ export const BaseStory = {
   name: 'MetadataStacked',
   args: MetadataStackedData
 }
-
-// Rendered on detail pages (hides "LEARN MORE" link)
-export const WithoutLink = {
-  name: 'Without Link',
-  args: {
-    ...MetadataStackedData,
-    url: undefined
-  }
-}

@@ -98,8 +98,15 @@ const props = defineProps({
           :wait="props.wait"
           :show-my-list="props.showMyList"
           :location-icon="props.locationIcon"
-          :url="props.url"
         />
+        <BaseLink
+          v-if="props.url"
+          class="mt-5"
+          variant="primary"
+          :href="props.url"
+        >
+          Learn more
+        </BaseLink>
       </div>
       <div
         v-if="props.image"
