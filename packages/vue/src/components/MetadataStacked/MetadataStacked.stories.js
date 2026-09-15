@@ -13,7 +13,8 @@ export const MetadataStackedData = {
   location: 'Building 179, Highbay 1',
   locationIcon: ExploreJplIconImage,
   wait: '45 minute wait',
-  showMyList: true
+  showMyList: true,
+  url: '/sites/building-179'
 }
 
 export const BaseStory = {
