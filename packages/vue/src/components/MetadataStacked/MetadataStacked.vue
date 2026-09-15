@@ -44,7 +44,7 @@ const props = defineProps({
       <img
         v-if="props.locationIcon"
         :src="props.locationIcon"
-        class="w-5 h-5"
+        class="w-6 h-6"
         alt=""
       />
       <IconLocation
@@ -57,14 +57,18 @@ const props = defineProps({
       v-if="props.wait"
       class="flex flex-row gap-2.5 items-center self-stretch"
     >
-      <IconHourglass class="MetadataStackedIcon text-jpl-red" />
+      <div class="w-6">
+        <IconHourglass class="MetadataStackedIcon text-jpl-red block mx-auto" />
+      </div>
       <span>{{ props.wait }}</span>
     </div>
     <div
       v-if="props.showMyList"
       class="flex flex-row gap-2.5 items-center self-stretch"
     >
-      <IconBookmark class="MetadataStackedIcon text-gray-mid" />
+      <div class="w-6">
+        <IconBookmark class="MetadataStackedIcon text-gray-mid" />
+      </div>
       <span class="italic">Added to my list</span>
     </div>
   </div>
