@@ -54,7 +54,7 @@ const mapPath = computed(() => {
         <LayoutHelper indent="col-2">
           <DetailHeadline
             :title="data.title"
-            class="mb-5"
+            class="my-5 lg:mt-10"
           />
           <MetadataStacked
             :location="data.location"
