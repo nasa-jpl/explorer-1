@@ -256,6 +256,10 @@ export interface FooterResponse {
   footer: any
 }
 
+export interface BannerAdminResponse {
+  bannerAdmin: any
+}
+
 export interface EDUSubjectArea {
   id: number
   primarySubject: EduResourcesSubject
