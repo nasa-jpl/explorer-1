@@ -70,6 +70,7 @@
       :wait="wait"
       :show-my-list="showMyList"
       :location-icon="locationIcon"
+      :theme="theme"
     />
     <BaseLink
       v-else
@@ -405,6 +406,10 @@ export default defineComponent({
     locationIcon: {
       type: String,
       default: ''
+    },
+    theme: {
+      type: String,
+      default: undefined
     }
   },
   computed: {

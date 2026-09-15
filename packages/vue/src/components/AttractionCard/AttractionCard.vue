@@ -44,10 +44,18 @@ const props = defineProps({
     default: undefined
   },
   /**
+   * The theme text. Plain text only.
+   */
+  theme: {
+    type: String,
+    default: undefined
+  },
+  /**
    * The image for the listing card.
    */
   image: {
-    type: Object
+    type: Object,
+    default: undefined
   },
   /**
    * Controls the visibility of the Bookmark icon and its associated metadata.
