@@ -3,7 +3,10 @@
     v-if="data && data.image"
     class="relative h-auto"
   >
-    <div class="bg-jpl-red absolute bottom-0 right-0 z-10 text-white">
+    <div
+      v-if="hasIcon"
+      class="bg-jpl-red absolute bottom-0 right-0 z-10 text-white"
+    >
       <Icon360 />
     </div>
 
@@ -27,7 +30,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mixinGetSrcSet } from './../../utils/mixins.ts'
+import { mixinGetSrcSet } from './../../utils/mixins'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
 import Icon360 from './../Icons/Icon360.vue'
@@ -46,6 +49,9 @@ export default defineComponent({
     }
   },
   computed: {
+    hasIcon(): boolean {
+      return this.data?.showIcon !== false
+    },
     theSrcSet() {
       return this.data?.image
         ? mixinGetSrcSet(this.data.image)
