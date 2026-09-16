@@ -93,6 +93,12 @@ const props = defineProps({
       class="border-gray-light-mid lg:pb-10 lg:mb-10 relative grid grid-cols-12 gap-5 pb-6 mb-6 border-b"
     >
       <div class="col-span-9">
+        <div
+          v-if="theme"
+          class="text-subtitle-sm md:text-subtitle mb-3 md:mb-5 text-gray-mid-dark"
+        >
+          {{ props.theme }}
+        </div>
         <BaseHeading
           v-if="props.title"
           :level="props.headingLevel"
@@ -109,7 +115,7 @@ const props = defineProps({
         <div class="hidden md:block">
           <div
             v-if="props.description"
-            class="w-full mt-5 body-sm"
+            class="w-full mt-5 text-body-md"
           >
             {{ props.description }}
           </div>
@@ -142,7 +148,7 @@ const props = defineProps({
       <div class="col-span-full md:hidden">
         <div
           v-if="props.description"
-          class="w-full body-sm"
+          class="w-full text-body-md"
         >
           {{ props.description }}
         </div>
