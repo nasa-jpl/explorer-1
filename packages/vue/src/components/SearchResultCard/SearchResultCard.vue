@@ -71,6 +71,7 @@
       :show-my-list="showMyList"
       :location-icon="locationIcon"
       :theme="theme"
+      :description="searchDescription"
     />
     <BaseLink
       v-else
@@ -408,6 +409,13 @@ export default defineComponent({
       default: ''
     },
     theme: {
+      type: String,
+      default: undefined
+    },
+    /**
+     * The search meta description for use as card text. Plain text only.
+     */
+    searchDescription: {
       type: String,
       default: undefined
     }

@@ -36,15 +36,15 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="MetadataStacked inline-flex flex-col flex-start gap-2.5 text-body-md">
+  <div class="MetadataStacked inline-flex flex-col flex-start gap-2 md:gap-2.5 text-body-md">
     <div
       v-if="props.location"
-      class="flex flex-row gap-2.5 items-center self-stretch"
+      class="flex flex-row gap-2 md:gap-2.5 items-start self-stretch"
     >
       <img
         v-if="props.locationIcon"
         :src="props.locationIcon"
-        class="w-6 h-6"
+        class="mt-[0.1rem] lg:mt-[0.2rem] w-6 h-6"
         alt=""
       />
       <IconLocation
@@ -55,7 +55,7 @@ const props = defineProps({
     </div>
     <div
       v-if="props.wait"
-      class="flex flex-row gap-2.5 items-center self-stretch"
+      class="flex flex-row gap-2 md:gap-2.5 items-center self-stretch"
     >
       <div class="w-6">
         <IconHourglass class="MetadataStackedIcon text-jpl-red block mx-auto" />
@@ -64,7 +64,7 @@ const props = defineProps({
     </div>
     <div
       v-if="props.showMyList"
-      class="flex flex-row gap-2.5 items-center self-stretch"
+      class="flex flex-row gap-2 md:gap-2.5 items-center self-stretch"
     >
       <div class="w-6">
         <IconBookmark class="MetadataStackedIcon text-gray-mid" />

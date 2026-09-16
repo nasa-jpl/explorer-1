@@ -156,6 +156,7 @@ export interface ElasticSearchPage {
   gradeLevels?: string
   time?: string
   targetAudience?: string
+  searchDescription?: string
 }
 
 export interface FormOption {
