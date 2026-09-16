@@ -81,6 +81,7 @@ export const EduEventCard = {
 export const AttractionCard = {
   args: {
     ...SearchResultCardData,
+    theme: 'Missions that Changed the World',
     isAttraction: true,
     location: 'Building 179, Highbay 1',
     locationIcon: '',
