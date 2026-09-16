@@ -1,5 +1,11 @@
 # @explorer-1/common-storybook
 
+## 0.2.3
+
+### Patch Changes
+
+- de2df9a: Updates to prepare for Explore JPL. Most updates are concerned with improving UX on AttractionCard
+
 ## 0.2.2
 
 ### Patch Changes

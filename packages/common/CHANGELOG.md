@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 2.1.8
+
+### Patch Changes
+
+- de2df9a: Updates to prepare for Explore JPL. Most updates are concerned with improving UX on AttractionCard
+
 ## 2.1.7
 
 ### Patch Changes

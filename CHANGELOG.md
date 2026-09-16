@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.15
+
+### Patch Changes
+
+- de2df9a: Updates to prepare for Explore JPL. Most updates are concerned with improving UX on AttractionCard
+
 ## 4.1.14
 
 ### Patch Changes
