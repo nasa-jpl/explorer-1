@@ -1,4 +1,5 @@
 import SearchResultCard from './SearchResultCard.vue'
+import ExploreJplIconImage from '@explorer-1/common-storybook/src/story-data/images/2026-Explore-JPL-Site-Number-1-Missions-in-Flight.png'
 
 export default {
   title: 'Components/Cards/SearchResultCards',
@@ -83,8 +84,8 @@ export const AttractionCard = {
     ...SearchResultCardData,
     theme: 'Missions that Changed the World',
     isAttraction: true,
-    location: 'Building 179, Highbay 1',
-    locationIcon: '',
+    location: 'Building 179, Highbay 1, Subfloor 204',
+    locationIcon: ExploreJplIconImage,
     wait: '45 minute wait',
     showMyList: true,
     searchDescription:

@@ -39,12 +39,12 @@ const props = defineProps({
   <div class="MetadataStacked inline-flex flex-col flex-start gap-2 md:gap-2.5 text-body-md">
     <div
       v-if="props.location"
-      class="flex flex-row gap-2 md:gap-2.5 items-center self-stretch"
+      class="flex flex-row gap-2 md:gap-2.5 items-start self-stretch"
     >
       <img
         v-if="props.locationIcon"
         :src="props.locationIcon"
-        class="w-6 h-6"
+        class="mt-[0.1rem] lg:mt-[0.2rem] w-6 h-6"
         alt=""
       />
       <IconLocation
