@@ -1,0 +1,25 @@
+import{C as r,P as i}from"./PageContent.stories-BYlqINAH.js";import"./BlockHeading.stories-CJUsaTao.js";import"./BlockHeading-BwPmtfob.js";import"./iframe-DnfkC-Wb.js";import"./preload-helper-PPVm8Dsz.js";import"./getHeadingId-DFoqTPoS.js";import"./lodash-DzNpsXJA.js";import"./BaseHeading-CjduNvQU.js";import"./BlockKeyPoints.stories-B7ZWjOF3.js";import"./BlockKeyPoints-D18SuYcc.js";import"./BlockText-BYbxMJY1.js";import"./BlockImageComparison.stories-BQVxVXsW.js";import"./BlockImageComparison-Cb7OEKpq.js";import"./BaseImageCaption-BEn-UwCD.js";import"./BaseLink-JbZGSwKq.js";import"./theme-BKbb_q9n.js";import"./MixinAnimationCaret-B2zv8CwK.js";import"./IconCaret-BUdZPeYb.js";import"./BlockIframeEmbed.stories-4w0RwaWI.js";import"./BlockIframeEmbed-eqKi1EeW.js";import"./BaseImagePlaceholder-CLjAWYLC.js";import"./HeroMedia.stories-CFmfDkXS.js";import"./BaseVideo.stories-DvBTtJp7.js";import"./BaseVideo-CE9W43ZF.js";import"./MixinVideoBg-DNowBxae.js";import"./IconInfo-CaUWahRO.js";import"./IconClose-DfJc3ABp.js";import"./mixins-BglsLvDS.js";import"./useApi-j1E6pMaV-h1WtyilL.js";import"./BlockRelatedLinks.stories-D2ae1TP6.js";import"./BlockRelatedLinks-Dd8T8bHo.js";import"./IconArrow-BSWiGf4Y.js";import"./IconDownload-qo3GVarb.js";import"./IconExternal-xFGYTEOL.js";import"./BlockLinkCarousel.stories-C2coKDQG.js";import"./BlockLinkCarousel-CJuofz8b.js";import"./MixinCarousel-BrqtdzUU.js";import"./a11y-C7GBo9cw.js";import"./navigation-CFJlRBZS.js";import"./_swiperOptions-Cb85alkN.js";import"./IconPrev-TIsUbwRj.js";import"./BaseButton-CCn_Ol0V.js";import"./BlockLinkCard-iNoBq_1x.js";import"./BaseImage-CJCoSshr.js";import"./BasePill-_zAS5_Ty.js";import"./constants-KGHeBXa6.js";import"./MetadataEduResource-BWZ23nJO.js";import"./rangeifyGrades-BxpuSuHD.js";import"./IconEduTechnology-hLIIt9gM.js";import"./IconTime-j3qfNtJw.js";import"./CalendarChip-BsA8mVBN.js";import"./MetadataEvent-CiKfBCyx.js";import"./IconCalendar-V11dhq1w.js";import"./IconLocation-CWhGfF6p.js";import"./BlockLinkTile-BCJ8nOB0.js";import"./NavSecondary.stories-CH3NaIYX.js";import"./NavSecondary-Cb6KyS_D.js";import"./NavDropdownToggle-CdbgaJ8n.js";import"./NavSecondaryDropdownContent-_aa37og1.js";import"./HeroLarge-Cb39xCKd.js";import"./LayoutHelper-Bs9_wxuR.js";import"./DetailHeadline-Bp4cysTM.js";import"./BlockImage-TErOrHDD.js";import"./MixinFancybox-VOgzaZLw.js";import"./IconExpand-CEuCu9iy.js";import"./ShareButtons-BS2NbBX_.js";import"./IconSocialTwitter-jfnLotbx.js";import"./IconSocialReddit-Be43GoTU.js";import"./IconSocialEmail-DcPeMPVX.js";import"./ShareButtonsEdu-Dke9ixdN.js";import"./IconSocialPinterest-CJRxPI7a.js";import"./BlockStreamfield-NwfX3HPy.js";import"./BlockAccordion-82TUDYmU.js";import"./BaseAccordionItem-vZx3tvDd.js";import"./IconPlus-DZwf9mpz.js";import"./BlockCardGrid-4NAboVVa.js";import"./BlockCardGridItem-BUExHxI3.js";import"./BlockCta-DChHJRp1.js";import"./BlockImageCarousel-f732nZmu.js";import"./BlockImageCarouselItem-BBOdIKXG.js";import"./BlockImageGallery-BoEtfQ_J.js";import"./BlockInlineImage-PBqHYKvb.js";import"./BlockLinkCardList-CEU0b51k.js";import"./BlockListCards-n4EZSeeh.js";import"./BlockQuote-BgmNX-dL.js";import"./BlockRichTable-jkFdDf2a.js";import"./BlockTeaser-BrHeQboR.js";import"./BlockGist-ifnMZNZi.js";import"./BlockVideo-DyYH0KGG.js";import"./BlockVideoEmbed-ApVIv-Br.js";import"./BlockNewsletterSignup-CZPo_Nm5.js";import"./BaseRadioGroup-Ch-57PX-.js";import"./TextInput-DAjroNta.js";import"./BlockCsrTable-DMGfIpE4.js";import"./BaseModalDialog-D1Wo8DZO.js";import"./SearchInput-C2fsmk9T.js";import"./IconSearch-BTPF35_V.js";import"./FormContact-cgh19QqQ.js";import"./stringify-DODPcf7d.js";import"./TextArea-bcH4NOLY.js";import"./FormNewsletterSignup-C5zEp2y8.js";const Xt={title:"Templates/EDU/PageContent",component:i,tags:["!autodocs"],decorators:[()=>({template:'<div id="storyRoot" class="ThemeEdu"><story/></div>'})],globals:{theme:"ThemeEdu"},parameters:{html:{root:"#storyRoot"},docs:{description:{component:"EDU uses the same `PageContent` component as WWW. The only difference is the theme class used on the site."}}},excludeStories:/.*(Data)$/},t={name:"PageContent",args:{data:{...r,displayLabel:void 0,parent:{title:"Parent Page"}}}},o={args:{data:{...r,displayLabel:void 0,parent:{title:"Parent Page"},displayTitleInHero:!0,heroSummary:"Text appears below the title",heroPosition:"full"}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  name: 'PageContent',
+  args: {
+    data: {
+      ...ContentPageData,
+      displayLabel: undefined,
+      parent: {
+        title: 'Parent Page'
+      }
+    }
+  }
+}`,...t.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    data: {
+      ...ContentPageData,
+      displayLabel: undefined,
+      parent: {
+        title: 'Parent Page'
+      },
+      displayTitleInHero: true,
+      heroSummary: 'Text appears below the title',
+      heroPosition: 'full'
+    }
+  }
+}`,...o.parameters?.docs?.source}}};const Yt=["BaseStory","HeroTitle"];export{t as BaseStory,o as HeroTitle,Yt as __namedExportsOrder,Xt as default};
