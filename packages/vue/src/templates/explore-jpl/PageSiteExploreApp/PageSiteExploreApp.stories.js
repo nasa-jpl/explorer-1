@@ -22,6 +22,7 @@ export const ExploreAppSitePageData = {
   title: 'Sites',
   displayLabel: 'Explore JPL',
   showShareLinks: false,
+  themeTypeLabel: 'Missions That Changed the World',
   thumbnailImage: {
     original: 'https://picsum.photos/512/288',
     src: {
