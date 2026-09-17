@@ -147,7 +147,7 @@ export interface ElasticSearchPage {
   location?: string
   locationIcon?: string
   wait?: string
-  themeTypeLabel?: string
+  theme?: string
   title: string
   summary?: string
   eventType?: string
@@ -358,6 +358,7 @@ export interface PageObject {
   waitTimeLabel?: string
   relatedPagesForMoreSection?: any
   id?: string
+  themeTypeLabel?: string
 }
 
 export interface EduResourcesSubject {
