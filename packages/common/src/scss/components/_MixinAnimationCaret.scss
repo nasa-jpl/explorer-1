@@ -11,7 +11,7 @@
 
     > .arrow,
     > .arrow-fixed {
-      @apply absolute top-1/2 transform -translate-y-1/2 left-0 block text-sm;
+      @apply absolute top-1/2 transform -translate-y-1/2 left-0 block text-[.625rem];
     }
   }
 
