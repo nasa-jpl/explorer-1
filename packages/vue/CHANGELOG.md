@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.16
+
+### Patch Changes
+
+- b50fa5b: Fixing attraction theme labels'
+
 ## 1.1.15
 
 ### Patch Changes
