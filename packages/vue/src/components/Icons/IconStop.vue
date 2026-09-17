@@ -1,18 +1,13 @@
 <template>
   <svg
-    class="IconStop"
-    width="60"
-    height="60"
-    viewBox="0 0 185 185"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <path
-      fill="currentColor"
-      fill-rule="evenodd"
-      d="M0,0h185v185H0V0z"
-    />
+    <path d="M240-240v-480h480v480H240Z" />
   </svg>
 </template>
 
@@ -23,5 +18,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconStop';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>
