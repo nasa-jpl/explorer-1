@@ -20,7 +20,7 @@
         :class="dropdownButtonClasses(index)"
       >
         <span>{{ item.title }}</span>
-        <IconCaret class="transform rotate-90 text-sm ml-2 pl-2 -mt-px" />
+        <IconCaret class="transform rotate-90 text-[.8rem] ml-2 pl-2 -mt-1" />
       </span>
     </NavDropdownToggle>
     <transition name="navfade">
