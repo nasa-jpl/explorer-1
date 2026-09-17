@@ -1,5 +1,19 @@
 # @explorer-1/vue
 
+## 1.1.16
+
+### Patch Changes
+
+- b50fa5b: Fixing attraction theme labels'
+
+## 1.1.15
+
+### Patch Changes
+
+- de2df9a: Updates to prepare for Explore JPL. Most updates are concerned with improving UX on AttractionCard
+- Updated dependencies [de2df9a]
+  - @explorer-1/common@2.1.8
+
 ## 1.1.14
 
 ### Patch Changes

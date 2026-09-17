@@ -1,5 +1,23 @@
 # @explorer-1/vue-storybook
 
+## 0.2.16
+
+### Patch Changes
+
+- Updated dependencies [b50fa5b]
+  - @explorer-1/vue@1.1.16
+
+## 0.2.15
+
+### Patch Changes
+
+- de2df9a: Updates to prepare for Explore JPL. Most updates are concerned with improving UX on AttractionCard
+- Updated dependencies [de2df9a]
+  - @explorer-1/common@2.1.8
+  - @explorer-1/common-storybook@0.2.3
+  - @explorer-1/vue@1.1.15
+  - @explorer-1/html@1.1.4
+
 ## 0.2.14
 
 ### Patch Changes

@@ -12,7 +12,6 @@ import BlockStreamfield from './../../../components/BlockStreamfield/BlockStream
 import BlockLinkCarousel from './../../../components/BlockLinkCarousel/BlockLinkCarousel.vue'
 import BaseExploreApp from './../../explore-jpl/BaseExploreApp/BaseExploreApp.vue'
 import BaseButton from '../../../components/BaseButton/BaseButton.vue'
-import BaseLink from '../../../components/BaseLink/BaseLink.vue'
 import MetadataStacked from '../../../components/MetadataStacked/MetadataStacked.vue'
 import IconMap from '../../../components/Icons/IconMap.vue'
 
@@ -26,22 +25,6 @@ const props = defineProps({
   }
 })
 const { data } = reactive(props)
-
-// Handle navigating back to Sites page
-const previousPath = computed(() => {
-  try {
-    const path = route.path
-
-    // Split URL segments and remove last item
-    const segements = path.split('/').filter(Boolean)
-    segements.pop()
-
-    // Return Sites path
-    return '/' + segements.join('/')
-  } catch (e) {
-    return '/'
-  }
-})
 
 // Handle opening map to focus on respective site
 const mapPath = computed(() => {
@@ -67,26 +50,12 @@ const mapPath = computed(() => {
   >
     <BaseExploreApp :nav-data="data.breadcrumb">
       <template #default>
-        <!-- back nav -->
-        <LayoutHelper
-          indent="col-2"
-          class="mb-5"
-        >
-          <BaseLink
-            class="BackToSitesBtn"
-            variant="primary"
-            :caret-left="true"
-            caret-margin-right="mr-1"
-            :to="previousPath"
-            >Back to Sites</BaseLink
-          >
-        </LayoutHelper>
-
         <!-- page title area -->
         <LayoutHelper indent="col-2">
           <DetailHeadline
             :title="data.title"
-            class="mb-5"
+            :label="data.themeTypeLabel"
+            class="my-5 lg:mt-10"
           />
           <MetadataStacked
             :location="data.location"
@@ -151,8 +120,3 @@ const mapPath = computed(() => {
     </BaseExploreApp>
   </div>
 </template>
-<style lang="scss" scoped>
-.BackToSitesBtn {
-  margin-left: -10px;
-}
-</style>

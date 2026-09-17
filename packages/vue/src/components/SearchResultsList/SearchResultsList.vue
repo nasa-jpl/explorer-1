@@ -40,8 +40,10 @@
           :primary-subject="page.primarySubject as unknown as PrimarySubjectObject"
           :grade-levels="page.gradeLevels as unknown as GradeLevelsObject[]"
           :time="page.time as unknown as EduResourcesTime"
+          :theme="page.theme"
           :title="page.title"
           :summary="page.summary"
+          :search-description="page.searchDescription"
           :featured="featureFirstResult ? index === 0 && currentPage === 1 : false"
           heading-level="h2"
         />
@@ -274,6 +276,14 @@ export default defineComponent({
               page.locationIcon =
                 handle === 'explore_jpl_sites_explorejplsite'
                   ? page._source[handle + '__map_icon']?.thumbnail_image
+                  : undefined
+              page.searchDescription =
+                handle === 'explore_jpl_sites_explorejplsite'
+                  ? page._source.search_description
+                  : undefined
+              page.theme =
+                handle === 'explore_jpl_sites_explorejplsite'
+                  ? page._source[handle + '__theme_type_label']
                   : undefined
               if (image) {
                 page.image = {

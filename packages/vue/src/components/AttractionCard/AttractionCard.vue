@@ -44,10 +44,25 @@ const props = defineProps({
     default: undefined
   },
   /**
+   * The description for use as card text. Plain text only.
+   */
+  description: {
+    type: String,
+    default: undefined
+  },
+  /**
+   * The theme text. Plain text only.
+   */
+  theme: {
+    type: String,
+    default: undefined
+  },
+  /**
    * The image for the listing card.
    */
   image: {
-    type: Object
+    type: Object,
+    default: undefined
   },
   /**
    * Controls the visibility of the Bookmark icon and its associated metadata.
@@ -78,6 +93,12 @@ const props = defineProps({
       class="border-gray-light-mid lg:pb-10 lg:mb-10 relative grid grid-cols-12 gap-5 pb-6 mb-6 border-b"
     >
       <div class="col-span-9">
+        <div
+          v-if="theme"
+          class="text-subtitle-sm md:text-subtitle mb-3 md:mb-5 text-gray-mid-dark"
+        >
+          {{ props.theme }}
+        </div>
         <BaseHeading
           v-if="props.title"
           :level="props.headingLevel"
@@ -91,6 +112,22 @@ const props = defineProps({
           :show-my-list="props.showMyList"
           :location-icon="props.locationIcon"
         />
+        <div class="hidden md:block">
+          <div
+            v-if="props.description"
+            class="w-full mt-5 text-body-md"
+          >
+            {{ props.description }}
+          </div>
+          <BaseLink
+            v-if="props.url"
+            class="mt-5"
+            variant="primary"
+            :href="props.url"
+          >
+            Learn more
+          </BaseLink>
+        </div>
       </div>
       <div
         v-if="props.image"
@@ -107,6 +144,22 @@ const props = defineProps({
             loading="lazy"
           />
         </BaseImagePlaceholder>
+      </div>
+      <div class="col-span-full md:hidden">
+        <div
+          v-if="props.description"
+          class="w-full text-body-md"
+        >
+          {{ props.description }}
+        </div>
+        <BaseLink
+          v-if="props.url"
+          class="mt-5"
+          variant="primary"
+          :href="props.url"
+        >
+          Learn more
+        </BaseLink>
       </div>
     </div>
   </BaseLink>
