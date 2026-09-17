@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.16
+
+### Patch Changes
+
+- b50fa5b: Fixing attraction theme labels'
+
 ## 4.1.15
 
 ### Patch Changes
