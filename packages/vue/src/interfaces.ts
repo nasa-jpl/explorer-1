@@ -358,6 +358,7 @@ export interface PageObject {
   waitTimeLabel?: string
   relatedPagesForMoreSection?: any
   id?: string
+  themeTypeLabel?: string
 }
 
 export interface EduResourcesSubject {

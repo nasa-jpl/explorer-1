@@ -283,7 +283,7 @@ export default defineComponent({
                   : undefined
               page.theme =
                 handle === 'explore_jpl_sites_explorejplsite'
-                  ? page._source[handle + '__theme_type_filter']
+                  ? page._source[handle + '__theme_type_label']
                   : undefined
               if (image) {
                 page.image = {
