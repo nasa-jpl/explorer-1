@@ -1,18 +1,13 @@
 <template>
   <svg
-    class="IconCheckbox"
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <path
-      stroke="currentColor"
-      fill="none"
-      d="M0.5 0.5H21.5V21.5H0.5z"
-    />
+    <path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Z" />
   </svg>
 </template>
 <script lang="ts">
@@ -22,5 +17,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconCheckbox';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

@@ -1,18 +1,13 @@
 <template>
   <svg
-    class="IconMinus"
-    width="12"
-    height="2"
-    viewBox="0 0 12 2"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <path
-      transform="translate(-6 -11)"
-      fill="currentColor"
-      d="M6 11H18V13H6z"
-    />
+    <path d="M200-440v-80h560v80H200Z" />
   </svg>
 </template>
 <script lang="ts">
@@ -22,5 +17,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconMinus';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>
