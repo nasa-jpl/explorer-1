@@ -74,11 +74,27 @@ export const BaseStory = {
   args: HomepageTeaserBlockData
 }
 
-export const NoImage = {
+export const NoCoverImage = {
   args: {
     data: {
-      ...HomepageTeaserBlockData.block,
+      ...HomepageTeaserBlockData.data,
       coverImage: null
+    }
+  }
+}
+
+export const Without360Icon = {
+  name: 'Without 360 Icon Badge',
+  args: {
+    data: {
+      ...HomepageTeaserBlockData.data,
+      card: [
+        {
+          ...HomepageTeaserBlockData.data.card[0],
+          heading: 'Standard Card',
+          showIcon: false
+        }
+      ]
     }
   }
 }
