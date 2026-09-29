@@ -11,14 +11,14 @@
           hidden: contextImagePreviewShow,
           block: !contextImagePreviewShow
         }"
-        ><IconDropdown
+        ><IconDropdown class="IconDropdown text-lg"
       /></span>
       <span
         :class="{
           hidden: !contextImagePreviewShow,
           block: contextImagePreviewShow
         }"
-        ><IconClose
+        ><IconClose class="text-lg"
       /></span>
     </div>
     <div
