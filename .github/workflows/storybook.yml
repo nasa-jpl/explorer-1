@@ -11,6 +11,8 @@ on:
       - 'apps/vue-storybook/**'
       - 'packages/common/**'
       - 'packages/vue/**'
+      - 'packages/common-storybook/**'
+      - 'packages/html/**'
   pull_request:
     branches-ignore:
       - 'changeset-release/**'
@@ -20,6 +22,8 @@ on:
       - 'packages/common/*.js'
       - 'packages/common/*.ts'
       - 'packages/vue/src/**'
+      - 'packages/common-storybook/**'
+      - 'packages/html/**'
 
 jobs:
   publish_vue:
