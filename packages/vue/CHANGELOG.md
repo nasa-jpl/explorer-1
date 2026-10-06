@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.17
+
+### Patch Changes
+
+- 873cf1d: Fixing bug in AttractionCard with nested BaseLink components
+
 ## 1.1.16
 
 ### Patch Changes
