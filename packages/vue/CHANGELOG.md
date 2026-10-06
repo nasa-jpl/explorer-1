@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.18
+
+### Patch Changes
+
+- 008fc92: Fixing NuxtLink resolution error in BaseLink
+
 ## 1.1.17
 
 ### Patch Changes
