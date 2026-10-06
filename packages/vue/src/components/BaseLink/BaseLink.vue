@@ -30,6 +30,13 @@ export default defineComponent({
     MixinAnimationCaret
   },
   props: {
+    /** Override html element (useful for things that should look like a link but aren't links) */
+    customElementType: {
+      type: String,
+      default: undefined,
+      validator: (prop: string): boolean => ['span', 'button', 'div'].includes(prop)
+    },
+    /** Style of link: primary, secondary, default, none */
     variant: {
       type: String as PropType<VariantsKey>,
       required: false,
@@ -263,7 +270,8 @@ export default defineComponent({
 <template>
   <div>
     <!-- annoyingly repetive due to complexities around `to` and @click.native -->
-    <nuxt-link
+    <component
+      :is="customElementType || 'nuxt-link'"
       v-if="computedTo"
       class="group"
       :class="computedClass"
@@ -302,8 +310,9 @@ export default defineComponent({
       <template v-else>
         <slot></slot>
       </template>
-    </nuxt-link>
-    <a
+    </component>
+    <component
+      :is="customElementType || 'a'"
       v-else-if="computedHref"
       :href="computedHref"
       class="group"
@@ -341,6 +350,6 @@ export default defineComponent({
       <template v-else>
         <slot></slot>
       </template>
-    </a>
+    </component>
   </div>
 </template>
