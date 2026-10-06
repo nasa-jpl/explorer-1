@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue'
+import { defineComponent, resolveComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import { eventBus } from './../../utils/eventBus'
@@ -148,6 +148,10 @@ export default defineComponent({
   ],
   computed: {
     ...mapStores(useThemeStore),
+    dynamicLinkComponent() {
+      // Resolves the NuxtLink component for Vue 3's dynamic <component> binding
+      return this.customElementType || resolveComponent('NuxtLink')
+    },
     computedVariants() {
       if (this.usePrimaryColor) {
         return primaryColorVariants
@@ -271,7 +275,7 @@ export default defineComponent({
   <div>
     <!-- annoyingly repetive due to complexities around `to` and @click.native -->
     <component
-      :is="customElementType || 'nuxt-link'"
+      :is="dynamicLinkComponent"
       v-if="computedTo"
       class="group"
       :class="computedClass"
