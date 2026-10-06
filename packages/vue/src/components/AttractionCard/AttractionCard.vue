@@ -155,6 +155,7 @@ const props = defineProps({
         </div>
         <BaseLink
           v-if="props.url"
+          custom-element-type="div"
           class="mt-5"
           variant="primary"
           :href="props.url"
