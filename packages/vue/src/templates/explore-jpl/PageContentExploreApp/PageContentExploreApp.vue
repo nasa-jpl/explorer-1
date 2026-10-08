@@ -56,7 +56,7 @@ const heroTitle = computed(() => {
         />
         <HeroMedia
           v-else-if="!heroTitle && data.heroImage && !heroInline"
-          class="md:mb-0 mb-10"
+          :class="data.breadcrumb ? 'mb-0' : 'md:mb-0 mb-10'"
           :image="data.heroImage"
           :caption="data.heroImageCaption"
           :display-caption="!data.heroImageCaption ? false : true"
