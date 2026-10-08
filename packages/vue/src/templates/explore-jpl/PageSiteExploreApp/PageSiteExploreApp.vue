@@ -22,6 +22,11 @@ const props = defineProps({
   data: {
     type: Object as () => PageObject,
     default: undefined
+  },
+  /** used to override wait time in MetaDataStacked */
+  customWaitTimeLabel: {
+    type: String,
+    default: undefined
   }
 })
 const { data } = reactive(props)
@@ -60,7 +65,7 @@ const mapPath = computed(() => {
           <MetadataStacked
             :location="data.location"
             :location-icon="data?.mapIcon?.url"
-            :wait="data?.waitTimeLabel"
+            :wait="customWaitTimeLabel || data?.waitTimeLabel"
           />
         </LayoutHelper>
 
