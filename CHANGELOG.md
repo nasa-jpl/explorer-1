@@ -1,5 +1,12 @@
 # explorer-1
 
+## 4.1.19
+
+### Patch Changes
+
+- ae5fb75: Fixing bottom margin of media hero on Explore JPL content template"
+- a33b870: release
+
 ## 4.1.18
 
 ### Patch Changes

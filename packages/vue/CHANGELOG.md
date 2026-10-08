@@ -1,5 +1,12 @@
 # @explorer-1/vue
 
+## 1.1.19
+
+### Patch Changes
+
+- 9a56758: Adds a custom wait time label prop to PageSiteExploreApp. This allows fetching an updated value.
+- ae5fb75: Fixing bottom margin of media hero on Explore JPL content template"
+
 ## 1.1.18
 
 ### Patch Changes
