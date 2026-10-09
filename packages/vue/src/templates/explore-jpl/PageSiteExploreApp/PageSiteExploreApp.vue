@@ -105,7 +105,7 @@ const mapPath = computed(() => {
           indent="col-3"
           class="lg:mb-24 mb-12"
         >
-          <BaseButton :to="mapPath">
+          <BaseButton :href="mapPath">
             <template #iconLeft>
               <IconMap class="mr-2 text-2xl" />
             </template>
