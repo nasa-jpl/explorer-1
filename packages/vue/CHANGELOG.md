@@ -1,5 +1,11 @@
 # @explorer-1/vue
 
+## 1.1.20
+
+### Patch Changes
+
+- 1c02529: Changing "See on map" button to be a regular link and not a router link. Avoids fatal network error.
+
 ## 1.1.19
 
 ### Patch Changes
