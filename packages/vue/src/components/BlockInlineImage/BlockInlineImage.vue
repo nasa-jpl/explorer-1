@@ -45,6 +45,7 @@
         :class="data.alignTo === 'right' ? 'col-start-3 lg:order-1' : 'col-start-6 lg:order-2'"
       >
         <BlockText
+          class="min-w-0"
           :variant="variant"
           :text="data.text"
         />
