@@ -15,17 +15,17 @@
   },
   "prettier": "@explorer-1/prettier-config",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/eslint-plugin": "^8.57.0",
-    "@typescript-eslint/parser": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/parser": "^8.57.2",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-storybook": "^10.2.17",
+    "eslint-plugin-prettier": "^5.5.7",
+    "eslint-plugin-storybook": "^10.2.19",
     "eslint-plugin-vue": "^10.8.0",
-    "prettier": "^3.8.1",
-    "vue-eslint-parser": "^10.4.0"
+    "prettier": "^3.8.5",
+    "vue-eslint-parser": "^10.4.1"
   }
 }
