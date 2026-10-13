@@ -37,15 +37,15 @@
   "dependencies": {
     "@fancyapps/ui": "^6.1.15",
     "@tailwindcss/forms": "^0.5.11",
-    "swiper": "^12.1.4",
+    "swiper": "^12.2.0",
     "tailwindcss": "^3.4.19"
   },
   "devDependencies": {
     "@explorer-1/common": "workspace:*",
     "@explorer-1/prettier-config": "workspace:*",
-    "@storybook/addon-docs": "10.2.19",
-    "autoprefixer": "^10.4.27",
-    "postcss-import": "^16.1.1",
+    "@storybook/addon-docs": "10.6.2",
+    "autoprefixer": "^10.6.1",
+    "postcss-import": "^16.2.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.7"
   },
