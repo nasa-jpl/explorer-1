@@ -20,7 +20,8 @@
   }
   .ag-root-wrapper,
   .ag-cell,
-  .ag-theme-params-1 {
+  .ag-theme-params-1,
+  .ag-paging-panel * {
     @apply font-primary;
   }
   .ag-cell-wrap-text {
