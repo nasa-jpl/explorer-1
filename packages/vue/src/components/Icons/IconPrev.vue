@@ -1,16 +1,13 @@
 <template>
   <svg
-    viewBox="0 0 50 50"
-    class="IconPrev"
+    class="IconBase"
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M29 13.686l1.414 1.415-9.9 9.899 9.9 9.9L29 36.313 17.686 25 29 13.686z"
-      fill="currentColor"
-      aria-hidden="true"
-      focusable="false"
-    />
+    <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
   </svg>
 </template>
 
@@ -21,5 +18,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconPrev';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

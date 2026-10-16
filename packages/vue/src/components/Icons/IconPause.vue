@@ -1,19 +1,13 @@
 <template>
   <svg
-    class="IconPause"
-    width="60"
-    height="60"
-    viewBox="0 0 60 60"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <path
-      fill="currentColor"
-      transform="matrix(-1 0 0 1 54 6)"
-      fill-rule="evenodd"
-      d="M12 38h8V10h-8v28zm16-28v28h8V10h-8z5"
-    />
+    <path d="M560-200v-560h160v560H560Zm-320 0v-560h160v560H240Z" />
   </svg>
 </template>
 
@@ -24,5 +18,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconPause';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

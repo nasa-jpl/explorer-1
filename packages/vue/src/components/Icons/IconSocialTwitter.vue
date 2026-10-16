@@ -1,15 +1,13 @@
 <template>
   <svg
-    class="IconSocialTwitter"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+    class="IconBase"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
   >
     <path
-      d="M14.2,10.2L23,0h-2.1l-7.6,8.8L7.3,0h-7l9.2,13.3L0.3,24h2.1l8-9.3l6.4,9.3h7L14.2,10.2L14.2,10.2z M11.4,13.5 l-0.9-1.3L3.1,1.6h3.2l6,8.5l0.9,1.3l7.8,11.1h-3.2L11.4,13.5L11.4,13.5z"
+      d="M11.65 8.47L18.94 0H17.21L10.88 7.35L5.83 0H0L7.64 11.12L0 20H1.73L8.41 12.23L13.75 20H19.58L11.66 8.47H11.65ZM9.28 11.22L8.51 10.11L2.35 1.3H5L9.97 8.41L10.74 9.52L17.2 18.76H14.55L9.28 11.22Z"
       fill="currentColor"
     />
   </svg>
@@ -21,5 +19,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconSocialTwitter';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

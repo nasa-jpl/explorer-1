@@ -1,16 +1,14 @@
 <template>
   <svg
-    class="IconGrid"
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
     <path
-      d="M9 11v9H0v-9h9zm11 0v9h-9v-9h9zM7 13H2v5h5v-5zm11 0h-5v5h5v-5zM9 0v9H0V0h9zm11 0v9h-9V0h9zM7 2H2v5h5V2zm11 0h-5v5h5V2z"
-      fill="currentColor"
+      d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520ZM200-600h160v-160H200v160Zm400 0h160v-160H600v160Zm0 400h160v-160H600v160Zm-400 0h160v-160H200v160Zm400-400Zm0 240Zm-240 0Zm0-240Z"
     />
   </svg>
 </template>
@@ -21,5 +19,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconGrid';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>
