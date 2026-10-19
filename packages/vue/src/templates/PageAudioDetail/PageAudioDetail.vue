@@ -102,7 +102,7 @@
               </template>
               <template #iconRight>
                 <IconDropdown
-                  class="text-sm ml-2 transform"
+                  class="text-base transform self-center"
                   :class="{ 'rotate-180': !collapseTranscript }"
                 />
               </template>
