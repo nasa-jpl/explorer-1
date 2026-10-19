@@ -1,5 +1,11 @@
 # @explorer-1/prettier-config
 
+## 1.0.3
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+
 ## 1.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # explorer-1
 
+## 4.1.21
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+
 ## 4.1.20
 
 ### Patch Changes

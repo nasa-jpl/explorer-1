@@ -1,5 +1,11 @@
 # @explorer-1/eslint-config
 
+## 1.1.4
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+
 ## 1.1.3
 
 ### Patch Changes

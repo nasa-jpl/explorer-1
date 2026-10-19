@@ -1,5 +1,11 @@
 # @explorer-1/common-storybook
 
+## 0.2.4
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+
 ## 0.2.3
 
 ### Patch Changes

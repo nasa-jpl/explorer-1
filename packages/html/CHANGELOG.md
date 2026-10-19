@@ -1,5 +1,11 @@
 # @explorer-1/html
 
+## 1.1.5
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+
 ## 1.1.4
 
 ### Patch Changes
