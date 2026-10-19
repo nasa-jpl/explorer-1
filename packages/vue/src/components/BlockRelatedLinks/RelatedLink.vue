@@ -15,7 +15,6 @@
     <component
       :is="icon"
       class="text-action xl:mx-4 flex-none ml-4 text-2xl leading-normal print:inline print:text-sm print:mx-2"
-      :class="iconClass"
     />
   </component>
 </template>
@@ -84,12 +83,6 @@ export default defineComponent({
         return 'IconExternal'
       }
     },
-    iconClass() {
-      if (this.variant === 'external') {
-        return 'text-3xl p-[2px]'
-      }
-      return 'text-3xl'
-    }
   }
 })
 </script>
