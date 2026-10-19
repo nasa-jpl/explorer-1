@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 2.1.9
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+
 ## 2.1.8
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @explorer-1/vue
 
+## 1.1.21
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+- Updated dependencies [ceeb5ee]
+  - @explorer-1/common@2.1.9
+
 ## 1.1.20
 
 ### Patch Changes
