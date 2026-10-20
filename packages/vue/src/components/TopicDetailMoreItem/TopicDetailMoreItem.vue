@@ -15,9 +15,9 @@
       <!-- icon for media -->
       <div
         v-if="theData.__typename === 'VideoDetailPage'"
-        class="bg-jpl-red lg:text-2xl absolute bottom-0 left-0 z-10 text-lg text-white"
+        class="bg-jpl-red lg:text-5xl absolute bottom-0 left-0 z-10 text-3xl text-white"
       >
-        <IconPlay />
+        <IconPlay class="m-1.5 lg:m-2"/>
       </div>
       <!-- image -->
       <BaseImagePlaceholder
@@ -68,7 +68,7 @@
         </p>
         <IconExternal
           v-if="theData.__typename === 'ExternalLinkCard'"
-          class="text-gray-mid-dark text-lg"
+          class="text-gray-mid-dark text-md"
         />
       </div>
 
