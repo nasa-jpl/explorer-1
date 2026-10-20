@@ -68,10 +68,10 @@
                       aria-hidden="true"
                     >
                       <span class="arrow">
-                        <IconPrev />
+                        <IconPrev class="m-2.5" />
                       </span>
                       <span class="arrow-fixed">
-                        <IconPrev />
+                        <IconPrev class="m-2.5" />
                       </span>
                     </span>
                   </template>
@@ -88,10 +88,10 @@
                       aria-hidden="true"
                     >
                       <span class="arrow">
-                        <IconNext />
+                        <IconNext class="m-2.5" />
                       </span>
                       <span class="arrow-fixed">
-                        <IconNext />
+                        <IconNext class="m-2.5" />
                       </span>
                     </span>
                   </template>
