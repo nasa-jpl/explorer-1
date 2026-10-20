@@ -82,13 +82,15 @@
             </div>
           </template>
           <template v-else>
-            <div class="flex flex-wrap">
+            <div 
+              class="flex flex-wrap items-center"
+              :class="small ? 'mb-2' : 'mb-4'"
+            >
               <p
                 v-if="
                   theItem.label || ((theItem as EventCardObject).startDate && !themeStore.isEdu)
                 "
                 class="text-subtitle divide-gray-mid flex divide-x"
-                :class="small ? 'mb-2' : 'mb-4'"
               >
                 <span
                   v-if="theItem.label"
@@ -113,8 +115,7 @@
                 "
               >
                 <IconExternal
-                  class="text-primary ml-2"
-                  :class="{ 'text-sm mt-1px': small, 'text-sm -mt-1px': medium, '-mt-.5': large }"
+                  class="text-primary text-xs ml-2"
                 />
               </template>
             </div>
