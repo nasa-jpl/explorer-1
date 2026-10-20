@@ -40,7 +40,7 @@
                 aria-label="Previous slide"
               >
                 <template #iconRight>
-                  <IconPrev />
+                  <IconPrev class="m-2 xl:m-2.5"/>
                 </template>
               </BaseButton>
               <BaseButton
@@ -48,7 +48,7 @@
                 aria-label="Next slide"
               >
                 <template #iconRight>
-                  <IconNext />
+                  <IconNext class="m-2 xl:m-2.5"/>
                 </template>
               </BaseButton>
             </div>
