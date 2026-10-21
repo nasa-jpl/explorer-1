@@ -77,7 +77,7 @@ export default defineComponent({
         >
           <span class="text-subtitle text-primary-light flex items-center">
             Explore
-            <IconCaret class="ml-1 text-base" />
+            <IconCaret class="ml-1 text-[.625rem]" />
           </span>
         </div>
       </div>
