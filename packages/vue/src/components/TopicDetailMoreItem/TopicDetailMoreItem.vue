@@ -17,7 +17,7 @@
         v-if="theData.__typename === 'VideoDetailPage'"
         class="bg-jpl-red lg:text-5xl absolute bottom-0 left-0 z-10 text-3xl text-white"
       >
-        <IconPlay class="m-1.5 lg:m-2"/>
+        <IconPlay class="m-1.5 lg:m-2" />
       </div>
       <!-- image -->
       <BaseImagePlaceholder

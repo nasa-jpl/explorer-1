@@ -38,7 +38,7 @@
             />
             <IconClose 
               v-show="captionVisible"
-              class="text-lg" 
+              class="text-lg"
             />
           </button>
         </div>

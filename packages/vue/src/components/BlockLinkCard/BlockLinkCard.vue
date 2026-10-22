@@ -82,7 +82,7 @@
             </div>
           </template>
           <template v-else>
-            <div 
+            <div
               class="flex flex-wrap items-center"
               :class="small ? 'mb-2' : 'mb-4'"
             >
@@ -114,9 +114,7 @@
                   isEduExternalLink(theItem.externalLink)
                 "
               >
-                <IconExternal
-                  class="text-primary text-xs ml-2"
-                />
+                <IconExternal class="text-primary text-xs ml-2" />
               </template>
             </div>
           </template>

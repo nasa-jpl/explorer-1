@@ -17,7 +17,7 @@ export default defineComponent({
   >
     <div class="BaseButton -primary -icon-only pointer-events-none">
       <span class="icon !text-4xl xl:!text-5xl">
-        <IconExpand class="m-1 xl:m-1.5"/>
+        <IconExpand class="m-1 xl:m-1.5" />
       </span>
     </div>
   </div>

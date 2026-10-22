@@ -71,7 +71,7 @@
           <div
             class="lg:block lg:-ml-3 lg:opacity-0 lg:group-hover:ml-0 lg:group-hover:opacity-100 lg:-mb-3 relative z-20 hidden text-xl leading-normal transition-all duration-200 ease-in delay-200"
           >
-            <IconArrow class="-ml-1"/>
+            <IconArrow class="-ml-1" />
           </div>
         </div>
       </div>

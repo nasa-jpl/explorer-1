@@ -11,7 +11,7 @@
       @click="previousPage()"
     >
       <template #iconRight> 
-        <IconPrev class="m-2.5" /> 
+        <IconPrev class="m-2.5" />
       </template
     ></BaseButton>
 
@@ -56,7 +56,7 @@
       @click="nextPage()"
     >
       <template #iconRight> 
-        <IconNext class="m-2.5" /> 
+        <IconNext class="m-2.5" />
       </template
     ></BaseButton>
   </div>
