@@ -20,7 +20,7 @@
         :class="dropdownButtonClasses(index)"
       >
         <span>{{ item.title }}</span>
-        <IconDropdown class="text-base self-center" />
+        <IconDropdown class="text-sm self-center" />
       </span>
     </NavDropdownToggle>
     <transition name="navfade">
