@@ -94,7 +94,7 @@ const props = defineProps({
     >
       <div class="col-span-9">
         <div
-          v-if="theme"
+          v-if="props.theme"
           class="text-subtitle-sm md:text-subtitle mb-3 md:mb-5 text-gray-mid-dark"
         >
           {{ props.theme }}
@@ -121,6 +121,7 @@ const props = defineProps({
           </div>
           <BaseLink
             v-if="props.url"
+            custom-element-type="div"
             class="mt-5"
             variant="primary"
             :href="props.url"
@@ -135,7 +136,7 @@ const props = defineProps({
       >
         <BaseImagePlaceholder aspect-ratio="square">
           <BaseImage
-            v-if="props.image.src"
+            v-if="props.image?.src"
             :src="props.image.src.url"
             :width="props.image.src.width"
             :height="props.image.src.height"
@@ -154,6 +155,7 @@ const props = defineProps({
         </div>
         <BaseLink
           v-if="props.url"
+          custom-element-type="div"
           class="mt-5"
           variant="primary"
           :href="props.url"

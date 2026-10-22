@@ -1,6 +1,6 @@
 {
   "name": "@explorer-1/common",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -16,16 +16,16 @@
     "prepublishOnly": "cd ./../../ && pnpm build"
   },
   "dependencies": {
-    "@fancyapps/ui": "^6.1.13",
+    "@fancyapps/ui": "^6.1.15",
     "@tailwindcss/forms": "^0.5.11",
-    "swiper": "^12.1.2",
+    "swiper": "^12.2.0",
     "tailwindcss": "^3.4.19",
     "tailwindcss-themer": "^4.1.1"
   },
   "devDependencies": {
     "@explorer-1/prettier-config": "workspace:*",
     "@explorer-1/tsconfig": "workspace:*",
-    "stylelint": "^17.4.0",
+    "stylelint": "^17.16.0",
     "stylelint-config-standard-scss": "^17.0.0"
   }
 }

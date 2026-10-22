@@ -1,5 +1,11 @@
 # @explorer-1/html-storybook
 
+## 2.1.4
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+
 ## 2.1.3
 
 ### Patch Changes

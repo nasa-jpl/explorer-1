@@ -1,5 +1,38 @@
 # @explorer-1/vue
 
+## 1.1.21
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+- Updated dependencies [ceeb5ee]
+  - @explorer-1/common@2.1.9
+
+## 1.1.20
+
+### Patch Changes
+
+- 1c02529: Changing "See on map" button to be a regular link and not a router link. Avoids fatal network error.
+
+## 1.1.19
+
+### Patch Changes
+
+- 9a56758: Adds a custom wait time label prop to PageSiteExploreApp. This allows fetching an updated value.
+- ae5fb75: Fixing bottom margin of media hero on Explore JPL content template"
+
+## 1.1.18
+
+### Patch Changes
+
+- 008fc92: Fixing NuxtLink resolution error in BaseLink
+
+## 1.1.17
+
+### Patch Changes
+
+- 873cf1d: Fixing bug in AttractionCard with nested BaseLink components
+
 ## 1.1.16
 
 ### Patch Changes

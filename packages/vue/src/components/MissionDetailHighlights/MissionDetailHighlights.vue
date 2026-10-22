@@ -173,6 +173,7 @@ import {
   createDrawable,
   createMotionPath,
   createTimeline,
+  stagger,
   type TargetsParam
 } from 'animejs'
 import MissionDetailHighlightsCarousel from './MissionDetailHighlightsCarousel.vue'
@@ -264,9 +265,7 @@ export default defineComponent({
         draw: '0 1',
         ease: 'easeInOutSine',
         duration: 2000,
-        delay(_: any, i: number) {
-          return (i * 250) as any
-        },
+        delay: stagger(250, { start: 0 }),
         alternate: true,
         loop: false
       })

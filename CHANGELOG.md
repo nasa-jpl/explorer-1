@@ -1,5 +1,36 @@
 # explorer-1
 
+## 4.1.21
+
+### Patch Changes
+
+- ceeb5ee: Dependency updates.
+
+## 4.1.20
+
+### Patch Changes
+
+- d6224d5: prepare for release
+
+## 4.1.19
+
+### Patch Changes
+
+- ae5fb75: Fixing bottom margin of media hero on Explore JPL content template"
+- a33b870: release
+
+## 4.1.18
+
+### Patch Changes
+
+- 008fc92: Fixing NuxtLink resolution error in BaseLink
+
+## 4.1.17
+
+### Patch Changes
+
+- 873cf1d: Fixing bug in AttractionCard with nested BaseLink components
+
 ## 4.1.16
 
 ### Patch Changes

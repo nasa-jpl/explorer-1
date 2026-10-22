@@ -99,3 +99,10 @@ export const BaseStory = {
     data: ExploreAppSitePageData
   }
 }
+// stories
+export const CustomWaitTime = {
+  args: {
+    data: ExploreAppSitePageData,
+    customWaitTimeLabel: 'Custom wait time'
+  }
+}

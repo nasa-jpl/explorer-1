@@ -100,3 +100,14 @@ export const CustomNav = {
     }
   }
 }
+
+export const CustomNavWithHero = {
+  args: {
+    data: {
+      ...ExploreAppContentPageData,
+      breadcrumb: NavSecondaryData.breadcrumb,
+      heroPosition: 'full_bleed',
+      heroImage: HeroMediaData.image
+    }
+  }
+}

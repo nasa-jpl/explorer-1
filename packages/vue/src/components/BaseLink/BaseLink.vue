@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue'
+import { defineComponent, resolveComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import { eventBus } from './../../utils/eventBus'
@@ -30,6 +30,13 @@ export default defineComponent({
     MixinAnimationCaret
   },
   props: {
+    /** Override html element (useful for things that should look like a link but aren't links) */
+    customElementType: {
+      type: String,
+      default: undefined,
+      validator: (prop: string): boolean => ['span', 'button', 'div'].includes(prop)
+    },
+    /** Style of link: primary, secondary, default, none */
     variant: {
       type: String as PropType<VariantsKey>,
       required: false,
@@ -141,6 +148,10 @@ export default defineComponent({
   ],
   computed: {
     ...mapStores(useThemeStore),
+    dynamicLinkComponent() {
+      // Resolves the NuxtLink component for Vue 3's dynamic <component> binding
+      return this.customElementType || resolveComponent('NuxtLink')
+    },
     computedVariants() {
       if (this.usePrimaryColor) {
         return primaryColorVariants
@@ -263,7 +274,8 @@ export default defineComponent({
 <template>
   <div>
     <!-- annoyingly repetive due to complexities around `to` and @click.native -->
-    <nuxt-link
+    <component
+      :is="dynamicLinkComponent"
       v-if="computedTo"
       class="group"
       :class="computedClass"
@@ -302,8 +314,9 @@ export default defineComponent({
       <template v-else>
         <slot></slot>
       </template>
-    </nuxt-link>
-    <a
+    </component>
+    <component
+      :is="customElementType || 'a'"
       v-else-if="computedHref"
       :href="computedHref"
       class="group"
@@ -341,6 +354,6 @@ export default defineComponent({
       <template v-else>
         <slot></slot>
       </template>
-    </a>
+    </component>
   </div>
 </template>
