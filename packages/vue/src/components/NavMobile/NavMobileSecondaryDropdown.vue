@@ -11,7 +11,7 @@
       @close-dropdown="closeDropdown()"
     >
       <span>{{ index === 0 ? 'Home' : item.title }}</span>
-      <IconCaret class="transform rotate-90 text-sm ml-2" />
+      <IconDropdown class="text-sm self-center" />
     </NavDropdownToggle>
     <template v-if="dropdownVisible">
       <slot>
@@ -30,7 +30,7 @@ import { defineComponent } from 'vue'
 import { mixinIsActivePath } from '../../utils/mixins'
 import { mapStores } from 'pinia'
 import { useHeaderStore } from '../../store/header'
-import IconCaret from './../Icons/IconCaret.vue'
+import IconDropdown from './../Icons/IconDropdown.vue'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavSecondaryDropdownContent from './../NavSecondary/NavSecondaryDropdownContent.vue'
 
@@ -38,7 +38,7 @@ export default defineComponent({
   name: 'NavMobileSecondaryDropdown',
 
   components: {
-    IconCaret,
+    IconDropdown,
     NavDropdownToggle,
     NavSecondaryDropdownContent
   },
