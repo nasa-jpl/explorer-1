@@ -36,7 +36,7 @@
               v-show="!captionVisible"
               class="text-xl"
             />
-            <IconClose 
+            <IconClose
               v-show="captionVisible"
               class="text-lg"
             />

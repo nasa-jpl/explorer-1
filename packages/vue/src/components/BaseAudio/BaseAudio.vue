@@ -69,9 +69,7 @@
                   {{ duration }}
                 </span>
               </div>
-              <div
-                class="BaseAudio__extern-wrapper flex flex-row py-1.5 items-start"
-              >
+              <div class="BaseAudio__extern-wrapper flex flex-row py-1.5 items-start">
                 <template v-if="isMuted">
                   <button
                     class="cursor-pointer text-lg"

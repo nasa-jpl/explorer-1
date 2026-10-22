@@ -9,15 +9,15 @@
     :image="data.thumbnailImage"
     @click="handleClick(data)"
   >
-    <template 
+    <template
       v-if="data.milestoneLink && data.milestoneLink.externalLink"
-      #icon 
+      #icon
     >
       <IconExternal class="text-2xl text-gray-mid-dark -mr-1 -mt-1" />
     </template>
-    <template 
+    <template
       v-else-if="data.embed"
-      #icon 
+      #icon
     >
       <span class="inline-block bg-jpl-red">
         <IconPlay class="text-sm m-1 text-white" />

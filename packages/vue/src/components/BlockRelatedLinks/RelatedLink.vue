@@ -82,7 +82,7 @@ export default defineComponent({
       } else {
         return 'IconExternal'
       }
-    },
+    }
   }
 })
 </script>
