@@ -132,7 +132,7 @@
                     >
                       <span class="flex items-center">
                         <span class="mr-2">{{ block.text }}</span>
-                        <IconExternal class="flex-shrink-0 text-sm" />
+                        <IconExternal class="flex-shrink-0 text-xs" />
                       </span>
                     </BaseLink>
                   </template>
