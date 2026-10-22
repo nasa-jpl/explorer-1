@@ -78,16 +78,16 @@
               <span class="mr-2">{{ item.slideTitle }}</span>
               <span
                 v-if="item.externalLink || (item.page && item.page.url)"
-                class="text-jpl-red-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-4xl transition-all duration-200 ease-in"
+                class="text-jpl-red-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-xl transition-all duration-200 ease-in"
               >
-                <IconArrow class="inline" />
+                <IconArrow class="inline mb-1.5" />
               </span>
             </p>
             <div
               v-if="item.externalLink || (item.page && item.page.url)"
-              class="can-hover:group-hover:ml-5 text-jpl-red-light text-7xl lg:block hidden ml-0 transition-all duration-200 ease-in"
+              class="can-hover:group-hover:ml-5 text-jpl-red-light text-5xl lg:block hidden ml-0 transition-all duration-200 ease-in"
             >
-              <IconArrow />
+              <IconArrow class="-m-2" />
             </div>
           </component>
         </div>

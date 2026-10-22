@@ -135,9 +135,9 @@
 
                 <div
                   v-if="hasFeaturedEmbed"
-                  class="lg:-mb-8 can-hover:group-hover:ml-3 text-jpl-red-light text-7xl ml-0 transition-all duration-200 ease-in"
+                  class="lg:-mb-8 can-hover:group-hover:ml-3 text-jpl-red-light text-5xl ml-0 transition-all duration-200 ease-in"
                 >
-                  <IconArrow />
+                  <IconArrow class="-ml-2" />
                 </div>
               </component>
             </template>
@@ -206,9 +206,9 @@
                 to="/asteroid-watch/next-five-approaches"
               >
                 <div
-                  class="lg:-mb-8 can-hover:group-hover:ml-3 text-jpl-red-light text-7xl ml-0 transition-all duration-200 ease-in"
+                  class="lg:-mb-8 can-hover:group-hover:ml-3 text-jpl-red-light text-5xl ml-0 transition-all duration-200 ease-in"
                 >
-                  <IconArrow />
+                  <IconArrow class="-ml-2" />
                 </div>
               </BaseLink>
             </template>

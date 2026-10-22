@@ -1,18 +1,13 @@
 <template>
   <svg
-    class="IconMenu"
-    width="30"
-    height="26"
-    viewBox="0 0 30 26"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <path
-      d="M30 22v4H0v-4h30zm0-11v4H0v-4h30zm0-11v4H0V0h30z"
-      fill="currentColor"
-      fill-rule="evenodd"
-    />
+    <path d="M120-680v-80h720v80H120Zm0 480v-80h720v80H120Zm0-240v-80h720v80H120Z" />
   </svg>
 </template>
 
@@ -23,5 +18,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconMenu';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

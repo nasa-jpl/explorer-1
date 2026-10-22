@@ -37,7 +37,7 @@
               external-target-blank
             >
               <span class="pr-2">NASA OSTEM</span>
-              <IconExternal class="shrink-0 text-sm -mt-0.5" />
+              <IconExternal class="shrink-0 text-xs" />
             </BaseLink>
           </template>
         </div>

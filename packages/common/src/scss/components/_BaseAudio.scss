@@ -23,7 +23,7 @@
       @apply opacity-100 hover:opacity-80;
 
       svg {
-        @apply w-6 text-white;
+        @apply text-white;
       }
     }
   }
@@ -38,11 +38,7 @@
 
   .BaseAudio__extern-wrapper {
     > button {
-      @apply mr-1 sm:-mt-2 lg:-mt-2.5 ml-2.5 opacity-100 hover:opacity-80;
-
-      svg {
-        @apply w-6;
-      }
+      @apply opacity-100 hover:opacity-80;
     }
   }
 }

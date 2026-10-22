@@ -107,7 +107,7 @@ const mapPath = computed(() => {
         >
           <BaseButton :href="mapPath">
             <template #iconLeft>
-              <IconMap class="mr-2 text-2xl" />
+              <IconMap class="mr-2 text-lg" />
             </template>
             <template #default>See on Map</template>
           </BaseButton>

@@ -61,7 +61,7 @@
             size="h4"
             class="mb-2"
           >
-            <IconEnvelope class="inline relative -top-0.5" />
+            <IconEnvelope class="inline relative -top-0.5 text-2xl" />
             Email
           </BaseHeading>
           <p class="text-h6">

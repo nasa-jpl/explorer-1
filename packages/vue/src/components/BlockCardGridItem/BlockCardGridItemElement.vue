@@ -44,9 +44,9 @@
       <p class="text-body-sm">{{ description }}</p>
       <div
         v-if="link"
-        class="ThemeVariantLight w-full mt-1 can-hover:block text-action can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden text-2xl leading-normal transition-all duration-200 ease-in"
+        class="ThemeVariantLight w-full mt-1 can-hover:block text-action can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden text-lg leading-normal transition-all duration-200 ease-in"
       >
-        <IconArrow />
+        <IconArrow class="-ml-1" />
       </div>
     </div>
   </div>

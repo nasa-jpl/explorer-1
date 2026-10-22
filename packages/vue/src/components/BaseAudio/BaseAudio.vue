@@ -3,25 +3,25 @@
     <div class="BaseAudio__stage sm:pr-5">
       <div class="BaseAudio__player w-full select-none">
         <div class="flex flex-row w-full">
-          <div class="z-30 text-sm md:text-base">
+          <div class="z-30 text-lg md:text-2xl">
             <template v-if="paused">
               <button
-                class="cursor-pointer"
+                class="cursor-pointer bg-jpl-red"
                 title="Play"
                 aria-label="Play"
                 @click="play()"
               >
-                <IconPlay class="bg-jpl-red text-white" />
+                <IconPlay class="text-white m-1.5" />
               </button>
             </template>
             <template v-else>
               <button
-                class="cursor-pointer"
+                class="cursor-pointer bg-jpl-red"
                 title="Pause"
                 aria-label="Pause"
                 @click="pause()"
               >
-                <IconPause class="bg-jpl-red text-white" />
+                <IconPause class="text-white m-1.5" />
               </button>
             </template>
           </div>
@@ -49,7 +49,7 @@
                   class="BaseAudio__rewind-forward animate-fadeIn"
                 >
                   <button
-                    class="cursor-pointer"
+                    class="cursor-pointer text-2xl"
                     title="Rewind"
                     aria-label="Rewind 10 seconds"
                     @click="rewind(10)"
@@ -57,7 +57,7 @@
                     <IconRewindTen />
                   </button>
                   <button
-                    class="cursor-pointer"
+                    class="cursor-pointer text-2xl"
                     title="Fast Forward"
                     aria-label="Fast-forward 10 seconds"
                     @click="forward(10)"
@@ -69,17 +69,10 @@
                   {{ duration }}
                 </span>
               </div>
-              <div
-                class="BaseAudio__extern-wrapper flex flex-row"
-                :class="
-                  !playing
-                    ? '-mt-1.5 sm:mt-0.5 md:mt-1 lg:mt-1.5'
-                    : '-mt-1.5 sm:-mt-0.5 md:mt-0 lg:-mt-0.5'
-                "
-              >
+              <div class="BaseAudio__extern-wrapper flex flex-row py-1.5 items-start">
                 <template v-if="isMuted">
                   <button
-                    class="cursor-pointer"
+                    class="cursor-pointer text-lg"
                     title="Unmute"
                     aria-label="Unmute"
                     @click="toggleMute()"
@@ -89,7 +82,7 @@
                 </template>
                 <template v-else>
                   <button
-                    class="cursor-pointer"
+                    class="cursor-pointer text-lg"
                     title="Mute"
                     aria-label="Mute"
                     @click="toggleMute()"

@@ -36,7 +36,10 @@
               v-show="!captionVisible"
               class="text-xl"
             />
-            <IconClose v-show="captionVisible" />
+            <IconClose
+              v-show="captionVisible"
+              class="text-lg"
+            />
           </button>
         </div>
       </div>

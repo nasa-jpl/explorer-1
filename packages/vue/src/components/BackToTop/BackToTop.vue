@@ -6,7 +6,9 @@
     compact
     @click="scrollToTop"
   >
-    <IconDropdown />
+    <template #iconRight>
+      <IconDropdown class="text-base transform rotate-180" />
+    </template>
     <span class="label-text">Back to top</span>
   </BaseButton>
 </template>

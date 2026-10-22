@@ -1,23 +1,15 @@
 <template>
   <svg
-    class="IconDownload"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <g
-      fill="none"
-      fill-rule="evenodd"
-    >
-      <path
-        d="M2 16v6h20v-6h2v8H0v-8h2zM13.003 0v14.245l4.657-4.656 1.414 1.414-7.071 7.071-7.071-7.071 1.414-1.414 4.657 4.656V0h2z"
-        fill="currentColor"
-        fill-rule="nonzero"
-      />
-    </g>
+    <path
+      d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM160-160v-200h80v120h480v-120h80v200H160Z"
+    />
   </svg>
 </template>
 <script lang="ts">
@@ -27,5 +19,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconDownload';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>
