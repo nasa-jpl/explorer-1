@@ -20,30 +20,42 @@
       class="md:mt-5 md:mb-2 mt-4 mb-1"
     >
       {{ data.text }}
-      <template #iconRight><IconExternal class="ml-2 text-sm" /></template>
-      <!-- TODO: replace with external link icon once icons are available -->
+      <template #iconRight>
+        <IconExternal class="ml-2 text-sm" />
+      </template>
+    </BaseButton>
+    <BaseButton
+      v-else-if="data.document?.url"
+      :variant="buttonVariant"
+      :href="data.document.url"
+      class="md:mt-5 md:mb-2 mt-4 mb-1"
+      target="_blank"
+      rel="noopener"
+    >
+      {{ data.text }}
+      <template #iconRight>
+        <IconDownload class="ml-2 text-sm" />
+      </template>
     </BaseButton>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 import { mapStores } from 'pinia'
-import type { BlockData, PageObject } from './../../interfaces.ts'
+import type { BlockData, RelatedLinkObject } from './../../interfaces.ts'
 import { useThemeStore } from '../../store/theme'
 import BaseButton from './../BaseButton/BaseButton.vue'
 import IconExternal from './../Icons/IconExternal.vue'
+import IconDownload from './../Icons/IconDownload.vue'
 
-export type BlockCtaData = BlockData & {
-  page: PageObject
-  text: string
-  externalLink: string
-}
+export type BlockCtaData = BlockData & RelatedLinkObject
 
 export default defineComponent({
   name: 'BlockCta',
   components: {
     BaseButton,
-    IconExternal
+    IconExternal,
+    IconDownload
   },
   props: {
     data: {
