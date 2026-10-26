@@ -152,6 +152,6 @@ export default defineComponent({
     theIcon() {
       return this.icon ? iconMap[this.icon] : undefined
     }
-  },
+  }
 })
 </script>
