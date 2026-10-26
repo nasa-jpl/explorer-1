@@ -62,7 +62,9 @@ export const HomepageTeaserBlockData = {
           document: null,
           page: null,
           externalLink: 'https://www.jpl.nasa.gov'
-        }
+        },
+        icon: 'Icon360',
+        showIcon: true
       }
     ]
   }
@@ -74,11 +76,27 @@ export const BaseStory = {
   args: HomepageTeaserBlockData
 }
 
-export const NoImage = {
+export const NoCoverImage = {
   args: {
     data: {
-      ...HomepageTeaserBlockData.block,
+      ...HomepageTeaserBlockData.data,
       coverImage: null
+    }
+  }
+}
+
+export const WithoutIcon = {
+  name: 'Without Icon Badge',
+  args: {
+    data: {
+      ...HomepageTeaserBlockData.data,
+      card: [
+        {
+          ...HomepageTeaserBlockData.data.card[0],
+          heading: 'Standard Card',
+          showIcon: false
+        }
+      ]
     }
   }
 }
