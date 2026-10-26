@@ -7,7 +7,7 @@
       v-if="hasIcon"
       class="bg-jpl-red absolute bottom-0 right-0 z-10 text-white"
     >
-      <Icon360 />
+      <DynamicIcon :icon="data.icon" />
     </div>
 
     <BaseImagePlaceholder
@@ -33,14 +33,14 @@ import { defineComponent } from 'vue'
 import { mixinGetSrcSet } from './../../utils/mixins'
 import BaseImagePlaceholder from './../BaseImagePlaceholder/BaseImagePlaceholder.vue'
 import BaseImage from './../BaseImage/BaseImage.vue'
-import Icon360 from './../Icons/Icon360.vue'
+import DynamicIcon from './../DynamicIcon/DynamicIcon.vue'
 
 export default defineComponent({
   name: 'HomepageTeaserBlockCardImage',
   components: {
     BaseImagePlaceholder,
     BaseImage,
-    Icon360
+    DynamicIcon
   },
   props: {
     data: {

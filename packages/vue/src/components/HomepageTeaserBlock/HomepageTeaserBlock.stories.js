@@ -62,7 +62,9 @@ export const HomepageTeaserBlockData = {
           document: null,
           page: null,
           externalLink: 'https://www.jpl.nasa.gov'
-        }
+        },
+        icon: 'Icon360',
+        showIcon: true
       }
     ]
   }
@@ -83,8 +85,8 @@ export const NoCoverImage = {
   }
 }
 
-export const Without360Icon = {
-  name: 'Without 360 Icon Badge',
+export const WithoutIcon = {
+  name: 'Without Icon Badge',
   args: {
     data: {
       ...HomepageTeaserBlockData.data,
