@@ -255,6 +255,15 @@
         />
       </LayoutHelper>
 
+      <LayoutHelper
+        v-else-if="block.blockType == 'SurveyMonkeyEmbedBlock'"
+        :key="`surveyMonkeyEmbedBlock${index}`"
+        indent="col-2"
+        :class="marginBottom"
+      >
+        <BlockSurveyMonkeyEmbed :data="block as BlockSurveyMonkeyEmbedData" />
+      </LayoutHelper>
+
       <div
         v-else
         :key="index"
@@ -304,6 +313,7 @@ import BlockVideo, { type BlockVideoData } from './../BlockVideo/BlockVideo.vue'
 import BlockVideoEmbed, { type BlockVideoEmbedData } from './../BlockVideoEmbed/BlockVideoEmbed.vue'
 import BlockNewsletterSignup from '../BlockNewsletterSignup/BlockNewsletterSignup.vue'
 import BlockCsrTable from '../BlockCsrTable/BlockCsrTable.vue'
+import BlockSurveyMonkeyEmbed, { type BlockSurveyMonkeyEmbedData } from '../BlockSurveyMonkeyEmbed/BlockSurveyMonkeyEmbed.vue'
 import { mapStores } from 'pinia'
 import { useThemeStore } from '../../store/theme'
 import { type VariantKey as BlockTextVariantKey } from './../BlockText/BlockText.vue'
@@ -342,7 +352,8 @@ export default defineComponent({
     BlockVideo,
     BlockVideoEmbed,
     BlockNewsletterSignup,
-    BlockCsrTable
+    BlockCsrTable,
+    BlockSurveyMonkeyEmbed
   },
   props: {
     /** Changes behavior of width. Fluid width: all block widths will match that of the container. Otherwise they will conform to preset widths. */
