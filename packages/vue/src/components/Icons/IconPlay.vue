@@ -1,19 +1,13 @@
 <template>
   <svg
-    class="IconPlay"
-    width="60"
-    height="60"
-    viewBox="0 0 60 60"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <path
-      fill="currentColor"
-      transform="matrix(-1 0 0 1 64 0)"
-      fill-rule="evenodd"
-      d="M42 17L22 30 42 43z"
-    />
+    <path d="M320-200v-560l440 280-440 280Z" />
   </svg>
 </template>
 
@@ -24,5 +18,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconPlay';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

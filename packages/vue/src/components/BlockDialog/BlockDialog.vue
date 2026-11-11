@@ -21,7 +21,7 @@
           type="button"
           data-a11y-dialog-hide
           aria-label="Close dialog"
-          class="button-close absolute right-0 flex-shrink-0 text-white focus:outline-none focus:ring-2"
+          class="button-close absolute right-0 flex-shrink-0 text-white focus:outline-none focus:ring-2 text-lg"
         >
           <IconClose />
         </button>

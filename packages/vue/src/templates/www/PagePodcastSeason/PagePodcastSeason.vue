@@ -39,7 +39,7 @@
         <!-- toggle gallery view -->
         <div
           v-if="allowGridView"
-          class="align-end flex text-2xl"
+          class="align-end flex text-xl"
         >
           <button
             class="lg:ml-6"

@@ -17,7 +17,7 @@
           aria-label="Submit"
           @click.prevent="submit"
         >
-          <IconSocialEmail class="text-xl text-white" />
+          <IconSocialEmail class="text-base text-white" />
         </button>
       </div>
     </div>

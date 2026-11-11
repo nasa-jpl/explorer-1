@@ -1,17 +1,14 @@
 <template>
   <svg
-    class="IconClose"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
     <path
-      d="M21.192-.02l2.829 2.828L14.828 12l9.193 9.192-2.829 2.829L12 14.828l-9.192 9.193-2.829-2.829L9.172 12-.02 2.808 2.808-.021 12 9.172 21.192-.02z"
-      fill="currentColor"
-      fill-rule="evenodd"
+      d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
     />
   </svg>
 </template>
@@ -23,5 +20,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconClose';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

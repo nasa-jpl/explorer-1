@@ -43,7 +43,7 @@
       <div class="text-gray-mid-dark flex flex-nowrap items-center justify-start mt-2 text-sm">
         <span
           v-if="data.transmitStatus === 'both' || data.transmitStatus === 'sending'"
-          class="animate-pulse mr-1"
+          class="animate-pulse mr-1 text-xs"
         >
           <span class="sr-only">
             {{ data.spacecraftName }} is sending to {{ data.location }}.
@@ -59,7 +59,7 @@
         </span>
         <span
           v-if="data.transmitStatus === 'both' || data.transmitStatus === 'receiving'"
-          class="animate-pulse"
+          class="animate-pulse text-xs"
         >
           <span class="sr-only">
             {{ data.spacecraftName }} is receiving from {{ data.location }}.

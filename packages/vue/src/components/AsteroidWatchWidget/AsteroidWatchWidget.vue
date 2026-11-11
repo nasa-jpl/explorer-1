@@ -80,7 +80,7 @@
             >
               <span class="font-secondary text-base flex flex-nowrap items-center">
                 <span>{{ item.name }}</span>
-                <IconExternal class="text-jpl-red ml-3 text-base" />
+                <IconExternal class="text-jpl-red ml-3 text-sm" />
               </span>
             </BaseLink>
           </div>

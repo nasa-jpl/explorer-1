@@ -6,13 +6,11 @@
 */
 import { defineComponent } from 'vue'
 import BaseLink from './../BaseLink/BaseLink.vue'
-import IconCaret from './../Icons/IconCaret.vue'
 
 export default defineComponent({
   name: 'HomepageMissionsCarouselItem',
   components: {
     BaseLink,
-    IconCaret
   },
   props: {
     data: {
@@ -75,10 +73,13 @@ export default defineComponent({
         <div
           class="explore-text can-hover:group-hover:opacity-100 can-hover:group-hover:ml-0 lg:-ml-3 lg:opacity-0 ml-0 transition-all duration-300 ease-in"
         >
-          <span class="text-subtitle text-primary-light flex items-center">
+          <BaseLink 
+            :to="hasTopic ? data.topic.url : '/missions/?mission_target=' + data.name"
+            variant="primary"
+            custom-element-type="span"
+          >
             Explore
-            <IconCaret class="ml-1 text-base" />
-          </span>
+          </BaseLink>
         </div>
       </div>
     </div>

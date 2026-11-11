@@ -83,10 +83,10 @@
             <button
               v-if="!searchVisible"
               aria-label="Open Search"
-              class="p-4 -mr-4 text-lg cursor-pointer"
+              class="p-3 -mr-3 text-lg cursor-pointer"
               @click="toggleSearch()"
             >
-              <IconSearch />
+              <IconSearch class="text-base" />
             </button>
             <div
               v-else
@@ -99,10 +99,10 @@
               />
               <button
                 aria-label="Close Search"
-                class="p-4 -mr-4 cursor-pointer"
+                class="p-3 -mr-3 cursor-pointer"
                 @click="closeSearch()"
               >
-                <IconClose class="text-sm" />
+                <IconClose class="text-base" />
               </button>
             </div>
           </div>

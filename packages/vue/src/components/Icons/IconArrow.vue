@@ -1,17 +1,14 @@
 <template>
   <svg
-    class="IconArrow"
-    width="26"
-    height="16"
-    viewBox="0 0 26 16"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
   >
     <path
-      d="M17.935.929L25.006 8l-7.071 7.071-1.414-1.414L21.177 9H1V7h20.177l-4.656-4.657L17.935.93z"
       fill="currentColor"
-      fill-rule="evenodd"
+      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"
     />
   </svg>
 </template>
@@ -22,5 +19,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconArrow';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

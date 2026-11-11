@@ -101,7 +101,7 @@ const themeVariant = computed(() => {
       >
         <EduSubjectIcon
           :subject="primarySubject?.subject"
-          class="text-[1.3em] md:text-[1.6em]"
+          class="text-2xl md:text-4xl"
         />
       </div>
       <div>
@@ -127,7 +127,7 @@ const themeVariant = computed(() => {
         class="MetaPanelItem-icon"
         :class="iconColor"
       >
-        <IconProfile class="text-[2.1em] md:text-[2.5em] mt-1 md:mt-0" />
+        <IconProfile class="text-2xl md:text-4xl" />
       </div>
       <div>
         <div
@@ -152,7 +152,7 @@ const themeVariant = computed(() => {
         class="MetaPanelItem-icon"
         :class="iconColor"
       >
-        <IconTime class="text-[1.6em] md:text-[2em] ml-1 mt-1" />
+        <IconTime class="text-2xl md:text-4xl" />
       </div>
       <div>
         <div

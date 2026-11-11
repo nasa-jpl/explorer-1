@@ -4,7 +4,7 @@
       v-for="(item, index) in socialLinks"
       :key="index"
       :variant="dark ? 'dark' : 'social'"
-      class="-facebook w-12 h-12 !text-2xl"
+      class="w-12 h-12 !text-lg"
       :class="{
         '-facebook': item.facebook,
         '-twitter': item.twitter,

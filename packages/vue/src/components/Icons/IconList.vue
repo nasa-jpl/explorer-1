@@ -1,16 +1,14 @@
 <template>
   <svg
-    class="IconList"
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
     <path
-      d="M9 11v9H0v-9h9zm-2 2H2v5h5v-5zm12 3v2h-8v-2h8zm3-4v2H11v-2h11zM9 0v9H0V0h9zM7 2H2v5h5V2zm12 3v2h-8V5h8zm3-4v2H11V1h11z"
-      fill="currentColor"
+      d="M360-200v-80h480v80H360Zm0-240v-80h480v80H360Zm0-240v-80h480v80H360ZM200-160q-33 0-56.5-23.5T120-240q0-33 23.5-56.5T200-320q33 0 56.5 23.5T280-240q0 33-23.5 56.5T200-160Zm0-240q-33 0-56.5-23.5T120-480q0-33 23.5-56.5T200-560q33 0 56.5 23.5T280-480q0 33-23.5 56.5T200-400Zm-56.5-263.5Q120-687 120-720t23.5-56.5Q167-800 200-800t56.5 23.5Q280-753 280-720t-23.5 56.5Q233-640 200-640t-56.5-23.5Z"
     />
   </svg>
 </template>
@@ -21,5 +19,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconList';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

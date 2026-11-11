@@ -57,7 +57,7 @@ const time = computed(() => {
     >
       <EduSubjectIcon
         :subject="primarySubject"
-        class="MetadataEduResourceIcon text-[.85em] -mt-px"
+        class="MetadataEduResourceIcon text-xl"
         :class="iconClass"
       />
       <span>
@@ -69,7 +69,7 @@ const time = computed(() => {
       class="MetadataEduResourceItem"
     >
       <IconProfile
-        class="MetadataEduResourceIcon text-[1.3em]"
+        class="MetadataEduResourceIcon text-xl"
         :class="iconClass"
       />
       <span>{{ audience }}</span>
@@ -80,7 +80,7 @@ const time = computed(() => {
       :class="primarySubject && audience && time ? '-xlScreensOnly' : ''"
     >
       <IconTime
-        class="MetadataEduResourceIcon text-[1.15em]"
+        class="MetadataEduResourceIcon text-xl"
         :class="iconClass"
       />
       <span>{{ time }}</span>

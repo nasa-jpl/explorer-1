@@ -1,16 +1,14 @@
 <template>
   <svg
-    class="IconCalendar"
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
     <path
-      d="M7 0v2h6V0h2v2h5v17H0V2h5V0h2zm11 9H2v8h16V9zM5 4H2v3h16V4h-3v2h-2V4H7v2H5V4z"
-      fill="currentColor"
+      d="M440-400v-80h80v80h-80Zm-160 0v-80h80v80h-80Zm320 0v-80h80v80h-80ZM440-240v-80h80v80h-80Zm-160 0v-80h80v80h-80Zm320 0v-80h80v80h-80ZM120-80v-720h120v-80h80v80h320v-80h80v80h120v720H120Zm80-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"
     />
   </svg>
 </template>
@@ -21,5 +19,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconCalendar';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

@@ -5,20 +5,20 @@
     @click="toggleContextImagePreview()"
   >
     <div class="flex flex-row items-center justify-between py-3 text-white uppercase">
-      <span class="font-secondary pr-3">Context Image</span>
+      <span class="font-secondary pr-1">Context Image</span>
       <span
         :class="{
           hidden: contextImagePreviewShow,
           block: !contextImagePreviewShow
         }"
-        ><IconDropdown
+        ><IconDropdown class="IconDropdown text-lg"
       /></span>
       <span
         :class="{
           hidden: !contextImagePreviewShow,
           block: contextImagePreviewShow
         }"
-        ><IconClose
+        ><IconClose class="text-lg"
       /></span>
     </div>
     <div
