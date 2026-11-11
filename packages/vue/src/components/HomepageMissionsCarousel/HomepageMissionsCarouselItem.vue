@@ -10,7 +10,7 @@ import BaseLink from './../BaseLink/BaseLink.vue'
 export default defineComponent({
   name: 'HomepageMissionsCarouselItem',
   components: {
-    BaseLink,
+    BaseLink
   },
   props: {
     data: {
@@ -73,7 +73,7 @@ export default defineComponent({
         <div
           class="explore-text can-hover:group-hover:opacity-100 can-hover:group-hover:ml-0 lg:-ml-3 lg:opacity-0 ml-0 transition-all duration-300 ease-in"
         >
-          <BaseLink 
+          <BaseLink
             :to="hasTopic ? data.topic.url : '/missions/?mission_target=' + data.name"
             variant="primary"
             custom-element-type="span"

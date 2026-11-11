@@ -16,7 +16,7 @@
     @apply transition-transform duration-1000 ease-out transform scale-100;
   }
 
-  .IconArrow {
+  svg {
     @apply -ml-5 transition-all duration-500 ease-in opacity-0;
   }
 
@@ -25,7 +25,7 @@
       @apply scale-105;
     }
 
-    .IconArrow {
+    svg {
       @apply ml-0 opacity-100;
     }
   }
