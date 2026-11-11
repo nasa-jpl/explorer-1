@@ -34,3 +34,17 @@ export const ExternalLink = {
     }
   }
 }
+
+export const Document = {
+  args: {
+    data: {
+      heading: BlockCtaData.heading,
+      text: BlockCtaData.text,
+      page: '',
+      externalLink: '',
+      document: {
+        url: 'https://www.jpl.nasa.gov/'
+      }
+    }
+  }
+}
