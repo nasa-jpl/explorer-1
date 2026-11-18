@@ -80,6 +80,7 @@ import BlockVideoEmbed from './../src/components/BlockVideoEmbed/BlockVideoEmbed
 import CalendarButton from './../src/components/CalendarButton/CalendarButton.vue'
 import DetailHeadline from './../src/components/DetailHeadline/DetailHeadline.vue'
 import DsnWidget from './../src/components/DsnWidget/DsnWidget.vue'
+import DynamicIcon from './../src/components/DynamicIcon/DynamicIcon.vue'
 import EventCard from './../src/components/EventCard/EventCard.vue'
 import EventDetailHero from './../src/components/EventDetailHero/EventDetailHero.vue'
 import FormContact from './../src/components/FormContact/FormContact.vue'
@@ -281,6 +282,7 @@ export {
   BlockVideoEmbed,
   CalendarButton,
   DetailHeadline,
+  DynamicIcon,
   DsnWidget,
   EventCard,
   EventDetailHero,
