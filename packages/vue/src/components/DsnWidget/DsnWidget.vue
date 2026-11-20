@@ -59,12 +59,12 @@
         </span>
         <span
           v-if="data.transmitStatus === 'both' || data.transmitStatus === 'receiving'"
-          class="animate-pulse text-xs"
+          class="animate-pulse text-[.6rem] mt-0.5"
         >
           <span class="sr-only">
             {{ data.spacecraftName }} is receiving from {{ data.location }}.
           </span>
-          <IconArrows />
+          <span class="flex flex-row"> <IconArrows class="-mr-[0.425rem]" /> <IconArrows /> </span>
         </span>
       </div>
     </template>
