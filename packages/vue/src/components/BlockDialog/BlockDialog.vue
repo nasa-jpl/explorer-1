@@ -23,7 +23,7 @@
           aria-label="Close dialog"
           class="button-close absolute right-0 flex-shrink-0 text-white focus:outline-none focus:ring-2 text-lg"
         >
-          <IconClose />
+          <IconClose class="-mr-[5px]" />
         </button>
         <slot>Content</slot>
       </div>
