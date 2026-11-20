@@ -1,5 +1,11 @@
 # @explorer-1/html-storybook
 
+## 2.1.5
+
+### Patch Changes
+
+- 0422fb3: Fixing watched files in storybook
+
 ## 2.1.4
 
 ### Patch Changes

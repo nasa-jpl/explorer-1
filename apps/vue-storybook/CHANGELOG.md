@@ -1,5 +1,16 @@
 # @explorer-1/vue-storybook
 
+## 0.2.22
+
+### Patch Changes
+
+- 0422fb3: Fixing watched files in storybook
+- Updated dependencies [f8436b9]
+  - @explorer-1/common@3.0.0
+  - @explorer-1/html@2.0.0
+  - @explorer-1/vue@2.0.0
+  - @explorer-1/common-storybook@0.2.4
+
 ## 0.2.21
 
 ### Patch Changes

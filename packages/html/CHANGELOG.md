@@ -1,5 +1,11 @@
 # @explorer-1/html
 
+## 2.0.0
+
+### Major Changes
+
+- f8436b9: Updating icons to Material Symbols
+
 ## 1.1.5
 
 ### Patch Changes
