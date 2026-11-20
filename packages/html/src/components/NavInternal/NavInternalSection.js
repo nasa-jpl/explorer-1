@@ -19,7 +19,7 @@ export const NavInternalSectionTemplate = ({ title, url, menuItems, isActive }) 
   <span>
     ${title}
   </span>
-  ${url.startsWith('h') ? `${IconExternalTemplate({})}` : ''}
+  ${url.startsWith('h') ? `${IconExternalTemplate({ customClass: 'text-[.6rem]' })}` : ``}
 </a>`
       : `<p class="text-subtitle inline-block w-full p-2 pl-0">${title}</p>`
     : ''
