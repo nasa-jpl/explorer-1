@@ -179,7 +179,7 @@
           class="BlockLinkCard__CardArrow ThemeVariantLight can-hover:block can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
           :class="metadataAttrs ? `text-${metadataAttrs.icons}` : 'text-action'"
         >
-          <IconArrow />
+          <IconArrow class="-ml-[4px]" />
         </div>
       </BaseLink>
     </template>
