@@ -83,6 +83,13 @@
           </template>
           <template v-else>
             <div
+              v-if="
+                theItem.label ||
+                ((theItem as EventCardObject).startDate && !themeStore.isEdu) ||
+                (theItem.externalLink &&
+                  themeStore.isEdu &&
+                  isEduExternalLink(theItem.externalLink))
+              "
               class="flex flex-wrap items-center"
               :class="small ? 'mb-2' : 'mb-4'"
             >
