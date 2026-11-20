@@ -85,7 +85,7 @@ const location = computed(() => {
       v-if="props.event.ongoing || props.event.customDate || formattedEventDates"
       class="MetadataEventItem"
     >
-      <IconCalendar class="MetadataEventIcon text-xl" />
+      <IconCalendar class="MetadataEventIcon text-[.85em]" />
       <span>{{
         props.event.ongoing ? 'Ongoing' : props.event.customDate || formattedEventDates
       }}</span>
@@ -94,7 +94,7 @@ const location = computed(() => {
       v-show="displayTime && showTime"
       class="MetadataEventItem"
     >
-      <IconTime class="MetadataEventIcon text-xl" />
+      <IconTime class="MetadataEventIcon text-[.85em]" />
       <span>{{ displayTime }}</span>
     </div>
     <!--Virtual location -->
@@ -114,7 +114,7 @@ const location = computed(() => {
           itemprop="name"
           :content="location"
         />
-        <IconLocation class="MetadataEventIcon text-xl" />
+        <IconLocation class="MetadataEventIcon text-[.85em]" />
         <BaseLink
           variant="none"
           class="text-action"
@@ -134,7 +134,7 @@ const location = computed(() => {
           itemprop="location"
           :content="location"
         />
-        <IconLocation class="MetadataEventIcon text-xl" />
+        <IconLocation class="MetadataEventIcon text-[.85em]" />
         <BaseLink
           v-if="props.event.locationLink && !props.compact"
           variant="none"
