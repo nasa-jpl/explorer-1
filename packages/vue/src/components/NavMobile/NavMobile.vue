@@ -50,17 +50,17 @@
           </div>
           <button
             v-if="data"
-            class="print:hidden text-gray-dark p-4 -mr-4 cursor-pointer"
+            class="print:hidden text-gray-dark p-2 -mr-2 cursor-pointer"
             :aria-label="menuVisible ? 'Close menu' : 'Open menu'"
             @click="toggleMenu"
           >
             <IconMenu
               v-if="!menuVisible"
-              class="text-6xl edu:text-white"
+              class="text-5xl edu:text-white -mr-[5px]"
             />
             <IconClose
               v-else
-              class="text-3xl edu:text-white"
+              class="text-5xl edu:text-white -mr-[5px]"
             />
           </button>
         </div>
@@ -110,7 +110,7 @@
                 external-target-blank
               >
                 <span class="pr-2">NASA OSTEM</span>
-                <IconExternal class="shrink-0 text-sm -mt-0.5" />
+                <IconExternal class="shrink-0 text-xs -mt-0.5" />
               </BaseLink>
             </template>
           </nav>

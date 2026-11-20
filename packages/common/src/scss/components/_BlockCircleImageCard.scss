@@ -29,11 +29,3 @@
 .BlockCircleImageCard {
   @apply md:z-40;
 }
-
-.BlockCircleImageCard .IconExternal {
-  @apply w-6 h-6 text-gray-mid-dark;
-}
-
-.BlockCircleImageCard .IconPlay {
-  @apply w-7 h-7 bg-jpl-red text-white;
-}

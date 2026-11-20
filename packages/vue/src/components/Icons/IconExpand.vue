@@ -7,22 +7,19 @@ export default defineComponent({
 </script>
 <template>
   <svg
-    class="IconExpand"
-    width="60"
-    height="60"
-    viewBox="0 0 60 60"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
     <path
-      d="M48 37v11H37v-2h9v-9h2zm-34 0v9h9v2H12V37h2zm9-25v2h-9v9h-2V12h11zm25 0v11h-2v-9h-9v-2h11z"
-      fill="currentColor"
-      fill-rule="evenodd"
+      d="M120-120v-240h80v160h160v80H120Zm480 0v-80h160v-160h80v240H600ZM120-600v-240h240v80H200v160h-80Zm640 0v-160H600v-80h240v240h-80Z"
     />
   </svg>
 </template>
 
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconExpand';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

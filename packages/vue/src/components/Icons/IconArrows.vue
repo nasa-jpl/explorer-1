@@ -7,37 +7,18 @@ export default defineComponent({
 </script>
 <template>
   <svg
-    class="IconArrows"
-    width="32"
-    height="12"
-    viewBox="0 0 32 12"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
-    <g
-      fill="currentColor"
-      fill-rule="evenodd"
-    >
-      <path
-        d="M4 11.657l-.707-.707L8.243 6l-4.95-4.95L4 .343 9.657 6 4 11.657z"
-        transform="translate(2)"
-      />
-      <path
-        d="M10 11.657l-.707-.707L14.243 6l-4.95-4.95L10 .343 15.657 6 10 11.657z"
-        transform="translate(2)"
-      />
-      <path
-        d="M16 11.657l-.707-.707L20.243 6l-4.95-4.95L16 .343 21.657 6 16 11.657z"
-        transform="translate(2)"
-      />
-      <path
-        d="M22 11.657l-.707-.707L26.243 6l-4.95-4.95L22 .343 27.657 6 22 11.657z"
-        transform="translate(2)"
-      />
-    </g>
+    <path
+      d="m242-200 200-280-200-280h98l200 280-200 280h-98Zm238 0 200-280-200-280h98l200 280-200 280h-98Z"
+    />
   </svg>
 </template>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconArrows';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

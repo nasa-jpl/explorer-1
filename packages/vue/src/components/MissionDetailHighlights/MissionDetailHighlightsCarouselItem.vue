@@ -46,7 +46,10 @@
               :class="{ 'mr-1': item.highlightLink.externalLink }"
               >Learn more</span
             >
-            <IconExternal v-if="item.highlightLink.externalLink" />
+            <IconExternal
+              v-if="item.highlightLink.externalLink"
+              class="text-sm"
+            />
           </span>
         </BaseLink>
       </span>

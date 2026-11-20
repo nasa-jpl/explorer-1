@@ -49,7 +49,7 @@ export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
             </div>
           `
             : `
-          <a href="${item.url}" class="block font-text tracking-[-.03rem]"${
+          <a href="${item.url}" class="flex flex-row flex-nowrap items-center font-text tracking-[-.03rem]"${
             item.url.startsWith('h') ? ` target="_blank" rel="noopener"` : ''
           }>
             <span class="inline-block" data-text="${item.title}">
@@ -57,9 +57,7 @@ export const NavInternalTemplate = ({ includeSearch, menuItems }) => {
             </span>
             ${
               item.url.startsWith('h')
-                ? ` <span class="text-xs ml-1">
-                ${IconExternalTemplate({})}
-              </span>`
+                ? `${IconExternalTemplate({ customClass: 'text-[0.75rem] ml-1' })}`
                 : ''
             }
           </a>

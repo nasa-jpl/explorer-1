@@ -24,7 +24,7 @@
         >
           <component
             :is="sub.icon"
-            class="inline relative -top-0.5"
+            class="inline relative -top-0.5 text-2xl"
           />
           {{ sub.title }}
         </BaseHeading>

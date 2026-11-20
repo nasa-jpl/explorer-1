@@ -20,7 +20,7 @@
         :class="dropdownButtonClasses(index)"
       >
         <span>{{ item.title }}</span>
-        <IconCaret class="transform rotate-90 text-sm ml-2 pl-2 -mt-px" />
+        <IconDropdown class="text-sm self-center" />
       </span>
     </NavDropdownToggle>
     <transition name="navfade">
@@ -41,14 +41,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { eventBus } from './../../utils/eventBus'
-import IconCaret from './../Icons/IconCaret.vue'
+import IconDropdown from './../Icons/IconDropdown.vue'
 import NavDropdownToggle from './../NavDropdownToggle/NavDropdownToggle.vue'
 import NavSecondaryDropdownContent from './../NavSecondary/NavSecondaryDropdownContent.vue'
 
 export default defineComponent({
   name: 'NavSecondaryDropdown',
   components: {
-    IconCaret,
+    IconDropdown,
     NavDropdownToggle,
     NavSecondaryDropdownContent
   },

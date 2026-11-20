@@ -1,17 +1,14 @@
 <template>
   <svg
-    class="IconAudio"
-    width="60"
-    height="60"
-    viewBox="0 0 60 60"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
     <path
-      d="M22 29v2a8 8 0 1016 0v-2h2v2c0 5.185-3.946 9.448-8.999 9.95L31 46h4v2H25v-2h4v-5.05c-4.962-.492-8.857-4.612-8.996-9.67L20 31v-2h2zm2-8l.004-.225A6 6 0 0136 21v10a6 6 0 11-12 0V21z"
-      fill="currentColor"
-      fill-rule="evenodd"
+      d="M395-435q-35-35-35-85v-240q0-50 35-85t85-35q50 0 85 35t35 85v240q0 50-35 85t-85 35q-50 0-85-35Zm45 315v-123q-104-14-172-93t-68-184h80q0 83 58.5 141.5T480-320q83 0 141.5-58.5T680-520h80q0 105-68 184t-172 93v123h-80Z"
     />
   </svg>
 </template>
@@ -23,5 +20,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconAudio';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

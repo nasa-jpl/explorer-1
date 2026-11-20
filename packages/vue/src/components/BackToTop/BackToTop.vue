@@ -3,10 +3,13 @@
     v-if="showBackToTop"
     variant="primary"
     class="BackToTop z-60"
-    compact
+    :class="{ '-icon-only': iconOnly }"
+    :compact="!iconOnly"
     @click="scrollToTop"
   >
-    <IconDropdown />
+    <template #iconRight>
+      <IconDropdown class="text-base transform rotate-180" />
+    </template>
     <span class="label-text">Back to top</span>
   </BaseButton>
 </template>
@@ -48,10 +51,14 @@ export default defineComponent({
      */
     showBackToTop: Boolean
     scrollHandler: DebouncedFunc<() => void> | null
+    iconOnly: Boolean
+    mediaQuery: MediaQueryList | null
   } {
     return {
       showBackToTop: false,
-      scrollHandler: null
+      scrollHandler: null,
+      iconOnly: false,
+      mediaQuery: null
     }
   },
   mounted() {
@@ -59,13 +66,20 @@ export default defineComponent({
     window.addEventListener('scroll', this.scrollHandler, {
       passive: true
     })
+    this.mediaQuery = window.matchMedia('(min-width: 640px)')
+    this.onBreakpointChange()
+    this.mediaQuery.addEventListener('change', this.onBreakpointChange)
   },
   beforeUnmount() {
     if (this.scrollHandler) {
       window.removeEventListener('scroll', this.scrollHandler)
     }
+    this.mediaQuery?.removeEventListener('change', this.onBreakpointChange)
   },
   methods: {
+    onBreakpointChange() {
+      this.iconOnly = !this.mediaQuery?.matches
+    },
     onScroll() {
       this.showBackToTop = window.scrollY > this.threshold
       // De-register the scroll event listener, so the button always shows

@@ -21,7 +21,7 @@
     >
       {{ data.text }}
       <template #iconRight>
-        <IconExternal class="ml-2 text-sm" />
+        <IconExternal class="ml-2 text-xs" />
       </template>
     </BaseButton>
     <BaseButton
@@ -34,7 +34,7 @@
     >
       {{ data.text }}
       <template #iconRight>
-        <IconDownload class="ml-2 text-sm" />
+        <IconDownload class="ml-2 text-xs" />
       </template>
     </BaseButton>
   </div>

@@ -129,7 +129,7 @@ const buttonClass = computed(() => {
             @click="copyUrl()"
             @keydown.esc="toggle()"
           >
-            <IconLink class="text-lg mr-2" />
+            <IconLink class="text-sm mr-2" />
             <span class="text-xs">{{ copyLinkText }}</span>
           </BaseButton>
 
@@ -141,7 +141,7 @@ const buttonClass = computed(() => {
             rel="noopener"
             @keydown.esc="toggle()"
           >
-            <IconSocialFacebook class="text-lg mr-2" />
+            <IconSocialFacebook class="text-sm mr-2" />
             <span class="text-xs">Facebook</span>
           </BaseButton>
 
@@ -153,7 +153,7 @@ const buttonClass = computed(() => {
             rel="noopener"
             @keydown.esc="toggle()"
           >
-            <IconSocialTwitter class="text-lg mr-2" />
+            <IconSocialTwitter class="text-sm mr-2" />
             <span class="text-xs">X (Twitter)</span>
           </BaseButton>
 
@@ -165,7 +165,7 @@ const buttonClass = computed(() => {
             rel="noopener"
             @keydown.esc="toggle()"
           >
-            <IconSocialPinterest class="text-lg mr-2" />
+            <IconSocialPinterest class="text-sm mr-2" />
             <span class="text-xs">Pinterest</span>
           </BaseButton>
 
@@ -177,7 +177,7 @@ const buttonClass = computed(() => {
             rel="noopener"
             @keydown.esc="toggle()"
           >
-            <IconSocialEmail class="text-lg mr-2" />
+            <IconSocialEmail class="text-sm mr-2" />
             <span class="text-xs">Email</span>
           </BaseButton>
 
@@ -189,7 +189,7 @@ const buttonClass = computed(() => {
             rel="noopener"
             @keydown.esc="toggle()"
           >
-            <IconSocialGoogleClassroom class="text-lg mr-2" />
+            <IconSocialGoogleClassroom class="text-sm mr-2" />
             <span class="text-xs">Google Classroom</span>
           </BaseButton>
         </div>

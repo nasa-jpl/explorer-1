@@ -63,7 +63,7 @@ export const BaseLinkTemplate = ({
       : icon === 'internal'
         ? IconArrowTemplate({})
         : icon === 'external'
-          ? IconExternalTemplate({})
+          ? IconExternalTemplate({ customClass: 'text-[.6rem]' })
           : ''
 
   return `

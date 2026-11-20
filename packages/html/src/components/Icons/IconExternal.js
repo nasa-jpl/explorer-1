@@ -1,19 +1,17 @@
 export const IconExternalTemplate = ({ customClass }) => {
   if (!customClass) customClass = ''
   return `
-    <svg
-      class="IconExternal ${customClass}"
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path
-        d="M7 2v2H2v12h12v-5h2v7H0V2h7zm11-2v8h-2V3.413l-8.243 8.244-1.414-1.414L14.585 2H10V0h8z"
-        fill="currentColor"
-      />
-    </svg>
+  <svg
+    class="IconBase ${customClass}"
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
+  >
+    <path
+      d="M120-120v-720h360v80H200v560h560v-280h80v360H120Zm268-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
+    />
+  </svg>
   `
 }

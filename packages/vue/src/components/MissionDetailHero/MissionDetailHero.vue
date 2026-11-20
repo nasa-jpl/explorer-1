@@ -65,7 +65,7 @@
               >
                 Visit Mission Website
                 <template #iconRight>
-                  <IconExternal class="ml-2 text-base" />
+                  <IconExternal class="ml-2 text-sm" />
                 </template>
               </BaseButton>
             </div>

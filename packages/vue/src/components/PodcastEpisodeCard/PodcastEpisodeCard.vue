@@ -142,7 +142,7 @@
         >
           <div class="relative h-full w-full group">
             <div
-              class="text-white absolute text-8xl animate-fadeIn transition-opacity z-20 inset-0 flex justify-center items-center drop-shadow-lg opacity-90 group-hover:opacity-100 duration-1000"
+              class="text-white absolute text-9xl animate-fadeIn transition-opacity z-20 inset-0 flex justify-center items-center drop-shadow-lg opacity-90 group-hover:opacity-100 duration-1000"
             >
               <IconPlay />
             </div>

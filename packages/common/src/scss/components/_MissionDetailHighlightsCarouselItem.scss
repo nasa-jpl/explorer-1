@@ -1,11 +1,9 @@
 .MissionHighlightsCarousel {
   .slide-link {
     @apply invisible;
-
-    .swiper-slide-active & {
-      @apply visible;
-    }
+  }
+ 
+  .swiper-slide-active .slide-link {
+    @apply visible;
   }
 }
-
-

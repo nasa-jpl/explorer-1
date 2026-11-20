@@ -51,13 +51,13 @@ onMounted(() => {
   >
     <div class="absolute inset-0 flex items-center">
       <IconSearch
-        class="relative z-10 ml-6 text-xl"
+        class="relative z-10 ml-6 text-lg"
         :class="{ 'text-gray-mid': defaultColors }"
       />
     </div>
     <div
       v-if="underlinedInput"
-      class="underlinedInput ml-14 h-2px absolute inset-x-0 bottom-0 overflow-hidden text-lg text-transparent"
+      class="underlinedInput ml-14.5 h-2px absolute inset-x-0 bottom-0 overflow-hidden text-lg text-transparent"
     >
       <span class="border-jpl-red-light absolute z-10 h-0 border-b-2 select-none">
         {{ underlinedInputValue }}
@@ -70,7 +70,7 @@ onMounted(() => {
     <input
       ref="searchQueryRef"
       v-model="model"
-      class="pl-14 h-full focus:ring-2 relative z-10 w-full px-5 text-base bg-transparent border-0"
+      class="pl-14.5 h-full focus:ring-2 relative z-10 w-full px-5 text-base bg-transparent border-0"
       :class="{
         'text-gray-dark': defaultColors,
         'py-1': underlinedInput,
@@ -87,11 +87,11 @@ onMounted(() => {
     />
     <button
       v-if="withButton"
-      class="z-10 cursor-pointer bg-action p-4 lg:p-5 border border-white"
+      class="z-10 cursor-pointer bg-action p-3 lg:p-4 border border-white"
       aria-label="Search resources"
       @click="emit('submit')"
     >
-      <IconSearch class="relative z-10 text-xl sm:text-2xl lg:text-3xl text-white" />
+      <IconSearch class="relative z-10 text-lg sm:text-xl lg:text-2xl text-white" />
     </button>
   </div>
 </template>

@@ -82,13 +82,22 @@
             </div>
           </template>
           <template v-else>
-            <div class="flex flex-wrap">
+            <div
+              v-if="
+                theItem.label ||
+                ((theItem as EventCardObject).startDate && !themeStore.isEdu) ||
+                (theItem.externalLink &&
+                  themeStore.isEdu &&
+                  isEduExternalLink(theItem.externalLink))
+              "
+              class="flex flex-wrap items-center"
+              :class="small ? 'mb-2' : 'mb-4'"
+            >
               <p
                 v-if="
                   theItem.label || ((theItem as EventCardObject).startDate && !themeStore.isEdu)
                 "
                 class="text-subtitle divide-gray-mid flex divide-x"
-                :class="small ? 'mb-2' : 'mb-4'"
               >
                 <span
                   v-if="theItem.label"
@@ -112,10 +121,7 @@
                   isEduExternalLink(theItem.externalLink)
                 "
               >
-                <IconExternal
-                  class="text-primary ml-2"
-                  :class="{ 'text-sm mt-1px': small, 'text-sm -mt-1px': medium, '-mt-.5': large }"
-                />
+                <IconExternal class="text-primary text-xs ml-2" />
               </template>
             </div>
           </template>
@@ -180,7 +186,7 @@
           class="BlockLinkCard__CardArrow ThemeVariantLight can-hover:block can-hover:-ml-3 can-hover:group-hover:delay-200 can-hover:opacity-0 can-hover:group-hover:ml-0 can-hover:group-hover:opacity-100 hidden -mt-1 text-2xl leading-normal transition-all duration-200 ease-in"
           :class="metadataAttrs ? `text-${metadataAttrs.icons}` : 'text-action'"
         >
-          <IconArrow />
+          <IconArrow class="-ml-[4px]" />
         </div>
       </BaseLink>
     </template>

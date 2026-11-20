@@ -1,15 +1,14 @@
 <template>
   <svg
-    class="IconCloseLightbox"
-    viewBox="0 0 24 24"
+    class="IconBase"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    focusable="false"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="currentColor"
   >
     <path
-      d="M12 10.6L6.6 5.2 5.2 6.6l5.4 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"
-      fill="currentColor"
-      fill-rule="evenodd"
+      d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z"
     />
   </svg>
 </template>
@@ -21,5 +20,5 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import '@explorer-1/common/src/scss/components/IconCloseLightbox';
+@import '@explorer-1/common/src/scss/components/IconBase';
 </style>

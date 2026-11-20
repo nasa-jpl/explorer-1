@@ -9,9 +9,19 @@
     :image="data.thumbnailImage"
     @click="handleClick(data)"
   >
-    <template #icon>
-      <IconExternal v-if="data.milestoneLink && data.milestoneLink.externalLink" />
-      <IconPlay v-else-if="data.embed" />
+    <template
+      v-if="data.milestoneLink && data.milestoneLink.externalLink"
+      #icon
+    >
+      <IconExternal class="text-2xl text-gray-mid-dark -mr-1 -mt-1" />
+    </template>
+    <template
+      v-else-if="data.embed"
+      #icon
+    >
+      <span class="inline-block bg-jpl-red">
+        <IconPlay class="text-sm m-1 text-white" />
+      </span>
     </template>
   </BlockCircleImageCard>
 </template>
