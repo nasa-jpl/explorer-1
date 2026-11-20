@@ -80,14 +80,16 @@
                 v-if="item.externalLink || (item.page && item.page.url)"
                 class="text-jpl-red-light lg:hidden can-hover:group-hover:ml-2 ml-0 text-xl transition-all duration-200 ease-in"
               >
+                <!-- mobile arrow -->
                 <IconArrow class="inline mb-1.5" />
               </span>
             </p>
             <div
               v-if="item.externalLink || (item.page && item.page.url)"
-              class="can-hover:group-hover:ml-5 text-jpl-red-light text-5xl lg:block hidden ml-0 transition-all duration-200 ease-in"
+              class="can-hover:group-hover:ml-5 text-jpl-red-light text-5xl lg:block hidden -ml-1 transition-all duration-200 ease-in"
             >
-              <IconArrow class="-m-2" />
+              <!-- desktop arrow -->
+              <IconArrow class="mt-3 mb-1" />
             </div>
           </component>
         </div>
