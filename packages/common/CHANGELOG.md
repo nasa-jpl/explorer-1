@@ -1,5 +1,11 @@
 # @explorer-1/common
 
+## 3.0.0
+
+### Major Changes
+
+- f8436b9: Updating icons to Material Symbols
+
 ## 2.1.9
 
 ### Patch Changes
