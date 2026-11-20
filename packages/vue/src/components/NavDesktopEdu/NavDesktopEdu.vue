@@ -74,7 +74,7 @@
               external-target-blank
             >
               NASA OSTEM
-              <IconExternal class="text-xs -mt-0.5 ml-2" />
+              <IconExternal class="text-[.65rem] ml-2" />
             </BaseLink>
           </div>
           <!-- search -->
