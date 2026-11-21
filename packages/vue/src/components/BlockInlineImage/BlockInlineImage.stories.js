@@ -70,3 +70,25 @@ export const PortraitImage = {
     variant: 'large'
   }
 }
+
+export const WideImageLongLink = {
+  tags: ['regression-887'],
+  args: {
+    data: {
+      ...BlockInlineImageData.block,
+      text: `<h3>University of Nevada, Las Vegas (UNLV)</h3>
+        <p>Ordinary paragraph text should wrap within the text column without overlapping the adjacent image.</p>
+        <ul><li><a href="https://www.unlv.edu/sites/default/files/page_files/2693/Sciences-Research-QuantumComputing.pdf">https://www.unlv.edu/sites/default/files/page_files/2693/Sciences-Research-QuantumComputing.pdf</a></li></ul>`,
+      image: {
+        ...BaseImageCaptionData,
+        alt: 'Wide inline image',
+        src: {
+          height: 56,
+          url: '/explorer-1/images/png/brand-jpl-logo-222222-94h28w@2x.png',
+          width: 188
+        },
+        original: '/explorer-1/images/png/brand-jpl-logo-222222-94h28w@2x.png'
+      }
+    }
+  }
+}
